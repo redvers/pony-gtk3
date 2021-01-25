@@ -9,6 +9,9 @@ class GtkAlignment is GtkWidget
   new never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
+  new create_from_GObjectREF(widget': GObjectREF) =>
+    widget = widget'
+
 
   new create(xalign_pony: F32, yalign_pony: F32, xscale_pony: F32, yscale_pony: F32) =>
     widget = @gtk_alignment_new[GObjectREF](xalign_pony, yalign_pony, xscale_pony, yscale_pony) //

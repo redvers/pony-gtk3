@@ -9,6 +9,9 @@ class GtkAppChooserWidget is GtkWidget
   new never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
+  new create_from_GObjectREF(widget': GObjectREF) =>
+    widget = widget'
+
 
   new create(content_type_pony: String) =>
     widget = @gtk_app_chooser_widget_new[GObjectREF](content_type_pony.cstring()) //

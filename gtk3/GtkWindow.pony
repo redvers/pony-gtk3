@@ -9,6 +9,9 @@ class GtkWindow is GtkContainer
   new never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
+  new create_from_GObjectREF(widget': GObjectREF) =>
+    widget = widget'
+
 
   new create(gtype_pony: GtkWindowType) =>
     widget = @gtk_window_new[GObjectREF](gtype_pony.apply()) //

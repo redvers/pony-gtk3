@@ -9,6 +9,9 @@ class GtkSpinButton is GtkWidget
   new never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
+  new create_from_GObjectREF(widget': GObjectREF) =>
+    widget = widget'
+
 
   new create(adjustment_pony: GtkAdjustment, climb_rate_pony: F64, digits_pony: U32) =>
     widget = @gtk_spin_button_new[GObjectREF](adjustment_pony.gtkwidget(), climb_rate_pony, digits_pony) //

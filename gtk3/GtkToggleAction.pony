@@ -9,6 +9,9 @@ class GtkToggleAction is GtkWidget
   new never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
+  new create_from_GObjectREF(widget': GObjectREF) =>
+    widget = widget'
+
 
   new create(name_pony: String, label_pony: String, tooltip_pony: String, stock_id_pony: String) =>
     widget = @gtk_toggle_action_new[GObjectREF](name_pony.cstring(), label_pony.cstring(), tooltip_pony.cstring(), stock_id_pony.cstring()) //

@@ -9,6 +9,9 @@ class GtkAdjustment is GtkWidget
   new never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
+  new create_from_GObjectREF(widget': GObjectREF) =>
+    widget = widget'
+
 
   new create(value_pony: F64, lower_pony: F64, upper_pony: F64, step_increment_pony: F64, page_increment_pony: F64, page_size_pony: F64) =>
     widget = @gtk_adjustment_new[GObjectREF](value_pony, lower_pony, upper_pony, step_increment_pony, page_increment_pony, page_size_pony) //

@@ -80,6 +80,14 @@ class iso TestGtkEntry is UnitTest
 
     // set_max_width_chars(n_chars_pony: I32): None
     // get_max_width_chars(): I32
+    entry0.set_max_width_chars(I32(100))
+    entry1.set_max_width_chars(I32(100))
+    h.assert_eq[I32](I32(100), entry0.get_max_width_chars())
+    h.assert_eq[I32](I32(100), entry1.get_max_width_chars())
+    entry0.set_max_width_chars(I32(5))
+    entry1.set_max_width_chars(I32(5))
+    h.assert_eq[I32](I32(5), entry0.get_max_width_chars())
+    h.assert_eq[I32](I32(5), entry1.get_max_width_chars())
 
 
     // set_overwrite_mode(overwrite_pony: Bool): None

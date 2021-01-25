@@ -9,6 +9,9 @@ class GtkFontSelectionDialog is GtkWidget
   new never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
+  new create_from_GObjectREF(widget': GObjectREF) =>
+    widget = widget'
+
 
   new create(title_pony: String) =>
     widget = @gtk_font_selection_dialog_new[GObjectREF](title_pony.cstring()) //

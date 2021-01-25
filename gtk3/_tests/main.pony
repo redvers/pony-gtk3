@@ -15,4 +15,5 @@ actor Main is TestList
     test(TestGtkLabel)
     test(TestGtkEntryBuffer)
     test(TestGtkEntry)
+    test(TestGtkBuilder)
 

@@ -9,6 +9,9 @@ class GtkApplicationWindow is GtkWidget
   new never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
+  new create_from_GObjectREF(widget': GObjectREF) =>
+    widget = widget'
+
 
   new create(application_pony: GtkApplication) =>
     widget = @gtk_application_window_new[GObjectREF](application_pony.gtkwidget()) //

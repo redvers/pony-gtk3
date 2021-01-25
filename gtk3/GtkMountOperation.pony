@@ -9,6 +9,9 @@ class GtkMountOperation is GtkWidget
   new never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
+  new create_from_GObjectREF(widget': GObjectREF) =>
+    widget = widget'
+
 
   new create(parent_pony: GtkWindow) =>
     widget = @gtk_mount_operation_new[GObjectREF](parent_pony.gtkwidget()) //

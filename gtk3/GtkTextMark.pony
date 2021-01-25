@@ -9,6 +9,9 @@ class GtkTextMark is GtkWidget
   new never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
+  new create_from_GObjectREF(widget': GObjectREF) =>
+    widget = widget'
+
 
   new create(name_pony: String, left_gravity_pony: Bool) =>
     widget = @gtk_text_mark_new[GObjectREF](name_pony.cstring(), left_gravity_pony) //

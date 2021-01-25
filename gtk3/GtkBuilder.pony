@@ -1,5 +1,5 @@
 /*
-   needs: ["Pointer[U8 val] ref", "String", "GObjectREF", "I64"]
+   needs: ["None", "String", "@{(GObjectREF)}", "", "Pointer[U8 val] ref", "GObjectREF", "I64"]
 provides: ["GtkBuilder"]
 */
 class GtkBuilder is GtkWidget
@@ -8,6 +8,9 @@ class GtkBuilder is GtkWidget
   fun gtkwidget(): GObjectREF => widget
   new never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
+
+  new create_from_GObjectREF(widget': GObjectREF) =>
+    widget = widget'
 
 
   new create() =>
@@ -23,10 +26,8 @@ class GtkBuilder is GtkWidget
     widget = @gtk_builder_new_from_string[GObjectREF](string_pony.cstring(), length_pony) //
 
 
-/* add_callback_symbol unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "callback_name", argtype: "utf8", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GCallback", argname: "callback_symbol", argtype: "GObject.Callback", paramtype: :param, txo: "none"}}
-*/
+fun add_callback_symbol(callback_name: String, callback_symbol: @{(GObjectREF)}): None =>
+  @gtk_builder_add_callback_symbol[None](widget, callback_name.cstring(), callback_symbol)
 
 /* add_callback_symbols unavailable due to typing issues
  {:doh, %{argctype: "const gchar*", argname: "first_callback_name", argtype: "utf8", paramtype: :param, txo: "none"}}
@@ -63,9 +64,8 @@ class GtkBuilder is GtkWidget
 {:doh, %{argctype: "", argname: "object_ids", argtype: "", paramtype: :param, txo: "none"}}
 */
 
-/* connect_signals unavailable due to typing issues
- {:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
-*/
+fun connect_signals(): None =>
+  @gtk_builder_connect_signals[None](widget, None)
 
 /* connect_signals_full unavailable due to typing issues
  {:doh, %{argctype: "GtkBuilderConnectFunc", argname: "func", argtype: "BuilderConnectFunc", paramtype: :param, txo: "none"}}
