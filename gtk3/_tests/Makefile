@@ -2,4 +2,4 @@ all:
 	ponyc -d .
 
 test:
-	./_tests --ponyminthreads 2
+	./_tests --ponyminthreads 3 --sequential
