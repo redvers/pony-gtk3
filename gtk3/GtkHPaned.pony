@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkHPaned"]
 */
+use "../gobject"
 class GtkHPaned is GtkWidget
   var widget: GObjectREF
 

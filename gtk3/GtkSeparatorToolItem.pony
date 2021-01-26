@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "GObjectREF"]
 provides: ["GtkSeparatorToolItem"]
 */
+use "../gobject"
 class GtkSeparatorToolItem is GtkWidget
   var widget: GObjectREF
 

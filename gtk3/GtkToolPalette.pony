@@ -2,6 +2,7 @@
    needs: ["None", "GObjectREF"]
 provides: ["GtkToolPalette"]
 */
+use "../gobject"
 class GtkToolPalette is GtkWidget
   var widget: GObjectREF
 

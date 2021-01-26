@@ -2,6 +2,7 @@
    needs: ["GObjectREF", "GtkWidget"]
 provides: ["GtkGestureLongPress"]
 */
+use "../gobject"
 class GtkGestureLongPress is GtkWidget
   var widget: GObjectREF
 

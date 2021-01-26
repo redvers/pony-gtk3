@@ -2,6 +2,7 @@
    needs: ["I32", "None", "GObjectREF"]
 provides: ["GtkTreeSelection"]
 */
+use "../gobject"
 class GtkTreeSelection is GtkWidget
   var widget: GObjectREF
 

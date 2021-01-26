@@ -2,6 +2,7 @@
    needs: ["None", "I32", "GObjectREF"]
 provides: ["GtkMisc"]
 */
+use "../gobject"
 class GtkMisc is GtkWidget
   var widget: GObjectREF
 

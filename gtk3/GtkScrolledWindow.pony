@@ -2,6 +2,7 @@
    needs: ["Bool", "I32", "None", "GObjectREF", "GtkAdjustment"]
 provides: ["GtkScrolledWindow"]
 */
+use "../gobject"
 class GtkScrolledWindow is GtkWidget
   var widget: GObjectREF
 

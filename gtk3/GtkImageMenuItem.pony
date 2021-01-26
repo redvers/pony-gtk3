@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "GObjectREF", "String", "GtkAccelGroup"]
 provides: ["GtkImageMenuItem"]
 */
+use "../gobject"
 class GtkImageMenuItem is GtkWidget
   var widget: GObjectREF
 

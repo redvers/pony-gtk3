@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkProgressBarAccessible"]
 */
+use "../gobject"
 class GtkProgressBarAccessible is GtkWidget
   var widget: GObjectREF
 

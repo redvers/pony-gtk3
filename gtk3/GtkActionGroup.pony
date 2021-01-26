@@ -2,6 +2,7 @@
    needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF"]
 provides: ["GtkActionGroup"]
 */
+use "../gobject"
 class GtkActionGroup is GtkWidget
   var widget: GObjectREF
 

@@ -2,6 +2,7 @@
    needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF"]
 provides: ["GtkLinkButton"]
 */
+use "../gobject"
 class GtkLinkButton is GtkWidget
   var widget: GObjectREF
 

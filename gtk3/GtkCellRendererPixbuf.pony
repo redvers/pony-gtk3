@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkCellRendererPixbuf"]
 */
+use "../gobject"
 class GtkCellRendererPixbuf is GtkWidget
   var widget: GObjectREF
 

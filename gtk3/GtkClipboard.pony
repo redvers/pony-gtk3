@@ -2,6 +2,7 @@
    needs: ["None", "Bool", "GObjectREF"]
 provides: ["GtkClipboard"]
 */
+use "../gobject"
 class GtkClipboard is GtkWidget
   var widget: GObjectREF
 

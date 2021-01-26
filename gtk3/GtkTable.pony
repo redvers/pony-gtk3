@@ -2,6 +2,7 @@
    needs: ["U32", "Bool", "None", "GObjectREF"]
 provides: ["GtkTable"]
 */
+use "../gobject"
 class GtkTable is GtkWidget
   var widget: GObjectREF
 

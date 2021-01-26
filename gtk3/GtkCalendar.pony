@@ -2,6 +2,7 @@
    needs: ["None", "Bool", "U32", "I32", "GObjectREF"]
 provides: ["GtkCalendar"]
 */
+use "../gobject"
 class GtkCalendar is GtkWidget
   var widget: GObjectREF
 

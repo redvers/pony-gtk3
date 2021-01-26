@@ -2,6 +2,7 @@
    needs: ["None", "U32", "GObjectREF", "GtkAdjustment"]
 provides: ["GtkLayout"]
 */
+use "../gobject"
 class GtkLayout is GtkWidget
   var widget: GObjectREF
 

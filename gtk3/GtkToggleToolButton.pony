@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "GObjectREF", "String"]
 provides: ["GtkToggleToolButton"]
 */
+use "../gobject"
 class GtkToggleToolButton is GtkWidget
   var widget: GObjectREF
 

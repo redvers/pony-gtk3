@@ -2,6 +2,7 @@
    needs: ["Bool", "U32", "None", "GObjectREF"]
 provides: ["GtkRevealer"]
 */
+use "../gobject"
 class GtkRevealer is GtkWidget
   var widget: GObjectREF
 

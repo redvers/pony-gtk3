@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkFontChooserWidget"]
 */
+use "../gobject"
 class GtkFontChooserWidget is GtkWidget
   var widget: GObjectREF
 

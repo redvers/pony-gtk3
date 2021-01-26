@@ -2,6 +2,7 @@
    needs: ["None", "Bool", "GObjectREF"]
 provides: ["GtkStyle"]
 */
+use "../gobject"
 class GtkStyle is GtkWidget
   var widget: GObjectREF
 

@@ -2,6 +2,7 @@
    needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF"]
 provides: ["GtkAppChooserWidget"]
 */
+use "../gobject"
 class GtkAppChooserWidget is GtkWidget
   var widget: GObjectREF
 

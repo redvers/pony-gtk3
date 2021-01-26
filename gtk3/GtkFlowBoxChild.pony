@@ -2,6 +2,7 @@
    needs: ["None", "I32", "Bool", "GObjectREF"]
 provides: ["GtkFlowBoxChild"]
 */
+use "../gobject"
 class GtkFlowBoxChild is GtkWidget
   var widget: GObjectREF
 

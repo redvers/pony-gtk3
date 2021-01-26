@@ -2,6 +2,7 @@
    needs: ["None", "Bool", "I32", "GObjectREF", "GtkTextTagTable"]
 provides: ["GtkTextBuffer"]
 */
+use "../gobject"
 class GtkTextBuffer is GtkWidget
   var widget: GObjectREF
 

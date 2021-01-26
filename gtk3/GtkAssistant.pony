@@ -2,6 +2,7 @@
    needs: ["None", "I32", "GObjectREF"]
 provides: ["GtkAssistant"]
 */
+use "../gobject"
 class GtkAssistant is GtkWidget
   var widget: GObjectREF
 

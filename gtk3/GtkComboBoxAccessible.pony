@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkComboBoxAccessible"]
 */
+use "../gobject"
 class GtkComboBoxAccessible is GtkWidget
   var widget: GObjectREF
 

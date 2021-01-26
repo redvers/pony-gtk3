@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "GObjectREF"]
 provides: ["GtkAccelGroup"]
 */
+use "../gobject"
 class GtkAccelGroup is GtkWidget
   var widget: GObjectREF
 

@@ -2,6 +2,7 @@
    needs: ["GObjectREF", "GtkWidget"]
 provides: ["GtkGestureDrag"]
 */
+use "../gobject"
 class GtkGestureDrag is GtkWidget
   var widget: GObjectREF
 

@@ -2,6 +2,7 @@
    needs: ["None", "String", "@{(GObjectREF)}", "", "Pointer[U8 val] ref", "GObjectREF", "I64"]
 provides: ["GtkBuilder"]
 */
+use "../gobject"
 class GtkBuilder is GtkWidget
   var widget: GObjectREF
 

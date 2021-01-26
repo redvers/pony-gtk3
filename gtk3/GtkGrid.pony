@@ -2,6 +2,7 @@
    needs: ["I32", "Bool", "U32", "None", "GObjectREF"]
 provides: ["GtkGrid"]
 */
+use "../gobject"
 class GtkGrid is GtkWidget
   var widget: GObjectREF
 

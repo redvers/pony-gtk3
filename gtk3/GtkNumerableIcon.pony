@@ -2,6 +2,7 @@
    needs: ["Pointer[U8 val] ref", "String", "I32", "None", "GObjectREF"]
 provides: ["GtkNumerableIcon"]
 */
+use "../gobject"
 class GtkNumerableIcon is GtkWidget
   var widget: GObjectREF
 

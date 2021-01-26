@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkCellRendererSpinner"]
 */
+use "../gobject"
 class GtkCellRendererSpinner is GtkWidget
   var widget: GObjectREF
 

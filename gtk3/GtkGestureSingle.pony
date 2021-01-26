@@ -2,6 +2,7 @@
    needs: ["U32", "Bool", "None", "GObjectREF"]
 provides: ["GtkGestureSingle"]
 */
+use "../gobject"
 class GtkGestureSingle is GtkWidget
   var widget: GObjectREF
 

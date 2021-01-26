@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkIMMulticontext"]
 */
+use "../gobject"
 class GtkIMMulticontext is GtkWidget
   var widget: GObjectREF
 

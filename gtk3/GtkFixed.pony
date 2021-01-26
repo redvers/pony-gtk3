@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkFixed"]
 */
+use "../gobject"
 class GtkFixed is GtkWidget
   var widget: GObjectREF
 

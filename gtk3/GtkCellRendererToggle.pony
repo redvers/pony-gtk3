@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "GObjectREF"]
 provides: ["GtkCellRendererToggle"]
 */
+use "../gobject"
 class GtkCellRendererToggle is GtkWidget
   var widget: GObjectREF
 

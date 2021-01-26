@@ -2,6 +2,7 @@
    needs: ["I32", "None", "GObjectREF"]
 provides: ["GtkStyleContext"]
 */
+use "../gobject"
 class GtkStyleContext is GtkWidget
   var widget: GObjectREF
 

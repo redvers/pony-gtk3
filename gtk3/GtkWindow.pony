@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "Pointer[U8 val] ref", "String", "I32", "GObjectREF", "GtkWindowType"]
 provides: ["GtkWindow"]
 */
+use "../gobject"
 class GtkWindow is GtkContainer
   var widget: GObjectREF
 

@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkDrawingArea"]
 */
+use "../gobject"
 class GtkDrawingArea is GtkWidget
   var widget: GObjectREF
 

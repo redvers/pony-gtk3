@@ -2,6 +2,7 @@
    needs: ["I32", "GObjectREF"]
 provides: ["GtkRecentManager"]
 */
+use "../gobject"
 class GtkRecentManager is GtkWidget
   var widget: GObjectREF
 

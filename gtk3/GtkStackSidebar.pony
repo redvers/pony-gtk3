@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkStackSidebar"]
 */
+use "../gobject"
 class GtkStackSidebar is GtkWidget
   var widget: GObjectREF
 

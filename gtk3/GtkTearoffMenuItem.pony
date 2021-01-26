@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkTearoffMenuItem"]
 */
+use "../gobject"
 class GtkTearoffMenuItem is GtkWidget
   var widget: GObjectREF
 

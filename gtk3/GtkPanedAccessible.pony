@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkPanedAccessible"]
 */
+use "../gobject"
 class GtkPanedAccessible is GtkWidget
   var widget: GObjectREF
 

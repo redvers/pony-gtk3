@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkTextCellAccessible"]
 */
+use "../gobject"
 class GtkTextCellAccessible is GtkWidget
   var widget: GObjectREF
 

@@ -2,6 +2,7 @@
    needs: ["I32", "None", "GObjectREF", "String"]
 provides: ["GtkRadioAction"]
 */
+use "../gobject"
 class GtkRadioAction is GtkWidget
   var widget: GObjectREF
 

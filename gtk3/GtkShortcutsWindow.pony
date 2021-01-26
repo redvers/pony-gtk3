@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkShortcutsWindow"]
 */
+use "../gobject"
 class GtkShortcutsWindow is GtkWidget
   var widget: GObjectREF
 

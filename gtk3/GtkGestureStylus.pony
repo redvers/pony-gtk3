@@ -2,6 +2,7 @@
    needs: ["GObjectREF", "GtkWidget"]
 provides: ["GtkGestureStylus"]
 */
+use "../gobject"
 class GtkGestureStylus is GtkWidget
   var widget: GObjectREF
 

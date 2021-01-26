@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "GObjectREF"]
 provides: ["GtkGesture"]
 */
+use "../gobject"
 class GtkGesture is GtkWidget
   var widget: GObjectREF
 

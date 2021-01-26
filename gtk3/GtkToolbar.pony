@@ -2,6 +2,7 @@
    needs: ["I32", "Bool", "None", "GObjectREF"]
 provides: ["GtkToolbar"]
 */
+use "../gobject"
 class GtkToolbar is GtkWidget
   var widget: GObjectREF
 

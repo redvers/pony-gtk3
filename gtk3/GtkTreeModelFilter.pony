@@ -2,6 +2,7 @@
    needs: ["None", "I32", "GObjectREF"]
 provides: ["GtkTreeModelFilter"]
 */
+use "../gobject"
 class GtkTreeModelFilter is GtkWidget
   var widget: GObjectREF
 

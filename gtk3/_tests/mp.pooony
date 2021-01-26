@@ -1,0 +1,33 @@
+use "debug"
+use "gtk-3"
+
+actor Main
+  new create(env: Env) =>
+    let gtk: Gtk = Gtk(env)
+
+    let builder: GtkBuilder = GtkBuilder.new_from_string(env, UIData())
+    let txtntry: GtkEntry  = GtkEntry.create_from_gtkbuilder(builder, "sayit")
+
+    let callback = @{(ptr: GObject) =>
+      var cstr: CString = @gtk_entry_get_text[CString](ptr)
+      Debug.out(String.copy_cstring(cstr))
+
+//      var gtype: Pointer[GType] = @gtk_widget_get_type[Pointer[GType]]()
+      var cstr2: CString = @g_type_name_from_instance[CString](ptr)
+      Debug.out(String.copy_cstring(cstr2))
+
+
+
+      }
+/*
+    let callback = @{() =>
+      var string: String = txtntry.get_text()
+      Debug.out(string)
+      }
+*/
+    builder.add_callback_symbol("sayit_activate_cb", callback )
+    builder.connect_signals()
+
+    let mainwin: GtkWindow = GtkWindow.create_from_gtkbuilder(builder)
+    mainwin.show_all()
+    GtkMain.main()

@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkOffscreenWindow"]
 */
+use "../gobject"
 class GtkOffscreenWindow is GtkWidget
   var widget: GObjectREF
 

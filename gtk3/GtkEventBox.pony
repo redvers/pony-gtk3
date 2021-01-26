@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "GObjectREF"]
 provides: ["GtkEventBox"]
 */
+use "../gobject"
 class GtkEventBox is GtkWidget
   var widget: GObjectREF
 

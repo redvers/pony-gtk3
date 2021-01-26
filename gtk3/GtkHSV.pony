@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "I32", "GObjectREF"]
 provides: ["GtkHSV"]
 */
+use "../gobject"
 class GtkHSV is GtkWidget
   var widget: GObjectREF
 

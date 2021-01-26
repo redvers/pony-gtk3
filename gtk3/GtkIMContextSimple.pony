@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkIMContextSimple"]
 */
+use "../gobject"
 class GtkIMContextSimple is GtkWidget
   var widget: GObjectREF
 

@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkOverlay"]
 */
+use "../gobject"
 class GtkOverlay is GtkWidget
   var widget: GObjectREF
 

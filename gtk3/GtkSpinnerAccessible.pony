@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkSpinnerAccessible"]
 */
+use "../gobject"
 class GtkSpinnerAccessible is GtkWidget
   var widget: GObjectREF
 

@@ -2,6 +2,7 @@
    needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF"]
 provides: ["GtkCellArea"]
 */
+use "../gobject"
 class GtkCellArea is GtkWidget
   var widget: GObjectREF
 

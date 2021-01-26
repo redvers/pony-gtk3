@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "GObjectREF", "String"]
 provides: ["GtkCheckMenuItem"]
 */
+use "../gobject"
 class GtkCheckMenuItem is GtkWidget
   var widget: GObjectREF
 

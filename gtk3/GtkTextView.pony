@@ -2,6 +2,7 @@
    needs: ["Bool", "I32", "None", "GObjectREF", "GtkTextBuffer"]
 provides: ["GtkTextView"]
 */
+use "../gobject"
 class GtkTextView is GtkWidget
   var widget: GObjectREF
 

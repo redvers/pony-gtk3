@@ -2,6 +2,7 @@
    needs: ["GObjectREF", "GtkRecentManager"]
 provides: ["GtkRecentChooserWidget"]
 */
+use "../gobject"
 class GtkRecentChooserWidget is GtkWidget
   var widget: GObjectREF
 

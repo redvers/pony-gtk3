@@ -1,3 +1,4 @@
+use "../gobject"
 trait GtkContainer is GtkWidget
   fun gtkwidget(): GObjectREF
   fun add(childwidget: GtkWidget): None =>

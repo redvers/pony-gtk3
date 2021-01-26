@@ -2,6 +2,7 @@
    needs: ["GObjectREF", "GtkWidget"]
 provides: ["GtkGestureMultiPress"]
 */
+use "../gobject"
 class GtkGestureMultiPress is GtkWidget
   var widget: GObjectREF
 

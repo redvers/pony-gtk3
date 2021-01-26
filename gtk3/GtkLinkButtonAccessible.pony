@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkLinkButtonAccessible"]
 */
+use "../gobject"
 class GtkLinkButtonAccessible is GtkWidget
   var widget: GObjectREF
 

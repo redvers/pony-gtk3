@@ -2,6 +2,7 @@
    needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF"]
 provides: ["GtkHeaderBar"]
 */
+use "../gobject"
 class GtkHeaderBar is GtkWidget
   var widget: GObjectREF
 

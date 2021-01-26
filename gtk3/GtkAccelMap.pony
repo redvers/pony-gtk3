@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkAccelMap"]
 */
+use "../gobject"
 class GtkAccelMap is GtkWidget
   var widget: GObjectREF
 

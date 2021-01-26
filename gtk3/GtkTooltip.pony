@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkTooltip"]
 */
+use "../gobject"
 class GtkTooltip is GtkWidget
   var widget: GObjectREF
 

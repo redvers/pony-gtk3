@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "GObjectREF"]
 provides: ["GtkPlacesSidebar"]
 */
+use "../gobject"
 class GtkPlacesSidebar is GtkWidget
   var widget: GObjectREF
 

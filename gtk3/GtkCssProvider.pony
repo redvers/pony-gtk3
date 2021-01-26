@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkCssProvider"]
 */
+use "../gobject"
 class GtkCssProvider is GtkWidget
   var widget: GObjectREF
 

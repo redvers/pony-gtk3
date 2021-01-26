@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkSeparatorMenuItem"]
 */
+use "../gobject"
 class GtkSeparatorMenuItem is GtkWidget
   var widget: GObjectREF
 

@@ -2,6 +2,7 @@
    needs: ["GObjectREF", "GtkWidget"]
 provides: ["GtkGestureZoom"]
 */
+use "../gobject"
 class GtkGestureZoom is GtkWidget
   var widget: GObjectREF
 

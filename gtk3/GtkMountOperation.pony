@@ -2,6 +2,7 @@
    needs: ["Bool", "GObjectREF", "GtkWindow"]
 provides: ["GtkMountOperation"]
 */
+use "../gobject"
 class GtkMountOperation is GtkWidget
   var widget: GObjectREF
 

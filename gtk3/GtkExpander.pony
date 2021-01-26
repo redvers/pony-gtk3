@@ -2,6 +2,7 @@
    needs: ["Bool", "Pointer[U8 val] ref", "String", "I32", "None", "GObjectREF"]
 provides: ["GtkExpander"]
 */
+use "../gobject"
 class GtkExpander is GtkWidget
   var widget: GObjectREF
 

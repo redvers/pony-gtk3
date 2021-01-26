@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkScrolledWindowAccessible"]
 */
+use "../gobject"
 class GtkScrolledWindowAccessible is GtkWidget
   var widget: GObjectREF
 

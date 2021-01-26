@@ -2,6 +2,7 @@
    needs: ["None", "I32", "Pointer[U8 val] ref", "String", "Bool", "GObjectREF", "GtkCellArea"]
 provides: ["GtkEntryCompletion"]
 */
+use "../gobject"
 class GtkEntryCompletion is GtkWidget
   var widget: GObjectREF
 

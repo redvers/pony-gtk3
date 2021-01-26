@@ -2,6 +2,7 @@
    needs: ["None", "U32", "GObjectREF", "F32"]
 provides: ["GtkAlignment"]
 */
+use "../gobject"
 class GtkAlignment is GtkWidget
   var widget: GObjectREF
 

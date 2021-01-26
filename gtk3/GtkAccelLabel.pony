@@ -2,6 +2,7 @@
    needs: ["U32", "Bool", "GObjectREF", "String"]
 provides: ["GtkAccelLabel"]
 */
+use "../gobject"
 class GtkAccelLabel is GtkWidget
   var widget: GObjectREF
 

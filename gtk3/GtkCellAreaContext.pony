@@ -2,6 +2,7 @@
    needs: ["None", "I32", "GObjectREF"]
 provides: ["GtkCellAreaContext"]
 */
+use "../gobject"
 class GtkCellAreaContext is GtkWidget
   var widget: GObjectREF
 

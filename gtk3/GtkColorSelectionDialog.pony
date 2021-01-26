@@ -2,6 +2,7 @@
    needs: ["GObjectREF", "String"]
 provides: ["GtkColorSelectionDialog"]
 */
+use "../gobject"
 class GtkColorSelectionDialog is GtkWidget
   var widget: GObjectREF
 

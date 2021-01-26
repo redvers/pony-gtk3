@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkFlowBoxAccessible"]
 */
+use "../gobject"
 class GtkFlowBoxAccessible is GtkWidget
   var widget: GObjectREF
 

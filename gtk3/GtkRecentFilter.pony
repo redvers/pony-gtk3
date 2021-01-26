@@ -2,6 +2,7 @@
    needs: ["None", "I32", "Pointer[U8 val] ref", "String", "GObjectREF"]
 provides: ["GtkRecentFilter"]
 */
+use "../gobject"
 class GtkRecentFilter is GtkWidget
   var widget: GObjectREF
 

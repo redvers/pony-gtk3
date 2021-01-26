@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "U32", "GObjectREF", "String", "GApplicationFlags"]
 provides: ["GtkApplication"]
 */
+use "../gobject"
 class GtkApplication is GtkWidget
   var widget: GObjectREF
 

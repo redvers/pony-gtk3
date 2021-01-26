@@ -2,6 +2,7 @@
    needs: ["U32", "I32", "None", "Pointer[U8 val] ref", "String", "GObjectREF"]
 provides: ["GtkEntryBuffer"]
 */
+use "../gobject"
 class GtkEntryBuffer is GtkWidget
   var widget: GObjectREF
 

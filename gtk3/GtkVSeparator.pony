@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkVSeparator"]
 */
+use "../gobject"
 class GtkVSeparator is GtkWidget
   var widget: GObjectREF
 

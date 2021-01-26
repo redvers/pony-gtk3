@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "GObjectREF", "String", "GtkRecentManager"]
 provides: ["GtkRecentAction"]
 */
+use "../gobject"
 class GtkRecentAction is GtkWidget
   var widget: GObjectREF
 

@@ -2,6 +2,7 @@
    needs: ["U32", "Bool", "I32", "None", "GObjectREF", "GtkAdjustment", "F64"]
 provides: ["GtkSpinButton"]
 */
+use "../gobject"
 class GtkSpinButton is GtkWidget
   var widget: GObjectREF
 

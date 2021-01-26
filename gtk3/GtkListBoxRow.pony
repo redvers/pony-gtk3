@@ -2,6 +2,7 @@
    needs: ["None", "Bool", "I32", "GObjectREF"]
 provides: ["GtkListBoxRow"]
 */
+use "../gobject"
 class GtkListBoxRow is GtkWidget
   var widget: GObjectREF
 

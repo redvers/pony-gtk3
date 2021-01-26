@@ -2,6 +2,7 @@
    needs: ["GObjectREF", "GtkWidget", "String"]
 provides: ["GtkMenuToolButton"]
 */
+use "../gobject"
 class GtkMenuToolButton is GtkWidget
   var widget: GObjectREF
 

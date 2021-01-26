@@ -2,6 +2,7 @@
    needs: ["None", "GObjectREF"]
 provides: ["GtkIconFactory"]
 */
+use "../gobject"
 class GtkIconFactory is GtkWidget
   var widget: GObjectREF
 

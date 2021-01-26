@@ -2,6 +2,7 @@
    needs: ["None", "I32", "GObjectREF"]
 provides: ["GtkComboBoxText"]
 */
+use "../gobject"
 class GtkComboBoxText is GtkWidget
   var widget: GObjectREF
 

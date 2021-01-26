@@ -2,6 +2,7 @@
    needs: ["Bool", "GObjectREF"]
 provides: ["GtkTextChildAnchor"]
 */
+use "../gobject"
 class GtkTextChildAnchor is GtkWidget
   var widget: GObjectREF
 

@@ -2,6 +2,7 @@
    needs: ["None", "Bool", "I32", "GObjectREF"]
 provides: ["GtkNativeDialog"]
 */
+use "../gobject"
 class GtkNativeDialog is GtkWidget
   var widget: GObjectREF
 

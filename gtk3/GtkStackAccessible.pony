@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkStackAccessible"]
 */
+use "../gobject"
 class GtkStackAccessible is GtkWidget
   var widget: GObjectREF
 

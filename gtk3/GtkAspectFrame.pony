@@ -2,6 +2,7 @@
    needs: ["GObjectREF", "String", "F32", "Bool"]
 provides: ["GtkAspectFrame"]
 */
+use "../gobject"
 class GtkAspectFrame is GtkWidget
   var widget: GObjectREF
 

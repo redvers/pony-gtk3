@@ -2,6 +2,7 @@
    needs: ["Bool", "Pointer[U8 val] ref", "String", "None", "GObjectREF"]
 provides: ["GtkProgressBar"]
 */
+use "../gobject"
 class GtkProgressBar is GtkWidget
   var widget: GObjectREF
 

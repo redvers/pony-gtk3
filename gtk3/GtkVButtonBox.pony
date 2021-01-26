@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkVButtonBox"]
 */
+use "../gobject"
 class GtkVButtonBox is GtkWidget
   var widget: GObjectREF
 

@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "GObjectREF"]
 provides: ["GtkSearchBar"]
 */
+use "../gobject"
 class GtkSearchBar is GtkWidget
   var widget: GObjectREF
 

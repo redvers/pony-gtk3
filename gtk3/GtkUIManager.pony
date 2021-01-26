@@ -2,6 +2,7 @@
    needs: ["None", "Bool", "U32", "GObjectREF"]
 provides: ["GtkUIManager"]
 */
+use "../gobject"
 class GtkUIManager is GtkWidget
   var widget: GObjectREF
 

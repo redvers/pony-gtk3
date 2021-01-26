@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkScaleAccessible"]
 */
+use "../gobject"
 class GtkScaleAccessible is GtkWidget
   var widget: GObjectREF
 

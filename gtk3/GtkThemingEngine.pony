@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkThemingEngine"]
 */
+use "../gobject"
 class GtkThemingEngine is GtkWidget
   var widget: GObjectREF
 

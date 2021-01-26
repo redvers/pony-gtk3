@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkSocket"]
 */
+use "../gobject"
 class GtkSocket is GtkWidget
   var widget: GObjectREF
 

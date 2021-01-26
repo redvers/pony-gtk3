@@ -2,6 +2,7 @@
    needs: ["GObjectREF", "GtkAdjustment"]
 provides: ["GtkVScrollbar"]
 */
+use "../gobject"
 class GtkVScrollbar is GtkWidget
   var widget: GObjectREF
 

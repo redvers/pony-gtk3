@@ -1,3 +1,4 @@
+use "../gobject"
 actor PonyGtkSignalRouter
   var x: U32
   new create() =>

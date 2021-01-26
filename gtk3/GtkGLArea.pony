@@ -2,6 +2,7 @@
    needs: ["None", "Bool", "I32", "GObjectREF"]
 provides: ["GtkGLArea"]
 */
+use "../gobject"
 class GtkGLArea is GtkWidget
   var widget: GObjectREF
 

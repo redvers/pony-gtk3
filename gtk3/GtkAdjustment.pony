@@ -2,6 +2,7 @@
    needs: ["None", "GObjectREF", "F64"]
 provides: ["GtkAdjustment"]
 */
+use "../gobject"
 class GtkAdjustment is GtkWidget
   var widget: GObjectREF
 

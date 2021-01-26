@@ -2,6 +2,7 @@
    needs: ["GObjectREF", "GtkAdjustment"]
 provides: ["GtkViewport"]
 */
+use "../gobject"
 class GtkViewport is GtkWidget
   var widget: GObjectREF
 

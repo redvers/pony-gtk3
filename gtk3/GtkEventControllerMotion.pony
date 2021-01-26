@@ -2,6 +2,7 @@
    needs: ["GObjectREF", "GtkWidget"]
 provides: ["GtkEventControllerMotion"]
 */
+use "../gobject"
 class GtkEventControllerMotion is GtkWidget
   var widget: GObjectREF
 

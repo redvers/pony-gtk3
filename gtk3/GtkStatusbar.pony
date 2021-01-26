@@ -2,6 +2,7 @@
    needs: ["None", "U32", "GObjectREF"]
 provides: ["GtkStatusbar"]
 */
+use "../gobject"
 class GtkStatusbar is GtkWidget
   var widget: GObjectREF
 

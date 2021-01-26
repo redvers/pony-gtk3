@@ -2,6 +2,7 @@
    needs: ["Bool", "U32", "Pointer[U8 val] ref", "String", "None", "GObjectREF"]
 provides: ["GtkStack"]
 */
+use "../gobject"
 class GtkStack is GtkWidget
   var widget: GObjectREF
 

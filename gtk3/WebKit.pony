@@ -1,4 +1,5 @@
 use "lib:webkit2gtk-4.0"
+use "../gobject"
 
 class WebKit2 is GtkWidget
   var widget: GObjectREF

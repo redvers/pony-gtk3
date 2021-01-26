@@ -2,6 +2,7 @@
    needs: ["Bool", "GObjectREF"]
 provides: ["GtkIconTheme"]
 */
+use "../gobject"
 class GtkIconTheme is GtkWidget
   var widget: GObjectREF
 

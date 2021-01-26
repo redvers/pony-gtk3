@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkPrintContext"]
 */
+use "../gobject"
 class GtkPrintContext is GtkWidget
   var widget: GObjectREF
 

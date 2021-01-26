@@ -2,6 +2,7 @@
    needs: ["None", "Bool", "I32", "Pointer[U8 val] ref", "String", "GObjectREF"]
 provides: ["GtkPrintOperation"]
 */
+use "../gobject"
 class GtkPrintOperation is GtkWidget
   var widget: GObjectREF
 

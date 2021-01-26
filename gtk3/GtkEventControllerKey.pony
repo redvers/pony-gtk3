@@ -2,6 +2,7 @@
    needs: ["U32", "GObjectREF", "GtkWidget"]
 provides: ["GtkEventControllerKey"]
 */
+use "../gobject"
 class GtkEventControllerKey is GtkWidget
   var widget: GObjectREF
 

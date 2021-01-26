@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "GObjectREF", "GtkRecentManager"]
 provides: ["GtkRecentChooserMenu"]
 */
+use "../gobject"
 class GtkRecentChooserMenu is GtkWidget
   var widget: GObjectREF
 

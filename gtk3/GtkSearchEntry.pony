@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkSearchEntry"]
 */
+use "../gobject"
 class GtkSearchEntry is GtkWidget
   var widget: GObjectREF
 

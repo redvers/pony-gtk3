@@ -2,6 +2,7 @@
    needs: ["Pointer[U8 val] ref", "String", "I32", "GObjectREF"]
 provides: ["GtkFontSelection"]
 */
+use "../gobject"
 class GtkFontSelection is GtkWidget
   var widget: GObjectREF
 

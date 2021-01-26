@@ -2,6 +2,7 @@
    needs: ["GObjectREF"]
 provides: ["GtkCellRendererProgress"]
 */
+use "../gobject"
 class GtkCellRendererProgress is GtkWidget
   var widget: GObjectREF
 

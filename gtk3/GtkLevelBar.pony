@@ -2,6 +2,7 @@
    needs: ["Bool", "None", "GObjectREF", "F64"]
 provides: ["GtkLevelBar"]
 */
+use "../gobject"
 class GtkLevelBar is GtkWidget
   var widget: GObjectREF
 
