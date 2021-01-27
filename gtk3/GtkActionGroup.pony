@@ -81,7 +81,7 @@ fun get_name(): String =>
 Gets the name of the action group.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_group_get_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_sensitive(): Bool =>

@@ -45,7 +45,7 @@ be avoided by fetching the label text directly from the label
 widget.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_expander_get_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_label_fill(): Bool =>

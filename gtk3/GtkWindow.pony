@@ -215,7 +215,7 @@ Returns the name of the themed icon for the window,
 see gtk_window_set_icon_name().
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_window_get_icon_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_mnemonic_modifier unavailable due to return typing issues
@@ -265,7 +265,7 @@ Returns the role of the window. See gtk_window_set_role() for
 further explanation.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_window_get_role[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_screen unavailable due to return typing issues
@@ -297,7 +297,7 @@ fun get_title(): String =>
 Retrieves the title of the window. See gtk_window_set_title().
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_window_get_title[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_titlebar unavailable due to return typing issues

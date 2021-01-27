@@ -106,7 +106,7 @@ Use gtk_print_operation_get_status() to obtain a status
 value that is suitable for programmatic use.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_print_operation_get_status_string[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_support_selection(): Bool =>

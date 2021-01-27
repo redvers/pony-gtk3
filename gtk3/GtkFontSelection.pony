@@ -65,7 +65,7 @@ fun get_preview_text(): String =>
 Gets the text displayed in the preview area.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_font_selection_get_preview_text[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_size(): I32 =>

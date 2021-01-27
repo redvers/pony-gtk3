@@ -98,7 +98,7 @@ fun get_accel_path(): String =>
 Returns the accel path for this action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_accel_path[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_always_show_image(): Bool =>
@@ -120,7 +120,7 @@ fun get_icon_name(): String =>
 Gets the icon name of @action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_icon_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_is_important(): Bool =>
@@ -134,7 +134,7 @@ fun get_label(): String =>
 Gets the label text of @action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_name(): String =>
@@ -142,7 +142,7 @@ fun get_name(): String =>
 Returns the name of the action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_proxies unavailable due to return typing issues
@@ -165,7 +165,7 @@ fun get_short_label(): String =>
 Gets the short label text of @action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_short_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_stock_id(): String =>
@@ -173,7 +173,7 @@ fun get_stock_id(): String =>
 Gets the stock id of @action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_stock_id[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_tooltip(): String =>
@@ -181,7 +181,7 @@ fun get_tooltip(): String =>
 Gets the tooltip text of @action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_tooltip[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_visible(): Bool =>

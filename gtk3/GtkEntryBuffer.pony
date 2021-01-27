@@ -69,7 +69,7 @@ The memory pointer returned by this call will not change
 unless this object emits a signal, or is finalized.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_entry_buffer_get_text[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* insert_text unavailable due to typing issues

@@ -171,7 +171,7 @@ old version of gtk_check_version(), but still get loaded
 into an application using a newer version of GTK+.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_check_version[Pointer[U8 val] ref](required_major_pony, required_minor_pony, required_micro_pony)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* css_provider_error_quark unavailable due to return typing issues
@@ -759,7 +759,7 @@ Returns the name of the default paper size, which
 depends on the current locale.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_paper_size_get_default[Pointer[U8 val] ref]()
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* paper_size_get_paper_sizes unavailable due to return typing issues

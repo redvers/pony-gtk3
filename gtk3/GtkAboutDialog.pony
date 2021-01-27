@@ -42,7 +42,7 @@ fun get_comments(): String =>
 Returns the comments string.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_comments[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_copyright(): String =>
@@ -50,7 +50,7 @@ fun get_copyright(): String =>
 Returns the copyright string.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_copyright[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_documenters unavailable due to return typing issues
@@ -65,7 +65,7 @@ fun get_license(): String =>
 Returns the license information.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_license[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_license_type unavailable due to return typing issues
@@ -87,7 +87,7 @@ fun get_logo_icon_name(): String =>
 Returns the icon name displayed as logo in the about dialog.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_logo_icon_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_program_name(): String =>
@@ -95,7 +95,7 @@ fun get_program_name(): String =>
 Returns the program name displayed in the about dialog.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_program_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_translator_credits(): String =>
@@ -104,7 +104,7 @@ Returns the translator credits string which is displayed
 in the translators tab of the secondary credits dialog.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_translator_credits[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_version(): String =>
@@ -112,7 +112,7 @@ fun get_version(): String =>
 Returns the version string.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_version[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_website(): String =>
@@ -120,7 +120,7 @@ fun get_website(): String =>
 Returns the website URL.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_website[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_website_label(): String =>
@@ -128,7 +128,7 @@ fun get_website_label(): String =>
 Returns the label used for the website link.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_website_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_wrap_license(): Bool =>

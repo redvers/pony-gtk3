@@ -98,7 +98,7 @@ Returns the name of the currently visible child of @stack, or
 %NULL if there is no visible child.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_stack_get_visible_child_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun set_hhomogeneous(hhomogeneous_pony: Bool): None =>

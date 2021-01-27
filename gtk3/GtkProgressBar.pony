@@ -60,7 +60,7 @@ to the text, not a copy of it, so will become invalid
 if you change the text in the progress bar.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_progress_bar_get_text[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun pulse(): None =>

@@ -65,7 +65,7 @@ Gets the human-readable name for the filter.
 See gtk_recent_filter_set_name().
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_recent_filter_get_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_needed unavailable due to return typing issues

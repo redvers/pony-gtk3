@@ -29,7 +29,7 @@ Returns the icon name used as the base background image,
 or %NULL if there’s none.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_numerable_icon_get_background_icon_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_count(): I32 =>
@@ -43,7 +43,7 @@ fun get_label(): String =>
 Returns the currently displayed label of the icon, or %NULL.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_numerable_icon_get_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_style_context unavailable due to return typing issues

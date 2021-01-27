@@ -46,7 +46,7 @@ This function is intended for use in a #GtkLabel::activate-link handler
 or for use in a #GtkWidget::query-tooltip handler.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_label_get_current_uri[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_ellipsize unavailable due to return typing issues
@@ -70,7 +70,7 @@ underlines indicating mnemonics and Pango markup. (See
 gtk_label_get_text()).
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_label_get_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_layout unavailable due to return typing issues
@@ -152,7 +152,7 @@ screen. This does not include any embedded underlines
 indicating mnemonics or Pango markup. (See gtk_label_get_label())
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_label_get_text[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_track_visited_links(): Bool =>

@@ -51,7 +51,7 @@ Get the original text entered by the user that triggered
 the completion or %NULL if there’s no completion ongoing.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_entry_completion_get_completion_prefix[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_entry unavailable due to return typing issues

@@ -51,7 +51,7 @@ fun get_group_name(): String =>
 Gets the current group name for @notebook.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_notebook_get_group_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_menu_label unavailable due to return typing issues

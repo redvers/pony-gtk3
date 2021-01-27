@@ -212,7 +212,7 @@ fun get_placeholder_text(): String =>
 Retrieves the text that will be displayed when @entry is empty and unfocused
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_entry_get_placeholder_text[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_progress_fraction unavailable due to return typing issues
@@ -245,7 +245,7 @@ This is equivalent to getting @entry's #GtkEntryBuffer and calling
 gtk_entry_buffer_get_text() on it.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_entry_get_text[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_text_area unavailable due to typing issues

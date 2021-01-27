@@ -43,7 +43,7 @@ Retrieve the accelerator path that was previously set on @menu_item.
 See gtk_menu_item_set_accel_path() for details.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_menu_item_get_accel_path[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_label(): String =>
@@ -51,7 +51,7 @@ fun get_label(): String =>
 Sets @text on the @menu_item label
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_menu_item_get_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_reserve_indicator(): Bool =>
