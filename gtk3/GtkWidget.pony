@@ -7,6 +7,9 @@ trait GtkWidget
   fun destroy(): None =>
     @gtk_widget_destroy[None](gtkwidget())
 
+  fun signal_connect[V: Any val](detailed_signal: String, c_handler: @{(GObjectREF, V)}, data: V): U64 =>
+    GObject.signal_connect[V](gtkwidget(), detailed_signal, c_handler, data)
+
 //  new create_from_gobjectref(widget': GObjectREF)
 
 

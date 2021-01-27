@@ -24,7 +24,7 @@ class iso TestSignals is UnitTest
       Debug.out("Activated! " + str + strii + string)
     }
 
-  GObject.signal_connect[String](entry.gtkwidget(), "activate", callback, "testing123")
+  entry.signal_connect[String]("activate", callback, "testing123")
 
   @g_signal_emit_by_name[None](entry.gtkwidget(), "activate".cstring())
   Gtk.main()
