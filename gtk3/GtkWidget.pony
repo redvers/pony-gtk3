@@ -7,4 +7,6 @@ trait GtkWidget
   fun destroy(): None =>
     @gtk_widget_destroy[None](gtkwidget())
 
+//  new create_from_gobjectref(widget': GObjectREF)
+
 
