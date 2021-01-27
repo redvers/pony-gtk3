@@ -22,15 +22,17 @@ class iso TestGtkBuilder is UnitTest
     }
 
 */
-    var winobj: GObjectREF = @gtk_builder_get_object[GObjectREF](builder.gtkwidget(), "GtkWindow".cstring())
-    var gentry: GObjectREF = @gtk_builder_get_object[GObjectREF](builder.gtkwidget(), "sayit".cstring())
+    var entry = GtkEntry.create_from_GtkBuilder(builder, "sayit")
+//    var winobj: GObjectREF = @gtk_builder_get_object[GObjectREF](builder.gtkwidget(), "GtkWindow".cstring())
+//    var gentry: GObjectREF = @gtk_builder_get_object[GObjectREF](builder.gtkwidget(), "sayit".cstring())
 //    @g_object_set_data[None](gentry, "ponydata".cstring(), ta)
 /*
     h.assert_true(winobj.is_null())  FIXME
     winobj                 = @gtk_builder_get_object[GObjectREF](builder.gtkwidget(), "GtkWindow".cstring())
     h.assert_false(winobj.is_null()) FIXME
 */
-    let mwin: GtkWindow = GtkWindow.create_from_GObjectREF(winobj)
+    let mwin: GtkWindow = GtkWindow.create_from_GtkBuilder(builder, "GtkWindow")
+//    let mwin: GtkWindow = GtkWindow.create_from_GObjectREF(winobj)
 //    builder.add_callback_symbol("sayit_activate_cb", ta.callback() )
 //    builder.connect_signals()
 //    var gtype: Pointer[GType] = @gtk_widget_get_type[Pointer[GType]](winobj)
@@ -39,5 +41,5 @@ class iso TestGtkBuilder is UnitTest
     mwin.show_all()
     mwin.destroy()
 
-//    Gtk.main()
+    Gtk.main()
 
