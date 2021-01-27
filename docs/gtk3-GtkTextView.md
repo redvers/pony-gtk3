@@ -111,6 +111,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L56)</span>
 
 
+Returns whether pressing the Tab key inserts a tab characters.
+gtk_text_view_set_accepts_tab().
+
+
 ```pony
 fun box get_accepts_tab()
 : Bool val
@@ -123,7 +127,10 @@ fun box get_accepts_tab()
 ---
 
 ### get_bottom_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L63)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L67)</span>
+
+
+Gets the bottom margin for text in the @text_view.
 
 
 ```pony
@@ -138,7 +145,10 @@ fun box get_bottom_margin()
 ---
 
 ### get_cursor_visible
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L79)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L86)</span>
+
+
+Find out whether the cursor should be displayed.
 
 
 ```pony
@@ -153,7 +163,11 @@ fun box get_cursor_visible()
 ---
 
 ### get_editable
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L89)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L99)</span>
+
+
+Returns the default editability of the #GtkTextView. Tags in the
+buffer may override this setting for some ranges of text.
 
 
 ```pony
@@ -168,7 +182,12 @@ fun box get_editable()
 ---
 
 ### get_indent
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L99)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L113)</span>
+
+
+Gets the default indentation of paragraphs in @text_view.
+Tags in the view’s buffer may override the default.
+The indentation may be negative.
 
 
 ```pony
@@ -183,7 +202,11 @@ fun box get_indent()
 ---
 
 ### get_left_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L137)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L156)</span>
+
+
+Gets the default left margin size of paragraphs in the @text_view.
+Tags in the buffer may override the default.
 
 
 ```pony
@@ -198,7 +221,10 @@ fun box get_left_margin()
 ---
 
 ### get_monospace
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L151)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L174)</span>
+
+
+Gets the value of the #GtkTextView:monospace property.
 
 
 ```pony
@@ -213,7 +239,10 @@ fun box get_monospace()
 ---
 
 ### get_overwrite
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L154)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L180)</span>
+
+
+Returns whether the #GtkTextView is in overwrite mode or not.
 
 
 ```pony
@@ -228,7 +257,12 @@ fun box get_overwrite()
 ---
 
 ### get_pixels_above_lines
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L157)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L186)</span>
+
+
+Gets the default number of pixels to put above paragraphs.
+Adding this function with gtk_text_view_get_pixels_below_lines()
+is equal to the line space between each paragraph.
 
 
 ```pony
@@ -243,7 +277,13 @@ fun box get_pixels_above_lines()
 ---
 
 ### get_pixels_below_lines
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L160)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L194)</span>
+
+
+Gets the value set by gtk_text_view_set_pixels_below_lines().
+
+The line space is the sum of the value returned by this function and the
+value returned by gtk_text_view_get_pixels_above_lines().
 
 
 ```pony
@@ -258,7 +298,10 @@ fun box get_pixels_below_lines()
 ---
 
 ### get_pixels_inside_wrap
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L163)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L203)</span>
+
+
+Gets the value set by gtk_text_view_set_pixels_inside_wrap().
 
 
 ```pony
@@ -273,7 +316,11 @@ fun box get_pixels_inside_wrap()
 ---
 
 ### get_right_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L166)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L209)</span>
+
+
+Gets the default right margin for text in @text_view. Tags
+in the buffer may override the default.
 
 
 ```pony
@@ -288,7 +335,10 @@ fun box get_right_margin()
 ---
 
 ### get_top_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L176)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L223)</span>
+
+
+Gets the top margin for text in the @text_view.
 
 
 ```pony
@@ -303,7 +353,11 @@ fun box get_top_margin()
 ---
 
 ### place_cursor_onscreen
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L227)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L277)</span>
+
+
+Moves the cursor to the currently visible region of the
+buffer, it it isn’t there already.
 
 
 ```pony
@@ -318,7 +372,16 @@ fun box place_cursor_onscreen()
 ---
 
 ### reset_cursor_blink
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L230)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L284)</span>
+
+
+Ensures that the cursor is shown (i.e. not in an 'off' blink
+interval) and resets the time that it will stay blinking (or
+visible, in case blinking is disabled).
+
+This function should be called in response to user input
+(e.g. from derived classes that override the textview's
+#GtkWidget::key-press-event handler).
 
 
 ```pony
@@ -333,7 +396,13 @@ fun box reset_cursor_blink()
 ---
 
 ### reset_im_context
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L233)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L296)</span>
+
+
+Reset the input method context of the text view if needed.
+
+This can be necessary in the case where modifying the buffer
+would confuse on-going input method behavior.
 
 
 ```pony
@@ -348,7 +417,13 @@ fun box reset_im_context()
 ---
 
 ### set_accepts_tab
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L254)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L323)</span>
+
+
+Sets the behavior of the text widget when the Tab key is pressed.
+If @accepts_tab is %TRUE, a tab character is inserted. If @accepts_tab
+is %FALSE the keyboard focus is moved to the next widget in the focus
+chain.
 
 
 ```pony
@@ -367,7 +442,13 @@ fun box set_accepts_tab(
 ---
 
 ### set_bottom_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L261)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L336)</span>
+
+
+Sets the bottom margin for text in @text_view.
+
+Note that this function is confusingly named.
+In CSS terms, the value set here is padding.
 
 
 ```pony
@@ -386,7 +467,15 @@ fun box set_bottom_margin(
 ---
 
 ### set_cursor_visible
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L268)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L349)</span>
+
+
+Toggles whether the insertion point should be displayed. A buffer with
+no editable text probably shouldn’t have a visible cursor, so you may
+want to turn the cursor off.
+
+Note that this property may be overridden by the
+#GtkSettings:gtk-keynave-use-caret settings.
 
 
 ```pony
@@ -405,7 +494,12 @@ fun box set_cursor_visible(
 ---
 
 ### set_editable
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L271)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L360)</span>
+
+
+Sets the default editability of the #GtkTextView. You can override
+this default setting with tags in the buffer, using the “editable”
+attribute of tags.
 
 
 ```pony
@@ -424,7 +518,11 @@ fun box set_editable(
 ---
 
 ### set_indent
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L274)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L368)</span>
+
+
+Sets the default indentation for paragraphs in @text_view.
+Tags in the buffer may override the default.
 
 
 ```pony
@@ -443,7 +541,14 @@ fun box set_indent(
 ---
 
 ### set_left_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L289)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L387)</span>
+
+
+Sets the default left margin for text in @text_view.
+Tags in the buffer may override the default.
+
+Note that this function is confusingly named.
+In CSS terms, the value set here is padding.
 
 
 ```pony
@@ -462,7 +567,12 @@ fun box set_left_margin(
 ---
 
 ### set_monospace
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L292)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L397)</span>
+
+
+Sets the #GtkTextView:monospace property, which
+indicates that the text view should use monospace
+fonts.
 
 
 ```pony
@@ -481,7 +591,10 @@ fun box set_monospace(
 ---
 
 ### set_overwrite
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L295)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L405)</span>
+
+
+Changes the #GtkTextView overwrite mode.
 
 
 ```pony
@@ -500,7 +613,11 @@ fun box set_overwrite(
 ---
 
 ### set_pixels_above_lines
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L298)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L411)</span>
+
+
+Sets the default number of blank pixels above paragraphs in @text_view.
+Tags in the buffer for @text_view may override the defaults.
 
 
 ```pony
@@ -519,7 +636,12 @@ fun box set_pixels_above_lines(
 ---
 
 ### set_pixels_below_lines
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L301)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L418)</span>
+
+
+Sets the default number of pixels of blank space
+to put below paragraphs in @text_view. May be overridden
+by tags applied to @text_view’s buffer.
 
 
 ```pony
@@ -538,7 +660,12 @@ fun box set_pixels_below_lines(
 ---
 
 ### set_pixels_inside_wrap
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L304)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L426)</span>
+
+
+Sets the default number of pixels of blank space to leave between
+display/wrapped lines within a paragraph. May be overridden by
+tags in @text_view’s buffer.
 
 
 ```pony
@@ -557,7 +684,14 @@ fun box set_pixels_inside_wrap(
 ---
 
 ### set_right_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L307)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L434)</span>
+
+
+Sets the default right margin for text in the text view.
+Tags in the buffer may override the default.
+
+Note that this function is confusingly named.
+In CSS terms, the value set here is padding.
 
 
 ```pony
@@ -576,7 +710,13 @@ fun box set_right_margin(
 ---
 
 ### set_top_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L314)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L448)</span>
+
+
+Sets the top margin for text in @text_view.
+
+Note that this function is confusingly named.
+In CSS terms, the value set here is padding.
 
 
 ```pony
@@ -610,7 +750,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -625,7 +765,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

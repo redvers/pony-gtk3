@@ -20,6 +20,9 @@ class GtkStyleProperties is GtkWidget
 
 
 fun clear(): None =>
+"""
+Clears all style information from @props.
+"""
   @gtk_style_properties_clear[None](widget)
 
 /* get unavailable due to typing issues

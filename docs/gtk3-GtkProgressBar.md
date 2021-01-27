@@ -92,6 +92,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L35)</span>
 
 
+Gets the value set by gtk_progress_bar_set_inverted().
+
+
 ```pony
 fun box get_inverted()
 : Bool val
@@ -104,7 +107,11 @@ fun box get_inverted()
 ---
 
 ### get_show_text
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L45)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L48)</span>
+
+
+Gets the value of the #GtkProgressBar:show-text property.
+See gtk_progress_bar_set_show_text().
 
 
 ```pony
@@ -119,7 +126,13 @@ fun box get_show_text()
 ---
 
 ### get_text
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L48)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L55)</span>
+
+
+Retrieves the text that is displayed with the progress bar,
+if any, otherwise %NULL. The return value is a reference
+to the text, not a copy of it, so will become invalid
+if you change the text in the progress bar.
 
 
 ```pony
@@ -134,7 +147,14 @@ fun box get_text()
 ---
 
 ### pulse
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L53)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L66)</span>
+
+
+Indicates that some progress has been made, but you don’t know how much.
+Causes the progress bar to enter “activity mode,” where a block
+bounces back and forth. Each call to gtk_progress_bar_pulse()
+causes the block to move by a little bit (the amount of movement
+per pulse is determined by gtk_progress_bar_set_pulse_step()).
 
 
 ```pony
@@ -149,7 +169,11 @@ fun box pulse()
 ---
 
 ### set_inverted
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L84)</span>
+
+
+Progress bars normally grow from top to bottom or left to right.
+Inverted progress bars grow in the opposite direction.
 
 
 ```pony
@@ -168,7 +192,17 @@ fun box set_inverted(
 ---
 
 ### set_show_text
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L71)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L95)</span>
+
+
+Sets whether the progress bar will show text next to the bar.
+The shown text is either the value of the #GtkProgressBar:text
+property or, if that is %NULL, the #GtkProgressBar:fraction value,
+as a percentage.
+
+To make a progress bar that is styled and sized suitably for containing
+text (even if the actual text is blank), set #GtkProgressBar:show-text to
+%TRUE and #GtkProgressBar:text to the empty string (not %NULL).
 
 
 ```pony
@@ -202,7 +236,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -217,7 +251,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

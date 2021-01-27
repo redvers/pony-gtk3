@@ -102,6 +102,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L21)</span>
 
 
+Returns the checked state of the toggle action.
+
+
 ```pony
 fun box get_active()
 : Bool val
@@ -114,7 +117,10 @@ fun box get_active()
 ---
 
 ### get_draw_as_radio
-<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L27)</span>
+
+
+Returns whether the action should have proxies like a radio action.
 
 
 ```pony
@@ -129,7 +135,10 @@ fun box get_draw_as_radio()
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L33)</span>
+
+
+Sets the checked state on the toggle action.
 
 
 ```pony
@@ -148,7 +157,10 @@ fun box set_active(
 ---
 
 ### set_draw_as_radio
-<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L39)</span>
+
+
+Sets whether the action should have proxies like a radio action.
 
 
 ```pony
@@ -167,7 +179,10 @@ fun box set_draw_as_radio(
 ---
 
 ### toggled
-<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L45)</span>
+
+
+Emits the “toggled” signal on the toggle action.
 
 
 ```pony
@@ -197,7 +212,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -212,7 +227,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

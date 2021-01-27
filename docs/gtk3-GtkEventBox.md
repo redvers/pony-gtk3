@@ -92,6 +92,11 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L21)</span>
 
 
+Returns whether the event box window is above or below the
+windows of its child. See gtk_event_box_set_above_child()
+for details.
+
+
 ```pony
 fun box get_above_child()
 : Bool val
@@ -104,7 +109,11 @@ fun box get_above_child()
 ---
 
 ### get_visible_window
-<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L29)</span>
+
+
+Returns whether the event box has a visible window.
+See gtk_event_box_set_visible_window() for details.
 
 
 ```pony
@@ -119,7 +128,16 @@ fun box get_visible_window()
 ---
 
 ### set_above_child
-<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L36)</span>
+
+
+Set whether the event box window is positioned above the windows
+of its child, as opposed to below it. If the window is above, all
+events inside the event box will go to the event box. If the window
+is below, events in windows of child widgets will first got to that
+widget, and then to its parents.
+
+The default is to keep the window below the child.
 
 
 ```pony
@@ -138,7 +156,42 @@ fun box set_above_child(
 ---
 
 ### set_visible_window
-<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L48)</span>
+
+
+Set whether the event box uses a visible or invisible child
+window. The default is to use visible windows.
+
+In an invisible window event box, the window that the
+event box creates is a %GDK_INPUT_ONLY window, which
+means that it is invisible and only serves to receive
+events.
+
+A visible window event box creates a visible (%GDK_INPUT_OUTPUT)
+window that acts as the parent window for all the widgets
+contained in the event box.
+
+You should generally make your event box invisible if
+you just want to trap events. Creating a visible window
+may cause artifacts that are visible to the user, especially
+if the user is using a theme with gradients or pixmaps.
+
+The main reason to create a non input-only event box is if
+you want to set the background to a different color or
+draw on it.
+
+There is one unexpected issue for an invisible event box that has its
+window below the child. (See gtk_event_box_set_above_child().)
+Since the input-only window is not an ancestor window of any windows
+that descendent widgets of the event box create, events on these
+windows aren’t propagated up by the windowing system, but only by GTK+.
+The practical effect of this is if an event isn’t in the event
+mask for the descendant window (see gtk_widget_add_events()),
+it won’t be received by the event box.
+
+This problem doesn’t occur for visible event boxes, because in
+that case, the event box window is actually the ancestor of the
+descendant windows, not just at the same place on the screen.
 
 
 ```pony
@@ -172,7 +225,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -187,7 +240,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

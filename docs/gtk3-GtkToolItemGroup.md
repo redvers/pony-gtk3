@@ -96,6 +96,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L21)</span>
 
 
+Gets whether @group is collapsed or expanded.
+
+
 ```pony
 fun box get_collapsed()
 : Bool val
@@ -108,7 +111,10 @@ fun box get_collapsed()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L49)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L52)</span>
+
+
+Gets the label of @group.
 
 
 ```pony
@@ -123,7 +129,10 @@ fun box get_label()
 ---
 
 ### get_n_items
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L67)</span>
+
+
+Gets the number of tool items in @group.
 
 
 ```pony
@@ -138,7 +147,10 @@ fun box get_n_items()
 ---
 
 ### set_collapsed
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L75)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L84)</span>
+
+
+Sets whether the @group should be collapsed or expanded.
 
 
 ```pony
@@ -172,7 +184,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -187,7 +199,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

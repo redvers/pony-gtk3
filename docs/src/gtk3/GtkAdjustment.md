@@ -20,6 +20,11 @@ class GtkAdjustment is GtkWidget
 
 
 fun changed(): None =>
+"""
+Emits a #GtkAdjustment::changed signal from the #GtkAdjustment.
+This is typically called by the owner of the #GtkAdjustment after it has
+changed any of the #GtkAdjustment properties other than the value.
+"""
   @gtk_adjustment_changed[None](widget)
 
 /* clamp_page unavailable due to typing issues
@@ -110,6 +115,11 @@ fun changed(): None =>
 */
 
 fun value_changed(): None =>
+"""
+Emits a #GtkAdjustment::value-changed signal from the #GtkAdjustment.
+This is typically called by the owner of the #GtkAdjustment after it has
+changed the #GtkAdjustment:value property.
+"""
   @gtk_adjustment_value_changed[None](widget)
 
 

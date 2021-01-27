@@ -20,18 +20,33 @@ class GtkToggleAction is GtkWidget
 
 
 fun get_active(): Bool =>
+"""
+Returns the checked state of the toggle action.
+"""
   @gtk_toggle_action_get_active[Bool](widget)
 
 fun get_draw_as_radio(): Bool =>
+"""
+Returns whether the action should have proxies like a radio action.
+"""
   @gtk_toggle_action_get_draw_as_radio[Bool](widget)
 
 fun set_active(is_active_pony: Bool): None =>
+"""
+Sets the checked state on the toggle action.
+"""
   @gtk_toggle_action_set_active[None](widget, is_active_pony)
 
 fun set_draw_as_radio(draw_as_radio_pony: Bool): None =>
+"""
+Sets whether the action should have proxies like a radio action.
+"""
   @gtk_toggle_action_set_draw_as_radio[None](widget, draw_as_radio_pony)
 
 fun toggled(): None =>
+"""
+Emits the “toggled” signal on the toggle action.
+"""
   @gtk_toggle_action_toggled[None](widget)
 
 

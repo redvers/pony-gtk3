@@ -92,6 +92,12 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L32)</span>
 
 
+An HSV color selector can be said to be adjusting if multiple rapid
+changes are being made to its value, for example, when the user is
+adjusting the value with the mouse. This function queries whether
+the HSV color selector is being adjusted or not.
+
+
 ```pony
 fun box is_adjusting()
 : Bool val
@@ -104,7 +110,10 @@ fun box is_adjusting()
 ---
 
 ### set_metrics
-<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L41)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L47)</span>
+
+
+Sets the size and ring width of an HSV color selector.
 
 
 ```pony
@@ -140,7 +149,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -155,7 +164,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

@@ -132,6 +132,11 @@ class GtkIconTheme is GtkWidget
 */
 
 fun rescan_if_needed(): Bool =>
+"""
+Checks to see if the icon theme has changed; if it has, any
+currently cached information is discarded and will be reloaded
+next time @icon_theme is accessed.
+"""
   @gtk_icon_theme_rescan_if_needed[Bool](widget)
 
 /* set_custom_theme unavailable due to typing issues

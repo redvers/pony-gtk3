@@ -123,6 +123,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L36)</span>
 
 
+Fetches the precision of @spin_button. See gtk_spin_button_set_digits().
+
+
 ```pony
 fun box get_digits()
 : U32 val
@@ -135,7 +138,11 @@ fun box get_digits()
 ---
 
 ### get_numeric
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L44)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L47)</span>
+
+
+Returns whether non-numeric text can be typed into the spin button.
+See gtk_spin_button_set_numeric().
 
 
 ```pony
@@ -150,7 +157,11 @@ fun box get_numeric()
 ---
 
 ### get_snap_to_ticks
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L52)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L59)</span>
+
+
+Returns whether the values are corrected to the nearest step.
+See gtk_spin_button_set_snap_to_ticks().
 
 
 ```pony
@@ -165,7 +176,10 @@ fun box get_snap_to_ticks()
 ---
 
 ### get_value_as_int
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L69)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L80)</span>
+
+
+Get the value @spin_button represented as an integer.
 
 
 ```pony
@@ -180,7 +194,12 @@ fun box get_value_as_int()
 ---
 
 ### get_wrap
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L72)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L86)</span>
+
+
+Returns whether the spin button’s value wraps around to the
+opposite limit when the upper or lower limit of the range is
+exceeded. See gtk_spin_button_set_wrap().
 
 
 ```pony
@@ -195,7 +214,11 @@ fun box get_wrap()
 ---
 
 ### set_digits
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L79)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L98)</span>
+
+
+Set the precision to be displayed by @spin_button. Up to 20 digit precision
+is allowed.
 
 
 ```pony
@@ -214,7 +237,11 @@ fun box set_digits(
 ---
 
 ### set_numeric
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L87)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L110)</span>
+
+
+Sets the flag that determines if non-numeric text can be typed
+into the spin button.
 
 
 ```pony
@@ -233,7 +260,12 @@ fun box set_numeric(
 ---
 
 ### set_snap_to_ticks
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L95)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L122)</span>
+
+
+Sets the policy as to whether values are corrected to the
+nearest step increment when a spin button is activated after
+providing an invalid value.
 
 
 ```pony
@@ -252,7 +284,12 @@ fun box set_snap_to_ticks(
 ---
 
 ### set_wrap
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L106)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L138)</span>
+
+
+Sets the flag that determines if a spin button value wraps
+around to the opposite limit when the upper or lower limit
+of the range is exceeded.
 
 
 ```pony
@@ -271,7 +308,10 @@ fun box set_wrap(
 ---
 
 ### update
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L114)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L151)</span>
+
+
+Manually force an update of the spin button.
 
 
 ```pony
@@ -301,7 +341,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -316,7 +356,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

@@ -130,6 +130,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L27)</span>
 
 
+Queries a #GtkToggleButton and returns its current state. Returns %TRUE if
+the toggle button is pressed in and %FALSE if it is raised.
+
+
 ```pony
 fun box get_active()
 : Bool val
@@ -142,7 +146,10 @@ fun box get_active()
 ---
 
 ### get_inconsistent
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L34)</span>
+
+
+Gets the value set by gtk_toggle_button_set_inconsistent().
 
 
 ```pony
@@ -157,7 +164,11 @@ fun box get_inconsistent()
 ---
 
 ### get_mode
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L40)</span>
+
+
+Retrieves whether the button is displayed as a separate indicator
+and label. See gtk_toggle_button_set_mode().
 
 
 ```pony
@@ -172,7 +183,13 @@ fun box get_mode()
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L47)</span>
+
+
+Sets the status of the toggle button. Set to %TRUE if you want the
+GtkToggleButton to be “pressed in”, and %FALSE to raise it.
+This action causes the #GtkToggleButton::toggled signal and the
+#GtkButton::clicked signal to be emitted.
 
 
 ```pony
@@ -191,7 +208,17 @@ fun box set_active(
 ---
 
 ### set_inconsistent
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L56)</span>
+
+
+If the user has selected a range of elements (such as some text or
+spreadsheet cells) that are affected by a toggle button, and the
+current values in that range are inconsistent, you may want to
+display the toggle in an “in between” state. This function turns on
+“in between” display.  Normally you would turn off the inconsistent
+state again if the user toggles the toggle button. This has to be
+done manually, gtk_toggle_button_set_inconsistent() only affects
+visual appearance, it doesn’t affect the semantics of the button.
 
 
 ```pony
@@ -210,7 +237,19 @@ fun box set_inconsistent(
 ---
 
 ### set_mode
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L69)</span>
+
+
+Sets whether the button is displayed as a separate indicator and label.
+You can call this function on a checkbutton or a radiobutton with
+@draw_indicator = %FALSE to make the button look like a normal button.
+
+This can be used to create linked strip of buttons that work like
+a #GtkStackSwitcher.
+
+This function only affects instances of classes like #GtkCheckButton
+and #GtkRadioButton that derive from #GtkToggleButton,
+not instances of #GtkToggleButton itself.
 
 
 ```pony
@@ -229,7 +268,12 @@ fun box set_mode(
 ---
 
 ### toggled
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L45)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L84)</span>
+
+
+Emits the #GtkToggleButton::toggled signal on the
+#GtkToggleButton. There is no good reason for an
+application ever to call this function.
 
 
 ```pony
@@ -259,7 +303,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -274,7 +318,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

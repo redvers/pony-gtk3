@@ -20,23 +20,47 @@ class GtkAppChooserWidget is GtkWidget
 
 
 fun get_default_text(): String =>
+"""
+Returns the text that is shown if there are not applications
+that can handle the content type.
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_app_chooser_widget_get_default_text[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_show_all(): Bool =>
+"""
+Returns the current value of the #GtkAppChooserWidget:show-all
+property.
+"""
   @gtk_app_chooser_widget_get_show_all[Bool](widget)
 
 fun get_show_default(): Bool =>
+"""
+Returns the current value of the #GtkAppChooserWidget:show-default
+property.
+"""
   @gtk_app_chooser_widget_get_show_default[Bool](widget)
 
 fun get_show_fallback(): Bool =>
+"""
+Returns the current value of the #GtkAppChooserWidget:show-fallback
+property.
+"""
   @gtk_app_chooser_widget_get_show_fallback[Bool](widget)
 
 fun get_show_other(): Bool =>
+"""
+Returns the current value of the #GtkAppChooserWidget:show-other
+property.
+"""
   @gtk_app_chooser_widget_get_show_other[Bool](widget)
 
 fun get_show_recommended(): Bool =>
+"""
+Returns the current value of the #GtkAppChooserWidget:show-recommended
+property.
+"""
   @gtk_app_chooser_widget_get_show_recommended[Bool](widget)
 
 /* set_default_text unavailable due to typing issues
@@ -44,18 +68,38 @@ fun get_show_recommended(): Bool =>
 */
 
 fun set_show_all(setting_pony: Bool): None =>
+"""
+Sets whether the app chooser should show all applications
+in a flat list.
+"""
   @gtk_app_chooser_widget_set_show_all[None](widget, setting_pony)
 
 fun set_show_default(setting_pony: Bool): None =>
+"""
+Sets whether the app chooser should show the default handler
+for the content type in a separate section.
+"""
   @gtk_app_chooser_widget_set_show_default[None](widget, setting_pony)
 
 fun set_show_fallback(setting_pony: Bool): None =>
+"""
+Sets whether the app chooser should show related applications
+for the content type in a separate section.
+"""
   @gtk_app_chooser_widget_set_show_fallback[None](widget, setting_pony)
 
 fun set_show_other(setting_pony: Bool): None =>
+"""
+Sets whether the app chooser should show applications
+which are unrelated to the content type.
+"""
   @gtk_app_chooser_widget_set_show_other[None](widget, setting_pony)
 
 fun set_show_recommended(setting_pony: Bool): None =>
+"""
+Sets whether the app chooser should show recommended applications
+for the content type in a separate section.
+"""
   @gtk_app_chooser_widget_set_show_recommended[None](widget, setting_pony)
 
 

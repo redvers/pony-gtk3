@@ -92,6 +92,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L40)</span>
 
 
+Returns the comments string.
+
+
 ```pony
 fun box get_comments()
 : String val
@@ -104,7 +107,10 @@ fun box get_comments()
 ---
 
 ### get_copyright
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L45)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L48)</span>
+
+
+Returns the copyright string.
 
 
 ```pony
@@ -119,7 +125,10 @@ fun box get_copyright()
 ---
 
 ### get_license
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L57)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L63)</span>
+
+
+Returns the license information.
 
 
 ```pony
@@ -134,7 +143,10 @@ fun box get_license()
 ---
 
 ### get_logo_icon_name
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L76)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L85)</span>
+
+
+Returns the icon name displayed as logo in the about dialog.
 
 
 ```pony
@@ -149,7 +161,10 @@ fun box get_logo_icon_name()
 ---
 
 ### get_program_name
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L81)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L93)</span>
+
+
+Returns the program name displayed in the about dialog.
 
 
 ```pony
@@ -164,7 +179,11 @@ fun box get_program_name()
 ---
 
 ### get_translator_credits
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L86)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L101)</span>
+
+
+Returns the translator credits string which is displayed
+in the translators tab of the secondary credits dialog.
 
 
 ```pony
@@ -179,7 +198,10 @@ fun box get_translator_credits()
 ---
 
 ### get_version
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L91)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L110)</span>
+
+
+Returns the version string.
 
 
 ```pony
@@ -194,7 +216,10 @@ fun box get_version()
 ---
 
 ### get_website
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L96)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L118)</span>
+
+
+Returns the website URL.
 
 
 ```pony
@@ -209,7 +234,10 @@ fun box get_website()
 ---
 
 ### get_website_label
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L101)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L126)</span>
+
+
+Returns the label used for the website link.
 
 
 ```pony
@@ -224,7 +252,11 @@ fun box get_website_label()
 ---
 
 ### get_wrap_license
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L106)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L134)</span>
+
+
+Returns whether the license text in @about is
+automatically wrapped.
 
 
 ```pony
@@ -239,7 +271,11 @@ fun box get_wrap_license()
 ---
 
 ### set_wrap_license
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L165)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L197)</span>
+
+
+Sets whether the license text in @about is
+automatically wrapped.
 
 
 ```pony
@@ -273,7 +309,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -288,7 +324,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

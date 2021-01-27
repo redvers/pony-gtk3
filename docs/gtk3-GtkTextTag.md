@@ -96,6 +96,13 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L21)</span>
 
 
+Emits the #GtkTextTagTable::tag-changed signal on the #GtkTextTagTable where
+the tag is included.
+
+The signal is already emitted when setting a #GtkTextTag property. This
+function is useful for a #GtkTextTag subclass.
+
+
 ```pony
 fun box changed(
   size_changed_pony: Bool val)
@@ -112,7 +119,10 @@ fun box changed(
 ---
 
 ### get_priority
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L37)</span>
+
+
+Get the tag priority.
 
 
 ```pony
@@ -127,7 +137,20 @@ fun box get_priority()
 ---
 
 ### set_priority
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L43)</span>
+
+
+Sets the priority of a #GtkTextTag. Valid priorities
+start at 0 and go to one less than gtk_text_tag_table_get_size().
+Each tag in a table has a unique priority; setting the priority
+of one tag shifts the priorities of all the other tags in the
+table to maintain a unique priority for each tag. Higher priority
+tags “win” if two tags both set the same text attribute. When adding
+a tag to a tag table, it will be assigned the highest priority in
+the table by default; so normally the precedence of a set of tags
+is the order in which they were added to the table, or created with
+gtk_text_buffer_create_tag(), which adds the tag to the buffer’s table
+automatically.
 
 
 ```pony
@@ -161,7 +184,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -176,7 +199,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

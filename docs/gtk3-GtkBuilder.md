@@ -151,6 +151,14 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkBuilder.md#L30)</span>
 
 
+Adds the @callback_symbol to the scope of @builder under the given @callback_name.
+
+Using this function overrides the behavior of gtk_builder_connect_signals()
+for any callback symbols that are added. Using this method allows for better
+encapsulation as it does not require that callback symbols be declared in
+the global namespace.
+
+
 ```pony
 fun box add_callback_symbol(
   callback_name: String val,
@@ -169,7 +177,30 @@ fun box add_callback_symbol(
 ---
 
 ### connect_signals
-<span class="source-link">[[Source]](src/gtk3/GtkBuilder.md#L68)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkBuilder.md#L76)</span>
+
+
+This method is a simpler variation of gtk_builder_connect_signals_full().
+It uses symbols explicitly added to @builder with prior calls to
+gtk_builder_add_callback_symbol(). In the case that symbols are not
+explicitly added; it uses #GModule’s introspective features (by opening the module %NULL)
+to look at the application’s symbol table. From here it tries to match
+the signal handler names given in the interface description with
+symbols in the application and connects the signals. Note that this
+function can only be called once, subsequent calls will do nothing.
+
+Note that unless gtk_builder_add_callback_symbol() is called for
+all signal callbacks which are referenced by the loaded XML, this
+function will require that #GModule be supported on the platform.
+
+If you rely on #GModule support to lookup callbacks in the symbol table,
+the following details should be noted:
+
+When compiling applications for Windows, you must declare signal callbacks
+with #G_MODULE_EXPORT, or they will not be put in the symbol table.
+On Linux and Unices, this is not necessary; applications should instead
+be compiled with the -Wl,--export-dynamic CFLAGS, and linked against
+gmodule-export-2.0.
 
 
 ```pony
@@ -184,7 +215,10 @@ fun box connect_signals()
 ---
 
 ### get_translation_domain
-<span class="source-link">[[Source]](src/gtk3/GtkBuilder.md#L109)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkBuilder.md#L140)</span>
+
+
+Gets the translation domain of @builder.
 
 
 ```pony
@@ -214,7 +248,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -229,7 +263,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

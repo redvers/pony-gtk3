@@ -92,6 +92,11 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkIconTheme.md#L133)</span>
 
 
+Checks to see if the icon theme has changed; if it has, any
+currently cached information is discarded and will be reloaded
+next time @icon_theme is accessed.
+
+
 ```pony
 fun box rescan_if_needed()
 : Bool val
@@ -119,7 +124,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -134,7 +139,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

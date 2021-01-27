@@ -92,6 +92,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L21)</span>
 
 
+Returns whether the cell renderer is activatable. See
+gtk_cell_renderer_toggle_set_activatable().
+
+
 ```pony
 fun box get_activatable()
 : Bool val
@@ -104,7 +108,11 @@ fun box get_activatable()
 ---
 
 ### get_active
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L28)</span>
+
+
+Returns whether the cell renderer is active. See
+gtk_cell_renderer_toggle_set_active().
 
 
 ```pony
@@ -119,7 +127,10 @@ fun box get_active()
 ---
 
 ### get_radio
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L35)</span>
+
+
+Returns whether we’re rendering radio toggles rather than checkboxes.
 
 
 ```pony
@@ -134,7 +145,10 @@ fun box get_radio()
 ---
 
 ### set_activatable
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L41)</span>
+
+
+Makes the cell renderer activatable.
 
 
 ```pony
@@ -153,7 +167,10 @@ fun box set_activatable(
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L47)</span>
+
+
+Activates or deactivates a cell renderer.
 
 
 ```pony
@@ -172,7 +189,16 @@ fun box set_active(
 ---
 
 ### set_radio
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L53)</span>
+
+
+If @radio is %TRUE, the cell renderer renders a radio toggle
+(i.e. a toggle in a group of mutually-exclusive toggles).
+If %FALSE, it renders a check toggle (a standalone boolean option).
+This can be set globally for the cell renderer, or changed just
+before rendering each cell in the model (for #GtkTreeView, you set
+up a per-row setting using #GtkTreeViewColumn to associate model
+columns with cell renderer properties).
 
 
 ```pony
@@ -206,7 +232,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -221,7 +247,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

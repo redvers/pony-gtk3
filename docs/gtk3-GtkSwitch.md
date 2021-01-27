@@ -92,6 +92,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L21)</span>
 
 
+Gets whether the #GtkSwitch is in its “on” or “off” state.
+
+
 ```pony
 fun box get_active()
 : Bool val
@@ -104,7 +107,10 @@ fun box get_active()
 ---
 
 ### get_state
-<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L27)</span>
+
+
+Gets the underlying state of the #GtkSwitch.
 
 
 ```pony
@@ -119,7 +125,10 @@ fun box get_state()
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L33)</span>
+
+
+Changes the state of @sw to the desired one.
 
 
 ```pony
@@ -138,7 +147,16 @@ fun box set_active(
 ---
 
 ### set_state
-<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L39)</span>
+
+
+Sets the underlying state of the #GtkSwitch.
+
+Normally, this is the same as #GtkSwitch:active, unless the switch
+is set up for delayed state changes. This function is typically
+called from a #GtkSwitch::state-set signal handler.
+
+See #GtkSwitch::state-set for details.
 
 
 ```pony
@@ -172,7 +190,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -187,7 +205,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

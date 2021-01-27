@@ -20,6 +20,12 @@ class GtkFrame is GtkWidget
 
 
 fun get_label(): String =>
+"""
+If the frame’s label widget is a #GtkLabel, returns the
+text in the label widget. (The frame will have a #GtkLabel
+for the label widget if a non-%NULL argument was passed
+to gtk_frame_new().)
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_frame_get_label[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony

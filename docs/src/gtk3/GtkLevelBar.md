@@ -28,6 +28,9 @@ class GtkLevelBar is GtkWidget
 */
 
 fun get_inverted(): Bool =>
+"""
+Return the value of the #GtkLevelBar:inverted property.
+"""
   @gtk_level_bar_get_inverted[Bool](widget)
 
 /* get_max_value unavailable due to return typing issues
@@ -68,6 +71,9 @@ fun get_inverted(): Bool =>
 */
 
 fun set_inverted(inverted_pony: Bool): None =>
+"""
+Sets the value of the #GtkLevelBar:inverted property.
+"""
   @gtk_level_bar_set_inverted[None](widget, inverted_pony)
 
 /* set_max_value unavailable due to typing issues

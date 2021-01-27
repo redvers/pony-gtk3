@@ -77,6 +77,20 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L19)</span>
 
 
+Allocates a width and/or a height for all rows which are to be
+rendered with @context.
+
+Usually allocation is performed only horizontally or sometimes
+vertically since a group of rows are usually rendered side by
+side vertically or horizontally and share either the same width
+or the same height. Sometimes they are allocated in both horizontal
+and vertical orientations producing a homogeneous effect of the
+rows. This is generally the case for #GtkTreeView when
+#GtkTreeView:fixed-height-mode is enabled.
+
+Since 3.0
+
+
 ```pony
 fun box allocate(
   width_pony: I32 val,
@@ -95,7 +109,16 @@ fun box allocate(
 ---
 
 ### push_preferred_height
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L68)</span>
+
+
+Causes the minimum and/or natural height to grow if the new
+proposed sizes exceed the current minimum and natural height.
+
+This is used by #GtkCellAreaContext implementations during
+the request process over a series of #GtkTreeModel rows to
+progressively push the requested height over a series of
+gtk_cell_area_get_preferred_height() requests.
 
 
 ```pony
@@ -116,7 +139,16 @@ fun box push_preferred_height(
 ---
 
 ### push_preferred_width
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L57)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L80)</span>
+
+
+Causes the minimum and/or natural width to grow if the new
+proposed sizes exceed the current minimum and natural width.
+
+This is used by #GtkCellAreaContext implementations during
+the request process over a series of #GtkTreeModel rows to
+progressively push the requested width over a series of
+gtk_cell_area_get_preferred_width() requests.
 
 
 ```pony
@@ -137,7 +169,33 @@ fun box push_preferred_width(
 ---
 
 ### reset
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L60)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L92)</span>
+
+
+Resets any previously cached request and allocation
+data.
+
+When underlying #GtkTreeModel data changes its
+important to reset the context if the content
+size is allowed to shrink. If the content size
+is only allowed to grow (this is usually an option
+for views rendering large data stores as a measure
+of optimization), then only the row that changed
+or was inserted needs to be (re)requested with
+gtk_cell_area_get_preferred_width().
+
+When the new overall size of the context requires
+that the allocated size changes (or whenever this
+allocation changes at all), the variable row
+sizes need to be re-requested for every row.
+
+For instance, if the rows are displayed all with
+the same width from top to bottom then a change
+in the allocated width necessitates a recalculation
+of all the displayed row heights using
+gtk_cell_area_get_preferred_height_for_width().
+
+Since 3.0
 
 
 ```pony
@@ -167,7 +225,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -182,7 +240,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

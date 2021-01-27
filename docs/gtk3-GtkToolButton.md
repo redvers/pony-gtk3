@@ -117,6 +117,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L24)</span>
 
 
+Returns the name of the themed icon for the tool button,
+see gtk_tool_button_set_icon_name().
+
+
 ```pony
 fun box get_icon_name()
 : String val
@@ -129,7 +133,12 @@ fun box get_icon_name()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L40)</span>
+
+
+Returns the label used by the tool button, or %NULL if the tool button
+doesn’t have a label. or uses a the label from a stock item. The returned
+string is owned by GTK+, and must not be modified or freed.
 
 
 ```pony
@@ -144,7 +153,11 @@ fun box get_label()
 ---
 
 ### get_stock_id
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L48)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L57)</span>
+
+
+Returns the name of the stock item. See gtk_tool_button_set_stock_id().
+The returned string is owned by GTK+ and must not be freed or modifed.
 
 
 ```pony
@@ -159,7 +172,11 @@ fun box get_stock_id()
 ---
 
 ### get_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L53)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L66)</span>
+
+
+Returns whether underscores in the label property are used as mnemonics
+on menu items on the overflow menu. See gtk_tool_button_set_use_underline().
 
 
 ```pony
@@ -174,7 +191,17 @@ fun box get_use_underline()
 ---
 
 ### set_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L76)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L93)</span>
+
+
+If set, an underline in the label property indicates that the next character
+should be used for the mnemonic accelerator key in the overflow menu. For
+example, if the label property is “_Open” and @use_underline is %TRUE,
+the label on the tool button will be “Open” and the item on the overflow
+menu will have an underlined “O”.
+
+Labels shown on tool buttons never have mnemonics on them; this property
+only affects the menu item on the overflow menu.
 
 
 ```pony
@@ -208,7 +235,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -223,7 +250,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

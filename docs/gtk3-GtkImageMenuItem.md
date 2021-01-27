@@ -151,6 +151,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L30)</span>
 
 
+Returns whether the menu item will ignore the #GtkSettings:gtk-menu-images
+setting and always show the image, if available.
+
+
 ```pony
 fun box get_always_show_image()
 : Bool val
@@ -163,7 +167,11 @@ fun box get_always_show_image()
 ---
 
 ### get_use_stock
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L44)</span>
+
+
+Checks whether the label set in the menuitem is used as a
+stock id to select the stock item for the item.
 
 
 ```pony
@@ -178,7 +186,14 @@ fun box get_use_stock()
 ---
 
 ### set_always_show_image
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L47)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L55)</span>
+
+
+If %TRUE, the menu item will ignore the #GtkSettings:gtk-menu-images
+setting and always show the image, if available.
+
+Use this property if the menuitem would be useless or hard to use
+without the image.
 
 
 ```pony
@@ -197,7 +212,11 @@ fun box set_always_show_image(
 ---
 
 ### set_use_stock
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L69)</span>
+
+
+If %TRUE, the label set in the menuitem is used as a
+stock id to select the stock item for the item.
 
 
 ```pony
@@ -231,7 +250,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -246,7 +265,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

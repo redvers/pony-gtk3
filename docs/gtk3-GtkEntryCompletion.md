@@ -111,6 +111,11 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L24)</span>
 
 
+Requests a completion operation, or in other words a refiltering of the
+current list with completions, using the current key. The completion list
+view will be updated accordingly.
+
+
 ```pony
 fun box complete()
 : None val
@@ -123,7 +128,13 @@ fun box complete()
 ---
 
 ### delete_action
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L39)</span>
+
+
+Deletes the action at @index_ from @completion’s action list.
+
+Note that @index_ is a relative position and the position of an
+action may have changed since it was inserted.
 
 
 ```pony
@@ -142,7 +153,11 @@ fun box delete_action(
 ---
 
 ### get_completion_prefix
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L37)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L48)</span>
+
+
+Get the original text entered by the user that triggered
+the completion or %NULL if there’s no completion ongoing.
 
 
 ```pony
@@ -157,7 +172,11 @@ fun box get_completion_prefix()
 ---
 
 ### get_inline_completion
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L49)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L64)</span>
+
+
+Returns whether the common prefix of the possible completions should
+be automatically inserted in the entry.
 
 
 ```pony
@@ -172,7 +191,10 @@ fun box get_inline_completion()
 ---
 
 ### get_inline_selection
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L52)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L71)</span>
+
+
+Returns %TRUE if inline-selection mode is turned on.
 
 
 ```pony
@@ -187,7 +209,10 @@ fun box get_inline_selection()
 ---
 
 ### get_minimum_key_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L55)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L77)</span>
+
+
+Returns the minimum key length as set for @completion.
 
 
 ```pony
@@ -202,7 +227,10 @@ fun box get_minimum_key_length()
 ---
 
 ### get_popup_completion
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L65)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L90)</span>
+
+
+Returns whether the completions should be presented in a popup window.
 
 
 ```pony
@@ -217,7 +245,11 @@ fun box get_popup_completion()
 ---
 
 ### get_popup_set_width
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L68)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L96)</span>
+
+
+Returns whether the  completion popup window will be resized to the
+width of the entry.
 
 
 ```pony
@@ -232,7 +264,11 @@ fun box get_popup_set_width()
 ---
 
 ### get_popup_single_match
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L71)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L103)</span>
+
+
+Returns whether the completion popup window will appear even if there is
+only a single match.
 
 
 ```pony
@@ -247,7 +283,10 @@ fun box get_popup_single_match()
 ---
 
 ### get_text_column
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L74)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L110)</span>
+
+
+Returns the column in the model of @completion to get strings from.
 
 
 ```pony
@@ -262,7 +301,10 @@ fun box get_text_column()
 ---
 
 ### insert_prefix
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L85)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L124)</span>
+
+
+Requests a prefix insertion.
 
 
 ```pony
@@ -277,7 +319,11 @@ fun box insert_prefix()
 ---
 
 ### set_inline_completion
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L88)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L130)</span>
+
+
+Sets whether the common prefix of the possible completions should
+be automatically inserted in the entry.
 
 
 ```pony
@@ -296,7 +342,11 @@ fun box set_inline_completion(
 ---
 
 ### set_inline_selection
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L91)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L137)</span>
+
+
+Sets whether it is possible to cycle through the possible completions
+inside the entry.
 
 
 ```pony
@@ -315,7 +365,13 @@ fun box set_inline_selection(
 ---
 
 ### set_minimum_key_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L100)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L150)</span>
+
+
+Requires the length of the search key for @completion to be at least
+@length. This is useful for long lists, where completing using a small
+key takes a lot of time and will come up with meaningless results anyway
+(ie, a too large dataset).
 
 
 ```pony
@@ -334,7 +390,10 @@ fun box set_minimum_key_length(
 ---
 
 ### set_popup_completion
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L107)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L163)</span>
+
+
+Sets whether the completions should be presented in a popup window.
 
 
 ```pony
@@ -353,7 +412,11 @@ fun box set_popup_completion(
 ---
 
 ### set_popup_set_width
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L110)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L169)</span>
+
+
+Sets whether the completion popup window will be resized to be the same
+width as the entry.
 
 
 ```pony
@@ -372,7 +435,12 @@ fun box set_popup_set_width(
 ---
 
 ### set_popup_single_match
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L113)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L176)</span>
+
+
+Sets whether the completion popup window will appear even if there is
+only a single match. You may want to set this to %FALSE if you
+are using [inline completion][GtkEntryCompletion--inline-completion].
 
 
 ```pony
@@ -391,7 +459,18 @@ fun box set_popup_single_match(
 ---
 
 ### set_text_column
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L116)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L184)</span>
+
+
+Convenience function for setting up the most used case of this code: a
+completion list with just strings. This function will set up @completion
+to have a list displaying all (and just) strings in the completion list,
+and to get those strings from @column in the model of @completion.
+
+This functions creates and adds a #GtkCellRendererText for the selected
+column. If you need to set the text column, but don't want the cell
+renderer, use g_object_set() to set the #GtkEntryCompletion:text-column
+property directly.
 
 
 ```pony
@@ -425,7 +504,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -440,7 +519,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

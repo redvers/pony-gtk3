@@ -92,6 +92,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkToolPalette.md#L113)</span>
 
 
+Unsets the tool palette icon size set with gtk_tool_palette_set_icon_size(),
+so that user preferences will be used to determine the icon size.
+
+
 ```pony
 fun box unset_icon_size()
 : None val
@@ -104,7 +108,11 @@ fun box unset_icon_size()
 ---
 
 ### unset_style
-<span class="source-link">[[Source]](src/gtk3/GtkToolPalette.md#L116)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolPalette.md#L120)</span>
+
+
+Unsets a toolbar style set with gtk_tool_palette_set_style(),
+so that user preferences will be used to determine the toolbar style.
 
 
 ```pony
@@ -134,7 +142,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -149,7 +157,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

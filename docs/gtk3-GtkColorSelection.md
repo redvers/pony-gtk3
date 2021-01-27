@@ -92,6 +92,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L36)</span>
 
 
+Determines whether the colorsel has an opacity control.
+
+
 ```pony
 fun box get_has_opacity_control()
 : Bool val
@@ -104,7 +107,10 @@ fun box get_has_opacity_control()
 ---
 
 ### get_has_palette
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L42)</span>
+
+
+Determines whether the color selector has a color palette.
 
 
 ```pony
@@ -119,7 +125,10 @@ fun box get_has_palette()
 ---
 
 ### is_adjusting
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L57)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L63)</span>
+
+
+Gets the current state of the @colorsel.
 
 
 ```pony
@@ -134,7 +143,10 @@ fun box is_adjusting()
 ---
 
 ### set_has_opacity_control
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L72)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L81)</span>
+
+
+Sets the @colorsel to use or not use opacity.
 
 
 ```pony
@@ -153,7 +165,10 @@ fun box set_has_opacity_control(
 ---
 
 ### set_has_palette
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L75)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L87)</span>
+
+
+Shows and hides the palette based upon the value of @has_palette.
 
 
 ```pony
@@ -187,7 +202,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -202,7 +217,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

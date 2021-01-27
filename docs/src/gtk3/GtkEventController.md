@@ -36,6 +36,11 @@ class GtkEventController is GtkWidget
 */
 
 fun reset(): None =>
+"""
+Resets the @controller to a clean state. Every interaction
+the controller did through #GtkEventController::handle-event
+will be dropped at this point.
+"""
   @gtk_event_controller_reset[None](widget)
 
 /* set_propagation_phase unavailable due to typing issues

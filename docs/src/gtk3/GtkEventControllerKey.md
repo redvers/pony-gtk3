@@ -24,6 +24,9 @@ class GtkEventControllerKey is GtkWidget
 */
 
 fun get_group(): U32 =>
+"""
+No provided documentation
+"""
   @gtk_event_controller_key_get_group[U32](widget)
 
 /* get_im_context unavailable due to return typing issues

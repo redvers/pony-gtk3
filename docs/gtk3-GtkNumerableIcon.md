@@ -77,6 +77,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L26)</span>
 
 
+Returns the icon name used as the base background image,
+or %NULL if there’s none.
+
+
 ```pony
 fun box get_background_icon_name()
 : String val
@@ -89,7 +93,10 @@ fun box get_background_icon_name()
 ---
 
 ### get_count
-<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L35)</span>
+
+
+Returns the value currently displayed by @self.
 
 
 ```pony
@@ -104,7 +111,10 @@ fun box get_count()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L41)</span>
+
+
+Returns the currently displayed label of the icon, or %NULL.
 
 
 ```pony
@@ -119,7 +129,17 @@ fun box get_label()
 ---
 
 ### set_count
-<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L64)</span>
+
+
+Sets the currently displayed value of @self to @count.
+
+The numeric value is always clamped to make it two digits, i.e.
+between -99 and 99. Setting a count of zero removes the emblem.
+If this method is called, and a label was already set on the icon,
+it will automatically be reset to %NULL before rendering the number,
+i.e. the last method called between gtk_numerable_icon_set_count()
+and gtk_numerable_icon_set_label() has always priority.
 
 
 ```pony
@@ -153,7 +173,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -168,7 +188,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

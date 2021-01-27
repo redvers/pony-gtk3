@@ -130,6 +130,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L27)</span>
 
 
+Emits the #GtkMenuItem::activate signal on the given item
+
+
 ```pony
 fun box activate()
 : None val
@@ -142,7 +145,10 @@ fun box activate()
 ---
 
 ### deselect
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L33)</span>
+
+
+Emits the #GtkMenuItem::deselect signal on the given item.
 
 
 ```pony
@@ -157,7 +163,12 @@ fun box deselect()
 ---
 
 ### get_accel_path
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L39)</span>
+
+
+Retrieve the accelerator path that was previously set on @menu_item.
+
+See gtk_menu_item_set_accel_path() for details.
 
 
 ```pony
@@ -172,7 +183,10 @@ fun box get_accel_path()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L49)</span>
+
+
+Sets @text on the @menu_item label
 
 
 ```pony
@@ -187,7 +201,12 @@ fun box get_label()
 ---
 
 ### get_reserve_indicator
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L43)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L57)</span>
+
+
+Returns whether the @menu_item reserves space for
+the submenu indicator, regardless if it has a submenu
+or not.
 
 
 ```pony
@@ -202,7 +221,11 @@ fun box get_reserve_indicator()
 ---
 
 ### get_right_justified
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L46)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L65)</span>
+
+
+Gets whether the menu item appears justified at the right
+side of the menu bar.
 
 
 ```pony
@@ -217,7 +240,11 @@ fun box get_right_justified()
 ---
 
 ### get_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L56)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L79)</span>
+
+
+Checks if an underline in the text indicates the next character
+should be used for the mnemonic accelerator key.
 
 
 ```pony
@@ -232,7 +259,10 @@ fun box get_use_underline()
 ---
 
 ### select
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L59)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L86)</span>
+
+
+Emits the #GtkMenuItem::select signal on the given item.
 
 
 ```pony
@@ -247,7 +277,15 @@ fun box select()
 ---
 
 ### set_reserve_indicator
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L70)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L100)</span>
+
+
+Sets whether the @menu_item should reserve space for
+the submenu indicator, regardless if it actually has
+a submenu or not.
+
+There should be little need for applications to call
+this functions.
 
 
 ```pony
@@ -266,7 +304,14 @@ fun box set_reserve_indicator(
 ---
 
 ### set_right_justified
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L73)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L111)</span>
+
+
+Sets whether the menu item appears justified at the right
+side of a menu bar. This was traditionally done for “Help”
+menu items, but is now considered a bad idea. (If the widget
+layout is reversed for a right-to-left language like Hebrew
+or Arabic, right-justified-menu-items appear at the left.)
 
 
 ```pony
@@ -285,7 +330,11 @@ fun box set_right_justified(
 ---
 
 ### set_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L80)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L125)</span>
+
+
+If true, an underline in the text indicates the next character
+should be used for the mnemonic accelerator key.
 
 
 ```pony
@@ -304,7 +353,10 @@ fun box set_use_underline(
 ---
 
 ### toggle_size_allocate
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L83)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L132)</span>
+
+
+Emits the #GtkMenuItem::toggle-size-allocate signal on the given item.
 
 
 ```pony
@@ -338,7 +390,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -353,7 +405,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

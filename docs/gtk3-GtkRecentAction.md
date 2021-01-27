@@ -129,6 +129,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L24)</span>
 
 
+Returns the value set by gtk_recent_chooser_menu_set_show_numbers().
+
+
 ```pony
 fun box get_show_numbers()
 : Bool val
@@ -141,7 +144,13 @@ fun box get_show_numbers()
 ---
 
 ### set_show_numbers
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L30)</span>
+
+
+Sets whether a number should be added to the items shown by the
+widgets representing @action. The numbers are shown to provide
+a unique character for a mnemonic to be used inside the menu item's
+label. Only the first ten items get a number to avoid clashes.
 
 
 ```pony
@@ -175,7 +184,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -190,7 +199,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

@@ -92,6 +92,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L43)</span>
 
 
+Returns the page number of the current page.
+
+
 ```pony
 fun box get_current_page()
 : I32 val
@@ -104,7 +107,10 @@ fun box get_current_page()
 ---
 
 ### get_group_name
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L46)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L49)</span>
+
+
+Gets the current group name for @notebook.
 
 
 ```pony
@@ -119,7 +125,10 @@ fun box get_group_name()
 ---
 
 ### get_n_pages
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L62)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L68)</span>
+
+
+Gets the number of pages in a notebook.
 
 
 ```pony
@@ -134,7 +143,11 @@ fun box get_n_pages()
 ---
 
 ### get_scrollable
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L72)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L81)</span>
+
+
+Returns whether the tab label area has arrows for scrolling.
+See gtk_notebook_set_scrollable().
 
 
 ```pony
@@ -149,7 +162,11 @@ fun box get_scrollable()
 ---
 
 ### get_show_border
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L75)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L88)</span>
+
+
+Returns whether a bevel will be drawn around the notebook pages.
+See gtk_notebook_set_show_border().
 
 
 ```pony
@@ -164,7 +181,11 @@ fun box get_show_border()
 ---
 
 ### get_show_tabs
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L78)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L95)</span>
+
+
+Returns whether the tabs of the notebook are shown.
+See gtk_notebook_set_show_tabs().
 
 
 ```pony
@@ -179,7 +200,11 @@ fun box get_show_tabs()
 ---
 
 ### next_page
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L132)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L153)</span>
+
+
+Switches to the next page. Nothing happens if the current page is
+the last page.
 
 
 ```pony
@@ -194,7 +219,10 @@ fun box next_page()
 ---
 
 ### popup_disable
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L139)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L164)</span>
+
+
+Disables the popup menu.
 
 
 ```pony
@@ -209,7 +237,12 @@ fun box popup_disable()
 ---
 
 ### popup_enable
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L142)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L170)</span>
+
+
+Enables the popup menu: if the user clicks with the right
+mouse button on the tab labels, a menu with all the pages
+will be popped up.
 
 
 ```pony
@@ -224,7 +257,11 @@ fun box popup_enable()
 ---
 
 ### prev_page
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L156)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L189)</span>
+
+
+Switches to the previous page. Nothing happens if the current page
+is the first page.
 
 
 ```pony
@@ -239,7 +276,11 @@ fun box prev_page()
 ---
 
 ### remove_page
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L159)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L196)</span>
+
+
+Removes a page from the notebook given its index
+in the notebook.
 
 
 ```pony
@@ -258,7 +299,15 @@ fun box remove_page(
 ---
 
 ### set_current_page
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L171)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L212)</span>
+
+
+Switches to the page number @page_num.
+
+Note that due to historical reasons, GtkNotebook refuses
+to switch to a page unless the child widget is visible.
+Therefore, it is recommended to show child widgets before
+adding them to a notebook.
 
 
 ```pony
@@ -277,7 +326,11 @@ fun box set_current_page(
 ---
 
 ### set_scrollable
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L188)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L237)</span>
+
+
+Sets whether the tab label area will have arrows for
+scrolling if there are too many tabs to fit in the area.
 
 
 ```pony
@@ -296,7 +349,12 @@ fun box set_scrollable(
 ---
 
 ### set_show_border
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L191)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L244)</span>
+
+
+Sets whether a bevel will be drawn around the notebook pages.
+This only has a visual effect when the tabs are not shown.
+See gtk_notebook_set_show_tabs().
 
 
 ```pony
@@ -315,7 +373,10 @@ fun box set_show_border(
 ---
 
 ### set_show_tabs
-<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L194)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebook.md#L252)</span>
+
+
+Sets whether to show the tabs for the notebook or not.
 
 
 ```pony
@@ -349,7 +410,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -364,7 +425,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

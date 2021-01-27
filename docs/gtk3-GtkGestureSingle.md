@@ -77,6 +77,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L19)</span>
 
 
+Returns the button number @gesture listens for, or 0 if @gesture
+reacts to any button press.
+
+
 ```pony
 fun box get_button()
 : U32 val
@@ -89,7 +93,11 @@ fun box get_button()
 ---
 
 ### get_current_button
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L22)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L26)</span>
+
+
+Returns the button number currently interacting with @gesture, or 0 if there
+is none.
 
 
 ```pony
@@ -104,7 +112,11 @@ fun box get_current_button()
 ---
 
 ### get_exclusive
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L32)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L40)</span>
+
+
+Gets whether a gesture is exclusive. For more information, see
+gtk_gesture_single_set_exclusive().
 
 
 ```pony
@@ -119,7 +131,10 @@ fun box get_exclusive()
 ---
 
 ### get_touch_only
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L47)</span>
+
+
+Returns %TRUE if the gesture is only triggered by touch events.
 
 
 ```pony
@@ -134,7 +149,12 @@ fun box get_touch_only()
 ---
 
 ### set_button
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L53)</span>
+
+
+Sets the button number @gesture listens to. If non-0, every
+button press from a different button number will be ignored.
+Touch events implicitly match with button 1.
 
 
 ```pony
@@ -153,7 +173,13 @@ fun box set_button(
 ---
 
 ### set_exclusive
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L41)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L61)</span>
+
+
+Sets whether @gesture is exclusive. An exclusive gesture will
+only handle pointer and "pointer emulated" touch events, so at
+any given time, there is only one sequence able to interact with
+those.
 
 
 ```pony
@@ -172,7 +198,12 @@ fun box set_exclusive(
 ---
 
 ### set_touch_only
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L44)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L70)</span>
+
+
+If @touch_only is %TRUE, @gesture will only handle events of type
+#GDK_TOUCH_BEGIN, #GDK_TOUCH_UPDATE or #GDK_TOUCH_END. If %FALSE,
+mouse events will be handled too.
 
 
 ```pony
@@ -206,7 +237,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -221,7 +252,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

@@ -77,6 +77,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkTreeSelection.md#L19)</span>
 
 
+Returns the number of rows that have been selected in @tree.
+
+
 ```pony
 fun box count_selected_rows()
 : I32 val
@@ -89,7 +92,11 @@ fun box count_selected_rows()
 ---
 
 ### select_all
-<span class="source-link">[[Source]](src/gtk3/GtkTreeSelection.md#L70)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTreeSelection.md#L73)</span>
+
+
+Selects all the nodes. @selection must be set to #GTK_SELECTION_MULTIPLE
+mode.
 
 
 ```pony
@@ -104,7 +111,10 @@ fun box select_all()
 ---
 
 ### unselect_all
-<span class="source-link">[[Source]](src/gtk3/GtkTreeSelection.md#L101)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTreeSelection.md#L108)</span>
+
+
+Unselects all the nodes.
 
 
 ```pony
@@ -134,7 +144,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -149,7 +159,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

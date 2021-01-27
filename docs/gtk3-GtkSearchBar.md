@@ -92,6 +92,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L25)</span>
 
 
+Returns whether the search mode is on or off.
+
+
 ```pony
 fun box get_search_mode()
 : Bool val
@@ -104,7 +107,10 @@ fun box get_search_mode()
 ---
 
 ### get_show_close_button
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L28)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L31)</span>
+
+
+Returns whether the close button is shown.
 
 
 ```pony
@@ -119,7 +125,10 @@ fun box get_show_close_button()
 ---
 
 ### set_search_mode
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L41)</span>
+
+
+Switches the search mode on or off.
 
 
 ```pony
@@ -138,7 +147,13 @@ fun box set_search_mode(
 ---
 
 ### set_show_close_button
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L47)</span>
+
+
+Shows or hides the close button. Applications that
+already have a “search” toggle button should not show a close
+button in their search bar, as it duplicates the role of the
+toggle button.
 
 
 ```pony
@@ -172,7 +187,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -187,7 +202,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

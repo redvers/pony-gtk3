@@ -92,6 +92,15 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L21)</span>
 
 
+Ensures that the @area framebuffer object is made the current draw
+and read target, and that all the required buffers for the @area
+are created and bound to the frambuffer.
+
+This function is automatically called before emitting the
+#GtkGLArea::render signal, and doesn't normally need to be called
+by application code.
+
+
 ```pony
 fun box attach_buffers()
 : None val
@@ -104,7 +113,10 @@ fun box attach_buffers()
 ---
 
 ### get_auto_render
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L33)</span>
+
+
+Returns whether the area is in auto render mode or not.
 
 
 ```pony
@@ -119,7 +131,10 @@ fun box get_auto_render()
 ---
 
 ### get_has_alpha
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L41)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L53)</span>
+
+
+Returns whether the area has an alpha component.
 
 
 ```pony
@@ -134,7 +149,10 @@ fun box get_has_alpha()
 ---
 
 ### get_has_depth_buffer
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L44)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L59)</span>
+
+
+Returns whether the area has a depth buffer.
 
 
 ```pony
@@ -149,7 +167,10 @@ fun box get_has_depth_buffer()
 ---
 
 ### get_has_stencil_buffer
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L47)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L65)</span>
+
+
+Returns whether the area has a stencil buffer.
 
 
 ```pony
@@ -164,7 +185,10 @@ fun box get_has_stencil_buffer()
 ---
 
 ### get_use_es
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L55)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L76)</span>
+
+
+Retrieves the value set by gtk_gl_area_set_use_es().
 
 
 ```pony
@@ -179,7 +203,15 @@ fun box get_use_es()
 ---
 
 ### make_current
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L58)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L82)</span>
+
+
+Ensures that the #GdkGLContext used by @area is associated with
+the #GtkGLArea.
+
+This function is automatically called before emitting the
+#GtkGLArea::render signal, and doesn't normally need to be called
+by application code.
 
 
 ```pony
@@ -194,7 +226,16 @@ fun box make_current()
 ---
 
 ### queue_render
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L93)</span>
+
+
+Marks the currently rendered data (if any) as invalid, and queues
+a redraw of the widget, ensuring that the #GtkGLArea::render signal
+is emitted during the draw.
+
+This is only needed when the gtk_gl_area_set_auto_render() has
+been called with a %FALSE value. The default behaviour is to
+emit #GtkGLArea::render on each draw.
 
 
 ```pony
@@ -209,7 +250,18 @@ fun box queue_render()
 ---
 
 ### set_auto_render
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L105)</span>
+
+
+If @auto_render is %TRUE the #GtkGLArea::render signal will be
+emitted every time the widget draws. This is the default and is
+useful if drawing the widget is faster.
+
+If @auto_render is %FALSE the data from previous rendering is kept
+around and will be used for drawing the widget the next time,
+unless the window is resized. In order to force a rendering
+gtk_gl_area_queue_render() must be called. This mode is useful when
+the scene changes seldomly, but takes a long time to redraw.
 
 
 ```pony
@@ -228,7 +280,15 @@ fun box set_auto_render(
 ---
 
 ### set_has_alpha
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L71)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L123)</span>
+
+
+If @has_alpha is %TRUE the buffer allocated by the widget will have
+an alpha channel component, and when rendering to the window the
+result will be composited over whatever is below the widget.
+
+If @has_alpha is %FALSE there will be no alpha channel, and the
+buffer will fully replace anything below the widget.
 
 
 ```pony
@@ -247,7 +307,12 @@ fun box set_has_alpha(
 ---
 
 ### set_has_depth_buffer
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L74)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L134)</span>
+
+
+If @has_depth_buffer is %TRUE the widget will allocate and
+enable a depth buffer for the target framebuffer. Otherwise
+there will be none.
 
 
 ```pony
@@ -266,7 +331,12 @@ fun box set_has_depth_buffer(
 ---
 
 ### set_has_stencil_buffer
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L77)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L142)</span>
+
+
+If @has_stencil_buffer is %TRUE the widget will allocate and
+enable a stencil buffer for the target framebuffer. Otherwise
+there will be none.
 
 
 ```pony
@@ -285,7 +355,13 @@ fun box set_has_stencil_buffer(
 ---
 
 ### set_required_version
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L80)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L150)</span>
+
+
+Sets the required version of OpenGL to be used when creating the context
+for the widget.
+
+This function must be called before the area has been realized.
 
 
 ```pony
@@ -306,7 +382,13 @@ fun box set_required_version(
 ---
 
 ### set_use_es
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L83)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L159)</span>
+
+
+Sets whether the @area should create an OpenGL or an OpenGL ES context.
+
+You should check the capabilities of the #GdkGLContext before drawing
+with either API.
 
 
 ```pony
@@ -340,7 +422,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -355,7 +437,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

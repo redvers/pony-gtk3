@@ -92,6 +92,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L56)</span>
 
 
+Returns whether a #GtkPopover or a #GtkMenu will be constructed
+from the menu model.
+
+
 ```pony
 fun box get_use_popover()
 : Bool val
@@ -104,7 +108,12 @@ fun box get_use_popover()
 ---
 
 ### set_use_popover
-<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L79)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L83)</span>
+
+
+Sets whether to construct a #GtkPopover instead of #GtkMenu
+when gtk_menu_button_set_menu_model() is called. Note that
+this property is only consulted when a new menu model is set.
 
 
 ```pony
@@ -138,7 +147,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -153,7 +162,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

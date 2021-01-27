@@ -90,6 +90,11 @@ class GtkGesture is GtkWidget
 */
 
 fun is_active(): Bool =>
+"""
+Returns %TRUE if the gesture is currently active.
+A gesture is active meanwhile there are touch sequences
+interacting with it.
+"""
   @gtk_gesture_is_active[Bool](widget)
 
 /* is_grouped_with unavailable due to typing issues
@@ -97,6 +102,12 @@ fun is_active(): Bool =>
 */
 
 fun is_recognized(): Bool =>
+"""
+Returns %TRUE if the gesture is currently recognized.
+A gesture is recognized if there are as many interacting
+touch sequences as required by @gesture, and #GtkGesture::check
+returned %TRUE for the sequences being currently interpreted.
+"""
   @gtk_gesture_is_recognized[Bool](widget)
 
 /* set_sequence_state unavailable due to typing issues
@@ -113,6 +124,9 @@ fun is_recognized(): Bool =>
 */
 
 fun ungroup(): None =>
+"""
+Separates @gesture into an isolated group.
+"""
   @gtk_gesture_ungroup[None](widget)
 
 

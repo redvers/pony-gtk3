@@ -23,12 +23,12 @@ new val create()
 
 ## Public Functions
 
-### signal_connect\[V: [Any](builtin-Any.md) val\]
+### signal_connect\[V: [Any](builtin-Any.md) #share\]
 <span class="source-link">[[Source]](src/gtk3-__-gobject/GObject.md#L5)</span>
 
 
 ```pony
-fun box signal_connect[V: Any val](
+fun box signal_connect[V: Any #share](
   instance: GObjectREF val,
   detailed_signal: String val,
   c_handler: @{(GObjectREF, V)}[V] val,

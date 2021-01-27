@@ -33,6 +33,9 @@ class GtkMisc is GtkWidget
 */
 
 fun set_padding(xpad_pony: I32, ypad_pony: I32): None =>
+"""
+Sets the amount of space to add around the widget.
+"""
   @gtk_misc_set_padding[None](widget, xpad_pony, ypad_pony)
 
 

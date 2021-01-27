@@ -96,6 +96,12 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L21)</span>
 
 
+If the frame’s label widget is a #GtkLabel, returns the
+text in the label widget. (The frame will have a #GtkLabel
+for the label widget if a non-%NULL argument was passed
+to gtk_frame_new().)
+
+
 ```pony
 fun box get_label()
 : String val
@@ -123,7 +129,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -138,7 +144,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

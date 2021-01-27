@@ -40,6 +40,10 @@ class GtkStyle is GtkWidget
 {:txo, "full"} */
 
 fun detach(): None =>
+"""
+Detaches a style from a window. If the style is not attached
+to any windows anymore, it is unrealized. See gtk_style_attach().
+"""
   @gtk_style_detach[None](widget)
 
 /* get unavailable due to typing issues
@@ -61,6 +65,9 @@ fun detach(): None =>
 */
 
 fun has_context(): Bool =>
+"""
+Returns whether @style has an associated #GtkStyleContext.
+"""
   @gtk_style_has_context[Bool](widget)
 
 /* lookup_color unavailable due to typing issues

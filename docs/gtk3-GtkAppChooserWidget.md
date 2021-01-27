@@ -96,6 +96,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L21)</span>
 
 
+Returns the text that is shown if there are not applications
+that can handle the content type.
+
+
 ```pony
 fun box get_default_text()
 : String val
@@ -108,7 +112,11 @@ fun box get_default_text()
 ---
 
 ### get_show_all
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L26)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L30)</span>
+
+
+Returns the current value of the #GtkAppChooserWidget:show-all
+property.
 
 
 ```pony
@@ -123,7 +131,11 @@ fun box get_show_all()
 ---
 
 ### get_show_default
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L29)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L37)</span>
+
+
+Returns the current value of the #GtkAppChooserWidget:show-default
+property.
 
 
 ```pony
@@ -138,7 +150,11 @@ fun box get_show_default()
 ---
 
 ### get_show_fallback
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L32)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L44)</span>
+
+
+Returns the current value of the #GtkAppChooserWidget:show-fallback
+property.
 
 
 ```pony
@@ -153,7 +169,11 @@ fun box get_show_fallback()
 ---
 
 ### get_show_other
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L51)</span>
+
+
+Returns the current value of the #GtkAppChooserWidget:show-other
+property.
 
 
 ```pony
@@ -168,7 +188,11 @@ fun box get_show_other()
 ---
 
 ### get_show_recommended
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L58)</span>
+
+
+Returns the current value of the #GtkAppChooserWidget:show-recommended
+property.
 
 
 ```pony
@@ -183,7 +207,11 @@ fun box get_show_recommended()
 ---
 
 ### set_show_all
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L45)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L69)</span>
+
+
+Sets whether the app chooser should show all applications
+in a flat list.
 
 
 ```pony
@@ -202,7 +230,11 @@ fun box set_show_all(
 ---
 
 ### set_show_default
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L48)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L76)</span>
+
+
+Sets whether the app chooser should show the default handler
+for the content type in a separate section.
 
 
 ```pony
@@ -221,7 +253,11 @@ fun box set_show_default(
 ---
 
 ### set_show_fallback
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L51)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L83)</span>
+
+
+Sets whether the app chooser should show related applications
+for the content type in a separate section.
 
 
 ```pony
@@ -240,7 +276,11 @@ fun box set_show_fallback(
 ---
 
 ### set_show_other
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L90)</span>
+
+
+Sets whether the app chooser should show applications
+which are unrelated to the content type.
 
 
 ```pony
@@ -259,7 +299,11 @@ fun box set_show_other(
 ---
 
 ### set_show_recommended
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L57)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L97)</span>
+
+
+Sets whether the app chooser should show recommended applications
+for the content type in a separate section.
 
 
 ```pony
@@ -293,7 +337,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -308,7 +352,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

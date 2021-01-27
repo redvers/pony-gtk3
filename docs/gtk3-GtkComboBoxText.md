@@ -107,6 +107,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L58)</span>
 
 
+Removes the string at @position from @combo_box.
+
+
 ```pony
 fun box remove(
   position_pony: I32 val)
@@ -123,7 +126,10 @@ fun box remove(
 ---
 
 ### remove_all
-<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L64)</span>
+
+
+Removes all the text entries from the combo box.
 
 
 ```pony
@@ -153,7 +159,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -168,7 +174,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

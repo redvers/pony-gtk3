@@ -92,6 +92,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L41)</span>
 
 
+Detaches a style from a window. If the style is not attached
+to any windows anymore, it is unrealized. See gtk_style_attach().
+
+
 ```pony
 fun box detach()
 : None val
@@ -104,7 +108,10 @@ fun box detach()
 ---
 
 ### has_context
-<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L62)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L66)</span>
+
+
+Returns whether @style has an associated #GtkStyleContext.
 
 
 ```pony
@@ -134,7 +141,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -149,7 +156,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

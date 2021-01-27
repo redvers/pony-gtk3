@@ -92,6 +92,17 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L29)</span>
 
 
+Erases the visited page history so the back button is not
+shown on the current page, and removes the cancel button
+from subsequent pages.
+
+Use this when the information provided up to the current
+page is hereafter deemed permanent and cannot be modified
+or undone. For example, showing a progress page to track
+a long-running, unreversible operation after the user has
+clicked apply on a confirmation page.
+
+
 ```pony
 fun box commit()
 : None val
@@ -104,7 +115,10 @@ fun box commit()
 ---
 
 ### get_current_page
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L32)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L43)</span>
+
+
+Returns the page number of the current page.
 
 
 ```pony
@@ -119,7 +133,10 @@ fun box get_current_page()
 ---
 
 ### get_n_pages
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L49)</span>
+
+
+Returns the number of pages in the @assistant
 
 
 ```pony
@@ -134,7 +151,16 @@ fun box get_n_pages()
 ---
 
 ### next_page
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L82)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L99)</span>
+
+
+Navigate to the next page.
+
+It is a programming error to call this function when
+there is no next page.
+
+This function is for use when creating pages of the
+#GTK_ASSISTANT_PAGE_CUSTOM type.
 
 
 ```pony
@@ -149,7 +175,16 @@ fun box next_page()
 ---
 
 ### previous_page
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L89)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L115)</span>
+
+
+Navigate to the previous visited page.
+
+It is a programming error to call this function when
+no previous page is available.
+
+This function is for use when creating pages of the
+#GTK_ASSISTANT_PAGE_CUSTOM type.
 
 
 ```pony
@@ -164,7 +199,10 @@ fun box previous_page()
 ---
 
 ### remove_page
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L96)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L131)</span>
+
+
+Removes the @page_num’s page from @assistant.
 
 
 ```pony
@@ -183,7 +221,14 @@ fun box remove_page(
 ---
 
 ### set_current_page
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L99)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L137)</span>
+
+
+Switches the page to @page_num.
+
+Note that this will only be necessary in custom buttons,
+as the @assistant flow can be set with
+gtk_assistant_set_forward_page_func().
 
 
 ```pony
@@ -202,7 +247,18 @@ fun box set_current_page(
 ---
 
 ### update_buttons_state
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L136)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L181)</span>
+
+
+Forces @assistant to recompute the buttons state.
+
+GTK+ automatically takes care of this in most situations,
+e.g. when the user goes to a different page, or when the
+visibility or completeness of a page changes.
+
+One situation where it can be necessary to call this
+function is when changing a value on the current page
+affects the future page flow of the assistant.
 
 
 ```pony
@@ -232,7 +288,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -247,7 +303,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

@@ -96,6 +96,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L79)</span>
 
 
+Gets the name of the action group.
+
+
 ```pony
 fun box get_name()
 : String val
@@ -108,7 +111,13 @@ fun box get_name()
 ---
 
 ### get_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L84)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L87)</span>
+
+
+Returns %TRUE if the group is sensitive.  The constituent actions
+can only be logically sensitive (see gtk_action_is_sensitive()) if
+they are sensitive (see gtk_action_get_sensitive()) and their group
+is sensitive.
 
 
 ```pony
@@ -123,7 +132,13 @@ fun box get_sensitive()
 ---
 
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L87)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L96)</span>
+
+
+Returns %TRUE if the group is visible.  The constituent actions
+can only be logically visible (see gtk_action_is_visible()) if
+they are visible (see gtk_action_get_visible()) and their group
+is visible.
 
 
 ```pony
@@ -138,7 +153,10 @@ fun box get_visible()
 ---
 
 ### set_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L105)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L120)</span>
+
+
+Changes the sensitivity of @action_group
 
 
 ```pony
@@ -157,7 +175,10 @@ fun box set_sensitive(
 ---
 
 ### set_visible
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L118)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L136)</span>
+
+
+Changes the visible of @action_group.
 
 
 ```pony
@@ -191,7 +212,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -206,7 +227,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

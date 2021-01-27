@@ -78,14 +78,29 @@ class GtkActionGroup is GtkWidget
 {:txo, "none"} */
 
 fun get_name(): String =>
+"""
+Gets the name of the action group.
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_group_get_name[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_sensitive(): Bool =>
+"""
+Returns %TRUE if the group is sensitive.  The constituent actions
+can only be logically sensitive (see gtk_action_is_sensitive()) if
+they are sensitive (see gtk_action_get_sensitive()) and their group
+is sensitive.
+"""
   @gtk_action_group_get_sensitive[Bool](widget)
 
 fun get_visible(): Bool =>
+"""
+Returns %TRUE if the group is visible.  The constituent actions
+can only be logically visible (see gtk_action_is_visible()) if
+they are visible (see gtk_action_get_visible()) and their group
+is visible.
+"""
   @gtk_action_group_get_visible[Bool](widget)
 
 /* list_actions unavailable due to return typing issues
@@ -104,6 +119,9 @@ fun get_visible(): Bool =>
 */
 
 fun set_sensitive(sensitive_pony: Bool): None =>
+"""
+Changes the sensitivity of @action_group
+"""
   @gtk_action_group_set_sensitive[None](widget, sensitive_pony)
 
 /* set_translate_func unavailable due to typing issues
@@ -117,6 +135,9 @@ fun set_sensitive(sensitive_pony: Bool): None =>
 */
 
 fun set_visible(visible_pony: Bool): None =>
+"""
+Changes the visible of @action_group.
+"""
   @gtk_action_group_set_visible[None](widget, visible_pony)
 
 /* translate_string unavailable due to typing issues

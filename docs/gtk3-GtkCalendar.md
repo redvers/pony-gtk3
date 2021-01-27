@@ -92,6 +92,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L21)</span>
 
 
+Remove all visual markers.
+
+
 ```pony
 fun box clear_marks()
 : None val
@@ -104,7 +107,10 @@ fun box clear_marks()
 ---
 
 ### get_day_is_marked
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L33)</span>
+
+
+Returns if the @day of the @calendar is already marked.
 
 
 ```pony
@@ -123,7 +129,11 @@ fun box get_day_is_marked(
 ---
 
 ### get_detail_height_rows
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L39)</span>
+
+
+Queries the height of detail cells, in rows.
+See #GtkCalendar:detail-width-chars.
 
 
 ```pony
@@ -138,7 +148,11 @@ fun box get_detail_height_rows()
 ---
 
 ### get_detail_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L46)</span>
+
+
+Queries the width of detail cells, in characters.
+See #GtkCalendar:detail-width-chars.
 
 
 ```pony
@@ -153,7 +167,10 @@ fun box get_detail_width_chars()
 ---
 
 ### mark_day
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L46)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L60)</span>
+
+
+Places a visual marker on a particular day.
 
 
 ```pony
@@ -172,7 +189,10 @@ fun box mark_day(
 ---
 
 ### select_day
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L49)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L66)</span>
+
+
+Selects a day from the current month.
 
 
 ```pony
@@ -191,7 +211,10 @@ fun box select_day(
 ---
 
 ### select_month
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L52)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L72)</span>
+
+
+Shifts the calendar to a different month.
 
 
 ```pony
@@ -212,7 +235,11 @@ fun box select_month(
 ---
 
 ### set_detail_height_rows
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L84)</span>
+
+
+Updates the height of detail cells.
+See #GtkCalendar:detail-height-rows.
 
 
 ```pony
@@ -231,7 +258,11 @@ fun box set_detail_height_rows(
 ---
 
 ### set_detail_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L91)</span>
+
+
+Updates the width of detail cells.
+See #GtkCalendar:detail-width-chars.
 
 
 ```pony
@@ -250,7 +281,10 @@ fun box set_detail_width_chars(
 ---
 
 ### unmark_day
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L71)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L102)</span>
+
+
+Removes the visual marker from a particular day.
 
 
 ```pony
@@ -284,7 +318,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -299,7 +333,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

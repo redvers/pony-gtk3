@@ -92,6 +92,24 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L21)</span>
 
 
+Marks @row as changed, causing any state that depends on this
+to be updated. This affects sorting, filtering and headers.
+
+Note that calls to this method must be in sync with the data
+used for the row functions. For instance, if the list is
+mirroring some external data set, and *two* rows changed in the
+external data set then when you call gtk_list_box_row_changed()
+on the first row the sort function must only read the new data
+for the first of the two changed rows, otherwise the resorting
+of the rows will be wrong.
+
+This generally means that if you don’t fully control the data
+model you have to duplicate the data that affects the listbox
+row functions into the row widgets themselves. Another alternative
+is to call gtk_list_box_invalidate_sort() on any model change,
+but that is more expensive.
+
+
 ```pony
 fun box changed()
 : None val
@@ -104,7 +122,11 @@ fun box changed()
 ---
 
 ### get_activatable
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L42)</span>
+
+
+Gets the value of the #GtkListBoxRow:activatable property
+for this row.
 
 
 ```pony
@@ -119,7 +141,10 @@ fun box get_activatable()
 ---
 
 ### get_index
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L56)</span>
+
+
+Gets the current index of the @row in its #GtkListBox container.
 
 
 ```pony
@@ -134,7 +159,11 @@ fun box get_index()
 ---
 
 ### get_selectable
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L37)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L62)</span>
+
+
+Gets the value of the #GtkListBoxRow:selectable property
+for this row.
 
 
 ```pony
@@ -149,7 +178,11 @@ fun box get_selectable()
 ---
 
 ### is_selected
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L69)</span>
+
+
+Returns whether the child is currently selected in its
+#GtkListBox container.
 
 
 ```pony
@@ -164,7 +197,10 @@ fun box is_selected()
 ---
 
 ### set_activatable
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L43)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L76)</span>
+
+
+Set the #GtkListBoxRow:activatable property for this row.
 
 
 ```pony
@@ -183,7 +219,10 @@ fun box set_activatable(
 ---
 
 ### set_selectable
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L50)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L86)</span>
+
+
+Set the #GtkListBoxRow:selectable property for this row.
 
 
 ```pony
@@ -217,7 +256,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -232,7 +271,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

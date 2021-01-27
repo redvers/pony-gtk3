@@ -77,6 +77,13 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkCellArea.md#L160)</span>
 
 
+Gets the current #GtkTreePath string for the currently
+applied #GtkTreeIter, this is implicitly updated when
+gtk_cell_area_apply_attributes() is called and can be
+used to interact with renderers from #GtkCellArea
+subclasses.
+
+
 ```pony
 fun box get_current_path_string()
 : String val
@@ -89,7 +96,11 @@ fun box get_current_path_string()
 ---
 
 ### is_activatable
-<span class="source-link">[[Source]](src/gtk3/GtkCellArea.md#L245)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellArea.md#L252)</span>
+
+
+Returns whether the area can do anything when activated,
+after applying new attributes to @area.
 
 
 ```pony
@@ -104,7 +115,17 @@ fun box is_activatable()
 ---
 
 ### stop_editing
-<span class="source-link">[[Source]](src/gtk3/GtkCellArea.md#L283)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellArea.md#L294)</span>
+
+
+Explicitly stops the editing of the currently edited cell.
+
+If @canceled is %TRUE, the currently edited cell renderer
+will emit the ::editing-canceled signal, otherwise the
+the ::editing-done signal will be emitted on the current
+edit widget.
+
+See gtk_cell_area_get_edited_cell() and gtk_cell_area_get_edit_widget().
 
 
 ```pony
@@ -138,7 +159,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -153,7 +174,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

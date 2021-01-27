@@ -77,6 +77,11 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L91)</span>
 
 
+Returns %TRUE if the gesture is currently active.
+A gesture is active meanwhile there are touch sequences
+interacting with it.
+
+
 ```pony
 fun box is_active()
 : Bool val
@@ -89,7 +94,13 @@ fun box is_active()
 ---
 
 ### is_recognized
-<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L98)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L103)</span>
+
+
+Returns %TRUE if the gesture is currently recognized.
+A gesture is recognized if there are as many interacting
+touch sequences as required by @gesture, and #GtkGesture::check
+returned %TRUE for the sequences being currently interpreted.
 
 
 ```pony
@@ -104,7 +115,10 @@ fun box is_recognized()
 ---
 
 ### ungroup
-<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L114)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L125)</span>
+
+
+Separates @gesture into an isolated group.
 
 
 ```pony
@@ -134,7 +148,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -149,7 +163,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

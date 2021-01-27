@@ -52,6 +52,9 @@ class GtkRecentManager is GtkWidget
 */
 
 fun purge_items(): I32 =>
+"""
+Purges every item from the recently used resources list.
+"""
   @gtk_recent_manager_purge_items[I32](widget)
 
 /* remove_item unavailable due to typing issues

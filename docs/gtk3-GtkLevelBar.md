@@ -113,6 +113,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L29)</span>
 
 
+Return the value of the #GtkLevelBar:inverted property.
+
+
 ```pony
 fun box get_inverted()
 : Bool val
@@ -125,7 +128,10 @@ fun box get_inverted()
 ---
 
 ### set_inverted
-<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L69)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L72)</span>
+
+
+Sets the value of the #GtkLevelBar:inverted property.
 
 
 ```pony
@@ -159,7 +165,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -174,7 +180,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

@@ -111,6 +111,14 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L24)</span>
 
 
+Retrieves the name of the currently selected font. This name includes
+style and size information as well. If you want to render something
+with the font, use this string with pango_font_description_from_string() .
+If you’re interested in peeking certain values (family name,
+style, size, weight) just query these properties from the
+#PangoFontDescription object.
+
+
 ```pony
 fun box get_font_name()
 : String val
@@ -123,7 +131,10 @@ fun box get_font_name()
 ---
 
 ### get_show_size
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L29)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L37)</span>
+
+
+Returns whether the font size will be shown in the label.
 
 
 ```pony
@@ -138,7 +149,10 @@ fun box get_show_size()
 ---
 
 ### get_show_style
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L32)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L43)</span>
+
+
+Returns whether the name of the font style will be shown in the label.
 
 
 ```pony
@@ -153,7 +167,10 @@ fun box get_show_style()
 ---
 
 ### get_title
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L49)</span>
+
+
+Retrieves the title of the font chooser dialog.
 
 
 ```pony
@@ -168,7 +185,10 @@ fun box get_title()
 ---
 
 ### get_use_font
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L57)</span>
+
+
+Returns whether the selected font is used in the label.
 
 
 ```pony
@@ -183,7 +203,10 @@ fun box get_use_font()
 ---
 
 ### get_use_size
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L43)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L63)</span>
+
+
+Returns whether the selected size is used in the label.
 
 
 ```pony
@@ -198,7 +221,10 @@ fun box get_use_size()
 ---
 
 ### set_show_size
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L50)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L73)</span>
+
+
+If @show_size is %TRUE, the font size will be displayed along with the name of the selected font.
 
 
 ```pony
@@ -217,7 +243,10 @@ fun box set_show_size(
 ---
 
 ### set_show_style
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L53)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L79)</span>
+
+
+If @show_style is %TRUE, the font style will be displayed along with name of the selected font.
 
 
 ```pony
@@ -236,7 +265,10 @@ fun box set_show_style(
 ---
 
 ### set_use_font
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L60)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L89)</span>
+
+
+If @use_font is %TRUE, the font name will be written using the selected font.
 
 
 ```pony
@@ -255,7 +287,10 @@ fun box set_use_font(
 ---
 
 ### set_use_size
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L63)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L95)</span>
+
+
+If @use_size is %TRUE, the font name will be written using the selected size.
 
 
 ```pony
@@ -289,7 +324,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -304,7 +339,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

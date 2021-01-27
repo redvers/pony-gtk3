@@ -34,6 +34,10 @@ class GtkMountOperation is GtkWidget
 {:txo, "none"} */
 
 fun is_showing(): Bool =>
+"""
+Returns whether the #GtkMountOperation is currently displaying
+a window.
+"""
   @gtk_mount_operation_is_showing[Bool](widget)
 
 /* set_parent unavailable due to typing issues

@@ -92,6 +92,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L28)</span>
 
 
+Returns whether @tool_item is allocated extra space.
+See gtk_tool_item_set_expand().
+
+
 ```pony
 fun box get_expand()
 : Bool val
@@ -104,7 +108,11 @@ fun box get_expand()
 ---
 
 ### get_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L35)</span>
+
+
+Returns whether @tool_item is the same size as other homogeneous
+items. See gtk_tool_item_set_homogeneous().
 
 
 ```pony
@@ -119,7 +127,11 @@ fun box get_homogeneous()
 ---
 
 ### get_is_important
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L41)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L49)</span>
+
+
+Returns whether @tool_item is considered important. See
+gtk_tool_item_set_is_important()
 
 
 ```pony
@@ -134,7 +146,11 @@ fun box get_is_important()
 ---
 
 ### get_use_drag_window
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L93)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L105)</span>
+
+
+Returns whether @tool_item has a drag window. See
+gtk_tool_item_set_use_drag_window().
 
 
 ```pony
@@ -149,7 +165,11 @@ fun box get_use_drag_window()
 ---
 
 ### get_visible_horizontal
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L96)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L112)</span>
+
+
+Returns whether the @tool_item is visible on toolbars that are
+docked horizontally.
 
 
 ```pony
@@ -164,7 +184,11 @@ fun box get_visible_horizontal()
 ---
 
 ### get_visible_vertical
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L99)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L119)</span>
+
+
+Returns whether @tool_item is visible when the toolbar is docked vertically.
+See gtk_tool_item_set_visible_vertical().
 
 
 ```pony
@@ -179,7 +203,16 @@ fun box get_visible_vertical()
 ---
 
 ### rebuild_menu
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L102)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L126)</span>
+
+
+Calling this function signals to the toolbar that the
+overflow menu item for @tool_item has changed. If the
+overflow menu is visible when this function it called,
+the menu will be rebuilt.
+
+The function must be called when the tool item changes what it
+will do in response to the #GtkToolItem::create-menu-proxy signal.
 
 
 ```pony
@@ -194,7 +227,13 @@ fun box rebuild_menu()
 ---
 
 ### set_expand
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L112)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L145)</span>
+
+
+Sets whether @tool_item is allocated extra space when there
+is more room on the toolbar then needed for the items. The
+effect is that the item gets bigger when the toolbar gets bigger
+and smaller when the toolbar gets smaller.
 
 
 ```pony
@@ -213,7 +252,12 @@ fun box set_expand(
 ---
 
 ### set_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L115)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L154)</span>
+
+
+Sets whether @tool_item is to be allocated the same size as other
+homogeneous items. The effect is that all homogeneous items will have
+the same width as the widest of the items.
 
 
 ```pony
@@ -232,7 +276,14 @@ fun box set_homogeneous(
 ---
 
 ### set_is_important
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L118)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L162)</span>
+
+
+Sets whether @tool_item should be considered important. The #GtkToolButton
+class uses this property to determine whether to show or hide its label
+when the toolbar style is %GTK_TOOLBAR_BOTH_HORIZ. The result is that
+only tool buttons with the “is_important” property set have labels, an
+effect known as “priority text”
 
 
 ```pony
@@ -251,7 +302,13 @@ fun box set_is_important(
 ---
 
 ### set_use_drag_window
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L134)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L185)</span>
+
+
+Sets whether @tool_item has a drag window. When %TRUE the
+toolitem can be used as a drag source through gtk_drag_source_set().
+When @tool_item has a drag window it will intercept all events,
+even those that would otherwise be sent to a child of @tool_item.
 
 
 ```pony
@@ -270,7 +327,10 @@ fun box set_use_drag_window(
 ---
 
 ### set_visible_horizontal
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L137)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L194)</span>
+
+
+Sets whether @tool_item is visible when the toolbar is docked horizontally.
 
 
 ```pony
@@ -289,7 +349,13 @@ fun box set_visible_horizontal(
 ---
 
 ### set_visible_vertical
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L140)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L200)</span>
+
+
+Sets whether @tool_item is visible when the toolbar is docked
+vertically. Some tool items, such as text entries, are too wide to be
+useful on a vertically docked toolbar. If @visible_vertical is %FALSE
+@tool_item will not appear on toolbars that are docked vertically.
 
 
 ```pony
@@ -308,7 +374,12 @@ fun box set_visible_vertical(
 ---
 
 ### toolbar_reconfigured
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L143)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L209)</span>
+
+
+Emits the signal #GtkToolItem::toolbar_reconfigured on @tool_item.
+#GtkToolbar and other #GtkToolShell implementations use this function
+to notify children, when some aspect of their configuration changes.
 
 
 ```pony
@@ -338,7 +409,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -353,7 +424,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

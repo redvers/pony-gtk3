@@ -92,6 +92,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L53)</span>
 
 
+Locks are added and removed using gtk_accel_group_lock() and
+gtk_accel_group_unlock().
+
+
 ```pony
 fun box get_is_locked()
 : Bool val
@@ -104,7 +108,18 @@ fun box get_is_locked()
 ---
 
 ### lock
-<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L63)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L67)</span>
+
+
+Locks the given accelerator group.
+
+Locking an acelerator group prevents the accelerators contained
+within it to be changed during runtime. Refer to
+gtk_accel_map_change_entry() about runtime accelerator changes.
+
+If called more than once, @accel_group remains locked until
+gtk_accel_group_unlock() has been called an equivalent number
+of times.
 
 
 ```pony
@@ -119,7 +134,10 @@ fun box lock()
 ---
 
 ### unlock
-<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L73)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L88)</span>
+
+
+Undoes the last call to gtk_accel_group_lock() on this @accel_group.
 
 
 ```pony
@@ -149,7 +167,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -164,7 +182,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

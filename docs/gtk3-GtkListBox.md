@@ -92,6 +92,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L32)</span>
 
 
+If a row has previously been highlighted via gtk_list_box_drag_highlight_row()
+it will have the highlight removed.
+
+
 ```pony
 fun box drag_unhighlight_row()
 : None val
@@ -104,7 +108,10 @@ fun box drag_unhighlight_row()
 ---
 
 ### get_activate_on_single_click
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L39)</span>
+
+
+Returns whether rows activate on single clicks.
 
 
 ```pony
@@ -119,7 +126,14 @@ fun box get_activate_on_single_click()
 ---
 
 ### invalidate_filter
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L84)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L91)</span>
+
+
+Update the filtering for all rows. Call this when result
+of the filter function on the @box is changed due
+to an external factor. For instance, this would be used
+if the filter function just looked for a specific search
+string and the entry with the search string has changed.
 
 
 ```pony
@@ -134,7 +148,12 @@ fun box invalidate_filter()
 ---
 
 ### invalidate_headers
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L87)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L101)</span>
+
+
+Update the separators for all rows. Call this when result
+of the header function on the @box is changed due
+to an external factor.
 
 
 ```pony
@@ -149,7 +168,12 @@ fun box invalidate_headers()
 ---
 
 ### invalidate_sort
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L90)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L109)</span>
+
+
+Update the sorting for all rows. Call this when result
+of the sort function on the @box is changed due
+to an external factor.
 
 
 ```pony
@@ -164,7 +188,10 @@ fun box invalidate_sort()
 ---
 
 ### select_all
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L97)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L121)</span>
+
+
+Select all children of @box, if the selection mode allows it.
 
 
 ```pony
@@ -179,7 +206,11 @@ fun box select_all()
 ---
 
 ### set_activate_on_single_click
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L109)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L136)</span>
+
+
+If @single is %TRUE, rows will be activated when you click on them,
+otherwise you need to double-click.
 
 
 ```pony
@@ -198,7 +229,10 @@ fun box set_activate_on_single_click(
 ---
 
 ### unselect_all
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L142)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L173)</span>
+
+
+Unselect all children of @box, if the selection mode allows it.
 
 
 ```pony
@@ -228,7 +262,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -243,7 +277,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

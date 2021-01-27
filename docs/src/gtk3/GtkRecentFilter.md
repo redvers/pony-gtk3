@@ -20,6 +20,10 @@ class GtkRecentFilter is GtkWidget
 
 
 fun add_age(days_pony: I32): None =>
+"""
+Adds a rule that allows resources based on their age - that is, the number
+of days elapsed since they were last modified.
+"""
   @gtk_recent_filter_add_age[None](widget, days_pony)
 
 /* add_application unavailable due to typing issues
@@ -46,6 +50,10 @@ fun add_age(days_pony: I32): None =>
 */
 
 fun add_pixbuf_formats(): None =>
+"""
+Adds a rule allowing image files in the formats supported
+by GdkPixbuf.
+"""
   @gtk_recent_filter_add_pixbuf_formats[None](widget)
 
 /* filter unavailable due to typing issues
@@ -53,6 +61,10 @@ fun add_pixbuf_formats(): None =>
 */
 
 fun get_name(): String =>
+"""
+Gets the human-readable name for the filter.
+See gtk_recent_filter_set_name().
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_recent_filter_get_name[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony

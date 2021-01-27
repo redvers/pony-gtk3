@@ -92,6 +92,14 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L32)</span>
 
 
+Removes the first message in the #GtkStatusbar’s stack
+with the given context id.
+
+Note that this may not change the displayed message, if
+the message at the top of the stack has a different
+context id.
+
+
 ```pony
 fun box pop(
   context_id_pony: U32 val)
@@ -108,7 +116,11 @@ fun box pop(
 ---
 
 ### remove
-<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L47)</span>
+
+
+Forces the removal of a message from a statusbar’s stack.
+The exact @context_id and @message_id must be specified.
 
 
 ```pony
@@ -129,7 +141,11 @@ fun box remove(
 ---
 
 ### remove_all
-<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L54)</span>
+
+
+Forces the removal of all messages from a statusbar's
+stack with the exact @context_id.
 
 
 ```pony
@@ -163,7 +179,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -178,7 +194,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

@@ -102,6 +102,12 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L35)</span>
 
 
+Sets the padding on the different sides of the widget.
+The padding adds blank space to the sides of the widget. For instance,
+this can be used to indent the child widget towards the right by adding
+padding on the left.
+
+
 ```pony
 fun box set_padding(
   padding_top_pony: U32 val,
@@ -139,7 +145,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -154,7 +160,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

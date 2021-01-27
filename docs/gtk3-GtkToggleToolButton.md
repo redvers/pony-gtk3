@@ -111,6 +111,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L24)</span>
 
 
+Queries a #GtkToggleToolButton and returns its current state.
+Returns %TRUE if the toggle button is pressed in and %FALSE if it is raised.
+
+
 ```pony
 fun box get_active()
 : Bool val
@@ -123,7 +127,12 @@ fun box get_active()
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L31)</span>
+
+
+Sets the status of the toggle tool button. Set to %TRUE if you
+want the GtkToggleButton to be “pressed in”, and %FALSE to raise it.
+This action causes the toggled signal to be emitted.
 
 
 ```pony
@@ -157,7 +166,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -172,7 +181,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

@@ -112,9 +112,17 @@ class GtkToolPalette is GtkWidget
 */
 
 fun unset_icon_size(): None =>
+"""
+Unsets the tool palette icon size set with gtk_tool_palette_set_icon_size(),
+so that user preferences will be used to determine the icon size.
+"""
   @gtk_tool_palette_unset_icon_size[None](widget)
 
 fun unset_style(): None =>
+"""
+Unsets a toolbar style set with gtk_tool_palette_set_style(),
+so that user preferences will be used to determine the toolbar style.
+"""
   @gtk_tool_palette_unset_style[None](widget)
 
 

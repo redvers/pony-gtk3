@@ -96,6 +96,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L27)</span>
 
 
+Appends a separator to the list of applications that is shown
+in the popup.
+
+
 ```pony
 fun box append_separator()
 : None val
@@ -108,7 +112,10 @@ fun box append_separator()
 ---
 
 ### get_heading
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L34)</span>
+
+
+Returns the text to display at the top of the dialog.
 
 
 ```pony
@@ -123,7 +130,11 @@ fun box get_heading()
 ---
 
 ### get_show_default_item
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L42)</span>
+
+
+Returns the current value of the #GtkAppChooserButton:show-default-item
+property.
 
 
 ```pony
@@ -138,7 +149,11 @@ fun box get_show_default_item()
 ---
 
 ### get_show_dialog_item
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L49)</span>
+
+
+Returns the current value of the #GtkAppChooserButton:show-dialog-item
+property.
 
 
 ```pony
@@ -153,7 +168,11 @@ fun box get_show_dialog_item()
 ---
 
 ### set_show_default_item
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L49)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L64)</span>
+
+
+Sets whether the dropdown menu of this button should show the
+default application for the given content type at top.
 
 
 ```pony
@@ -172,7 +191,11 @@ fun box set_show_default_item(
 ---
 
 ### set_show_dialog_item
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L52)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L71)</span>
+
+
+Sets whether the dropdown menu of this button should show an
+entry to trigger a #GtkAppChooserDialog.
 
 
 ```pony
@@ -206,7 +229,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -221,7 +244,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

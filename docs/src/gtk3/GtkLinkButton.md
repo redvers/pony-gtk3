@@ -23,11 +23,21 @@ class GtkLinkButton is GtkWidget
 
 
 fun get_uri(): String =>
+"""
+Retrieves the URI set using gtk_link_button_set_uri().
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_link_button_get_uri[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_visited(): Bool =>
+"""
+Retrieves the “visited” state of the URI where the #GtkLinkButton
+points. The button becomes visited when it is clicked. If the URI
+is changed on the button, the “visited” state is unset again.
+
+The state may also be changed using gtk_link_button_set_visited().
+"""
   @gtk_link_button_get_visited[Bool](widget)
 
 /* set_uri unavailable due to typing issues
@@ -35,6 +45,10 @@ fun get_visited(): Bool =>
 */
 
 fun set_visited(visited_pony: Bool): None =>
+"""
+Sets the “visited” state of the URI where the #GtkLinkButton
+points.  See gtk_link_button_get_visited() for more details.
+"""
   @gtk_link_button_set_visited[None](widget, visited_pony)
 
 

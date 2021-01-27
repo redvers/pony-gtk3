@@ -77,6 +77,14 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L19)</span>
 
 
+This function should almost never be called. It clears the @filter
+of any cached iterators that haven’t been reffed with
+gtk_tree_model_ref_node(). This might be useful if the child model
+being filtered is static (and doesn’t change often) and there has been
+a lot of unreffed access to nodes. As a side effect of this function,
+all unreffed iters will be invalid.
+
+
 ```pony
 fun box clear_cache()
 : None val
@@ -89,7 +97,11 @@ fun box clear_cache()
 ---
 
 ### refilter
-<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L53)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L61)</span>
+
+
+Emits ::row_changed for each row in the child model, which causes
+the filter to re-evaluate whether a row is visible or not.
 
 
 ```pony
@@ -104,7 +116,17 @@ fun box refilter()
 ---
 
 ### set_visible_column
-<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L63)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L75)</span>
+
+
+Sets @column of the child_model to be the column where @filter should
+look for visibility information. @columns should be a column of type
+%G_TYPE_BOOLEAN, where %TRUE means that a row is visible, and %FALSE
+if not.
+
+Note that gtk_tree_model_filter_set_visible_func() or
+gtk_tree_model_filter_set_visible_column() can only be called
+once for a given filter model.
 
 
 ```pony
@@ -138,7 +160,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -153,7 +175,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

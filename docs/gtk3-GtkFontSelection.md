@@ -92,6 +92,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkFontSelection.md#L63)</span>
 
 
+Gets the text displayed in the preview area.
+
+
 ```pony
 fun box get_preview_text()
 : String val
@@ -104,7 +107,10 @@ fun box get_preview_text()
 ---
 
 ### get_size
-<span class="source-link">[[Source]](src/gtk3/GtkFontSelection.md#L68)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontSelection.md#L71)</span>
+
+
+The selected font size.
 
 
 ```pony
@@ -134,7 +140,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -149,7 +155,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

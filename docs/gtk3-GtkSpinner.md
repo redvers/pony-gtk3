@@ -92,6 +92,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L21)</span>
 
 
+Starts the animation of the spinner.
+
+
 ```pony
 fun box start()
 : None val
@@ -104,7 +107,10 @@ fun box start()
 ---
 
 ### stop
-<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L27)</span>
+
+
+Stops the animation of the spinner.
 
 
 ```pony
@@ -134,7 +140,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -149,7 +155,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

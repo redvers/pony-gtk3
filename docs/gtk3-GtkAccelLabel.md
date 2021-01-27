@@ -96,6 +96,11 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L33)</span>
 
 
+Returns the width needed to display the accelerator key(s).
+This is used by menus to align all of the #GtkMenuItem widgets, and shouldn't
+be needed by applications.
+
+
 ```pony
 fun box get_accel_width()
 : U32 val
@@ -108,7 +113,12 @@ fun box get_accel_width()
 ---
 
 ### refetch
-<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L41)</span>
+
+
+Recreates the string representing the accelerator keys.
+This should not be needed since the string is automatically updated whenever
+accelerators are added or removed from the associated widget.
 
 
 ```pony
@@ -138,7 +148,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -153,7 +163,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

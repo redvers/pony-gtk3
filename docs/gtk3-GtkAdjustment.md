@@ -106,6 +106,11 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L21)</span>
 
 
+Emits a #GtkAdjustment::changed signal from the #GtkAdjustment.
+This is typically called by the owner of the #GtkAdjustment after it has
+changed any of the #GtkAdjustment properties other than the value.
+
+
 ```pony
 fun box changed()
 : None val
@@ -118,7 +123,12 @@ fun box changed()
 ---
 
 ### value_changed
-<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L111)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L116)</span>
+
+
+Emits a #GtkAdjustment::value-changed signal from the #GtkAdjustment.
+This is typically called by the owner of the #GtkAdjustment after it has
+changed the #GtkAdjustment:value property.
 
 
 ```pony
@@ -148,7 +158,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -163,7 +173,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

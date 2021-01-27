@@ -92,6 +92,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L121)</span>
 
 
+Returns the scale used for assets.
+
+
 ```pony
 fun box get_scale()
 : I32 val
@@ -104,7 +107,12 @@ fun box get_scale()
 ---
 
 ### invalidate
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L172)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L175)</span>
+
+
+Invalidates @context style information, so it will be reconstructed
+again. It is useful if you modify the @context and need the new
+information immediately.
 
 
 ```pony
@@ -119,7 +127,11 @@ fun box invalidate()
 ---
 
 ### pop_animatable_region
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L207)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L215)</span>
+
+
+Pops an animatable region from @context.
+See gtk_style_context_push_animatable_region().
 
 
 ```pony
@@ -134,7 +146,11 @@ fun box pop_animatable_region()
 ---
 
 ### restore
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L226)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L238)</span>
+
+
+Restores @context state to a previous stage.
+See gtk_style_context_save().
 
 
 ```pony
@@ -149,7 +165,16 @@ fun box restore()
 ---
 
 ### save
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L229)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L245)</span>
+
+
+Saves the @context state, so temporary modifications done through
+gtk_style_context_add_class(), gtk_style_context_remove_class(),
+gtk_style_context_set_state(), etc. can quickly be reverted
+in one go through gtk_style_context_restore().
+
+The matching call to gtk_style_context_restore() must be done
+before GTK returns to the main loop.
 
 
 ```pony
@@ -164,7 +189,10 @@ fun box save()
 ---
 
 ### set_scale
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L260)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L285)</span>
+
+
+Sets the scale to use when getting image assets for the style.
 
 
 ```pony
@@ -198,7 +226,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -213,7 +241,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

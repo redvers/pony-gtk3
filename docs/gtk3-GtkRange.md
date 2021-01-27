@@ -77,6 +77,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkRange.md#L33)</span>
 
 
+Gets the value set by gtk_range_set_flippable().
+
+
 ```pony
 fun box get_flippable()
 : Bool val
@@ -89,7 +92,10 @@ fun box get_flippable()
 ---
 
 ### get_inverted
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L39)</span>
+
+
+Gets the value set by gtk_range_set_inverted().
 
 
 ```pony
@@ -104,7 +110,12 @@ fun box get_inverted()
 ---
 
 ### get_min_slider_size
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L46)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L52)</span>
+
+
+This function is useful mainly for #GtkRange subclasses.
+
+See gtk_range_set_min_slider_size().
 
 
 ```pony
@@ -119,7 +130,10 @@ fun box get_min_slider_size()
 ---
 
 ### get_restrict_to_fill_level
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L53)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L64)</span>
+
+
+Gets whether the range is restricted to the fill level.
 
 
 ```pony
@@ -134,7 +148,11 @@ fun box get_restrict_to_fill_level()
 ---
 
 ### get_round_digits
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L56)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L70)</span>
+
+
+Gets the number of digits to round the value to when
+it changes. See #GtkRange::change-value.
 
 
 ```pony
@@ -149,7 +167,10 @@ fun box get_round_digits()
 ---
 
 ### get_show_fill_level
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L59)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L77)</span>
+
+
+Gets whether the range displays the fill level graphically.
 
 
 ```pony
@@ -164,7 +185,12 @@ fun box get_show_fill_level()
 ---
 
 ### get_slider_size_fixed
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L67)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L88)</span>
+
+
+This function is useful mainly for #GtkRange subclasses.
+
+See gtk_range_set_slider_size_fixed().
 
 
 ```pony
@@ -179,7 +205,13 @@ fun box get_slider_size_fixed()
 ---
 
 ### set_flippable
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L92)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L118)</span>
+
+
+If a range is flippable, it will switch its direction if it is
+horizontal and its direction is %GTK_TEXT_DIR_RTL.
+
+See gtk_widget_get_direction().
 
 
 ```pony
@@ -198,7 +230,13 @@ fun box set_flippable(
 ---
 
 ### set_inverted
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L100)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L132)</span>
+
+
+Ranges normally move from lower to higher values as the
+slider moves from top to bottom or left to right. Inverted
+ranges have higher values at the top or on the right rather than
+on the bottom or left.
 
 
 ```pony
@@ -217,7 +255,12 @@ fun box set_inverted(
 ---
 
 ### set_min_slider_size
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L107)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L145)</span>
+
+
+Sets the minimum size of the range’s slider.
+
+This function is useful mainly for #GtkRange subclasses.
 
 
 ```pony
@@ -236,7 +279,12 @@ fun box set_min_slider_size(
 ---
 
 ### set_restrict_to_fill_level
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L115)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L158)</span>
+
+
+Sets whether the slider is restricted to the fill level. See
+gtk_range_set_fill_level() for a general description of the fill
+level concept.
 
 
 ```pony
@@ -255,7 +303,11 @@ fun box set_restrict_to_fill_level(
 ---
 
 ### set_round_digits
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L118)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L166)</span>
+
+
+Sets the number of digits to round the value to when
+it changes. See #GtkRange::change-value.
 
 
 ```pony
@@ -274,7 +326,12 @@ fun box set_round_digits(
 ---
 
 ### set_show_fill_level
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L121)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L173)</span>
+
+
+Sets whether a graphical fill level is show on the trough. See
+gtk_range_set_fill_level() for a general description of the fill
+level concept.
 
 
 ```pony
@@ -293,7 +350,13 @@ fun box set_show_fill_level(
 ---
 
 ### set_slider_size_fixed
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L124)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L181)</span>
+
+
+Sets whether the range’s slider has a fixed size, or a size that
+depends on its adjustment’s page size.
+
+This function is useful mainly for #GtkRange subclasses.
 
 
 ```pony
@@ -327,7 +390,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -342,7 +405,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

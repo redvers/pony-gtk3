@@ -98,6 +98,16 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L21)</span>
 
 
+Deletes a sequence of characters from the buffer. @n_chars characters are
+deleted starting at @position. If @n_chars is negative, then all characters
+until the end of the text are deleted.
+
+If @position or @n_chars are out of bounds, then they are coerced to sane
+values.
+
+Note that the positions are specified in characters, not bytes.
+
+
 ```pony
 fun box delete_text(
   position_pony: U32 val,
@@ -116,7 +126,10 @@ fun box delete_text(
 ---
 
 ### emit_deleted_text
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L34)</span>
+
+
+Used when subclassing #GtkEntryBuffer
 
 
 ```pony
@@ -137,7 +150,10 @@ fun box emit_deleted_text(
 ---
 
 ### get_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L51)</span>
+
+
+Retrieves the length in characters of the buffer.
 
 
 ```pony
@@ -152,7 +168,11 @@ fun box get_length()
 ---
 
 ### get_max_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L41)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L57)</span>
+
+
+Retrieves the maximum allowed length of the text in
+@buffer. See gtk_entry_buffer_set_max_length().
 
 
 ```pony
@@ -167,7 +187,13 @@ fun box get_max_length()
 ---
 
 ### get_text
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L44)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L64)</span>
+
+
+Retrieves the contents of the buffer.
+
+The memory pointer returned by this call will not change
+unless this object emits a signal, or is finalized.
 
 
 ```pony
@@ -182,7 +208,12 @@ fun box get_text()
 ---
 
 ### set_max_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L53)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L79)</span>
+
+
+Sets the maximum allowed length of the contents of the buffer. If
+the current contents are longer than the given length, then they
+will be truncated to fit.
 
 
 ```pony
@@ -216,7 +247,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -231,7 +262,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

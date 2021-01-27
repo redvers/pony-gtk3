@@ -23,6 +23,9 @@ class GtkEntry is GtkWidget
 
 
 fun get_activates_default(): Bool =>
+"""
+Retrieves the value set by gtk_entry_set_activates_default().
+"""
   @gtk_entry_get_activates_default[Bool](widget)
 
 /* get_alignment unavailable due to return typing issues
@@ -54,6 +57,13 @@ fun get_activates_default(): Bool =>
 {:txo, "none"} */
 
 fun get_current_icon_drag_source(): I32 =>
+"""
+Returns the index of the icon which is the source of the current
+DND operation, or -1.
+
+This function is meant to be used in a #GtkWidget::drag-data-get
+callback.
+"""
   @gtk_entry_get_current_icon_drag_source[I32](widget)
 
 /* get_cursor_hadjustment unavailable due to return typing issues
@@ -64,6 +74,9 @@ fun get_current_icon_drag_source(): I32 =>
 {:txo, "none"} */
 
 fun get_has_frame(): Bool =>
+"""
+Gets the value set by gtk_entry_set_has_frame().
+"""
   @gtk_entry_get_has_frame[Bool](widget)
 
 /* get_icon_activatable unavailable due to typing issues
@@ -76,6 +89,13 @@ fun get_has_frame(): Bool =>
 */
 
 fun get_icon_at_pos(x_pony: I32, y_pony: I32): I32 =>
+"""
+Finds the icon at the given position and return its index. The
+position’s coordinates are relative to the @entry’s top left corner.
+If @x, @y doesn’t lie inside an icon, -1 is returned.
+This function is intended for use in a #GtkWidget::query-tooltip
+signal handler.
+"""
   @gtk_entry_get_icon_at_pos[I32](widget, x_pony, y_pony)
 
 /* get_icon_gicon unavailable due to return typing issues
@@ -166,15 +186,32 @@ fun get_icon_at_pos(x_pony: I32, y_pony: I32): I32 =>
 */
 
 fun get_max_length(): I32 =>
+"""
+Retrieves the maximum allowed length of the text in
+@entry. See gtk_entry_set_max_length().
+
+This is equivalent to getting @entry's #GtkEntryBuffer and
+calling gtk_entry_buffer_get_max_length() on it.
+"""
   @gtk_entry_get_max_length[I32](widget)
 
 fun get_max_width_chars(): I32 =>
+"""
+Retrieves the desired maximum width of @entry, in characters.
+See gtk_entry_set_max_width_chars().
+"""
   @gtk_entry_get_max_width_chars[I32](widget)
 
 fun get_overwrite_mode(): Bool =>
+"""
+Gets the value set by gtk_entry_set_overwrite_mode().
+"""
   @gtk_entry_get_overwrite_mode[Bool](widget)
 
 fun get_placeholder_text(): String =>
+"""
+Retrieves the text that will be displayed when @entry is empty and unfocused
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_entry_get_placeholder_text[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
@@ -201,6 +238,13 @@ var string_pony: String val = String.from_cstring(cstring_pony).clone()
 {:txo, "none"} */
 
 fun get_text(): String =>
+"""
+Retrieves the contents of the entry widget.
+See also gtk_editable_get_chars().
+
+This is equivalent to getting @entry's #GtkEntryBuffer and calling
+gtk_entry_buffer_get_text() on it.
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_entry_get_text[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
@@ -217,12 +261,28 @@ var string_pony: String val = String.from_cstring(cstring_pony).clone()
 {:txo, "none"} */
 
 fun get_visibility(): Bool =>
+"""
+Retrieves whether the text in @entry is visible. See
+gtk_entry_set_visibility().
+"""
   @gtk_entry_get_visibility[Bool](widget)
 
 fun get_width_chars(): I32 =>
+"""
+Gets the value set by gtk_entry_set_width_chars().
+"""
   @gtk_entry_get_width_chars[I32](widget)
 
 fun grab_focus_without_selecting(): None =>
+"""
+Causes @entry to have keyboard focus.
+
+It behaves like gtk_widget_grab_focus(),
+except that it doesn't select the contents of the entry.
+You only want to call this on some special entries
+which the user usually doesn't want to replace all text in,
+such as search-as-you-type entries.
+"""
   @gtk_entry_grab_focus_without_selecting[None](widget)
 
 /* im_context_filter_keypress unavailable due to typing issues
@@ -230,15 +290,44 @@ fun grab_focus_without_selecting(): None =>
 */
 
 fun layout_index_to_text_index(layout_index_pony: I32): I32 =>
+"""
+Converts from a position in the entry’s #PangoLayout (returned by
+gtk_entry_get_layout()) to a position in the entry contents
+(returned by gtk_entry_get_text()).
+"""
   @gtk_entry_layout_index_to_text_index[I32](widget, layout_index_pony)
 
 fun progress_pulse(): None =>
+"""
+Indicates that some progress is made, but you don’t know how much.
+Causes the entry’s progress indicator to enter “activity mode,”
+where a block bounces back and forth. Each call to
+gtk_entry_progress_pulse() causes the block to move by a little bit
+(the amount of movement per pulse is determined by
+gtk_entry_set_progress_pulse_step()).
+"""
   @gtk_entry_progress_pulse[None](widget)
 
 fun reset_im_context(): None =>
+"""
+Reset the input method context of the entry if needed.
+
+This can be necessary in the case where modifying the buffer
+would confuse on-going input method behavior.
+"""
   @gtk_entry_reset_im_context[None](widget)
 
 fun set_activates_default(setting_pony: Bool): None =>
+"""
+If @setting is %TRUE, pressing Enter in the @entry will activate the default
+widget for the window containing the entry. This usually means that
+the dialog box containing the entry will be closed, since the default
+widget is usually one of the dialog buttons.
+
+(For experts: if @setting is %TRUE, the entry calls
+gtk_window_activate_default() on the window containing the entry, in
+the default handler for the #GtkEntry::activate signal.)
+"""
   @gtk_entry_set_activates_default[None](widget, setting_pony)
 
 /* set_alignment unavailable due to typing issues
@@ -262,6 +351,9 @@ fun set_activates_default(setting_pony: Bool): None =>
 */
 
 fun set_has_frame(setting_pony: Bool): None =>
+"""
+Sets whether the entry has a beveled frame around it.
+"""
   @gtk_entry_set_has_frame[None](widget, setting_pony)
 
 /* set_icon_activatable unavailable due to typing issues
@@ -325,12 +417,27 @@ fun set_has_frame(setting_pony: Bool): None =>
 */
 
 fun set_max_length(max_pony: I32): None =>
+"""
+Sets the maximum allowed length of the contents of the widget. If
+the current contents are longer than the given length, then they
+will be truncated to fit.
+
+This is equivalent to getting @entry's #GtkEntryBuffer and
+calling gtk_entry_buffer_set_max_length() on it.
+]|
+"""
   @gtk_entry_set_max_length[None](widget, max_pony)
 
 fun set_max_width_chars(n_chars_pony: I32): None =>
+"""
+Sets the desired maximum width in characters of @entry.
+"""
   @gtk_entry_set_max_width_chars[None](widget, n_chars_pony)
 
 fun set_overwrite_mode(overwrite_pony: Bool): None =>
+"""
+Sets whether the text is overwritten when typing in the #GtkEntry.
+"""
   @gtk_entry_set_overwrite_mode[None](widget, overwrite_pony)
 
 /* set_placeholder_text unavailable due to typing issues
@@ -354,15 +461,48 @@ fun set_overwrite_mode(overwrite_pony: Bool): None =>
 */
 
 fun set_visibility(visible_pony: Bool): None =>
+"""
+Sets whether the contents of the entry are visible or not.
+When visibility is set to %FALSE, characters are displayed
+as the invisible char, and will also appear that way when
+the text in the entry widget is copied elsewhere.
+
+By default, GTK+ picks the best invisible character available
+in the current font, but it can be changed with
+gtk_entry_set_invisible_char().
+
+Note that you probably want to set #GtkEntry:input-purpose
+to %GTK_INPUT_PURPOSE_PASSWORD or %GTK_INPUT_PURPOSE_PIN to
+inform input methods about the purpose of this entry,
+in addition to setting visibility to %FALSE.
+"""
   @gtk_entry_set_visibility[None](widget, visible_pony)
 
 fun set_width_chars(n_chars_pony: I32): None =>
+"""
+Changes the size request of the entry to be about the right size
+for @n_chars characters. Note that it changes the size
+request, the size can still be affected by
+how you pack the widget into containers. If @n_chars is -1, the
+size reverts to the default entry size.
+"""
   @gtk_entry_set_width_chars[None](widget, n_chars_pony)
 
 fun text_index_to_layout_index(text_index_pony: I32): I32 =>
+"""
+Converts from a position in the entry contents (returned
+by gtk_entry_get_text()) to a position in the
+entry’s #PangoLayout (returned by gtk_entry_get_layout(),
+with text retrieved via pango_layout_get_text()).
+"""
   @gtk_entry_text_index_to_layout_index[I32](widget, text_index_pony)
 
 fun unset_invisible_char(): None =>
+"""
+Unsets the invisible char previously set with
+gtk_entry_set_invisible_char(). So that the
+default invisible char is used again.
+"""
   @gtk_entry_unset_invisible_char[None](widget)
 
 

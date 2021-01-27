@@ -92,6 +92,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L21)</span>
 
 
+Returns whether the child is fully revealed, in other words whether
+the transition to the revealed state is completed.
+
+
 ```pony
 fun box get_child_revealed()
 : Bool val
@@ -104,7 +108,16 @@ fun box get_child_revealed()
 ---
 
 ### get_reveal_child
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L28)</span>
+
+
+Returns whether the child is currently
+revealed. See gtk_revealer_set_reveal_child().
+
+This function returns %TRUE as soon as the transition
+is to the revealed state is started. To learn whether
+the child is fully revealed (ie the transition is completed),
+use gtk_revealer_get_child_revealed().
 
 
 ```pony
@@ -119,7 +132,11 @@ fun box get_reveal_child()
 ---
 
 ### get_transition_duration
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L40)</span>
+
+
+Returns the amount of time (in milliseconds) that
+transitions will take.
 
 
 ```pony
@@ -134,7 +151,13 @@ fun box get_transition_duration()
 ---
 
 ### set_reveal_child
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L37)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L54)</span>
+
+
+Tells the #GtkRevealer to reveal or conceal its child.
+
+The transition will be animated with the current
+transition type of @revealer.
 
 
 ```pony
@@ -153,7 +176,10 @@ fun box set_reveal_child(
 ---
 
 ### set_transition_duration
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L63)</span>
+
+
+Sets the duration that transitions will take.
 
 
 ```pony
@@ -187,7 +213,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -202,7 +228,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

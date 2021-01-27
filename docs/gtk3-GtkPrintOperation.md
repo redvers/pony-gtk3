@@ -92,6 +92,13 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L21)</span>
 
 
+Cancels a running print operation. This function may
+be called from a #GtkPrintOperation::begin-print,
+#GtkPrintOperation::paginate or #GtkPrintOperation::draw-page
+signal handler to stop the currently running print
+operation.
+
+
 ```pony
 fun box cancel()
 : None val
@@ -104,7 +111,16 @@ fun box cancel()
 ---
 
 ### draw_page_finish
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L31)</span>
+
+
+Signalize that drawing of particular page is complete.
+
+It is called after completion of page drawing (e.g. drawing in another
+thread).
+If gtk_print_operation_set_defer_drawing() was called before, then this function
+has to be called by application. In another case it is called by the library
+itself.
 
 
 ```pony
@@ -119,7 +135,10 @@ fun box draw_page_finish()
 ---
 
 ### get_embed_page_setup
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L50)</span>
+
+
+Gets the value of #GtkPrintOperation:embed-page-setup property.
 
 
 ```pony
@@ -134,7 +153,13 @@ fun box get_embed_page_setup()
 ---
 
 ### get_error
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L37)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L56)</span>
+
+
+Call this when the result of a print operation is
+%GTK_PRINT_OPERATION_RESULT_ERROR, either as returned by
+gtk_print_operation_run(), or in the #GtkPrintOperation::done signal
+handler. The returned #GError will contain more details on what went wrong.
 
 
 ```pony
@@ -149,7 +174,10 @@ fun box get_error()
 ---
 
 ### get_has_selection
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L65)</span>
+
+
+Gets the value of #GtkPrintOperation:has-selection property.
 
 
 ```pony
@@ -164,7 +192,18 @@ fun box get_has_selection()
 ---
 
 ### get_n_pages_to_print
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L43)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L71)</span>
+
+
+Returns the number of pages that will be printed.
+
+Note that this value is set during print preparation phase
+(%GTK_PRINT_STATUS_PREPARING), so this function should never be
+called before the data generation phase (%GTK_PRINT_STATUS_GENERATING_DATA).
+You can connect to the #GtkPrintOperation::status-changed signal
+and call gtk_print_operation_get_n_pages_to_print() when
+print status is %GTK_PRINT_STATUS_GENERATING_DATA.
+This is typically used to track the progress of print operation.
 
 
 ```pony
@@ -179,7 +218,15 @@ fun box get_n_pages_to_print()
 ---
 
 ### get_status_string
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L60)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L99)</span>
+
+
+Returns a string representation of the status of the
+print operation. The string is translated and suitable
+for displaying the print status e.g. in a #GtkStatusbar.
+
+Use gtk_print_operation_get_status() to obtain a status
+value that is suitable for programmatic use.
 
 
 ```pony
@@ -194,7 +241,10 @@ fun box get_status_string()
 ---
 
 ### get_support_selection
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L65)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L112)</span>
+
+
+Gets the value of #GtkPrintOperation:support-selection property.
 
 
 ```pony
@@ -209,7 +259,16 @@ fun box get_support_selection()
 ---
 
 ### is_finished
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L68)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L118)</span>
+
+
+A convenience function to find out if the print operation
+is finished, either successfully (%GTK_PRINT_STATUS_FINISHED)
+or unsuccessfully (%GTK_PRINT_STATUS_FINISHED_ABORTED).
+
+Note: when you enable print status tracking the print operation
+can be in a non-finished state even after done has been called, as
+the operation status then tracks the print job status on the printer.
 
 
 ```pony
@@ -224,7 +283,12 @@ fun box is_finished()
 ---
 
 ### set_allow_async
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L78)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L137)</span>
+
+
+Sets whether the gtk_print_operation_run() may return
+before the print operation is completed. Note that
+some platforms may not allow asynchronous operation.
 
 
 ```pony
@@ -243,7 +307,15 @@ fun box set_allow_async(
 ---
 
 ### set_current_page
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L81)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L145)</span>
+
+
+Sets the current page.
+
+If this is called before gtk_print_operation_run(),
+the user will be able to select to print only the current page.
+
+Note that this only makes sense for pre-paginated documents.
 
 
 ```pony
@@ -262,7 +334,14 @@ fun box set_current_page(
 ---
 
 ### set_defer_drawing
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L92)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L164)</span>
+
+
+Sets up the #GtkPrintOperation to wait for calling of
+gtk_print_operation_draw_page_finish() from application. It can
+be used for drawing page in another thread.
+
+This function must be called in the callback of “draw-page” signal.
 
 
 ```pony
@@ -277,7 +356,11 @@ fun box set_defer_drawing()
 ---
 
 ### set_embed_page_setup
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L95)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L174)</span>
+
+
+Embed page size combo box and orientation combo box into page setup page.
+Selected page setup is stored as default page setup in #GtkPrintOperation.
 
 
 ```pony
@@ -296,7 +379,14 @@ fun box set_embed_page_setup(
 ---
 
 ### set_has_selection
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L102)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L185)</span>
+
+
+Sets whether there is a selection to print.
+
+Application has to set number of pages to which the selection
+will draw by gtk_print_operation_set_n_pages() in a callback of
+#GtkPrintOperation::begin-print.
 
 
 ```pony
@@ -315,7 +405,20 @@ fun box set_has_selection(
 ---
 
 ### set_n_pages
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L109)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L199)</span>
+
+
+Sets the number of pages in the document.
+
+This must be set to a positive number
+before the rendering starts. It may be set in a
+#GtkPrintOperation::begin-print signal hander.
+
+Note that the page numbers passed to the
+#GtkPrintOperation::request-page-setup
+and #GtkPrintOperation::draw-page signals are 0-based, i.e. if
+the user chooses to print all pages, the last ::draw-page signal
+will be for page @n_pages - 1.
 
 
 ```pony
@@ -334,7 +437,11 @@ fun box set_n_pages(
 ---
 
 ### set_show_progress
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L116)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L219)</span>
+
+
+If @show_progress is %TRUE, the print operation will show a
+progress dialog during the print operation.
 
 
 ```pony
@@ -353,7 +460,10 @@ fun box set_show_progress(
 ---
 
 ### set_support_selection
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L119)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L226)</span>
+
+
+Sets whether selection is supported by #GtkPrintOperation.
 
 
 ```pony
@@ -372,7 +482,16 @@ fun box set_support_selection(
 ---
 
 ### set_track_print_status
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L122)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L232)</span>
+
+
+If track_status is %TRUE, the print operation will try to continue report
+on the status of the print job in the printer queues and printer. This
+can allow your application to show things like “out of paper” issues,
+and when the print job actually reaches the printer.
+
+This function is often implemented using some form of polling, so it should
+not be enabled unless needed.
 
 
 ```pony
@@ -391,7 +510,15 @@ fun box set_track_print_status(
 ---
 
 ### set_use_full_page
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L129)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L248)</span>
+
+
+If @full_page is %TRUE, the transformation for the cairo context
+obtained from #GtkPrintContext puts the origin at the top left
+corner of the page (which may not be the top left corner of the
+sheet, depending on page orientation and the number of pages per
+sheet). Otherwise, the origin is at the top left corner of the
+imageable area (i.e. inside the margins).
 
 
 ```pony
@@ -425,7 +552,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -440,7 +567,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

@@ -98,6 +98,11 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L28)</span>
 
 
+Returns %TRUE if the mark has been removed from its buffer
+with gtk_text_buffer_delete_mark(). See gtk_text_buffer_add_mark()
+for a way to add it to a buffer again.
+
+
 ```pony
 fun box get_deleted()
 : Bool val
@@ -110,7 +115,10 @@ fun box get_deleted()
 ---
 
 ### get_left_gravity
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L36)</span>
+
+
+Determines whether the mark has left gravity.
 
 
 ```pony
@@ -125,7 +133,10 @@ fun box get_left_gravity()
 ---
 
 ### get_name
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L42)</span>
+
+
+Returns the mark name; returns NULL for anonymous marks.
 
 
 ```pony
@@ -140,7 +151,11 @@ fun box get_name()
 ---
 
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L50)</span>
+
+
+Returns %TRUE if the mark is visible (i.e. a cursor is displayed
+for it).
 
 
 ```pony
@@ -155,7 +170,14 @@ fun box get_visible()
 ---
 
 ### set_visible
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L57)</span>
+
+
+Sets the visibility of @mark; the insertion point is normally
+visible, i.e. you can see it as a vertical bar. Also, the text
+widget uses a visible mark to indicate where a drop will occur when
+dragging-and-dropping text. Most other marks are not visible.
+Marks are not visible by default.
 
 
 ```pony
@@ -189,7 +211,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -204,7 +226,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

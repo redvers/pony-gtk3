@@ -96,6 +96,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L28)</span>
 
 
+Returns the unique ID of the window. If the window has not yet been added to
+a #GtkApplication, returns `0`.
+
+
 ```pony
 fun box get_id()
 : U32 val
@@ -108,7 +112,11 @@ fun box get_id()
 ---
 
 ### get_show_menubar
-<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L35)</span>
+
+
+Returns whether the window will display a menubar for the app menu
+and menubar as needed.
 
 
 ```pony
@@ -123,7 +131,11 @@ fun box get_show_menubar()
 ---
 
 ### set_show_menubar
-<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L46)</span>
+
+
+Sets whether the window will display a menubar for the app menu
+and menubar as needed.
 
 
 ```pony
@@ -157,7 +169,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -172,7 +184,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

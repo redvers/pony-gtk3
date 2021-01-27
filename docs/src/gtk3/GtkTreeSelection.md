@@ -18,6 +18,9 @@ class GtkTreeSelection is GtkWidget
 
 
 fun count_selected_rows(): I32 =>
+"""
+Returns the number of rows that have been selected in @tree.
+"""
   @gtk_tree_selection_count_selected_rows[I32](widget)
 
 /* get_mode unavailable due to return typing issues
@@ -69,6 +72,10 @@ fun count_selected_rows(): I32 =>
 */
 
 fun select_all(): None =>
+"""
+Selects all the nodes. @selection must be set to #GTK_SELECTION_MULTIPLE
+mode.
+"""
   @gtk_tree_selection_select_all[None](widget)
 
 /* select_iter unavailable due to typing issues
@@ -100,6 +107,9 @@ fun select_all(): None =>
 */
 
 fun unselect_all(): None =>
+"""
+Unselects all the nodes.
+"""
   @gtk_tree_selection_unselect_all[None](widget)
 
 /* unselect_iter unavailable due to typing issues

@@ -130,6 +130,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L27)</span>
 
 
+Returns whether the check menu item is active. See
+gtk_check_menu_item_set_active ().
+
+
 ```pony
 fun box get_active()
 : Bool val
@@ -142,7 +146,10 @@ fun box get_active()
 ---
 
 ### get_draw_as_radio
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L34)</span>
+
+
+Returns whether @check_menu_item looks like a #GtkRadioMenuItem
 
 
 ```pony
@@ -157,7 +164,10 @@ fun box get_draw_as_radio()
 ---
 
 ### get_inconsistent
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L40)</span>
+
+
+Retrieves the value set by gtk_check_menu_item_set_inconsistent().
 
 
 ```pony
@@ -172,7 +182,10 @@ fun box get_inconsistent()
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L46)</span>
+
+
+Sets the active state of the menu item’s check box.
 
 
 ```pony
@@ -191,7 +204,10 @@ fun box set_active(
 ---
 
 ### set_draw_as_radio
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L52)</span>
+
+
+Sets whether @check_menu_item is drawn like a #GtkRadioMenuItem
 
 
 ```pony
@@ -210,7 +226,17 @@ fun box set_draw_as_radio(
 ---
 
 ### set_inconsistent
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L58)</span>
+
+
+If the user has selected a range of elements (such as some text or
+spreadsheet cells) that are affected by a boolean setting, and the
+current values in that range are inconsistent, you may want to
+display the check in an “in between” state. This function turns on
+“in between” display.  Normally you would turn off the inconsistent
+state again if the user explicitly selects a setting. This has to be
+done manually, gtk_check_menu_item_set_inconsistent() only affects
+visual appearance, it doesn’t affect the semantics of the widget.
 
 
 ```pony
@@ -229,7 +255,10 @@ fun box set_inconsistent(
 ---
 
 ### toggled
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L45)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L71)</span>
+
+
+Emits the #GtkCheckMenuItem::toggled signal.
 
 
 ```pony
@@ -259,7 +288,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -274,7 +303,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

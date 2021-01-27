@@ -58,6 +58,9 @@ class GtkLayout is GtkWidget
 */
 
 fun set_size(width_pony: U32, height_pony: U32): None =>
+"""
+Sets the size of the scrollable area of the layout.
+"""
   @gtk_layout_set_size[None](widget, width_pony, height_pony)
 
 /* set_vadjustment unavailable due to typing issues

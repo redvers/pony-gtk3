@@ -102,6 +102,13 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkAction.md#L21)</span>
 
 
+Emits the “activate” signal on the specified action, if it isn't
+insensitive. This gets called by the proxy widgets when they get
+activated.
+
+It can also be used to manually activate an action.
+
+
 ```pony
 fun box activate()
 : None val
@@ -114,7 +121,15 @@ fun box activate()
 ---
 
 ### block_activate
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L31)</span>
+
+
+Disable activation signals from the action
+
+This is needed when updating the state of your proxy
+#GtkActivatable widget could result in calling gtk_action_activate(),
+this is a convenience function to avoid recursing in those
+cases (updating toggle state for instance).
 
 
 ```pony
@@ -129,7 +144,17 @@ fun box block_activate()
 ---
 
 ### connect_accelerator
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L42)</span>
+
+
+Installs the accelerator for @action if @action has an
+accel path and group. See gtk_action_set_accel_path() and
+gtk_action_set_accel_group()
+
+Since multiple proxies may independently trigger the installation
+of the accelerator, the @action counts the number of times this
+function has been called and doesn’t remove the accelerator until
+gtk_action_disconnect_accelerator() has been called as many times.
 
 
 ```pony
@@ -144,7 +169,10 @@ fun box connect_accelerator()
 ---
 
 ### disconnect_accelerator
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L58)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L83)</span>
+
+
+Undoes the effect of one call to gtk_action_connect_accelerator().
 
 
 ```pony
@@ -159,7 +187,10 @@ fun box disconnect_accelerator()
 ---
 
 ### get_accel_path
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L68)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L96)</span>
+
+
+Returns the accel path for this action.
 
 
 ```pony
@@ -174,7 +205,11 @@ fun box get_accel_path()
 ---
 
 ### get_always_show_image
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L73)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L104)</span>
+
+
+Returns whether @action's menu item proxies will always
+show their image, if available.
 
 
 ```pony
@@ -189,7 +224,10 @@ fun box get_always_show_image()
 ---
 
 ### get_icon_name
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L83)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L118)</span>
+
+
+Gets the icon name of @action.
 
 
 ```pony
@@ -204,7 +242,10 @@ fun box get_icon_name()
 ---
 
 ### get_is_important
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L88)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L126)</span>
+
+
+Checks whether @action is important or not
 
 
 ```pony
@@ -219,7 +260,10 @@ fun box get_is_important()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L91)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L132)</span>
+
+
+Gets the label text of @action.
 
 
 ```pony
@@ -234,7 +278,10 @@ fun box get_label()
 ---
 
 ### get_name
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L96)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L140)</span>
+
+
+Returns the name of the action.
 
 
 ```pony
@@ -249,7 +296,12 @@ fun box get_name()
 ---
 
 ### get_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L108)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L155)</span>
+
+
+Returns whether the action itself is sensitive. Note that this doesn’t
+necessarily mean effective sensitivity. See gtk_action_is_sensitive()
+for that.
 
 
 ```pony
@@ -264,7 +316,10 @@ fun box get_sensitive()
 ---
 
 ### get_short_label
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L111)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L163)</span>
+
+
+Gets the short label text of @action.
 
 
 ```pony
@@ -279,7 +334,10 @@ fun box get_short_label()
 ---
 
 ### get_stock_id
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L116)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L171)</span>
+
+
+Gets the stock id of @action.
 
 
 ```pony
@@ -294,7 +352,10 @@ fun box get_stock_id()
 ---
 
 ### get_tooltip
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L121)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L179)</span>
+
+
+Gets the tooltip text of @action.
 
 
 ```pony
@@ -309,7 +370,12 @@ fun box get_tooltip()
 ---
 
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L126)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L187)</span>
+
+
+Returns whether the action itself is visible. Note that this doesn’t
+necessarily mean effective visibility. See gtk_action_is_sensitive()
+for that.
 
 
 ```pony
@@ -324,7 +390,10 @@ fun box get_visible()
 ---
 
 ### get_visible_horizontal
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L129)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L195)</span>
+
+
+Checks whether @action is visible when horizontal
 
 
 ```pony
@@ -339,7 +408,10 @@ fun box get_visible_horizontal()
 ---
 
 ### get_visible_vertical
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L132)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L201)</span>
+
+
+Checks whether @action is visible when horizontal
 
 
 ```pony
@@ -354,7 +426,10 @@ fun box get_visible_vertical()
 ---
 
 ### is_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L135)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L207)</span>
+
+
+Returns whether the action is effectively sensitive.
 
 
 ```pony
@@ -369,7 +444,10 @@ fun box is_sensitive()
 ---
 
 ### is_visible
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L138)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L213)</span>
+
+
+Returns whether the action is effectively visible.
 
 
 ```pony
@@ -384,7 +462,14 @@ fun box is_visible()
 ---
 
 ### set_always_show_image
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L149)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L227)</span>
+
+
+Sets whether @action's menu item proxies will ignore the
+#GtkSettings:gtk-menu-images setting and always show their image, if available.
+
+Use this if the menu item would be useless or hard to use
+without their image.
 
 
 ```pony
@@ -403,7 +488,12 @@ fun box set_always_show_image(
 ---
 
 ### set_is_important
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L160)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L245)</span>
+
+
+Sets whether the action is important, this attribute is used
+primarily by toolbar items to decide whether to show a label
+or not.
 
 
 ```pony
@@ -422,7 +512,13 @@ fun box set_is_important(
 ---
 
 ### set_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L167)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L257)</span>
+
+
+Sets the :sensitive property of the action to @sensitive. Note that
+this doesn’t necessarily mean effective sensitivity. See
+gtk_action_is_sensitive()
+for that.
 
 
 ```pony
@@ -441,7 +537,13 @@ fun box set_sensitive(
 ---
 
 ### set_visible
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L182)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L278)</span>
+
+
+Sets the :visible property of the action to @visible. Note that
+this doesn’t necessarily mean effective visibility. See
+gtk_action_is_visible()
+for that.
 
 
 ```pony
@@ -460,7 +562,10 @@ fun box set_visible(
 ---
 
 ### set_visible_horizontal
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L185)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L287)</span>
+
+
+Sets whether @action is visible when horizontal
 
 
 ```pony
@@ -479,7 +584,10 @@ fun box set_visible_horizontal(
 ---
 
 ### set_visible_vertical
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L188)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L293)</span>
+
+
+Sets whether @action is visible when vertical
 
 
 ```pony
@@ -498,7 +606,10 @@ fun box set_visible_vertical(
 ---
 
 ### unblock_activate
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L191)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L299)</span>
+
+
+Reenable activation signals from the action
 
 
 ```pony
@@ -528,7 +639,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -543,7 +654,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

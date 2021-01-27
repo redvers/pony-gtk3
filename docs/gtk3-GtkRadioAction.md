@@ -104,6 +104,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L21)</span>
 
 
+Obtains the value property of the currently active member of
+the group to which @action belongs.
+
+
 ```pony
 fun box get_current_value()
 : I32 val
@@ -116,7 +120,11 @@ fun box get_current_value()
 ---
 
 ### set_current_value
-<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L39)</span>
+
+
+Sets the currently active group member to the member with value
+property @current_value.
 
 
 ```pony
@@ -150,7 +158,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -165,7 +173,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

@@ -31,9 +31,16 @@ class GtkListBox is GtkWidget
 */
 
 fun drag_unhighlight_row(): None =>
+"""
+If a row has previously been highlighted via gtk_list_box_drag_highlight_row()
+it will have the highlight removed.
+"""
   @gtk_list_box_drag_unhighlight_row[None](widget)
 
 fun get_activate_on_single_click(): Bool =>
+"""
+Returns whether rows activate on single clicks.
+"""
   @gtk_list_box_get_activate_on_single_click[Bool](widget)
 
 /* get_adjustment unavailable due to return typing issues
@@ -83,12 +90,29 @@ fun get_activate_on_single_click(): Bool =>
 */
 
 fun invalidate_filter(): None =>
+"""
+Update the filtering for all rows. Call this when result
+of the filter function on the @box is changed due
+to an external factor. For instance, this would be used
+if the filter function just looked for a specific search
+string and the entry with the search string has changed.
+"""
   @gtk_list_box_invalidate_filter[None](widget)
 
 fun invalidate_headers(): None =>
+"""
+Update the separators for all rows. Call this when result
+of the header function on the @box is changed due
+to an external factor.
+"""
   @gtk_list_box_invalidate_headers[None](widget)
 
 fun invalidate_sort(): None =>
+"""
+Update the sorting for all rows. Call this when result
+of the sort function on the @box is changed due
+to an external factor.
+"""
   @gtk_list_box_invalidate_sort[None](widget)
 
 /* prepend unavailable due to typing issues
@@ -96,6 +120,9 @@ fun invalidate_sort(): None =>
 */
 
 fun select_all(): None =>
+"""
+Select all children of @box, if the selection mode allows it.
+"""
   @gtk_list_box_select_all[None](widget)
 
 /* select_row unavailable due to typing issues
@@ -108,6 +135,10 @@ fun select_all(): None =>
 */
 
 fun set_activate_on_single_click(single_pony: Bool): None =>
+"""
+If @single is %TRUE, rows will be activated when you click on them,
+otherwise you need to double-click.
+"""
   @gtk_list_box_set_activate_on_single_click[None](widget, single_pony)
 
 /* set_adjustment unavailable due to typing issues
@@ -141,6 +172,9 @@ fun set_activate_on_single_click(single_pony: Bool): None =>
 */
 
 fun unselect_all(): None =>
+"""
+Unselect all children of @box, if the selection mode allows it.
+"""
   @gtk_list_box_unselect_all[None](widget)
 
 /* unselect_row unavailable due to typing issues

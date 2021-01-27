@@ -92,6 +92,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L21)</span>
 
 
+Returns whether @item is drawn as a line, or just blank.
+See gtk_separator_tool_item_set_draw().
+
+
 ```pony
 fun box get_draw()
 : Bool val
@@ -104,7 +108,12 @@ fun box get_draw()
 ---
 
 ### set_draw
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L28)</span>
+
+
+Whether @item is drawn as a vertical line, or just blank.
+Setting this to %FALSE along with gtk_tool_item_set_expand() is useful
+to create an item that forces following items to the end of the toolbar.
 
 
 ```pony
@@ -138,7 +147,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -153,7 +162,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

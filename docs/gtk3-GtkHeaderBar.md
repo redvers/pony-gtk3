@@ -92,6 +92,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L28)</span>
 
 
+Gets the decoration layout set with
+gtk_header_bar_set_decoration_layout().
+
+
 ```pony
 fun box get_decoration_layout()
 : String val
@@ -104,7 +108,11 @@ fun box get_decoration_layout()
 ---
 
 ### get_has_subtitle
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L37)</span>
+
+
+Retrieves whether the header bar reserves space for
+a subtitle, regardless if one is currently set or not.
 
 
 ```pony
@@ -119,7 +127,11 @@ fun box get_has_subtitle()
 ---
 
 ### get_show_close_button
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L44)</span>
+
+
+Returns whether this header bar shows the standard window
+decorations.
 
 
 ```pony
@@ -134,7 +146,10 @@ fun box get_show_close_button()
 ---
 
 ### get_subtitle
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L51)</span>
+
+
+Retrieves the subtitle of the header. See gtk_header_bar_set_subtitle().
 
 
 ```pony
@@ -149,7 +164,10 @@ fun box get_subtitle()
 ---
 
 ### get_title
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L44)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L59)</span>
+
+
+Retrieves the title of the header. See gtk_header_bar_set_title().
 
 
 ```pony
@@ -164,7 +182,11 @@ fun box get_title()
 ---
 
 ### set_has_subtitle
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L65)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L83)</span>
+
+
+Sets whether the header bar should reserve space
+for a subtitle, even if none is currently set.
 
 
 ```pony
@@ -183,7 +205,11 @@ fun box set_has_subtitle(
 ---
 
 ### set_show_close_button
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L68)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L90)</span>
+
+
+Sets whether this header bar shows the standard window decorations,
+including close, maximize, and minimize.
 
 
 ```pony
@@ -217,7 +243,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -232,7 +258,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

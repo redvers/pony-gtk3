@@ -117,6 +117,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L24)</span>
 
 
+Retrieves the URI set using gtk_link_button_set_uri().
+
+
 ```pony
 fun box get_uri()
 : String val
@@ -129,7 +132,14 @@ fun box get_uri()
 ---
 
 ### get_visited
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L29)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L32)</span>
+
+
+Retrieves the “visited” state of the URI where the #GtkLinkButton
+points. The button becomes visited when it is clicked. If the URI
+is changed on the button, the “visited” state is unset again.
+
+The state may also be changed using gtk_link_button_set_visited().
 
 
 ```pony
@@ -144,7 +154,11 @@ fun box get_visited()
 ---
 
 ### set_visited
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L46)</span>
+
+
+Sets the “visited” state of the URI where the #GtkLinkButton
+points.  See gtk_link_button_get_visited() for more details.
 
 
 ```pony
@@ -178,7 +192,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -193,7 +207,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

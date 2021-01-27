@@ -92,6 +92,14 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L21)</span>
 
 
+Determines whether a child anchor has been deleted from
+the buffer. Keep in mind that the child anchor will be
+unreferenced when removed from the buffer, so you need to
+hold your own reference (with g_object_ref()) if you plan
+to use this function — otherwise all deleted child anchors
+will also be finalized.
+
+
 ```pony
 fun box get_deleted()
 : Bool val
@@ -119,7 +127,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -134,7 +142,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

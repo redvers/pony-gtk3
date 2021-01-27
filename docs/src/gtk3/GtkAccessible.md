@@ -18,6 +18,10 @@ class GtkAccessible is GtkWidget
 
 
 fun connect_widget_destroyed(): None =>
+"""
+This function specifies the callback function to be called
+when the widget corresponding to a GtkAccessible is destroyed.
+"""
   @gtk_accessible_connect_widget_destroyed[None](widget)
 
 /* get_widget unavailable due to return typing issues

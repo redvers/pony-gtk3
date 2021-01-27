@@ -96,6 +96,25 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L46)</span>
 
 
+Called to indicate that the buffer operations between here and a
+call to gtk_text_buffer_end_user_action() are part of a single
+user-visible operation. The operations between
+gtk_text_buffer_begin_user_action() and
+gtk_text_buffer_end_user_action() can then be grouped when creating
+an undo stack. #GtkTextBuffer maintains a count of calls to
+gtk_text_buffer_begin_user_action() that have not been closed with
+a call to gtk_text_buffer_end_user_action(), and emits the
+“begin-user-action” and “end-user-action” signals only for the
+outermost pair of calls. This allows you to build user actions
+from other user actions.
+
+The “interactive” buffer mutation functions, such as
+gtk_text_buffer_insert_interactive(), automatically call begin/end
+user action around the buffer operations they perform, so there's
+no need to add extra calls if you user action consists solely of a
+single call to one of those functions.
+
+
 ```pony
 fun box begin_user_action()
 : None val
@@ -108,7 +127,13 @@ fun box begin_user_action()
 ---
 
 ### delete_selection
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L96)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L115)</span>
+
+
+Deletes the range between the “insert” and “selection_bound” marks,
+that is, the currently-selected text. If @interactive is %TRUE,
+the editability of the selection will be considered (users can’t delete
+uneditable text).
 
 
 ```pony
@@ -129,7 +154,11 @@ fun box delete_selection(
 ---
 
 ### end_user_action
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L115)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L140)</span>
+
+
+Should be paired with a call to gtk_text_buffer_begin_user_action().
+See that function for a full explanation.
 
 
 ```pony
@@ -144,7 +173,13 @@ fun box end_user_action()
 ---
 
 ### get_char_count
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L123)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L152)</span>
+
+
+Gets the number of characters in the buffer; note that characters
+and bytes are not the same, you can’t e.g. expect the contents of
+the buffer in string form to be this many bytes long. The character
+count is cached, so this function is very fast.
 
 
 ```pony
@@ -159,7 +194,10 @@ fun box get_char_count()
 ---
 
 ### get_has_selection
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L144)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L179)</span>
+
+
+Indicates whether the buffer has some text currently selected.
 
 
 ```pony
@@ -174,7 +212,11 @@ fun box get_has_selection()
 ---
 
 ### get_line_count
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L180)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L218)</span>
+
+
+Obtains the number of lines in the buffer. This value is cached, so
+the function is very fast.
 
 
 ```pony
@@ -189,7 +231,13 @@ fun box get_line_count()
 ---
 
 ### get_modified
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L190)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L232)</span>
+
+
+Indicates whether the buffer has been modified since the last call
+to gtk_text_buffer_set_modified() set the modification flag to
+%FALSE. Used for example to enable a “save” function in a text
+editor.
 
 
 ```pony
@@ -204,7 +252,14 @@ fun box get_modified()
 ---
 
 ### set_modified
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L383)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L431)</span>
+
+
+Used to keep track of whether the buffer has been modified since the
+last time it was saved. Whenever the buffer is saved to disk, call
+gtk_text_buffer_set_modified (@buffer, FALSE). When the buffer is modified,
+it will automatically toggled on the modified bit again. When the modified
+bit flips, the buffer emits the #GtkTextBuffer::modified-changed signal.
 
 
 ```pony
@@ -238,7 +293,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -253,7 +308,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

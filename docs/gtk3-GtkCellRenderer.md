@@ -77,6 +77,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L87)</span>
 
 
+Returns the cell renderer’s sensitivity.
+
+
 ```pony
 fun box get_sensitive()
 : Bool val
@@ -89,7 +92,10 @@ fun box get_sensitive()
 ---
 
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L106)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L109)</span>
+
+
+Returns the cell renderer’s visibility.
 
 
 ```pony
@@ -104,7 +110,10 @@ fun box get_visible()
 ---
 
 ### is_activatable
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L109)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L115)</span>
+
+
+Checks whether the cell renderer can do something when activated.
 
 
 ```pony
@@ -119,7 +128,10 @@ fun box is_activatable()
 ---
 
 ### set_fixed_size
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L125)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L134)</span>
+
+
+Sets the renderer size to be explicit, independent of the properties set.
 
 
 ```pony
@@ -140,7 +152,10 @@ fun box set_fixed_size(
 ---
 
 ### set_padding
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L128)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L140)</span>
+
+
+Sets the renderer’s padding.
 
 
 ```pony
@@ -161,7 +176,10 @@ fun box set_padding(
 ---
 
 ### set_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L131)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L146)</span>
+
+
+Sets the cell renderer’s sensitivity.
 
 
 ```pony
@@ -180,7 +198,10 @@ fun box set_sensitive(
 ---
 
 ### set_visible
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L134)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L152)</span>
+
+
+Sets the cell renderer’s visibility.
 
 
 ```pony
@@ -199,7 +220,16 @@ fun box set_visible(
 ---
 
 ### stop_editing
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L144)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L165)</span>
+
+
+Informs the cell renderer that the editing is stopped.
+If @canceled is %TRUE, the cell renderer will emit the
+#GtkCellRenderer::editing-canceled signal.
+
+This function should be called by cell renderer implementations
+in response to the #GtkCellEditable::editing-done signal of
+#GtkCellEditable.
 
 
 ```pony
@@ -233,7 +263,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -248,7 +278,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

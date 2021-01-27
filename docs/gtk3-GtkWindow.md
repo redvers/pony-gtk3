@@ -96,6 +96,12 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L21)</span>
 
 
+Activates the default widget for the window, unless the current
+focused widget has been configured to receive the default action
+(see gtk_widget_set_receives_default()), in which case the
+focused widget is activated.
+
+
 ```pony
 fun box activate_default()
 : Bool val
@@ -108,7 +114,10 @@ fun box activate_default()
 ---
 
 ### activate_focus
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L30)</span>
+
+
+Activates the current focused widget within the window.
 
 
 ```pony
@@ -123,7 +132,14 @@ fun box activate_focus()
 ---
 
 ### close
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L48)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L57)</span>
+
+
+Requests that the window is closed, similar to what happens
+when a window manager close button is clicked.
+
+This function can be used with close buttons in custom
+titlebars.
 
 
 ```pony
@@ -138,7 +154,17 @@ fun box close()
 ---
 
 ### deiconify
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L51)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L67)</span>
+
+
+Asks to deiconify (i.e. unminimize) the specified @window. Note
+that you shouldn’t assume the window is definitely deiconified
+afterward, because other entities (e.g. the user or
+[window manager][gtk-X11-arch])) could iconify it
+again before your code which assumes deiconification gets to run.
+
+You can track iconification via the “window-state-event” signal
+on #GtkWidget.
 
 
 ```pony
@@ -153,7 +179,19 @@ fun box deiconify()
 ---
 
 ### fullscreen
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L80)</span>
+
+
+Asks to place @window in the fullscreen state. Note that you
+shouldn’t assume the window is definitely full screen afterward,
+because other entities (e.g. the user or
+[window manager][gtk-X11-arch]) could unfullscreen it
+again, and not all window managers honor requests to fullscreen
+windows. But normally the window will end up fullscreen. Just
+don’t write code that crashes if not.
+
+You can track the fullscreen state via the “window-state-event” signal
+on #GtkWidget.
 
 
 ```pony
@@ -168,7 +206,10 @@ fun box fullscreen()
 ---
 
 ### get_accept_focus
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L99)</span>
+
+
+Gets the value set by gtk_window_set_accept_focus().
 
 
 ```pony
@@ -183,7 +224,11 @@ fun box get_accept_focus()
 ---
 
 ### get_decorated
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L78)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L119)</span>
+
+
+Returns whether the window has been set to have decorations
+such as a title bar via gtk_window_set_decorated().
 
 
 ```pony
@@ -198,7 +243,11 @@ fun box get_decorated()
 ---
 
 ### get_deletable
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L93)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L138)</span>
+
+
+Returns whether the window has been set to have a close button
+via gtk_window_set_deletable().
 
 
 ```pony
@@ -213,7 +262,11 @@ fun box get_deletable()
 ---
 
 ### get_destroy_with_parent
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L96)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L145)</span>
+
+
+Returns whether the window will be destroyed with its transient parent. See
+gtk_window_set_destroy_with_parent ().
 
 
 ```pony
@@ -228,7 +281,10 @@ fun box get_destroy_with_parent()
 ---
 
 ### get_focus_on_map
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L106)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L159)</span>
+
+
+Gets the value set by gtk_window_set_focus_on_map().
 
 
 ```pony
@@ -243,7 +299,10 @@ fun box get_focus_on_map()
 ---
 
 ### get_focus_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L109)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L165)</span>
+
+
+Gets the value of the #GtkWindow:focus-visible property.
 
 
 ```pony
@@ -258,7 +317,10 @@ fun box get_focus_visible()
 ---
 
 ### get_has_resize_grip
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L126)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L185)</span>
+
+
+Determines whether the window may have a resize grip.
 
 
 ```pony
@@ -273,7 +335,11 @@ fun box get_has_resize_grip()
 ---
 
 ### get_hide_titlebar_when_maximized
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L129)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L191)</span>
+
+
+Returns whether the window has requested to have its titlebar hidden
+when maximized. See gtk_window_set_hide_titlebar_when_maximized ().
 
 
 ```pony
@@ -288,7 +354,11 @@ fun box get_hide_titlebar_when_maximized()
 ---
 
 ### get_icon_name
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L146)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L212)</span>
+
+
+Returns the name of the themed icon for the window,
+see gtk_window_set_icon_name().
 
 
 ```pony
@@ -303,7 +373,10 @@ fun box get_icon_name()
 ---
 
 ### get_mnemonics_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L158)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L228)</span>
+
+
+Gets the value of the #GtkWindow:mnemonics-visible property.
 
 
 ```pony
@@ -318,7 +391,10 @@ fun box get_mnemonics_visible()
 ---
 
 ### get_modal
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L161)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L234)</span>
+
+
+Returns whether the window is modal. See gtk_window_set_modal().
 
 
 ```pony
@@ -333,7 +409,10 @@ fun box get_modal()
 ---
 
 ### get_resizable
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L176)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L252)</span>
+
+
+Gets the value set by gtk_window_set_resizable().
 
 
 ```pony
@@ -348,7 +427,11 @@ fun box get_resizable()
 ---
 
 ### get_role
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L183)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L262)</span>
+
+
+Returns the role of the window. See gtk_window_set_role() for
+further explanation.
 
 
 ```pony
@@ -363,7 +446,10 @@ fun box get_role()
 ---
 
 ### get_skip_pager_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L200)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L283)</span>
+
+
+Gets the value set by gtk_window_set_skip_pager_hint().
 
 
 ```pony
@@ -378,7 +464,10 @@ fun box get_skip_pager_hint()
 ---
 
 ### get_skip_taskbar_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L203)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L289)</span>
+
+
+Gets the value set by gtk_window_set_skip_taskbar_hint()
 
 
 ```pony
@@ -393,7 +482,10 @@ fun box get_skip_taskbar_hint()
 ---
 
 ### get_title
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L206)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L295)</span>
+
+
+Retrieves the title of the window. See gtk_window_set_title().
 
 
 ```pony
@@ -408,7 +500,10 @@ fun box get_title()
 ---
 
 ### get_urgency_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L232)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L324)</span>
+
+
+Gets the value set by gtk_window_set_urgency_hint()
 
 
 ```pony
@@ -423,7 +518,10 @@ fun box get_urgency_hint()
 ---
 
 ### has_group
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L242)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L337)</span>
+
+
+Returns whether @window has an explicit window group.
 
 
 ```pony
@@ -438,7 +536,12 @@ fun box has_group()
 ---
 
 ### has_toplevel_focus
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L245)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L343)</span>
+
+
+Returns whether the input focus is within this GtkWindow.
+For real toplevel windows, this is identical to gtk_window_is_active(),
+but for embedded windows, like #GtkPlug, the results will differ.
 
 
 ```pony
@@ -453,7 +556,23 @@ fun box has_toplevel_focus()
 ---
 
 ### iconify
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L248)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L351)</span>
+
+
+Asks to iconify (i.e. minimize) the specified @window. Note that
+you shouldn’t assume the window is definitely iconified afterward,
+because other entities (e.g. the user or
+[window manager][gtk-X11-arch]) could deiconify it
+again, or there may not be a window manager in which case
+iconification isn’t possible, etc. But normally the window will end
+up iconified. Just don’t write code that crashes if not.
+
+It’s permitted to call this function before showing a window,
+in which case the window will be iconified before it ever appears
+onscreen.
+
+You can track iconification via the “window-state-event” signal
+on #GtkWidget.
 
 
 ```pony
@@ -468,7 +587,16 @@ fun box iconify()
 ---
 
 ### is_active
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L251)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L370)</span>
+
+
+Returns whether the window is part of the current active toplevel.
+(That is, the toplevel window receiving keystrokes.)
+The return value is %TRUE if the window is active toplevel
+itself, but also if it is, say, a #GtkPlug embedded in the active toplevel.
+You might use this function if you wanted to draw a widget
+differently in an active window from a widget in an inactive window.
+See gtk_window_has_toplevel_focus()
 
 
 ```pony
@@ -483,7 +611,16 @@ fun box is_active()
 ---
 
 ### is_maximized
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L254)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L382)</span>
+
+
+Retrieves the current maximized state of @window.
+
+Note that since maximization is ultimately handled by the window
+manager and happens asynchronously to an application request, you
+shouldn’t assume the return value of this function changing
+immediately (or at all), as an effect of calling
+gtk_window_maximize() or gtk_window_unmaximize().
 
 
 ```pony
@@ -498,7 +635,24 @@ fun box is_maximized()
 ---
 
 ### maximize
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L257)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L394)</span>
+
+
+Asks to maximize @window, so that it becomes full-screen. Note that
+you shouldn’t assume the window is definitely maximized afterward,
+because other entities (e.g. the user or
+[window manager][gtk-X11-arch]) could unmaximize it
+again, and not all window managers support maximization. But
+normally the window will end up maximized. Just don’t write code
+that crashes if not.
+
+It’s permitted to call this function before showing a window,
+in which case the window will be maximized when it appears onscreen
+initially.
+
+You can track maximization via the “window-state-event” signal
+on #GtkWidget, or by listening to notifications on the
+#GtkWindow:is-maximized property.
 
 
 ```pony
@@ -513,7 +667,42 @@ fun box maximize()
 ---
 
 ### move
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L264)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L418)</span>
+
+
+Asks the [window manager][gtk-X11-arch] to move
+@window to the given position.  Window managers are free to ignore
+this; most window managers ignore requests for initial window
+positions (instead using a user-defined placement algorithm) and
+honor requests after the window has already been shown.
+
+Note: the position is the position of the gravity-determined
+reference point for the window. The gravity determines two things:
+first, the location of the reference point in root window
+coordinates; and second, which point on the window is positioned at
+the reference point.
+
+By default the gravity is #GDK_GRAVITY_NORTH_WEST, so the reference
+point is simply the @x, @y supplied to gtk_window_move(). The
+top-left corner of the window decorations (aka window frame or
+border) will be placed at @x, @y.  Therefore, to position a window
+at the top left of the screen, you want to use the default gravity
+(which is #GDK_GRAVITY_NORTH_WEST) and move the window to 0,0.
+
+To position a window at the bottom right corner of the screen, you
+would set #GDK_GRAVITY_SOUTH_EAST, which means that the reference
+point is at @x + the window width and @y + the window height, and
+the bottom-right corner of the window border will be placed at that
+reference point. So, to place a window in the bottom right corner
+you would first set gravity to south east, then write:
+`gtk_window_move (window, gdk_screen_width () - window_width,
+gdk_screen_height () - window_height)` (note that this
+example does not take multi-head scenarios into account).
+
+The [Extended Window Manager Hints Specification](http://www.freedesktop.org/Standards/wm-spec)
+has a nice table of gravities in the “implementation notes” section.
+
+The gtk_window_get_position() documentation may also be relevant.
 
 
 ```pony
@@ -534,7 +723,12 @@ fun box move(
 ---
 
 ### present
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L271)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L460)</span>
+
+
+Presents a window to the user. This function should not be used
+as when it is called, it is too late to gather a valid timestamp
+to allow focus stealing prevention to work correctly.
 
 
 ```pony
@@ -549,7 +743,12 @@ fun box present()
 ---
 
 ### reshow_with_initial_size
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L290)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L484)</span>
+
+
+Hides @window, then reshows it, resetting the
+default size and position of the window. Used
+by GUI builders only.
 
 
 ```pony
@@ -564,7 +763,37 @@ fun box reshow_with_initial_size()
 ---
 
 ### resize
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L293)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L492)</span>
+
+
+Resizes the window as if the user had done so, obeying geometry
+constraints. The default geometry constraint is that windows may
+not be smaller than their size request; to override this
+constraint, call gtk_widget_set_size_request() to set the window's
+request to a smaller value.
+
+If gtk_window_resize() is called before showing a window for the
+first time, it overrides any default size set with
+gtk_window_set_default_size().
+
+Windows may not be resized smaller than 1 by 1 pixels.
+
+When using client side decorations, GTK+ will do its best to adjust
+the given size so that the resulting window size matches the
+requested size without the title bar, borders and shadows added for
+the client side decorations, but there is no guarantee that the
+result will be totally accurate because these widgets added for
+client side decorations depend on the theme and may not be realized
+or visible at the time gtk_window_resize() is issued.
+
+If the GtkWindow has a titlebar widget (see gtk_window_set_titlebar()), then
+typically, gtk_window_resize() will compensate for the height of the titlebar
+widget only if the height is known when the resulting GtkWindow configuration
+is issued.
+For example, if new widgets are added after the GtkWindow configuration
+and cause the titlebar widget to grow in height, this will result in a
+window content smaller that specified by gtk_window_resize() and not
+a larger window.
 
 
 ```pony
@@ -585,7 +814,10 @@ fun box resize(
 ---
 
 ### resize_grip_is_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L296)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L525)</span>
+
+
+Determines whether a resize grip is visible for the specified window.
 
 
 ```pony
@@ -600,7 +832,12 @@ fun box resize_grip_is_visible()
 ---
 
 ### resize_to_geometry
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L299)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L531)</span>
+
+
+Like gtk_window_resize(), but @width and @height are interpreted
+in terms of the base size and increment set with
+gtk_window_set_geometry_hints.
 
 
 ```pony
@@ -621,7 +858,11 @@ fun box resize_to_geometry(
 ---
 
 ### set_accept_focus
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L302)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L539)</span>
+
+
+Windows may set a hint asking the desktop environment not to receive
+the input focus. This function sets this hint.
 
 
 ```pony
@@ -640,7 +881,20 @@ fun box set_accept_focus(
 ---
 
 ### set_decorated
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L313)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L554)</span>
+
+
+By default, windows are decorated with a title bar, resize
+controls, etc.  Some [window managers][gtk-X11-arch]
+allow GTK+ to disable these decorations, creating a
+borderless window. If you set the decorated property to %FALSE
+using this function, GTK+ will do its best to convince the window
+manager not to decorate the window. Depending on the system, this
+function may not have any effect when called on a window that is
+already visible, so you should call it before calling gtk_widget_show().
+
+On Windows, this function always works, since there’s no window manager
+policy involved.
 
 
 ```pony
@@ -659,7 +913,12 @@ fun box set_decorated(
 ---
 
 ### set_default_geometry
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L320)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L574)</span>
+
+
+Like gtk_window_set_default_size(), but @width and @height are interpreted
+in terms of the base size and increment set with
+gtk_window_set_geometry_hints.
 
 
 ```pony
@@ -680,7 +939,42 @@ fun box set_default_geometry(
 ---
 
 ### set_default_size
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L323)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L582)</span>
+
+
+Sets the default size of a window. If the window’s “natural” size
+(its size request) is larger than the default, the default will be
+ignored. More generally, if the default size does not obey the
+geometry hints for the window (gtk_window_set_geometry_hints() can
+be used to set these explicitly), the default size will be clamped
+to the nearest permitted size.
+
+Unlike gtk_widget_set_size_request(), which sets a size request for
+a widget and thus would keep users from shrinking the window, this
+function only sets the initial size, just as if the user had
+resized the window themselves. Users can still shrink the window
+again as they normally would. Setting a default size of -1 means to
+use the “natural” default size (the size request of the window).
+
+For more control over a window’s initial size and how resizing works,
+investigate gtk_window_set_geometry_hints().
+
+For some uses, gtk_window_resize() is a more appropriate function.
+gtk_window_resize() changes the current size of the window, rather
+than the size to be used on initial display. gtk_window_resize() always
+affects the window itself, not the geometry widget.
+
+The default size of a window only affects the first time a window is
+shown; if a window is hidden and re-shown, it will remember the size
+it had prior to hiding, rather than using the default size.
+
+Windows can’t actually be 0x0 in size, they must be at least 1x1, but
+passing 0 for @width and @height is OK, resulting in a 1x1 default size.
+
+If you use this function to reestablish a previously saved window size,
+note that the appropriate size to save is the one returned by
+gtk_window_get_size(). Using the window allocation directly will not
+work in all circumstances and can lead to growing or shrinking windows.
 
 
 ```pony
@@ -701,7 +995,19 @@ fun box set_default_size(
 ---
 
 ### set_deletable
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L326)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L620)</span>
+
+
+By default, windows have a close button in the window frame. Some
+[window managers][gtk-X11-arch] allow GTK+ to
+disable this button. If you set the deletable property to %FALSE
+using this function, GTK+ will do its best to convince the window
+manager not to show a close button. Depending on the system, this
+function may not have any effect when called on a window that is
+already visible, so you should call it before calling gtk_widget_show().
+
+On Windows, this function always works, since there’s no window manager
+policy involved.
 
 
 ```pony
@@ -720,7 +1026,13 @@ fun box set_deletable(
 ---
 
 ### set_destroy_with_parent
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L329)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L635)</span>
+
+
+If @setting is %TRUE, then destroying the transient parent of @window
+will also destroy @window itself. This is useful for dialogs that
+shouldn’t persist beyond the lifetime of the main window they're
+associated with, for example.
 
 
 ```pony
@@ -739,7 +1051,12 @@ fun box set_destroy_with_parent(
 ---
 
 ### set_focus_on_map
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L336)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L648)</span>
+
+
+Windows may set a hint asking the desktop environment not to receive
+the input focus when the window is mapped.  This function sets this
+hint.
 
 
 ```pony
@@ -758,7 +1075,10 @@ fun box set_focus_on_map(
 ---
 
 ### set_focus_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L339)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L656)</span>
+
+
+Sets the #GtkWindow:focus-visible property.
 
 
 ```pony
@@ -777,7 +1097,15 @@ fun box set_focus_visible(
 ---
 
 ### set_has_resize_grip
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L352)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L672)</span>
+
+
+Sets whether @window has a corner resize grip.
+
+Note that the resize grip is only shown if the window
+is actually resizable and not maximized. Use
+gtk_window_resize_grip_is_visible() to find out if the
+resize grip is currently shown.
 
 
 ```pony
@@ -796,7 +1124,16 @@ fun box set_has_resize_grip(
 ---
 
 ### set_has_user_ref_count
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L355)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L683)</span>
+
+
+Tells GTK+ whether to drop its extra reference to the window
+when gtk_widget_destroy() is called.
+
+This function is only exported for the benefit of language
+bindings which may need to keep the window alive until their
+wrapper object is garbage collected. There is no justification
+for ever calling this function in an application.
 
 
 ```pony
@@ -815,7 +1152,19 @@ fun box set_has_user_ref_count(
 ---
 
 ### set_hide_titlebar_when_maximized
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L358)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L695)</span>
+
+
+If @setting is %TRUE, then @window will request that it’s titlebar
+should be hidden when maximized.
+This is useful for windows that don’t convey any information other
+than the application name in the titlebar, to put the available
+screen space to better use. If the underlying window system does not
+support the request, the setting will not have any effect.
+
+Note that custom titlebars set with gtk_window_set_titlebar() are
+not affected by this. The application is in full control of their
+content and visibility anyway.
 
 
 ```pony
@@ -834,7 +1183,29 @@ fun box set_hide_titlebar_when_maximized(
 ---
 
 ### set_keep_above
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L377)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L726)</span>
+
+
+Asks to keep @window above, so that it stays on top. Note that
+you shouldn’t assume the window is definitely above afterward,
+because other entities (e.g. the user or
+[window manager][gtk-X11-arch]) could not keep it above,
+and not all window managers support keeping windows above. But
+normally the window will end kept above. Just don’t write code
+that crashes if not.
+
+It’s permitted to call this function before showing a window,
+in which case the window will be kept above when it appears onscreen
+initially.
+
+You can track the above state via the “window-state-event” signal
+on #GtkWidget.
+
+Note that, according to the
+[Extended Window Manager Hints Specification](http://www.freedesktop.org/Standards/wm-spec),
+the above state is mainly meant for user preferences and should not
+be used by applications e.g. for drawing attention to their
+dialogs.
 
 
 ```pony
@@ -853,7 +1224,29 @@ fun box set_keep_above(
 ---
 
 ### set_keep_below
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L380)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L751)</span>
+
+
+Asks to keep @window below, so that it stays in bottom. Note that
+you shouldn’t assume the window is definitely below afterward,
+because other entities (e.g. the user or
+[window manager][gtk-X11-arch]) could not keep it below,
+and not all window managers support putting windows below. But
+normally the window will be kept below. Just don’t write code
+that crashes if not.
+
+It’s permitted to call this function before showing a window,
+in which case the window will be kept below when it appears onscreen
+initially.
+
+You can track the below state via the “window-state-event” signal
+on #GtkWidget.
+
+Note that, according to the
+[Extended Window Manager Hints Specification](http://www.freedesktop.org/Standards/wm-spec),
+the above state is mainly meant for user preferences and should not
+be used by applications e.g. for drawing attention to their
+dialogs.
 
 
 ```pony
@@ -872,7 +1265,10 @@ fun box set_keep_below(
 ---
 
 ### set_mnemonics_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L387)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L780)</span>
+
+
+Sets the #GtkWindow:mnemonics-visible property.
 
 
 ```pony
@@ -891,7 +1287,15 @@ fun box set_mnemonics_visible(
 ---
 
 ### set_modal
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L390)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L786)</span>
+
+
+Sets a window modal or non-modal. Modal windows prevent interaction
+with other windows in the same application. To keep modal dialogs
+on top of main application windows, use
+gtk_window_set_transient_for() to make the dialog transient for the
+parent; most [window managers][gtk-X11-arch]
+will then disallow lowering the dialog below the parent.
 
 
 ```pony
@@ -910,7 +1314,11 @@ fun box set_modal(
 ---
 
 ### set_resizable
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L401)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L805)</span>
+
+
+Sets whether the user can resize a window. Windows are user resizable
+by default.
 
 
 ```pony
@@ -929,7 +1337,14 @@ fun box set_resizable(
 ---
 
 ### set_skip_pager_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L412)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L820)</span>
+
+
+Windows may set a hint asking the desktop environment not to display
+the window in the pager. This function sets this hint.
+(A "pager" is any desktop navigation tool such as a workspace
+switcher that displays a thumbnail representation of the windows
+on the screen.)
 
 
 ```pony
@@ -948,7 +1363,11 @@ fun box set_skip_pager_hint(
 ---
 
 ### set_skip_taskbar_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L415)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L830)</span>
+
+
+Windows may set a hint asking the desktop environment not to display
+the window in the task bar. This function sets this hint.
 
 
 ```pony
@@ -967,7 +1386,11 @@ fun box set_skip_taskbar_hint(
 ---
 
 ### set_urgency_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L438)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L857)</span>
+
+
+Windows may set a hint asking the desktop environment to draw
+the users attention to the window. This function sets this hint.
 
 
 ```pony
@@ -986,7 +1409,21 @@ fun box set_urgency_hint(
 ---
 
 ### stick
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L446)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L869)</span>
+
+
+Asks to stick @window, which means that it will appear on all user
+desktops. Note that you shouldn’t assume the window is definitely
+stuck afterward, because other entities (e.g. the user or
+[window manager][gtk-X11-arch] could unstick it
+again, and some window managers do not support sticking
+windows. But normally the window will end up stuck. Just don't
+write code that crashes if not.
+
+It’s permitted to call this function before showing a window.
+
+You can track stickiness via the “window-state-event” signal
+on #GtkWidget.
 
 
 ```pony
@@ -1001,7 +1438,19 @@ fun box stick()
 ---
 
 ### unfullscreen
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L449)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L886)</span>
+
+
+Asks to toggle off the fullscreen state for @window. Note that you
+shouldn’t assume the window is definitely not full screen
+afterward, because other entities (e.g. the user or
+[window manager][gtk-X11-arch]) could fullscreen it
+again, and not all window managers honor requests to unfullscreen
+windows. But normally the window will end up restored to its normal
+state. Just don’t write code that crashes if not.
+
+You can track the fullscreen state via the “window-state-event” signal
+on #GtkWidget.
 
 
 ```pony
@@ -1016,7 +1465,18 @@ fun box unfullscreen()
 ---
 
 ### unmaximize
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L452)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L901)</span>
+
+
+Asks to unmaximize @window. Note that you shouldn’t assume the
+window is definitely unmaximized afterward, because other entities
+(e.g. the user or [window manager][gtk-X11-arch])
+could maximize it again, and not all window
+managers honor requests to unmaximize. But normally the window will
+end up unmaximized. Just don’t write code that crashes if not.
+
+You can track maximization via the “window-state-event” signal
+on #GtkWidget.
 
 
 ```pony
@@ -1031,7 +1491,18 @@ fun box unmaximize()
 ---
 
 ### unstick
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L455)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L915)</span>
+
+
+Asks to unstick @window, which means that it will appear on only
+one of the user’s desktops. Note that you shouldn’t assume the
+window is definitely unstuck afterward, because other entities
+(e.g. the user or [window manager][gtk-X11-arch]) could
+stick it again. But normally the window will
+end up stuck. Just don’t write code that crashes if not.
+
+You can track stickiness via the “window-state-event” signal
+on #GtkWidget.
 
 
 ```pony

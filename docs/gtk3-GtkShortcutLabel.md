@@ -96,6 +96,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L21)</span>
 
 
+Retrieves the current accelerator of @self.
+
+
 ```pony
 fun box get_accelerator()
 : String val
@@ -108,7 +111,10 @@ fun box get_accelerator()
 ---
 
 ### get_disabled_text
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L26)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L29)</span>
+
+
+Retrieves the text that is displayed when no accelerator is set.
 
 
 ```pony
@@ -138,7 +144,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -153,7 +159,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

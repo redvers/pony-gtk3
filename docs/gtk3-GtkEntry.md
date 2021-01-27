@@ -111,6 +111,9 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L24)</span>
 
 
+Retrieves the value set by gtk_entry_set_activates_default().
+
+
 ```pony
 fun box get_activates_default()
 : Bool val
@@ -123,7 +126,14 @@ fun box get_activates_default()
 ---
 
 ### get_current_icon_drag_source
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L55)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L58)</span>
+
+
+Returns the index of the icon which is the source of the current
+DND operation, or -1.
+
+This function is meant to be used in a #GtkWidget::drag-data-get
+callback.
 
 
 ```pony
@@ -138,7 +148,10 @@ fun box get_current_icon_drag_source()
 ---
 
 ### get_has_frame
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L65)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L75)</span>
+
+
+Gets the value set by gtk_entry_set_has_frame().
 
 
 ```pony
@@ -153,7 +166,14 @@ fun box get_has_frame()
 ---
 
 ### get_icon_at_pos
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L77)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L90)</span>
+
+
+Finds the icon at the given position and return its index. The
+position’s coordinates are relative to the @entry’s top left corner.
+If @x, @y doesn’t lie inside an icon, -1 is returned.
+This function is intended for use in a #GtkWidget::query-tooltip
+signal handler.
 
 
 ```pony
@@ -174,7 +194,14 @@ fun box get_icon_at_pos(
 ---
 
 ### get_max_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L167)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L187)</span>
+
+
+Retrieves the maximum allowed length of the text in
+@entry. See gtk_entry_set_max_length().
+
+This is equivalent to getting @entry's #GtkEntryBuffer and
+calling gtk_entry_buffer_get_max_length() on it.
 
 
 ```pony
@@ -189,7 +216,11 @@ fun box get_max_length()
 ---
 
 ### get_max_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L170)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L197)</span>
+
+
+Retrieves the desired maximum width of @entry, in characters.
+See gtk_entry_set_max_width_chars().
 
 
 ```pony
@@ -204,7 +235,10 @@ fun box get_max_width_chars()
 ---
 
 ### get_overwrite_mode
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L173)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L204)</span>
+
+
+Gets the value set by gtk_entry_set_overwrite_mode().
 
 
 ```pony
@@ -219,7 +253,10 @@ fun box get_overwrite_mode()
 ---
 
 ### get_placeholder_text
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L176)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L210)</span>
+
+
+Retrieves the text that will be displayed when @entry is empty and unfocused
 
 
 ```pony
@@ -234,7 +271,14 @@ fun box get_placeholder_text()
 ---
 
 ### get_text
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L202)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L239)</span>
+
+
+Retrieves the contents of the entry widget.
+See also gtk_editable_get_chars().
+
+This is equivalent to getting @entry's #GtkEntryBuffer and calling
+gtk_entry_buffer_get_text() on it.
 
 
 ```pony
@@ -249,7 +293,11 @@ fun box get_text()
 ---
 
 ### get_visibility
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L218)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L262)</span>
+
+
+Retrieves whether the text in @entry is visible. See
+gtk_entry_set_visibility().
 
 
 ```pony
@@ -264,7 +312,10 @@ fun box get_visibility()
 ---
 
 ### get_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L221)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L269)</span>
+
+
+Gets the value set by gtk_entry_set_width_chars().
 
 
 ```pony
@@ -279,7 +330,16 @@ fun box get_width_chars()
 ---
 
 ### grab_focus_without_selecting
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L224)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L275)</span>
+
+
+Causes @entry to have keyboard focus.
+
+It behaves like gtk_widget_grab_focus(),
+except that it doesn't select the contents of the entry.
+You only want to call this on some special entries
+which the user usually doesn't want to replace all text in,
+such as search-as-you-type entries.
 
 
 ```pony
@@ -294,7 +354,12 @@ fun box grab_focus_without_selecting()
 ---
 
 ### layout_index_to_text_index
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L231)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L291)</span>
+
+
+Converts from a position in the entry’s #PangoLayout (returned by
+gtk_entry_get_layout()) to a position in the entry contents
+(returned by gtk_entry_get_text()).
 
 
 ```pony
@@ -313,7 +378,15 @@ fun box layout_index_to_text_index(
 ---
 
 ### progress_pulse
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L234)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L299)</span>
+
+
+Indicates that some progress is made, but you don’t know how much.
+Causes the entry’s progress indicator to enter “activity mode,”
+where a block bounces back and forth. Each call to
+gtk_entry_progress_pulse() causes the block to move by a little bit
+(the amount of movement per pulse is determined by
+gtk_entry_set_progress_pulse_step()).
 
 
 ```pony
@@ -328,7 +401,13 @@ fun box progress_pulse()
 ---
 
 ### reset_im_context
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L237)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L310)</span>
+
+
+Reset the input method context of the entry if needed.
+
+This can be necessary in the case where modifying the buffer
+would confuse on-going input method behavior.
 
 
 ```pony
@@ -343,7 +422,17 @@ fun box reset_im_context()
 ---
 
 ### set_activates_default
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L240)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L319)</span>
+
+
+If @setting is %TRUE, pressing Enter in the @entry will activate the default
+widget for the window containing the entry. This usually means that
+the dialog box containing the entry will be closed, since the default
+widget is usually one of the dialog buttons.
+
+(For experts: if @setting is %TRUE, the entry calls
+gtk_window_activate_default() on the window containing the entry, in
+the default handler for the #GtkEntry::activate signal.)
 
 
 ```pony
@@ -362,7 +451,10 @@ fun box set_activates_default(
 ---
 
 ### set_has_frame
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L263)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L352)</span>
+
+
+Sets whether the entry has a beveled frame around it.
 
 
 ```pony
@@ -381,7 +473,16 @@ fun box set_has_frame(
 ---
 
 ### set_max_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L326)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L418)</span>
+
+
+Sets the maximum allowed length of the contents of the widget. If
+the current contents are longer than the given length, then they
+will be truncated to fit.
+
+This is equivalent to getting @entry's #GtkEntryBuffer and
+calling gtk_entry_buffer_set_max_length() on it.
+]|
 
 
 ```pony
@@ -400,7 +501,10 @@ fun box set_max_length(
 ---
 
 ### set_max_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L329)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L430)</span>
+
+
+Sets the desired maximum width in characters of @entry.
 
 
 ```pony
@@ -419,7 +523,10 @@ fun box set_max_width_chars(
 ---
 
 ### set_overwrite_mode
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L332)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L436)</span>
+
+
+Sets whether the text is overwritten when typing in the #GtkEntry.
 
 
 ```pony
@@ -438,7 +545,22 @@ fun box set_overwrite_mode(
 ---
 
 ### set_visibility
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L355)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L462)</span>
+
+
+Sets whether the contents of the entry are visible or not.
+When visibility is set to %FALSE, characters are displayed
+as the invisible char, and will also appear that way when
+the text in the entry widget is copied elsewhere.
+
+By default, GTK+ picks the best invisible character available
+in the current font, but it can be changed with
+gtk_entry_set_invisible_char().
+
+Note that you probably want to set #GtkEntry:input-purpose
+to %GTK_INPUT_PURPOSE_PASSWORD or %GTK_INPUT_PURPOSE_PIN to
+inform input methods about the purpose of this entry,
+in addition to setting visibility to %FALSE.
 
 
 ```pony
@@ -457,7 +579,14 @@ fun box set_visibility(
 ---
 
 ### set_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L358)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L480)</span>
+
+
+Changes the size request of the entry to be about the right size
+for @n_chars characters. Note that it changes the size
+request, the size can still be affected by
+how you pack the widget into containers. If @n_chars is -1, the
+size reverts to the default entry size.
 
 
 ```pony
@@ -476,7 +605,13 @@ fun box set_width_chars(
 ---
 
 ### text_index_to_layout_index
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L361)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L490)</span>
+
+
+Converts from a position in the entry contents (returned
+by gtk_entry_get_text()) to a position in the
+entry’s #PangoLayout (returned by gtk_entry_get_layout(),
+with text retrieved via pango_layout_get_text()).
 
 
 ```pony
@@ -495,7 +630,12 @@ fun box text_index_to_layout_index(
 ---
 
 ### unset_invisible_char
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L364)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L499)</span>
+
+
+Unsets the invisible char previously set with
+gtk_entry_set_invisible_char(). So that the
+default invisible char is used again.
 
 
 ```pony
@@ -525,7 +665,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -540,7 +680,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony

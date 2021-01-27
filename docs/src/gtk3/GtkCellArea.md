@@ -159,6 +159,13 @@ class GtkCellArea is GtkWidget
 {:txo, "none"} */
 
 fun get_current_path_string(): String =>
+"""
+Gets the current #GtkTreePath string for the currently
+applied #GtkTreeIter, this is implicitly updated when
+gtk_cell_area_apply_attributes() is called and can be
+used to interact with renderers from #GtkCellArea
+subclasses.
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_cell_area_get_current_path_string[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
@@ -244,6 +251,10 @@ var string_pony: String val = String.from_cstring(cstring_pony).clone()
 */
 
 fun is_activatable(): Bool =>
+"""
+Returns whether the area can do anything when activated,
+after applying new attributes to @area.
+"""
   @gtk_cell_area_is_activatable[Bool](widget)
 
 /* is_focus_sibling unavailable due to typing issues
@@ -282,6 +293,16 @@ fun is_activatable(): Bool =>
 */
 
 fun stop_editing(canceled_pony: Bool): None =>
+"""
+Explicitly stops the editing of the currently edited cell.
+
+If @canceled is %TRUE, the currently edited cell renderer
+will emit the ::editing-canceled signal, otherwise the
+the ::editing-done signal will be emitted on the current
+edit widget.
+
+See gtk_cell_area_get_edited_cell() and gtk_cell_area_get_edit_widget().
+"""
   @gtk_cell_area_stop_editing[None](widget, canceled_pony)
 
 

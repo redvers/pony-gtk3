@@ -92,6 +92,10 @@ fun box gtkwidget()
 <span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L21)</span>
 
 
+Adds a rule that allows resources based on their age - that is, the number
+of days elapsed since they were last modified.
+
+
 ```pony
 fun box add_age(
   days_pony: I32 val)
@@ -108,7 +112,11 @@ fun box add_age(
 ---
 
 ### add_pixbuf_formats
-<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L47)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L51)</span>
+
+
+Adds a rule allowing image files in the formats supported
+by GdkPixbuf.
 
 
 ```pony
@@ -123,7 +131,11 @@ fun box add_pixbuf_formats()
 ---
 
 ### get_name
-<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L62)</span>
+
+
+Gets the human-readable name for the filter.
+See gtk_recent_filter_set_name().
 
 
 ```pony
@@ -153,7 +165,7 @@ fun box show_all()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L7)</span>
 
 
 ```pony
@@ -168,7 +180,7 @@ fun box destroy()
 ---
 
 ### signal_connect\[V: [Any](builtin-Any.md) #share\]
-<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWidget.md#L10)</span>
 
 
 ```pony
