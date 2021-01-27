@@ -89,6 +89,8 @@ class iso TestGtkEntry is UnitTest
     h.assert_eq[I32](I32(5), entry0.get_max_width_chars())
     h.assert_eq[I32](I32(5), entry1.get_max_width_chars())
 
+    entry0.destroy()
+    entry1.destroy()
 
     // set_overwrite_mode(overwrite_pony: Bool): None
     // get_overwrite_mode(): Bool

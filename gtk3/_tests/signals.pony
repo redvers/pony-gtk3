@@ -21,12 +21,11 @@ class iso TestSignals is UnitTest
       var gtkentry: GtkEntry = GtkEntry.create_from_GObjectREF(passed_gtkentry)
       var string: String = gtkentry.get_text()
 
-      Debug.out("Activated! " + str + strii + string)
+      Debug.out("Activated!")
     }
 
   entry.signal_connect[String]("activate", callback, "testing123")
 
   @g_signal_emit_by_name[None](entry.gtkwidget(), "activate".cstring())
-  Gtk.main()
 
 
