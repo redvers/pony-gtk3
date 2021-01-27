@@ -1,5 +1,11 @@
 # GtkEventBox
 <span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L6)</span>
+
+The #GtkEventBox widget is a subclass of #GtkBin which also has its
+own window. It is useful since it allows you to catch events for widgets
+which do not have their own window.
+
+
 ```pony
 class ref GtkEventBox is
   GtkWidget ref
@@ -14,7 +20,7 @@ class ref GtkEventBox is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L15)</span>
 
 
 ```pony
@@ -29,7 +35,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L18)</span>
 
 
 ```pony
@@ -48,7 +54,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L22)</span>
 
 
 ```pony
@@ -65,7 +71,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L12)</span>
 
 
 
@@ -74,7 +80,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L14)</span>
 
 
 ```pony
@@ -89,7 +95,7 @@ fun box gtkwidget()
 ---
 
 ### get_above_child
-<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L26)</span>
 
 
 Returns whether the event box window is above or below the
@@ -109,7 +115,7 @@ fun box get_above_child()
 ---
 
 ### get_visible_window
-<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L29)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L34)</span>
 
 
 Returns whether the event box has a visible window.
@@ -128,7 +134,7 @@ fun box get_visible_window()
 ---
 
 ### set_above_child
-<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L41)</span>
 
 
 Set whether the event box window is positioned above the windows
@@ -156,7 +162,7 @@ fun box set_above_child(
 ---
 
 ### set_visible_window
-<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L48)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventBox.md#L53)</span>
 
 
 Set whether the event box uses a visible or invisible child

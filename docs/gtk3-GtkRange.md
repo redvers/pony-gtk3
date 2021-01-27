@@ -1,5 +1,15 @@
 # GtkRange
 <span class="source-link">[[Source]](src/gtk3/GtkRange.md#L6)</span>
+
+#GtkRange is the common base class for widgets which visualize an
+adjustment, e.g #GtkScale or #GtkScrollbar.
+
+Apart from signals for monitoring the parameters of the adjustment,
+#GtkRange provides properties and methods for influencing the sensitivity
+of the “steppers”. It also provides properties and methods for setting a
+“fill level” on range widgets. See gtk_range_set_fill_level().
+
+
 ```pony
 class ref GtkRange is
   GtkWidget ref
@@ -14,7 +24,7 @@ class ref GtkRange is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L19)</span>
 
 
 ```pony
@@ -29,7 +39,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L22)</span>
 
 
 ```pony
@@ -50,7 +60,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L16)</span>
 
 
 
@@ -59,7 +69,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L18)</span>
 
 
 ```pony
@@ -74,7 +84,7 @@ fun box gtkwidget()
 ---
 
 ### get_flippable
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L42)</span>
 
 
 Gets the value set by gtk_range_set_flippable().
@@ -92,7 +102,7 @@ fun box get_flippable()
 ---
 
 ### get_inverted
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L48)</span>
 
 
 Gets the value set by gtk_range_set_inverted().
@@ -110,7 +120,7 @@ fun box get_inverted()
 ---
 
 ### get_min_slider_size
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L52)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L61)</span>
 
 
 This function is useful mainly for #GtkRange subclasses.
@@ -130,7 +140,7 @@ fun box get_min_slider_size()
 ---
 
 ### get_restrict_to_fill_level
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L73)</span>
 
 
 Gets whether the range is restricted to the fill level.
@@ -148,7 +158,7 @@ fun box get_restrict_to_fill_level()
 ---
 
 ### get_round_digits
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L70)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L79)</span>
 
 
 Gets the number of digits to round the value to when
@@ -167,7 +177,7 @@ fun box get_round_digits()
 ---
 
 ### get_show_fill_level
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L77)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L86)</span>
 
 
 Gets whether the range displays the fill level graphically.
@@ -185,7 +195,7 @@ fun box get_show_fill_level()
 ---
 
 ### get_slider_size_fixed
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L88)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L97)</span>
 
 
 This function is useful mainly for #GtkRange subclasses.
@@ -205,7 +215,7 @@ fun box get_slider_size_fixed()
 ---
 
 ### set_flippable
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L118)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L127)</span>
 
 
 If a range is flippable, it will switch its direction if it is
@@ -230,7 +240,7 @@ fun box set_flippable(
 ---
 
 ### set_inverted
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L132)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L141)</span>
 
 
 Ranges normally move from lower to higher values as the
@@ -255,7 +265,7 @@ fun box set_inverted(
 ---
 
 ### set_min_slider_size
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L145)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L154)</span>
 
 
 Sets the minimum size of the range’s slider.
@@ -279,7 +289,7 @@ fun box set_min_slider_size(
 ---
 
 ### set_restrict_to_fill_level
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L158)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L167)</span>
 
 
 Sets whether the slider is restricted to the fill level. See
@@ -303,7 +313,7 @@ fun box set_restrict_to_fill_level(
 ---
 
 ### set_round_digits
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L166)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L175)</span>
 
 
 Sets the number of digits to round the value to when
@@ -326,7 +336,7 @@ fun box set_round_digits(
 ---
 
 ### set_show_fill_level
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L173)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L182)</span>
 
 
 Sets whether a graphical fill level is show on the trough. See
@@ -350,7 +360,7 @@ fun box set_show_fill_level(
 ---
 
 ### set_slider_size_fixed
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L181)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L190)</span>
 
 
 Sets whether the range’s slider has a fixed size, or a size that

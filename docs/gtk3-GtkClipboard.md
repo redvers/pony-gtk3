@@ -1,5 +1,65 @@
 # GtkClipboard
 <span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L6)</span>
+
+The #GtkClipboard object represents a clipboard of data shared
+between different processes or between different widgets in
+the same process. Each clipboard is identified by a name encoded as a
+#GdkAtom. (Conversion to and from strings can be done with
+gdk_atom_intern() and gdk_atom_name().) The default clipboard
+corresponds to the “CLIPBOARD” atom; another commonly used clipboard
+is the “PRIMARY” clipboard, which, in X, traditionally contains
+the currently selected text.
+
+To support having a number of different formats on the clipboard
+at the same time, the clipboard mechanism allows providing
+callbacks instead of the actual data.  When you set the contents
+of the clipboard, you can either supply the data directly (via
+functions like gtk_clipboard_set_text()), or you can supply a
+callback to be called at a later time when the data is needed (via
+gtk_clipboard_set_with_data() or gtk_clipboard_set_with_owner().)
+Providing a callback also avoids having to make copies of the data
+when it is not needed.
+
+gtk_clipboard_set_with_data() and gtk_clipboard_set_with_owner()
+are quite similar; the choice between the two depends mostly on
+which is more convenient in a particular situation.
+The former is most useful when you want to have a blob of data
+with callbacks to convert it into the various data types that you
+advertise. When the @clear_func you provided is called, you
+simply free the data blob. The latter is more useful when the
+contents of clipboard reflect the internal state of a #GObject
+(As an example, for the PRIMARY clipboard, when an entry widget
+provides the clipboard’s contents the contents are simply the
+text within the selected region.) If the contents change, the
+entry widget can call gtk_clipboard_set_with_owner() to update
+the timestamp for clipboard ownership, without having to worry
+about @clear_func being called.
+
+Requesting the data from the clipboard is essentially
+asynchronous. If the contents of the clipboard are provided within
+the same process, then a direct function call will be made to
+retrieve the data, but if they are provided by another process,
+then the data needs to be retrieved from the other process, which
+may take some time. To avoid blocking the user interface, the call
+to request the selection, gtk_clipboard_request_contents() takes a
+callback that will be called when the contents are received (or
+when the request fails.) If you don’t want to deal with providing
+a separate callback, you can also use gtk_clipboard_wait_for_contents().
+What this does is run the GLib main loop recursively waiting for
+the contents. This can simplify the code flow, but you still have
+to be aware that other callbacks in your program can be called
+while this recursive mainloop is running.
+
+Along with the functions to get the clipboard contents as an
+arbitrary data chunk, there are also functions to retrieve
+it as text, gtk_clipboard_request_text() and
+gtk_clipboard_wait_for_text(). These functions take care of
+determining which formats are advertised by the clipboard
+provider, asking for the clipboard in the best available format
+and converting the results into the UTF-8 encoding. (The standard
+form for representing strings in GTK+.)
+
+
 ```pony
 class ref GtkClipboard is
   GtkWidget ref
@@ -14,7 +74,7 @@ class ref GtkClipboard is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L69)</span>
 
 
 ```pony
@@ -29,7 +89,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L72)</span>
 
 
 ```pony
@@ -50,7 +110,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L66)</span>
 
 
 
@@ -59,7 +119,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L68)</span>
 
 
 ```pony
@@ -74,7 +134,7 @@ fun box gtkwidget()
 ---
 
 ### clear
-<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L19)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L78)</span>
 
 
 Clears the contents of the clipboard. Generally this should only
@@ -96,7 +156,7 @@ fun box clear()
 ---
 
 ### store
-<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L108)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L167)</span>
 
 
 Stores the current clipboard data somewhere so that it will stay
@@ -115,7 +175,7 @@ fun box store()
 ---
 
 ### wait_is_image_available
-<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L155)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L214)</span>
 
 
 Test to see if there is an image available to be pasted
@@ -141,7 +201,7 @@ fun box wait_is_image_available()
 ---
 
 ### wait_is_text_available
-<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L177)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L236)</span>
 
 
 Test to see if there is text available to be pasted
@@ -167,7 +227,7 @@ fun box wait_is_text_available()
 ---
 
 ### wait_is_uris_available
-<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L191)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkClipboard.md#L250)</span>
 
 
 Test to see if there is a list of URIs available to be pasted

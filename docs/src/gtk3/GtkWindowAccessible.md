@@ -5,6 +5,9 @@ provides: ["GtkWindowAccessible"]
 */
 use "../gobject"
 class GtkWindowAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

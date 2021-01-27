@@ -1,5 +1,11 @@
 # GtkTextChildAnchor
 <span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L6)</span>
+
+A #GtkTextChildAnchor is a spot in the buffer where child widgets can
+be “anchored” (inserted inline, as if they were characters). The anchor
+can have multiple widgets anchored, to allow for multiple views.
+
+
 ```pony
 class ref GtkTextChildAnchor is
   GtkWidget ref
@@ -14,7 +20,7 @@ class ref GtkTextChildAnchor is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L15)</span>
 
 
 ```pony
@@ -29,7 +35,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L18)</span>
 
 
 ```pony
@@ -48,7 +54,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L22)</span>
 
 
 ```pony
@@ -65,7 +71,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L12)</span>
 
 
 
@@ -74,7 +80,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L14)</span>
 
 
 ```pony
@@ -89,7 +95,7 @@ fun box gtkwidget()
 ---
 
 ### get_deleted
-<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L26)</span>
 
 
 Determines whether a child anchor has been deleted from

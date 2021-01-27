@@ -5,6 +5,23 @@ provides: ["GtkHeaderBar"]
 */
 use "../gobject"
 class GtkHeaderBar is GtkWidget
+"""
+GtkHeaderBar is similar to a horizontal #GtkBox. It allows children to
+be placed at the start or the end. In addition, it allows a title and
+subtitle to be displayed. The title will be centered with respect to
+the width of the box, even if the children at either side take up
+different amounts of space. The height of the titlebar will be
+set to provide sufficient space for the subtitle, even if none is
+currently set. If a subtitle is not needed, the space reservation
+can be turned off with gtk_header_bar_set_has_subtitle().
+
+GtkHeaderBar can add typical window frame controls, such as minimize,
+maximize and close buttons, or the window icon.
+
+For these reasons, GtkHeaderBar is the natural choice for use as the custom
+titlebar widget of a #GtkWindow (see gtk_window_set_titlebar()), as it gives
+features typical of titlebars while allowing the addition of child widgets.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -32,7 +49,7 @@ Gets the decoration layout set with
 gtk_header_bar_set_decoration_layout().
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_header_bar_get_decoration_layout[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_has_subtitle(): Bool =>
@@ -54,7 +71,7 @@ fun get_subtitle(): String =>
 Retrieves the subtitle of the header. See gtk_header_bar_set_subtitle().
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_header_bar_get_subtitle[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_title(): String =>
@@ -62,7 +79,7 @@ fun get_title(): String =>
 Retrieves the title of the header. See gtk_header_bar_set_title().
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_header_bar_get_title[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* pack_end unavailable due to typing issues

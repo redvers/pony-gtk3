@@ -1,5 +1,11 @@
 # GtkRadioAction
 <span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L6)</span>
+
+A #GtkRadioAction is similar to #GtkRadioMenuItem. A number of radio
+actions can be linked together so that only one may be active at any
+one time.
+
+
 ```pony
 class ref GtkRadioAction is
   GtkWidget ref
@@ -14,7 +20,7 @@ class ref GtkRadioAction is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L15)</span>
 
 
 ```pony
@@ -29,7 +35,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L18)</span>
 
 
 ```pony
@@ -48,7 +54,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L22)</span>
 
 
 ```pony
@@ -77,7 +83,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L12)</span>
 
 
 
@@ -86,7 +92,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L14)</span>
 
 
 ```pony
@@ -101,7 +107,7 @@ fun box gtkwidget()
 ---
 
 ### get_current_value
-<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L26)</span>
 
 
 Obtains the value property of the currently active member of
@@ -120,7 +126,7 @@ fun box get_current_value()
 ---
 
 ### set_current_value
-<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRadioAction.md#L44)</span>
 
 
 Sets the currently active group member to the member with value

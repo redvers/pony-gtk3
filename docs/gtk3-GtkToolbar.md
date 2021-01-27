@@ -1,5 +1,31 @@
 # GtkToolbar
 <span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L6)</span>
+
+A toolbar is created with a call to gtk_toolbar_new().
+
+A toolbar can contain instances of a subclass of #GtkToolItem. To add
+a #GtkToolItem to the a toolbar, use gtk_toolbar_insert(). To remove
+an item from the toolbar use gtk_container_remove(). To add a button
+to the toolbar, add an instance of #GtkToolButton.
+
+Toolbar items can be visually grouped by adding instances of
+#GtkSeparatorToolItem to the toolbar. If the GtkToolbar child property
+“expand” is #TRUE and the property #GtkSeparatorToolItem:draw is set to
+#FALSE, the effect is to force all following items to the end of the toolbar.
+
+By default, a toolbar can be shrunk, upon which it will add an arrow button
+to show an overflow menu offering access to any #GtkToolItem child that has
+a proxy menu item. To disable this and request enough size for all children,
+call gtk_toolbar_set_show_arrow() to set #GtkToolbar:show-arrow to %FALSE.
+
+Creating a context menu for the toolbar can be done by connecting to
+the #GtkToolbar::popup-context-menu signal.
+
+# CSS nodes
+
+GtkToolbar has a single CSS node with name toolbar.
+
+
 ```pony
 class ref GtkToolbar is
   GtkWidget ref
@@ -14,7 +40,7 @@ class ref GtkToolbar is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L35)</span>
 
 
 ```pony
@@ -29,7 +55,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L38)</span>
 
 
 ```pony
@@ -48,7 +74,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L42)</span>
 
 
 ```pony
@@ -65,7 +91,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L32)</span>
 
 
 
@@ -74,7 +100,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L34)</span>
 
 
 ```pony
@@ -89,7 +115,7 @@ fun box gtkwidget()
 ---
 
 ### get_drop_index
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L46)</span>
 
 
 Returns the position corresponding to the indicated point on
@@ -118,7 +144,7 @@ fun box get_drop_index(
 ---
 
 ### get_n_items
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L43)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L68)</span>
 
 
 Returns the number of items on the toolbar.
@@ -136,7 +162,7 @@ fun box get_n_items()
 ---
 
 ### get_show_arrow
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L63)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L88)</span>
 
 
 Returns whether the toolbar has an overflow menu.
@@ -155,7 +181,7 @@ fun box get_show_arrow()
 ---
 
 ### set_show_arrow
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L89)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L114)</span>
 
 
 Sets whether to show an overflow menu when @toolbar isn’t allocated enough
@@ -182,7 +208,7 @@ fun box set_show_arrow(
 ---
 
 ### unset_icon_size
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L104)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L129)</span>
 
 
 Unsets toolbar icon size set with gtk_toolbar_set_icon_size(), so that
@@ -201,7 +227,7 @@ fun box unset_icon_size()
 ---
 
 ### unset_style
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L111)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L136)</span>
 
 
 Unsets a toolbar style set with gtk_toolbar_set_style(), so that

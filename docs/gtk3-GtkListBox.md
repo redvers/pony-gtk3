@@ -1,5 +1,46 @@
 # GtkListBox
 <span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L6)</span>
+
+A GtkListBox is a vertical container that contains GtkListBoxRow
+children. These rows can by dynamically sorted and filtered, and
+headers can be added dynamically depending on the row content.
+It also allows keyboard and mouse navigation and selection like
+a typical list.
+
+Using GtkListBox is often an alternative to #GtkTreeView, especially
+when the list contents has a more complicated layout than what is allowed
+by a #GtkCellRenderer, or when the contents is interactive (i.e. has a
+button in it).
+
+Although a #GtkListBox must have only #GtkListBoxRow children you can
+add any kind of widget to it via gtk_container_add(), and a #GtkListBoxRow
+widget will automatically be inserted between the list and the widget.
+
+#GtkListBoxRows can be marked as activatable or selectable. If a row
+is activatable, #GtkListBox::row-activated will be emitted for it when
+the user tries to activate it. If it is selectable, the row will be marked
+as selected when the user tries to select it.
+
+The GtkListBox widget was added in GTK+ 3.10.
+
+# GtkListBox as GtkBuildable
+
+The GtkListBox implementation of the #GtkBuildable interface supports
+setting a child as the placeholder by specifying “placeholder” as the “type”
+attribute of a <child> element. See gtk_list_box_set_placeholder() for info.
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+list
+╰── row[.activatable]
+]|
+
+GtkListBox uses a single CSS node named list. Each GtkListBoxRow uses
+a single CSS node named row. The row nodes get the .activatable
+style class added when appropriate.
+
+
 ```pony
 class ref GtkListBox is
   GtkWidget ref
@@ -14,7 +55,7 @@ class ref GtkListBox is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L50)</span>
 
 
 ```pony
@@ -29,7 +70,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L53)</span>
 
 
 ```pony
@@ -48,7 +89,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L57)</span>
 
 
 ```pony
@@ -65,7 +106,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L47)</span>
 
 
 
@@ -74,7 +115,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L49)</span>
 
 
 ```pony
@@ -89,7 +130,7 @@ fun box gtkwidget()
 ---
 
 ### drag_unhighlight_row
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L32)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L72)</span>
 
 
 If a row has previously been highlighted via gtk_list_box_drag_highlight_row()
@@ -108,7 +149,7 @@ fun box drag_unhighlight_row()
 ---
 
 ### get_activate_on_single_click
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L79)</span>
 
 
 Returns whether rows activate on single clicks.
@@ -126,7 +167,7 @@ fun box get_activate_on_single_click()
 ---
 
 ### invalidate_filter
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L91)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L131)</span>
 
 
 Update the filtering for all rows. Call this when result
@@ -148,7 +189,7 @@ fun box invalidate_filter()
 ---
 
 ### invalidate_headers
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L101)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L141)</span>
 
 
 Update the separators for all rows. Call this when result
@@ -168,7 +209,7 @@ fun box invalidate_headers()
 ---
 
 ### invalidate_sort
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L109)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L149)</span>
 
 
 Update the sorting for all rows. Call this when result
@@ -188,7 +229,7 @@ fun box invalidate_sort()
 ---
 
 ### select_all
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L121)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L161)</span>
 
 
 Select all children of @box, if the selection mode allows it.
@@ -206,7 +247,7 @@ fun box select_all()
 ---
 
 ### set_activate_on_single_click
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L136)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L176)</span>
 
 
 If @single is %TRUE, rows will be activated when you click on them,
@@ -229,7 +270,7 @@ fun box set_activate_on_single_click(
 ---
 
 ### unselect_all
-<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L173)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBox.md#L213)</span>
 
 
 Unselect all children of @box, if the selection mode allows it.

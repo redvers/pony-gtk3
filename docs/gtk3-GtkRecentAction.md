@@ -1,5 +1,16 @@
 # GtkRecentAction
 <span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L6)</span>
+
+A #GtkRecentAction represents a list of recently used files, which
+can be shown by widgets such as #GtkRecentChooserDialog or
+#GtkRecentChooserMenu.
+
+To construct a submenu showing recently used files, use a #GtkRecentAction
+as the action for a <menuitem>. To construct a menu toolbutton showing
+the recently used files in the popup menu, use a #GtkRecentAction as the
+action for a <toolitem> element.
+
+
 ```pony
 class ref GtkRecentAction is
   GtkWidget ref
@@ -14,7 +25,7 @@ class ref GtkRecentAction is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L20)</span>
 
 
 ```pony
@@ -29,7 +40,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L23)</span>
 
 
 ```pony
@@ -48,7 +59,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L27)</span>
 
 
 ```pony
@@ -73,7 +84,7 @@ new ref create(
 ---
 
 ### new_for_manager
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L30)</span>
 
 
 ```pony
@@ -102,7 +113,7 @@ new ref new_for_manager(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L17)</span>
 
 
 
@@ -111,7 +122,7 @@ new ref new_for_manager(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L19)</span>
 
 
 ```pony
@@ -126,7 +137,7 @@ fun box gtkwidget()
 ---
 
 ### get_show_numbers
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L34)</span>
 
 
 Returns the value set by gtk_recent_chooser_menu_set_show_numbers().
@@ -144,7 +155,7 @@ fun box get_show_numbers()
 ---
 
 ### set_show_numbers
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L40)</span>
 
 
 Sets whether a number should be added to the items shown by the

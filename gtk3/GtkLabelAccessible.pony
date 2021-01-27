@@ -4,6 +4,9 @@ provides: ["GtkLabelAccessible"]
 */
 use "../gobject"
 class GtkLabelAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

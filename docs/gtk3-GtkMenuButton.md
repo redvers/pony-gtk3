@@ -1,5 +1,91 @@
 # GtkMenuButton
 <span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L6)</span>
+
+The #GtkMenuButton widget is used to display a popup when clicked on.
+This popup can be provided either as a #GtkMenu, a #GtkPopover or an
+abstract #GMenuModel.
+
+The #GtkMenuButton widget can hold any valid child widget. That is, it
+can hold almost any other standard #GtkWidget. The most commonly used
+child is #GtkImage. If no widget is explicitely added to the #GtkMenuButton,
+a #GtkImage is automatically created, using an arrow image oriented
+according to #GtkMenuButton:direction or the generic “open-menu-symbolic”
+icon if the direction is not set.
+
+The positioning of the popup is determined by the #GtkMenuButton:direction
+property of the menu button.
+
+For menus, the #GtkWidget:halign and #GtkWidget:valign properties of the
+menu are also taken into account. For example, when the direction is
+%GTK_ARROW_DOWN and the horizontal alignment is %GTK_ALIGN_START, the
+menu will be positioned below the button, with the starting edge
+(depending on the text direction) of the menu aligned with the starting
+edge of the button. If there is not enough space below the button, the
+menu is popped up above the button instead. If the alignment would move
+part of the menu offscreen, it is “pushed in”.
+
+## Direction = Down
+
+- halign = start
+
+    ![](down-start.png)
+
+- halign = center
+
+    ![](down-center.png)
+
+- halign = end
+
+    ![](down-end.png)
+
+## Direction = Up
+
+- halign = start
+
+    ![](up-start.png)
+
+- halign = center
+
+    ![](up-center.png)
+
+- halign = end
+
+    ![](up-end.png)
+
+## Direction = Left
+
+- valign = start
+
+    ![](left-start.png)
+
+- valign = center
+
+    ![](left-center.png)
+
+- valign = end
+
+    ![](left-end.png)
+
+## Direction = Right
+
+- valign = start
+
+    ![](right-start.png)
+
+- valign = center
+
+    ![](right-center.png)
+
+- valign = end
+
+    ![](right-end.png)
+
+# CSS nodes
+
+GtkMenuButton has a single CSS node with name button. To differentiate
+it from a plain #GtkButton, it gets the .popup style class.
+
+
 ```pony
 class ref GtkMenuButton is
   GtkWidget ref
@@ -14,7 +100,7 @@ class ref GtkMenuButton is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L95)</span>
 
 
 ```pony
@@ -29,7 +115,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L98)</span>
 
 
 ```pony
@@ -48,7 +134,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L102)</span>
 
 
 ```pony
@@ -65,7 +151,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L92)</span>
 
 
 
@@ -74,7 +160,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L94)</span>
 
 
 ```pony
@@ -89,7 +175,7 @@ fun box gtkwidget()
 ---
 
 ### get_use_popover
-<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L56)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L141)</span>
 
 
 Returns whether a #GtkPopover or a #GtkMenu will be constructed
@@ -108,7 +194,7 @@ fun box get_use_popover()
 ---
 
 ### set_use_popover
-<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L83)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L168)</span>
 
 
 Sets whether to construct a #GtkPopover instead of #GtkMenu

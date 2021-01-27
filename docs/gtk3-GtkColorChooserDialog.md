@@ -1,5 +1,10 @@
 # GtkColorChooserDialog
 <span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L6)</span>
+
+The #GtkColorChooserDialog widget is a dialog for choosing
+a color. It implements the #GtkColorChooser interface.
+
+
 ```pony
 class ref GtkColorChooserDialog is
   GtkWidget ref
@@ -14,7 +19,7 @@ class ref GtkColorChooserDialog is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L14)</span>
 
 
 ```pony
@@ -29,7 +34,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L17)</span>
 
 
 ```pony
@@ -48,7 +53,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L21)</span>
 
 
 ```pony
@@ -71,7 +76,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L11)</span>
 
 
 
@@ -80,7 +85,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L13)</span>
 
 
 ```pony

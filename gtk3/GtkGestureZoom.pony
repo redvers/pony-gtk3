@@ -4,6 +4,12 @@ provides: ["GtkGestureZoom"]
 */
 use "../gobject"
 class GtkGestureZoom is GtkWidget
+"""
+#GtkGestureZoom is a #GtkGesture implementation able to recognize
+pinch/zoom gestures, whenever the distance between both tracked
+sequences changes, the #GtkGestureZoom::scale-changed signal is
+emitted to report the scale factor.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

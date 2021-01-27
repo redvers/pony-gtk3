@@ -1,5 +1,36 @@
 # GtkAssistant
 <span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L6)</span>
+
+A #GtkAssistant is a widget used to represent a generally complex
+operation splitted in several steps, guiding the user through its
+pages and controlling the page flow to collect the necessary data.
+
+The design of GtkAssistant is that it controls what buttons to show
+and to make sensitive, based on what it knows about the page sequence
+and the [type][GtkAssistantPageType] of each page,
+in addition to state information like the page
+[completion][gtk-assistant-set-page-complete]
+and [committed][gtk-assistant-commit] status.
+
+If you have a case that doesn’t quite fit in #GtkAssistants way of
+handling buttons, you can use the #GTK_ASSISTANT_PAGE_CUSTOM page
+type and handle buttons yourself.
+
+# GtkAssistant as GtkBuildable
+
+The GtkAssistant implementation of the #GtkBuildable interface
+exposes the @action_area as internal children with the name
+“action_area”.
+
+To add pages to an assistant in #GtkBuilder, simply add it as a
+child to the GtkAssistant object, and set its child properties
+as necessary.
+
+# CSS nodes
+
+GtkAssistant has a single CSS node with the name assistant.
+
+
 ```pony
 class ref GtkAssistant is
   GtkWidget ref
@@ -14,7 +45,7 @@ class ref GtkAssistant is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L40)</span>
 
 
 ```pony
@@ -29,7 +60,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L43)</span>
 
 
 ```pony
@@ -48,7 +79,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L47)</span>
 
 
 ```pony
@@ -65,7 +96,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L37)</span>
 
 
 
@@ -74,7 +105,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L39)</span>
 
 
 ```pony
@@ -89,7 +120,7 @@ fun box gtkwidget()
 ---
 
 ### commit
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L29)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L59)</span>
 
 
 Erases the visited page history so the back button is not
@@ -115,7 +146,7 @@ fun box commit()
 ---
 
 ### get_current_page
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L43)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L73)</span>
 
 
 Returns the page number of the current page.
@@ -133,7 +164,7 @@ fun box get_current_page()
 ---
 
 ### get_n_pages
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L49)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L79)</span>
 
 
 Returns the number of pages in the @assistant
@@ -151,7 +182,7 @@ fun box get_n_pages()
 ---
 
 ### next_page
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L99)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L129)</span>
 
 
 Navigate to the next page.
@@ -175,7 +206,7 @@ fun box next_page()
 ---
 
 ### previous_page
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L115)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L145)</span>
 
 
 Navigate to the previous visited page.
@@ -199,7 +230,7 @@ fun box previous_page()
 ---
 
 ### remove_page
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L131)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L161)</span>
 
 
 Removes the @page_num’s page from @assistant.
@@ -221,7 +252,7 @@ fun box remove_page(
 ---
 
 ### set_current_page
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L137)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L167)</span>
 
 
 Switches the page to @page_num.
@@ -247,7 +278,7 @@ fun box set_current_page(
 ---
 
 ### update_buttons_state
-<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L181)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAssistant.md#L211)</span>
 
 
 Forces @assistant to recompute the buttons state.

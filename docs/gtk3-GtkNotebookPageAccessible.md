@@ -1,5 +1,9 @@
 # GtkNotebookPageAccessible
 <span class="source-link">[[Source]](src/gtk3/GtkNotebookPageAccessible.md#L6)</span>
+
+No documentation provided
+
+
 ```pony
 class ref GtkNotebookPageAccessible is
   GtkWidget ref
@@ -14,7 +18,7 @@ class ref GtkNotebookPageAccessible is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkNotebookPageAccessible.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebookPageAccessible.md#L13)</span>
 
 
 ```pony
@@ -29,7 +33,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkNotebookPageAccessible.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebookPageAccessible.md#L16)</span>
 
 
 ```pony
@@ -48,7 +52,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkNotebookPageAccessible.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebookPageAccessible.md#L20)</span>
 
 
 ```pony
@@ -71,7 +75,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkNotebookPageAccessible.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebookPageAccessible.md#L10)</span>
 
 
 
@@ -80,7 +84,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkNotebookPageAccessible.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebookPageAccessible.md#L12)</span>
 
 
 ```pony
@@ -95,7 +99,7 @@ fun box gtkwidget()
 ---
 
 ### invalidate
-<span class="source-link">[[Source]](src/gtk3/GtkNotebookPageAccessible.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebookPageAccessible.md#L24)</span>
 
 
 No provided documentation

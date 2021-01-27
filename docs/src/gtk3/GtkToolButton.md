@@ -5,6 +5,30 @@ provides: ["GtkToolButton"]
 */
 use "../gobject"
 class GtkToolButton is GtkWidget
+"""
+#GtkToolButtons are #GtkToolItems containing buttons.
+
+Use gtk_tool_button_new() to create a new #GtkToolButton.
+
+The label of a #GtkToolButton is determined by the properties
+#GtkToolButton:label-widget, #GtkToolButton:label, and
+#GtkToolButton:stock-id. If #GtkToolButton:label-widget is
+non-%NULL, then that widget is used as the label. Otherwise, if
+#GtkToolButton:label is non-%NULL, that string is used as the label.
+Otherwise, if #GtkToolButton:stock-id is non-%NULL, the label is
+determined by the stock item. Otherwise, the button does not have a label.
+
+The icon of a #GtkToolButton is determined by the properties
+#GtkToolButton:icon-widget and #GtkToolButton:stock-id. If
+#GtkToolButton:icon-widget is non-%NULL, then
+that widget is used as the icon. Otherwise, if #GtkToolButton:stock-id is
+non-%NULL, the icon is determined by the stock item. Otherwise,
+the button does not have a icon.
+
+# CSS nodes
+
+GtkToolButton has a single CSS node with name toolbutton.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -28,7 +52,7 @@ Returns the name of the themed icon for the tool button,
 see gtk_tool_button_set_icon_name().
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_tool_button_get_icon_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_icon_widget unavailable due to return typing issues
@@ -45,7 +69,7 @@ doesn’t have a label. or uses a the label from a stock item. The returned
 string is owned by GTK+, and must not be modified or freed.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_tool_button_get_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_label_widget unavailable due to return typing issues
@@ -61,7 +85,7 @@ Returns the name of the stock item. See gtk_tool_button_set_stock_id().
 The returned string is owned by GTK+ and must not be freed or modifed.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_tool_button_get_stock_id[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_use_underline(): Bool =>

@@ -5,6 +5,22 @@ provides: ["GtkRevealer"]
 */
 use "../gobject"
 class GtkRevealer is GtkWidget
+"""
+The GtkRevealer widget is a container which animates
+the transition of its child from invisible to visible.
+
+The style of transition can be controlled with
+gtk_revealer_set_transition_type().
+
+These animations respect the #GtkSettings:gtk-enable-animations
+setting.
+
+# CSS nodes
+
+GtkRevealer has a single CSS node with name revealer.
+
+The GtkRevealer widget was added in GTK+ 3.10.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

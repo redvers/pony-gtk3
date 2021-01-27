@@ -1,5 +1,26 @@
 # GtkRecentChooserMenu
 <span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L6)</span>
+
+#GtkRecentChooserMenu is a widget suitable for displaying recently used files
+inside a menu.  It can be used to set a sub-menu of a #GtkMenuItem using
+gtk_menu_item_set_submenu(), or as the menu of a #GtkMenuToolButton.
+
+Note that #GtkRecentChooserMenu does not have any methods of its own. Instead,
+you should use the functions that work on a #GtkRecentChooser.
+
+Note also that #GtkRecentChooserMenu does not support multiple filters, as it
+has no way to let the user choose between them as the #GtkRecentChooserWidget
+and #GtkRecentChooserDialog widgets do. Thus using gtk_recent_chooser_add_filter()
+on a #GtkRecentChooserMenu widget will yield the same effects as using
+gtk_recent_chooser_set_filter(), replacing any currently set filter
+with the supplied filter; gtk_recent_chooser_remove_filter() will remove
+any currently set #GtkRecentFilter object and will unset the current filter;
+gtk_recent_chooser_list_filters() will return a list containing a single
+#GtkRecentFilter object.
+
+Recently used files are supported since GTK+ 2.10.
+
+
 ```pony
 class ref GtkRecentChooserMenu is
   GtkWidget ref
@@ -14,7 +35,7 @@ class ref GtkRecentChooserMenu is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L30)</span>
 
 
 ```pony
@@ -29,7 +50,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L33)</span>
 
 
 ```pony
@@ -48,7 +69,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L37)</span>
 
 
 ```pony
@@ -63,7 +84,7 @@ new ref create()
 ---
 
 ### new_for_manager
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L40)</span>
 
 
 ```pony
@@ -84,7 +105,7 @@ new ref new_for_manager(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L27)</span>
 
 
 
@@ -93,7 +114,7 @@ new ref new_for_manager(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L29)</span>
 
 
 ```pony
@@ -108,7 +129,7 @@ fun box gtkwidget()
 ---
 
 ### get_show_numbers
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L44)</span>
 
 
 Returns the value set by gtk_recent_chooser_menu_set_show_numbers().
@@ -126,7 +147,7 @@ fun box get_show_numbers()
 ---
 
 ### set_show_numbers
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserMenu.md#L50)</span>
 
 
 Sets whether a number should be added to the items of @menu.  The

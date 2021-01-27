@@ -5,6 +5,20 @@ provides: ["GtkGestureSingle"]
 */
 use "../gobject"
 class GtkGestureSingle is GtkWidget
+"""
+#GtkGestureSingle is a subclass of #GtkGesture, optimized (although
+not restricted) for dealing with mouse and single-touch gestures. Under
+interaction, these gestures stick to the first interacting sequence, which
+is accessible through gtk_gesture_single_get_current_sequence() while the
+gesture is being interacted with.
+
+By default gestures react to both %GDK_BUTTON_PRIMARY and touch
+events, gtk_gesture_single_set_touch_only() can be used to change the
+touch behavior. Callers may also specify a different mouse button number
+to interact with through gtk_gesture_single_set_button(), or react to any
+mouse button by setting 0. While the gesture is active, the button being
+currently pressed can be known through gtk_gesture_single_get_current_button().
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

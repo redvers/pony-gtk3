@@ -4,6 +4,41 @@ provides: ["GtkPlacesSidebar"]
 */
 use "../gobject"
 class GtkPlacesSidebar is GtkWidget
+"""
+#GtkPlacesSidebar is a widget that displays a list of frequently-used places in the
+file system:  the user’s home directory, the user’s bookmarks, and volumes and drives.
+This widget is used as a sidebar in #GtkFileChooser and may be used by file managers
+and similar programs.
+
+The places sidebar displays drives and volumes, and will automatically mount
+or unmount them when the user selects them.
+
+Applications can hook to various signals in the places sidebar to customize
+its behavior.  For example, they can add extra commands to the context menu
+of the sidebar.
+
+While bookmarks are completely in control of the user, the places sidebar also
+allows individual applications to provide extra shortcut folders that are unique
+to each application.  For example, a Paint program may want to add a shortcut
+for a Clipart folder.  You can do this with gtk_places_sidebar_add_shortcut().
+
+To make use of the places sidebar, an application at least needs to connect
+to the #GtkPlacesSidebar::open-location signal.  This is emitted when the
+user selects in the sidebar a location to open.  The application should also
+call gtk_places_sidebar_set_location() when it changes the currently-viewed
+location.
+
+# CSS nodes
+
+GtkPlacesSidebar uses a single CSS node with name placessidebar and style
+class .sidebar.
+
+Among the children of the places sidebar, the following style classes can
+be used:
+- .sidebar-new-bookmark-row for the 'Add new bookmark' row
+- .sidebar-placeholder-row for a row that is a placeholder
+- .has-open-popup when a popup is open for a row
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -5,6 +5,9 @@ provides: ["GtkScaleButtonAccessible"]
 */
 use "../gobject"
 class GtkScaleButtonAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

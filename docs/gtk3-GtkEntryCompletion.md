@@ -1,5 +1,48 @@
 # GtkEntryCompletion
 <span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L6)</span>
+
+#GtkEntryCompletion is an auxiliary object to be used in conjunction with
+#GtkEntry to provide the completion functionality. It implements the
+#GtkCellLayout interface, to allow the user to add extra cells to the
+#GtkTreeView with completion matches.
+
+“Completion functionality” means that when the user modifies the text
+in the entry, #GtkEntryCompletion checks which rows in the model match
+the current content of the entry, and displays a list of matches.
+By default, the matching is done by comparing the entry text
+case-insensitively against the text column of the model (see
+gtk_entry_completion_set_text_column()), but this can be overridden
+with a custom match function (see gtk_entry_completion_set_match_func()).
+
+When the user selects a completion, the content of the entry is
+updated. By default, the content of the entry is replaced by the
+text column of the model, but this can be overridden by connecting
+to the #GtkEntryCompletion::match-selected signal and updating the
+entry in the signal handler. Note that you should return %TRUE from
+the signal handler to suppress the default behaviour.
+
+To add completion functionality to an entry, use gtk_entry_set_completion().
+
+In addition to regular completion matches, which will be inserted into the
+entry when they are selected, #GtkEntryCompletion also allows to display
+“actions” in the popup window. Their appearance is similar to menuitems,
+to differentiate them clearly from completion strings. When an action is
+selected, the #GtkEntryCompletion::action-activated signal is emitted.
+
+GtkEntryCompletion uses a #GtkTreeModelFilter model to represent the
+subset of the entire model that is currently matching. While the
+GtkEntryCompletion signals #GtkEntryCompletion::match-selected and
+#GtkEntryCompletion::cursor-on-match take the original model and an
+iter pointing to that model as arguments, other callbacks and signals
+(such as #GtkCellLayoutDataFuncs or #GtkCellArea::apply-attributes)
+will generally take the filter model as argument. As long as you are
+only calling gtk_tree_model_get(), this will make no difference to
+you. If for some reason, you need the original model, use
+gtk_tree_model_filter_get_model(). Don’t forget to use
+gtk_tree_model_filter_convert_iter_to_child_iter() to obtain a
+matching iter.
+
+
 ```pony
 class ref GtkEntryCompletion is
   GtkWidget ref
@@ -14,7 +57,7 @@ class ref GtkEntryCompletion is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L52)</span>
 
 
 ```pony
@@ -29,7 +72,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L55)</span>
 
 
 ```pony
@@ -48,7 +91,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L59)</span>
 
 
 ```pony
@@ -63,7 +106,7 @@ new ref create()
 ---
 
 ### new_with_area
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L62)</span>
 
 
 ```pony
@@ -84,7 +127,7 @@ new ref new_with_area(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L49)</span>
 
 
 
@@ -93,7 +136,7 @@ new ref new_with_area(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L51)</span>
 
 
 ```pony
@@ -108,7 +151,7 @@ fun box gtkwidget()
 ---
 
 ### complete
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L66)</span>
 
 
 Requests a completion operation, or in other words a refiltering of the
@@ -128,7 +171,7 @@ fun box complete()
 ---
 
 ### delete_action
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L81)</span>
 
 
 Deletes the action at @index_ from @completion’s action list.
@@ -153,7 +196,7 @@ fun box delete_action(
 ---
 
 ### get_completion_prefix
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L48)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L90)</span>
 
 
 Get the original text entered by the user that triggered
@@ -172,7 +215,7 @@ fun box get_completion_prefix()
 ---
 
 ### get_inline_completion
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L106)</span>
 
 
 Returns whether the common prefix of the possible completions should
@@ -191,7 +234,7 @@ fun box get_inline_completion()
 ---
 
 ### get_inline_selection
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L71)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L113)</span>
 
 
 Returns %TRUE if inline-selection mode is turned on.
@@ -209,7 +252,7 @@ fun box get_inline_selection()
 ---
 
 ### get_minimum_key_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L77)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L119)</span>
 
 
 Returns the minimum key length as set for @completion.
@@ -227,7 +270,7 @@ fun box get_minimum_key_length()
 ---
 
 ### get_popup_completion
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L90)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L132)</span>
 
 
 Returns whether the completions should be presented in a popup window.
@@ -245,7 +288,7 @@ fun box get_popup_completion()
 ---
 
 ### get_popup_set_width
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L96)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L138)</span>
 
 
 Returns whether the  completion popup window will be resized to the
@@ -264,7 +307,7 @@ fun box get_popup_set_width()
 ---
 
 ### get_popup_single_match
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L103)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L145)</span>
 
 
 Returns whether the completion popup window will appear even if there is
@@ -283,7 +326,7 @@ fun box get_popup_single_match()
 ---
 
 ### get_text_column
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L110)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L152)</span>
 
 
 Returns the column in the model of @completion to get strings from.
@@ -301,7 +344,7 @@ fun box get_text_column()
 ---
 
 ### insert_prefix
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L124)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L166)</span>
 
 
 Requests a prefix insertion.
@@ -319,7 +362,7 @@ fun box insert_prefix()
 ---
 
 ### set_inline_completion
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L130)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L172)</span>
 
 
 Sets whether the common prefix of the possible completions should
@@ -342,7 +385,7 @@ fun box set_inline_completion(
 ---
 
 ### set_inline_selection
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L137)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L179)</span>
 
 
 Sets whether it is possible to cycle through the possible completions
@@ -365,7 +408,7 @@ fun box set_inline_selection(
 ---
 
 ### set_minimum_key_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L150)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L192)</span>
 
 
 Requires the length of the search key for @completion to be at least
@@ -390,7 +433,7 @@ fun box set_minimum_key_length(
 ---
 
 ### set_popup_completion
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L163)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L205)</span>
 
 
 Sets whether the completions should be presented in a popup window.
@@ -412,7 +455,7 @@ fun box set_popup_completion(
 ---
 
 ### set_popup_set_width
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L169)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L211)</span>
 
 
 Sets whether the completion popup window will be resized to be the same
@@ -435,7 +478,7 @@ fun box set_popup_set_width(
 ---
 
 ### set_popup_single_match
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L176)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L218)</span>
 
 
 Sets whether the completion popup window will appear even if there is
@@ -459,7 +502,7 @@ fun box set_popup_single_match(
 ---
 
 ### set_text_column
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L184)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L226)</span>
 
 
 Convenience function for setting up the most used case of this code: a

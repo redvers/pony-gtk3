@@ -1,5 +1,61 @@
 # GtkStyleContext
 <span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L6)</span>
+
+#GtkStyleContext is an object that stores styling information affecting
+a widget defined by #GtkWidgetPath.
+
+In order to construct the final style information, #GtkStyleContext
+queries information from all attached #GtkStyleProviders. Style providers
+can be either attached explicitly to the context through
+gtk_style_context_add_provider(), or to the screen through
+gtk_style_context_add_provider_for_screen(). The resulting style is a
+combination of all providers’ information in priority order.
+
+For GTK+ widgets, any #GtkStyleContext returned by
+gtk_widget_get_style_context() will already have a #GtkWidgetPath, a
+#GdkScreen and RTL/LTR information set. The style context will also be
+updated automatically if any of these settings change on the widget.
+
+If you are using the theming layer standalone, you will need to set a
+widget path and a screen yourself to the created style context through
+gtk_style_context_set_path() and possibly gtk_style_context_set_screen(). See
+the “Foreign drawing“ example in gtk3-demo.
+
+# Style Classes # {#gtkstylecontext-classes}
+
+Widgets can add style classes to their context, which can be used to associate
+different styles by class. The documentation for individual widgets lists
+which style classes it uses itself, and which style classes may be added by
+applications to affect their appearance.
+
+GTK+ defines macros for a number of style classes.
+
+# Style Regions
+
+Widgets can also add regions with flags to their context. This feature is
+deprecated and will be removed in a future GTK+ update. Please use style
+classes instead.
+
+GTK+ defines macros for a number of style regions.
+
+# Custom styling in UI libraries and applications
+
+If you are developing a library with custom #GtkWidgets that
+render differently than standard components, you may need to add a
+#GtkStyleProvider yourself with the %GTK_STYLE_PROVIDER_PRIORITY_FALLBACK
+priority, either a #GtkCssProvider or a custom object implementing the
+#GtkStyleProvider interface. This way themes may still attempt
+to style your UI elements in a different way if needed so.
+
+If you are using custom styling on an applications, you probably want then
+to make your style information prevail to the theme’s, so you must use
+a #GtkStyleProvider with the %GTK_STYLE_PROVIDER_PRIORITY_APPLICATION
+priority, keep in mind that the user settings in
+`XDG_CONFIG_HOME/gtk-3.0/gtk.css` will
+still take precedence over your changes, as it uses the
+%GTK_STYLE_PROVIDER_PRIORITY_USER priority.
+
+
 ```pony
 class ref GtkStyleContext is
   GtkWidget ref
@@ -14,7 +70,7 @@ class ref GtkStyleContext is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L65)</span>
 
 
 ```pony
@@ -29,7 +85,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L68)</span>
 
 
 ```pony
@@ -48,7 +104,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L72)</span>
 
 
 ```pony
@@ -65,7 +121,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L62)</span>
 
 
 
@@ -74,7 +130,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L64)</span>
 
 
 ```pony
@@ -89,7 +145,7 @@ fun box gtkwidget()
 ---
 
 ### get_scale
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L121)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L176)</span>
 
 
 Returns the scale used for assets.
@@ -107,7 +163,7 @@ fun box get_scale()
 ---
 
 ### invalidate
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L175)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L230)</span>
 
 
 Invalidates @context style information, so it will be reconstructed
@@ -127,7 +183,7 @@ fun box invalidate()
 ---
 
 ### pop_animatable_region
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L215)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L270)</span>
 
 
 Pops an animatable region from @context.
@@ -146,7 +202,7 @@ fun box pop_animatable_region()
 ---
 
 ### restore
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L238)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L293)</span>
 
 
 Restores @context state to a previous stage.
@@ -165,7 +221,7 @@ fun box restore()
 ---
 
 ### save
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L245)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L300)</span>
 
 
 Saves the @context state, so temporary modifications done through
@@ -189,7 +245,7 @@ fun box save()
 ---
 
 ### set_scale
-<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L285)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleContext.md#L340)</span>
 
 
 Sets the scale to use when getting image assets for the style.

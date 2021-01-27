@@ -4,6 +4,9 @@ provides: ["GtkCheckMenuItemAccessible"]
 */
 use "../gobject"
 class GtkCheckMenuItemAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -4,6 +4,12 @@ provides: ["GtkCellRendererToggle"]
 */
 use "../gobject"
 class GtkCellRendererToggle is GtkWidget
+"""
+#GtkCellRendererToggle renders a toggle button in a cell. The
+button is drawn as a radio or a checkbutton, depending on the
+#GtkCellRendererToggle:radio property.
+When activated, it emits the #GtkCellRendererToggle::toggled signal.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -4,6 +4,15 @@ provides: ["GtkVScale"]
 */
 use "../gobject"
 class GtkVScale is GtkWidget
+"""
+The #GtkVScale widget is used to allow the user to select a value using
+a vertical slider. To create one, use gtk_hscale_new_with_range().
+
+The position to show the current value, and the number of decimal places
+shown can be set using the parent #GtkScale class’s functions.
+
+GtkVScale has been deprecated, use #GtkScale instead.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

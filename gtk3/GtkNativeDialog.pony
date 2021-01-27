@@ -4,6 +4,23 @@ provides: ["GtkNativeDialog"]
 */
 use "../gobject"
 class GtkNativeDialog is GtkWidget
+"""
+Native dialogs are platform dialogs that don't use #GtkDialog or
+#GtkWindow. They are used in order to integrate better with a
+platform, by looking the same as other native applications and
+supporting platform specific features.
+
+The #GtkDialog functions cannot be used on such objects, but we
+need a similar API in order to drive them. The #GtkNativeDialog
+object is an API that allows you to do this. It allows you to set
+various common properties on the dialog, as well as show and hide
+it and get a #GtkNativeDialog::response signal when the user finished
+with the dialog.
+
+There is also a gtk_native_dialog_run() helper that makes it easy
+to run any native dialog in a modal way with a recursive mainloop,
+similar to gtk_dialog_run().
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

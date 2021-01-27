@@ -1,5 +1,10 @@
 # GtkShortcutLabel
 <span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L6)</span>
+
+#GtkShortcutLabel is a widget that represents a single keyboard shortcut or gesture
+in the user interface.
+
+
 ```pony
 class ref GtkShortcutLabel is
   GtkWidget ref
@@ -14,7 +19,7 @@ class ref GtkShortcutLabel is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L14)</span>
 
 
 ```pony
@@ -29,7 +34,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L17)</span>
 
 
 ```pony
@@ -48,7 +53,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L21)</span>
 
 
 ```pony
@@ -69,7 +74,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L11)</span>
 
 
 
@@ -78,7 +83,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L13)</span>
 
 
 ```pony
@@ -93,7 +98,7 @@ fun box gtkwidget()
 ---
 
 ### get_accelerator
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L25)</span>
 
 
 Retrieves the current accelerator of @self.
@@ -111,7 +116,7 @@ fun box get_accelerator()
 ---
 
 ### get_disabled_text
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L29)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L33)</span>
 
 
 Retrieves the text that is displayed when no accelerator is set.

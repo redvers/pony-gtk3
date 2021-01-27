@@ -1,5 +1,23 @@
 # GtkTextTag
 <span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L6)</span>
+
+You may wish to begin by reading the
+[text widget conceptual overview][TextWidget]
+which gives an overview of all the objects and
+data types related to the text widget and how they work together.
+
+Tags should be in the #GtkTextTagTable for a given #GtkTextBuffer
+before using them with that buffer.
+
+gtk_text_buffer_create_tag() is the best way to create tags.
+See “gtk3-demo” for numerous examples.
+
+For each property of #GtkTextTag, there is a “set” property, e.g.
+“font-set” corresponds to “font”. These “set” properties reflect
+whether a property has been set or not.
+They are maintained by GTK+ and you should not set them independently.
+
+
 ```pony
 class ref GtkTextTag is
   GtkWidget ref
@@ -14,7 +32,7 @@ class ref GtkTextTag is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L27)</span>
 
 
 ```pony
@@ -29,7 +47,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L30)</span>
 
 
 ```pony
@@ -48,7 +66,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L34)</span>
 
 
 ```pony
@@ -69,7 +87,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L24)</span>
 
 
 
@@ -78,7 +96,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L26)</span>
 
 
 ```pony
@@ -93,7 +111,7 @@ fun box gtkwidget()
 ---
 
 ### changed
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L38)</span>
 
 
 Emits the #GtkTextTagTable::tag-changed signal on the #GtkTextTagTable where
@@ -119,7 +137,7 @@ fun box changed(
 ---
 
 ### get_priority
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L37)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L54)</span>
 
 
 Get the tag priority.
@@ -137,7 +155,7 @@ fun box get_priority()
 ---
 
 ### set_priority
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L43)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L60)</span>
 
 
 Sets the priority of a #GtkTextTag. Valid priorities

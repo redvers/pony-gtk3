@@ -1,5 +1,14 @@
 # GtkCellRendererText
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L6)</span>
+
+A #GtkCellRendererText renders a given text in its cell, using the font, color and
+style information provided by its properties. The text will be ellipsized if it is
+too long and the #GtkCellRendererText:ellipsize property allows it.
+
+If the #GtkCellRenderer:mode is %GTK_CELL_RENDERER_MODE_EDITABLE,
+the #GtkCellRendererText allows to edit its text using an entry.
+
+
 ```pony
 class ref GtkCellRendererText is
   GtkWidget ref
@@ -14,7 +23,7 @@ class ref GtkCellRendererText is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L18)</span>
 
 
 ```pony
@@ -29,7 +38,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L21)</span>
 
 
 ```pony
@@ -48,7 +57,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L25)</span>
 
 
 ```pony
@@ -65,7 +74,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L15)</span>
 
 
 
@@ -74,7 +83,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L17)</span>
 
 
 ```pony
@@ -89,7 +98,7 @@ fun box gtkwidget()
 ---
 
 ### set_fixed_height_from_font
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L29)</span>
 
 
 Sets the height of a renderer to explicitly be determined by the “font” and

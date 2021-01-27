@@ -4,6 +4,24 @@ provides: ["GtkSwitch"]
 */
 use "../gobject"
 class GtkSwitch is GtkWidget
+"""
+#GtkSwitch is a widget that has two states: on or off. The user can control
+which state should be active by clicking the empty area, or by dragging the
+handle.
+
+GtkSwitch can also handle situations where the underlying state changes with
+a delay. See #GtkSwitch::state-set for details.
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+switch
+╰── slider
+]|
+
+GtkSwitch has two css nodes, the main node with the name switch and a subnode
+named slider. Neither of them is using any style classes.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -1,5 +1,85 @@
 # GtkScrolledWindow
 <span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L6)</span>
+
+GtkScrolledWindow is a container that accepts a single child widget, makes
+that child scrollable using either internally added scrollbars or externally
+associated adjustments, and optionally draws a frame around the child.
+
+Widgets with native scrolling support, i.e. those whose classes implement the
+#GtkScrollable interface, are added directly. For other types of widget, the
+class #GtkViewport acts as an adaptor, giving scrollability to other widgets.
+GtkScrolledWindow’s implementation of gtk_container_add() intelligently
+accounts for whether or not the added child is a #GtkScrollable. If it isn’t,
+#GtkScrolledWindow wraps the child in a #GtkViewport and adds that for you.
+Therefore, you can just add any child widget and not worry about the details.
+
+If gtk_container_add() has added a #GtkViewport for you, you can remove
+both your added child widget from the #GtkViewport, and the #GtkViewport
+from the GtkScrolledWindow, like this:
+
+|[<!-- language="C" -->
+GtkWidget *scrolled_window = gtk_scrolled_window_new (NULL, NULL);
+GtkWidget *child_widget = gtk_button_new ();
+
+// GtkButton is not a GtkScrollable, so GtkScrolledWindow will automatically
+// add a GtkViewport.
+gtk_container_add (GTK_CONTAINER (scrolled_window),
+                   child_widget);
+
+// Either of these will result in child_widget being unparented:
+gtk_container_remove (GTK_CONTAINER (scrolled_window),
+                      child_widget);
+// or
+gtk_container_remove (GTK_CONTAINER (scrolled_window),
+                      gtk_bin_get_child (GTK_BIN (scrolled_window)));
+]|
+
+Unless #GtkScrolledWindow:policy is GTK_POLICY_NEVER or GTK_POLICY_EXTERNAL,
+GtkScrolledWindow adds internal #GtkScrollbar widgets around its child. The
+scroll position of the child, and if applicable the scrollbars, is controlled
+by the #GtkScrolledWindow:hadjustment and #GtkScrolledWindow:vadjustment
+that are associated with the GtkScrolledWindow. See the docs on #GtkScrollbar
+for the details, but note that the “step_increment” and “page_increment”
+fields are only effective if the policy causes scrollbars to be present.
+
+If a GtkScrolledWindow doesn’t behave quite as you would like, or
+doesn’t have exactly the right layout, it’s very possible to set up
+your own scrolling with #GtkScrollbar and for example a #GtkGrid.
+
+# Touch support
+
+GtkScrolledWindow has built-in support for touch devices. When a
+touchscreen is used, swiping will move the scrolled window, and will
+expose 'kinetic' behavior. This can be turned off with the
+#GtkScrolledWindow:kinetic-scrolling property if it is undesired.
+
+GtkScrolledWindow also displays visual 'overshoot' indication when
+the content is pulled beyond the end, and this situation can be
+captured with the #GtkScrolledWindow::edge-overshot signal.
+
+If no mouse device is present, the scrollbars will overlayed as
+narrow, auto-hiding indicators over the content. If traditional
+scrollbars are desired although no mouse is present, this behaviour
+can be turned off with the #GtkScrolledWindow:overlay-scrolling
+property.
+
+# CSS nodes
+
+GtkScrolledWindow has a main CSS node with name scrolledwindow.
+
+It uses subnodes with names overshoot and undershoot to
+draw the overflow and underflow indications. These nodes get
+the .left, .right, .top or .bottom style class added depending
+on where the indication is drawn.
+
+GtkScrolledWindow also sets the positional style classes (.left,
+.right, .top, .bottom) and style classes related to overlay
+scrolling (.overlay-indicator, .dragging, .hovering) on its scrollbars.
+
+If both scrollbars are visible, the area where they meet is drawn
+with a subnode named junction.
+
+
 ```pony
 class ref GtkScrolledWindow is
   GtkWidget ref
@@ -14,7 +94,7 @@ class ref GtkScrolledWindow is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L89)</span>
 
 
 ```pony
@@ -29,7 +109,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L92)</span>
 
 
 ```pony
@@ -48,7 +128,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L96)</span>
 
 
 ```pony
@@ -71,7 +151,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L86)</span>
 
 
 
@@ -80,7 +160,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L88)</span>
 
 
 ```pony
@@ -95,7 +175,7 @@ fun box gtkwidget()
 ---
 
 ### get_capture_button_press
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L25)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L104)</span>
 
 
 Return whether button presses are captured during kinetic
@@ -114,7 +194,7 @@ fun box get_capture_button_press()
 ---
 
 ### get_kinetic_scrolling
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L46)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L125)</span>
 
 
 Returns the specified kinetic scrolling behavior.
@@ -132,7 +212,7 @@ fun box get_kinetic_scrolling()
 ---
 
 ### get_max_content_height
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L52)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L131)</span>
 
 
 Returns the maximum content height set.
@@ -150,7 +230,7 @@ fun box get_max_content_height()
 ---
 
 ### get_max_content_width
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L58)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L137)</span>
 
 
 Returns the maximum content width set.
@@ -168,7 +248,7 @@ fun box get_max_content_width()
 ---
 
 ### get_min_content_height
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L143)</span>
 
 
 Gets the minimal content height of @scrolled_window, or -1 if not set.
@@ -186,7 +266,7 @@ fun box get_min_content_height()
 ---
 
 ### get_min_content_width
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L70)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L149)</span>
 
 
 Gets the minimum content width of @scrolled_window, or -1 if not set.
@@ -204,7 +284,7 @@ fun box get_min_content_width()
 ---
 
 ### get_overlay_scrolling
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L76)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L155)</span>
 
 
 Returns whether overlay scrolling is enabled for this scrolled window.
@@ -222,7 +302,7 @@ fun box get_overlay_scrolling()
 ---
 
 ### get_propagate_natural_height
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L94)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L173)</span>
 
 
 Reports whether the natural height of the child will be calculated and propagated
@@ -241,7 +321,7 @@ fun box get_propagate_natural_height()
 ---
 
 ### get_propagate_natural_width
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L101)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L180)</span>
 
 
 Reports whether the natural width of the child will be calculated and propagated
@@ -260,7 +340,7 @@ fun box get_propagate_natural_width()
 ---
 
 ### set_capture_button_press
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L129)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L208)</span>
 
 
 Changes the behaviour of @scrolled_window with regard to the initial
@@ -292,7 +372,7 @@ fun box set_capture_button_press(
 ---
 
 ### set_kinetic_scrolling
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L149)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L228)</span>
 
 
 Turns kinetic scrolling on or off.
@@ -316,7 +396,7 @@ fun box set_kinetic_scrolling(
 ---
 
 ### set_max_content_height
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L157)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L236)</span>
 
 
 Sets the maximum height that @scrolled_window should keep visible. The
@@ -343,7 +423,7 @@ fun box set_max_content_height(
 ---
 
 ### set_max_content_width
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L168)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L247)</span>
 
 
 Sets the maximum width that @scrolled_window should keep visible. The
@@ -370,7 +450,7 @@ fun box set_max_content_width(
 ---
 
 ### set_min_content_height
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L179)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L258)</span>
 
 
 Sets the minimum height that @scrolled_window should keep visible.
@@ -397,7 +477,7 @@ fun box set_min_content_height(
 ---
 
 ### set_min_content_width
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L190)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L269)</span>
 
 
 Sets the minimum width that @scrolled_window should keep visible.
@@ -424,7 +504,7 @@ fun box set_min_content_width(
 ---
 
 ### set_overlay_scrolling
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L201)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L280)</span>
 
 
 Enables or disables overlay scrolling for this scrolled window.
@@ -446,7 +526,7 @@ fun box set_overlay_scrolling(
 ---
 
 ### set_propagate_natural_height
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L216)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L295)</span>
 
 
 Sets whether the natural height of the child should be calculated and propagated
@@ -469,7 +549,7 @@ fun box set_propagate_natural_height(
 ---
 
 ### set_propagate_natural_width
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L223)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L302)</span>
 
 
 Sets whether the natural width of the child should be calculated and propagated
@@ -492,7 +572,7 @@ fun box set_propagate_natural_width(
 ---
 
 ### unset_placement
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L238)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L317)</span>
 
 
 Unsets the placement of the contents with respect to the scrollbars

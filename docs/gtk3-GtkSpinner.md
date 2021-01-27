@@ -1,5 +1,19 @@
 # GtkSpinner
 <span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L6)</span>
+
+A GtkSpinner widget displays an icon-size spinning animation.
+It is often used as an alternative to a #GtkProgressBar for
+displaying indefinite activity, instead of actual progress.
+
+To start the animation, use gtk_spinner_start(), to stop it
+use gtk_spinner_stop().
+
+# CSS nodes
+
+GtkSpinner has a single CSS node with the name spinner. When the animation is
+active, the :checked pseudoclass is added to this node.
+
+
 ```pony
 class ref GtkSpinner is
   GtkWidget ref
@@ -14,7 +28,7 @@ class ref GtkSpinner is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L23)</span>
 
 
 ```pony
@@ -29,7 +43,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L26)</span>
 
 
 ```pony
@@ -48,7 +62,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L30)</span>
 
 
 ```pony
@@ -65,7 +79,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L20)</span>
 
 
 
@@ -74,7 +88,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L22)</span>
 
 
 ```pony
@@ -89,7 +103,7 @@ fun box gtkwidget()
 ---
 
 ### start
-<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L34)</span>
 
 
 Starts the animation of the spinner.
@@ -107,7 +121,7 @@ fun box start()
 ---
 
 ### stop
-<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L40)</span>
 
 
 Stops the animation of the spinner.

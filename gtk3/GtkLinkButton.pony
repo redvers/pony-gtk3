@@ -4,6 +4,28 @@ provides: ["GtkLinkButton"]
 */
 use "../gobject"
 class GtkLinkButton is GtkWidget
+"""
+A GtkLinkButton is a #GtkButton with a hyperlink, similar to the one
+used by web browsers, which triggers an action when clicked. It is useful
+to show quick links to resources.
+
+A link button is created by calling either gtk_link_button_new() or
+gtk_link_button_new_with_label(). If using the former, the URI you pass
+to the constructor is used as a label for the widget.
+
+The URI bound to a GtkLinkButton can be set specifically using
+gtk_link_button_set_uri(), and retrieved using gtk_link_button_get_uri().
+
+By default, GtkLinkButton calls gtk_show_uri_on_window() when the button is
+clicked. This behaviour can be overridden by connecting to the
+#GtkLinkButton::activate-link signal and returning %TRUE from the
+signal handler.
+
+# CSS nodes
+
+GtkLinkButton has a single CSS node with name button. To differentiate
+it from a plain #GtkButton, it gets the .link style class.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

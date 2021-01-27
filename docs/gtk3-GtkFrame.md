@@ -1,5 +1,49 @@
 # GtkFrame
 <span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L6)</span>
+
+The frame widget is a bin that surrounds its child with a decorative
+frame and an optional label. If present, the label is drawn in a gap
+in the top side of the frame. The position of the label can be
+controlled with gtk_frame_set_label_align().
+
+# GtkFrame as GtkBuildable
+
+The GtkFrame implementation of the GtkBuildable interface supports
+placing a child in the label position by specifying “label” as the
+“type” attribute of a <child> element. A normal content child can
+be specified without specifying a <child> type attribute.
+
+An example of a UI definition fragment with GtkFrame:
+|[
+<object class="GtkFrame">
+  <child type="label">
+    <object class="GtkLabel" id="frame-label"/>
+  </child>
+  <child>
+    <object class="GtkEntry" id="frame-content"/>
+  </child>
+</object>
+]|
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+frame
+├── border[.flat]
+├── <label widget>
+╰── <child>
+]|
+
+GtkFrame has a main CSS node named “frame” and a subnode named “border”. The
+“border” node is used to draw the visible border. You can set the appearance
+of the border using CSS properties like “border-style” on the “border” node.
+
+The border node can be given the style class “.flat”, which is used by themes
+to disable drawing of the border. To do this from code, call
+gtk_frame_set_shadow_type() with %GTK_SHADOW_NONE to add the “.flat” class or
+any other shadow type to remove it.
+
+
 ```pony
 class ref GtkFrame is
   GtkWidget ref
@@ -14,7 +58,7 @@ class ref GtkFrame is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L53)</span>
 
 
 ```pony
@@ -29,7 +73,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L56)</span>
 
 
 ```pony
@@ -48,7 +92,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L60)</span>
 
 
 ```pony
@@ -69,7 +113,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L50)</span>
 
 
 
@@ -78,7 +122,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L52)</span>
 
 
 ```pony
@@ -93,7 +137,7 @@ fun box gtkwidget()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L64)</span>
 
 
 If the frame’s label widget is a #GtkLabel, returns the

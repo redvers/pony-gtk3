@@ -5,6 +5,11 @@ provides: ["GtkEventBox"]
 */
 use "../gobject"
 class GtkEventBox is GtkWidget
+"""
+The #GtkEventBox widget is a subclass of #GtkBin which also has its
+own window. It is useful since it allows you to catch events for widgets
+which do not have their own window.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

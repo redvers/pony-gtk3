@@ -1,5 +1,43 @@
 # GtkCellRenderer
 <span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L6)</span>
+
+The #GtkCellRenderer is a base class of a set of objects used for
+rendering a cell to a #cairo_t.  These objects are used primarily by
+the #GtkTreeView widget, though they aren’t tied to them in any
+specific way.  It is worth noting that #GtkCellRenderer is not a
+#GtkWidget and cannot be treated as such.
+
+The primary use of a #GtkCellRenderer is for drawing a certain graphical
+elements on a #cairo_t. Typically, one cell renderer is used to
+draw many cells on the screen.  To this extent, it isn’t expected that a
+CellRenderer keep any permanent state around.  Instead, any state is set
+just prior to use using #GObjects property system.  Then, the
+cell is measured using gtk_cell_renderer_get_size(). Finally, the cell
+is rendered in the correct location using gtk_cell_renderer_render().
+
+There are a number of rules that must be followed when writing a new
+#GtkCellRenderer.  First and foremost, it’s important that a certain set
+of properties will always yield a cell renderer of the same size,
+barring a #GtkStyle change.  The #GtkCellRenderer also has a number of
+generic properties that are expected to be honored by all children.
+
+Beyond merely rendering a cell, cell renderers can optionally
+provide active user interface elements. A cell renderer can be
+“activatable” like #GtkCellRendererToggle,
+which toggles when it gets activated by a mouse click, or it can be
+“editable” like #GtkCellRendererText, which
+allows the user to edit the text using a widget implementing the
+#GtkCellEditable interface, e.g. #GtkEntry.
+To make a cell renderer activatable or editable, you have to
+implement the #GtkCellRendererClass.activate or
+#GtkCellRendererClass.start_editing virtual functions, respectively.
+
+Many properties of #GtkCellRenderer and its subclasses have a
+corresponding “set” property, e.g. “cell-background-set” corresponds
+to “cell-background”. These “set” properties reflect whether a property
+has been set or not. You should not set them independently.
+
+
 ```pony
 class ref GtkCellRenderer is
   GtkWidget ref
@@ -14,7 +52,7 @@ class ref GtkCellRenderer is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L47)</span>
 
 
 ```pony
@@ -29,7 +67,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L50)</span>
 
 
 ```pony
@@ -50,7 +88,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L44)</span>
 
 
 
@@ -59,7 +97,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L46)</span>
 
 
 ```pony
@@ -74,7 +112,7 @@ fun box gtkwidget()
 ---
 
 ### get_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L87)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L124)</span>
 
 
 Returns the cell renderer’s sensitivity.
@@ -92,7 +130,7 @@ fun box get_sensitive()
 ---
 
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L109)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L146)</span>
 
 
 Returns the cell renderer’s visibility.
@@ -110,7 +148,7 @@ fun box get_visible()
 ---
 
 ### is_activatable
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L115)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L152)</span>
 
 
 Checks whether the cell renderer can do something when activated.
@@ -128,7 +166,7 @@ fun box is_activatable()
 ---
 
 ### set_fixed_size
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L134)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L171)</span>
 
 
 Sets the renderer size to be explicit, independent of the properties set.
@@ -152,7 +190,7 @@ fun box set_fixed_size(
 ---
 
 ### set_padding
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L140)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L177)</span>
 
 
 Sets the renderer’s padding.
@@ -176,7 +214,7 @@ fun box set_padding(
 ---
 
 ### set_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L146)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L183)</span>
 
 
 Sets the cell renderer’s sensitivity.
@@ -198,7 +236,7 @@ fun box set_sensitive(
 ---
 
 ### set_visible
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L152)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L189)</span>
 
 
 Sets the cell renderer’s visibility.
@@ -220,7 +258,7 @@ fun box set_visible(
 ---
 
 ### stop_editing
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L165)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L202)</span>
 
 
 Informs the cell renderer that the editing is stopped.

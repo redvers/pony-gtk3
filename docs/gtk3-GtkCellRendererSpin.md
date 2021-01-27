@@ -1,5 +1,21 @@
 # GtkCellRendererSpin
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L6)</span>
+
+#GtkCellRendererSpin renders text in a cell like #GtkCellRendererText from
+which it is derived. But while #GtkCellRendererText offers a simple entry to
+edit the text, #GtkCellRendererSpin offers a #GtkSpinButton widget. Of course,
+that means that the text has to be parseable as a floating point number.
+
+The range of the spinbutton is taken from the adjustment property of the
+cell renderer, which can be set explicitly or mapped to a column in the
+tree model, like all properties of cell renders. #GtkCellRendererSpin
+also has properties for the #GtkCellRendererSpin:climb-rate and the number
+of #GtkCellRendererSpin:digits to display. Other #GtkSpinButton properties
+can be set in a handler for the #GtkCellRenderer::editing-started signal.
+
+The #GtkCellRendererSpin cell renderer was added in GTK+ 2.10.
+
+
 ```pony
 class ref GtkCellRendererSpin is
   GtkWidget ref
@@ -14,7 +30,7 @@ class ref GtkCellRendererSpin is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L25)</span>
 
 
 ```pony
@@ -29,7 +45,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L28)</span>
 
 
 ```pony
@@ -48,7 +64,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L32)</span>
 
 
 ```pony
@@ -65,7 +81,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L22)</span>
 
 
 
@@ -74,7 +90,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L24)</span>
 
 
 ```pony

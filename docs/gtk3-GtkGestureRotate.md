@@ -1,5 +1,11 @@
 # GtkGestureRotate
 <span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L6)</span>
+
+#GtkGestureRotate is a #GtkGesture implementation able to recognize
+2-finger rotations, whenever the angle between both handled sequences
+changes, the #GtkGestureRotate::angle-changed signal is emitted.
+
+
 ```pony
 class ref GtkGestureRotate is
   GtkWidget ref
@@ -14,7 +20,7 @@ class ref GtkGestureRotate is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L15)</span>
 
 
 ```pony
@@ -29,7 +35,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L18)</span>
 
 
 ```pony
@@ -48,7 +54,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L22)</span>
 
 
 ```pony
@@ -69,7 +75,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L12)</span>
 
 
 
@@ -78,7 +84,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L14)</span>
 
 
 ```pony

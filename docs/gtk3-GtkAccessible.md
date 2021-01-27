@@ -1,5 +1,19 @@
 # GtkAccessible
 <span class="source-link">[[Source]](src/gtk3/GtkAccessible.md#L6)</span>
+
+The #GtkAccessible class is the base class for accessible
+implementations for #GtkWidget subclasses. It is a thin
+wrapper around #AtkObject, which adds facilities for associating
+a widget with its accessible object.
+
+An accessible implementation for a third-party widget should
+derive from #GtkAccessible and implement the suitable interfaces
+from ATK, such as #AtkText or #AtkSelection. To establish
+the connection between the widget class and its corresponding
+acccessible implementation, override the get_accessible vfunc
+in #GtkWidgetClass.
+
+
 ```pony
 class ref GtkAccessible is
   GtkWidget ref
@@ -14,7 +28,7 @@ class ref GtkAccessible is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAccessible.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccessible.md#L23)</span>
 
 
 ```pony
@@ -29,7 +43,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAccessible.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccessible.md#L26)</span>
 
 
 ```pony
@@ -50,7 +64,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkAccessible.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccessible.md#L20)</span>
 
 
 
@@ -59,7 +73,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkAccessible.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccessible.md#L22)</span>
 
 
 ```pony
@@ -74,7 +88,7 @@ fun box gtkwidget()
 ---
 
 ### connect_widget_destroyed
-<span class="source-link">[[Source]](src/gtk3/GtkAccessible.md#L19)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccessible.md#L32)</span>
 
 
 This function specifies the callback function to be called

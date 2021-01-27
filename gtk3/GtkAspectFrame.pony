@@ -4,6 +4,19 @@ provides: ["GtkAspectFrame"]
 */
 use "../gobject"
 class GtkAspectFrame is GtkWidget
+"""
+The #GtkAspectFrame is useful when you want
+pack a widget so that it can resize but always retains
+the same aspect ratio. For instance, one might be
+drawing a small preview of a larger image. #GtkAspectFrame
+derives from #GtkFrame, so it can draw a label and
+a frame around the child. The frame will be
+“shrink-wrapped” to the size of the child.
+
+# CSS nodes
+
+GtkAspectFrame uses a CSS node with name frame.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -1,5 +1,24 @@
 # GtkStyleProperties
 <span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L6)</span>
+
+GtkStyleProperties provides the storage for style information
+that is used by #GtkStyleContext and other #GtkStyleProvider
+implementations.
+
+Before style properties can be stored in GtkStyleProperties, they
+must be registered with gtk_style_properties_register_property().
+
+Unless you are writing a #GtkStyleProvider implementation, you
+are unlikely to use this API directly, as gtk_style_context_get()
+and its variants are the preferred way to access styling information
+from widget implementations and theming engine implementations
+should use the APIs provided by #GtkThemingEngine instead.
+
+#GtkStyleProperties has been deprecated in GTK 3.16. The CSS
+machinery does not use it anymore and all users of this object
+have been deprecated.
+
+
 ```pony
 class ref GtkStyleProperties is
   GtkWidget ref
@@ -14,7 +33,7 @@ class ref GtkStyleProperties is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L28)</span>
 
 
 ```pony
@@ -29,7 +48,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L31)</span>
 
 
 ```pony
@@ -48,7 +67,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L35)</span>
 
 
 ```pony
@@ -65,7 +84,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L25)</span>
 
 
 
@@ -74,7 +93,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L27)</span>
 
 
 ```pony
@@ -89,7 +108,7 @@ fun box gtkwidget()
 ---
 
 ### clear
-<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L39)</span>
 
 
 Clears all style information from @props.

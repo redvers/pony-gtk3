@@ -1,5 +1,30 @@
 # GtkStackSwitcher
 <span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L6)</span>
+
+The GtkStackSwitcher widget acts as a controller for a
+#GtkStack; it shows a row of buttons to switch between
+the various pages of the associated stack widget.
+
+All the content for the buttons comes from the child properties
+of the #GtkStack; the button visibility in a #GtkStackSwitcher
+widget is controlled by the visibility of the child in the
+#GtkStack.
+
+It is possible to associate multiple #GtkStackSwitcher widgets
+with the same #GtkStack widget.
+
+The GtkStackSwitcher widget was added in 3.10.
+
+# CSS nodes
+
+GtkStackSwitcher has a single CSS node named stackswitcher and
+style class .stack-switcher.
+
+When circumstances require it, GtkStackSwitcher adds the
+.needs-attention style class to the widgets representing the
+stack pages.
+
+
 ```pony
 class ref GtkStackSwitcher is
   GtkWidget ref
@@ -14,7 +39,7 @@ class ref GtkStackSwitcher is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L34)</span>
 
 
 ```pony
@@ -29,7 +54,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L37)</span>
 
 
 ```pony
@@ -48,7 +73,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L41)</span>
 
 
 ```pony
@@ -65,7 +90,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L31)</span>
 
 
 
@@ -74,7 +99,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L33)</span>
 
 
 ```pony

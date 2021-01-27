@@ -1,5 +1,9 @@
 # GtkFlowBoxChild
 <span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L6)</span>
+
+No documentation provided
+
+
 ```pony
 class ref GtkFlowBoxChild is
   GtkWidget ref
@@ -14,7 +18,7 @@ class ref GtkFlowBoxChild is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L13)</span>
 
 
 ```pony
@@ -29,7 +33,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L16)</span>
 
 
 ```pony
@@ -48,7 +52,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L20)</span>
 
 
 ```pony
@@ -65,7 +69,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L10)</span>
 
 
 
@@ -74,7 +78,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L12)</span>
 
 
 ```pony
@@ -89,7 +93,7 @@ fun box gtkwidget()
 ---
 
 ### changed
-<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L24)</span>
 
 
 Marks @child as changed, causing any state that depends on this
@@ -122,7 +126,7 @@ fun box changed()
 ---
 
 ### get_index
-<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L45)</span>
 
 
 Gets the current index of the @child in its #GtkFlowBox container.
@@ -140,7 +144,7 @@ fun box get_index()
 ---
 
 ### is_selected
-<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L48)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxChild.md#L51)</span>
 
 
 Returns whether the @child is currently selected in its

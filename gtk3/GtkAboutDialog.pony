@@ -4,6 +4,45 @@ provides: ["GtkAboutDialog"]
 */
 use "../gobject"
 class GtkAboutDialog is GtkWidget
+"""
+The GtkAboutDialog offers a simple way to display information about
+a program like its logo, name, copyright, website and license. It is
+also possible to give credits to the authors, documenters, translators
+and artists who have worked on the program. An about dialog is typically
+opened when the user selects the `About` option from the `Help` menu.
+All parts of the dialog are optional.
+
+About dialogs often contain links and email addresses. GtkAboutDialog
+displays these as clickable links. By default, it calls gtk_show_uri_on_window()
+when a user clicks one. The behaviour can be overridden with the
+#GtkAboutDialog::activate-link signal.
+
+To specify a person with an email address, use a string like
+"Edgar Allan Poe <edgar\@poe.com>". To specify a website with a title,
+use a string like "GTK+ team http://www.gtk.org".
+
+To make constructing a GtkAboutDialog as convenient as possible, you can
+use the function gtk_show_about_dialog() which constructs and shows a dialog
+and keeps it around so that it can be shown again.
+
+Note that GTK+ sets a default title of `_("About %s")` on the dialog
+window (where \%s is replaced by the name of the application, but in
+order to ensure proper translation of the title, applications should
+set the title property explicitly when constructing a GtkAboutDialog,
+as shown in the following example:
+|[<!-- language="C" -->
+GdkPixbuf *example_logo = gdk_pixbuf_new_from_file ("./logo.png", NULL);
+gtk_show_about_dialog (NULL,
+                       "program-name", "ExampleCode",
+                       "logo", example_logo,
+                       "title", _("About ExampleCode"),
+                       NULL);
+]|
+
+It is also possible to show a #GtkAboutDialog like any other #GtkDialog,
+e.g. using gtk_dialog_run(). In this case, you might need to know that
+the “Close” button returns the #GTK_RESPONSE_CANCEL response id.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

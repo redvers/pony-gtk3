@@ -4,6 +4,9 @@ provides: ["GtkPopoverAccessible"]
 */
 use "../gobject"
 class GtkPopoverAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

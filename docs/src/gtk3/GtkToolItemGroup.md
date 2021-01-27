@@ -5,6 +5,15 @@ provides: ["GtkToolItemGroup"]
 */
 use "../gobject"
 class GtkToolItemGroup is GtkWidget
+"""
+A #GtkToolItemGroup is used together with #GtkToolPalette to add
+#GtkToolItems to a palette like container with different
+categories and drag and drop support.
+
+# CSS nodes
+
+GtkToolItemGroup has a single CSS node named toolitemgroup.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -55,7 +64,7 @@ fun get_label(): String =>
 Gets the label of @group.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_tool_item_group_get_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_label_widget unavailable due to return typing issues

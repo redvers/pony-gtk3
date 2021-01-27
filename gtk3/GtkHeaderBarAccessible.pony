@@ -4,6 +4,9 @@ provides: ["GtkHeaderBarAccessible"]
 */
 use "../gobject"
 class GtkHeaderBarAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

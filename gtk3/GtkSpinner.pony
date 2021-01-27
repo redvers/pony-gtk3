@@ -4,6 +4,19 @@ provides: ["GtkSpinner"]
 */
 use "../gobject"
 class GtkSpinner is GtkWidget
+"""
+A GtkSpinner widget displays an icon-size spinning animation.
+It is often used as an alternative to a #GtkProgressBar for
+displaying indefinite activity, instead of actual progress.
+
+To start the animation, use gtk_spinner_start(), to stop it
+use gtk_spinner_stop().
+
+# CSS nodes
+
+GtkSpinner has a single CSS node with the name spinner. When the animation is
+active, the :checked pseudoclass is added to this node.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

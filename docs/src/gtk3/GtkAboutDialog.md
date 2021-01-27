@@ -5,6 +5,45 @@ provides: ["GtkAboutDialog"]
 */
 use "../gobject"
 class GtkAboutDialog is GtkWidget
+"""
+The GtkAboutDialog offers a simple way to display information about
+a program like its logo, name, copyright, website and license. It is
+also possible to give credits to the authors, documenters, translators
+and artists who have worked on the program. An about dialog is typically
+opened when the user selects the `About` option from the `Help` menu.
+All parts of the dialog are optional.
+
+About dialogs often contain links and email addresses. GtkAboutDialog
+displays these as clickable links. By default, it calls gtk_show_uri_on_window()
+when a user clicks one. The behaviour can be overridden with the
+#GtkAboutDialog::activate-link signal.
+
+To specify a person with an email address, use a string like
+"Edgar Allan Poe <edgar\@poe.com>". To specify a website with a title,
+use a string like "GTK+ team http://www.gtk.org".
+
+To make constructing a GtkAboutDialog as convenient as possible, you can
+use the function gtk_show_about_dialog() which constructs and shows a dialog
+and keeps it around so that it can be shown again.
+
+Note that GTK+ sets a default title of `_("About %s")` on the dialog
+window (where \%s is replaced by the name of the application, but in
+order to ensure proper translation of the title, applications should
+set the title property explicitly when constructing a GtkAboutDialog,
+as shown in the following example:
+|[<!-- language="C" -->
+GdkPixbuf *example_logo = gdk_pixbuf_new_from_file ("./logo.png", NULL);
+gtk_show_about_dialog (NULL,
+                       "program-name", "ExampleCode",
+                       "logo", example_logo,
+                       "title", _("About ExampleCode"),
+                       NULL);
+]|
+
+It is also possible to show a #GtkAboutDialog like any other #GtkDialog,
+e.g. using gtk_dialog_run(). In this case, you might need to know that
+the “Close” button returns the #GTK_RESPONSE_CANCEL response id.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -43,7 +82,7 @@ fun get_comments(): String =>
 Returns the comments string.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_comments[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_copyright(): String =>
@@ -51,7 +90,7 @@ fun get_copyright(): String =>
 Returns the copyright string.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_copyright[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_documenters unavailable due to return typing issues
@@ -66,7 +105,7 @@ fun get_license(): String =>
 Returns the license information.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_license[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_license_type unavailable due to return typing issues
@@ -88,7 +127,7 @@ fun get_logo_icon_name(): String =>
 Returns the icon name displayed as logo in the about dialog.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_logo_icon_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_program_name(): String =>
@@ -96,7 +135,7 @@ fun get_program_name(): String =>
 Returns the program name displayed in the about dialog.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_program_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_translator_credits(): String =>
@@ -105,7 +144,7 @@ Returns the translator credits string which is displayed
 in the translators tab of the secondary credits dialog.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_translator_credits[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_version(): String =>
@@ -113,7 +152,7 @@ fun get_version(): String =>
 Returns the version string.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_version[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_website(): String =>
@@ -121,7 +160,7 @@ fun get_website(): String =>
 Returns the website URL.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_website[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_website_label(): String =>
@@ -129,7 +168,7 @@ fun get_website_label(): String =>
 Returns the label used for the website link.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_about_dialog_get_website_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_wrap_license(): Bool =>

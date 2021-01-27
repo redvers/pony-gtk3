@@ -1,5 +1,20 @@
 # GtkGestureSingle
 <span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L6)</span>
+
+#GtkGestureSingle is a subclass of #GtkGesture, optimized (although
+not restricted) for dealing with mouse and single-touch gestures. Under
+interaction, these gestures stick to the first interacting sequence, which
+is accessible through gtk_gesture_single_get_current_sequence() while the
+gesture is being interacted with.
+
+By default gestures react to both %GDK_BUTTON_PRIMARY and touch
+events, gtk_gesture_single_set_touch_only() can be used to change the
+touch behavior. Callers may also specify a different mouse button number
+to interact with through gtk_gesture_single_set_button(), or react to any
+mouse button by setting 0. While the gesture is active, the button being
+currently pressed can be known through gtk_gesture_single_get_current_button().
+
+
 ```pony
 class ref GtkGestureSingle is
   GtkWidget ref
@@ -14,7 +29,7 @@ class ref GtkGestureSingle is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L24)</span>
 
 
 ```pony
@@ -29,7 +44,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L27)</span>
 
 
 ```pony
@@ -50,7 +65,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L21)</span>
 
 
 
@@ -59,7 +74,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L23)</span>
 
 
 ```pony
@@ -74,7 +89,7 @@ fun box gtkwidget()
 ---
 
 ### get_button
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L19)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L33)</span>
 
 
 Returns the button number @gesture listens for, or 0 if @gesture
@@ -93,7 +108,7 @@ fun box get_button()
 ---
 
 ### get_current_button
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L26)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L40)</span>
 
 
 Returns the button number currently interacting with @gesture, or 0 if there
@@ -112,7 +127,7 @@ fun box get_current_button()
 ---
 
 ### get_exclusive
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L54)</span>
 
 
 Gets whether a gesture is exclusive. For more information, see
@@ -131,7 +146,7 @@ fun box get_exclusive()
 ---
 
 ### get_touch_only
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L47)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L61)</span>
 
 
 Returns %TRUE if the gesture is only triggered by touch events.
@@ -149,7 +164,7 @@ fun box get_touch_only()
 ---
 
 ### set_button
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L53)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L67)</span>
 
 
 Sets the button number @gesture listens to. If non-0, every
@@ -173,7 +188,7 @@ fun box set_button(
 ---
 
 ### set_exclusive
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L75)</span>
 
 
 Sets whether @gesture is exclusive. An exclusive gesture will
@@ -198,7 +213,7 @@ fun box set_exclusive(
 ---
 
 ### set_touch_only
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L70)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L84)</span>
 
 
 If @touch_only is %TRUE, @gesture will only handle events of type

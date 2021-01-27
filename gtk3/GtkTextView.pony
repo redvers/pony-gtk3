@@ -4,6 +4,35 @@ provides: ["GtkTextView"]
 */
 use "../gobject"
 class GtkTextView is GtkWidget
+"""
+You may wish to begin by reading the
+[text widget conceptual overview][TextWidget]
+which gives an overview of all the objects and data
+types related to the text widget and how they work together.
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+textview.view
+├── border.top
+├── border.left
+├── text
+│   ╰── [selection]
+├── border.right
+├── border.bottom
+╰── [window.popup]
+]|
+
+GtkTextView has a main css node with name textview and style class .view,
+and subnodes for each of the border windows, and the main text area,
+with names border and text, respectively. The border nodes each get
+one of the style classes .left, .right, .top or .bottom.
+
+A node representing the selection will appear below the text node.
+
+If a context menu is opened, the window node will appear as a subnode
+of the main node.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -4,6 +4,9 @@ provides: ["GtkSocketAccessible"]
 */
 use "../gobject"
 class GtkSocketAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

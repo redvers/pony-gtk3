@@ -5,6 +5,9 @@ provides: ["GtkLevelBarAccessible"]
 */
 use "../gobject"
 class GtkLevelBarAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

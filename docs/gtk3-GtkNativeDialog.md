@@ -1,5 +1,23 @@
 # GtkNativeDialog
 <span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L6)</span>
+
+Native dialogs are platform dialogs that don't use #GtkDialog or
+#GtkWindow. They are used in order to integrate better with a
+platform, by looking the same as other native applications and
+supporting platform specific features.
+
+The #GtkDialog functions cannot be used on such objects, but we
+need a similar API in order to drive them. The #GtkNativeDialog
+object is an API that allows you to do this. It allows you to set
+various common properties on the dialog, as well as show and hide
+it and get a #GtkNativeDialog::response signal when the user finished
+with the dialog.
+
+There is also a gtk_native_dialog_run() helper that makes it easy
+to run any native dialog in a modal way with a recursive mainloop,
+similar to gtk_dialog_run().
+
+
 ```pony
 class ref GtkNativeDialog is
   GtkWidget ref
@@ -14,7 +32,7 @@ class ref GtkNativeDialog is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L27)</span>
 
 
 ```pony
@@ -29,7 +47,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L30)</span>
 
 
 ```pony
@@ -50,7 +68,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L24)</span>
 
 
 
@@ -59,7 +77,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L26)</span>
 
 
 ```pony
@@ -74,7 +92,7 @@ fun box gtkwidget()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L19)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L36)</span>
 
 
 Destroys a dialog.
@@ -100,7 +118,7 @@ fun box destroy()
 ---
 
 ### get_modal
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L50)</span>
 
 
 Returns whether the dialog is modal. See gtk_native_dialog_set_modal().
@@ -118,7 +136,7 @@ fun box get_modal()
 ---
 
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L53)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L70)</span>
 
 
 Determines whether the dialog is visible.
@@ -136,7 +154,7 @@ fun box get_visible()
 ---
 
 ### hide
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L59)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L76)</span>
 
 
 Hides the dialog if it is visilbe, aborting any interaction. Once this
@@ -158,7 +176,7 @@ fun box hide()
 ---
 
 ### run
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L69)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L86)</span>
 
 
 Blocks in a recursive main loop until @self emits the
@@ -204,7 +222,7 @@ fun box run()
 ---
 
 ### set_modal
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L103)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L120)</span>
 
 
 Sets a dialog modal or non-modal. Modal dialogs prevent interaction
@@ -231,7 +249,7 @@ fun box set_modal(
 ---
 
 ### show
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L122)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L139)</span>
 
 
 Shows the dialog on the display, allowing the user to interact with

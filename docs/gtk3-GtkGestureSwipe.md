@@ -1,5 +1,18 @@
 # GtkGestureSwipe
 <span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L6)</span>
+
+#GtkGestureSwipe is a #GtkGesture implementation able to recognize
+swipes, after a press/move/.../move/release sequence happens, the
+#GtkGestureSwipe::swipe signal will be emitted, providing the velocity
+and directionality of the sequence at the time it was lifted.
+
+If the velocity is desired in intermediate points,
+gtk_gesture_swipe_get_velocity() can be called on eg. a
+#GtkGesture::update handler.
+
+All velocities are reported in pixels/sec units.
+
+
 ```pony
 class ref GtkGestureSwipe is
   GtkWidget ref
@@ -14,7 +27,7 @@ class ref GtkGestureSwipe is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L22)</span>
 
 
 ```pony
@@ -29,7 +42,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L25)</span>
 
 
 ```pony
@@ -48,7 +61,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L29)</span>
 
 
 ```pony
@@ -69,7 +82,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L19)</span>
 
 
 
@@ -78,7 +91,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L21)</span>
 
 
 ```pony

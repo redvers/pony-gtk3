@@ -4,6 +4,48 @@ provides: ["GtkEntryCompletion"]
 */
 use "../gobject"
 class GtkEntryCompletion is GtkWidget
+"""
+#GtkEntryCompletion is an auxiliary object to be used in conjunction with
+#GtkEntry to provide the completion functionality. It implements the
+#GtkCellLayout interface, to allow the user to add extra cells to the
+#GtkTreeView with completion matches.
+
+“Completion functionality” means that when the user modifies the text
+in the entry, #GtkEntryCompletion checks which rows in the model match
+the current content of the entry, and displays a list of matches.
+By default, the matching is done by comparing the entry text
+case-insensitively against the text column of the model (see
+gtk_entry_completion_set_text_column()), but this can be overridden
+with a custom match function (see gtk_entry_completion_set_match_func()).
+
+When the user selects a completion, the content of the entry is
+updated. By default, the content of the entry is replaced by the
+text column of the model, but this can be overridden by connecting
+to the #GtkEntryCompletion::match-selected signal and updating the
+entry in the signal handler. Note that you should return %TRUE from
+the signal handler to suppress the default behaviour.
+
+To add completion functionality to an entry, use gtk_entry_set_completion().
+
+In addition to regular completion matches, which will be inserted into the
+entry when they are selected, #GtkEntryCompletion also allows to display
+“actions” in the popup window. Their appearance is similar to menuitems,
+to differentiate them clearly from completion strings. When an action is
+selected, the #GtkEntryCompletion::action-activated signal is emitted.
+
+GtkEntryCompletion uses a #GtkTreeModelFilter model to represent the
+subset of the entire model that is currently matching. While the
+GtkEntryCompletion signals #GtkEntryCompletion::match-selected and
+#GtkEntryCompletion::cursor-on-match take the original model and an
+iter pointing to that model as arguments, other callbacks and signals
+(such as #GtkCellLayoutDataFuncs or #GtkCellArea::apply-attributes)
+will generally take the filter model as argument. As long as you are
+only calling gtk_tree_model_get(), this will make no difference to
+you. If for some reason, you need the original model, use
+gtk_tree_model_filter_get_model(). Don’t forget to use
+gtk_tree_model_filter_convert_iter_to_child_iter() to obtain a
+matching iter.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

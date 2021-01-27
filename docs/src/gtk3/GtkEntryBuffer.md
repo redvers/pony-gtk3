@@ -5,6 +5,19 @@ provides: ["GtkEntryBuffer"]
 */
 use "../gobject"
 class GtkEntryBuffer is GtkWidget
+"""
+The #GtkEntryBuffer class contains the actual text displayed in a
+#GtkEntry widget.
+
+A single #GtkEntryBuffer object can be shared by multiple #GtkEntry
+widgets which will then share the same text content, but not the cursor
+position, visibility attributes, icon etc.
+
+#GtkEntryBuffer may be derived from. Such a derived class might allow
+text to be stored in an alternate location, such as non-pageable memory,
+useful in the case of important passwords. Or a derived class could
+integrate with an application’s concept of undo/redo.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -70,7 +83,7 @@ The memory pointer returned by this call will not change
 unless this object emits a signal, or is finalized.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_entry_buffer_get_text[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* insert_text unavailable due to typing issues

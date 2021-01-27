@@ -5,6 +5,9 @@ provides: ["GtkRadioButtonAccessible"]
 */
 use "../gobject"
 class GtkRadioButtonAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

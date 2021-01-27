@@ -1,5 +1,21 @@
 # GtkSeparatorToolItem
 <span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L6)</span>
+
+A #GtkSeparatorToolItem is a #GtkToolItem that separates groups of other
+#GtkToolItems. Depending on the theme, a #GtkSeparatorToolItem will
+often look like a vertical line on horizontally docked toolbars.
+
+If the #GtkToolbar child property “expand” is %TRUE and the property
+#GtkSeparatorToolItem:draw is %FALSE, a #GtkSeparatorToolItem will act as
+a “spring” that forces other items to the ends of the toolbar.
+
+Use gtk_separator_tool_item_new() to create a new #GtkSeparatorToolItem.
+
+# CSS nodes
+
+GtkSeparatorToolItem has a single CSS node with name separator.
+
+
 ```pony
 class ref GtkSeparatorToolItem is
   GtkWidget ref
@@ -14,7 +30,7 @@ class ref GtkSeparatorToolItem is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L25)</span>
 
 
 ```pony
@@ -29,7 +45,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L28)</span>
 
 
 ```pony
@@ -48,7 +64,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L32)</span>
 
 
 ```pony
@@ -65,7 +81,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L22)</span>
 
 
 
@@ -74,7 +90,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L24)</span>
 
 
 ```pony
@@ -89,7 +105,7 @@ fun box gtkwidget()
 ---
 
 ### get_draw
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L36)</span>
 
 
 Returns whether @item is drawn as a line, or just blank.
@@ -108,7 +124,7 @@ fun box get_draw()
 ---
 
 ### set_draw
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L28)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L43)</span>
 
 
 Whether @item is drawn as a vertical line, or just blank.

@@ -4,6 +4,15 @@ provides: ["GtkRange"]
 */
 use "../gobject"
 class GtkRange is GtkWidget
+"""
+#GtkRange is the common base class for widgets which visualize an
+adjustment, e.g #GtkScale or #GtkScrollbar.
+
+Apart from signals for monitoring the parameters of the adjustment,
+#GtkRange provides properties and methods for influencing the sensitivity
+of the “steppers”. It also provides properties and methods for setting a
+“fill level” on range widgets. See gtk_range_set_fill_level().
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

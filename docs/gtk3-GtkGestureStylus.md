@@ -1,5 +1,10 @@
 # GtkGestureStylus
 <span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L6)</span>
+
+#GtkGestureStylus is a #GtkGesture implementation specific to stylus
+input. The provided signals just provide the basic information
+
+
 ```pony
 class ref GtkGestureStylus is
   GtkWidget ref
@@ -14,7 +19,7 @@ class ref GtkGestureStylus is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L14)</span>
 
 
 ```pony
@@ -29,7 +34,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L17)</span>
 
 
 ```pony
@@ -48,7 +53,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L21)</span>
 
 
 ```pony
@@ -69,7 +74,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L11)</span>
 
 
 
@@ -78,7 +83,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L13)</span>
 
 
 ```pony

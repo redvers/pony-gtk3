@@ -1,5 +1,14 @@
 # GtkBin
 <span class="source-link">[[Source]](src/gtk3/GtkBin.md#L6)</span>
+
+The #GtkBin widget is a container with just one child.
+It is not very useful itself, but it is useful for deriving subclasses,
+since it provides common code needed for handling a single child widget.
+
+Many GTK+ widgets are subclasses of #GtkBin, including #GtkWindow,
+#GtkButton, #GtkFrame, #GtkHandleBox or #GtkScrolledWindow.
+
+
 ```pony
 class ref GtkBin is
   GtkWidget ref
@@ -14,7 +23,7 @@ class ref GtkBin is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkBin.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkBin.md#L18)</span>
 
 
 ```pony
@@ -29,7 +38,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkBin.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkBin.md#L21)</span>
 
 
 ```pony
@@ -50,7 +59,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkBin.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkBin.md#L15)</span>
 
 
 
@@ -59,7 +68,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkBin.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkBin.md#L17)</span>
 
 
 ```pony

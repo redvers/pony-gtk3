@@ -1,5 +1,12 @@
 # GtkEventControllerKey
 <span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L6)</span>
+
+#GtkEventControllerKey is an event controller meant for situations
+where you need access to key events.
+
+This object was added in 3.24.
+
+
 ```pony
 class ref GtkEventControllerKey is
   GtkWidget ref
@@ -14,7 +21,7 @@ class ref GtkEventControllerKey is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L16)</span>
 
 
 ```pony
@@ -29,7 +36,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L19)</span>
 
 
 ```pony
@@ -48,7 +55,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L23)</span>
 
 
 ```pony
@@ -69,7 +76,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L13)</span>
 
 
 
@@ -78,7 +85,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L15)</span>
 
 
 ```pony
@@ -93,7 +100,7 @@ fun box gtkwidget()
 ---
 
 ### get_group
-<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L25)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L31)</span>
 
 
 No provided documentation

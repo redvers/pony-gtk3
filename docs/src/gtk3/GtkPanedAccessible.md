@@ -5,6 +5,9 @@ provides: ["GtkPanedAccessible"]
 */
 use "../gobject"
 class GtkPanedAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

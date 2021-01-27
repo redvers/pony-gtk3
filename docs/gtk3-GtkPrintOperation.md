@@ -1,5 +1,69 @@
 # GtkPrintOperation
 <span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L6)</span>
+
+GtkPrintOperation is the high-level, portable printing API.
+It looks a bit different than other GTK+ dialogs such as the
+#GtkFileChooser, since some platforms don’t expose enough
+infrastructure to implement a good print dialog. On such
+platforms, GtkPrintOperation uses the native print dialog.
+On platforms which do not provide a native print dialog, GTK+
+uses its own, see #GtkPrintUnixDialog.
+
+The typical way to use the high-level printing API is to create
+a GtkPrintOperation object with gtk_print_operation_new() when
+the user selects to print. Then you set some properties on it,
+e.g. the page size, any #GtkPrintSettings from previous print
+operations, the number of pages, the current page, etc.
+
+Then you start the print operation by calling gtk_print_operation_run().
+It will then show a dialog, let the user select a printer and
+options. When the user finished the dialog various signals will
+be emitted on the #GtkPrintOperation, the main one being
+#GtkPrintOperation::draw-page, which you are supposed to catch
+and render the page on the provided #GtkPrintContext using Cairo.
+
+# The high-level printing API
+
+|[<!-- language="C" -->
+static GtkPrintSettings *settings = NULL;
+
+static void
+do_print (void)
+{
+  GtkPrintOperation *print;
+  GtkPrintOperationResult res;
+
+  print = gtk_print_operation_new ();
+
+  if (settings != NULL)
+    gtk_print_operation_set_print_settings (print, settings);
+
+  g_signal_connect (print, "begin_print", G_CALLBACK (begin_print), NULL);
+  g_signal_connect (print, "draw_page", G_CALLBACK (draw_page), NULL);
+
+  res = gtk_print_operation_run (print, GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG,
+                                 GTK_WINDOW (main_window), NULL);
+
+  if (res == GTK_PRINT_OPERATION_RESULT_APPLY)
+    {
+      if (settings != NULL)
+        g_object_unref (settings);
+      settings = g_object_ref (gtk_print_operation_get_print_settings (print));
+    }
+
+  g_object_unref (print);
+}
+]|
+
+By default GtkPrintOperation uses an external application to do
+print preview. To implement a custom print preview, an application
+must connect to the preview signal. The functions
+gtk_print_operation_preview_render_page(),
+gtk_print_operation_preview_end_preview() and
+gtk_print_operation_preview_is_selected()
+are useful when implementing a print preview.
+
+
 ```pony
 class ref GtkPrintOperation is
   GtkWidget ref
@@ -14,7 +78,7 @@ class ref GtkPrintOperation is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L73)</span>
 
 
 ```pony
@@ -29,7 +93,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L76)</span>
 
 
 ```pony
@@ -48,7 +112,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L80)</span>
 
 
 ```pony
@@ -65,7 +129,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L70)</span>
 
 
 
@@ -74,7 +138,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L72)</span>
 
 
 ```pony
@@ -89,7 +153,7 @@ fun box gtkwidget()
 ---
 
 ### cancel
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L84)</span>
 
 
 Cancels a running print operation. This function may
@@ -111,7 +175,7 @@ fun box cancel()
 ---
 
 ### draw_page_finish
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L94)</span>
 
 
 Signalize that drawing of particular page is complete.
@@ -135,7 +199,7 @@ fun box draw_page_finish()
 ---
 
 ### get_embed_page_setup
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L50)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L113)</span>
 
 
 Gets the value of #GtkPrintOperation:embed-page-setup property.
@@ -153,7 +217,7 @@ fun box get_embed_page_setup()
 ---
 
 ### get_error
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L56)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L119)</span>
 
 
 Call this when the result of a print operation is
@@ -174,7 +238,7 @@ fun box get_error()
 ---
 
 ### get_has_selection
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L65)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L128)</span>
 
 
 Gets the value of #GtkPrintOperation:has-selection property.
@@ -192,7 +256,7 @@ fun box get_has_selection()
 ---
 
 ### get_n_pages_to_print
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L71)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L134)</span>
 
 
 Returns the number of pages that will be printed.
@@ -218,7 +282,7 @@ fun box get_n_pages_to_print()
 ---
 
 ### get_status_string
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L99)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L162)</span>
 
 
 Returns a string representation of the status of the
@@ -241,7 +305,7 @@ fun box get_status_string()
 ---
 
 ### get_support_selection
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L112)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L175)</span>
 
 
 Gets the value of #GtkPrintOperation:support-selection property.
@@ -259,7 +323,7 @@ fun box get_support_selection()
 ---
 
 ### is_finished
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L118)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L181)</span>
 
 
 A convenience function to find out if the print operation
@@ -283,7 +347,7 @@ fun box is_finished()
 ---
 
 ### set_allow_async
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L137)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L200)</span>
 
 
 Sets whether the gtk_print_operation_run() may return
@@ -307,7 +371,7 @@ fun box set_allow_async(
 ---
 
 ### set_current_page
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L145)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L208)</span>
 
 
 Sets the current page.
@@ -334,7 +398,7 @@ fun box set_current_page(
 ---
 
 ### set_defer_drawing
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L164)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L227)</span>
 
 
 Sets up the #GtkPrintOperation to wait for calling of
@@ -356,7 +420,7 @@ fun box set_defer_drawing()
 ---
 
 ### set_embed_page_setup
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L174)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L237)</span>
 
 
 Embed page size combo box and orientation combo box into page setup page.
@@ -379,7 +443,7 @@ fun box set_embed_page_setup(
 ---
 
 ### set_has_selection
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L185)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L248)</span>
 
 
 Sets whether there is a selection to print.
@@ -405,7 +469,7 @@ fun box set_has_selection(
 ---
 
 ### set_n_pages
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L199)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L262)</span>
 
 
 Sets the number of pages in the document.
@@ -437,7 +501,7 @@ fun box set_n_pages(
 ---
 
 ### set_show_progress
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L219)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L282)</span>
 
 
 If @show_progress is %TRUE, the print operation will show a
@@ -460,7 +524,7 @@ fun box set_show_progress(
 ---
 
 ### set_support_selection
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L226)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L289)</span>
 
 
 Sets whether selection is supported by #GtkPrintOperation.
@@ -482,7 +546,7 @@ fun box set_support_selection(
 ---
 
 ### set_track_print_status
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L232)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L295)</span>
 
 
 If track_status is %TRUE, the print operation will try to continue report
@@ -510,7 +574,7 @@ fun box set_track_print_status(
 ---
 
 ### set_use_full_page
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L248)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L311)</span>
 
 
 If @full_page is %TRUE, the transformation for the cairo context

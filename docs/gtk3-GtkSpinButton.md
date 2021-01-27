@@ -1,5 +1,115 @@
 # GtkSpinButton
 <span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L6)</span>
+
+A #GtkSpinButton is an ideal way to allow the user to set the value of
+some attribute. Rather than having to directly type a number into a
+#GtkEntry, GtkSpinButton allows the user to click on one of two arrows
+to increment or decrement the displayed value. A value can still be
+typed in, with the bonus that it can be checked to ensure it is in a
+given range.
+
+The main properties of a GtkSpinButton are through an adjustment.
+See the #GtkAdjustment section for more details about an adjustment's
+properties. Note that GtkSpinButton will by default make its entry
+large enough to accomodate the lower and upper bounds of the adjustment,
+which can lead to surprising results. Best practice is to set both
+the #GtkEntry:width-chars and #GtkEntry:max-width-chars poperties
+to the desired number of characters to display in the entry.
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+spinbutton.horizontal
+├── undershoot.left
+├── undershoot.right
+├── entry
+│   ╰── ...
+├── button.down
+╰── button.up
+]|
+
+|[<!-- language="plain" -->
+spinbutton.vertical
+├── undershoot.left
+├── undershoot.right
+├── button.up
+├── entry
+│   ╰── ...
+╰── button.down
+]|
+
+GtkSpinButtons main CSS node has the name spinbutton. It creates subnodes
+for the entry and the two buttons, with these names. The button nodes have
+the style classes .up and .down. The GtkEntry subnodes (if present) are put
+below the entry node. The orientation of the spin button is reflected in
+the .vertical or .horizontal style class on the main node.
+
+## Using a GtkSpinButton to get an integer
+
+|[<!-- language="C" -->
+// Provides a function to retrieve an integer value from a GtkSpinButton
+// and creates a spin button to model percentage values.
+
+gint
+grab_int_value (GtkSpinButton *button,
+                gpointer       user_data)
+{
+  return gtk_spin_button_get_value_as_int (button);
+}
+
+void
+create_integer_spin_button (void)
+{
+
+  GtkWidget *window, *button;
+  GtkAdjustment *adjustment;
+
+  adjustment = gtk_adjustment_new (50.0, 0.0, 100.0, 1.0, 5.0, 0.0);
+
+  window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_container_set_border_width (GTK_CONTAINER (window), 5);
+
+  // creates the spinbutton, with no decimal places
+  button = gtk_spin_button_new (adjustment, 1.0, 0);
+  gtk_container_add (GTK_CONTAINER (window), button);
+
+  gtk_widget_show_all (window);
+}
+]|
+
+## Using a GtkSpinButton to get a floating point value
+
+|[<!-- language="C" -->
+// Provides a function to retrieve a floating point value from a
+// GtkSpinButton, and creates a high precision spin button.
+
+gfloat
+grab_float_value (GtkSpinButton *button,
+                  gpointer       user_data)
+{
+  return gtk_spin_button_get_value (button);
+}
+
+void
+create_floating_spin_button (void)
+{
+  GtkWidget *window, *button;
+  GtkAdjustment *adjustment;
+
+  adjustment = gtk_adjustment_new (2.500, 0.0, 5.0, 0.001, 0.1, 0.0);
+
+  window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_container_set_border_width (GTK_CONTAINER (window), 5);
+
+  // creates the spinbutton, with three decimal places
+  button = gtk_spin_button_new (adjustment, 0.001, 3);
+  gtk_container_add (GTK_CONTAINER (window), button);
+
+  gtk_widget_show_all (window);
+}
+]|
+
+
 ```pony
 class ref GtkSpinButton is
   GtkWidget ref
@@ -14,7 +124,7 @@ class ref GtkSpinButton is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L119)</span>
 
 
 ```pony
@@ -29,7 +139,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L122)</span>
 
 
 ```pony
@@ -48,7 +158,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L126)</span>
 
 
 ```pony
@@ -71,7 +181,7 @@ new ref create(
 ---
 
 ### new_with_range
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L129)</span>
 
 
 ```pony
@@ -96,7 +206,7 @@ new ref new_with_range(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L116)</span>
 
 
 
@@ -105,7 +215,7 @@ new ref new_with_range(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L118)</span>
 
 
 ```pony
@@ -120,7 +230,7 @@ fun box gtkwidget()
 ---
 
 ### get_digits
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L145)</span>
 
 
 Fetches the precision of @spin_button. See gtk_spin_button_set_digits().
@@ -138,7 +248,7 @@ fun box get_digits()
 ---
 
 ### get_numeric
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L47)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L156)</span>
 
 
 Returns whether non-numeric text can be typed into the spin button.
@@ -157,7 +267,7 @@ fun box get_numeric()
 ---
 
 ### get_snap_to_ticks
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L59)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L168)</span>
 
 
 Returns whether the values are corrected to the nearest step.
@@ -176,7 +286,7 @@ fun box get_snap_to_ticks()
 ---
 
 ### get_value_as_int
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L80)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L189)</span>
 
 
 Get the value @spin_button represented as an integer.
@@ -194,7 +304,7 @@ fun box get_value_as_int()
 ---
 
 ### get_wrap
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L86)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L195)</span>
 
 
 Returns whether the spin button’s value wraps around to the
@@ -214,7 +324,7 @@ fun box get_wrap()
 ---
 
 ### set_digits
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L98)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L207)</span>
 
 
 Set the precision to be displayed by @spin_button. Up to 20 digit precision
@@ -237,7 +347,7 @@ fun box set_digits(
 ---
 
 ### set_numeric
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L110)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L219)</span>
 
 
 Sets the flag that determines if non-numeric text can be typed
@@ -260,7 +370,7 @@ fun box set_numeric(
 ---
 
 ### set_snap_to_ticks
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L122)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L231)</span>
 
 
 Sets the policy as to whether values are corrected to the
@@ -284,7 +394,7 @@ fun box set_snap_to_ticks(
 ---
 
 ### set_wrap
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L138)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L247)</span>
 
 
 Sets the flag that determines if a spin button value wraps
@@ -308,7 +418,7 @@ fun box set_wrap(
 ---
 
 ### update
-<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L151)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinButton.md#L260)</span>
 
 
 Manually force an update of the spin button.

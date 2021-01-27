@@ -5,6 +5,31 @@ provides: ["GtkSearchBar"]
 */
 use "../gobject"
 class GtkSearchBar is GtkWidget
+"""
+#GtkSearchBar is a container made to have a search entry (possibly
+with additional connex widgets, such as drop-down menus, or buttons)
+built-in. The search bar would appear when a search is started through
+typing on the keyboard, or the application’s search mode is toggled on.
+
+For keyboard presses to start a search, events will need to be
+forwarded from the top-level window that contains the search bar.
+See gtk_search_bar_handle_event() for example code. Common shortcuts
+such as Ctrl+F should be handled as an application action, or through
+the menu items.
+
+You will also need to tell the search bar about which entry you
+are using as your search entry using gtk_search_bar_connect_entry().
+The following example shows you how to create a more complex search
+entry.
+
+# CSS nodes
+
+GtkSearchBar has a single CSS node with name searchbar.
+
+## Creating a search bar
+
+[A simple example](https://gitlab.gnome.org/GNOME/gtk/blob/gtk-3-24/examples/search-bar.c)
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

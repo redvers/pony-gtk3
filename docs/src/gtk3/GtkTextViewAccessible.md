@@ -5,6 +5,9 @@ provides: ["GtkTextViewAccessible"]
 */
 use "../gobject"
 class GtkTextViewAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

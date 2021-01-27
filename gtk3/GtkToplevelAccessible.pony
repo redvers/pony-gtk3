@@ -4,6 +4,9 @@ provides: ["GtkToplevelAccessible"]
 */
 use "../gobject"
 class GtkToplevelAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

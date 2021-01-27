@@ -4,6 +4,12 @@ provides: ["GtkRcStyle"]
 */
 use "../gobject"
 class GtkRcStyle is GtkWidget
+"""
+The #GtkRcStyle-struct is used to represent a set
+of information about the appearance of a widget.
+This can later be composited together with other
+#GtkRcStyle-struct<!-- -->s to form a #GtkStyle.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

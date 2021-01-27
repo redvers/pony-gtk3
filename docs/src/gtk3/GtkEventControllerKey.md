@@ -5,6 +5,12 @@ provides: ["GtkEventControllerKey"]
 */
 use "../gobject"
 class GtkEventControllerKey is GtkWidget
+"""
+#GtkEventControllerKey is an event controller meant for situations
+where you need access to key events.
+
+This object was added in 3.24.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

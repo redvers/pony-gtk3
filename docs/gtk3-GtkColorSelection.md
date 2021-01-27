@@ -1,5 +1,9 @@
 # GtkColorSelection
 <span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L6)</span>
+
+No documentation provided
+
+
 ```pony
 class ref GtkColorSelection is
   GtkWidget ref
@@ -14,7 +18,7 @@ class ref GtkColorSelection is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L13)</span>
 
 
 ```pony
@@ -29,7 +33,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L16)</span>
 
 
 ```pony
@@ -48,7 +52,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L20)</span>
 
 
 ```pony
@@ -65,7 +69,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L10)</span>
 
 
 
@@ -74,7 +78,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L12)</span>
 
 
 ```pony
@@ -89,7 +93,7 @@ fun box gtkwidget()
 ---
 
 ### get_has_opacity_control
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L39)</span>
 
 
 Determines whether the colorsel has an opacity control.
@@ -107,7 +111,7 @@ fun box get_has_opacity_control()
 ---
 
 ### get_has_palette
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L45)</span>
 
 
 Determines whether the color selector has a color palette.
@@ -125,7 +129,7 @@ fun box get_has_palette()
 ---
 
 ### is_adjusting
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L63)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L66)</span>
 
 
 Gets the current state of the @colorsel.
@@ -143,7 +147,7 @@ fun box is_adjusting()
 ---
 
 ### set_has_opacity_control
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L81)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L84)</span>
 
 
 Sets the @colorsel to use or not use opacity.
@@ -165,7 +169,7 @@ fun box set_has_opacity_control(
 ---
 
 ### set_has_palette
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L87)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelection.md#L90)</span>
 
 
 Shows and hides the palette based upon the value of @has_palette.

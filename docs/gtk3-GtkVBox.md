@@ -1,5 +1,33 @@
 # GtkVBox
 <span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L6)</span>
+
+A #GtkVBox is a container that organizes child widgets into a single column.
+
+Use the #GtkBox packing interface to determine the arrangement,
+spacing, height, and alignment of #GtkVBox children.
+
+All children are allocated the same width.
+
+GtkVBox has been deprecated. You can use #GtkBox with a #GtkOrientable:orientation
+set to %GTK_ORIENTATION_VERTICAL instead when calling gtk_box_new(),
+which is a very quick and easy change.
+
+If you have derived your own classes from GtkVBox, you can change the
+inheritance to derive directly from #GtkBox, and set the #GtkOrientable:orientation
+property to %GTK_ORIENTATION_VERTICAL in your instance init function,
+with a call like:
+
+|[<!-- language="C" -->
+  gtk_orientable_set_orientation (GTK_ORIENTABLE (object),
+                                  GTK_ORIENTATION_VERTICAL);
+]|
+
+If you have a grid-like layout composed of nested boxes, and you don’t
+need first-child or last-child styling, the recommendation is to switch
+to #GtkGrid. For more information about migrating to #GtkGrid, see
+[Migrating from other containers to GtkGrid][gtk-migrating-GtkGrid].
+
+
 ```pony
 class ref GtkVBox is
   GtkWidget ref
@@ -14,7 +42,7 @@ class ref GtkVBox is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L37)</span>
 
 
 ```pony
@@ -29,7 +57,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L40)</span>
 
 
 ```pony
@@ -48,7 +76,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L44)</span>
 
 
 ```pony
@@ -71,7 +99,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L34)</span>
 
 
 
@@ -80,7 +108,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L36)</span>
 
 
 ```pony

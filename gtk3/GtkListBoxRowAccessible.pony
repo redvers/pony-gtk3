@@ -4,6 +4,9 @@ provides: ["GtkListBoxRowAccessible"]
 */
 use "../gobject"
 class GtkListBoxRowAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

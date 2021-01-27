@@ -4,6 +4,24 @@ provides: ["GtkStack"]
 */
 use "../gobject"
 class GtkStack is GtkWidget
+"""
+The GtkStack widget is a container which only shows
+one of its children at a time. In contrast to GtkNotebook,
+GtkStack does not provide a means for users to change the
+visible child. Instead, the #GtkStackSwitcher widget can be
+used with GtkStack to provide this functionality.
+
+Transitions between pages can be animated as slides or
+fades. This can be controlled with gtk_stack_set_transition_type().
+These animations respect the #GtkSettings:gtk-enable-animations
+setting.
+
+The GtkStack widget was added in GTK+ 3.10.
+
+# CSS nodes
+
+GtkStack has a single CSS node named stack.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

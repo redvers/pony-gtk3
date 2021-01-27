@@ -1,5 +1,54 @@
 # GtkRecentFilter
 <span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L6)</span>
+
+A #GtkRecentFilter can be used to restrict the files being shown
+in a #GtkRecentChooser.  Files can be filtered based on their name
+(with gtk_recent_filter_add_pattern()), on their mime type (with
+gtk_file_filter_add_mime_type()), on the application that has
+registered them (with gtk_recent_filter_add_application()), or by
+a custom filter function (with gtk_recent_filter_add_custom()).
+
+Filtering by mime type handles aliasing and subclassing of mime
+types; e.g. a filter for text/plain also matches a file with mime
+type application/rtf, since application/rtf is a subclass of text/plain.
+Note that #GtkRecentFilter allows wildcards for the subtype of a
+mime type, so you can e.g. filter for image/\*.
+
+Normally, filters are used by adding them to a #GtkRecentChooser,
+see gtk_recent_chooser_add_filter(), but it is also possible to
+manually use a filter on a file with gtk_recent_filter_filter().
+
+Recently used files are supported since GTK+ 2.10.
+
+## GtkRecentFilter as GtkBuildable
+
+The GtkRecentFilter implementation of the GtkBuildable interface
+supports adding rules using the <mime-types>, <patterns> and
+<applications> elements and listing the rules within. Specifying
+a <mime-type>, <pattern> or <application> has the same effect as
+calling gtk_recent_filter_add_mime_type(),
+gtk_recent_filter_add_pattern() or gtk_recent_filter_add_application().
+
+An example of a UI definition fragment specifying GtkRecentFilter rules:
+|[
+<object class="GtkRecentFilter">
+  <mime-types>
+    <mime-type>text/plain</mime-type>
+    <mime-type>image/png</mime-type>
+  </mime-types>
+  <patterns>
+    <pattern>*.txt</pattern>
+    <pattern>*.png</pattern>
+  </patterns>
+  <applications>
+    <application>gimp</application>
+    <application>gedit</application>
+    <application>glade</application>
+  </applications>
+</object>
+]|
+
+
 ```pony
 class ref GtkRecentFilter is
   GtkWidget ref
@@ -14,7 +63,7 @@ class ref GtkRecentFilter is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L58)</span>
 
 
 ```pony
@@ -29,7 +78,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L61)</span>
 
 
 ```pony
@@ -48,7 +97,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L65)</span>
 
 
 ```pony
@@ -65,7 +114,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L55)</span>
 
 
 
@@ -74,7 +123,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L57)</span>
 
 
 ```pony
@@ -89,7 +138,7 @@ fun box gtkwidget()
 ---
 
 ### add_age
-<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L69)</span>
 
 
 Adds a rule that allows resources based on their age - that is, the number
@@ -112,7 +161,7 @@ fun box add_age(
 ---
 
 ### add_pixbuf_formats
-<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L51)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L99)</span>
 
 
 Adds a rule allowing image files in the formats supported
@@ -131,7 +180,7 @@ fun box add_pixbuf_formats()
 ---
 
 ### get_name
-<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L62)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentFilter.md#L110)</span>
 
 
 Gets the human-readable name for the filter.

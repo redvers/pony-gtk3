@@ -1,5 +1,16 @@
 # GtkHScrollbar
 <span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L6)</span>
+
+The #GtkHScrollbar widget is a widget arranged horizontally creating a
+scrollbar. See #GtkScrollbar for details on
+scrollbars. #GtkAdjustment pointers may be added to handle the
+adjustment of the scrollbar or it may be left %NULL in which case one
+will be created for you. See #GtkScrollbar for a description of what the
+fields in an adjustment represent for a scrollbar.
+
+GtkHScrollbar has been deprecated, use #GtkScrollbar instead.
+
+
 ```pony
 class ref GtkHScrollbar is
   GtkWidget ref
@@ -14,7 +25,7 @@ class ref GtkHScrollbar is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L20)</span>
 
 
 ```pony
@@ -29,7 +40,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L23)</span>
 
 
 ```pony
@@ -48,7 +59,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L27)</span>
 
 
 ```pony
@@ -69,7 +80,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L17)</span>
 
 
 
@@ -78,7 +89,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L19)</span>
 
 
 ```pony

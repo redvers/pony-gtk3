@@ -1,5 +1,48 @@
 # GtkShortcutsWindow
 <span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L6)</span>
+
+A GtkShortcutsWindow shows brief information about the keyboard shortcuts
+and gestures of an application. The shortcuts can be grouped, and you can
+have multiple sections in this window, corresponding to the major modes of
+your application.
+
+Additionally, the shortcuts can be filtered by the current view, to avoid
+showing information that is not relevant in the current application context.
+
+The recommended way to construct a GtkShortcutsWindow is with GtkBuilder,
+by populating a #GtkShortcutsWindow with one or more #GtkShortcutsSection
+objects, which contain #GtkShortcutsGroups that in turn contain objects of
+class #GtkShortcutsShortcut.
+
+# A simple example:
+
+![](gedit-shortcuts.png)
+
+This example has as single section. As you can see, the shortcut groups
+are arranged in columns, and spread across several pages if there are too
+many to find on a single page.
+
+The .ui file for this example can be found [here](https://git.gnome.org/browse/gtk+/tree/demos/gtk-demo/shortcuts-gedit.ui).
+
+# An example with multiple views:
+
+![](clocks-shortcuts.png)
+
+This example shows a #GtkShortcutsWindow that has been configured to show only
+the shortcuts relevant to the "stopwatch" view.
+
+The .ui file for this example can be found [here](https://git.gnome.org/browse/gtk+/tree/demos/gtk-demo/shortcuts-clocks.ui).
+
+# An example with multiple sections:
+
+![](builder-shortcuts.png)
+
+This example shows a #GtkShortcutsWindow with two sections, "Editor Shortcuts"
+and "Terminal Shortcuts".
+
+The .ui file for this example can be found [here](https://git.gnome.org/browse/gtk+/tree/demos/gtk-demo/shortcuts-builder.ui).
+
+
 ```pony
 class ref GtkShortcutsWindow is
   GtkWidget ref
@@ -14,7 +57,7 @@ class ref GtkShortcutsWindow is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L52)</span>
 
 
 ```pony
@@ -29,7 +72,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L55)</span>
 
 
 ```pony
@@ -50,7 +93,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L49)</span>
 
 
 
@@ -59,7 +102,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L51)</span>
 
 
 ```pony

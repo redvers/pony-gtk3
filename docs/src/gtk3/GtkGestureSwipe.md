@@ -5,6 +5,18 @@ provides: ["GtkGestureSwipe"]
 */
 use "../gobject"
 class GtkGestureSwipe is GtkWidget
+"""
+#GtkGestureSwipe is a #GtkGesture implementation able to recognize
+swipes, after a press/move/.../move/release sequence happens, the
+#GtkGestureSwipe::swipe signal will be emitted, providing the velocity
+and directionality of the sequence at the time it was lifted.
+
+If the velocity is desired in intermediate points,
+gtk_gesture_swipe_get_velocity() can be called on eg. a
+#GtkGesture::update handler.
+
+All velocities are reported in pixels/sec units.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

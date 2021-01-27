@@ -1,5 +1,14 @@
 # GtkShortcutsGroup
 <span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L6)</span>
+
+A GtkShortcutsGroup represents a group of related keyboard shortcuts
+or gestures. The group has a title. It may optionally be associated with
+a view of the application, which can be used to show only relevant shortcuts
+depending on the application context.
+
+This widget is only meant to be used with #GtkShortcutsWindow.
+
+
 ```pony
 class ref GtkShortcutsGroup is
   GtkWidget ref
@@ -14,7 +23,7 @@ class ref GtkShortcutsGroup is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L18)</span>
 
 
 ```pony
@@ -29,7 +38,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L21)</span>
 
 
 ```pony
@@ -50,7 +59,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L15)</span>
 
 
 
@@ -59,7 +68,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L17)</span>
 
 
 ```pony

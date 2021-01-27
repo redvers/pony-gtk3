@@ -1,5 +1,30 @@
 # GtkToolButton
 <span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L6)</span>
+
+#GtkToolButtons are #GtkToolItems containing buttons.
+
+Use gtk_tool_button_new() to create a new #GtkToolButton.
+
+The label of a #GtkToolButton is determined by the properties
+#GtkToolButton:label-widget, #GtkToolButton:label, and
+#GtkToolButton:stock-id. If #GtkToolButton:label-widget is
+non-%NULL, then that widget is used as the label. Otherwise, if
+#GtkToolButton:label is non-%NULL, that string is used as the label.
+Otherwise, if #GtkToolButton:stock-id is non-%NULL, the label is
+determined by the stock item. Otherwise, the button does not have a label.
+
+The icon of a #GtkToolButton is determined by the properties
+#GtkToolButton:icon-widget and #GtkToolButton:stock-id. If
+#GtkToolButton:icon-widget is non-%NULL, then
+that widget is used as the icon. Otherwise, if #GtkToolButton:stock-id is
+non-%NULL, the icon is determined by the stock item. Otherwise,
+the button does not have a icon.
+
+# CSS nodes
+
+GtkToolButton has a single CSS node with name toolbutton.
+
+
 ```pony
 class ref GtkToolButton is
   GtkWidget ref
@@ -14,7 +39,7 @@ class ref GtkToolButton is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L34)</span>
 
 
 ```pony
@@ -29,7 +54,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L37)</span>
 
 
 ```pony
@@ -48,7 +73,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L41)</span>
 
 
 ```pony
@@ -69,7 +94,7 @@ new ref create(
 ---
 
 ### new_from_stock
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L44)</span>
 
 
 ```pony
@@ -90,7 +115,7 @@ new ref new_from_stock(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L31)</span>
 
 
 
@@ -99,7 +124,7 @@ new ref new_from_stock(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L33)</span>
 
 
 ```pony
@@ -114,7 +139,7 @@ fun box gtkwidget()
 ---
 
 ### get_icon_name
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L48)</span>
 
 
 Returns the name of the themed icon for the tool button,
@@ -133,7 +158,7 @@ fun box get_icon_name()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L64)</span>
 
 
 Returns the label used by the tool button, or %NULL if the tool button
@@ -153,7 +178,7 @@ fun box get_label()
 ---
 
 ### get_stock_id
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L57)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L81)</span>
 
 
 Returns the name of the stock item. See gtk_tool_button_set_stock_id().
@@ -172,7 +197,7 @@ fun box get_stock_id()
 ---
 
 ### get_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L66)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L90)</span>
 
 
 Returns whether underscores in the label property are used as mnemonics
@@ -191,7 +216,7 @@ fun box get_use_underline()
 ---
 
 ### set_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L93)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L117)</span>
 
 
 If set, an underline in the label property indicates that the next character

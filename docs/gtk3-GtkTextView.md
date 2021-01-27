@@ -1,5 +1,35 @@
 # GtkTextView
 <span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L6)</span>
+
+You may wish to begin by reading the
+[text widget conceptual overview][TextWidget]
+which gives an overview of all the objects and data
+types related to the text widget and how they work together.
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+textview.view
+├── border.top
+├── border.left
+├── text
+│   ╰── [selection]
+├── border.right
+├── border.bottom
+╰── [window.popup]
+]|
+
+GtkTextView has a main css node with name textview and style class .view,
+and subnodes for each of the border windows, and the main text area,
+with names border and text, respectively. The border nodes each get
+one of the style classes .left, .right, .top or .bottom.
+
+A node representing the selection will appear below the text node.
+
+If a context menu is opened, the window node will appear as a subnode
+of the main node.
+
+
 ```pony
 class ref GtkTextView is
   GtkWidget ref
@@ -14,7 +44,7 @@ class ref GtkTextView is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L39)</span>
 
 
 ```pony
@@ -29,7 +59,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L42)</span>
 
 
 ```pony
@@ -48,7 +78,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L46)</span>
 
 
 ```pony
@@ -63,7 +93,7 @@ new ref create()
 ---
 
 ### new_with_buffer
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L49)</span>
 
 
 ```pony
@@ -84,7 +114,7 @@ new ref new_with_buffer(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L36)</span>
 
 
 
@@ -93,7 +123,7 @@ new ref new_with_buffer(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L38)</span>
 
 
 ```pony
@@ -108,7 +138,7 @@ fun box gtkwidget()
 ---
 
 ### get_accepts_tab
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L56)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L85)</span>
 
 
 Returns whether pressing the Tab key inserts a tab characters.
@@ -127,7 +157,7 @@ fun box get_accepts_tab()
 ---
 
 ### get_bottom_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L67)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L96)</span>
 
 
 Gets the bottom margin for text in the @text_view.
@@ -145,7 +175,7 @@ fun box get_bottom_margin()
 ---
 
 ### get_cursor_visible
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L86)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L115)</span>
 
 
 Find out whether the cursor should be displayed.
@@ -163,7 +193,7 @@ fun box get_cursor_visible()
 ---
 
 ### get_editable
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L99)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L128)</span>
 
 
 Returns the default editability of the #GtkTextView. Tags in the
@@ -182,7 +212,7 @@ fun box get_editable()
 ---
 
 ### get_indent
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L113)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L142)</span>
 
 
 Gets the default indentation of paragraphs in @text_view.
@@ -202,7 +232,7 @@ fun box get_indent()
 ---
 
 ### get_left_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L156)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L185)</span>
 
 
 Gets the default left margin size of paragraphs in the @text_view.
@@ -221,7 +251,7 @@ fun box get_left_margin()
 ---
 
 ### get_monospace
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L174)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L203)</span>
 
 
 Gets the value of the #GtkTextView:monospace property.
@@ -239,7 +269,7 @@ fun box get_monospace()
 ---
 
 ### get_overwrite
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L180)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L209)</span>
 
 
 Returns whether the #GtkTextView is in overwrite mode or not.
@@ -257,7 +287,7 @@ fun box get_overwrite()
 ---
 
 ### get_pixels_above_lines
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L186)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L215)</span>
 
 
 Gets the default number of pixels to put above paragraphs.
@@ -277,7 +307,7 @@ fun box get_pixels_above_lines()
 ---
 
 ### get_pixels_below_lines
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L194)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L223)</span>
 
 
 Gets the value set by gtk_text_view_set_pixels_below_lines().
@@ -298,7 +328,7 @@ fun box get_pixels_below_lines()
 ---
 
 ### get_pixels_inside_wrap
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L203)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L232)</span>
 
 
 Gets the value set by gtk_text_view_set_pixels_inside_wrap().
@@ -316,7 +346,7 @@ fun box get_pixels_inside_wrap()
 ---
 
 ### get_right_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L209)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L238)</span>
 
 
 Gets the default right margin for text in @text_view. Tags
@@ -335,7 +365,7 @@ fun box get_right_margin()
 ---
 
 ### get_top_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L223)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L252)</span>
 
 
 Gets the top margin for text in the @text_view.
@@ -353,7 +383,7 @@ fun box get_top_margin()
 ---
 
 ### place_cursor_onscreen
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L277)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L306)</span>
 
 
 Moves the cursor to the currently visible region of the
@@ -372,7 +402,7 @@ fun box place_cursor_onscreen()
 ---
 
 ### reset_cursor_blink
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L284)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L313)</span>
 
 
 Ensures that the cursor is shown (i.e. not in an 'off' blink
@@ -396,7 +426,7 @@ fun box reset_cursor_blink()
 ---
 
 ### reset_im_context
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L296)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L325)</span>
 
 
 Reset the input method context of the text view if needed.
@@ -417,7 +447,7 @@ fun box reset_im_context()
 ---
 
 ### set_accepts_tab
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L323)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L352)</span>
 
 
 Sets the behavior of the text widget when the Tab key is pressed.
@@ -442,7 +472,7 @@ fun box set_accepts_tab(
 ---
 
 ### set_bottom_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L336)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L365)</span>
 
 
 Sets the bottom margin for text in @text_view.
@@ -467,7 +497,7 @@ fun box set_bottom_margin(
 ---
 
 ### set_cursor_visible
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L349)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L378)</span>
 
 
 Toggles whether the insertion point should be displayed. A buffer with
@@ -494,7 +524,7 @@ fun box set_cursor_visible(
 ---
 
 ### set_editable
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L360)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L389)</span>
 
 
 Sets the default editability of the #GtkTextView. You can override
@@ -518,7 +548,7 @@ fun box set_editable(
 ---
 
 ### set_indent
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L368)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L397)</span>
 
 
 Sets the default indentation for paragraphs in @text_view.
@@ -541,7 +571,7 @@ fun box set_indent(
 ---
 
 ### set_left_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L387)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L416)</span>
 
 
 Sets the default left margin for text in @text_view.
@@ -567,7 +597,7 @@ fun box set_left_margin(
 ---
 
 ### set_monospace
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L397)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L426)</span>
 
 
 Sets the #GtkTextView:monospace property, which
@@ -591,7 +621,7 @@ fun box set_monospace(
 ---
 
 ### set_overwrite
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L405)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L434)</span>
 
 
 Changes the #GtkTextView overwrite mode.
@@ -613,7 +643,7 @@ fun box set_overwrite(
 ---
 
 ### set_pixels_above_lines
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L411)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L440)</span>
 
 
 Sets the default number of blank pixels above paragraphs in @text_view.
@@ -636,7 +666,7 @@ fun box set_pixels_above_lines(
 ---
 
 ### set_pixels_below_lines
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L418)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L447)</span>
 
 
 Sets the default number of pixels of blank space
@@ -660,7 +690,7 @@ fun box set_pixels_below_lines(
 ---
 
 ### set_pixels_inside_wrap
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L426)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L455)</span>
 
 
 Sets the default number of pixels of blank space to leave between
@@ -684,7 +714,7 @@ fun box set_pixels_inside_wrap(
 ---
 
 ### set_right_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L434)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L463)</span>
 
 
 Sets the default right margin for text in the text view.
@@ -710,7 +740,7 @@ fun box set_right_margin(
 ---
 
 ### set_top_margin
-<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L448)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextView.md#L477)</span>
 
 
 Sets the top margin for text in @text_view.

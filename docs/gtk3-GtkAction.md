@@ -1,5 +1,55 @@
 # GtkAction
 <span class="source-link">[[Source]](src/gtk3/GtkAction.md#L6)</span>
+
+> In GTK+ 3.10, GtkAction has been deprecated. Use #GAction
+> instead, and associate actions with #GtkActionable widgets. Use
+> #GMenuModel for creating menus with gtk_menu_new_from_model().
+
+Actions represent operations that the user can be perform, along with
+some information how it should be presented in the interface. Each action
+provides methods to create icons, menu items and toolbar items
+representing itself.
+
+As well as the callback that is called when the action gets activated,
+the following also gets associated with the action:
+
+- a name (not translated, for path lookup)
+
+- a label (translated, for display)
+
+- an accelerator
+
+- whether label indicates a stock id
+
+- a tooltip (optional, translated)
+
+- a toolbar label (optional, shorter than label)
+
+
+The action will also have some state information:
+
+- visible (shown/hidden)
+
+- sensitive (enabled/disabled)
+
+Apart from regular actions, there are [toggle actions][GtkToggleAction],
+which can be toggled between two states and
+[radio actions][GtkRadioAction], of which only one in a group
+can be in the “active” state. Other actions can be implemented as #GtkAction
+subclasses.
+
+Each action can have one or more proxy widgets. To act as an action proxy,
+widget needs to implement #GtkActivatable interface. Proxies mirror the state
+of the action and should change when the action’s state changes. Properties
+that are always mirrored by proxies are #GtkAction:sensitive and
+#GtkAction:visible. #GtkAction:gicon, #GtkAction:icon-name, #GtkAction:label,
+#GtkAction:short-label and #GtkAction:stock-id properties are only mirorred
+if proxy widget has #GtkActivatable:use-action-appearance property set to
+%TRUE.
+
+When the proxy is activated, it should activate its action.
+
+
 ```pony
 class ref GtkAction is
   GtkWidget ref
@@ -14,7 +64,7 @@ class ref GtkAction is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L59)</span>
 
 
 ```pony
@@ -29,7 +79,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L62)</span>
 
 
 ```pony
@@ -48,7 +98,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L66)</span>
 
 
 ```pony
@@ -75,7 +125,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L56)</span>
 
 
 
@@ -84,7 +134,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L58)</span>
 
 
 ```pony
@@ -99,7 +149,7 @@ fun box gtkwidget()
 ---
 
 ### activate
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L70)</span>
 
 
 Emits the “activate” signal on the specified action, if it isn't
@@ -121,7 +171,7 @@ fun box activate()
 ---
 
 ### block_activate
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L80)</span>
 
 
 Disable activation signals from the action
@@ -144,7 +194,7 @@ fun box block_activate()
 ---
 
 ### connect_accelerator
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L91)</span>
 
 
 Installs the accelerator for @action if @action has an
@@ -169,7 +219,7 @@ fun box connect_accelerator()
 ---
 
 ### disconnect_accelerator
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L83)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L132)</span>
 
 
 Undoes the effect of one call to gtk_action_connect_accelerator().
@@ -187,7 +237,7 @@ fun box disconnect_accelerator()
 ---
 
 ### get_accel_path
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L96)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L145)</span>
 
 
 Returns the accel path for this action.
@@ -205,7 +255,7 @@ fun box get_accel_path()
 ---
 
 ### get_always_show_image
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L104)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L153)</span>
 
 
 Returns whether @action's menu item proxies will always
@@ -224,7 +274,7 @@ fun box get_always_show_image()
 ---
 
 ### get_icon_name
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L118)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L167)</span>
 
 
 Gets the icon name of @action.
@@ -242,7 +292,7 @@ fun box get_icon_name()
 ---
 
 ### get_is_important
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L126)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L175)</span>
 
 
 Checks whether @action is important or not
@@ -260,7 +310,7 @@ fun box get_is_important()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L132)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L181)</span>
 
 
 Gets the label text of @action.
@@ -278,7 +328,7 @@ fun box get_label()
 ---
 
 ### get_name
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L140)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L189)</span>
 
 
 Returns the name of the action.
@@ -296,7 +346,7 @@ fun box get_name()
 ---
 
 ### get_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L155)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L204)</span>
 
 
 Returns whether the action itself is sensitive. Note that this doesn’t
@@ -316,7 +366,7 @@ fun box get_sensitive()
 ---
 
 ### get_short_label
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L163)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L212)</span>
 
 
 Gets the short label text of @action.
@@ -334,7 +384,7 @@ fun box get_short_label()
 ---
 
 ### get_stock_id
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L171)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L220)</span>
 
 
 Gets the stock id of @action.
@@ -352,7 +402,7 @@ fun box get_stock_id()
 ---
 
 ### get_tooltip
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L179)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L228)</span>
 
 
 Gets the tooltip text of @action.
@@ -370,7 +420,7 @@ fun box get_tooltip()
 ---
 
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L187)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L236)</span>
 
 
 Returns whether the action itself is visible. Note that this doesn’t
@@ -390,7 +440,7 @@ fun box get_visible()
 ---
 
 ### get_visible_horizontal
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L195)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L244)</span>
 
 
 Checks whether @action is visible when horizontal
@@ -408,7 +458,7 @@ fun box get_visible_horizontal()
 ---
 
 ### get_visible_vertical
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L201)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L250)</span>
 
 
 Checks whether @action is visible when horizontal
@@ -426,7 +476,7 @@ fun box get_visible_vertical()
 ---
 
 ### is_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L207)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L256)</span>
 
 
 Returns whether the action is effectively sensitive.
@@ -444,7 +494,7 @@ fun box is_sensitive()
 ---
 
 ### is_visible
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L213)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L262)</span>
 
 
 Returns whether the action is effectively visible.
@@ -462,7 +512,7 @@ fun box is_visible()
 ---
 
 ### set_always_show_image
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L227)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L276)</span>
 
 
 Sets whether @action's menu item proxies will ignore the
@@ -488,7 +538,7 @@ fun box set_always_show_image(
 ---
 
 ### set_is_important
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L245)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L294)</span>
 
 
 Sets whether the action is important, this attribute is used
@@ -512,7 +562,7 @@ fun box set_is_important(
 ---
 
 ### set_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L257)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L306)</span>
 
 
 Sets the :sensitive property of the action to @sensitive. Note that
@@ -537,7 +587,7 @@ fun box set_sensitive(
 ---
 
 ### set_visible
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L278)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L327)</span>
 
 
 Sets the :visible property of the action to @visible. Note that
@@ -562,7 +612,7 @@ fun box set_visible(
 ---
 
 ### set_visible_horizontal
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L287)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L336)</span>
 
 
 Sets whether @action is visible when horizontal
@@ -584,7 +634,7 @@ fun box set_visible_horizontal(
 ---
 
 ### set_visible_vertical
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L293)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L342)</span>
 
 
 Sets whether @action is visible when vertical
@@ -606,7 +656,7 @@ fun box set_visible_vertical(
 ---
 
 ### unblock_activate
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L299)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L348)</span>
 
 
 Reenable activation signals from the action

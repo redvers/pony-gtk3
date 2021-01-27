@@ -1,5 +1,24 @@
 # GtkStyle
 <span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L6)</span>
+
+A #GtkStyle object encapsulates the information that provides the look and
+feel for a widget.
+
+> In GTK+ 3.0, GtkStyle has been deprecated and replaced by
+> #GtkStyleContext.
+
+Each #GtkWidget has an associated #GtkStyle object that is used when
+rendering that widget. Also, a #GtkStyle holds information for the five
+possible widget states though not every widget supports all five
+states; see #GtkStateType.
+
+Usually the #GtkStyle for a widget is the same as the default style that
+is set by GTK+ and modified the theme engine.
+
+Usually applications should not need to use or modify the #GtkStyle of
+their widgets.
+
+
 ```pony
 class ref GtkStyle is
   GtkWidget ref
@@ -14,7 +33,7 @@ class ref GtkStyle is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L28)</span>
 
 
 ```pony
@@ -29,7 +48,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L31)</span>
 
 
 ```pony
@@ -48,7 +67,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L35)</span>
 
 
 ```pony
@@ -65,7 +84,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L25)</span>
 
 
 
@@ -74,7 +93,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L27)</span>
 
 
 ```pony
@@ -89,7 +108,7 @@ fun box gtkwidget()
 ---
 
 ### detach
-<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L41)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L59)</span>
 
 
 Detaches a style from a window. If the style is not attached
@@ -108,7 +127,7 @@ fun box detach()
 ---
 
 ### has_context
-<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L66)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyle.md#L84)</span>
 
 
 Returns whether @style has an associated #GtkStyleContext.

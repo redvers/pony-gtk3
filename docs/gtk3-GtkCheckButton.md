@@ -1,5 +1,35 @@
 # GtkCheckButton
 <span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L6)</span>
+
+A #GtkCheckButton places a discrete #GtkToggleButton next to a widget,
+(usually a #GtkLabel). See the section on #GtkToggleButton widgets for
+more information about toggle/check buttons.
+
+The important signal ( #GtkToggleButton::toggled ) is also inherited from
+#GtkToggleButton.
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+checkbutton
+├── check
+╰── <child>
+]|
+
+A GtkCheckButton with indicator (see gtk_toggle_button_set_mode()) has a
+main CSS node with name checkbutton and a subnode with name check.
+
+|[<!-- language="plain" -->
+button.check
+├── check
+╰── <child>
+]|
+
+A GtkCheckButton without indicator changes the name of its main node
+to button and adds a .check style class to it. The subnode is invisible
+in this case.
+
+
 ```pony
 class ref GtkCheckButton is
   GtkWidget ref
@@ -14,7 +44,7 @@ class ref GtkCheckButton is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L39)</span>
 
 
 ```pony
@@ -29,7 +59,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L42)</span>
 
 
 ```pony
@@ -48,7 +78,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L46)</span>
 
 
 ```pony
@@ -63,7 +93,7 @@ new ref create()
 ---
 
 ### new_with_label
-<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L49)</span>
 
 
 ```pony
@@ -82,7 +112,7 @@ new ref new_with_label(
 ---
 
 ### new_with_mnemonic
-<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L23)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L52)</span>
 
 
 ```pony
@@ -103,7 +133,7 @@ new ref new_with_mnemonic(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L36)</span>
 
 
 
@@ -112,7 +142,7 @@ new ref new_with_mnemonic(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L38)</span>
 
 
 ```pony

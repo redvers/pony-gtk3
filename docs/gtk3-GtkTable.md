@@ -1,5 +1,32 @@
 # GtkTable
 <span class="source-link">[[Source]](src/gtk3/GtkTable.md#L6)</span>
+
+The #GtkTable functions allow the programmer to arrange widgets in rows and
+columns, making it easy to align many widgets next to each other,
+horizontally and vertically.
+
+Tables are created with a call to gtk_table_new(), the size of which can
+later be changed with gtk_table_resize().
+
+Widgets can be added to a table using gtk_table_attach() or the more
+convenient (but slightly less flexible) gtk_table_attach_defaults().
+
+To alter the space next to a specific row, use gtk_table_set_row_spacing(),
+and for a column, gtk_table_set_col_spacing().
+The gaps between all rows or columns can be changed by
+calling gtk_table_set_row_spacings() or gtk_table_set_col_spacings()
+respectively. Note that spacing is added between the
+children, while padding added by gtk_table_attach() is added on
+either side of the widget it belongs to.
+
+gtk_table_set_homogeneous(), can be used to set whether all cells in the
+table will resize themselves to the size of the largest widget in the table.
+
+> #GtkTable has been deprecated. Use #GtkGrid instead. It provides the same
+> capabilities as GtkTable for arranging widgets in a rectangular grid, but
+> does support height-for-width geometry management.
+
+
 ```pony
 class ref GtkTable is
   GtkWidget ref
@@ -14,7 +41,7 @@ class ref GtkTable is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L36)</span>
 
 
 ```pony
@@ -29,7 +56,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L39)</span>
 
 
 ```pony
@@ -48,7 +75,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L43)</span>
 
 
 ```pony
@@ -73,7 +100,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L33)</span>
 
 
 
@@ -82,7 +109,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L35)</span>
 
 
 ```pony
@@ -97,7 +124,7 @@ fun box gtkwidget()
 ---
 
 ### get_col_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L57)</span>
 
 
 Gets the amount of space between column @col, and
@@ -120,7 +147,7 @@ fun box get_col_spacing(
 ---
 
 ### get_default_col_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L64)</span>
 
 
 Gets the default column spacing for the table. This is
@@ -140,7 +167,7 @@ fun box get_default_col_spacing()
 ---
 
 ### get_default_row_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L46)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L72)</span>
 
 
 Gets the default row spacing for the table. This is
@@ -160,7 +187,7 @@ fun box get_default_row_spacing()
 ---
 
 ### get_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L80)</span>
 
 
 Returns whether the table cells are all constrained to the same
@@ -179,7 +206,7 @@ fun box get_homogeneous()
 ---
 
 ### get_row_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L87)</span>
 
 
 Gets the amount of space between row @row, and
@@ -202,7 +229,7 @@ fun box get_row_spacing(
 ---
 
 ### resize
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L73)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L99)</span>
 
 
 If you need to change a table’s size after
@@ -227,7 +254,7 @@ fun box resize(
 ---
 
 ### set_col_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L80)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L106)</span>
 
 
 Alters the amount of space between a given table column and the following
@@ -252,7 +279,7 @@ fun box set_col_spacing(
 ---
 
 ### set_col_spacings
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L87)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L113)</span>
 
 
 Sets the space between every column in @table equal to @spacing.
@@ -274,7 +301,7 @@ fun box set_col_spacings(
 ---
 
 ### set_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L93)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L119)</span>
 
 
 Changes the homogenous property of table cells, ie. whether all cells are
@@ -297,7 +324,7 @@ fun box set_homogeneous(
 ---
 
 ### set_row_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L100)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L126)</span>
 
 
 Changes the space between a given table row and the subsequent row.
@@ -321,7 +348,7 @@ fun box set_row_spacing(
 ---
 
 ### set_row_spacings
-<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L106)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTable.md#L132)</span>
 
 
 Sets the space between every row in @table equal to @spacing.

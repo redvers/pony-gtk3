@@ -1,5 +1,16 @@
 # GtkFontChooserDialog
 <span class="source-link">[[Source]](src/gtk3/GtkFontChooserDialog.md#L6)</span>
+
+The #GtkFontChooserDialog widget is a dialog for selecting a font.
+It implements the #GtkFontChooser interface.
+
+# GtkFontChooserDialog as GtkBuildable
+
+The GtkFontChooserDialog implementation of the #GtkBuildable
+interface exposes the buttons with the names “select_button”
+and “cancel_button”.
+
+
 ```pony
 class ref GtkFontChooserDialog is
   GtkWidget ref
@@ -14,7 +25,7 @@ class ref GtkFontChooserDialog is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkFontChooserDialog.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontChooserDialog.md#L20)</span>
 
 
 ```pony
@@ -29,7 +40,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkFontChooserDialog.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontChooserDialog.md#L23)</span>
 
 
 ```pony
@@ -48,7 +59,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkFontChooserDialog.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontChooserDialog.md#L27)</span>
 
 
 ```pony
@@ -71,7 +82,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkFontChooserDialog.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontChooserDialog.md#L17)</span>
 
 
 
@@ -80,7 +91,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkFontChooserDialog.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontChooserDialog.md#L19)</span>
 
 
 ```pony

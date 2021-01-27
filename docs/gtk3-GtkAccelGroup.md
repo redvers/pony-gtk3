@@ -1,5 +1,23 @@
 # GtkAccelGroup
 <span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L6)</span>
+
+A #GtkAccelGroup represents a group of keyboard accelerators,
+typically attached to a toplevel #GtkWindow (with
+gtk_window_add_accel_group()). Usually you won’t need to create a
+#GtkAccelGroup directly; instead, when using #GtkUIManager, GTK+
+automatically sets up the accelerators for your menus in the ui
+manager’s #GtkAccelGroup.
+
+Note that “accelerators” are different from
+“mnemonics”. Accelerators are shortcuts for
+activating a menu item; they appear alongside the menu item they’re a
+shortcut for. For example “Ctrl+Q” might appear alongside the “Quit”
+menu item. Mnemonics are shortcuts for GUI elements such as text
+entries or buttons; they appear as underlined characters. See
+gtk_label_new_with_mnemonic(). Menu items can have both accelerators
+and mnemonics, of course.
+
+
 ```pony
 class ref GtkAccelGroup is
   GtkWidget ref
@@ -14,7 +32,7 @@ class ref GtkAccelGroup is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L27)</span>
 
 
 ```pony
@@ -29,7 +47,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L30)</span>
 
 
 ```pony
@@ -48,7 +66,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L34)</span>
 
 
 ```pony
@@ -65,7 +83,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L24)</span>
 
 
 
@@ -74,7 +92,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L26)</span>
 
 
 ```pony
@@ -89,7 +107,7 @@ fun box gtkwidget()
 ---
 
 ### get_is_locked
-<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L53)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L70)</span>
 
 
 Locks are added and removed using gtk_accel_group_lock() and
@@ -108,7 +126,7 @@ fun box get_is_locked()
 ---
 
 ### lock
-<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L67)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L84)</span>
 
 
 Locks the given accelerator group.
@@ -134,7 +152,7 @@ fun box lock()
 ---
 
 ### unlock
-<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L88)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelGroup.md#L105)</span>
 
 
 Undoes the last call to gtk_accel_group_lock() on this @accel_group.

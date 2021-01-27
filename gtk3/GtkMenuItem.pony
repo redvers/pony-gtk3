@@ -4,6 +4,54 @@ provides: ["GtkMenuItem"]
 */
 use "../gobject"
 class GtkMenuItem is GtkWidget
+"""
+The #GtkMenuItem widget and the derived widgets are the only valid
+children for menus. Their function is to correctly handle highlighting,
+alignment, events and submenus.
+
+As a GtkMenuItem derives from #GtkBin it can hold any valid child widget,
+although only a few are really useful.
+
+By default, a GtkMenuItem sets a #GtkAccelLabel as its child.
+GtkMenuItem has direct functions to set the label and its mnemonic.
+For more advanced label settings, you can fetch the child widget from the GtkBin.
+
+An example for setting markup and accelerator on a MenuItem:
+|[<!-- language="C" -->
+GtkWidget *menu_item = gtk_menu_item_new_with_label ("Example Menu Item");
+
+GtkWidget *child = gtk_bin_get_child (GTK_BIN (menu_item));
+gtk_label_set_markup (GTK_LABEL (child), "<i>new label</i> with <b>markup</b>");
+gtk_accel_label_set_accel (GTK_ACCEL_LABEL (child), GDK_KEY_1, 0);
+]|
+
+# GtkMenuItem as GtkBuildable
+
+The GtkMenuItem implementation of the #GtkBuildable interface supports
+adding a submenu by specifying “submenu” as the “type” attribute of
+a <child> element.
+
+An example of UI definition fragment with submenus:
+|[
+<object class="GtkMenuItem">
+  <child type="submenu">
+    <object class="GtkMenu"/>
+  </child>
+</object>
+]|
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+menuitem
+├── <child>
+╰── [arrow.right]
+]|
+
+GtkMenuItem has a single CSS node with name menuitem. If the menuitem
+has a submenu, it gets another CSS node with name arrow, which has
+the .left or .right style class.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

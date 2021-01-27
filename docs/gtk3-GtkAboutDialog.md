@@ -1,5 +1,45 @@
 # GtkAboutDialog
 <span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L6)</span>
+
+The GtkAboutDialog offers a simple way to display information about
+a program like its logo, name, copyright, website and license. It is
+also possible to give credits to the authors, documenters, translators
+and artists who have worked on the program. An about dialog is typically
+opened when the user selects the `About` option from the `Help` menu.
+All parts of the dialog are optional.
+
+About dialogs often contain links and email addresses. GtkAboutDialog
+displays these as clickable links. By default, it calls gtk_show_uri_on_window()
+when a user clicks one. The behaviour can be overridden with the
+#GtkAboutDialog::activate-link signal.
+
+To specify a person with an email address, use a string like
+"Edgar Allan Poe <edgar\@poe.com>". To specify a website with a title,
+use a string like "GTK+ team http://www.gtk.org".
+
+To make constructing a GtkAboutDialog as convenient as possible, you can
+use the function gtk_show_about_dialog() which constructs and shows a dialog
+and keeps it around so that it can be shown again.
+
+Note that GTK+ sets a default title of `_("About %s")` on the dialog
+window (where \%s is replaced by the name of the application, but in
+order to ensure proper translation of the title, applications should
+set the title property explicitly when constructing a GtkAboutDialog,
+as shown in the following example:
+|[<!-- language="C" -->
+GdkPixbuf *example_logo = gdk_pixbuf_new_from_file ("./logo.png", NULL);
+gtk_show_about_dialog (NULL,
+                       "program-name", "ExampleCode",
+                       "logo", example_logo,
+                       "title", _("About ExampleCode"),
+                       NULL);
+]|
+
+It is also possible to show a #GtkAboutDialog like any other #GtkDialog,
+e.g. using gtk_dialog_run(). In this case, you might need to know that
+the “Close” button returns the #GTK_RESPONSE_CANCEL response id.
+
+
 ```pony
 class ref GtkAboutDialog is
   GtkWidget ref
@@ -14,7 +54,7 @@ class ref GtkAboutDialog is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L49)</span>
 
 
 ```pony
@@ -29,7 +69,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L52)</span>
 
 
 ```pony
@@ -48,7 +88,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L56)</span>
 
 
 ```pony
@@ -65,7 +105,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L46)</span>
 
 
 
@@ -74,7 +114,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L48)</span>
 
 
 ```pony
@@ -89,7 +129,7 @@ fun box gtkwidget()
 ---
 
 ### get_comments
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L79)</span>
 
 
 Returns the comments string.
@@ -107,7 +147,7 @@ fun box get_comments()
 ---
 
 ### get_copyright
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L48)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L87)</span>
 
 
 Returns the copyright string.
@@ -125,7 +165,7 @@ fun box get_copyright()
 ---
 
 ### get_license
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L63)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L102)</span>
 
 
 Returns the license information.
@@ -143,7 +183,7 @@ fun box get_license()
 ---
 
 ### get_logo_icon_name
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L85)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L124)</span>
 
 
 Returns the icon name displayed as logo in the about dialog.
@@ -161,7 +201,7 @@ fun box get_logo_icon_name()
 ---
 
 ### get_program_name
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L93)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L132)</span>
 
 
 Returns the program name displayed in the about dialog.
@@ -179,7 +219,7 @@ fun box get_program_name()
 ---
 
 ### get_translator_credits
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L101)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L140)</span>
 
 
 Returns the translator credits string which is displayed
@@ -198,7 +238,7 @@ fun box get_translator_credits()
 ---
 
 ### get_version
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L110)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L149)</span>
 
 
 Returns the version string.
@@ -216,7 +256,7 @@ fun box get_version()
 ---
 
 ### get_website
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L118)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L157)</span>
 
 
 Returns the website URL.
@@ -234,7 +274,7 @@ fun box get_website()
 ---
 
 ### get_website_label
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L126)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L165)</span>
 
 
 Returns the label used for the website link.
@@ -252,7 +292,7 @@ fun box get_website_label()
 ---
 
 ### get_wrap_license
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L134)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L173)</span>
 
 
 Returns whether the license text in @about is
@@ -271,7 +311,7 @@ fun box get_wrap_license()
 ---
 
 ### set_wrap_license
-<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L197)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAboutDialog.md#L236)</span>
 
 
 Sets whether the license text in @about is

@@ -1,5 +1,17 @@
 # GtkRecentChooserWidget
 <span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L6)</span>
+
+#GtkRecentChooserWidget is a widget suitable for selecting recently used
+files.  It is the main building block of a #GtkRecentChooserDialog.  Most
+applications will only need to use the latter; you can use
+#GtkRecentChooserWidget as part of a larger window if you have special needs.
+
+Note that #GtkRecentChooserWidget does not have any methods of its own.
+Instead, you should use the functions that work on a #GtkRecentChooser.
+
+Recently used files are supported since GTK+ 2.10.
+
+
 ```pony
 class ref GtkRecentChooserWidget is
   GtkWidget ref
@@ -14,7 +26,7 @@ class ref GtkRecentChooserWidget is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L21)</span>
 
 
 ```pony
@@ -29,7 +41,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L24)</span>
 
 
 ```pony
@@ -48,7 +60,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L28)</span>
 
 
 ```pony
@@ -63,7 +75,7 @@ new ref create()
 ---
 
 ### new_for_manager
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L31)</span>
 
 
 ```pony
@@ -84,7 +96,7 @@ new ref new_for_manager(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L18)</span>
 
 
 
@@ -93,7 +105,7 @@ new ref new_for_manager(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L20)</span>
 
 
 ```pony

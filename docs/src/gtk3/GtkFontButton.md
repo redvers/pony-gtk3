@@ -5,6 +5,15 @@ provides: ["GtkFontButton"]
 */
 use "../gobject"
 class GtkFontButton is GtkWidget
+"""
+The #GtkFontButton is a button which displays the currently selected
+font an allows to open a font chooser dialog to change the font.
+It is suitable widget for selecting a font in a preference dialog.
+
+# CSS nodes
+
+GtkFontButton has a single CSS node with name button and style class .font.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -32,7 +41,7 @@ style, size, weight) just query these properties from the
 #PangoFontDescription object.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_font_button_get_font_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_show_size(): Bool =>
@@ -52,7 +61,7 @@ fun get_title(): String =>
 Retrieves the title of the font chooser dialog.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_font_button_get_title[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_use_font(): Bool =>

@@ -5,6 +5,63 @@ provides: ["GtkWindow"]
 */
 use "../gobject"
 class GtkWindow is GtkContainer
+"""
+A GtkWindow is a toplevel window which can contain other widgets.
+Windows normally have decorations that are under the control
+of the windowing system and allow the user to manipulate the window
+(resize it, move it, close it,...).
+
+# GtkWindow as GtkBuildable
+
+The GtkWindow implementation of the #GtkBuildable interface supports a
+custom <accel-groups> element, which supports any number of <group>
+elements representing the #GtkAccelGroup objects you want to add to
+your window (synonymous with gtk_window_add_accel_group().
+
+It also supports the <initial-focus> element, whose name property names
+the widget to receive the focus when the window is mapped.
+
+An example of a UI definition fragment with accel groups:
+|[
+<object class="GtkWindow">
+  <accel-groups>
+    <group name="accelgroup1"/>
+  </accel-groups>
+  <initial-focus name="thunderclap"/>
+</object>
+
+...
+
+<object class="GtkAccelGroup" id="accelgroup1"/>
+]|
+
+The GtkWindow implementation of the #GtkBuildable interface supports
+setting a child as the titlebar by specifying “titlebar” as the “type”
+attribute of a <child> element.
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+window.background
+├── decoration
+├── <titlebar child>.titlebar [.default-decoration]
+╰── <child>
+]|
+
+GtkWindow has a main CSS node with name window and style class .background,
+and a subnode with name decoration.
+
+Style classes that are typically used with the main CSS node are .csd (when
+client-side decorations are in use), .solid-csd (for client-side decorations
+without invisible borders), .ssd (used by mutter when rendering server-side
+decorations). GtkWindow also represents window states with the following
+style classes on the main node: .tiled, .maximized, .fullscreen. Specialized
+types of window often add their own discriminating style classes, such as
+.popup or .tooltip.
+
+GtkWindow adds the .titlebar and .default-decoration style classes to the
+widget that is added as a titlebar child.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -216,7 +273,7 @@ Returns the name of the themed icon for the window,
 see gtk_window_set_icon_name().
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_window_get_icon_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_mnemonic_modifier unavailable due to return typing issues
@@ -266,7 +323,7 @@ Returns the role of the window. See gtk_window_set_role() for
 further explanation.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_window_get_role[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_screen unavailable due to return typing issues
@@ -298,7 +355,7 @@ fun get_title(): String =>
 Retrieves the title of the window. See gtk_window_set_title().
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_window_get_title[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_titlebar unavailable due to return typing issues

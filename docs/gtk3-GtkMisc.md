@@ -1,5 +1,23 @@
 # GtkMisc
 <span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L6)</span>
+
+The #GtkMisc widget is an abstract widget which is not useful itself, but
+is used to derive subclasses which have alignment and padding attributes.
+
+The horizontal and vertical padding attributes allows extra space to be
+added around the widget.
+
+The horizontal and vertical alignment attributes enable the widget to be
+positioned within its allocated area. Note that if the widget is added to
+a container in such a way that it expands automatically to fill its
+allocated area, the alignment settings will not alter the widget's position.
+
+Note that the desired effect can in most cases be achieved by using the
+#GtkWidget:halign, #GtkWidget:valign and #GtkWidget:margin properties
+on the child widget, so GtkMisc should not be used in new code. To reflect
+this fact, all #GtkMisc API has been deprecated.
+
+
 ```pony
 class ref GtkMisc is
   GtkWidget ref
@@ -14,7 +32,7 @@ class ref GtkMisc is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L27)</span>
 
 
 ```pony
@@ -29,7 +47,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L30)</span>
 
 
 ```pony
@@ -50,7 +68,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L24)</span>
 
 
 
@@ -59,7 +77,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L26)</span>
 
 
 ```pony
@@ -74,7 +92,7 @@ fun box gtkwidget()
 ---
 
 ### set_padding
-<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L51)</span>
 
 
 Sets the amount of space to add around the widget.

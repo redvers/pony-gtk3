@@ -5,6 +5,89 @@ provides: ["GtkExpander"]
 */
 use "../gobject"
 class GtkExpander is GtkWidget
+"""
+A #GtkExpander allows the user to hide or show its child by clicking
+on an expander triangle similar to the triangles used in a #GtkTreeView.
+
+Normally you use an expander as you would use any other descendant
+of #GtkBin; you create the child widget and use gtk_container_add()
+to add it to the expander. When the expander is toggled, it will take
+care of showing and hiding the child automatically.
+
+# Special Usage
+
+There are situations in which you may prefer to show and hide the
+expanded widget yourself, such as when you want to actually create
+the widget at expansion time. In this case, create a #GtkExpander
+but do not add a child to it. The expander widget has an
+#GtkExpander:expanded property which can be used to monitor
+its expansion state. You should watch this property with a signal
+connection as follows:
+
+|[<!-- language="C" -->
+static void
+expander_callback (GObject    *object,
+                   GParamSpec *param_spec,
+                   gpointer    user_data)
+{
+  GtkExpander *expander;
+
+  expander = GTK_EXPANDER (object);
+
+  if (gtk_expander_get_expanded (expander))
+    {
+      // Show or create widgets
+    }
+  else
+    {
+      // Hide or destroy widgets
+    }
+}
+
+static void
+create_expander (void)
+{
+  GtkWidget *expander = gtk_expander_new_with_mnemonic ("_More Options");
+  g_signal_connect (expander, "notify::expanded",
+                    G_CALLBACK (expander_callback), NULL);
+
+  // ...
+}
+]|
+
+# GtkExpander as GtkBuildable
+
+The GtkExpander implementation of the GtkBuildable interface supports
+placing a child in the label position by specifying “label” as the
+“type” attribute of a <child> element. A normal content child can be
+specified without specifying a <child> type attribute.
+
+An example of a UI definition fragment with GtkExpander:
+|[
+<object class="GtkExpander">
+  <child type="label">
+    <object class="GtkLabel" id="expander-label"/>
+  </child>
+  <child>
+    <object class="GtkEntry" id="expander-content"/>
+  </child>
+</object>
+]|
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+expander
+├── title
+│   ├── arrow
+│   ╰── <label widget>
+╰── <child>
+]|
+
+GtkExpander has three CSS nodes, the main node with the name expander,
+a subnode with name title and node below it with name arrow. The arrow of an
+expander that is showing its child gets the :checked pseudoclass added to it.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -46,7 +129,7 @@ be avoided by fetching the label text directly from the label
 widget.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_expander_get_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_label_fill(): Bool =>

@@ -1,5 +1,16 @@
 # GtkToggleToolButton
 <span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L6)</span>
+
+A #GtkToggleToolButton is a #GtkToolItem that contains a toggle
+button.
+
+Use gtk_toggle_tool_button_new() to create a new GtkToggleToolButton.
+
+# CSS nodes
+
+GtkToggleToolButton has a single CSS node with name togglebutton.
+
+
 ```pony
 class ref GtkToggleToolButton is
   GtkWidget ref
@@ -14,7 +25,7 @@ class ref GtkToggleToolButton is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L20)</span>
 
 
 ```pony
@@ -29,7 +40,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L23)</span>
 
 
 ```pony
@@ -48,7 +59,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L27)</span>
 
 
 ```pony
@@ -63,7 +74,7 @@ new ref create()
 ---
 
 ### new_from_stock
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L30)</span>
 
 
 ```pony
@@ -84,7 +95,7 @@ new ref new_from_stock(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L17)</span>
 
 
 
@@ -93,7 +104,7 @@ new ref new_from_stock(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L19)</span>
 
 
 ```pony
@@ -108,7 +119,7 @@ fun box gtkwidget()
 ---
 
 ### get_active
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L34)</span>
 
 
 Queries a #GtkToggleToolButton and returns its current state.
@@ -127,7 +138,7 @@ fun box get_active()
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L41)</span>
 
 
 Sets the status of the toggle tool button. Set to %TRUE if you

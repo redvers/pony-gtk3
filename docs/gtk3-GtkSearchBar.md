@@ -1,5 +1,31 @@
 # GtkSearchBar
 <span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L6)</span>
+
+#GtkSearchBar is a container made to have a search entry (possibly
+with additional connex widgets, such as drop-down menus, or buttons)
+built-in. The search bar would appear when a search is started through
+typing on the keyboard, or the application’s search mode is toggled on.
+
+For keyboard presses to start a search, events will need to be
+forwarded from the top-level window that contains the search bar.
+See gtk_search_bar_handle_event() for example code. Common shortcuts
+such as Ctrl+F should be handled as an application action, or through
+the menu items.
+
+You will also need to tell the search bar about which entry you
+are using as your search entry using gtk_search_bar_connect_entry().
+The following example shows you how to create a more complex search
+entry.
+
+# CSS nodes
+
+GtkSearchBar has a single CSS node with name searchbar.
+
+## Creating a search bar
+
+[A simple example](https://gitlab.gnome.org/GNOME/gtk/blob/gtk-3-24/examples/search-bar.c)
+
+
 ```pony
 class ref GtkSearchBar is
   GtkWidget ref
@@ -14,7 +40,7 @@ class ref GtkSearchBar is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L35)</span>
 
 
 ```pony
@@ -29,7 +55,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L38)</span>
 
 
 ```pony
@@ -48,7 +74,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L42)</span>
 
 
 ```pony
@@ -65,7 +91,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L32)</span>
 
 
 
@@ -74,7 +100,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L34)</span>
 
 
 ```pony
@@ -89,7 +115,7 @@ fun box gtkwidget()
 ---
 
 ### get_search_mode
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L25)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L50)</span>
 
 
 Returns whether the search mode is on or off.
@@ -107,7 +133,7 @@ fun box get_search_mode()
 ---
 
 ### get_show_close_button
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L56)</span>
 
 
 Returns whether the close button is shown.
@@ -125,7 +151,7 @@ fun box get_show_close_button()
 ---
 
 ### set_search_mode
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L41)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L66)</span>
 
 
 Switches the search mode on or off.
@@ -147,7 +173,7 @@ fun box set_search_mode(
 ---
 
 ### set_show_close_button
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L47)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L72)</span>
 
 
 Shows or hides the close button. Applications that

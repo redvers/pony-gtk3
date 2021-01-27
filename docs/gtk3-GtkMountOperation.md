@@ -1,5 +1,9 @@
 # GtkMountOperation
 <span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L6)</span>
+
+This should not be accessed directly. Use the accessor functions below.
+
+
 ```pony
 class ref GtkMountOperation is
   GtkWidget ref
@@ -14,7 +18,7 @@ class ref GtkMountOperation is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L13)</span>
 
 
 ```pony
@@ -29,7 +33,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L16)</span>
 
 
 ```pony
@@ -48,7 +52,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L20)</span>
 
 
 ```pony
@@ -69,7 +73,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L10)</span>
 
 
 
@@ -78,7 +82,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L12)</span>
 
 
 ```pony
@@ -93,7 +97,7 @@ fun box gtkwidget()
 ---
 
 ### is_showing
-<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L38)</span>
 
 
 Returns whether the #GtkMountOperation is currently displaying

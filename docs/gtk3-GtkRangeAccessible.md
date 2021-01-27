@@ -1,5 +1,9 @@
 # GtkRangeAccessible
 <span class="source-link">[[Source]](src/gtk3/GtkRangeAccessible.md#L6)</span>
+
+No documentation provided
+
+
 ```pony
 class ref GtkRangeAccessible is
   GtkWidget ref
@@ -14,7 +18,7 @@ class ref GtkRangeAccessible is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRangeAccessible.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRangeAccessible.md#L13)</span>
 
 
 ```pony
@@ -29,7 +33,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRangeAccessible.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRangeAccessible.md#L16)</span>
 
 
 ```pony
@@ -50,7 +54,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkRangeAccessible.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRangeAccessible.md#L10)</span>
 
 
 
@@ -59,7 +63,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkRangeAccessible.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRangeAccessible.md#L12)</span>
 
 
 ```pony

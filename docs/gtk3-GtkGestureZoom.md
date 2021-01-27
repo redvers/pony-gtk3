@@ -1,5 +1,12 @@
 # GtkGestureZoom
 <span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L6)</span>
+
+#GtkGestureZoom is a #GtkGesture implementation able to recognize
+pinch/zoom gestures, whenever the distance between both tracked
+sequences changes, the #GtkGestureZoom::scale-changed signal is
+emitted to report the scale factor.
+
+
 ```pony
 class ref GtkGestureZoom is
   GtkWidget ref
@@ -14,7 +21,7 @@ class ref GtkGestureZoom is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L16)</span>
 
 
 ```pony
@@ -29,7 +36,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L19)</span>
 
 
 ```pony
@@ -48,7 +55,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L23)</span>
 
 
 ```pony
@@ -69,7 +76,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L13)</span>
 
 
 
@@ -78,7 +85,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L15)</span>
 
 
 ```pony

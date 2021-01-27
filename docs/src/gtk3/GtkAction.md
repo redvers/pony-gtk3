@@ -5,6 +5,55 @@ provides: ["GtkAction"]
 */
 use "../gobject"
 class GtkAction is GtkWidget
+"""
+> In GTK+ 3.10, GtkAction has been deprecated. Use #GAction
+> instead, and associate actions with #GtkActionable widgets. Use
+> #GMenuModel for creating menus with gtk_menu_new_from_model().
+
+Actions represent operations that the user can be perform, along with
+some information how it should be presented in the interface. Each action
+provides methods to create icons, menu items and toolbar items
+representing itself.
+
+As well as the callback that is called when the action gets activated,
+the following also gets associated with the action:
+
+- a name (not translated, for path lookup)
+
+- a label (translated, for display)
+
+- an accelerator
+
+- whether label indicates a stock id
+
+- a tooltip (optional, translated)
+
+- a toolbar label (optional, shorter than label)
+
+
+The action will also have some state information:
+
+- visible (shown/hidden)
+
+- sensitive (enabled/disabled)
+
+Apart from regular actions, there are [toggle actions][GtkToggleAction],
+which can be toggled between two states and
+[radio actions][GtkRadioAction], of which only one in a group
+can be in the “active” state. Other actions can be implemented as #GtkAction
+subclasses.
+
+Each action can have one or more proxy widgets. To act as an action proxy,
+widget needs to implement #GtkActivatable interface. Proxies mirror the state
+of the action and should change when the action’s state changes. Properties
+that are always mirrored by proxies are #GtkAction:sensitive and
+#GtkAction:visible. #GtkAction:gicon, #GtkAction:icon-name, #GtkAction:label,
+#GtkAction:short-label and #GtkAction:stock-id properties are only mirorred
+if proxy widget has #GtkActivatable:use-action-appearance property set to
+%TRUE.
+
+When the proxy is activated, it should activate its action.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -99,7 +148,7 @@ fun get_accel_path(): String =>
 Returns the accel path for this action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_accel_path[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_always_show_image(): Bool =>
@@ -121,7 +170,7 @@ fun get_icon_name(): String =>
 Gets the icon name of @action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_icon_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_is_important(): Bool =>
@@ -135,7 +184,7 @@ fun get_label(): String =>
 Gets the label text of @action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_name(): String =>
@@ -143,7 +192,7 @@ fun get_name(): String =>
 Returns the name of the action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_proxies unavailable due to return typing issues
@@ -166,7 +215,7 @@ fun get_short_label(): String =>
 Gets the short label text of @action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_short_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_stock_id(): String =>
@@ -174,7 +223,7 @@ fun get_stock_id(): String =>
 Gets the stock id of @action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_stock_id[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_tooltip(): String =>
@@ -182,7 +231,7 @@ fun get_tooltip(): String =>
 Gets the tooltip text of @action.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_action_get_tooltip[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_visible(): Bool =>

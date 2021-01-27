@@ -1,5 +1,80 @@
 # GtkEntry
 <span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L6)</span>
+
+The #GtkEntry widget is a single line text entry
+widget. A fairly large set of key bindings are supported
+by default. If the entered text is longer than the allocation
+of the widget, the widget will scroll so that the cursor
+position is visible.
+
+When using an entry for passwords and other sensitive information,
+it can be put into “password mode” using gtk_entry_set_visibility().
+In this mode, entered text is displayed using a “invisible” character.
+By default, GTK+ picks the best invisible character that is available
+in the current font, but it can be changed with
+gtk_entry_set_invisible_char(). Since 2.16, GTK+ displays a warning
+when Caps Lock or input methods might interfere with entering text in
+a password entry. The warning can be turned off with the
+#GtkEntry:caps-lock-warning property.
+
+Since 2.16, GtkEntry has the ability to display progress or activity
+information behind the text. To make an entry display such information,
+use gtk_entry_set_progress_fraction() or gtk_entry_set_progress_pulse_step().
+
+Additionally, GtkEntry can show icons at either side of the entry. These
+icons can be activatable by clicking, can be set up as drag source and
+can have tooltips. To add an icon, use gtk_entry_set_icon_from_gicon() or
+one of the various other functions that set an icon from a stock id, an
+icon name or a pixbuf. To trigger an action when the user clicks an icon,
+connect to the #GtkEntry::icon-press signal. To allow DND operations
+from an icon, use gtk_entry_set_icon_drag_source(). To set a tooltip on
+an icon, use gtk_entry_set_icon_tooltip_text() or the corresponding function
+for markup.
+
+Note that functionality or information that is only available by clicking
+on an icon in an entry may not be accessible at all to users which are not
+able to use a mouse or other pointing device. It is therefore recommended
+that any such functionality should also be available by other means, e.g.
+via the context menu of the entry.
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+entry[.read-only][.flat][.warning][.error]
+├── image.left
+├── image.right
+├── undershoot.left
+├── undershoot.right
+├── [selection]
+├── [progress[.pulse]]
+╰── [window.popup]
+]|
+
+GtkEntry has a main node with the name entry. Depending on the properties
+of the entry, the style classes .read-only and .flat may appear. The style
+classes .warning and .error may also be used with entries.
+
+When the entry shows icons, it adds subnodes with the name image and the
+style class .left or .right, depending on where the icon appears.
+
+When the entry has a selection, it adds a subnode with the name selection.
+
+When the entry shows progress, it adds a subnode with the name progress.
+The node has the style class .pulse when the shown progress is pulsing.
+
+The CSS node for a context menu is added as a subnode below entry as well.
+
+The undershoot nodes are used to draw the underflow indication when content
+is scrolled out of view. These nodes get the .left and .right style classes
+added depending on where the indication is drawn.
+
+When touch is used and touch selection handles are shown, they are using
+CSS nodes with name cursor-handle. They get the .top or .bottom style class
+depending on where they are shown in relation to the selection. If there is
+just a single handle for the text cursor, it gets the style class
+.insertion-cursor.
+
+
 ```pony
 class ref GtkEntry is
   GtkWidget ref
@@ -14,7 +89,7 @@ class ref GtkEntry is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L84)</span>
 
 
 ```pony
@@ -29,7 +104,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L87)</span>
 
 
 ```pony
@@ -48,7 +123,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L91)</span>
 
 
 ```pony
@@ -63,7 +138,7 @@ new ref create()
 ---
 
 ### new_with_buffer
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L94)</span>
 
 
 ```pony
@@ -84,7 +159,7 @@ new ref new_with_buffer(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L81)</span>
 
 
 
@@ -93,7 +168,7 @@ new ref new_with_buffer(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L83)</span>
 
 
 ```pony
@@ -108,7 +183,7 @@ fun box gtkwidget()
 ---
 
 ### get_activates_default
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L98)</span>
 
 
 Retrieves the value set by gtk_entry_set_activates_default().
@@ -126,7 +201,7 @@ fun box get_activates_default()
 ---
 
 ### get_current_icon_drag_source
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L58)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L132)</span>
 
 
 Returns the index of the icon which is the source of the current
@@ -148,7 +223,7 @@ fun box get_current_icon_drag_source()
 ---
 
 ### get_has_frame
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L75)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L149)</span>
 
 
 Gets the value set by gtk_entry_set_has_frame().
@@ -166,7 +241,7 @@ fun box get_has_frame()
 ---
 
 ### get_icon_at_pos
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L90)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L164)</span>
 
 
 Finds the icon at the given position and return its index. The
@@ -194,7 +269,7 @@ fun box get_icon_at_pos(
 ---
 
 ### get_max_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L187)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L261)</span>
 
 
 Retrieves the maximum allowed length of the text in
@@ -216,7 +291,7 @@ fun box get_max_length()
 ---
 
 ### get_max_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L197)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L271)</span>
 
 
 Retrieves the desired maximum width of @entry, in characters.
@@ -235,7 +310,7 @@ fun box get_max_width_chars()
 ---
 
 ### get_overwrite_mode
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L204)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L278)</span>
 
 
 Gets the value set by gtk_entry_set_overwrite_mode().
@@ -253,7 +328,7 @@ fun box get_overwrite_mode()
 ---
 
 ### get_placeholder_text
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L210)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L284)</span>
 
 
 Retrieves the text that will be displayed when @entry is empty and unfocused
@@ -271,7 +346,7 @@ fun box get_placeholder_text()
 ---
 
 ### get_text
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L239)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L313)</span>
 
 
 Retrieves the contents of the entry widget.
@@ -293,7 +368,7 @@ fun box get_text()
 ---
 
 ### get_visibility
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L262)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L336)</span>
 
 
 Retrieves whether the text in @entry is visible. See
@@ -312,7 +387,7 @@ fun box get_visibility()
 ---
 
 ### get_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L269)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L343)</span>
 
 
 Gets the value set by gtk_entry_set_width_chars().
@@ -330,7 +405,7 @@ fun box get_width_chars()
 ---
 
 ### grab_focus_without_selecting
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L275)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L349)</span>
 
 
 Causes @entry to have keyboard focus.
@@ -354,7 +429,7 @@ fun box grab_focus_without_selecting()
 ---
 
 ### layout_index_to_text_index
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L291)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L365)</span>
 
 
 Converts from a position in the entry’s #PangoLayout (returned by
@@ -378,7 +453,7 @@ fun box layout_index_to_text_index(
 ---
 
 ### progress_pulse
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L299)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L373)</span>
 
 
 Indicates that some progress is made, but you don’t know how much.
@@ -401,7 +476,7 @@ fun box progress_pulse()
 ---
 
 ### reset_im_context
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L310)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L384)</span>
 
 
 Reset the input method context of the entry if needed.
@@ -422,7 +497,7 @@ fun box reset_im_context()
 ---
 
 ### set_activates_default
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L319)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L393)</span>
 
 
 If @setting is %TRUE, pressing Enter in the @entry will activate the default
@@ -451,7 +526,7 @@ fun box set_activates_default(
 ---
 
 ### set_has_frame
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L352)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L426)</span>
 
 
 Sets whether the entry has a beveled frame around it.
@@ -473,7 +548,7 @@ fun box set_has_frame(
 ---
 
 ### set_max_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L418)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L492)</span>
 
 
 Sets the maximum allowed length of the contents of the widget. If
@@ -501,7 +576,7 @@ fun box set_max_length(
 ---
 
 ### set_max_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L430)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L504)</span>
 
 
 Sets the desired maximum width in characters of @entry.
@@ -523,7 +598,7 @@ fun box set_max_width_chars(
 ---
 
 ### set_overwrite_mode
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L436)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L510)</span>
 
 
 Sets whether the text is overwritten when typing in the #GtkEntry.
@@ -545,7 +620,7 @@ fun box set_overwrite_mode(
 ---
 
 ### set_visibility
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L462)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L536)</span>
 
 
 Sets whether the contents of the entry are visible or not.
@@ -579,7 +654,7 @@ fun box set_visibility(
 ---
 
 ### set_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L480)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L554)</span>
 
 
 Changes the size request of the entry to be about the right size
@@ -605,7 +680,7 @@ fun box set_width_chars(
 ---
 
 ### text_index_to_layout_index
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L490)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L564)</span>
 
 
 Converts from a position in the entry contents (returned
@@ -630,7 +705,7 @@ fun box text_index_to_layout_index(
 ---
 
 ### unset_invisible_char
-<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L499)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntry.md#L573)</span>
 
 
 Unsets the invisible char previously set with

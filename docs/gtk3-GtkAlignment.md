@@ -1,5 +1,25 @@
 # GtkAlignment
 <span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L6)</span>
+
+The #GtkAlignment widget controls the alignment and size of its child widget.
+It has four settings: xscale, yscale, xalign, and yalign.
+
+The scale settings are used to specify how much the child widget should
+expand to fill the space allocated to the #GtkAlignment.
+The values can range from 0 (meaning the child doesn’t expand at all) to
+1 (meaning the child expands to fill all of the available space).
+
+The align settings are used to place the child widget within the available
+area. The values range from 0 (top or left) to 1 (bottom or right).
+Of course, if the scale settings are both set to 1, the alignment settings
+have no effect.
+
+GtkAlignment has been deprecated in 3.14 and should not be used in
+newly-written code. The desired effect can be achieved by using the
+#GtkWidget:halign, #GtkWidget:valign and #GtkWidget:margin properties on the
+child widget.
+
+
 ```pony
 class ref GtkAlignment is
   GtkWidget ref
@@ -14,7 +34,7 @@ class ref GtkAlignment is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L29)</span>
 
 
 ```pony
@@ -29,7 +49,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L32)</span>
 
 
 ```pony
@@ -48,7 +68,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L36)</span>
 
 
 ```pony
@@ -75,7 +95,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L26)</span>
 
 
 
@@ -84,7 +104,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L28)</span>
 
 
 ```pony
@@ -99,7 +119,7 @@ fun box gtkwidget()
 ---
 
 ### set_padding
-<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L54)</span>
 
 
 Sets the padding on the different sides of the widget.

@@ -1,5 +1,24 @@
 # GtkStackSidebar
 <span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L6)</span>
+
+A GtkStackSidebar enables you to quickly and easily provide a
+consistent "sidebar" object for your user interface.
+
+In order to use a GtkStackSidebar, you simply use a GtkStack to
+organize your UI flow, and add the sidebar to your sidebar area. You
+can use gtk_stack_sidebar_set_stack() to connect the #GtkStackSidebar
+to the #GtkStack.
+
+# CSS nodes
+
+GtkStackSidebar has a single CSS node with name stacksidebar and
+style class .sidebar.
+
+When circumstances require it, GtkStackSidebar adds the
+.needs-attention style class to the widgets representing the stack
+pages.
+
+
 ```pony
 class ref GtkStackSidebar is
   GtkWidget ref
@@ -14,7 +33,7 @@ class ref GtkStackSidebar is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L28)</span>
 
 
 ```pony
@@ -29,7 +48,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L31)</span>
 
 
 ```pony
@@ -48,7 +67,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L35)</span>
 
 
 ```pony
@@ -65,7 +84,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L25)</span>
 
 
 
@@ -74,7 +93,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L27)</span>
 
 
 ```pony

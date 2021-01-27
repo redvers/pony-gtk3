@@ -1,5 +1,22 @@
 # GtkRevealer
 <span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L6)</span>
+
+The GtkRevealer widget is a container which animates
+the transition of its child from invisible to visible.
+
+The style of transition can be controlled with
+gtk_revealer_set_transition_type().
+
+These animations respect the #GtkSettings:gtk-enable-animations
+setting.
+
+# CSS nodes
+
+GtkRevealer has a single CSS node with name revealer.
+
+The GtkRevealer widget was added in GTK+ 3.10.
+
+
 ```pony
 class ref GtkRevealer is
   GtkWidget ref
@@ -14,7 +31,7 @@ class ref GtkRevealer is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L26)</span>
 
 
 ```pony
@@ -29,7 +46,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L29)</span>
 
 
 ```pony
@@ -48,7 +65,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L33)</span>
 
 
 ```pony
@@ -65,7 +82,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L23)</span>
 
 
 
@@ -74,7 +91,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L25)</span>
 
 
 ```pony
@@ -89,7 +106,7 @@ fun box gtkwidget()
 ---
 
 ### get_child_revealed
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L37)</span>
 
 
 Returns whether the child is fully revealed, in other words whether
@@ -108,7 +125,7 @@ fun box get_child_revealed()
 ---
 
 ### get_reveal_child
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L28)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L44)</span>
 
 
 Returns whether the child is currently
@@ -132,7 +149,7 @@ fun box get_reveal_child()
 ---
 
 ### get_transition_duration
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L56)</span>
 
 
 Returns the amount of time (in milliseconds) that
@@ -151,7 +168,7 @@ fun box get_transition_duration()
 ---
 
 ### set_reveal_child
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L70)</span>
 
 
 Tells the #GtkRevealer to reveal or conceal its child.
@@ -176,7 +193,7 @@ fun box set_reveal_child(
 ---
 
 ### set_transition_duration
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L63)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L79)</span>
 
 
 Sets the duration that transitions will take.

@@ -1,5 +1,23 @@
 # GtkTearoffMenuItem
 <span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L6)</span>
+
+A #GtkTearoffMenuItem is a special #GtkMenuItem which is used to
+tear off and reattach its menu.
+
+When its menu is shown normally, the #GtkTearoffMenuItem is drawn as a
+dotted line indicating that the menu can be torn off.  Activating it
+causes its menu to be torn off and displayed in its own window
+as a tearoff menu.
+
+When its menu is shown as a tearoff menu, the #GtkTearoffMenuItem is drawn
+as a dotted line which has a left pointing arrow graphic indicating that
+the tearoff menu can be reattached.  Activating it will erase the tearoff
+menu window.
+
+> #GtkTearoffMenuItem is deprecated and should not be used in newly
+> written code. Menus are not meant to be torn around.
+
+
 ```pony
 class ref GtkTearoffMenuItem is
   GtkWidget ref
@@ -14,7 +32,7 @@ class ref GtkTearoffMenuItem is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L27)</span>
 
 
 ```pony
@@ -29,7 +47,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L30)</span>
 
 
 ```pony
@@ -48,7 +66,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L34)</span>
 
 
 ```pony
@@ -65,7 +83,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L24)</span>
 
 
 
@@ -74,7 +92,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L26)</span>
 
 
 ```pony

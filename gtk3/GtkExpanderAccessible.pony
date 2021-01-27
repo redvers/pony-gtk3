@@ -4,6 +4,9 @@ provides: ["GtkExpanderAccessible"]
 */
 use "../gobject"
 class GtkExpanderAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

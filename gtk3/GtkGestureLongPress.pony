@@ -4,6 +4,15 @@ provides: ["GtkGestureLongPress"]
 */
 use "../gobject"
 class GtkGestureLongPress is GtkWidget
+"""
+#GtkGestureLongPress is a #GtkGesture implementation able to recognize
+long presses, triggering the #GtkGestureLongPress::pressed after the
+timeout is exceeded.
+
+If the touchpoint is lifted before the timeout passes, or if it drifts
+too far of the initial press point, the #GtkGestureLongPress::cancelled
+signal will be emitted.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

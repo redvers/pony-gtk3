@@ -4,6 +4,23 @@ provides: ["GtkHeaderBar"]
 */
 use "../gobject"
 class GtkHeaderBar is GtkWidget
+"""
+GtkHeaderBar is similar to a horizontal #GtkBox. It allows children to
+be placed at the start or the end. In addition, it allows a title and
+subtitle to be displayed. The title will be centered with respect to
+the width of the box, even if the children at either side take up
+different amounts of space. The height of the titlebar will be
+set to provide sufficient space for the subtitle, even if none is
+currently set. If a subtitle is not needed, the space reservation
+can be turned off with gtk_header_bar_set_has_subtitle().
+
+GtkHeaderBar can add typical window frame controls, such as minimize,
+maximize and close buttons, or the window icon.
+
+For these reasons, GtkHeaderBar is the natural choice for use as the custom
+titlebar widget of a #GtkWindow (see gtk_window_set_titlebar()), as it gives
+features typical of titlebars while allowing the addition of child widgets.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -4,6 +4,14 @@ provides: ["GtkCellRendererText"]
 */
 use "../gobject"
 class GtkCellRendererText is GtkWidget
+"""
+A #GtkCellRendererText renders a given text in its cell, using the font, color and
+style information provided by its properties. The text will be ellipsized if it is
+too long and the #GtkCellRendererText:ellipsize property allows it.
+
+If the #GtkCellRenderer:mode is %GTK_CELL_RENDERER_MODE_EDITABLE,
+the #GtkCellRendererText allows to edit its text using an entry.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

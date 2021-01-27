@@ -4,6 +4,30 @@ provides: ["GtkToolButton"]
 */
 use "../gobject"
 class GtkToolButton is GtkWidget
+"""
+#GtkToolButtons are #GtkToolItems containing buttons.
+
+Use gtk_tool_button_new() to create a new #GtkToolButton.
+
+The label of a #GtkToolButton is determined by the properties
+#GtkToolButton:label-widget, #GtkToolButton:label, and
+#GtkToolButton:stock-id. If #GtkToolButton:label-widget is
+non-%NULL, then that widget is used as the label. Otherwise, if
+#GtkToolButton:label is non-%NULL, that string is used as the label.
+Otherwise, if #GtkToolButton:stock-id is non-%NULL, the label is
+determined by the stock item. Otherwise, the button does not have a label.
+
+The icon of a #GtkToolButton is determined by the properties
+#GtkToolButton:icon-widget and #GtkToolButton:stock-id. If
+#GtkToolButton:icon-widget is non-%NULL, then
+that widget is used as the icon. Otherwise, if #GtkToolButton:stock-id is
+non-%NULL, the icon is determined by the stock item. Otherwise,
+the button does not have a icon.
+
+# CSS nodes
+
+GtkToolButton has a single CSS node with name toolbutton.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

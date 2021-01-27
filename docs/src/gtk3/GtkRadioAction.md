@@ -5,6 +5,11 @@ provides: ["GtkRadioAction"]
 */
 use "../gobject"
 class GtkRadioAction is GtkWidget
+"""
+A #GtkRadioAction is similar to #GtkRadioMenuItem. A number of radio
+actions can be linked together so that only one may be active at any
+one time.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

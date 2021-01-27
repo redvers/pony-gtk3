@@ -1,5 +1,30 @@
 # GtkAppChooserButton
 <span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L6)</span>
+
+The #GtkAppChooserButton is a widget that lets the user select
+an application. It implements the #GtkAppChooser interface.
+
+Initially, a #GtkAppChooserButton selects the first application
+in its list, which will either be the most-recently used application
+or, if #GtkAppChooserButton:show-default-item is %TRUE, the
+default application.
+
+The list of applications shown in a #GtkAppChooserButton includes
+the recommended applications for the given content type. When
+#GtkAppChooserButton:show-default-item is set, the default application
+is also included. To let the user chooser other applications,
+you can set the #GtkAppChooserButton:show-dialog-item property,
+which allows to open a full #GtkAppChooserDialog.
+
+It is possible to add custom items to the list, using
+gtk_app_chooser_button_append_custom_item(). These items cause
+the #GtkAppChooserButton::custom-item-activated signal to be
+emitted when they are selected.
+
+To track changes in the selected application, use the
+#GtkComboBox::changed signal.
+
+
 ```pony
 class ref GtkAppChooserButton is
   GtkWidget ref
@@ -14,7 +39,7 @@ class ref GtkAppChooserButton is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L34)</span>
 
 
 ```pony
@@ -29,7 +54,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L37)</span>
 
 
 ```pony
@@ -48,7 +73,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L41)</span>
 
 
 ```pony
@@ -69,7 +94,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L31)</span>
 
 
 
@@ -78,7 +103,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L33)</span>
 
 
 ```pony
@@ -93,7 +118,7 @@ fun box gtkwidget()
 ---
 
 ### append_separator
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L51)</span>
 
 
 Appends a separator to the list of applications that is shown
@@ -112,7 +137,7 @@ fun box append_separator()
 ---
 
 ### get_heading
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L58)</span>
 
 
 Returns the text to display at the top of the dialog.
@@ -130,7 +155,7 @@ fun box get_heading()
 ---
 
 ### get_show_default_item
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L66)</span>
 
 
 Returns the current value of the #GtkAppChooserButton:show-default-item
@@ -149,7 +174,7 @@ fun box get_show_default_item()
 ---
 
 ### get_show_dialog_item
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L49)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L73)</span>
 
 
 Returns the current value of the #GtkAppChooserButton:show-dialog-item
@@ -168,7 +193,7 @@ fun box get_show_dialog_item()
 ---
 
 ### set_show_default_item
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L88)</span>
 
 
 Sets whether the dropdown menu of this button should show the
@@ -191,7 +216,7 @@ fun box set_show_default_item(
 ---
 
 ### set_show_dialog_item
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L71)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L95)</span>
 
 
 Sets whether the dropdown menu of this button should show an

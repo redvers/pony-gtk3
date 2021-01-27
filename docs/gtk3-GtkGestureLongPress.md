@@ -1,5 +1,15 @@
 # GtkGestureLongPress
 <span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L6)</span>
+
+#GtkGestureLongPress is a #GtkGesture implementation able to recognize
+long presses, triggering the #GtkGestureLongPress::pressed after the
+timeout is exceeded.
+
+If the touchpoint is lifted before the timeout passes, or if it drifts
+too far of the initial press point, the #GtkGestureLongPress::cancelled
+signal will be emitted.
+
+
 ```pony
 class ref GtkGestureLongPress is
   GtkWidget ref
@@ -14,7 +24,7 @@ class ref GtkGestureLongPress is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L19)</span>
 
 
 ```pony
@@ -29,7 +39,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L22)</span>
 
 
 ```pony
@@ -48,7 +58,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L26)</span>
 
 
 ```pony
@@ -69,7 +79,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L16)</span>
 
 
 
@@ -78,7 +88,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L18)</span>
 
 
 ```pony

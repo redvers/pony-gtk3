@@ -1,5 +1,15 @@
 # GtkSeparatorMenuItem
 <span class="source-link">[[Source]](src/gtk3/GtkSeparatorMenuItem.md#L6)</span>
+
+The #GtkSeparatorMenuItem is a separator used to group
+items within a menu. It displays a horizontal line with a shadow to
+make it appear sunken into the interface.
+
+# CSS nodes
+
+GtkSeparatorMenuItem has a single CSS node with name separator.
+
+
 ```pony
 class ref GtkSeparatorMenuItem is
   GtkWidget ref
@@ -14,7 +24,7 @@ class ref GtkSeparatorMenuItem is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorMenuItem.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorMenuItem.md#L19)</span>
 
 
 ```pony
@@ -29,7 +39,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorMenuItem.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorMenuItem.md#L22)</span>
 
 
 ```pony
@@ -48,7 +58,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorMenuItem.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorMenuItem.md#L26)</span>
 
 
 ```pony
@@ -65,7 +75,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorMenuItem.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorMenuItem.md#L16)</span>
 
 
 
@@ -74,7 +84,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorMenuItem.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorMenuItem.md#L18)</span>
 
 
 ```pony

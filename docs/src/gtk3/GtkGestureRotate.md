@@ -5,6 +5,11 @@ provides: ["GtkGestureRotate"]
 */
 use "../gobject"
 class GtkGestureRotate is GtkWidget
+"""
+#GtkGestureRotate is a #GtkGesture implementation able to recognize
+2-finger rotations, whenever the angle between both handled sequences
+changes, the #GtkGestureRotate::angle-changed signal is emitted.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

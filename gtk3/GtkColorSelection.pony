@@ -4,6 +4,9 @@ provides: ["GtkColorSelection"]
 */
 use "../gobject"
 class GtkColorSelection is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -1,5 +1,17 @@
 # GtkThemingEngine
 <span class="source-link">[[Source]](src/gtk3/GtkThemingEngine.md#L6)</span>
+
+#GtkThemingEngine was the object used for rendering themed content
+in GTK+ widgets. It used to allow overriding GTK+'s default
+implementation of rendering functions by allowing engines to be
+loaded as modules.
+
+#GtkThemingEngine has been deprecated in GTK+ 3.14 and will be
+ignored for rendering. The advancements in CSS theming are good
+enough to allow themers to achieve their goals without the need
+to modify source code.
+
+
 ```pony
 class ref GtkThemingEngine is
   GtkWidget ref
@@ -14,7 +26,7 @@ class ref GtkThemingEngine is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkThemingEngine.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkThemingEngine.md#L21)</span>
 
 
 ```pony
@@ -29,7 +41,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkThemingEngine.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkThemingEngine.md#L24)</span>
 
 
 ```pony
@@ -50,7 +62,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkThemingEngine.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkThemingEngine.md#L18)</span>
 
 
 
@@ -59,7 +71,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkThemingEngine.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkThemingEngine.md#L20)</span>
 
 
 ```pony

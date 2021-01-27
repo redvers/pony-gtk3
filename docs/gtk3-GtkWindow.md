@@ -1,5 +1,63 @@
 # GtkWindow
 <span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L6)</span>
+
+A GtkWindow is a toplevel window which can contain other widgets.
+Windows normally have decorations that are under the control
+of the windowing system and allow the user to manipulate the window
+(resize it, move it, close it,...).
+
+# GtkWindow as GtkBuildable
+
+The GtkWindow implementation of the #GtkBuildable interface supports a
+custom <accel-groups> element, which supports any number of <group>
+elements representing the #GtkAccelGroup objects you want to add to
+your window (synonymous with gtk_window_add_accel_group().
+
+It also supports the <initial-focus> element, whose name property names
+the widget to receive the focus when the window is mapped.
+
+An example of a UI definition fragment with accel groups:
+|[
+<object class="GtkWindow">
+  <accel-groups>
+    <group name="accelgroup1"/>
+  </accel-groups>
+  <initial-focus name="thunderclap"/>
+</object>
+
+...
+
+<object class="GtkAccelGroup" id="accelgroup1"/>
+]|
+
+The GtkWindow implementation of the #GtkBuildable interface supports
+setting a child as the titlebar by specifying “titlebar” as the “type”
+attribute of a <child> element.
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+window.background
+├── decoration
+├── <titlebar child>.titlebar [.default-decoration]
+╰── <child>
+]|
+
+GtkWindow has a main CSS node with name window and style class .background,
+and a subnode with name decoration.
+
+Style classes that are typically used with the main CSS node are .csd (when
+client-side decorations are in use), .solid-csd (for client-side decorations
+without invisible borders), .ssd (used by mutter when rendering server-side
+decorations). GtkWindow also represents window states with the following
+style classes on the main node: .tiled, .maximized, .fullscreen. Specialized
+types of window often add their own discriminating style classes, such as
+.popup or .tooltip.
+
+GtkWindow adds the .titlebar and .default-decoration style classes to the
+widget that is added as a titlebar child.
+
+
 ```pony
 class ref GtkWindow is
   GtkContainer ref
@@ -14,7 +72,7 @@ class ref GtkWindow is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L67)</span>
 
 
 ```pony
@@ -29,7 +87,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L70)</span>
 
 
 ```pony
@@ -48,7 +106,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L74)</span>
 
 
 ```pony
@@ -69,7 +127,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L64)</span>
 
 
 
@@ -78,7 +136,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L66)</span>
 
 
 ```pony
@@ -93,7 +151,7 @@ fun box gtkwidget()
 ---
 
 ### activate_default
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L78)</span>
 
 
 Activates the default widget for the window, unless the current
@@ -114,7 +172,7 @@ fun box activate_default()
 ---
 
 ### activate_focus
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L87)</span>
 
 
 Activates the current focused widget within the window.
@@ -132,7 +190,7 @@ fun box activate_focus()
 ---
 
 ### close
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L57)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L114)</span>
 
 
 Requests that the window is closed, similar to what happens
@@ -154,7 +212,7 @@ fun box close()
 ---
 
 ### deiconify
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L67)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L124)</span>
 
 
 Asks to deiconify (i.e. unminimize) the specified @window. Note
@@ -179,7 +237,7 @@ fun box deiconify()
 ---
 
 ### fullscreen
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L80)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L137)</span>
 
 
 Asks to place @window in the fullscreen state. Note that you
@@ -206,7 +264,7 @@ fun box fullscreen()
 ---
 
 ### get_accept_focus
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L99)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L156)</span>
 
 
 Gets the value set by gtk_window_set_accept_focus().
@@ -224,7 +282,7 @@ fun box get_accept_focus()
 ---
 
 ### get_decorated
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L119)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L176)</span>
 
 
 Returns whether the window has been set to have decorations
@@ -243,7 +301,7 @@ fun box get_decorated()
 ---
 
 ### get_deletable
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L138)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L195)</span>
 
 
 Returns whether the window has been set to have a close button
@@ -262,7 +320,7 @@ fun box get_deletable()
 ---
 
 ### get_destroy_with_parent
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L145)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L202)</span>
 
 
 Returns whether the window will be destroyed with its transient parent. See
@@ -281,7 +339,7 @@ fun box get_destroy_with_parent()
 ---
 
 ### get_focus_on_map
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L159)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L216)</span>
 
 
 Gets the value set by gtk_window_set_focus_on_map().
@@ -299,7 +357,7 @@ fun box get_focus_on_map()
 ---
 
 ### get_focus_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L165)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L222)</span>
 
 
 Gets the value of the #GtkWindow:focus-visible property.
@@ -317,7 +375,7 @@ fun box get_focus_visible()
 ---
 
 ### get_has_resize_grip
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L185)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L242)</span>
 
 
 Determines whether the window may have a resize grip.
@@ -335,7 +393,7 @@ fun box get_has_resize_grip()
 ---
 
 ### get_hide_titlebar_when_maximized
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L191)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L248)</span>
 
 
 Returns whether the window has requested to have its titlebar hidden
@@ -354,7 +412,7 @@ fun box get_hide_titlebar_when_maximized()
 ---
 
 ### get_icon_name
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L212)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L269)</span>
 
 
 Returns the name of the themed icon for the window,
@@ -373,7 +431,7 @@ fun box get_icon_name()
 ---
 
 ### get_mnemonics_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L228)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L285)</span>
 
 
 Gets the value of the #GtkWindow:mnemonics-visible property.
@@ -391,7 +449,7 @@ fun box get_mnemonics_visible()
 ---
 
 ### get_modal
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L234)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L291)</span>
 
 
 Returns whether the window is modal. See gtk_window_set_modal().
@@ -409,7 +467,7 @@ fun box get_modal()
 ---
 
 ### get_resizable
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L252)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L309)</span>
 
 
 Gets the value set by gtk_window_set_resizable().
@@ -427,7 +485,7 @@ fun box get_resizable()
 ---
 
 ### get_role
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L262)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L319)</span>
 
 
 Returns the role of the window. See gtk_window_set_role() for
@@ -446,7 +504,7 @@ fun box get_role()
 ---
 
 ### get_skip_pager_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L283)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L340)</span>
 
 
 Gets the value set by gtk_window_set_skip_pager_hint().
@@ -464,7 +522,7 @@ fun box get_skip_pager_hint()
 ---
 
 ### get_skip_taskbar_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L289)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L346)</span>
 
 
 Gets the value set by gtk_window_set_skip_taskbar_hint()
@@ -482,7 +540,7 @@ fun box get_skip_taskbar_hint()
 ---
 
 ### get_title
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L295)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L352)</span>
 
 
 Retrieves the title of the window. See gtk_window_set_title().
@@ -500,7 +558,7 @@ fun box get_title()
 ---
 
 ### get_urgency_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L324)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L381)</span>
 
 
 Gets the value set by gtk_window_set_urgency_hint()
@@ -518,7 +576,7 @@ fun box get_urgency_hint()
 ---
 
 ### has_group
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L337)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L394)</span>
 
 
 Returns whether @window has an explicit window group.
@@ -536,7 +594,7 @@ fun box has_group()
 ---
 
 ### has_toplevel_focus
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L343)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L400)</span>
 
 
 Returns whether the input focus is within this GtkWindow.
@@ -556,7 +614,7 @@ fun box has_toplevel_focus()
 ---
 
 ### iconify
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L351)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L408)</span>
 
 
 Asks to iconify (i.e. minimize) the specified @window. Note that
@@ -587,7 +645,7 @@ fun box iconify()
 ---
 
 ### is_active
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L370)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L427)</span>
 
 
 Returns whether the window is part of the current active toplevel.
@@ -611,7 +669,7 @@ fun box is_active()
 ---
 
 ### is_maximized
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L382)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L439)</span>
 
 
 Retrieves the current maximized state of @window.
@@ -635,7 +693,7 @@ fun box is_maximized()
 ---
 
 ### maximize
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L394)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L451)</span>
 
 
 Asks to maximize @window, so that it becomes full-screen. Note that
@@ -667,7 +725,7 @@ fun box maximize()
 ---
 
 ### move
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L418)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L475)</span>
 
 
 Asks the [window manager][gtk-X11-arch] to move
@@ -723,7 +781,7 @@ fun box move(
 ---
 
 ### present
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L460)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L517)</span>
 
 
 Presents a window to the user. This function should not be used
@@ -743,7 +801,7 @@ fun box present()
 ---
 
 ### reshow_with_initial_size
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L484)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L541)</span>
 
 
 Hides @window, then reshows it, resetting the
@@ -763,7 +821,7 @@ fun box reshow_with_initial_size()
 ---
 
 ### resize
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L492)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L549)</span>
 
 
 Resizes the window as if the user had done so, obeying geometry
@@ -814,7 +872,7 @@ fun box resize(
 ---
 
 ### resize_grip_is_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L525)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L582)</span>
 
 
 Determines whether a resize grip is visible for the specified window.
@@ -832,7 +890,7 @@ fun box resize_grip_is_visible()
 ---
 
 ### resize_to_geometry
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L531)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L588)</span>
 
 
 Like gtk_window_resize(), but @width and @height are interpreted
@@ -858,7 +916,7 @@ fun box resize_to_geometry(
 ---
 
 ### set_accept_focus
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L539)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L596)</span>
 
 
 Windows may set a hint asking the desktop environment not to receive
@@ -881,7 +939,7 @@ fun box set_accept_focus(
 ---
 
 ### set_decorated
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L554)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L611)</span>
 
 
 By default, windows are decorated with a title bar, resize
@@ -913,7 +971,7 @@ fun box set_decorated(
 ---
 
 ### set_default_geometry
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L574)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L631)</span>
 
 
 Like gtk_window_set_default_size(), but @width and @height are interpreted
@@ -939,7 +997,7 @@ fun box set_default_geometry(
 ---
 
 ### set_default_size
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L582)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L639)</span>
 
 
 Sets the default size of a window. If the window’s “natural” size
@@ -995,7 +1053,7 @@ fun box set_default_size(
 ---
 
 ### set_deletable
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L620)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L677)</span>
 
 
 By default, windows have a close button in the window frame. Some
@@ -1026,7 +1084,7 @@ fun box set_deletable(
 ---
 
 ### set_destroy_with_parent
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L635)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L692)</span>
 
 
 If @setting is %TRUE, then destroying the transient parent of @window
@@ -1051,7 +1109,7 @@ fun box set_destroy_with_parent(
 ---
 
 ### set_focus_on_map
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L648)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L705)</span>
 
 
 Windows may set a hint asking the desktop environment not to receive
@@ -1075,7 +1133,7 @@ fun box set_focus_on_map(
 ---
 
 ### set_focus_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L656)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L713)</span>
 
 
 Sets the #GtkWindow:focus-visible property.
@@ -1097,7 +1155,7 @@ fun box set_focus_visible(
 ---
 
 ### set_has_resize_grip
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L672)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L729)</span>
 
 
 Sets whether @window has a corner resize grip.
@@ -1124,7 +1182,7 @@ fun box set_has_resize_grip(
 ---
 
 ### set_has_user_ref_count
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L683)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L740)</span>
 
 
 Tells GTK+ whether to drop its extra reference to the window
@@ -1152,7 +1210,7 @@ fun box set_has_user_ref_count(
 ---
 
 ### set_hide_titlebar_when_maximized
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L695)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L752)</span>
 
 
 If @setting is %TRUE, then @window will request that it’s titlebar
@@ -1183,7 +1241,7 @@ fun box set_hide_titlebar_when_maximized(
 ---
 
 ### set_keep_above
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L726)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L783)</span>
 
 
 Asks to keep @window above, so that it stays on top. Note that
@@ -1224,7 +1282,7 @@ fun box set_keep_above(
 ---
 
 ### set_keep_below
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L751)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L808)</span>
 
 
 Asks to keep @window below, so that it stays in bottom. Note that
@@ -1265,7 +1323,7 @@ fun box set_keep_below(
 ---
 
 ### set_mnemonics_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L780)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L837)</span>
 
 
 Sets the #GtkWindow:mnemonics-visible property.
@@ -1287,7 +1345,7 @@ fun box set_mnemonics_visible(
 ---
 
 ### set_modal
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L786)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L843)</span>
 
 
 Sets a window modal or non-modal. Modal windows prevent interaction
@@ -1314,7 +1372,7 @@ fun box set_modal(
 ---
 
 ### set_resizable
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L805)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L862)</span>
 
 
 Sets whether the user can resize a window. Windows are user resizable
@@ -1337,7 +1395,7 @@ fun box set_resizable(
 ---
 
 ### set_skip_pager_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L820)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L877)</span>
 
 
 Windows may set a hint asking the desktop environment not to display
@@ -1363,7 +1421,7 @@ fun box set_skip_pager_hint(
 ---
 
 ### set_skip_taskbar_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L830)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L887)</span>
 
 
 Windows may set a hint asking the desktop environment not to display
@@ -1386,7 +1444,7 @@ fun box set_skip_taskbar_hint(
 ---
 
 ### set_urgency_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L857)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L914)</span>
 
 
 Windows may set a hint asking the desktop environment to draw
@@ -1409,7 +1467,7 @@ fun box set_urgency_hint(
 ---
 
 ### stick
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L869)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L926)</span>
 
 
 Asks to stick @window, which means that it will appear on all user
@@ -1438,7 +1496,7 @@ fun box stick()
 ---
 
 ### unfullscreen
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L886)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L943)</span>
 
 
 Asks to toggle off the fullscreen state for @window. Note that you
@@ -1465,7 +1523,7 @@ fun box unfullscreen()
 ---
 
 ### unmaximize
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L901)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L958)</span>
 
 
 Asks to unmaximize @window. Note that you shouldn’t assume the
@@ -1491,7 +1549,7 @@ fun box unmaximize()
 ---
 
 ### unstick
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L915)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L972)</span>
 
 
 Asks to unstick @window, which means that it will appear on only

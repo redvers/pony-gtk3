@@ -1,5 +1,27 @@
 # GtkTextTagTable
 <span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L6)</span>
+
+You may wish to begin by reading the
+[text widget conceptual overview][TextWidget]
+which gives an overview of all the objects and
+data types related to the text widget and how they work together.
+
+# GtkTextTagTables as GtkBuildable
+
+The GtkTextTagTable implementation of the GtkBuildable interface
+supports adding tags by specifying “tag” as the “type” attribute
+of a <child> element.
+
+An example of a UI definition fragment specifying tags:
+|[
+<object class="GtkTextTagTable">
+ <child type="tag">
+   <object class="GtkTextTag"/>
+ </child>
+</object>
+]|
+
+
 ```pony
 class ref GtkTextTagTable is
   GtkWidget ref
@@ -14,7 +36,7 @@ class ref GtkTextTagTable is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L31)</span>
 
 
 ```pony
@@ -29,7 +51,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L34)</span>
 
 
 ```pony
@@ -48,7 +70,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L38)</span>
 
 
 ```pony
@@ -65,7 +87,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L28)</span>
 
 
 
@@ -74,7 +96,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L30)</span>
 
 
 ```pony
@@ -89,7 +111,7 @@ fun box gtkwidget()
 ---
 
 ### get_size
-<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L51)</span>
 
 
 Returns the size of the table (number of tags)

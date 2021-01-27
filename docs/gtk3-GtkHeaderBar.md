@@ -1,5 +1,23 @@
 # GtkHeaderBar
 <span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L6)</span>
+
+GtkHeaderBar is similar to a horizontal #GtkBox. It allows children to
+be placed at the start or the end. In addition, it allows a title and
+subtitle to be displayed. The title will be centered with respect to
+the width of the box, even if the children at either side take up
+different amounts of space. The height of the titlebar will be
+set to provide sufficient space for the subtitle, even if none is
+currently set. If a subtitle is not needed, the space reservation
+can be turned off with gtk_header_bar_set_has_subtitle().
+
+GtkHeaderBar can add typical window frame controls, such as minimize,
+maximize and close buttons, or the window icon.
+
+For these reasons, GtkHeaderBar is the natural choice for use as the custom
+titlebar widget of a #GtkWindow (see gtk_window_set_titlebar()), as it gives
+features typical of titlebars while allowing the addition of child widgets.
+
+
 ```pony
 class ref GtkHeaderBar is
   GtkWidget ref
@@ -14,7 +32,7 @@ class ref GtkHeaderBar is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L27)</span>
 
 
 ```pony
@@ -29,7 +47,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L30)</span>
 
 
 ```pony
@@ -48,7 +66,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L34)</span>
 
 
 ```pony
@@ -65,7 +83,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L24)</span>
 
 
 
@@ -74,7 +92,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L26)</span>
 
 
 ```pony
@@ -89,7 +107,7 @@ fun box gtkwidget()
 ---
 
 ### get_decoration_layout
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L28)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L45)</span>
 
 
 Gets the decoration layout set with
@@ -108,7 +126,7 @@ fun box get_decoration_layout()
 ---
 
 ### get_has_subtitle
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L37)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L54)</span>
 
 
 Retrieves whether the header bar reserves space for
@@ -127,7 +145,7 @@ fun box get_has_subtitle()
 ---
 
 ### get_show_close_button
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L44)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L61)</span>
 
 
 Returns whether this header bar shows the standard window
@@ -146,7 +164,7 @@ fun box get_show_close_button()
 ---
 
 ### get_subtitle
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L51)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L68)</span>
 
 
 Retrieves the subtitle of the header. See gtk_header_bar_set_subtitle().
@@ -164,7 +182,7 @@ fun box get_subtitle()
 ---
 
 ### get_title
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L59)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L76)</span>
 
 
 Retrieves the title of the header. See gtk_header_bar_set_title().
@@ -182,7 +200,7 @@ fun box get_title()
 ---
 
 ### set_has_subtitle
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L83)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L100)</span>
 
 
 Sets whether the header bar should reserve space
@@ -205,7 +223,7 @@ fun box set_has_subtitle(
 ---
 
 ### set_show_close_button
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L90)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L107)</span>
 
 
 Sets whether this header bar shows the standard window decorations,

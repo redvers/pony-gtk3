@@ -4,6 +4,27 @@ provides: ["GtkTextTagTable"]
 */
 use "../gobject"
 class GtkTextTagTable is GtkWidget
+"""
+You may wish to begin by reading the
+[text widget conceptual overview][TextWidget]
+which gives an overview of all the objects and
+data types related to the text widget and how they work together.
+
+# GtkTextTagTables as GtkBuildable
+
+The GtkTextTagTable implementation of the GtkBuildable interface
+supports adding tags by specifying “tag” as the “type” attribute
+of a <child> element.
+
+An example of a UI definition fragment specifying tags:
+|[
+<object class="GtkTextTagTable">
+ <child type="tag">
+   <object class="GtkTextTag"/>
+ </child>
+</object>
+]|
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -4,6 +4,29 @@ provides: ["GtkAppChooserWidget"]
 */
 use "../gobject"
 class GtkAppChooserWidget is GtkWidget
+"""
+#GtkAppChooserWidget is a widget for selecting applications.
+It is the main building block for #GtkAppChooserDialog. Most
+applications only need to use the latter; but you can use
+this widget as part of a larger widget if you have special needs.
+
+#GtkAppChooserWidget offers detailed control over what applications
+are shown, using the
+#GtkAppChooserWidget:show-default,
+#GtkAppChooserWidget:show-recommended,
+#GtkAppChooserWidget:show-fallback,
+#GtkAppChooserWidget:show-other and
+#GtkAppChooserWidget:show-all
+properties. See the #GtkAppChooser documentation for more information
+about these groups of applications.
+
+To keep track of the selected application, use the
+#GtkAppChooserWidget::application-selected and #GtkAppChooserWidget::application-activated signals.
+
+# CSS nodes
+
+GtkAppChooserWidget has a single CSS node with name appchooser.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

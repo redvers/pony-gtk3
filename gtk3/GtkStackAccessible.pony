@@ -4,6 +4,9 @@ provides: ["GtkStackAccessible"]
 */
 use "../gobject"
 class GtkStackAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

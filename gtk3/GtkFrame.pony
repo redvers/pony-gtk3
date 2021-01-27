@@ -4,6 +4,49 @@ provides: ["GtkFrame"]
 */
 use "../gobject"
 class GtkFrame is GtkWidget
+"""
+The frame widget is a bin that surrounds its child with a decorative
+frame and an optional label. If present, the label is drawn in a gap
+in the top side of the frame. The position of the label can be
+controlled with gtk_frame_set_label_align().
+
+# GtkFrame as GtkBuildable
+
+The GtkFrame implementation of the GtkBuildable interface supports
+placing a child in the label position by specifying “label” as the
+“type” attribute of a <child> element. A normal content child can
+be specified without specifying a <child> type attribute.
+
+An example of a UI definition fragment with GtkFrame:
+|[
+<object class="GtkFrame">
+  <child type="label">
+    <object class="GtkLabel" id="frame-label"/>
+  </child>
+  <child>
+    <object class="GtkEntry" id="frame-content"/>
+  </child>
+</object>
+]|
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+frame
+├── border[.flat]
+├── <label widget>
+╰── <child>
+]|
+
+GtkFrame has a main CSS node named “frame” and a subnode named “border”. The
+“border” node is used to draw the visible border. You can set the appearance
+of the border using CSS properties like “border-style” on the “border” node.
+
+The border node can be given the style class “.flat”, which is used by themes
+to disable drawing of the border. To do this from code, call
+gtk_frame_set_shadow_type() with %GTK_SHADOW_NONE to add the “.flat” class or
+any other shadow type to remove it.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

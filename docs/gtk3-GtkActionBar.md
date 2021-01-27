@@ -1,5 +1,20 @@
 # GtkActionBar
 <span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L6)</span>
+
+GtkActionBar is designed to present contextual actions. It is
+expected to be displayed below the content and expand horizontally
+to fill the area.
+
+It allows placing children at the start or the end. In addition, it
+contains an internal centered box which is centered with respect to
+the full width of the box, even if the children at either side take
+up different amounts of space.
+
+# CSS nodes
+
+GtkActionBar has a single CSS node with name actionbar.
+
+
 ```pony
 class ref GtkActionBar is
   GtkWidget ref
@@ -14,7 +29,7 @@ class ref GtkActionBar is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L24)</span>
 
 
 ```pony
@@ -29,7 +44,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L27)</span>
 
 
 ```pony
@@ -48,7 +63,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L31)</span>
 
 
 ```pony
@@ -65,7 +80,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L21)</span>
 
 
 
@@ -74,7 +89,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L23)</span>
 
 
 ```pony

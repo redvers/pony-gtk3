@@ -1,5 +1,18 @@
 # GtkShortcutsSection
 <span class="source-link">[[Source]](src/gtk3/GtkShortcutsSection.md#L6)</span>
+
+A GtkShortcutsSection collects all the keyboard shortcuts and gestures
+for a major application mode. If your application needs multiple sections,
+you should give each section a unique #GtkShortcutsSection:section-name and
+a #GtkShortcutsSection:title that can be shown in the section selector of
+the GtkShortcutsWindow.
+
+The #GtkShortcutsSection:max-height property can be used to influence how
+the groups in the section are distributed over pages and columns.
+
+This widget is only meant to be used with #GtkShortcutsWindow.
+
+
 ```pony
 class ref GtkShortcutsSection is
   GtkWidget ref
@@ -14,7 +27,7 @@ class ref GtkShortcutsSection is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsSection.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsSection.md#L22)</span>
 
 
 ```pony
@@ -29,7 +42,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsSection.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsSection.md#L25)</span>
 
 
 ```pony
@@ -50,7 +63,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsSection.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsSection.md#L19)</span>
 
 
 
@@ -59,7 +72,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsSection.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsSection.md#L21)</span>
 
 
 ```pony

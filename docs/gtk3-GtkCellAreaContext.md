@@ -1,5 +1,18 @@
 # GtkCellAreaContext
 <span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L6)</span>
+
+The #GtkCellAreaContext object is created by a given #GtkCellArea
+implementation via its #GtkCellAreaClass.create_context() virtual
+method and is used to store cell sizes and alignments for a series of
+#GtkTreeModel rows that are requested and rendered in the same context.
+
+#GtkCellLayout widgets can create any number of contexts in which to
+request and render groups of data rows. However, it’s important that the
+same context which was used to request sizes for a given #GtkTreeModel
+row also be used for the same row when calling other #GtkCellArea APIs
+such as gtk_cell_area_render() and gtk_cell_area_event().
+
+
 ```pony
 class ref GtkCellAreaContext is
   GtkWidget ref
@@ -14,7 +27,7 @@ class ref GtkCellAreaContext is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L22)</span>
 
 
 ```pony
@@ -29,7 +42,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L25)</span>
 
 
 ```pony
@@ -50,7 +63,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L19)</span>
 
 
 
@@ -59,7 +72,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L21)</span>
 
 
 ```pony
@@ -74,7 +87,7 @@ fun box gtkwidget()
 ---
 
 ### allocate
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L19)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L31)</span>
 
 
 Allocates a width and/or a height for all rows which are to be
@@ -109,7 +122,7 @@ fun box allocate(
 ---
 
 ### push_preferred_height
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L68)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L80)</span>
 
 
 Causes the minimum and/or natural height to grow if the new
@@ -139,7 +152,7 @@ fun box push_preferred_height(
 ---
 
 ### push_preferred_width
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L80)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L92)</span>
 
 
 Causes the minimum and/or natural width to grow if the new
@@ -169,7 +182,7 @@ fun box push_preferred_width(
 ---
 
 ### reset
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L92)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaContext.md#L104)</span>
 
 
 Resets any previously cached request and allocation

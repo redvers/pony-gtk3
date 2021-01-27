@@ -5,6 +5,88 @@ provides: ["GtkNotebook"]
 */
 use "../gobject"
 class GtkNotebook is GtkWidget
+"""
+The #GtkNotebook widget is a #GtkContainer whose children are pages that
+can be switched between using tab labels along one edge.
+
+There are many configuration options for GtkNotebook. Among other
+things, you can choose on which edge the tabs appear
+(see gtk_notebook_set_tab_pos()), whether, if there are too many
+tabs to fit the notebook should be made bigger or scrolling
+arrows added (see gtk_notebook_set_scrollable()), and whether there
+will be a popup menu allowing the users to switch pages.
+(see gtk_notebook_popup_enable(), gtk_notebook_popup_disable())
+
+# GtkNotebook as GtkBuildable
+
+The GtkNotebook implementation of the #GtkBuildable interface
+supports placing children into tabs by specifying “tab” as the
+“type” attribute of a <child> element. Note that the content
+of the tab must be created before the tab can be filled.
+A tab child can be specified without specifying a <child>
+type attribute.
+
+To add a child widget in the notebooks action area, specify
+"action-start" or “action-end” as the “type” attribute of the
+<child> element.
+
+An example of a UI definition fragment with GtkNotebook:
+|[
+<object class="GtkNotebook">
+  <child>
+    <object class="GtkLabel" id="notebook-content">
+      <property name="label">Content</property>
+    </object>
+  </child>
+  <child type="tab">
+    <object class="GtkLabel" id="notebook-tab">
+      <property name="label">Tab</property>
+    </object>
+  </child>
+</object>
+]|
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+notebook
+├── header.top
+│   ├── [<action widget>]
+│   ├── tabs
+│   │   ├── [arrow]
+│   │   ├── tab
+│   │   │   ╰── <tab label>
+┊   ┊   ┊
+│   │   ├── tab[.reorderable-page]
+│   │   │   ╰── <tab label>
+│   │   ╰── [arrow]
+│   ╰── [<action widget>]
+│
+╰── stack
+    ├── <child>
+    ┊
+    ╰── <child>
+]|
+
+GtkNotebook has a main CSS node with name notebook, a subnode
+with name header and below that a subnode with name tabs which
+contains one subnode per tab with name tab.
+
+If action widgets are present, their CSS nodes are placed next
+to the tabs node. If the notebook is scrollable, CSS nodes with
+name arrow are placed as first and last child of the tabs node.
+
+The main node gets the .frame style class when the notebook
+has a border (see gtk_notebook_set_show_border()).
+
+The header node gets one of the style class .top, .bottom,
+.left or .right, depending on where the tabs are placed. For
+reorderable pages, the tab node gets the .reorderable-page class.
+
+A tab node gets the .dnd style class while it is moved with drag-and-drop.
+
+The nodes are always arranged from left-to-right, regarldess of text direction.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -52,7 +134,7 @@ fun get_group_name(): String =>
 Gets the current group name for @notebook.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_notebook_get_group_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_menu_label unavailable due to return typing issues

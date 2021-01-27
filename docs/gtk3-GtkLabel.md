@@ -1,5 +1,184 @@
 # GtkLabel
 <span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L6)</span>
+
+The #GtkLabel widget displays a small amount of text. As the name
+implies, most labels are used to label another widget such as a
+#GtkButton, a #GtkMenuItem, or a #GtkComboBox.
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+label
+├── [selection]
+├── [link]
+┊
+╰── [link]
+]|
+
+GtkLabel has a single CSS node with the name label. A wide variety
+of style classes may be applied to labels, such as .title, .subtitle,
+.dim-label, etc. In the #GtkShortcutsWindow, labels are used wth the
+.keycap style class.
+
+If the label has a selection, it gets a subnode with name selection.
+
+If the label has links, there is one subnode per link. These subnodes
+carry the link or visited state depending on whether they have been
+visited.
+
+# GtkLabel as GtkBuildable
+
+The GtkLabel implementation of the GtkBuildable interface supports a
+custom <attributes> element, which supports any number of <attribute>
+elements. The <attribute> element has attributes named “name“, “value“,
+“start“ and “end“ and allows you to specify #PangoAttribute values for
+this label.
+
+An example of a UI definition fragment specifying Pango attributes:
+|[
+<object class="GtkLabel">
+  <attributes>
+    <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+    <attribute name="background" value="red" start="5" end="10"/>
+  </attributes>
+</object>
+]|
+
+The start and end attributes specify the range of characters to which the
+Pango attribute applies. If start and end are not specified, the attribute is
+applied to the whole text. Note that specifying ranges does not make much
+sense with translatable attributes. Use markup embedded in the translatable
+content instead.
+
+# Mnemonics
+
+Labels may contain “mnemonics”. Mnemonics are
+underlined characters in the label, used for keyboard navigation.
+Mnemonics are created by providing a string with an underscore before
+the mnemonic character, such as `"_File"`, to the
+functions gtk_label_new_with_mnemonic() or
+gtk_label_set_text_with_mnemonic().
+
+Mnemonics automatically activate any activatable widget the label is
+inside, such as a #GtkButton; if the label is not inside the
+mnemonic’s target widget, you have to tell the label about the target
+using gtk_label_set_mnemonic_widget(). Here’s a simple example where
+the label is inside a button:
+
+|[<!-- language="C" -->
+  // Pressing Alt+H will activate this button
+  GtkWidget *button = gtk_button_new ();
+  GtkWidget *label = gtk_label_new_with_mnemonic ("_Hello");
+  gtk_container_add (GTK_CONTAINER (button), label);
+]|
+
+There’s a convenience function to create buttons with a mnemonic label
+already inside:
+
+|[<!-- language="C" -->
+  // Pressing Alt+H will activate this button
+  GtkWidget *button = gtk_button_new_with_mnemonic ("_Hello");
+]|
+
+To create a mnemonic for a widget alongside the label, such as a
+#GtkEntry, you have to point the label at the entry with
+gtk_label_set_mnemonic_widget():
+
+|[<!-- language="C" -->
+  // Pressing Alt+H will focus the entry
+  GtkWidget *entry = gtk_entry_new ();
+  GtkWidget *label = gtk_label_new_with_mnemonic ("_Hello");
+  gtk_label_set_mnemonic_widget (GTK_LABEL (label), entry);
+]|
+
+# Markup (styled text)
+
+To make it easy to format text in a label (changing colors,
+fonts, etc.), label text can be provided in a simple
+[markup format][PangoMarkupFormat].
+
+Here’s how to create a label with a small font:
+|[<!-- language="C" -->
+  GtkWidget *label = gtk_label_new (NULL);
+  gtk_label_set_markup (GTK_LABEL (label), "<small>Small text</small>");
+]|
+
+(See [complete documentation][PangoMarkupFormat] of available
+tags in the Pango manual.)
+
+The markup passed to gtk_label_set_markup() must be valid; for example,
+literal <, > and & characters must be escaped as &lt;, &gt;, and &amp;.
+If you pass text obtained from the user, file, or a network to
+gtk_label_set_markup(), you’ll want to escape it with
+g_markup_escape_text() or g_markup_printf_escaped().
+
+Markup strings are just a convenient way to set the #PangoAttrList on
+a label; gtk_label_set_attributes() may be a simpler way to set
+attributes in some cases. Be careful though; #PangoAttrList tends to
+cause internationalization problems, unless you’re applying attributes
+to the entire string (i.e. unless you set the range of each attribute
+to [0, %G_MAXINT)). The reason is that specifying the start_index and
+end_index for a #PangoAttribute requires knowledge of the exact string
+being displayed, so translations will cause problems.
+
+# Selectable labels
+
+Labels can be made selectable with gtk_label_set_selectable().
+Selectable labels allow the user to copy the label contents to
+the clipboard. Only labels that contain useful-to-copy information
+— such as error messages — should be made selectable.
+
+# Text layout # {#label-text-layout}
+
+A label can contain any number of paragraphs, but will have
+performance problems if it contains more than a small number.
+Paragraphs are separated by newlines or other paragraph separators
+understood by Pango.
+
+Labels can automatically wrap text if you call
+gtk_label_set_line_wrap().
+
+gtk_label_set_justify() sets how the lines in a label align
+with one another. If you want to set how the label as a whole
+aligns in its available space, see the #GtkWidget:halign and
+#GtkWidget:valign properties.
+
+The #GtkLabel:width-chars and #GtkLabel:max-width-chars properties
+can be used to control the size allocation of ellipsized or wrapped
+labels. For ellipsizing labels, if either is specified (and less
+than the actual text size), it is used as the minimum width, and the actual
+text size is used as the natural width of the label. For wrapping labels,
+width-chars is used as the minimum width, if specified, and max-width-chars
+is used as the natural width. Even if max-width-chars specified, wrapping
+labels will be rewrapped to use all of the available width.
+
+Note that the interpretation of #GtkLabel:width-chars and
+#GtkLabel:max-width-chars has changed a bit with the introduction of
+[width-for-height geometry management.][geometry-management]
+
+# Links
+
+Since 2.18, GTK+ supports markup for clickable hyperlinks in addition
+to regular Pango markup. The markup for links is borrowed from HTML,
+using the `<a>` with “href“ and “title“ attributes. GTK+ renders links
+similar to the way they appear in web browsers, with colored, underlined
+text. The “title“ attribute is displayed as a tooltip on the link.
+
+An example looks like this:
+
+|[<!-- language="C" -->
+const gchar *text =
+"Go to the"
+"<a href=\"http://www.gtk.org title=\"&lt;i&gt;Our&lt;/i&gt; website\">"
+"GTK+ website</a> for more...";
+GtkWidget *label = gtk_label_new (NULL);
+gtk_label_set_markup (GTK_LABEL (label), text);
+]|
+
+It is possible to implement custom handling for links and their tooltips with
+the #GtkLabel::activate-link signal and the gtk_label_get_current_uri() function.
+
+
 ```pony
 class ref GtkLabel is
   GtkWidget ref
@@ -14,7 +193,7 @@ class ref GtkLabel is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L188)</span>
 
 
 ```pony
@@ -29,7 +208,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L191)</span>
 
 
 ```pony
@@ -48,7 +227,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L195)</span>
 
 
 ```pony
@@ -67,7 +246,7 @@ new ref create(
 ---
 
 ### new_with_mnemonic
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L198)</span>
 
 
 ```pony
@@ -88,7 +267,7 @@ new ref new_with_mnemonic(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L185)</span>
 
 
 
@@ -97,7 +276,7 @@ new ref new_with_mnemonic(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L187)</span>
 
 
 ```pony
@@ -112,7 +291,7 @@ fun box gtkwidget()
 ---
 
 ### get_current_uri
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L216)</span>
 
 
 Returns the URI for the currently active link in the label.
@@ -136,7 +315,7 @@ fun box get_current_uri()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L66)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L244)</span>
 
 
 Fetches the text from a label widget including any embedded
@@ -156,7 +335,7 @@ fun box get_label()
 ---
 
 ### get_line_wrap
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L88)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L266)</span>
 
 
 Returns whether lines in the label are automatically wrapped.
@@ -175,7 +354,7 @@ fun box get_line_wrap()
 ---
 
 ### get_lines
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L102)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L280)</span>
 
 
 Gets the number of lines to which an ellipsized, wrapping
@@ -194,7 +373,7 @@ fun box get_lines()
 ---
 
 ### get_max_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L109)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L287)</span>
 
 
 Retrieves the desired maximum width of @label, in characters. See
@@ -213,7 +392,7 @@ fun box get_max_width_chars()
 ---
 
 ### get_mnemonic_keyval
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L116)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L294)</span>
 
 
 If the label has been set so that it has an mnemonic key this function
@@ -233,7 +412,7 @@ fun box get_mnemonic_keyval()
 ---
 
 ### get_selectable
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L131)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L309)</span>
 
 
 Gets the value set by gtk_label_set_selectable().
@@ -251,7 +430,7 @@ fun box get_selectable()
 ---
 
 ### get_single_line_mode
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L142)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L320)</span>
 
 
 Returns whether the label is in single line mode.
@@ -269,7 +448,7 @@ fun box get_single_line_mode()
 ---
 
 ### get_text
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L148)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L326)</span>
 
 
 Fetches the text from a label widget, as displayed on the
@@ -289,7 +468,7 @@ fun box get_text()
 ---
 
 ### get_track_visited_links
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L158)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L336)</span>
 
 
 Returns whether the label is currently keeping track
@@ -308,7 +487,7 @@ fun box get_track_visited_links()
 ---
 
 ### get_use_markup
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L165)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L343)</span>
 
 
 Returns whether the label’s text is interpreted as marked up with
@@ -328,7 +507,7 @@ fun box get_use_markup()
 ---
 
 ### get_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L173)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L351)</span>
 
 
 Returns whether an embedded underline in the label indicates a
@@ -347,7 +526,7 @@ fun box get_use_underline()
 ---
 
 ### get_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L180)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L358)</span>
 
 
 Retrieves the desired width of @label, in characters. See
@@ -366,7 +545,7 @@ fun box get_width_chars()
 ---
 
 ### select_region
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L201)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L379)</span>
 
 
 Selects a range of characters in the label, if the label is selectable.
@@ -393,7 +572,7 @@ fun box select_region(
 ---
 
 ### set_line_wrap
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L230)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L408)</span>
 
 
 Toggles line wrapping within the #GtkLabel widget. %TRUE makes it break
@@ -423,7 +602,7 @@ fun box set_line_wrap(
 ---
 
 ### set_lines
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L248)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L426)</span>
 
 
 Sets the number of lines to which an ellipsized, wrapping label
@@ -448,7 +627,7 @@ fun box set_lines(
 ---
 
 ### set_max_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L265)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L443)</span>
 
 
 Sets the desired maximum width in characters of @label to @n_chars.
@@ -470,7 +649,7 @@ fun box set_max_width_chars(
 ---
 
 ### set_selectable
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L279)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L457)</span>
 
 
 Selectable labels allow the user to select text from the label, for
@@ -493,7 +672,7 @@ fun box set_selectable(
 ---
 
 ### set_single_line_mode
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L286)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L464)</span>
 
 
 Sets whether the label is in single line mode.
@@ -515,7 +694,7 @@ fun box set_single_line_mode(
 ---
 
 ### set_track_visited_links
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L300)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L478)</span>
 
 
 Sets whether the label should keep track of clicked
@@ -538,7 +717,7 @@ fun box set_track_visited_links(
 ---
 
 ### set_use_markup
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L307)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L485)</span>
 
 
 Sets whether the text of the label contains markup in
@@ -562,7 +741,7 @@ fun box set_use_markup(
 ---
 
 ### set_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L315)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L493)</span>
 
 
 If true, an underline in the text indicates the next character should be
@@ -585,7 +764,7 @@ fun box set_use_underline(
 ---
 
 ### set_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L322)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L500)</span>
 
 
 Sets the desired width in characters of @label to @n_chars.

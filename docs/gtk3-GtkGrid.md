@@ -1,5 +1,24 @@
 # GtkGrid
 <span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L6)</span>
+
+GtkGrid is a container which arranges its child widgets in
+rows and columns, with arbitrary positions and horizontal/vertical spans.
+
+Children are added using gtk_grid_attach(). They can span multiple
+rows or columns. It is also possible to add a child next to an
+existing child, using gtk_grid_attach_next_to(). The behaviour of
+GtkGrid when several children occupy the same grid cell is undefined.
+
+GtkGrid can be used like a #GtkBox by just using gtk_container_add(),
+which will place children next to each other in the direction determined
+by the #GtkOrientable:orientation property. However, if all you want is a
+single row or column, then #GtkBox is the preferred widget.
+
+# CSS nodes
+
+GtkGrid uses a single CSS node with name grid.
+
+
 ```pony
 class ref GtkGrid is
   GtkWidget ref
@@ -14,7 +33,7 @@ class ref GtkGrid is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L28)</span>
 
 
 ```pony
@@ -29,7 +48,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L31)</span>
 
 
 ```pony
@@ -48,7 +67,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L35)</span>
 
 
 ```pony
@@ -65,7 +84,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L25)</span>
 
 
 
@@ -74,7 +93,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L27)</span>
 
 
 ```pony
@@ -89,7 +108,7 @@ fun box gtkwidget()
 ---
 
 ### get_baseline_row
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L49)</span>
 
 
 Returns which row defines the global baseline of @grid.
@@ -107,7 +126,7 @@ fun box get_baseline_row()
 ---
 
 ### get_column_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L44)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L62)</span>
 
 
 Returns whether all columns of @grid have the same width.
@@ -125,7 +144,7 @@ fun box get_column_homogeneous()
 ---
 
 ### get_column_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L50)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L68)</span>
 
 
 Returns the amount of space between the columns of @grid.
@@ -143,7 +162,7 @@ fun box get_column_spacing()
 ---
 
 ### get_row_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L63)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L81)</span>
 
 
 Returns whether all rows of @grid have the same height.
@@ -161,7 +180,7 @@ fun box get_row_homogeneous()
 ---
 
 ### get_row_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L69)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L87)</span>
 
 
 Returns the amount of space between the rows of @grid.
@@ -179,7 +198,7 @@ fun box get_row_spacing()
 ---
 
 ### insert_column
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L75)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L93)</span>
 
 
 Inserts a column at the specified position.
@@ -205,7 +224,7 @@ fun box insert_column(
 ---
 
 ### insert_row
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L90)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L108)</span>
 
 
 Inserts a row at the specified position.
@@ -231,7 +250,7 @@ fun box insert_row(
 ---
 
 ### remove_column
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L100)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L118)</span>
 
 
 Removes a column from the grid.
@@ -258,7 +277,7 @@ fun box remove_column(
 ---
 
 ### remove_row
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L111)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L129)</span>
 
 
 Removes a row from the grid.
@@ -285,7 +304,7 @@ fun box remove_row(
 ---
 
 ### set_baseline_row
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L122)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L140)</span>
 
 
 Sets which row defines the global baseline for the entire grid.
@@ -310,7 +329,7 @@ fun box set_baseline_row(
 ---
 
 ### set_column_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L131)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L149)</span>
 
 
 Sets whether all columns of @grid will have the same width.
@@ -332,7 +351,7 @@ fun box set_column_homogeneous(
 ---
 
 ### set_column_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L137)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L155)</span>
 
 
 Sets the amount of space between columns of @grid.
@@ -354,7 +373,7 @@ fun box set_column_spacing(
 ---
 
 ### set_row_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L147)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L165)</span>
 
 
 Sets whether all rows of @grid will have the same height.
@@ -376,7 +395,7 @@ fun box set_row_homogeneous(
 ---
 
 ### set_row_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L153)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L171)</span>
 
 
 Sets the amount of space between rows of @grid.

@@ -5,6 +5,18 @@ provides: ["GtkToolItem"]
 */
 use "../gobject"
 class GtkToolItem is GtkWidget
+"""
+#GtkToolItems are widgets that can appear on a toolbar. To
+create a toolbar item that contain something else than a button, use
+gtk_tool_item_new(). Use gtk_container_add() to add a child
+widget to the tool item.
+
+For toolbar items that contain buttons, see the #GtkToolButton,
+#GtkToggleToolButton and #GtkRadioToolButton classes.
+
+See the #GtkToolbar class for a description of the toolbar widget, and
+#GtkToolShell for a description of the tool shell interface.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

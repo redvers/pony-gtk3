@@ -5,6 +5,80 @@ provides: ["GtkEntry"]
 */
 use "../gobject"
 class GtkEntry is GtkWidget
+"""
+The #GtkEntry widget is a single line text entry
+widget. A fairly large set of key bindings are supported
+by default. If the entered text is longer than the allocation
+of the widget, the widget will scroll so that the cursor
+position is visible.
+
+When using an entry for passwords and other sensitive information,
+it can be put into “password mode” using gtk_entry_set_visibility().
+In this mode, entered text is displayed using a “invisible” character.
+By default, GTK+ picks the best invisible character that is available
+in the current font, but it can be changed with
+gtk_entry_set_invisible_char(). Since 2.16, GTK+ displays a warning
+when Caps Lock or input methods might interfere with entering text in
+a password entry. The warning can be turned off with the
+#GtkEntry:caps-lock-warning property.
+
+Since 2.16, GtkEntry has the ability to display progress or activity
+information behind the text. To make an entry display such information,
+use gtk_entry_set_progress_fraction() or gtk_entry_set_progress_pulse_step().
+
+Additionally, GtkEntry can show icons at either side of the entry. These
+icons can be activatable by clicking, can be set up as drag source and
+can have tooltips. To add an icon, use gtk_entry_set_icon_from_gicon() or
+one of the various other functions that set an icon from a stock id, an
+icon name or a pixbuf. To trigger an action when the user clicks an icon,
+connect to the #GtkEntry::icon-press signal. To allow DND operations
+from an icon, use gtk_entry_set_icon_drag_source(). To set a tooltip on
+an icon, use gtk_entry_set_icon_tooltip_text() or the corresponding function
+for markup.
+
+Note that functionality or information that is only available by clicking
+on an icon in an entry may not be accessible at all to users which are not
+able to use a mouse or other pointing device. It is therefore recommended
+that any such functionality should also be available by other means, e.g.
+via the context menu of the entry.
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+entry[.read-only][.flat][.warning][.error]
+├── image.left
+├── image.right
+├── undershoot.left
+├── undershoot.right
+├── [selection]
+├── [progress[.pulse]]
+╰── [window.popup]
+]|
+
+GtkEntry has a main node with the name entry. Depending on the properties
+of the entry, the style classes .read-only and .flat may appear. The style
+classes .warning and .error may also be used with entries.
+
+When the entry shows icons, it adds subnodes with the name image and the
+style class .left or .right, depending on where the icon appears.
+
+When the entry has a selection, it adds a subnode with the name selection.
+
+When the entry shows progress, it adds a subnode with the name progress.
+The node has the style class .pulse when the shown progress is pulsing.
+
+The CSS node for a context menu is added as a subnode below entry as well.
+
+The undershoot nodes are used to draw the underflow indication when content
+is scrolled out of view. These nodes get the .left and .right style classes
+added depending on where the indication is drawn.
+
+When touch is used and touch selection handles are shown, they are using
+CSS nodes with name cursor-handle. They get the .top or .bottom style class
+depending on where they are shown in relation to the selection. If there is
+just a single handle for the text cursor, it gets the style class
+.insertion-cursor.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -213,7 +287,7 @@ fun get_placeholder_text(): String =>
 Retrieves the text that will be displayed when @entry is empty and unfocused
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_entry_get_placeholder_text[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_progress_fraction unavailable due to return typing issues
@@ -246,7 +320,7 @@ This is equivalent to getting @entry's #GtkEntryBuffer and calling
 gtk_entry_buffer_get_text() on it.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_entry_get_text[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_text_area unavailable due to typing issues

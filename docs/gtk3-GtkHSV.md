@@ -1,5 +1,16 @@
 # GtkHSV
 <span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L6)</span>
+
+#GtkHSV is the “color wheel” part of a complete color selector widget.
+It allows to select a color by determining its HSV components in an
+intuitive way. Moving the selection around the outer ring changes the hue,
+and moving the selection point inside the inner triangle changes value and
+saturation.
+
+#GtkHSV has been deprecated together with #GtkColorSelection, where
+it was used.
+
+
 ```pony
 class ref GtkHSV is
   GtkWidget ref
@@ -14,7 +25,7 @@ class ref GtkHSV is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L20)</span>
 
 
 ```pony
@@ -29,7 +40,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L23)</span>
 
 
 ```pony
@@ -48,7 +59,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L27)</span>
 
 
 ```pony
@@ -65,7 +76,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L17)</span>
 
 
 
@@ -74,7 +85,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L19)</span>
 
 
 ```pony
@@ -89,7 +100,7 @@ fun box gtkwidget()
 ---
 
 ### is_adjusting
-<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L32)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L42)</span>
 
 
 An HSV color selector can be said to be adjusting if multiple rapid
@@ -110,7 +121,7 @@ fun box is_adjusting()
 ---
 
 ### set_metrics
-<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L47)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L57)</span>
 
 
 Sets the size and ring width of an HSV color selector.

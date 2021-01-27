@@ -1,5 +1,12 @@
 # GtkCellRendererProgress
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L6)</span>
+
+#GtkCellRendererProgress renders a numeric value as a progress par in a cell.
+Additionally, it can display a text on top of the progress bar.
+
+The #GtkCellRendererProgress cell renderer was added in GTK+ 2.6.
+
+
 ```pony
 class ref GtkCellRendererProgress is
   GtkWidget ref
@@ -14,7 +21,7 @@ class ref GtkCellRendererProgress is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L16)</span>
 
 
 ```pony
@@ -29,7 +36,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L19)</span>
 
 
 ```pony
@@ -48,7 +55,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L23)</span>
 
 
 ```pony
@@ -65,7 +72,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L13)</span>
 
 
 
@@ -74,7 +81,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L15)</span>
 
 
 ```pony

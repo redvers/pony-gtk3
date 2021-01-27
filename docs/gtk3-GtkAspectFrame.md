@@ -1,5 +1,19 @@
 # GtkAspectFrame
 <span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L6)</span>
+
+The #GtkAspectFrame is useful when you want
+pack a widget so that it can resize but always retains
+the same aspect ratio. For instance, one might be
+drawing a small preview of a larger image. #GtkAspectFrame
+derives from #GtkFrame, so it can draw a label and
+a frame around the child. The frame will be
+“shrink-wrapped” to the size of the child.
+
+# CSS nodes
+
+GtkAspectFrame uses a CSS node with name frame.
+
+
 ```pony
 class ref GtkAspectFrame is
   GtkWidget ref
@@ -14,7 +28,7 @@ class ref GtkAspectFrame is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L23)</span>
 
 
 ```pony
@@ -29,7 +43,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L26)</span>
 
 
 ```pony
@@ -48,7 +62,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L30)</span>
 
 
 ```pony
@@ -77,7 +91,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L20)</span>
 
 
 
@@ -86,7 +100,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L22)</span>
 
 
 ```pony

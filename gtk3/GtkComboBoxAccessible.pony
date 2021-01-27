@@ -4,6 +4,9 @@ provides: ["GtkComboBoxAccessible"]
 */
 use "../gobject"
 class GtkComboBoxAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

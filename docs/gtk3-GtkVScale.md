@@ -1,5 +1,15 @@
 # GtkVScale
 <span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L6)</span>
+
+The #GtkVScale widget is used to allow the user to select a value using
+a vertical slider. To create one, use gtk_hscale_new_with_range().
+
+The position to show the current value, and the number of decimal places
+shown can be set using the parent #GtkScale class’s functions.
+
+GtkVScale has been deprecated, use #GtkScale instead.
+
+
 ```pony
 class ref GtkVScale is
   GtkWidget ref
@@ -14,7 +24,7 @@ class ref GtkVScale is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L19)</span>
 
 
 ```pony
@@ -29,7 +39,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L22)</span>
 
 
 ```pony
@@ -48,7 +58,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L26)</span>
 
 
 ```pony
@@ -67,7 +77,7 @@ new ref create(
 ---
 
 ### new_with_range
-<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L29)</span>
 
 
 ```pony
@@ -92,7 +102,7 @@ new ref new_with_range(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L16)</span>
 
 
 
@@ -101,7 +111,7 @@ new ref new_with_range(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L18)</span>
 
 
 ```pony

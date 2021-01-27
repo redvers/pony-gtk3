@@ -1,5 +1,14 @@
 # GtkGestureDrag
 <span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L6)</span>
+
+#GtkGestureDrag is a #GtkGesture implementation that recognizes drag
+operations. The drag operation itself can be tracked throught the
+#GtkGestureDrag::drag-begin, #GtkGestureDrag::drag-update and
+#GtkGestureDrag::drag-end signals, or the relevant coordinates be
+extracted through gtk_gesture_drag_get_offset() and
+gtk_gesture_drag_get_start_point().
+
+
 ```pony
 class ref GtkGestureDrag is
   GtkWidget ref
@@ -14,7 +23,7 @@ class ref GtkGestureDrag is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L18)</span>
 
 
 ```pony
@@ -29,7 +38,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L21)</span>
 
 
 ```pony
@@ -48,7 +57,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L25)</span>
 
 
 ```pony
@@ -69,7 +78,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L15)</span>
 
 
 
@@ -78,7 +87,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L17)</span>
 
 
 ```pony

@@ -1,5 +1,18 @@
 # GtkGestureMultiPress
 <span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L6)</span>
+
+#GtkGestureMultiPress is a #GtkGesture implementation able to recognize
+multiple clicks on a nearby zone, which can be listened for through the
+#GtkGestureMultiPress::pressed signal. Whenever time or distance between
+clicks exceed the GTK+ defaults, #GtkGestureMultiPress::stopped is emitted,
+and the click counter is reset.
+
+Callers may also restrict the area that is considered valid for a >1
+touch/button press through gtk_gesture_multi_press_set_area(), so any
+click happening outside that area is considered to be a first click of
+its own.
+
+
 ```pony
 class ref GtkGestureMultiPress is
   GtkWidget ref
@@ -14,7 +27,7 @@ class ref GtkGestureMultiPress is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L22)</span>
 
 
 ```pony
@@ -29,7 +42,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L25)</span>
 
 
 ```pony
@@ -48,7 +61,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L29)</span>
 
 
 ```pony
@@ -69,7 +82,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L19)</span>
 
 
 
@@ -78,7 +91,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L21)</span>
 
 
 ```pony

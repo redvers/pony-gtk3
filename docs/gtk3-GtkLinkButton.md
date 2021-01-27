@@ -1,5 +1,28 @@
 # GtkLinkButton
 <span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L6)</span>
+
+A GtkLinkButton is a #GtkButton with a hyperlink, similar to the one
+used by web browsers, which triggers an action when clicked. It is useful
+to show quick links to resources.
+
+A link button is created by calling either gtk_link_button_new() or
+gtk_link_button_new_with_label(). If using the former, the URI you pass
+to the constructor is used as a label for the widget.
+
+The URI bound to a GtkLinkButton can be set specifically using
+gtk_link_button_set_uri(), and retrieved using gtk_link_button_get_uri().
+
+By default, GtkLinkButton calls gtk_show_uri_on_window() when the button is
+clicked. This behaviour can be overridden by connecting to the
+#GtkLinkButton::activate-link signal and returning %TRUE from the
+signal handler.
+
+# CSS nodes
+
+GtkLinkButton has a single CSS node with name button. To differentiate
+it from a plain #GtkButton, it gets the .link style class.
+
+
 ```pony
 class ref GtkLinkButton is
   GtkWidget ref
@@ -14,7 +37,7 @@ class ref GtkLinkButton is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L32)</span>
 
 
 ```pony
@@ -29,7 +52,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L35)</span>
 
 
 ```pony
@@ -48,7 +71,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L39)</span>
 
 
 ```pony
@@ -67,7 +90,7 @@ new ref create(
 ---
 
 ### new_with_label
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L42)</span>
 
 
 ```pony
@@ -90,7 +113,7 @@ new ref new_with_label(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L29)</span>
 
 
 
@@ -99,7 +122,7 @@ new ref new_with_label(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L31)</span>
 
 
 ```pony
@@ -114,7 +137,7 @@ fun box gtkwidget()
 ---
 
 ### get_uri
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L46)</span>
 
 
 Retrieves the URI set using gtk_link_button_set_uri().
@@ -132,7 +155,7 @@ fun box get_uri()
 ---
 
 ### get_visited
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L32)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L54)</span>
 
 
 Retrieves the “visited” state of the URI where the #GtkLinkButton
@@ -154,7 +177,7 @@ fun box get_visited()
 ---
 
 ### set_visited
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L46)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L68)</span>
 
 
 Sets the “visited” state of the URI where the #GtkLinkButton

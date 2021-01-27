@@ -5,6 +5,115 @@ provides: ["GtkSpinButton"]
 */
 use "../gobject"
 class GtkSpinButton is GtkWidget
+"""
+A #GtkSpinButton is an ideal way to allow the user to set the value of
+some attribute. Rather than having to directly type a number into a
+#GtkEntry, GtkSpinButton allows the user to click on one of two arrows
+to increment or decrement the displayed value. A value can still be
+typed in, with the bonus that it can be checked to ensure it is in a
+given range.
+
+The main properties of a GtkSpinButton are through an adjustment.
+See the #GtkAdjustment section for more details about an adjustment's
+properties. Note that GtkSpinButton will by default make its entry
+large enough to accomodate the lower and upper bounds of the adjustment,
+which can lead to surprising results. Best practice is to set both
+the #GtkEntry:width-chars and #GtkEntry:max-width-chars poperties
+to the desired number of characters to display in the entry.
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+spinbutton.horizontal
+├── undershoot.left
+├── undershoot.right
+├── entry
+│   ╰── ...
+├── button.down
+╰── button.up
+]|
+
+|[<!-- language="plain" -->
+spinbutton.vertical
+├── undershoot.left
+├── undershoot.right
+├── button.up
+├── entry
+│   ╰── ...
+╰── button.down
+]|
+
+GtkSpinButtons main CSS node has the name spinbutton. It creates subnodes
+for the entry and the two buttons, with these names. The button nodes have
+the style classes .up and .down. The GtkEntry subnodes (if present) are put
+below the entry node. The orientation of the spin button is reflected in
+the .vertical or .horizontal style class on the main node.
+
+## Using a GtkSpinButton to get an integer
+
+|[<!-- language="C" -->
+// Provides a function to retrieve an integer value from a GtkSpinButton
+// and creates a spin button to model percentage values.
+
+gint
+grab_int_value (GtkSpinButton *button,
+                gpointer       user_data)
+{
+  return gtk_spin_button_get_value_as_int (button);
+}
+
+void
+create_integer_spin_button (void)
+{
+
+  GtkWidget *window, *button;
+  GtkAdjustment *adjustment;
+
+  adjustment = gtk_adjustment_new (50.0, 0.0, 100.0, 1.0, 5.0, 0.0);
+
+  window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_container_set_border_width (GTK_CONTAINER (window), 5);
+
+  // creates the spinbutton, with no decimal places
+  button = gtk_spin_button_new (adjustment, 1.0, 0);
+  gtk_container_add (GTK_CONTAINER (window), button);
+
+  gtk_widget_show_all (window);
+}
+]|
+
+## Using a GtkSpinButton to get a floating point value
+
+|[<!-- language="C" -->
+// Provides a function to retrieve a floating point value from a
+// GtkSpinButton, and creates a high precision spin button.
+
+gfloat
+grab_float_value (GtkSpinButton *button,
+                  gpointer       user_data)
+{
+  return gtk_spin_button_get_value (button);
+}
+
+void
+create_floating_spin_button (void)
+{
+  GtkWidget *window, *button;
+  GtkAdjustment *adjustment;
+
+  adjustment = gtk_adjustment_new (2.500, 0.0, 5.0, 0.001, 0.1, 0.0);
+
+  window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_container_set_border_width (GTK_CONTAINER (window), 5);
+
+  // creates the spinbutton, with three decimal places
+  button = gtk_spin_button_new (adjustment, 0.001, 3);
+  gtk_container_add (GTK_CONTAINER (window), button);
+
+  gtk_widget_show_all (window);
+}
+]|
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

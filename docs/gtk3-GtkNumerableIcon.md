@@ -1,5 +1,19 @@
 # GtkNumerableIcon
 <span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L6)</span>
+
+GtkNumerableIcon is a subclass of #GEmblemedIcon that can
+show a number or short string as an emblem. The number can
+be overlayed on top of another emblem, if desired.
+
+It supports theming by taking font and color information
+from a provided #GtkStyleContext; see
+gtk_numerable_icon_set_style_context().
+
+Typical numerable icons:
+![](numerableicon.png)
+![](numerableicon2.png)
+
+
 ```pony
 class ref GtkNumerableIcon is
   GtkWidget ref
@@ -14,7 +28,7 @@ class ref GtkNumerableIcon is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L23)</span>
 
 
 ```pony
@@ -29,7 +43,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L26)</span>
 
 
 ```pony
@@ -50,7 +64,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L20)</span>
 
 
 
@@ -59,7 +73,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L22)</span>
 
 
 ```pony
@@ -74,7 +88,7 @@ fun box gtkwidget()
 ---
 
 ### get_background_icon_name
-<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L26)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L39)</span>
 
 
 Returns the icon name used as the base background image,
@@ -93,7 +107,7 @@ fun box get_background_icon_name()
 ---
 
 ### get_count
-<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L48)</span>
 
 
 Returns the value currently displayed by @self.
@@ -111,7 +125,7 @@ fun box get_count()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L41)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L54)</span>
 
 
 Returns the currently displayed label of the icon, or %NULL.
@@ -129,7 +143,7 @@ fun box get_label()
 ---
 
 ### set_count
-<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNumerableIcon.md#L77)</span>
 
 
 Sets the currently displayed value of @self to @count.

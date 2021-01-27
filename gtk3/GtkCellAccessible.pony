@@ -4,6 +4,9 @@ provides: ["GtkCellAccessible"]
 */
 use "../gobject"
 class GtkCellAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

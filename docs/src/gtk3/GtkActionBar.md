@@ -5,6 +5,20 @@ provides: ["GtkActionBar"]
 */
 use "../gobject"
 class GtkActionBar is GtkWidget
+"""
+GtkActionBar is designed to present contextual actions. It is
+expected to be displayed below the content and expand horizontally
+to fill the area.
+
+It allows placing children at the start or the end. In addition, it
+contains an internal centered box which is centered with respect to
+the full width of the box, even if the children at either side take
+up different amounts of space.
+
+# CSS nodes
+
+GtkActionBar has a single CSS node with name actionbar.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

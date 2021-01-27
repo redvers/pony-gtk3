@@ -5,6 +5,24 @@ provides: ["GtkStack"]
 */
 use "../gobject"
 class GtkStack is GtkWidget
+"""
+The GtkStack widget is a container which only shows
+one of its children at a time. In contrast to GtkNotebook,
+GtkStack does not provide a means for users to change the
+visible child. Instead, the #GtkStackSwitcher widget can be
+used with GtkStack to provide this functionality.
+
+Transitions between pages can be animated as slides or
+fades. This can be controlled with gtk_stack_set_transition_type().
+These animations respect the #GtkSettings:gtk-enable-animations
+setting.
+
+The GtkStack widget was added in GTK+ 3.10.
+
+# CSS nodes
+
+GtkStack has a single CSS node named stack.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -99,7 +117,7 @@ Returns the name of the currently visible child of @stack, or
 %NULL if there is no visible child.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_stack_get_visible_child_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun set_hhomogeneous(hhomogeneous_pony: Bool): None =>

@@ -4,6 +4,9 @@ provides: ["GtkSwitchAccessible"]
 */
 use "../gobject"
 class GtkSwitchAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

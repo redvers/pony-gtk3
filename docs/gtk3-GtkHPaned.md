@@ -1,5 +1,14 @@
 # GtkHPaned
 <span class="source-link">[[Source]](src/gtk3/GtkHPaned.md#L6)</span>
+
+The HPaned widget is a container widget with two
+children arranged horizontally. The division between
+the two panes is adjustable by the user by dragging
+a handle. See #GtkPaned for details.
+
+GtkHPaned has been deprecated, use #GtkPaned instead.
+
+
 ```pony
 class ref GtkHPaned is
   GtkWidget ref
@@ -14,7 +23,7 @@ class ref GtkHPaned is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkHPaned.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHPaned.md#L18)</span>
 
 
 ```pony
@@ -29,7 +38,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkHPaned.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHPaned.md#L21)</span>
 
 
 ```pony
@@ -48,7 +57,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkHPaned.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHPaned.md#L25)</span>
 
 
 ```pony
@@ -65,7 +74,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkHPaned.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHPaned.md#L15)</span>
 
 
 
@@ -74,7 +83,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkHPaned.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHPaned.md#L17)</span>
 
 
 ```pony

@@ -5,6 +5,14 @@ provides: ["GtkGestureDrag"]
 */
 use "../gobject"
 class GtkGestureDrag is GtkWidget
+"""
+#GtkGestureDrag is a #GtkGesture implementation that recognizes drag
+operations. The drag operation itself can be tracked throught the
+#GtkGestureDrag::drag-begin, #GtkGestureDrag::drag-update and
+#GtkGestureDrag::drag-end signals, or the relevant coordinates be
+extracted through gtk_gesture_drag_get_offset() and
+gtk_gesture_drag_get_start_point().
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -5,6 +5,9 @@ provides: ["GtkFrameAccessible"]
 */
 use "../gobject"
 class GtkFrameAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

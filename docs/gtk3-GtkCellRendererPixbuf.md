@@ -1,5 +1,20 @@
 # GtkCellRendererPixbuf
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L6)</span>
+
+A #GtkCellRendererPixbuf can be used to render an image in a cell. It allows
+to render either a given #GdkPixbuf (set via the
+#GtkCellRendererPixbuf:pixbuf property) or a named icon (set via the
+#GtkCellRendererPixbuf:icon-name property).
+
+To support the tree view, #GtkCellRendererPixbuf also supports rendering two
+alternative pixbufs, when the #GtkCellRenderer:is-expander property is %TRUE.
+If the #GtkCellRenderer:is-expanded property is %TRUE and the
+#GtkCellRendererPixbuf:pixbuf-expander-open property is set to a pixbuf, it
+renders that pixbuf, if the #GtkCellRenderer:is-expanded property is %FALSE
+and the #GtkCellRendererPixbuf:pixbuf-expander-closed property is set to a
+pixbuf, it renders that one.
+
+
 ```pony
 class ref GtkCellRendererPixbuf is
   GtkWidget ref
@@ -14,7 +29,7 @@ class ref GtkCellRendererPixbuf is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L24)</span>
 
 
 ```pony
@@ -29,7 +44,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L27)</span>
 
 
 ```pony
@@ -48,7 +63,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L31)</span>
 
 
 ```pony
@@ -65,7 +80,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L21)</span>
 
 
 
@@ -74,7 +89,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L23)</span>
 
 
 ```pony

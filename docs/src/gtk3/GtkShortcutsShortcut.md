@@ -5,6 +5,10 @@ provides: ["GtkShortcutsShortcut"]
 */
 use "../gobject"
 class GtkShortcutsShortcut is GtkWidget
+"""
+A GtkShortcutsShortcut represents a single keyboard shortcut or gesture
+with a short text. This widget is only meant to be used with #GtkShortcutsWindow.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

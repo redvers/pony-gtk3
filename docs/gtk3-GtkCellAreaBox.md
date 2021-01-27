@@ -1,5 +1,25 @@
 # GtkCellAreaBox
 <span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L6)</span>
+
+The #GtkCellAreaBox renders cell renderers into a row or a column
+depending on its #GtkOrientation.
+
+GtkCellAreaBox uses a notion of packing. Packing
+refers to adding cell renderers with reference to a particular position
+in a #GtkCellAreaBox. There are two reference positions: the
+start and the end of the box.
+When the #GtkCellAreaBox is oriented in the %GTK_ORIENTATION_VERTICAL
+orientation, the start is defined as the top of the box and the end is
+defined as the bottom. In the %GTK_ORIENTATION_HORIZONTAL orientation
+start is defined as the left side and the end is defined as the right
+side.
+
+Alignments of #GtkCellRenderers rendered in adjacent rows can be
+configured by configuring the #GtkCellAreaBox align child cell property
+with gtk_cell_area_cell_set_property() or by specifying the "align"
+argument to gtk_cell_area_box_pack_start() and gtk_cell_area_box_pack_end().
+
+
 ```pony
 class ref GtkCellAreaBox is
   GtkWidget ref
@@ -14,7 +34,7 @@ class ref GtkCellAreaBox is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L29)</span>
 
 
 ```pony
@@ -29,7 +49,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L32)</span>
 
 
 ```pony
@@ -48,7 +68,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L36)</span>
 
 
 ```pony
@@ -65,7 +85,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L26)</span>
 
 
 
@@ -74,7 +94,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L28)</span>
 
 
 ```pony
@@ -89,7 +109,7 @@ fun box gtkwidget()
 ---
 
 ### get_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L40)</span>
 
 
 Gets the spacing added between cell renderers.
@@ -107,7 +127,7 @@ fun box get_spacing()
 ---
 
 ### set_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L54)</span>
 
 
 Sets the spacing to add between cell renderers in @box.

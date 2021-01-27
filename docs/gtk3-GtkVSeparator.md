@@ -1,5 +1,13 @@
 # GtkVSeparator
 <span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L6)</span>
+
+The #GtkVSeparator widget is a vertical separator, used to group the
+widgets within a window. It displays a vertical line with a shadow to
+make it appear sunken into the interface.
+
+GtkVSeparator has been deprecated, use #GtkSeparator instead.
+
+
 ```pony
 class ref GtkVSeparator is
   GtkWidget ref
@@ -14,7 +22,7 @@ class ref GtkVSeparator is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L17)</span>
 
 
 ```pony
@@ -29,7 +37,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L20)</span>
 
 
 ```pony
@@ -48,7 +56,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L24)</span>
 
 
 ```pony
@@ -65,7 +73,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L14)</span>
 
 
 
@@ -74,7 +82,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L16)</span>
 
 
 ```pony

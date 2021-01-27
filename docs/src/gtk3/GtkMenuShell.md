@@ -5,6 +5,35 @@ provides: ["GtkMenuShell"]
 */
 use "../gobject"
 class GtkMenuShell is GtkWidget
+"""
+A #GtkMenuShell is the abstract base class used to derive the
+#GtkMenu and #GtkMenuBar subclasses.
+
+A #GtkMenuShell is a container of #GtkMenuItem objects arranged
+in a list which can be navigated, selected, and activated by the
+user to perform application functions. A #GtkMenuItem can have a
+submenu associated with it, allowing for nested hierarchical menus.
+
+# Terminology
+
+A menu item can be “selected”, this means that it is displayed
+in the prelight state, and if it has a submenu, that submenu
+will be popped up.
+
+A menu is “active” when it is visible onscreen and the user
+is selecting from it. A menubar is not active until the user
+clicks on one of its menuitems. When a menu is active,
+passing the mouse over a submenu will pop it up.
+
+There is also is a concept of the current menu and a current
+menu item. The current menu item is the selected menu item
+that is furthest down in the hierarchy. (Every active menu shell
+does not necessarily contain a selected menu item, but if
+it does, then the parent menu shell must also contain
+a selected menu item.) The current menu is the menu that
+contains the current menu item. It will always have a GTK
+grab and receive all key presses.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

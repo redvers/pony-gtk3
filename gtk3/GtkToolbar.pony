@@ -4,6 +4,31 @@ provides: ["GtkToolbar"]
 */
 use "../gobject"
 class GtkToolbar is GtkWidget
+"""
+A toolbar is created with a call to gtk_toolbar_new().
+
+A toolbar can contain instances of a subclass of #GtkToolItem. To add
+a #GtkToolItem to the a toolbar, use gtk_toolbar_insert(). To remove
+an item from the toolbar use gtk_container_remove(). To add a button
+to the toolbar, add an instance of #GtkToolButton.
+
+Toolbar items can be visually grouped by adding instances of
+#GtkSeparatorToolItem to the toolbar. If the GtkToolbar child property
+“expand” is #TRUE and the property #GtkSeparatorToolItem:draw is set to
+#FALSE, the effect is to force all following items to the end of the toolbar.
+
+By default, a toolbar can be shrunk, upon which it will add an arrow button
+to show an overflow menu offering access to any #GtkToolItem child that has
+a proxy menu item. To disable this and request enough size for all children,
+call gtk_toolbar_set_show_arrow() to set #GtkToolbar:show-arrow to %FALSE.
+
+Creating a context menu for the toolbar can be done by connecting to
+the #GtkToolbar::popup-context-menu signal.
+
+# CSS nodes
+
+GtkToolbar has a single CSS node with name toolbar.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

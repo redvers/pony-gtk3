@@ -1,5 +1,15 @@
 # GtkToolItemGroup
 <span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L6)</span>
+
+A #GtkToolItemGroup is used together with #GtkToolPalette to add
+#GtkToolItems to a palette like container with different
+categories and drag and drop support.
+
+# CSS nodes
+
+GtkToolItemGroup has a single CSS node named toolitemgroup.
+
+
 ```pony
 class ref GtkToolItemGroup is
   GtkWidget ref
@@ -14,7 +24,7 @@ class ref GtkToolItemGroup is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L19)</span>
 
 
 ```pony
@@ -29,7 +39,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L22)</span>
 
 
 ```pony
@@ -48,7 +58,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L26)</span>
 
 
 ```pony
@@ -69,7 +79,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L16)</span>
 
 
 
@@ -78,7 +88,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L18)</span>
 
 
 ```pony
@@ -93,7 +103,7 @@ fun box gtkwidget()
 ---
 
 ### get_collapsed
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L30)</span>
 
 
 Gets whether @group is collapsed or expanded.
@@ -111,7 +121,7 @@ fun box get_collapsed()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L52)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L61)</span>
 
 
 Gets the label of @group.
@@ -129,7 +139,7 @@ fun box get_label()
 ---
 
 ### get_n_items
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L67)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L76)</span>
 
 
 Gets the number of tool items in @group.
@@ -147,7 +157,7 @@ fun box get_n_items()
 ---
 
 ### set_collapsed
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L84)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L93)</span>
 
 
 Sets whether the @group should be collapsed or expanded.

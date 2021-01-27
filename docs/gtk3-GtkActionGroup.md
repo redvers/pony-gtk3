@@ -1,5 +1,57 @@
 # GtkActionGroup
 <span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L6)</span>
+
+Actions are organised into groups. An action group is essentially a
+map from names to #GtkAction objects.
+
+All actions that would make sense to use in a particular context
+should be in a single group. Multiple action groups may be used for a
+particular user interface. In fact, it is expected that most nontrivial
+applications will make use of multiple groups. For example, in an
+application that can edit multiple documents, one group holding global
+actions (e.g. quit, about, new), and one group per document holding
+actions that act on that document (eg. save, cut/copy/paste, etc). Each
+window’s menus would be constructed from a combination of two action
+groups.
+
+## Accelerators ## {#Action-Accel}
+
+Accelerators are handled by the GTK+ accelerator map. All actions are
+assigned an accelerator path (which normally has the form
+`<Actions>/group-name/action-name`) and a shortcut is associated with
+this accelerator path. All menuitems and toolitems take on this accelerator
+path. The GTK+ accelerator map code makes sure that the correct shortcut
+is displayed next to the menu item.
+
+# GtkActionGroup as GtkBuildable # {#GtkActionGroup-BUILDER-UI}
+
+The #GtkActionGroup implementation of the #GtkBuildable interface accepts
+#GtkAction objects as <child> elements in UI definitions.
+
+Note that it is probably more common to define actions and action groups
+in the code, since they are directly related to what the code can do.
+
+The GtkActionGroup implementation of the GtkBuildable interface supports
+a custom <accelerator> element, which has attributes named “key“ and
+“modifiers“ and allows to specify accelerators. This is similar to the
+<accelerator> element of #GtkWidget, the main difference is that
+it doesn’t allow you to specify a signal.
+
+## A #GtkDialog UI definition fragment. ##
+|[
+<object class="GtkActionGroup" id="actiongroup">
+  <child>
+      <object class="GtkAction" id="About">
+          <property name="name">About</property>
+          <property name="stock_id">gtk-about</property>
+          <signal handler="about_activate" name="activate"/>
+      </object>
+      <accelerator key="F1" modifiers="GDK_CONTROL_MASK | GDK_SHIFT_MASK"/>
+  </child>
+</object>
+]|
+
+
 ```pony
 class ref GtkActionGroup is
   GtkWidget ref
@@ -14,7 +66,7 @@ class ref GtkActionGroup is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L61)</span>
 
 
 ```pony
@@ -29,7 +81,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L64)</span>
 
 
 ```pony
@@ -48,7 +100,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L68)</span>
 
 
 ```pony
@@ -69,7 +121,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L58)</span>
 
 
 
@@ -78,7 +130,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L60)</span>
 
 
 ```pony
@@ -93,7 +145,7 @@ fun box gtkwidget()
 ---
 
 ### get_name
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L79)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L130)</span>
 
 
 Gets the name of the action group.
@@ -111,7 +163,7 @@ fun box get_name()
 ---
 
 ### get_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L87)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L138)</span>
 
 
 Returns %TRUE if the group is sensitive.  The constituent actions
@@ -132,7 +184,7 @@ fun box get_sensitive()
 ---
 
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L96)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L147)</span>
 
 
 Returns %TRUE if the group is visible.  The constituent actions
@@ -153,7 +205,7 @@ fun box get_visible()
 ---
 
 ### set_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L120)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L171)</span>
 
 
 Changes the sensitivity of @action_group
@@ -175,7 +227,7 @@ fun box set_sensitive(
 ---
 
 ### set_visible
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L136)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L187)</span>
 
 
 Changes the visible of @action_group.

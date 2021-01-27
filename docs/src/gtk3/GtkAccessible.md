@@ -5,6 +5,19 @@ provides: ["GtkAccessible"]
 */
 use "../gobject"
 class GtkAccessible is GtkWidget
+"""
+The #GtkAccessible class is the base class for accessible
+implementations for #GtkWidget subclasses. It is a thin
+wrapper around #AtkObject, which adds facilities for associating
+a widget with its accessible object.
+
+An accessible implementation for a third-party widget should
+derive from #GtkAccessible and implement the suitable interfaces
+from ATK, such as #AtkText or #AtkSelection. To establish
+the connection between the widget class and its corresponding
+acccessible implementation, override the get_accessible vfunc
+in #GtkWidgetClass.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

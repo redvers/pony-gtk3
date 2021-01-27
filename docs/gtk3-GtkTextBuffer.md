@@ -1,5 +1,12 @@
 # GtkTextBuffer
 <span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L6)</span>
+
+You may wish to begin by reading the
+[text widget conceptual overview][TextWidget]
+which gives an overview of all the objects and data
+types related to the text widget and how they work together.
+
+
 ```pony
 class ref GtkTextBuffer is
   GtkWidget ref
@@ -14,7 +21,7 @@ class ref GtkTextBuffer is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L16)</span>
 
 
 ```pony
@@ -29,7 +36,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L19)</span>
 
 
 ```pony
@@ -48,7 +55,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L23)</span>
 
 
 ```pony
@@ -69,7 +76,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L13)</span>
 
 
 
@@ -78,7 +85,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L15)</span>
 
 
 ```pony
@@ -93,7 +100,7 @@ fun box gtkwidget()
 ---
 
 ### begin_user_action
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L46)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L52)</span>
 
 
 Called to indicate that the buffer operations between here and a
@@ -127,7 +134,7 @@ fun box begin_user_action()
 ---
 
 ### delete_selection
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L115)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L121)</span>
 
 
 Deletes the range between the “insert” and “selection_bound” marks,
@@ -154,7 +161,7 @@ fun box delete_selection(
 ---
 
 ### end_user_action
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L140)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L146)</span>
 
 
 Should be paired with a call to gtk_text_buffer_begin_user_action().
@@ -173,7 +180,7 @@ fun box end_user_action()
 ---
 
 ### get_char_count
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L152)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L158)</span>
 
 
 Gets the number of characters in the buffer; note that characters
@@ -194,7 +201,7 @@ fun box get_char_count()
 ---
 
 ### get_has_selection
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L179)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L185)</span>
 
 
 Indicates whether the buffer has some text currently selected.
@@ -212,7 +219,7 @@ fun box get_has_selection()
 ---
 
 ### get_line_count
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L218)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L224)</span>
 
 
 Obtains the number of lines in the buffer. This value is cached, so
@@ -231,7 +238,7 @@ fun box get_line_count()
 ---
 
 ### get_modified
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L232)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L238)</span>
 
 
 Indicates whether the buffer has been modified since the last call
@@ -252,7 +259,7 @@ fun box get_modified()
 ---
 
 ### set_modified
-<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L431)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextBuffer.md#L437)</span>
 
 
 Used to keep track of whether the buffer has been modified since the

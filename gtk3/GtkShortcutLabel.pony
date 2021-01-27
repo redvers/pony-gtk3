@@ -4,6 +4,10 @@ provides: ["GtkShortcutLabel"]
 */
 use "../gobject"
 class GtkShortcutLabel is GtkWidget
+"""
+#GtkShortcutLabel is a widget that represents a single keyboard shortcut or gesture
+in the user interface.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

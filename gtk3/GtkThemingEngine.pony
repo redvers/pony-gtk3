@@ -4,6 +4,17 @@ provides: ["GtkThemingEngine"]
 */
 use "../gobject"
 class GtkThemingEngine is GtkWidget
+"""
+#GtkThemingEngine was the object used for rendering themed content
+in GTK+ widgets. It used to allow overriding GTK+'s default
+implementation of rendering functions by allowing engines to be
+loaded as modules.
+
+#GtkThemingEngine has been deprecated in GTK+ 3.14 and will be
+ignored for rendering. The advancements in CSS theming are good
+enough to allow themers to achieve their goals without the need
+to modify source code.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

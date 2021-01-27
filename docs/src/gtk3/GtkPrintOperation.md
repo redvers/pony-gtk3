@@ -5,6 +5,69 @@ provides: ["GtkPrintOperation"]
 */
 use "../gobject"
 class GtkPrintOperation is GtkWidget
+"""
+GtkPrintOperation is the high-level, portable printing API.
+It looks a bit different than other GTK+ dialogs such as the
+#GtkFileChooser, since some platforms don’t expose enough
+infrastructure to implement a good print dialog. On such
+platforms, GtkPrintOperation uses the native print dialog.
+On platforms which do not provide a native print dialog, GTK+
+uses its own, see #GtkPrintUnixDialog.
+
+The typical way to use the high-level printing API is to create
+a GtkPrintOperation object with gtk_print_operation_new() when
+the user selects to print. Then you set some properties on it,
+e.g. the page size, any #GtkPrintSettings from previous print
+operations, the number of pages, the current page, etc.
+
+Then you start the print operation by calling gtk_print_operation_run().
+It will then show a dialog, let the user select a printer and
+options. When the user finished the dialog various signals will
+be emitted on the #GtkPrintOperation, the main one being
+#GtkPrintOperation::draw-page, which you are supposed to catch
+and render the page on the provided #GtkPrintContext using Cairo.
+
+# The high-level printing API
+
+|[<!-- language="C" -->
+static GtkPrintSettings *settings = NULL;
+
+static void
+do_print (void)
+{
+  GtkPrintOperation *print;
+  GtkPrintOperationResult res;
+
+  print = gtk_print_operation_new ();
+
+  if (settings != NULL)
+    gtk_print_operation_set_print_settings (print, settings);
+
+  g_signal_connect (print, "begin_print", G_CALLBACK (begin_print), NULL);
+  g_signal_connect (print, "draw_page", G_CALLBACK (draw_page), NULL);
+
+  res = gtk_print_operation_run (print, GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG,
+                                 GTK_WINDOW (main_window), NULL);
+
+  if (res == GTK_PRINT_OPERATION_RESULT_APPLY)
+    {
+      if (settings != NULL)
+        g_object_unref (settings);
+      settings = g_object_ref (gtk_print_operation_get_print_settings (print));
+    }
+
+  g_object_unref (print);
+}
+]|
+
+By default GtkPrintOperation uses an external application to do
+print preview. To implement a custom print preview, an application
+must connect to the preview signal. The functions
+gtk_print_operation_preview_render_page(),
+gtk_print_operation_preview_end_preview() and
+gtk_print_operation_preview_is_selected()
+are useful when implementing a print preview.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -107,7 +170,7 @@ Use gtk_print_operation_get_status() to obtain a status
 value that is suitable for programmatic use.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_print_operation_get_status_string[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_support_selection(): Bool =>

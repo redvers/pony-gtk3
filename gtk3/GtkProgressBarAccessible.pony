@@ -4,6 +4,9 @@ provides: ["GtkProgressBarAccessible"]
 */
 use "../gobject"
 class GtkProgressBarAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

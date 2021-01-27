@@ -4,6 +4,25 @@ provides: ["GtkAlignment"]
 */
 use "../gobject"
 class GtkAlignment is GtkWidget
+"""
+The #GtkAlignment widget controls the alignment and size of its child widget.
+It has four settings: xscale, yscale, xalign, and yalign.
+
+The scale settings are used to specify how much the child widget should
+expand to fill the space allocated to the #GtkAlignment.
+The values can range from 0 (meaning the child doesn’t expand at all) to
+1 (meaning the child expands to fill all of the available space).
+
+The align settings are used to place the child widget within the available
+area. The values range from 0 (top or left) to 1 (bottom or right).
+Of course, if the scale settings are both set to 1, the alignment settings
+have no effect.
+
+GtkAlignment has been deprecated in 3.14 and should not be used in
+newly-written code. The desired effect can be achieved by using the
+#GtkWidget:halign, #GtkWidget:valign and #GtkWidget:margin properties on the
+child widget.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

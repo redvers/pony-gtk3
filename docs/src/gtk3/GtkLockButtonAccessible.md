@@ -5,6 +5,9 @@ provides: ["GtkLockButtonAccessible"]
 */
 use "../gobject"
 class GtkLockButtonAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

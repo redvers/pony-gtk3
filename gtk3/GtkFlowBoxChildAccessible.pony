@@ -4,6 +4,9 @@ provides: ["GtkFlowBoxChildAccessible"]
 */
 use "../gobject"
 class GtkFlowBoxChildAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

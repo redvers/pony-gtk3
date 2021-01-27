@@ -1,5 +1,54 @@
 # GtkMenuItem
 <span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L6)</span>
+
+The #GtkMenuItem widget and the derived widgets are the only valid
+children for menus. Their function is to correctly handle highlighting,
+alignment, events and submenus.
+
+As a GtkMenuItem derives from #GtkBin it can hold any valid child widget,
+although only a few are really useful.
+
+By default, a GtkMenuItem sets a #GtkAccelLabel as its child.
+GtkMenuItem has direct functions to set the label and its mnemonic.
+For more advanced label settings, you can fetch the child widget from the GtkBin.
+
+An example for setting markup and accelerator on a MenuItem:
+|[<!-- language="C" -->
+GtkWidget *menu_item = gtk_menu_item_new_with_label ("Example Menu Item");
+
+GtkWidget *child = gtk_bin_get_child (GTK_BIN (menu_item));
+gtk_label_set_markup (GTK_LABEL (child), "<i>new label</i> with <b>markup</b>");
+gtk_accel_label_set_accel (GTK_ACCEL_LABEL (child), GDK_KEY_1, 0);
+]|
+
+# GtkMenuItem as GtkBuildable
+
+The GtkMenuItem implementation of the #GtkBuildable interface supports
+adding a submenu by specifying “submenu” as the “type” attribute of
+a <child> element.
+
+An example of UI definition fragment with submenus:
+|[
+<object class="GtkMenuItem">
+  <child type="submenu">
+    <object class="GtkMenu"/>
+  </child>
+</object>
+]|
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+menuitem
+├── <child>
+╰── [arrow.right]
+]|
+
+GtkMenuItem has a single CSS node with name menuitem. If the menuitem
+has a submenu, it gets another CSS node with name arrow, which has
+the .left or .right style class.
+
+
 ```pony
 class ref GtkMenuItem is
   GtkWidget ref
@@ -14,7 +63,7 @@ class ref GtkMenuItem is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L58)</span>
 
 
 ```pony
@@ -29,7 +78,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L61)</span>
 
 
 ```pony
@@ -48,7 +97,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L65)</span>
 
 
 ```pony
@@ -63,7 +112,7 @@ new ref create()
 ---
 
 ### new_with_label
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L68)</span>
 
 
 ```pony
@@ -82,7 +131,7 @@ new ref new_with_label(
 ---
 
 ### new_with_mnemonic
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L23)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L71)</span>
 
 
 ```pony
@@ -103,7 +152,7 @@ new ref new_with_mnemonic(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L55)</span>
 
 
 
@@ -112,7 +161,7 @@ new ref new_with_mnemonic(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L57)</span>
 
 
 ```pony
@@ -127,7 +176,7 @@ fun box gtkwidget()
 ---
 
 ### activate
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L75)</span>
 
 
 Emits the #GtkMenuItem::activate signal on the given item
@@ -145,7 +194,7 @@ fun box activate()
 ---
 
 ### deselect
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L81)</span>
 
 
 Emits the #GtkMenuItem::deselect signal on the given item.
@@ -163,7 +212,7 @@ fun box deselect()
 ---
 
 ### get_accel_path
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L87)</span>
 
 
 Retrieve the accelerator path that was previously set on @menu_item.
@@ -183,7 +232,7 @@ fun box get_accel_path()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L49)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L97)</span>
 
 
 Sets @text on the @menu_item label
@@ -201,7 +250,7 @@ fun box get_label()
 ---
 
 ### get_reserve_indicator
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L57)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L105)</span>
 
 
 Returns whether the @menu_item reserves space for
@@ -221,7 +270,7 @@ fun box get_reserve_indicator()
 ---
 
 ### get_right_justified
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L65)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L113)</span>
 
 
 Gets whether the menu item appears justified at the right
@@ -240,7 +289,7 @@ fun box get_right_justified()
 ---
 
 ### get_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L79)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L127)</span>
 
 
 Checks if an underline in the text indicates the next character
@@ -259,7 +308,7 @@ fun box get_use_underline()
 ---
 
 ### select
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L86)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L134)</span>
 
 
 Emits the #GtkMenuItem::select signal on the given item.
@@ -277,7 +326,7 @@ fun box select()
 ---
 
 ### set_reserve_indicator
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L100)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L148)</span>
 
 
 Sets whether the @menu_item should reserve space for
@@ -304,7 +353,7 @@ fun box set_reserve_indicator(
 ---
 
 ### set_right_justified
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L111)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L159)</span>
 
 
 Sets whether the menu item appears justified at the right
@@ -330,7 +379,7 @@ fun box set_right_justified(
 ---
 
 ### set_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L125)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L173)</span>
 
 
 If true, an underline in the text indicates the next character
@@ -353,7 +402,7 @@ fun box set_use_underline(
 ---
 
 ### toggle_size_allocate
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L132)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L180)</span>
 
 
 Emits the #GtkMenuItem::toggle-size-allocate signal on the given item.

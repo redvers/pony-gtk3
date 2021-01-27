@@ -1,5 +1,19 @@
 # GtkEntryBuffer
 <span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L6)</span>
+
+The #GtkEntryBuffer class contains the actual text displayed in a
+#GtkEntry widget.
+
+A single #GtkEntryBuffer object can be shared by multiple #GtkEntry
+widgets which will then share the same text content, but not the cursor
+position, visibility attributes, icon etc.
+
+#GtkEntryBuffer may be derived from. Such a derived class might allow
+text to be stored in an alternate location, such as non-pageable memory,
+useful in the case of important passwords. Or a derived class could
+integrate with an application’s concept of undo/redo.
+
+
 ```pony
 class ref GtkEntryBuffer is
   GtkWidget ref
@@ -14,7 +28,7 @@ class ref GtkEntryBuffer is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L23)</span>
 
 
 ```pony
@@ -29,7 +43,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L26)</span>
 
 
 ```pony
@@ -48,7 +62,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L30)</span>
 
 
 ```pony
@@ -71,7 +85,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L20)</span>
 
 
 
@@ -80,7 +94,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L22)</span>
 
 
 ```pony
@@ -95,7 +109,7 @@ fun box gtkwidget()
 ---
 
 ### delete_text
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L34)</span>
 
 
 Deletes a sequence of characters from the buffer. @n_chars characters are
@@ -126,7 +140,7 @@ fun box delete_text(
 ---
 
 ### emit_deleted_text
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L47)</span>
 
 
 Used when subclassing #GtkEntryBuffer
@@ -150,7 +164,7 @@ fun box emit_deleted_text(
 ---
 
 ### get_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L51)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L64)</span>
 
 
 Retrieves the length in characters of the buffer.
@@ -168,7 +182,7 @@ fun box get_length()
 ---
 
 ### get_max_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L57)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L70)</span>
 
 
 Retrieves the maximum allowed length of the text in
@@ -187,7 +201,7 @@ fun box get_max_length()
 ---
 
 ### get_text
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L77)</span>
 
 
 Retrieves the contents of the buffer.
@@ -208,7 +222,7 @@ fun box get_text()
 ---
 
 ### set_max_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L79)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L92)</span>
 
 
 Sets the maximum allowed length of the contents of the buffer. If

@@ -1,5 +1,13 @@
 # GtkCellRendererAccel
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L6)</span>
+
+#GtkCellRendererAccel displays a keyboard accelerator (i.e. a key
+combination like `Control + a`). If the cell renderer is editable,
+the accelerator can be changed by simply typing the new combination.
+
+The #GtkCellRendererAccel cell renderer was added in GTK+ 2.10.
+
+
 ```pony
 class ref GtkCellRendererAccel is
   GtkWidget ref
@@ -14,7 +22,7 @@ class ref GtkCellRendererAccel is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L17)</span>
 
 
 ```pony
@@ -29,7 +37,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L20)</span>
 
 
 ```pony
@@ -48,7 +56,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L24)</span>
 
 
 ```pony
@@ -65,7 +73,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L14)</span>
 
 
 
@@ -74,7 +82,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L16)</span>
 
 
 ```pony

@@ -4,6 +4,15 @@ provides: ["GtkToolItemGroup"]
 */
 use "../gobject"
 class GtkToolItemGroup is GtkWidget
+"""
+A #GtkToolItemGroup is used together with #GtkToolPalette to add
+#GtkToolItems to a palette like container with different
+categories and drag and drop support.
+
+# CSS nodes
+
+GtkToolItemGroup has a single CSS node named toolitemgroup.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -1,5 +1,12 @@
 # GtkCellRendererToggle
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L6)</span>
+
+#GtkCellRendererToggle renders a toggle button in a cell. The
+button is drawn as a radio or a checkbutton, depending on the
+#GtkCellRendererToggle:radio property.
+When activated, it emits the #GtkCellRendererToggle::toggled signal.
+
+
 ```pony
 class ref GtkCellRendererToggle is
   GtkWidget ref
@@ -14,7 +21,7 @@ class ref GtkCellRendererToggle is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L16)</span>
 
 
 ```pony
@@ -29,7 +36,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L19)</span>
 
 
 ```pony
@@ -48,7 +55,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L23)</span>
 
 
 ```pony
@@ -65,7 +72,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L13)</span>
 
 
 
@@ -74,7 +81,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L15)</span>
 
 
 ```pony
@@ -89,7 +96,7 @@ fun box gtkwidget()
 ---
 
 ### get_activatable
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L27)</span>
 
 
 Returns whether the cell renderer is activatable. See
@@ -108,7 +115,7 @@ fun box get_activatable()
 ---
 
 ### get_active
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L28)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L34)</span>
 
 
 Returns whether the cell renderer is active. See
@@ -127,7 +134,7 @@ fun box get_active()
 ---
 
 ### get_radio
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L41)</span>
 
 
 Returns whether we’re rendering radio toggles rather than checkboxes.
@@ -145,7 +152,7 @@ fun box get_radio()
 ---
 
 ### set_activatable
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L41)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L47)</span>
 
 
 Makes the cell renderer activatable.
@@ -167,7 +174,7 @@ fun box set_activatable(
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L47)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L53)</span>
 
 
 Activates or deactivates a cell renderer.
@@ -189,7 +196,7 @@ fun box set_active(
 ---
 
 ### set_radio
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L53)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L59)</span>
 
 
 If @radio is %TRUE, the cell renderer renders a radio toggle

@@ -1,5 +1,24 @@
 # GtkStack
 <span class="source-link">[[Source]](src/gtk3/GtkStack.md#L6)</span>
+
+The GtkStack widget is a container which only shows
+one of its children at a time. In contrast to GtkNotebook,
+GtkStack does not provide a means for users to change the
+visible child. Instead, the #GtkStackSwitcher widget can be
+used with GtkStack to provide this functionality.
+
+Transitions between pages can be animated as slides or
+fades. This can be controlled with gtk_stack_set_transition_type().
+These animations respect the #GtkSettings:gtk-enable-animations
+setting.
+
+The GtkStack widget was added in GTK+ 3.10.
+
+# CSS nodes
+
+GtkStack has a single CSS node named stack.
+
+
 ```pony
 class ref GtkStack is
   GtkWidget ref
@@ -14,7 +33,7 @@ class ref GtkStack is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L28)</span>
 
 
 ```pony
@@ -29,7 +48,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L31)</span>
 
 
 ```pony
@@ -48,7 +67,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L35)</span>
 
 
 ```pony
@@ -65,7 +84,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L25)</span>
 
 
 
@@ -74,7 +93,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L27)</span>
 
 
 ```pony
@@ -89,7 +108,7 @@ fun box gtkwidget()
 ---
 
 ### get_hhomogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L57)</span>
 
 
 Gets whether @stack is horizontally homogeneous.
@@ -108,7 +127,7 @@ fun box get_hhomogeneous()
 ---
 
 ### get_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L46)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L64)</span>
 
 
 Gets whether @stack is homogeneous.
@@ -127,7 +146,7 @@ fun box get_homogeneous()
 ---
 
 ### get_interpolate_size
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L53)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L71)</span>
 
 
 Returns wether the #GtkStack is set up to interpolate between
@@ -146,7 +165,7 @@ fun box get_interpolate_size()
 ---
 
 ### get_transition_duration
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L60)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L78)</span>
 
 
 Returns the amount of time (in milliseconds) that
@@ -165,7 +184,7 @@ fun box get_transition_duration()
 ---
 
 ### get_transition_running
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L67)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L85)</span>
 
 
 Returns whether the @stack is currently in a transition from one page to
@@ -184,7 +203,7 @@ fun box get_transition_running()
 ---
 
 ### get_vhomogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L81)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L99)</span>
 
 
 Gets whether @stack is vertically homogeneous.
@@ -203,7 +222,7 @@ fun box get_vhomogeneous()
 ---
 
 ### get_visible_child_name
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L95)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L113)</span>
 
 
 Returns the name of the currently visible child of @stack, or
@@ -222,7 +241,7 @@ fun box get_visible_child_name()
 ---
 
 ### set_hhomogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L104)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L122)</span>
 
 
 Sets the #GtkStack to be horizontally homogeneous or not.
@@ -247,7 +266,7 @@ fun box set_hhomogeneous(
 ---
 
 ### set_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L113)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L131)</span>
 
 
 Sets the #GtkStack to be homogeneous or not. If it
@@ -276,7 +295,7 @@ fun box set_homogeneous(
 ---
 
 ### set_interpolate_size
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L126)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L144)</span>
 
 
 Sets whether or not @stack will interpolate its size when
@@ -302,7 +321,7 @@ fun box set_interpolate_size(
 ---
 
 ### set_transition_duration
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L136)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L154)</span>
 
 
 Sets the duration that transitions between pages in @stack
@@ -325,7 +344,7 @@ fun box set_transition_duration(
 ---
 
 ### set_vhomogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L147)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L165)</span>
 
 
 Sets the #GtkStack to be vertically homogeneous or not.

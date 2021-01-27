@@ -1,5 +1,26 @@
 # GtkHBox
 <span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L6)</span>
+
+#GtkHBox is a container that organizes child widgets into a single row.
+
+Use the #GtkBox packing interface to determine the arrangement,
+spacing, width, and alignment of #GtkHBox children.
+
+All children are allocated the same height.
+
+GtkHBox has been deprecated. You can use #GtkBox instead, which is a
+very quick and easy change. If you have derived your own classes from
+GtkHBox, you can simply change the inheritance to derive directly
+from #GtkBox. No further changes are needed, since the default
+value of the #GtkOrientable:orientation property is
+%GTK_ORIENTATION_HORIZONTAL.
+
+If you have a grid-like layout composed of nested boxes, and you don’t
+need first-child or last-child styling, the recommendation is to switch
+to #GtkGrid. For more information about migrating to #GtkGrid, see
+[Migrating from other containers to GtkGrid][gtk-migrating-GtkGrid].
+
+
 ```pony
 class ref GtkHBox is
   GtkWidget ref
@@ -14,7 +35,7 @@ class ref GtkHBox is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L30)</span>
 
 
 ```pony
@@ -29,7 +50,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L33)</span>
 
 
 ```pony
@@ -48,7 +69,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L37)</span>
 
 
 ```pony
@@ -71,7 +92,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L27)</span>
 
 
 
@@ -80,7 +101,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L29)</span>
 
 
 ```pony

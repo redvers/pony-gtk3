@@ -1,5 +1,18 @@
 # GtkHSeparator
 <span class="source-link">[[Source]](src/gtk3/GtkHSeparator.md#L6)</span>
+
+The #GtkHSeparator widget is a horizontal separator, used to group the
+widgets within a window. It displays a horizontal line with a shadow to
+make it appear sunken into the interface.
+
+> The #GtkHSeparator widget is not used as a separator within menus.
+> To create a separator in a menu create an empty #GtkSeparatorMenuItem
+> widget using gtk_separator_menu_item_new() and add it to the menu with
+> gtk_menu_shell_append().
+
+GtkHSeparator has been deprecated, use #GtkSeparator instead.
+
+
 ```pony
 class ref GtkHSeparator is
   GtkWidget ref
@@ -14,7 +27,7 @@ class ref GtkHSeparator is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkHSeparator.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSeparator.md#L22)</span>
 
 
 ```pony
@@ -29,7 +42,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkHSeparator.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSeparator.md#L25)</span>
 
 
 ```pony
@@ -48,7 +61,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkHSeparator.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSeparator.md#L29)</span>
 
 
 ```pony
@@ -65,7 +78,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkHSeparator.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSeparator.md#L19)</span>
 
 
 
@@ -74,7 +87,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkHSeparator.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSeparator.md#L21)</span>
 
 
 ```pony

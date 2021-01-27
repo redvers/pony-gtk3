@@ -5,6 +5,9 @@ provides: ["GtkMountOperation"]
 */
 use "../gobject"
 class GtkMountOperation is GtkWidget
+"""
+This should not be accessed directly. Use the accessor functions below.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

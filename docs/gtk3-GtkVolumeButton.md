@@ -1,5 +1,11 @@
 # GtkVolumeButton
 <span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L6)</span>
+
+#GtkVolumeButton is a subclass of #GtkScaleButton that has
+been tailored for use as a volume control widget with suitable
+icons, tooltips and accessible labels.
+
+
 ```pony
 class ref GtkVolumeButton is
   GtkWidget ref
@@ -14,7 +20,7 @@ class ref GtkVolumeButton is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L15)</span>
 
 
 ```pony
@@ -29,7 +35,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L18)</span>
 
 
 ```pony
@@ -48,7 +54,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L22)</span>
 
 
 ```pony
@@ -65,7 +71,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L12)</span>
 
 
 
@@ -74,7 +80,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L14)</span>
 
 
 ```pony

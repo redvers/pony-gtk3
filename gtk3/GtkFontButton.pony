@@ -4,6 +4,15 @@ provides: ["GtkFontButton"]
 */
 use "../gobject"
 class GtkFontButton is GtkWidget
+"""
+The #GtkFontButton is a button which displays the currently selected
+font an allows to open a font chooser dialog to change the font.
+It is suitable widget for selecting a font in a preference dialog.
+
+# CSS nodes
+
+GtkFontButton has a single CSS node with name button and style class .font.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

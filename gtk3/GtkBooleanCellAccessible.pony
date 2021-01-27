@@ -4,6 +4,9 @@ provides: ["GtkBooleanCellAccessible"]
 */
 use "../gobject"
 class GtkBooleanCellAccessible is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

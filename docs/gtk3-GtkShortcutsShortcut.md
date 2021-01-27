@@ -1,5 +1,10 @@
 # GtkShortcutsShortcut
 <span class="source-link">[[Source]](src/gtk3/GtkShortcutsShortcut.md#L6)</span>
+
+A GtkShortcutsShortcut represents a single keyboard shortcut or gesture
+with a short text. This widget is only meant to be used with #GtkShortcutsWindow.
+
+
 ```pony
 class ref GtkShortcutsShortcut is
   GtkWidget ref
@@ -14,7 +19,7 @@ class ref GtkShortcutsShortcut is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsShortcut.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsShortcut.md#L14)</span>
 
 
 ```pony
@@ -29,7 +34,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsShortcut.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsShortcut.md#L17)</span>
 
 
 ```pony
@@ -50,7 +55,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsShortcut.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsShortcut.md#L11)</span>
 
 
 
@@ -59,7 +64,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsShortcut.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsShortcut.md#L13)</span>
 
 
 ```pony

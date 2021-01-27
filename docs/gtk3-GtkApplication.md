@@ -1,5 +1,84 @@
 # GtkApplication
 <span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L6)</span>
+
+#GtkApplication is a class that handles many important aspects
+of a GTK+ application in a convenient fashion, without enforcing
+a one-size-fits-all application model.
+
+Currently, GtkApplication handles GTK+ initialization, application
+uniqueness, session management, provides some basic scriptability and
+desktop shell integration by exporting actions and menus and manages a
+list of toplevel windows whose life-cycle is automatically tied to the
+life-cycle of your application.
+
+While GtkApplication works fine with plain #GtkWindows, it is recommended
+to use it together with #GtkApplicationWindow.
+
+When GDK threads are enabled, GtkApplication will acquire the GDK
+lock when invoking actions that arrive from other processes.  The GDK
+lock is not touched for local action invocations.  In order to have
+actions invoked in a predictable context it is therefore recommended
+that the GDK lock be held while invoking actions locally with
+g_action_group_activate_action().  The same applies to actions
+associated with #GtkApplicationWindow and to the “activate” and
+“open” #GApplication methods.
+
+## Automatic resources ## {#automatic-resources}
+
+#GtkApplication will automatically load menus from the #GtkBuilder
+resource located at "gtk/menus.ui", relative to the application's
+resource base path (see g_application_set_resource_base_path()).  The
+menu with the ID "app-menu" is taken as the application's app menu
+and the menu with the ID "menubar" is taken as the application's
+menubar.  Additional menus (most interesting submenus) can be named
+and accessed via gtk_application_get_menu_by_id() which allows for
+dynamic population of a part of the menu structure.
+
+If the resources "gtk/menus-appmenu.ui" or "gtk/menus-traditional.ui" are
+present then these files will be used in preference, depending on the value
+of gtk_application_prefers_app_menu(). If the resource "gtk/menus-common.ui"
+is present it will be loaded as well. This is useful for storing items that
+are referenced from both "gtk/menus-appmenu.ui" and
+"gtk/menus-traditional.ui".
+
+It is also possible to provide the menus manually using
+gtk_application_set_app_menu() and gtk_application_set_menubar().
+
+#GtkApplication will also automatically setup an icon search path for
+the default icon theme by appending "icons" to the resource base
+path.  This allows your application to easily store its icons as
+resources.  See gtk_icon_theme_add_resource_path() for more
+information.
+
+If there is a resource located at "gtk/help-overlay.ui" which
+defines a #GtkShortcutsWindow with ID "help_overlay" then GtkApplication
+associates an instance of this shortcuts window with each
+#GtkApplicationWindow and sets up keyboard accelerators (Control-F1
+and Control-?) to open it. To create a menu item that displays the
+shortcuts window, associate the item with the action win.show-help-overlay.
+
+## A simple application ## {#gtkapplication}
+
+[A simple example](https://git.gnome.org/browse/gtk+/tree/examples/bp/bloatpad.c)
+
+GtkApplication optionally registers with a session manager
+of the users session (if you set the #GtkApplication:register-session
+property) and offers various functionality related to the session
+life-cycle.
+
+An application can block various ways to end the session with
+the gtk_application_inhibit() function. Typical use cases for
+this kind of inhibiting are long-running, uninterruptible operations,
+such as burning a CD or performing a disk backup. The session
+manager may not honor the inhibitor, but it can be expected to
+inform the user about the negative consequences of ending the
+session while inhibitors are present.
+
+## See Also ## {#seealso}
+[HowDoI: Using GtkApplication](https://wiki.gnome.org/HowDoI/GtkApplication),
+[Getting Started with GTK+: Basics](https://developer.gnome.org/gtk3/stable/gtk-getting-started.html#id-1.2.3.3)
+
+
 ```pony
 class ref GtkApplication is
   GtkWidget ref
@@ -14,7 +93,7 @@ class ref GtkApplication is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L88)</span>
 
 
 ```pony
@@ -29,7 +108,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L91)</span>
 
 
 ```pony
@@ -48,7 +127,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L95)</span>
 
 
 ```pony
@@ -71,7 +150,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L85)</span>
 
 
 
@@ -80,7 +159,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L87)</span>
 
 
 ```pony
@@ -95,7 +174,7 @@ fun box gtkwidget()
 ---
 
 ### prefers_app_menu
-<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L104)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L182)</span>
 
 
 Determines if the desktop environment in which the application is
@@ -146,7 +225,7 @@ fun box prefers_app_menu()
 ---
 
 ### uninhibit
-<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L165)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkApplication.md#L243)</span>
 
 
 Removes an inhibitor that has been established with gtk_application_inhibit().

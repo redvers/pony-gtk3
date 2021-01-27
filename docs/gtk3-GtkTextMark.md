@@ -1,5 +1,37 @@
 # GtkTextMark
 <span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L6)</span>
+
+You may wish to begin by reading the
+[text widget conceptual overview][TextWidget]
+which gives an overview of all the objects and data
+types related to the text widget and how they work together.
+
+A #GtkTextMark is like a bookmark in a text buffer; it preserves a position in
+the text. You can convert the mark to an iterator using
+gtk_text_buffer_get_iter_at_mark(). Unlike iterators, marks remain valid across
+buffer mutations, because their behavior is defined when text is inserted or
+deleted. When text containing a mark is deleted, the mark remains in the
+position originally occupied by the deleted text. When text is inserted at a
+mark, a mark with “left gravity” will be moved to the
+beginning of the newly-inserted text, and a mark with “right
+gravity” will be moved to the end.
+
+Note that “left” and “right” here refer to logical direction (left
+is the toward the start of the buffer); in some languages such as
+Hebrew the logically-leftmost text is not actually on the left when
+displayed.
+
+Marks are reference counted, but the reference count only controls the validity
+of the memory; marks can be deleted from the buffer at any time with
+gtk_text_buffer_delete_mark(). Once deleted from the buffer, a mark is
+essentially useless.
+
+Marks optionally have names; these can be convenient to avoid passing the
+#GtkTextMark object around.
+
+Marks are typically created using the gtk_text_buffer_create_mark() function.
+
+
 ```pony
 class ref GtkTextMark is
   GtkWidget ref
@@ -14,7 +46,7 @@ class ref GtkTextMark is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L41)</span>
 
 
 ```pony
@@ -29,7 +61,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L44)</span>
 
 
 ```pony
@@ -48,7 +80,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L48)</span>
 
 
 ```pony
@@ -71,7 +103,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L38)</span>
 
 
 
@@ -80,7 +112,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L40)</span>
 
 
 ```pony
@@ -95,7 +127,7 @@ fun box gtkwidget()
 ---
 
 ### get_deleted
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L28)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L59)</span>
 
 
 Returns %TRUE if the mark has been removed from its buffer
@@ -115,7 +147,7 @@ fun box get_deleted()
 ---
 
 ### get_left_gravity
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L67)</span>
 
 
 Determines whether the mark has left gravity.
@@ -133,7 +165,7 @@ fun box get_left_gravity()
 ---
 
 ### get_name
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L73)</span>
 
 
 Returns the mark name; returns NULL for anonymous marks.
@@ -151,7 +183,7 @@ fun box get_name()
 ---
 
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L50)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L81)</span>
 
 
 Returns %TRUE if the mark is visible (i.e. a cursor is displayed
@@ -170,7 +202,7 @@ fun box get_visible()
 ---
 
 ### set_visible
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L57)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L88)</span>
 
 
 Sets the visibility of @mark; the insertion point is normally

@@ -5,6 +5,11 @@ provides: ["GtkEventController"]
 */
 use "../gobject"
 class GtkEventController is GtkWidget
+"""
+#GtkEventController is a base, low-level implementation for event
+controllers. Those react to a series of #GdkEvents, and possibly trigger
+actions as a consequence of those.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

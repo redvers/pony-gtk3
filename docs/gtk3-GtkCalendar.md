@@ -1,5 +1,29 @@
 # GtkCalendar
 <span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L6)</span>
+
+#GtkCalendar is a widget that displays a Gregorian calendar, one month
+at a time. It can be created with gtk_calendar_new().
+
+The month and year currently displayed can be altered with
+gtk_calendar_select_month(). The exact day can be selected from the
+displayed month using gtk_calendar_select_day().
+
+To place a visual marker on a particular day, use gtk_calendar_mark_day()
+and to remove the marker, gtk_calendar_unmark_day(). Alternative, all
+marks can be cleared with gtk_calendar_clear_marks().
+
+The way in which the calendar itself is displayed can be altered using
+gtk_calendar_set_display_options().
+
+The selected date can be retrieved from a #GtkCalendar using
+gtk_calendar_get_date().
+
+Users should be aware that, although the Gregorian calendar is the
+legal calendar in most countries, it was adopted progressively
+between 1582 and 1929. Display before these dates is likely to be
+historically incorrect.
+
+
 ```pony
 class ref GtkCalendar is
   GtkWidget ref
@@ -14,7 +38,7 @@ class ref GtkCalendar is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L33)</span>
 
 
 ```pony
@@ -29,7 +53,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L36)</span>
 
 
 ```pony
@@ -48,7 +72,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L40)</span>
 
 
 ```pony
@@ -65,7 +89,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L30)</span>
 
 
 
@@ -74,7 +98,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L32)</span>
 
 
 ```pony
@@ -89,7 +113,7 @@ fun box gtkwidget()
 ---
 
 ### clear_marks
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L44)</span>
 
 
 Remove all visual markers.
@@ -107,7 +131,7 @@ fun box clear_marks()
 ---
 
 ### get_day_is_marked
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L56)</span>
 
 
 Returns if the @day of the @calendar is already marked.
@@ -129,7 +153,7 @@ fun box get_day_is_marked(
 ---
 
 ### get_detail_height_rows
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L62)</span>
 
 
 Queries the height of detail cells, in rows.
@@ -148,7 +172,7 @@ fun box get_detail_height_rows()
 ---
 
 ### get_detail_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L46)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L69)</span>
 
 
 Queries the width of detail cells, in characters.
@@ -167,7 +191,7 @@ fun box get_detail_width_chars()
 ---
 
 ### mark_day
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L60)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L83)</span>
 
 
 Places a visual marker on a particular day.
@@ -189,7 +213,7 @@ fun box mark_day(
 ---
 
 ### select_day
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L66)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L89)</span>
 
 
 Selects a day from the current month.
@@ -211,7 +235,7 @@ fun box select_day(
 ---
 
 ### select_month
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L72)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L95)</span>
 
 
 Shifts the calendar to a different month.
@@ -235,7 +259,7 @@ fun box select_month(
 ---
 
 ### set_detail_height_rows
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L84)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L107)</span>
 
 
 Updates the height of detail cells.
@@ -258,7 +282,7 @@ fun box set_detail_height_rows(
 ---
 
 ### set_detail_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L91)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L114)</span>
 
 
 Updates the width of detail cells.
@@ -281,7 +305,7 @@ fun box set_detail_width_chars(
 ---
 
 ### unmark_day
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L102)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L125)</span>
 
 
 Removes the visual marker from a particular day.

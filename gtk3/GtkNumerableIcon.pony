@@ -4,6 +4,19 @@ provides: ["GtkNumerableIcon"]
 */
 use "../gobject"
 class GtkNumerableIcon is GtkWidget
+"""
+GtkNumerableIcon is a subclass of #GEmblemedIcon that can
+show a number or short string as an emblem. The number can
+be overlayed on top of another emblem, if desired.
+
+It supports theming by taking font and color information
+from a provided #GtkStyleContext; see
+gtk_numerable_icon_set_style_context().
+
+Typical numerable icons:
+![](numerableicon.png)
+![](numerableicon2.png)
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -4,6 +4,26 @@ provides: ["GtkCheckMenuItem"]
 */
 use "../gobject"
 class GtkCheckMenuItem is GtkWidget
+"""
+A #GtkCheckMenuItem is a menu item that maintains the state of a boolean
+value in addition to a #GtkMenuItem usual role in activating application
+code.
+
+A check box indicating the state of the boolean value is displayed
+at the left side of the #GtkMenuItem.  Activating the #GtkMenuItem
+toggles the value.
+
+# CSS nodes
+
+|[<!-- language="plain" -->
+menuitem
+├── check.left
+╰── <child>
+]|
+
+GtkCheckMenuItem has a main CSS node with name menuitem, and a subnode
+with name check, which gets the .left or .right style class.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

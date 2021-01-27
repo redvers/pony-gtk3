@@ -1,5 +1,11 @@
 # GtkEventController
 <span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L6)</span>
+
+#GtkEventController is a base, low-level implementation for event
+controllers. Those react to a series of #GdkEvents, and possibly trigger
+actions as a consequence of those.
+
+
 ```pony
 class ref GtkEventController is
   GtkWidget ref
@@ -14,7 +20,7 @@ class ref GtkEventController is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L15)</span>
 
 
 ```pony
@@ -29,7 +35,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L18)</span>
 
 
 ```pony
@@ -50,7 +56,7 @@ new ref create_from_GObjectREF(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L12)</span>
 
 
 
@@ -59,7 +65,7 @@ new ref create_from_GObjectREF(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L14)</span>
 
 
 ```pony
@@ -74,7 +80,7 @@ fun box gtkwidget()
 ---
 
 ### reset
-<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L37)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L42)</span>
 
 
 Resets the @controller to a clean state. Every interaction

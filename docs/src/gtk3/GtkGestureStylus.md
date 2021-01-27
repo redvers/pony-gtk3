@@ -5,6 +5,10 @@ provides: ["GtkGestureStylus"]
 */
 use "../gobject"
 class GtkGestureStylus is GtkWidget
+"""
+#GtkGestureStylus is a #GtkGesture implementation specific to stylus
+input. The provided signals just provide the basic information
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -5,6 +5,15 @@ provides: ["GtkAdjustment"]
 */
 use "../gobject"
 class GtkAdjustment is GtkWidget
+"""
+The #GtkAdjustment object represents a value which has an associated lower
+and upper bound, together with step and page increments, and a page size.
+It is used within several GTK+ widgets, including #GtkSpinButton, #GtkViewport,
+and #GtkRange (which is a base class for #GtkScrollbar and #GtkScale).
+
+The #GtkAdjustment object does not update the value itself. Instead
+it is left up to the owner of the #GtkAdjustment to control the value.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

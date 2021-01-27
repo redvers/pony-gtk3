@@ -1,5 +1,15 @@
 # GtkAdjustment
 <span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L6)</span>
+
+The #GtkAdjustment object represents a value which has an associated lower
+and upper bound, together with step and page increments, and a page size.
+It is used within several GTK+ widgets, including #GtkSpinButton, #GtkViewport,
+and #GtkRange (which is a base class for #GtkScrollbar and #GtkScale).
+
+The #GtkAdjustment object does not update the value itself. Instead
+it is left up to the owner of the #GtkAdjustment to control the value.
+
+
 ```pony
 class ref GtkAdjustment is
   GtkWidget ref
@@ -14,7 +24,7 @@ class ref GtkAdjustment is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L19)</span>
 
 
 ```pony
@@ -29,7 +39,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L22)</span>
 
 
 ```pony
@@ -48,7 +58,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L26)</span>
 
 
 ```pony
@@ -79,7 +89,7 @@ new ref create(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L16)</span>
 
 
 
@@ -88,7 +98,7 @@ new ref create(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L18)</span>
 
 
 ```pony
@@ -103,7 +113,7 @@ fun box gtkwidget()
 ---
 
 ### changed
-<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L30)</span>
 
 
 Emits a #GtkAdjustment::changed signal from the #GtkAdjustment.
@@ -123,7 +133,7 @@ fun box changed()
 ---
 
 ### value_changed
-<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L116)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAdjustment.md#L125)</span>
 
 
 Emits a #GtkAdjustment::value-changed signal from the #GtkAdjustment.

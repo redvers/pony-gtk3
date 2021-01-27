@@ -4,6 +4,10 @@ provides: ["GtkToggleAction"]
 */
 use "../gobject"
 class GtkToggleAction is GtkWidget
+"""
+A #GtkToggleAction corresponds roughly to a #GtkCheckMenuItem. It has an
+“active” state specifying whether the action has been checked or not.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

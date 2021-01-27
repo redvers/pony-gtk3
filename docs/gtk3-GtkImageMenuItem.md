@@ -1,5 +1,69 @@
 # GtkImageMenuItem
 <span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L6)</span>
+
+A GtkImageMenuItem is a menu item which has an icon next to the text label.
+
+This is functionally equivalent to:
+
+|[<!-- language="C" -->
+  GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+  GtkWidget *icon = gtk_image_new_from_icon_name ("folder-music-symbolic", GTK_ICON_SIZE_MENU);
+  GtkWidget *label = gtk_label_new ("Music");
+  GtkWidget *menu_item = gtk_menu_item_new ();
+
+  gtk_container_add (GTK_CONTAINER (box), icon);
+  gtk_container_add (GTK_CONTAINER (box), label);
+
+  gtk_container_add (GTK_CONTAINER (menu_item), box);
+
+  gtk_widget_show_all (menu_item);
+]|
+
+Note that the user may disable display of menu icons using
+the #GtkSettings:gtk-menu-images setting, so make sure to still
+fill in the text label. If you want to ensure that your menu items
+show an icon you are strongly encouraged to use a #GtkMenuItem
+with a #GtkImage instead.
+
+#GtkImageMenuItem has been deprecated since GTK+ 3.10. If you want to
+display an icon in a menu item, you should use #GtkMenuItem and pack a
+#GtkBox with a #GtkImage and a #GtkLabel instead. You should also consider
+using #GtkBuilder and the XML #GMenu description for creating menus, by
+following the [GMenu guide][https://developer.gnome.org/GMenu/]. You should
+consider using icons in menu items only sparingly, and for "objects" (or
+"nouns") elements only, like bookmarks, files, and links; "actions" (or
+"verbs") should not have icons.
+
+Furthermore, if you would like to display keyboard accelerator, you must
+pack the accel label into the box using gtk_box_pack_end() and align the
+label, otherwise the accelerator will not display correctly. The following
+code snippet adds a keyboard accelerator to the menu item, with a key
+binding of Ctrl+M:
+
+|[<!-- language="C" -->
+  GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+  GtkWidget *icon = gtk_image_new_from_icon_name ("folder-music-symbolic", GTK_ICON_SIZE_MENU);
+  GtkWidget *label = gtk_accel_label_new ("Music");
+  GtkWidget *menu_item = gtk_menu_item_new ();
+  GtkAccelGroup *accel_group = gtk_accel_group_new ();
+
+  gtk_container_add (GTK_CONTAINER (box), icon);
+
+  gtk_label_set_use_underline (GTK_LABEL (label), TRUE);
+  gtk_label_set_xalign (GTK_LABEL (label), 0.0);
+
+  gtk_widget_add_accelerator (menu_item, "activate", accel_group,
+                              GDK_KEY_m, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
+  gtk_accel_label_set_accel_widget (GTK_ACCEL_LABEL (label), menu_item);
+
+  gtk_box_pack_end (GTK_BOX (box), label, TRUE, TRUE, 0);
+
+  gtk_container_add (GTK_CONTAINER (menu_item), box);
+
+  gtk_widget_show_all (menu_item);
+]|
+
+
 ```pony
 class ref GtkImageMenuItem is
   GtkWidget ref
@@ -14,7 +78,7 @@ class ref GtkImageMenuItem is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L73)</span>
 
 
 ```pony
@@ -29,7 +93,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L76)</span>
 
 
 ```pony
@@ -48,7 +112,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L80)</span>
 
 
 ```pony
@@ -63,7 +127,7 @@ new ref create()
 ---
 
 ### new_from_stock
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L83)</span>
 
 
 ```pony
@@ -84,7 +148,7 @@ new ref new_from_stock(
 ---
 
 ### new_with_label
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L23)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L86)</span>
 
 
 ```pony
@@ -103,7 +167,7 @@ new ref new_with_label(
 ---
 
 ### new_with_mnemonic
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L26)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L89)</span>
 
 
 ```pony
@@ -124,7 +188,7 @@ new ref new_with_mnemonic(
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L70)</span>
 
 
 
@@ -133,7 +197,7 @@ new ref new_with_mnemonic(
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L72)</span>
 
 
 ```pony
@@ -148,7 +212,7 @@ fun box gtkwidget()
 ---
 
 ### get_always_show_image
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L93)</span>
 
 
 Returns whether the menu item will ignore the #GtkSettings:gtk-menu-images
@@ -167,7 +231,7 @@ fun box get_always_show_image()
 ---
 
 ### get_use_stock
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L44)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L107)</span>
 
 
 Checks whether the label set in the menuitem is used as a
@@ -186,7 +250,7 @@ fun box get_use_stock()
 ---
 
 ### set_always_show_image
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L55)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L118)</span>
 
 
 If %TRUE, the menu item will ignore the #GtkSettings:gtk-menu-images
@@ -212,7 +276,7 @@ fun box set_always_show_image(
 ---
 
 ### set_use_stock
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L69)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L132)</span>
 
 
 If %TRUE, the label set in the menuitem is used as a

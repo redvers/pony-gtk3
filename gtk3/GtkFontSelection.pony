@@ -4,6 +4,9 @@ provides: ["GtkFontSelection"]
 */
 use "../gobject"
 class GtkFontSelection is GtkWidget
+"""
+No documentation provided
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

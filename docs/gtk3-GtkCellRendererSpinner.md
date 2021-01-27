@@ -1,5 +1,18 @@
 # GtkCellRendererSpinner
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L6)</span>
+
+GtkCellRendererSpinner renders a spinning animation in a cell, very
+similar to #GtkSpinner. It can often be used as an alternative
+to a #GtkCellRendererProgress for displaying indefinite activity,
+instead of actual progress.
+
+To start the animation in a cell, set the #GtkCellRendererSpinner:active
+property to %TRUE and increment the #GtkCellRendererSpinner:pulse property
+at regular intervals. The usual way to set the cell renderer properties
+for each cell is to bind them to columns in your tree model using e.g.
+gtk_tree_view_column_add_attribute().
+
+
 ```pony
 class ref GtkCellRendererSpinner is
   GtkWidget ref
@@ -14,7 +27,7 @@ class ref GtkCellRendererSpinner is
 ## Constructors
 
 ### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L10)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L22)</span>
 
 
 ```pony
@@ -29,7 +42,7 @@ new ref never_call_this_constructor_or_else_tm()
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L13)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L25)</span>
 
 
 ```pony
@@ -48,7 +61,7 @@ new ref create_from_GObjectREF(
 ---
 
 ### create
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L29)</span>
 
 
 ```pony
@@ -65,7 +78,7 @@ new ref create()
 ## Public fields
 
 ### var widget: [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L7)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L19)</span>
 
 
 
@@ -74,7 +87,7 @@ new ref create()
 ## Public Functions
 
 ### gtkwidget
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L9)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L21)</span>
 
 
 ```pony

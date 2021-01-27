@@ -5,6 +5,10 @@ provides: ["GtkColorChooserDialog"]
 */
 use "../gobject"
 class GtkColorChooserDialog is GtkWidget
+"""
+The #GtkColorChooserDialog widget is a dialog for choosing
+a color. It implements the #GtkColorChooser interface.
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget

@@ -5,6 +5,19 @@ provides: ["GtkNumerableIcon"]
 */
 use "../gobject"
 class GtkNumerableIcon is GtkWidget
+"""
+GtkNumerableIcon is a subclass of #GEmblemedIcon that can
+show a number or short string as an emblem. The number can
+be overlayed on top of another emblem, if desired.
+
+It supports theming by taking font and color information
+from a provided #GtkStyleContext; see
+gtk_numerable_icon_set_style_context().
+
+Typical numerable icons:
+![](numerableicon.png)
+![](numerableicon2.png)
+"""
   var widget: GObjectREF
 
   fun gtkwidget(): GObjectREF => widget
@@ -30,7 +43,7 @@ Returns the icon name used as the base background image,
 or %NULL if there’s none.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_numerable_icon_get_background_icon_name[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_count(): I32 =>
@@ -44,7 +57,7 @@ fun get_label(): String =>
 Returns the currently displayed label of the icon, or %NULL.
 """
   var cstring_pony: Pointer[U8 val] ref = @gtk_numerable_icon_get_label[Pointer[U8 val] ref](widget)
-var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 /* get_style_context unavailable due to return typing issues
