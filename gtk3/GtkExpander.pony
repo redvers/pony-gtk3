@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "Pointer[U8 val] ref", "String", "I32", "None", "GObjectREF"]
+   needs: ["Bool", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "I32", "None"]
 provides: ["GtkExpander"]
 */
 use "../gobject"
@@ -138,12 +138,10 @@ horizontal space allocated to @expander.
 """
   @gtk_expander_get_label_fill[Bool](widget)
 
-/* get_label_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_label_widget(): GtkWidget =>
+    @gtk_expander_get_label_widget[GObjectREF](widget)
+*/
 
 fun get_resize_toplevel(): Bool =>
 """
@@ -194,9 +192,12 @@ Note that this function has no effect since 3.20.
 """
   @gtk_expander_set_label_fill[None](widget, label_fill_pony)
 
-/* set_label_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "label_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_label_widget(label_widget_pony: GtkWidget): None =>
+"""
+Set the label widget for the expander. This is the widget
+that will appear embedded alongside the expander arrow.
+"""
+  @gtk_expander_set_label_widget[None](widget, label_widget_pony.gtkwidget())
 
 fun set_resize_toplevel(resize_toplevel_pony: Bool): None =>
 """

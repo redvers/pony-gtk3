@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "Bool", "GObjectREF"]
+   needs: ["None", "Bool", "GtkWidget", "I32", "GObjectREF"]
 provides: ["GtkListBox"]
 */
 use "../gobject"
@@ -124,9 +124,16 @@ Returns whether rows activate on single clicks.
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* insert unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun insert(child_pony: GtkWidget, position_pony: I32): None =>
+"""
+Insert the @child into the @box at @position. If a sort function is
+set, the widget will actually be inserted at the calculated position and
+this function has the same effect of gtk_container_add().
+
+If @position is -1, or larger than the total number of items in the
+@box, then the @child will be appended to the end.
+"""
+  @gtk_list_box_insert[None](widget, child_pony.gtkwidget(), position_pony)
 
 fun invalidate_filter(): None =>
 """
@@ -154,9 +161,13 @@ to an external factor.
 """
   @gtk_list_box_invalidate_sort[None](widget)
 
-/* prepend unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun prepend(child_pony: GtkWidget): None =>
+"""
+Prepend a widget to the list. If a sort function is set, the widget will
+actually be inserted at the calculated position and this function has the
+same effect of gtk_container_add().
+"""
+  @gtk_list_box_prepend[None](widget, child_pony.gtkwidget())
 
 fun select_all(): None =>
 """
@@ -196,9 +207,12 @@ otherwise you need to double-click.
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
 
-/* set_placeholder unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "placeholder", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_placeholder(placeholder_pony: GtkWidget): None =>
+"""
+Sets the placeholder widget that is shown in the list when
+it doesn't display any visible children.
+"""
+  @gtk_list_box_set_placeholder[None](widget, placeholder_pony.gtkwidget())
 
 /* set_selection_mode unavailable due to typing issues
  {:doh, %{argctype: "GtkSelectionMode", argname: "mode", argtype: "SelectionMode", paramtype: :param, txo: "none"}}

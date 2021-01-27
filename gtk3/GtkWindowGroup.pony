@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF"]
+   needs: ["GObjectREF", "GtkWidget"]
 provides: ["GtkWindowGroup"]
 */
 use "../gobject"
@@ -39,19 +39,14 @@ freed.
  {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
 */
 
-/* get_current_device_grab unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* get_current_device_grab unavailable due to typing issues
+ {:doh, %{argctype: "GdkDevice*", argname: "device", argtype: "Gdk.Device", paramtype: :param, txo: "none"}}
+*/
 
-/* get_current_grab unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_current_grab(): GtkWidget =>
+    @gtk_window_group_get_current_grab[GObjectREF](widget)
+*/
 
 /* list_windows unavailable due to return typing issues
 {:argctype, "GList*"}

@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF", "String"]
+   needs: ["GObjectREF", "GtkWidget", "String"]
 provides: ["GtkColorSelectionDialog"]
 */
 use "../gobject"
@@ -21,10 +21,8 @@ No documentation provided
     widget = @gtk_color_selection_dialog_new[GObjectREF](title_pony.cstring()) //
 
 
-/* get_color_selection unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_color_selection(): GtkWidget =>
+    @gtk_color_selection_dialog_get_color_selection[GObjectREF](widget)
+*/
 

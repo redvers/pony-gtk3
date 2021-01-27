@@ -1,5 +1,5 @@
 /*
-   needs: ["Pointer[U8 val] ref", "String", "Bool", "I32", "U32", "None", "GObjectREF"]
+   needs: ["Pointer[U8 val] ref", "String", "Bool", "I32", "U32", "GObjectREF", "GtkWidget", "None"]
 provides: ["GtkLabel"]
 */
 use "../gobject"
@@ -299,12 +299,10 @@ mnemonic set up it returns #GDK_KEY_VoidSymbol.
 """
   @gtk_label_get_mnemonic_keyval[U32](widget)
 
-/* get_mnemonic_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_mnemonic_widget(): GtkWidget =>
+    @gtk_label_get_mnemonic_widget[GObjectREF](widget)
+*/
 
 fun get_selectable(): Bool =>
 """
@@ -446,9 +444,24 @@ Sets the desired maximum width in characters of @label to @n_chars.
 """
   @gtk_label_set_max_width_chars[None](widget, n_chars_pony)
 
-/* set_mnemonic_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_mnemonic_widget(widget_pony: GtkWidget): None =>
+"""
+If the label has been set so that it has an mnemonic key (using
+i.e. gtk_label_set_markup_with_mnemonic(),
+gtk_label_set_text_with_mnemonic(), gtk_label_new_with_mnemonic()
+or the “use_underline” property) the label can be associated with a
+widget that is the target of the mnemonic. When the label is inside
+a widget (like a #GtkButton or a #GtkNotebook tab) it is
+automatically associated with the correct widget, but sometimes
+(i.e. when the target is a #GtkEntry next to the label) you need to
+set it explicitly using this function.
+
+The target widget will be accelerated by emitting the
+GtkWidget::mnemonic-activate signal on it. The default handler for
+this signal will activate the widget if there are no mnemonic collisions
+and toggle focus between the colliding widgets otherwise.
+"""
+  @gtk_label_set_mnemonic_widget[None](widget, widget_pony.gtkwidget())
 
 /* set_pattern unavailable due to typing issues
  {:doh, %{argctype: "const gchar*", argname: "pattern", argtype: "utf8", paramtype: :param, txo: "none"}}

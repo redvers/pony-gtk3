@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF"]
+   needs: ["None", "GtkWidget", "Bool", "GObjectREF"]
 provides: ["GtkOverlay"]
 */
 use "../gobject"
@@ -47,20 +47,33 @@ whose alignments cause them to be positioned at an edge get the style classes
     widget = @gtk_overlay_new[GObjectREF]() //
 
 
-/* add_overlay unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun add_overlay(widget_pony: GtkWidget): None =>
+"""
+Adds @widget to @overlay.
 
-/* get_overlay_pass_through unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+The widget will be stacked on top of the main widget
+added with gtk_container_add().
+
+The position at which @widget is placed is determined
+from its #GtkWidget:halign and #GtkWidget:valign properties.
+"""
+  @gtk_overlay_add_overlay[None](widget, widget_pony.gtkwidget())
+
+fun get_overlay_pass_through(widget_pony: GtkWidget): Bool =>
+"""
+Convenience function to get the value of the #GtkOverlay:pass-through
+child property for @widget.
+"""
+  @gtk_overlay_get_overlay_pass_through[Bool](widget, widget_pony.gtkwidget())
 
 /* reorder_overlay unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "int", argname: "index_", argtype: "gint", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "int", argname: "index_", argtype: "gint", paramtype: :param, txo: "none"}}
 */
 
-/* set_overlay_pass_through unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_overlay_pass_through(widget_pony: GtkWidget, pass_through_pony: Bool): None =>
+"""
+Convenience function to set the value of the #GtkOverlay:pass-through
+child property for @widget.
+"""
+  @gtk_overlay_set_overlay_pass_through[None](widget, widget_pony.gtkwidget(), pass_through_pony)
 

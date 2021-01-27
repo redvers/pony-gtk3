@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "U32", "None", "GObjectREF"]
+   needs: ["Bool", "U32", "None", "GtkWidget", "I32", "GObjectREF"]
 provides: ["GtkFlowBox"]
 */
 use "../gobject"
@@ -135,9 +135,18 @@ Gets the vertical spacing.
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* insert unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun insert(widget_pony: GtkWidget, position_pony: I32): None =>
+"""
+Inserts the @widget into @box at @position.
+
+If a sort function is set, the widget will actually be inserted
+at the calculated position and this function has the same effect
+as gtk_container_add().
+
+If @position is -1, or larger than the total number of children
+in the @box, then the @widget will be appended to the end.
+"""
+  @gtk_flow_box_insert[None](widget, widget_pony.gtkwidget(), position_pony)
 
 fun invalidate_filter(): None =>
 """

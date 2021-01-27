@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "Pointer[U8 val] ref", "String", "Bool", "GObjectREF"]
+   needs: ["None", "GObjectREF", "GtkWidget", "Pointer[U8 val] ref", "String", "Bool"]
 provides: ["GtkAction"]
 */
 use "../gobject"
@@ -101,33 +101,24 @@ gtk_action_disconnect_accelerator() has been called as many times.
 """
   @gtk_action_connect_accelerator[None](widget)
 
-/* create_icon unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* create_icon unavailable due to typing issues
+ {:doh, %{argctype: "GtkIconSize", argname: "icon_size", argtype: "gint", paramtype: :param, txo: "none"}}
+*/
 
-/* create_menu unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun create_menu(): GtkWidget =>
+    @gtk_action_create_menu[GObjectREF](widget)
+*/
 
-/* create_menu_item unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun create_menu_item(): GtkWidget =>
+    @gtk_action_create_menu_item[GObjectREF](widget)
+*/
 
-/* create_tool_item unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun create_tool_item(): GtkWidget =>
+    @gtk_action_create_tool_item[GObjectREF](widget)
+*/
 
 fun disconnect_accelerator(): None =>
 """

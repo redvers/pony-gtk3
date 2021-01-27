@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF"]
+   needs: ["None", "GtkWidget", "GObjectREF"]
 provides: ["GtkTooltip"]
 */
 use "../gobject"
@@ -52,9 +52,16 @@ will be used as tooltip window.  This works as follows:
 
 
 
-/* set_custom unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "custom_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_custom(custom_widget_pony: GtkWidget): None =>
+"""
+Replaces the widget packed into the tooltip with
+@custom_widget. @custom_widget does not get destroyed when the tooltip goes
+away.
+By default a box with a #GtkImage and #GtkLabel is embedded in
+the tooltip, which can be configured using gtk_tooltip_set_markup()
+and gtk_tooltip_set_icon().
+"""
+  @gtk_tooltip_set_custom[None](widget, custom_widget_pony.gtkwidget())
 
 /* set_icon unavailable due to typing issues
  {:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}

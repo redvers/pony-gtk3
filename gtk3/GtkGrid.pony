@@ -1,5 +1,5 @@
 /*
-   needs: ["I32", "Bool", "U32", "None", "GObjectREF"]
+   needs: ["None", "GtkWidget", "I32", "GObjectREF", "Bool", "U32"]
 provides: ["GtkGrid"]
 */
 use "../gobject"
@@ -36,14 +36,18 @@ GtkGrid uses a single CSS node with name grid.
     widget = @gtk_grid_new[GObjectREF]() //
 
 
-/* attach unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun attach(child_pony: GtkWidget, left_pony: I32, top_pony: I32, width_pony: I32, height_pony: I32): None =>
+"""
+Adds a widget to the grid.
+
+The position of @child is determined by @left and @top. The
+number of “cells” that @child will occupy is determined by
+@width and @height.
+"""
+  @gtk_grid_attach[None](widget, child_pony.gtkwidget(), left_pony, top_pony, width_pony, height_pony)
 
 /* attach_next_to unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "sibling", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkPositionType", argname: "side", argtype: "PositionType", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GtkPositionType", argname: "side", argtype: "PositionType", paramtype: :param, txo: "none"}}
 */
 
 fun get_baseline_row(): I32 =>
@@ -52,12 +56,10 @@ Returns which row defines the global baseline of @grid.
 """
   @gtk_grid_get_baseline_row[I32](widget)
 
-/* get_child_at unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_child_at(left_pony: I32, top_pony: I32): GtkWidget =>
+    @gtk_grid_get_child_at[GObjectREF](widget, left_pony, top_pony)
+*/
 
 fun get_column_homogeneous(): Bool =>
 """
@@ -101,8 +103,7 @@ position are grown to span the new column.
   @gtk_grid_insert_column[None](widget, position_pony)
 
 /* insert_next_to unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "sibling", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkPositionType", argname: "side", argtype: "PositionType", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GtkPositionType", argname: "side", argtype: "PositionType", paramtype: :param, txo: "none"}}
 */
 
 fun insert_row(position_pony: I32): None =>

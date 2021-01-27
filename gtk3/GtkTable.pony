@@ -1,5 +1,5 @@
 /*
-   needs: ["U32", "Bool", "None", "GObjectREF"]
+   needs: ["None", "GtkWidget", "U32", "Bool", "GObjectREF"]
 provides: ["GtkTable"]
 */
 use "../gobject"
@@ -45,14 +45,18 @@ table will resize themselves to the size of the largest widget in the table.
 
 
 /* attach unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkAttachOptions", argname: "xoptions", argtype: "AttachOptions", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GtkAttachOptions", argname: "xoptions", argtype: "AttachOptions", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkAttachOptions", argname: "yoptions", argtype: "AttachOptions", paramtype: :param, txo: "none"}}
 */
 
-/* attach_defaults unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun attach_defaults(widget_pony: GtkWidget, left_attach_pony: U32, right_attach_pony: U32, top_attach_pony: U32, bottom_attach_pony: U32): None =>
+"""
+As there are many options associated with gtk_table_attach(), this convenience
+function provides the programmer with a means to add children to a table with
+identical padding and expansion options. The values used for the #GtkAttachOptions
+are `GTK_EXPAND | GTK_FILL`, and the padding is set to 0.
+"""
+  @gtk_table_attach_defaults[None](widget, widget_pony.gtkwidget(), left_attach_pony, right_attach_pony, top_attach_pony, bottom_attach_pony)
 
 fun get_col_spacing(column_pony: U32): U32 =>
 """

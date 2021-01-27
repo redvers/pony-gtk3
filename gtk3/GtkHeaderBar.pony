@@ -1,5 +1,5 @@
 /*
-   needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF"]
+   needs: ["GObjectREF", "GtkWidget", "Pointer[U8 val] ref", "String", "Bool", "None"]
 provides: ["GtkHeaderBar"]
 */
 use "../gobject"
@@ -35,12 +35,10 @@ features typical of titlebars while allowing the addition of child widgets.
     widget = @gtk_header_bar_new[GObjectREF]() //
 
 
-/* get_custom_title unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_custom_title(): GtkWidget =>
+    @gtk_header_bar_get_custom_title[GObjectREF](widget)
+*/
 
 fun get_decoration_layout(): String =>
 """
@@ -81,17 +79,34 @@ Retrieves the title of the header. See gtk_header_bar_set_title().
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* pack_end unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun pack_end(child_pony: GtkWidget): None =>
+"""
+Adds @child to @bar, packed with reference to the
+end of the @bar.
+"""
+  @gtk_header_bar_pack_end[None](widget, child_pony.gtkwidget())
 
-/* pack_start unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun pack_start(child_pony: GtkWidget): None =>
+"""
+Adds @child to @bar, packed with reference to the
+start of the @bar.
+"""
+  @gtk_header_bar_pack_start[None](widget, child_pony.gtkwidget())
 
-/* set_custom_title unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "title_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_custom_title(title_widget_pony: GtkWidget): None =>
+"""
+Sets a custom title for the #GtkHeaderBar.
+
+The title should help a user identify the current view. This
+supersedes any title set by gtk_header_bar_set_title() or
+gtk_header_bar_set_subtitle(). To achieve the same style as
+the builtin title and subtitle, use the “title” and “subtitle”
+style classes.
+
+You should set the custom title to %NULL, for the header title
+label to be visible again.
+"""
+  @gtk_header_bar_set_custom_title[None](widget, title_widget_pony.gtkwidget())
 
 /* set_decoration_layout unavailable due to typing issues
  {:doh, %{argctype: "const gchar*", argname: "layout", argtype: "utf8", paramtype: :param, txo: "none"}}

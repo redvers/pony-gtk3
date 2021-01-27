@@ -327,12 +327,9 @@ will have tearoff menu items.
 {:paramtype, :param}
 {:txo, "full"} */
 
-/* get_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* get_widget unavailable due to typing issues
+ {:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
 
 /* insert_action_group unavailable due to typing issues
  {:doh, %{argctype: "GtkActionGroup*", argname: "action_group", argtype: "ActionGroup", paramtype: :param, txo: "none"}}

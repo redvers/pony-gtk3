@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "GObjectREF"]
+   needs: ["None", "GObjectREF", "GtkWidget"]
 provides: ["GtkAccessible"]
 */
 use "../gobject"
@@ -36,14 +36,19 @@ when the widget corresponding to a GtkAccessible is destroyed.
 """
   @gtk_accessible_connect_widget_destroyed[None](widget)
 
-/* get_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
-
-/* set_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
+/* Needs conversion code 
+  fun get_widget(): GtkWidget =>
+    @gtk_accessible_get_widget[GObjectREF](widget)
 */
+
+fun set_widget(widget_pony: GtkWidget): None =>
+"""
+Sets the #GtkWidget corresponding to the #GtkAccessible.
+
+@accessible will not hold a reference to @widget.
+It is the caller’s responsibility to ensure that when @widget
+is destroyed, the widget is unset by calling this function
+again with @widget set to %NULL.
+"""
+  @gtk_accessible_set_widget[None](widget, widget_pony.gtkwidget())
 

@@ -294,8 +294,7 @@ gmodule-export-2.0.
 */
 
 /* extend_with_template unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GType", argname: "template_type", argtype: "GType", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GType", argname: "template_type", argtype: "GType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "buffer", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gsize", argname: "length", argtype: "gsize", paramtype: :param, txo: "none"}}
 */

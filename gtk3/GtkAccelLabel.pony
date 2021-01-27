@@ -1,5 +1,5 @@
 /*
-   needs: ["U32", "Bool", "GObjectREF", "String"]
+   needs: ["GObjectREF", "GtkWidget", "U32", "Bool", "None", "String"]
 provides: ["GtkAccelLabel"]
 */
 use "../gobject"
@@ -85,12 +85,10 @@ It adds a subnode with name accelerator.
 {:doh, %{argctype: "GdkModifierType*", argname: "accelerator_mods", argtype: "Gdk.ModifierType", paramtype: :param, txo: "full"}}
 */
 
-/* get_accel_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_accel_widget(): GtkWidget =>
+    @gtk_accel_label_get_accel_widget[GObjectREF](widget)
+*/
 
 fun get_accel_width(): U32 =>
 """
@@ -116,7 +114,10 @@ accelerators are added or removed from the associated widget.
  {:doh, %{argctype: "GClosure*", argname: "accel_closure", argtype: "GObject.Closure", paramtype: :param, txo: "none"}}
 */
 
-/* set_accel_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "accel_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_accel_widget(accel_widget_pony: GtkWidget): None =>
+"""
+Sets the widget to be monitored by this accelerator label. Passing %NULL for
+@accel_widget will dissociate @accel_label from its current widget, if any.
+"""
+  @gtk_accel_label_set_accel_widget[None](widget, accel_widget_pony.gtkwidget())
 

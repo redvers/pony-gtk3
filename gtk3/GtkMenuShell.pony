@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "Bool", "GObjectREF"]
+   needs: ["None", "GtkWidget", "Bool", "GObjectREF", "I32"]
 provides: ["GtkMenuShell"]
 */
 use "../gobject"
@@ -45,9 +45,11 @@ grab and receive all key presses.
 
 
 
-/* activate_item unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "menu_item", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun activate_item(menu_item_pony: GtkWidget, force_deactivate_pony: Bool): None =>
+"""
+Activates the menu item within the menu shell.
+"""
+  @gtk_menu_shell_activate_item[None](widget, menu_item_pony.gtkwidget(), force_deactivate_pony)
 
 /* append unavailable due to typing issues
  {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "MenuItem", paramtype: :param, txo: "none"}}
@@ -80,19 +82,15 @@ if any.
 """
   @gtk_menu_shell_deselect[None](widget)
 
-/* get_parent_shell unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_parent_shell(): GtkWidget =>
+    @gtk_menu_shell_get_parent_shell[GObjectREF](widget)
+*/
 
-/* get_selected_item unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_selected_item(): GtkWidget =>
+    @gtk_menu_shell_get_selected_item[GObjectREF](widget)
+*/
 
 fun get_take_focus(): Bool =>
 """
@@ -100,13 +98,19 @@ Returns %TRUE if the menu shell will take the keyboard focus on popup.
 """
   @gtk_menu_shell_get_take_focus[Bool](widget)
 
-/* insert unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun insert(child_pony: GtkWidget, position_pony: I32): None =>
+"""
+Adds a new #GtkMenuItem to the menu shell’s item list
+at the position indicated by @position.
+"""
+  @gtk_menu_shell_insert[None](widget, child_pony.gtkwidget(), position_pony)
 
-/* prepend unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun prepend(child_pony: GtkWidget): None =>
+"""
+Adds a new #GtkMenuItem to the beginning of the menu shell's
+item list.
+"""
+  @gtk_menu_shell_prepend[None](widget, child_pony.gtkwidget())
 
 fun select_first(search_sensitive_pony: Bool): None =>
 """
@@ -116,9 +120,11 @@ item.
 """
   @gtk_menu_shell_select_first[None](widget, search_sensitive_pony)
 
-/* select_item unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "menu_item", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun select_item(menu_item_pony: GtkWidget): None =>
+"""
+Selects the menu item from the menu shell.
+"""
+  @gtk_menu_shell_select_item[None](widget, menu_item_pony.gtkwidget())
 
 fun set_take_focus(take_focus_pony: Bool): None =>
 """

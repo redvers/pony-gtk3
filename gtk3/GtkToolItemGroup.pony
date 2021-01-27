@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "Pointer[U8 val] ref", "String", "U32", "None", "GObjectREF"]
+   needs: ["Bool", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "U32", "None"]
 provides: ["GtkToolItemGroup"]
 */
 use "../gobject"
@@ -66,12 +66,10 @@ Gets the label of @group.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_label_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_label_widget(): GtkWidget =>
+    @gtk_tool_item_group_get_label_widget[GObjectREF](widget)
+*/
 
 fun get_n_items(): U32 =>
 """
@@ -112,7 +110,11 @@ Sets whether the @group should be collapsed or expanded.
  {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
-/* set_label_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "label_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_label_widget(label_widget_pony: GtkWidget): None =>
+"""
+Sets the label of the tool item group.
+The label widget is displayed in the header of the group, in place
+of the usual label.
+"""
+  @gtk_tool_item_group_set_label_widget[None](widget, label_widget_pony.gtkwidget())
 

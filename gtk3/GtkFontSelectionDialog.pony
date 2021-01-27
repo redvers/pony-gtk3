@@ -1,5 +1,5 @@
 /*
-   needs: ["Pointer[U8 val] ref", "String", "GObjectREF"]
+   needs: ["GObjectREF", "GtkWidget", "Pointer[U8 val] ref", "String"]
 provides: ["GtkFontSelectionDialog"]
 */
 use "../gobject"
@@ -21,12 +21,10 @@ No documentation provided
     widget = @gtk_font_selection_dialog_new[GObjectREF](title_pony.cstring()) //
 
 
-/* get_cancel_button unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_cancel_button(): GtkWidget =>
+    @gtk_font_selection_dialog_get_cancel_button[GObjectREF](widget)
+*/
 
 /* get_font_name unavailable due to return typing issues
 {:argctype, "gchar*"}
@@ -35,19 +33,15 @@ No documentation provided
 {:paramtype, :param}
 {:txo, "full"} */
 
-/* get_font_selection unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_font_selection(): GtkWidget =>
+    @gtk_font_selection_dialog_get_font_selection[GObjectREF](widget)
+*/
 
-/* get_ok_button unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_ok_button(): GtkWidget =>
+    @gtk_font_selection_dialog_get_ok_button[GObjectREF](widget)
+*/
 
 fun get_preview_text(): String =>
 """

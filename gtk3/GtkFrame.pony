@@ -1,5 +1,5 @@
 /*
-   needs: ["Pointer[U8 val] ref", "String", "GObjectREF"]
+   needs: ["Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "None"]
 provides: ["GtkFrame"]
 */
 use "../gobject"
@@ -77,12 +77,10 @@ to gtk_frame_new().)
 {:doh, %{argctype: "gfloat*", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
 */
 
-/* get_label_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_label_widget(): GtkWidget =>
+    @gtk_frame_get_label_widget[GObjectREF](widget)
+*/
 
 /* get_shadow_type unavailable due to return typing issues
 {:argctype, "GtkShadowType"}
@@ -100,9 +98,12 @@ to gtk_frame_new().)
 {:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 */
 
-/* set_label_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "label_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_label_widget(label_widget_pony: GtkWidget): None =>
+"""
+Sets the #GtkFrame:label-widget for the frame. This is the widget that
+will appear embedded in the top edge of the frame as a title.
+"""
+  @gtk_frame_set_label_widget[None](widget, label_widget_pony.gtkwidget())
 
 /* set_shadow_type unavailable due to typing issues
  {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}

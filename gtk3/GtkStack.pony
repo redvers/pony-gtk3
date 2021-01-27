@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "U32", "Pointer[U8 val] ref", "String", "None", "GObjectREF"]
+   needs: ["Bool", "U32", "GObjectREF", "GtkWidget", "Pointer[U8 val] ref", "String", "None"]
 provides: ["GtkStack"]
 */
 use "../gobject"
@@ -37,22 +37,17 @@ GtkStack has a single CSS node named stack.
 
 
 /* add_named unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* add_titled unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
-/* get_child_by_name unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* get_child_by_name unavailable due to typing issues
+ {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
 
 fun get_hhomogeneous(): Bool =>
 """
@@ -103,12 +98,10 @@ See gtk_stack_set_vhomogeneous().
 """
   @gtk_stack_get_vhomogeneous[Bool](widget)
 
-/* get_visible_child unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_visible_child(): GtkWidget =>
+    @gtk_stack_get_visible_child[GObjectREF](widget)
+*/
 
 fun get_visible_child_name(): String =>
 """
@@ -171,9 +164,20 @@ may change height when a different child becomes visible.
 """
   @gtk_stack_set_vhomogeneous[None](widget, vhomogeneous_pony)
 
-/* set_visible_child unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_visible_child(child_pony: GtkWidget): None =>
+"""
+Makes @child the visible child of @stack.
+
+If @child is different from the currently
+visible child, the transition between the
+two will be animated with the current
+transition type of @stack.
+
+Note that the @child widget has to be visible itself
+(see gtk_widget_show()) in order to become the visible
+child of @stack.
+"""
+  @gtk_stack_set_visible_child[None](widget, child_pony.gtkwidget())
 
 /* set_visible_child_full unavailable due to typing issues
  {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}

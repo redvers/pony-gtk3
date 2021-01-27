@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "I32", "None", "GObjectREF", "GtkTextBuffer"]
+   needs: ["Bool", "I32", "None", "GtkWidget", "GObjectREF", "GtkTextBuffer"]
 provides: ["GtkTextView"]
 */
 use "../gobject"
@@ -51,13 +51,11 @@ of the main node.
 
 
 /* add_child_at_anchor unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkTextChildAnchor*", argname: "anchor", argtype: "TextChildAnchor", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GtkTextChildAnchor*", argname: "anchor", argtype: "TextChildAnchor", paramtype: :param, txo: "none"}}
 */
 
 /* add_child_in_window unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkTextWindowType", argname: "which_window", argtype: "TextWindowType", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GtkTextWindowType", argname: "which_window", argtype: "TextWindowType", paramtype: :param, txo: "none"}}
 */
 
 /* backward_display_line unavailable due to typing issues
@@ -291,9 +289,11 @@ Gets the top margin for text in the @text_view.
  {:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
 */
 
-/* move_child unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun move_child(child_pony: GtkWidget, xpos_pony: I32, ypos_pony: I32): None =>
+"""
+Updates the position of a child, as for gtk_text_view_add_child_in_window().
+"""
+  @gtk_text_view_move_child[None](widget, child_pony.gtkwidget(), xpos_pony, ypos_pony)
 
 /* move_mark_onscreen unavailable due to typing issues
  {:doh, %{argctype: "GtkTextMark*", argname: "mark", argtype: "TextMark", paramtype: :param, txo: "none"}}

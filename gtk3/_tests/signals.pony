@@ -30,20 +30,26 @@ class iso TestSignals is UnitTest
   var ta: TagCheck = TagCheck
 
   var callback1: @{(GObjectREF, TagCheck)} = @{(passed_gtkentry: GObjectREF, gtag: TagCheck) =>
-    gtag.boom()
+    gtag.boom("Anonymous")
     Debug.out("Activated: TagCheck")
   }
 
   entry.signal_connect[TagCheck]("activate", callback1, ta)
+  entry.signal_connect[TagCheck]("activate", Callbacks~barecb(), ta)
+
   @g_signal_emit_by_name[None](entry.gtkwidget(), "activate".cstring())
 
+primitive Callbacks
+  fun @barecb(passed_gtkentry: GObjectREF, gtag: TagCheck) =>
+    gtag.boom("Not Anonymous")
+    Debug.out("Activated: Not Anonymous Function")
 
 actor TagCheck
   new create() =>
     None
 
-  be boom() =>
-    Debug.out("Activated: Actor Response")
+  be boom(a: String) =>
+    Debug.out("Activated: Actor Response: " + a)
 
 
 

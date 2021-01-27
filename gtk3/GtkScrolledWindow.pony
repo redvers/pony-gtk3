@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "I32", "None", "GObjectREF", "GtkAdjustment"]
+   needs: ["None", "GtkWidget", "Bool", "GObjectREF", "I32", "GtkAdjustment"]
 provides: ["GtkScrolledWindow"]
 */
 use "../gobject"
@@ -97,9 +97,26 @@ with a subnode named junction.
     widget = @gtk_scrolled_window_new[GObjectREF](hadjustment_pony.gtkwidget(), vadjustment_pony.gtkwidget()) //
 
 
-/* add_with_viewport unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun add_with_viewport(child_pony: GtkWidget): None =>
+"""
+Used to add children without native scrolling capabilities. This
+is simply a convenience function; it is equivalent to adding the
+unscrollable child to a viewport, then adding the viewport to the
+scrolled window. If a child has native scrolling, use
+gtk_container_add() instead of this function.
+
+The viewport scrolls the child by moving its #GdkWindow, and takes
+the size of the child to be the size of its toplevel #GdkWindow.
+This will be very wrong for most widgets that support native scrolling;
+for example, if you add a widget such as #GtkTreeView with a viewport,
+the whole widget will scroll, including the column headings. Thus,
+widgets with native scrolling support should not be used with the
+#GtkViewport proxy.
+
+A widget supports scrolling natively if it implements the
+#GtkScrollable interface.
+"""
+  @gtk_scrolled_window_add_with_viewport[None](widget, child_pony.gtkwidget())
 
 fun get_capture_button_press(): Bool =>
 """
@@ -115,12 +132,10 @@ scrolling. See gtk_scrolled_window_set_capture_button_press().
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* get_hscrollbar unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_hscrollbar(): GtkWidget =>
+    @gtk_scrolled_window_get_hscrollbar[GObjectREF](widget)
+*/
 
 fun get_kinetic_scrolling(): Bool =>
 """
@@ -198,12 +213,10 @@ through the scrolled window’s requested natural width.
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* get_vscrollbar unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_vscrollbar(): GtkWidget =>
+    @gtk_scrolled_window_get_vscrollbar[GObjectREF](widget)
+*/
 
 fun set_capture_button_press(capture_button_press_pony: Bool): None =>
 """

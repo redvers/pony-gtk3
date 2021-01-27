@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "I32", "Pointer[U8 val] ref", "String", "Bool", "GObjectREF", "GtkCellArea"]
+   needs: ["None", "I32", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "Bool", "GtkCellArea"]
 provides: ["GtkEntryCompletion"]
 */
 use "../gobject"
@@ -96,12 +96,10 @@ the completion or %NULL if there’s no completion ongoing.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_entry unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_entry(): GtkWidget =>
+    @gtk_entry_completion_get_entry[GObjectREF](widget)
+*/
 
 fun get_inline_completion(): Bool =>
 """

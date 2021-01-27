@@ -90,18 +90,14 @@ GtkToolPalette has a single CSS node named toolpalette.
 
 
 /* add_drag_dest unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkDestDefaults", argname: "flags", argtype: "DestDefaults", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GtkDestDefaults", argname: "flags", argtype: "DestDefaults", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkToolPaletteDragTargets", argname: "targets", argtype: "ToolPaletteDragTargets", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkDragAction", argname: "actions", argtype: "Gdk.DragAction", paramtype: :param, txo: "none"}}
 */
 
-/* get_drag_item unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* get_drag_item unavailable due to typing issues
+ {:doh, %{argctype: "const GtkSelectionData*", argname: "selection", argtype: "SelectionData", paramtype: :param, txo: "none"}}
+*/
 
 /* get_drop_group unavailable due to return typing issues
 {:argctype, "GtkToolItemGroup*"}

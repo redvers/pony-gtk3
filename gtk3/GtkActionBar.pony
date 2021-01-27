@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF"]
+   needs: ["GObjectREF", "GtkWidget", "None"]
 provides: ["GtkActionBar"]
 */
 use "../gobject"
@@ -32,22 +32,28 @@ GtkActionBar has a single CSS node with name actionbar.
     widget = @gtk_action_bar_new[GObjectREF]() //
 
 
-/* get_center_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
-
-/* pack_end unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
+/* Needs conversion code 
+  fun get_center_widget(): GtkWidget =>
+    @gtk_action_bar_get_center_widget[GObjectREF](widget)
 */
 
-/* pack_start unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun pack_end(child_pony: GtkWidget): None =>
+"""
+Adds @child to @action_bar, packed with reference to the
+end of the @action_bar.
+"""
+  @gtk_action_bar_pack_end[None](widget, child_pony.gtkwidget())
 
-/* set_center_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "center_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun pack_start(child_pony: GtkWidget): None =>
+"""
+Adds @child to @action_bar, packed with reference to the
+start of the @action_bar.
+"""
+  @gtk_action_bar_pack_start[None](widget, child_pony.gtkwidget())
+
+fun set_center_widget(center_widget_pony: GtkWidget): None =>
+"""
+Sets the center widget for the #GtkActionBar.
+"""
+  @gtk_action_bar_set_center_widget[None](widget, center_widget_pony.gtkwidget())
 

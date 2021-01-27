@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "Bool", "I32", "GObjectREF"]
+   needs: ["None", "Bool", "GObjectREF", "GtkWidget", "I32"]
 provides: ["GtkListBoxRow"]
 */
 use "../gobject"
@@ -49,12 +49,10 @@ for this row.
 """
   @gtk_list_box_row_get_activatable[Bool](widget)
 
-/* get_header unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_header(): GtkWidget =>
+    @gtk_list_box_row_get_header[GObjectREF](widget)
+*/
 
 fun get_index(): I32 =>
 """
@@ -82,9 +80,13 @@ Set the #GtkListBoxRow:activatable property for this row.
 """
   @gtk_list_box_row_set_activatable[None](widget, activatable_pony)
 
-/* set_header unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "header", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_header(header_pony: GtkWidget): None =>
+"""
+Sets the current header of the @row. This is only allowed to be called
+from a #GtkListBoxUpdateHeaderFunc. It will replace any existing
+header in the row, and be shown in front of the row in the listbox.
+"""
+  @gtk_list_box_row_set_header[None](widget, header_pony.gtkwidget())
 
 fun set_selectable(selectable_pony: Bool): None =>
 """

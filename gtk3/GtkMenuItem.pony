@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "Pointer[U8 val] ref", "String", "Bool", "I32", "GObjectREF"]
+   needs: ["None", "Pointer[U8 val] ref", "String", "Bool", "GObjectREF", "GtkWidget", "I32"]
 provides: ["GtkMenuItem"]
 */
 use "../gobject"
@@ -117,12 +117,10 @@ side of the menu bar.
 """
   @gtk_menu_item_get_right_justified[Bool](widget)
 
-/* get_submenu unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_submenu(): GtkWidget =>
+    @gtk_menu_item_get_submenu[GObjectREF](widget)
+*/
 
 fun get_use_underline(): Bool =>
 """

@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "GObjectREF"]
+   needs: ["GObjectREF", "GtkWidget", "None"]
 provides: ["GtkEventController"]
 */
 use "../gobject"
@@ -28,12 +28,10 @@ actions as a consequence of those.
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* get_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_widget(): GtkWidget =>
+    @gtk_event_controller_get_widget[GObjectREF](widget)
+*/
 
 /* handle_event unavailable due to typing issues
  {:doh, %{argctype: "const GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}

@@ -1,5 +1,5 @@
 /*
-   needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF", "GtkWidget"]
+   needs: ["Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "Bool", "None"]
 provides: ["GtkToolButton"]
 */
 use "../gobject"
@@ -54,12 +54,10 @@ see gtk_tool_button_set_icon_name().
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_icon_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_icon_widget(): GtkWidget =>
+    @gtk_tool_button_get_icon_widget[GObjectREF](widget)
+*/
 
 fun get_label(): String =>
 """
@@ -71,12 +69,10 @@ string is owned by GTK+, and must not be modified or freed.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_label_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_label_widget(): GtkWidget =>
+    @gtk_tool_button_get_label_widget[GObjectREF](widget)
+*/
 
 fun get_stock_id(): String =>
 """
@@ -98,17 +94,27 @@ on menu items on the overflow menu. See gtk_tool_button_set_use_underline().
  {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
-/* set_icon_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "icon_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_icon_widget(icon_widget_pony: GtkWidget): None =>
+"""
+Sets @icon as the widget used as icon on @button. If @icon_widget is
+%NULL the icon is determined by the #GtkToolButton:stock-id property. If the
+#GtkToolButton:stock-id property is also %NULL, @button will not have an icon.
+"""
+  @gtk_tool_button_set_icon_widget[None](widget, icon_widget_pony.gtkwidget())
 
 /* set_label unavailable due to typing issues
  {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
-/* set_label_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "label_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_label_widget(label_widget_pony: GtkWidget): None =>
+"""
+Sets @label_widget as the widget that will be used as the label
+for @button. If @label_widget is %NULL the #GtkToolButton:label property is used
+as label. If #GtkToolButton:label is also %NULL, the label in the stock item
+determined by the #GtkToolButton:stock-id property is used as label. If
+#GtkToolButton:stock-id is also %NULL, @button does not have a label.
+"""
+  @gtk_tool_button_set_label_widget[None](widget, label_widget_pony.gtkwidget())
 
 /* set_stock_id unavailable due to typing issues
  {:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}

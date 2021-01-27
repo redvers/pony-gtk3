@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "None", "GObjectREF", "String", "GtkAccelGroup"]
+   needs: ["Bool", "GObjectREF", "GtkWidget", "None", "String", "GtkAccelGroup"]
 provides: ["GtkImageMenuItem"]
 */
 use "../gobject"
@@ -97,12 +97,10 @@ setting and always show the image, if available.
 """
   @gtk_image_menu_item_get_always_show_image[Bool](widget)
 
-/* get_image unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_image(): GtkWidget =>
+    @gtk_image_menu_item_get_image[GObjectREF](widget)
+*/
 
 fun get_use_stock(): Bool =>
 """
@@ -125,9 +123,13 @@ without the image.
 """
   @gtk_image_menu_item_set_always_show_image[None](widget, always_show_pony)
 
-/* set_image unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "image", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_image(image_pony: GtkWidget): None =>
+"""
+Sets the image of @image_menu_item to the given widget.
+Note that it depends on the show-menu-images setting whether
+the image will be displayed or not.
+"""
+  @gtk_image_menu_item_set_image[None](widget, image_pony.gtkwidget())
 
 fun set_use_stock(use_stock_pony: Bool): None =>
 """

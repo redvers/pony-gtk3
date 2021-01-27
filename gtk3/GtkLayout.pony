@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "U32", "GObjectREF", "GtkAdjustment"]
+   needs: ["None", "GtkWidget", "I32", "U32", "GObjectREF", "GtkAdjustment"]
 provides: ["GtkLayout"]
 */
 use "../gobject"
@@ -58,13 +58,18 @@ gtk_widget_get_window() as you would for a #GtkDrawingArea.
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* move unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun move(child_widget_pony: GtkWidget, x_pony: I32, y_pony: I32): None =>
+"""
+Moves a current child of @layout to a new position.
+"""
+  @gtk_layout_move[None](widget, child_widget_pony.gtkwidget(), x_pony, y_pony)
 
-/* put unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun put(child_widget_pony: GtkWidget, x_pony: I32, y_pony: I32): None =>
+"""
+Adds @child_widget to @layout, at position (@x,@y).
+@layout becomes the new parent container of @child_widget.
+"""
+  @gtk_layout_put[None](widget, child_widget_pony.gtkwidget(), x_pony, y_pony)
 
 /* set_hadjustment unavailable due to typing issues
  {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}

@@ -1,5 +1,5 @@
 /*
-   needs: ["U32", "GObjectREF", "GtkWidget"]
+   needs: ["Bool", "GtkWidget", "U32", "GObjectREF"]
 provides: ["GtkEventControllerKey"]
 */
 use "../gobject"
@@ -24,9 +24,11 @@ This object was added in 3.24.
     widget = @gtk_event_controller_key_new[GObjectREF](widget_pony.gtkwidget()) //
 
 
-/* forward unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun forward(widget_pony: GtkWidget): Bool =>
+"""
+No provided documentation
+"""
+  @gtk_event_controller_key_forward[Bool](widget, widget_pony.gtkwidget())
 
 fun get_group(): U32 =>
 """

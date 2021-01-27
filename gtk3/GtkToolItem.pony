@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "None", "GObjectREF"]
+   needs: ["Bool", "None", "GObjectREF", "GtkWidget"]
 provides: ["GtkToolItem"]
 */
 use "../gobject"
@@ -72,12 +72,9 @@ gtk_tool_item_set_is_important()
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* get_proxy_menu_item unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* get_proxy_menu_item unavailable due to typing issues
+ {:doh, %{argctype: "const gchar*", argname: "menu_item_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
 
 /* get_relief_style unavailable due to return typing issues
 {:argctype, "GtkReliefStyle"}
@@ -147,12 +144,10 @@ will do in response to the #GtkToolItem::create-menu-proxy signal.
 """
   @gtk_tool_item_rebuild_menu[None](widget)
 
-/* retrieve_proxy_menu_item unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun retrieve_proxy_menu_item(): GtkWidget =>
+    @gtk_tool_item_retrieve_proxy_menu_item[GObjectREF](widget)
+*/
 
 fun set_expand(expand_pony: Bool): None =>
 """
@@ -183,7 +178,6 @@ effect known as “priority text”
 
 /* set_proxy_menu_item unavailable due to typing issues
  {:doh, %{argctype: "const gchar*", argname: "menu_item_id", argtype: "utf8", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "menu_item", argtype: "Widget", paramtype: :param, txo: "none"}}
 */
 
 /* set_tooltip_markup unavailable due to typing issues

@@ -1,5 +1,5 @@
 /*
-   needs: ["Pointer[U8 val] ref", "String", "I32", "GObjectREF"]
+   needs: ["GObjectREF", "GtkWidget", "Pointer[U8 val] ref", "String", "I32"]
 provides: ["GtkFontSelection"]
 */
 use "../gobject"
@@ -28,12 +28,10 @@ No documentation provided
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* get_face_list unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_face_list(): GtkWidget =>
+    @gtk_font_selection_get_face_list[GObjectREF](widget)
+*/
 
 /* get_family unavailable due to return typing issues
 {:argctype, "PangoFontFamily*"}
@@ -42,12 +40,10 @@ No documentation provided
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* get_family_list unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_family_list(): GtkWidget =>
+    @gtk_font_selection_get_family_list[GObjectREF](widget)
+*/
 
 /* get_font_name unavailable due to return typing issues
 {:argctype, "gchar*"}
@@ -56,12 +52,10 @@ No documentation provided
 {:paramtype, :param}
 {:txo, "full"} */
 
-/* get_preview_entry unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_preview_entry(): GtkWidget =>
+    @gtk_font_selection_get_preview_entry[GObjectREF](widget)
+*/
 
 fun get_preview_text(): String =>
 """
@@ -77,19 +71,15 @@ The selected font size.
 """
   @gtk_font_selection_get_size[I32](widget)
 
-/* get_size_entry unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_size_entry(): GtkWidget =>
+    @gtk_font_selection_get_size_entry[GObjectREF](widget)
+*/
 
-/* get_size_list unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_size_list(): GtkWidget =>
+    @gtk_font_selection_get_size_list[GObjectREF](widget)
+*/
 
 /* set_font_name unavailable due to typing issues
  {:doh, %{argctype: "const gchar*", argname: "fontname", argtype: "utf8", paramtype: :param, txo: "none"}}

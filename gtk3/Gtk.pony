@@ -141,7 +141,6 @@ primitive Gtk
 
 /* cairo_transform_to_window unavailable due to typing issues
  {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkWindow*", argname: "window", argtype: "Gdk.Window", paramtype: :param, txo: "none"}}
 */
 
@@ -182,13 +181,11 @@ into an application using a newer version of GTK+.
 {:txo, "none"} */
 
 /* device_grab_add unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GdkDevice*", argname: "device", argtype: "Gdk.Device", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GdkDevice*", argname: "device", argtype: "Gdk.Device", paramtype: :param, txo: "none"}}
 */
 
 /* device_grab_remove unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GdkDevice*", argname: "device", argtype: "Gdk.Device", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GdkDevice*", argname: "device", argtype: "Gdk.Device", paramtype: :param, txo: "none"}}
 */
 
 fun disable_setlocale(): None =>
@@ -217,12 +214,9 @@ Most programs should not need to call this function.
 {:doh, %{argctype: "guint32", argname: "time_", argtype: "guint32", paramtype: :param, txo: "none"}}
 */
 
-/* drag_get_source_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* drag_get_source_widget unavailable due to typing issues
+ {:doh, %{argctype: "GdkDragContext*", argname: "context", argtype: "Gdk.DragContext", paramtype: :param, txo: "none"}}
+*/
 
 /* drag_set_icon_default unavailable due to typing issues
  {:doh, %{argctype: "GdkDragContext*", argname: "context", argtype: "Gdk.DragContext", paramtype: :param, txo: "none"}}
@@ -255,12 +249,10 @@ Most programs should not need to call this function.
 
 /* drag_set_icon_widget unavailable due to typing issues
  {:doh, %{argctype: "GdkDragContext*", argname: "context", argtype: "Gdk.DragContext", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 */
 
 /* draw_insertion_cursor unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "location", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkTextDirection", argname: "direction", argtype: "TextDirection", paramtype: :param, txo: "none"}}
 */
@@ -349,12 +341,9 @@ to adjust their debug output based on GTK+ debug flags.
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* get_event_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* get_event_widget unavailable due to typing issues
+ {:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
+*/
 
 fun get_interface_age(): U32 =>
 """
@@ -415,12 +404,10 @@ GTK+ headers you have included when compiling your code.
 {:paramtype, :param}
 {:txo, "full"} */
 
-/* grab_get_current unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun grab_get_current(): GtkWidget =>
+    @gtk_grab_get_current[GObjectREF]()
+*/
 
 /* icon_size_from_name unavailable due to return typing issues
 {:argctype, "GtkIconSize"}
@@ -576,7 +563,6 @@ when it regains control.
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkShadowType", argname: "shadow_type", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkArrowType", argname: "arrow_type", argtype: "ArrowType", paramtype: :param, txo: "none"}}
 */
@@ -586,7 +572,6 @@ when it regains control.
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkShadowType", argname: "shadow_type", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
@@ -595,7 +580,6 @@ when it regains control.
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkShadowType", argname: "shadow_type", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkPositionType", argname: "gap_side", argtype: "PositionType", paramtype: :param, txo: "none"}}
 */
@@ -605,7 +589,6 @@ when it regains control.
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkShadowType", argname: "shadow_type", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
@@ -614,7 +597,6 @@ when it regains control.
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkShadowType", argname: "shadow_type", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
@@ -622,7 +604,6 @@ when it regains control.
  {:doh, %{argctype: "GtkStyle*", argname: "style", argtype: "Style", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkExpanderStyle", argname: "expander_style", argtype: "ExpanderStyle", paramtype: :param, txo: "none"}}
 */
@@ -632,7 +613,6 @@ when it regains control.
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkShadowType", argname: "shadow_type", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkPositionType", argname: "gap_side", argtype: "PositionType", paramtype: :param, txo: "none"}}
 */
@@ -642,7 +622,6 @@ when it regains control.
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkShadowType", argname: "shadow_type", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
@@ -650,7 +629,6 @@ when it regains control.
  {:doh, %{argctype: "GtkStyle*", argname: "style", argtype: "Style", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
@@ -659,7 +637,6 @@ when it regains control.
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkShadowType", argname: "shadow_type", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkOrientation", argname: "orientation", argtype: "Orientation", paramtype: :param, txo: "none"}}
 */
@@ -668,7 +645,6 @@ when it regains control.
  {:doh, %{argctype: "GtkStyle*", argname: "style", argtype: "Style", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
@@ -676,7 +652,6 @@ when it regains control.
  {:doh, %{argctype: "GtkStyle*", argname: "style", argtype: "Style", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "PangoLayout*", argname: "layout", argtype: "Pango.Layout", paramtype: :param, txo: "none"}}
 */
@@ -686,7 +661,6 @@ when it regains control.
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkShadowType", argname: "shadow_type", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
@@ -694,7 +668,6 @@ when it regains control.
  {:doh, %{argctype: "GtkStyle*", argname: "style", argtype: "Style", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkWindowEdge", argname: "edge", argtype: "Gdk.WindowEdge", paramtype: :param, txo: "none"}}
 */
@@ -704,7 +677,6 @@ when it regains control.
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkShadowType", argname: "shadow_type", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
@@ -713,7 +685,6 @@ when it regains control.
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkShadowType", argname: "shadow_type", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkPositionType", argname: "gap_side", argtype: "PositionType", paramtype: :param, txo: "none"}}
 */
@@ -723,7 +694,6 @@ when it regains control.
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkShadowType", argname: "shadow_type", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkOrientation", argname: "orientation", argtype: "Orientation", paramtype: :param, txo: "none"}}
 */
@@ -732,7 +702,6 @@ when it regains control.
  {:doh, %{argctype: "GtkStyle*", argname: "style", argtype: "Style", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
@@ -741,7 +710,6 @@ when it regains control.
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkShadowType", argname: "shadow_type", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
@@ -749,7 +717,6 @@ when it regains control.
  {:doh, %{argctype: "GtkStyle*", argname: "style", argtype: "Style", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateType", argname: "state_type", argtype: "StateType", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "detail", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
@@ -797,8 +764,7 @@ depends on the current locale.
 */
 
 /* propagate_event unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
 */
 
 /* rc_add_default_file unavailable due to typing issues
@@ -1150,45 +1116,44 @@ and then reread all previously read RC files.
 */
 
 /* selection_add_target unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GdkAtom", argname: "selection", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GdkAtom", argname: "selection", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkAtom", argname: "target", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
 */
 
 /* selection_add_targets unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GdkAtom", argname: "selection", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GdkAtom", argname: "selection", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "targets", argtype: "", paramtype: :param, txo: "none"}}
 */
 
 /* selection_clear_targets unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GdkAtom", argname: "selection", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GdkAtom", argname: "selection", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
 */
 
 /* selection_convert unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GdkAtom", argname: "selection", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GdkAtom", argname: "selection", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkAtom", argname: "target", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "guint32", argname: "time_", argtype: "guint32", paramtype: :param, txo: "none"}}
 */
 
 /* selection_owner_set unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GdkAtom", argname: "selection", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GdkAtom", argname: "selection", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "guint32", argname: "time_", argtype: "guint32", paramtype: :param, txo: "none"}}
 */
 
 /* selection_owner_set_for_display unavailable due to typing issues
  {:doh, %{argctype: "GdkDisplay*", argname: "display", argtype: "Gdk.Display", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkAtom", argname: "selection", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "guint32", argname: "time_", argtype: "guint32", paramtype: :param, txo: "none"}}
 */
 
-/* selection_remove_all unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun selection_remove_all(widget_pony: GtkWidget): None =>
+"""
+Removes all handlers and unsets ownership of all
+selections for a widget. Called when widget is being
+destroyed. This function will not generally be
+called by applications.
+"""
+  @gtk_selection_remove_all[None](widget_pony.gtkwidget())
 
 fun set_debug_flags(flags_pony: U32): None =>
 """
@@ -1269,47 +1234,35 @@ Sets the GTK+ debug flags.
  {:doh, %{argctype: "", argname: "targets", argtype: "", paramtype: :param, txo: "none"}}
 */
 
-/* test_create_simple_window unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* test_create_simple_window unavailable due to typing issues
+ {:doh, %{argctype: "const gchar*", argname: "window_title", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "dialog_text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
 
-/* test_create_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* test_create_widget unavailable due to typing issues
+ {:doh, %{argctype: "GType", argname: "widget_type", argtype: "GType", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "first_property_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "", argname: "...", argtype: "", paramtype: :param, txo: "none"}}
+*/
 
-/* test_display_button_window unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "full"} */
+/* test_display_button_window unavailable due to typing issues
+ {:doh, %{argctype: "const gchar*", argname: "window_title", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "dialog_text", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "", argname: "...", argtype: "", paramtype: :param, txo: "none"}}
+*/
 
-/* test_find_label unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* test_find_label unavailable due to typing issues
+ {:doh, %{argctype: "const gchar*", argname: "label_pattern", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
 
-/* test_find_sibling unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* test_find_sibling unavailable due to typing issues
+ {:doh, %{argctype: "GType", argname: "widget_type", argtype: "GType", paramtype: :param, txo: "none"}}
+*/
 
-/* test_find_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* test_find_widget unavailable due to typing issues
+ {:doh, %{argctype: "const gchar*", argname: "label_pattern", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GType", argname: "widget_type", argtype: "GType", paramtype: :param, txo: "none"}}
+*/
 
 /* test_init unavailable due to typing issues
  {:doh, %{argctype: "int*", argname: "argcp", argtype: "gint", paramtype: :param, txo: "none"}}
@@ -1340,8 +1293,7 @@ g_type_from_name() after calling this function.
 {:txo, "none"} */
 
 /* test_slider_set_perc unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "double", argname: "percentage", argtype: "gdouble", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "double", argname: "percentage", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
 
 /* test_spin_button_click unavailable due to typing issues
@@ -1356,23 +1308,28 @@ g_type_from_name() after calling this function.
 {:txo, "full"} */
 
 /* test_text_set unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "const gchar*", argname: "string", argtype: "utf8", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "const gchar*", argname: "string", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* test_widget_click unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GdkModifierType", argname: "modifiers", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GdkModifierType", argname: "modifiers", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
 */
 
 /* test_widget_send_key unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GdkModifierType", argname: "modifiers", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GdkModifierType", argname: "modifiers", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
 */
 
-/* test_widget_wait_for_draw unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun test_widget_wait_for_draw(widget_pony: GtkWidget): None =>
+"""
+Enters the main loop and waits for @widget to be “drawn”. In this
+context that means it waits for the frame clock of @widget to have
+run a full styling, layout and drawing cycle.
+
+This function is intended to be used for syncing with actions that
+depend on @widget relayouting or on interaction with the display
+server.
+"""
+  @gtk_test_widget_wait_for_draw[None](widget_pony.gtkwidget())
 
 /* tree_get_row_drag_data unavailable due to typing issues
  {:doh, %{argctype: "GtkSelectionData*", argname: "selection_data", argtype: "SelectionData", paramtype: :param, txo: "none"}}

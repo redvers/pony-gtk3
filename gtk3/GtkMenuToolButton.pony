@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF", "GtkWidget", "String"]
+   needs: ["GObjectREF", "GtkWidget", "None", "String"]
 provides: ["GtkMenuToolButton"]
 */
 use "../gobject"
@@ -44,12 +44,10 @@ An example for a UI definition fragment with menus:
     widget = @gtk_menu_tool_button_new_from_stock[GObjectREF](stock_id_pony.cstring()) //
 
 
-/* get_menu unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_menu(): GtkWidget =>
+    @gtk_menu_tool_button_get_menu[GObjectREF](widget)
+*/
 
 /* set_arrow_tooltip_markup unavailable due to typing issues
  {:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
@@ -59,7 +57,10 @@ An example for a UI definition fragment with menus:
  {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
-/* set_menu unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "menu", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_menu(menu_pony: GtkWidget): None =>
+"""
+Sets the #GtkMenu that is popped up when the user clicks on the arrow.
+If @menu is NULL, the arrow button becomes insensitive.
+"""
+  @gtk_menu_tool_button_set_menu[None](widget, menu_pony.gtkwidget())
 

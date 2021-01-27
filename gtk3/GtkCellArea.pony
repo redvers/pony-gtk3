@@ -333,14 +333,12 @@ gtk_cell_area_cell_get() or gtk_cell_area_cell_get_valist().
 
 /* activate unavailable due to typing issues
  {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellRendererState", argname: "flags", argtype: "CellRendererState", paramtype: :param, txo: "none"}}
 */
 
 /* activate_cell unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellRendererState", argname: "flags", argtype: "CellRendererState", paramtype: :param, txo: "none"}}
@@ -433,7 +431,6 @@ gtk_cell_area_cell_get() or gtk_cell_area_cell_get_valist().
 
 /* event unavailable due to typing issues
  {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellRendererState", argname: "flags", argtype: "CellRendererState", paramtype: :param, txo: "none"}}
@@ -450,7 +447,6 @@ gtk_cell_area_cell_get() or gtk_cell_area_cell_get_valist().
 
 /* foreach_alloc unavailable due to typing issues
  {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "background_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellAllocCallback", argname: "callback", argtype: "CellAllocCallback", paramtype: :param, txo: "none"}}
@@ -459,7 +455,6 @@ gtk_cell_area_cell_get() or gtk_cell_area_cell_get_valist().
 
 /* get_cell_allocation unavailable due to typing issues
  {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkRectangle*", argname: "allocation", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
@@ -521,28 +516,24 @@ subclasses.
 
 /* get_preferred_height unavailable due to typing issues
  {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "minimum_height", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 
 /* get_preferred_height_for_width unavailable due to typing issues
  {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "minimum_height", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 
 /* get_preferred_width unavailable due to typing issues
  {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "minimum_width", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_width", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 
 /* get_preferred_width_for_height unavailable due to typing issues
  {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "minimum_width", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_width", argtype: "gint", paramtype: :param, txo: "full"}}
 */
@@ -559,8 +550,7 @@ subclasses.
 */
 
 /* inner_cell_area unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkRectangle*", argname: "inner_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 */
 
@@ -587,7 +577,6 @@ after applying new attributes to @area.
 
 /* render unavailable due to typing issues
  {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "background_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
@@ -597,7 +586,6 @@ after applying new attributes to @area.
 /* request_renderer unavailable due to typing issues
  {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkOrientation", argname: "orientation", argtype: "Orientation", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "minimum_size", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_size", argtype: "gint", paramtype: :param, txo: "full"}}
 */

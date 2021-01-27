@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "None", "Pointer[U8 val] ref", "String", "I32", "GObjectREF", "GtkWindowType"]
+   needs: ["Bool", "None", "U32", "GtkWidget", "GObjectREF", "Pointer[U8 val] ref", "String", "I32", "GtkWindowType"]
 provides: ["GtkWindow"]
 */
 use "../gobject"
@@ -98,9 +98,11 @@ Activates the current focused widget within the window.
  {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
 */
 
-/* add_mnemonic unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "target", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun add_mnemonic(keyval_pony: U32, target_pony: GtkWidget): None =>
+"""
+Adds a mnemonic to this window.
+"""
+  @gtk_window_add_mnemonic[None](widget, keyval_pony, target_pony.gtkwidget())
 
 /* begin_move_drag unavailable due to typing issues
  {:doh, %{argctype: "guint32", argname: "timestamp", argtype: "guint32", paramtype: :param, txo: "none"}}
@@ -166,12 +168,10 @@ Gets the value set by gtk_window_set_accept_focus().
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* get_attached_to unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_attached_to(): GtkWidget =>
+    @gtk_window_get_attached_to[GObjectREF](widget)
+*/
 
 fun get_decorated(): Bool =>
 """
@@ -185,12 +185,10 @@ such as a title bar via gtk_window_set_decorated().
 {:doh, %{argctype: "gint*", argname: "height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 
-/* get_default_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_default_widget(): GtkWidget =>
+    @gtk_window_get_default_widget[GObjectREF](widget)
+*/
 
 fun get_deletable(): Bool =>
 """
@@ -206,12 +204,10 @@ gtk_window_set_destroy_with_parent ().
 """
   @gtk_window_get_destroy_with_parent[Bool](widget)
 
-/* get_focus unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_focus(): GtkWidget =>
+    @gtk_window_get_focus[GObjectREF](widget)
+*/
 
 fun get_focus_on_map(): Bool =>
 """
@@ -357,12 +353,10 @@ Retrieves the title of the window. See gtk_window_set_title().
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_titlebar unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_titlebar(): GtkWidget =>
+    @gtk_window_get_titlebar[GObjectREF](widget)
+*/
 
 /* get_transient_for unavailable due to return typing issues
 {:argctype, "GtkWindow*"}
@@ -534,9 +528,11 @@ to allow focus stealing prevention to work correctly.
  {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
 */
 
-/* remove_mnemonic unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "target", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun remove_mnemonic(keyval_pony: U32, target_pony: GtkWidget): None =>
+"""
+Removes a mnemonic from this window.
+"""
+  @gtk_window_remove_mnemonic[None](widget, keyval_pony, target_pony.gtkwidget())
 
 fun reshow_with_initial_size(): None =>
 """
@@ -604,9 +600,24 @@ the input focus. This function sets this hint.
  {:doh, %{argctype: "GtkApplication*", argname: "application", argtype: "Application", paramtype: :param, txo: "none"}}
 */
 
-/* set_attached_to unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "attach_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_attached_to(attach_widget_pony: GtkWidget): None =>
+"""
+Marks @window as attached to @attach_widget. This creates a logical binding
+between the window and the widget it belongs to, which is used by GTK+ to
+propagate information such as styling or accessibility to @window as if it
+was a children of @attach_widget.
+
+Examples of places where specifying this relation is useful are for instance
+a #GtkMenu created by a #GtkComboBox, a completion popup window
+created by #GtkEntry or a typeahead search entry created by #GtkTreeView.
+
+Note that this function should not be confused with
+gtk_window_set_transient_for(), which specifies a window manager relation
+between two toplevels instead.
+
+Passing %NULL for @attach_widget detaches the window.
+"""
+  @gtk_window_set_attached_to[None](widget, attach_widget_pony.gtkwidget())
 
 fun set_decorated(setting_pony: Bool): None =>
 """
@@ -624,9 +635,17 @@ policy involved.
 """
   @gtk_window_set_decorated[None](widget, setting_pony)
 
-/* set_default unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "default_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_default(default_widget_pony: GtkWidget): None =>
+"""
+The default widget is the widget that’s activated when the user
+presses Enter in a dialog (for example). This function sets or
+unsets the default widget for a #GtkWindow. When setting (rather
+than unsetting) the default widget it’s generally easier to call
+gtk_widget_grab_default() on the widget. Before making a widget
+the default widget, you must call gtk_widget_set_can_default() on
+the widget you’d like to make the default.
+"""
+  @gtk_window_set_default[None](widget, default_widget_pony.gtkwidget())
 
 fun set_default_geometry(width_pony: I32, height_pony: I32): None =>
 """
@@ -698,9 +717,15 @@ associated with, for example.
 """
   @gtk_window_set_destroy_with_parent[None](widget, setting_pony)
 
-/* set_focus unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "focus", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_focus(focus_pony: GtkWidget): None =>
+"""
+If @focus is not the current focus widget, and is focusable, sets
+it as the focus widget for the window. If @focus is %NULL, unsets
+the focus widget for this window. To set the focus to a particular
+widget in the toplevel, it is usually more convenient to use
+gtk_widget_grab_focus() instead of this function.
+"""
+  @gtk_window_set_focus[None](widget, focus_pony.gtkwidget())
 
 fun set_focus_on_map(setting_pony: Bool): None =>
 """
@@ -717,8 +742,7 @@ Sets the #GtkWindow:focus-visible property.
   @gtk_window_set_focus_visible[None](widget, setting_pony)
 
 /* set_geometry_hints unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "geometry_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GdkGeometry*", argname: "geometry", argtype: "Gdk.Geometry", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GdkGeometry*", argname: "geometry", argtype: "Gdk.Geometry", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkWindowHints", argname: "geom_mask", argtype: "Gdk.WindowHints", paramtype: :param, txo: "none"}}
 */
 
@@ -899,9 +923,20 @@ the window in the task bar. This function sets this hint.
  {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
-/* set_titlebar unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "titlebar", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_titlebar(titlebar_pony: GtkWidget): None =>
+"""
+Sets a custom titlebar for @window.
+
+A typical widget used here is #GtkHeaderBar, as it provides various features
+expected of a titlebar while allowing the addition of child widgets to it.
+
+If you set a custom titlebar, GTK+ will do its best to convince
+the window manager not to put its own titlebar on the window.
+Depending on the system, this function may not work for a window
+that is already visible, so you set the titlebar before calling
+gtk_widget_show().
+"""
+  @gtk_window_set_titlebar[None](widget, titlebar_pony.gtkwidget())
 
 /* set_transient_for unavailable due to typing issues
  {:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}

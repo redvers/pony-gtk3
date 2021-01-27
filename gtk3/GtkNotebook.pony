@@ -1,5 +1,5 @@
 /*
-   needs: ["I32", "Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF"]
+   needs: ["I32", "GtkWidget", "None", "Pointer[U8 val] ref", "String", "GObjectREF", "Bool"]
 provides: ["GtkNotebook"]
 */
 use "../gobject"
@@ -100,27 +100,33 @@ The nodes are always arranged from left-to-right, regarldess of text direction.
     widget = @gtk_notebook_new[GObjectREF]() //
 
 
-/* append_page unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "tab_label", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun append_page(child_pony: GtkWidget, tab_label_pony: GtkWidget): I32 =>
+"""
+Appends a page to @notebook.
+"""
+  @gtk_notebook_append_page[I32](widget, child_pony.gtkwidget(), tab_label_pony.gtkwidget())
 
-/* append_page_menu unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "tab_label", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "menu_label", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun append_page_menu(child_pony: GtkWidget, tab_label_pony: GtkWidget, menu_label_pony: GtkWidget): I32 =>
+"""
+Appends a page to @notebook, specifying the widget to use as the
+label in the popup menu.
+"""
+  @gtk_notebook_append_page_menu[I32](widget, child_pony.gtkwidget(), tab_label_pony.gtkwidget(), menu_label_pony.gtkwidget())
 
-/* detach_tab unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun detach_tab(child_pony: GtkWidget): None =>
+"""
+Removes the child from the notebook.
 
-/* get_action_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+This function is very similar to gtk_container_remove(),
+but additionally informs the notebook that the removal
+is happening as part of a tab DND operation, which should
+not be cancelled.
+"""
+  @gtk_notebook_detach_tab[None](widget, child_pony.gtkwidget())
+
+/* get_action_widget unavailable due to typing issues
+ {:doh, %{argctype: "GtkPackType", argname: "pack_type", argtype: "PackType", paramtype: :param, txo: "none"}}
+*/
 
 fun get_current_page(): I32 =>
 """
@@ -136,16 +142,19 @@ Gets the current group name for @notebook.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_menu_label unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
-
-/* get_menu_label_text unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
+/* Needs conversion code 
+  fun get_menu_label(child_pony: GtkWidget): GtkWidget =>
+    @gtk_notebook_get_menu_label[GObjectREF](widget, child_pony.gtkwidget())
 */
+
+fun get_menu_label_text(child_pony: GtkWidget): String =>
+"""
+Retrieves the text of the menu label for the page containing
+@child.
+"""
+  var cstring_pony: Pointer[U8 val] ref = @gtk_notebook_get_menu_label_text[Pointer[U8 val] ref](widget, child_pony.gtkwidget())
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  consume string_pony
 
 fun get_n_pages(): I32 =>
 """
@@ -153,12 +162,10 @@ Gets the number of pages in a notebook.
 """
   @gtk_notebook_get_n_pages[I32](widget)
 
-/* get_nth_page unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+  fun get_nth_page(page_num_pony: I32): GtkWidget =>
+    @gtk_notebook_get_nth_page[GObjectREF](widget, page_num_pony)
+*/
 
 fun get_scrollable(): Bool =>
 """
@@ -181,9 +188,11 @@ See gtk_notebook_set_show_tabs().
 """
   @gtk_notebook_get_show_tabs[Bool](widget)
 
-/* get_tab_detachable unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun get_tab_detachable(child_pony: GtkWidget): Bool =>
+"""
+Returns whether the tab contents can be detached from @notebook.
+"""
+  @gtk_notebook_get_tab_detachable[Bool](widget, child_pony.gtkwidget())
 
 /* get_tab_hborder unavailable due to return typing issues
 {:argctype, "guint16"}
@@ -192,16 +201,19 @@ See gtk_notebook_set_show_tabs().
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* get_tab_label unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
-
-/* get_tab_label_text unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
+/* Needs conversion code 
+  fun get_tab_label(child_pony: GtkWidget): GtkWidget =>
+    @gtk_notebook_get_tab_label[GObjectREF](widget, child_pony.gtkwidget())
 */
+
+fun get_tab_label_text(child_pony: GtkWidget): String =>
+"""
+Retrieves the text of the tab label for the page containing
+@child.
+"""
+  var cstring_pony: Pointer[U8 val] ref = @gtk_notebook_get_tab_label_text[Pointer[U8 val] ref](widget, child_pony.gtkwidget())
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  consume string_pony
 
 /* get_tab_pos unavailable due to return typing issues
 {:argctype, "GtkPositionType"}
@@ -210,9 +222,11 @@ See gtk_notebook_set_show_tabs().
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* get_tab_reorderable unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun get_tab_reorderable(child_pony: GtkWidget): Bool =>
+"""
+Gets whether the tab can be reordered via drag and drop or not.
+"""
+  @gtk_notebook_get_tab_reorderable[Bool](widget, child_pony.gtkwidget())
 
 /* get_tab_vborder unavailable due to return typing issues
 {:argctype, "guint16"}
@@ -221,16 +235,18 @@ See gtk_notebook_set_show_tabs().
 {:paramtype, :param}
 {:txo, "none"} */
 
-/* insert_page unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "tab_label", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun insert_page(child_pony: GtkWidget, tab_label_pony: GtkWidget, position_pony: I32): I32 =>
+"""
+Insert a page into @notebook at the given position.
+"""
+  @gtk_notebook_insert_page[I32](widget, child_pony.gtkwidget(), tab_label_pony.gtkwidget(), position_pony)
 
-/* insert_page_menu unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "tab_label", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "menu_label", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun insert_page_menu(child_pony: GtkWidget, tab_label_pony: GtkWidget, menu_label_pony: GtkWidget, position_pony: I32): I32 =>
+"""
+Insert a page into @notebook at the given position, specifying
+the widget to use as the label in the popup menu.
+"""
+  @gtk_notebook_insert_page_menu[I32](widget, child_pony.gtkwidget(), tab_label_pony.gtkwidget(), menu_label_pony.gtkwidget(), position_pony)
 
 fun next_page(): None =>
 """
@@ -239,9 +255,12 @@ the last page.
 """
   @gtk_notebook_next_page[None](widget)
 
-/* page_num unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun page_num(child_pony: GtkWidget): I32 =>
+"""
+Finds the index of the page which contains the given child
+widget.
+"""
+  @gtk_notebook_page_num[I32](widget, child_pony.gtkwidget())
 
 fun popup_disable(): None =>
 """
@@ -257,16 +276,18 @@ will be popped up.
 """
   @gtk_notebook_popup_enable[None](widget)
 
-/* prepend_page unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "tab_label", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun prepend_page(child_pony: GtkWidget, tab_label_pony: GtkWidget): I32 =>
+"""
+Prepends a page to @notebook.
+"""
+  @gtk_notebook_prepend_page[I32](widget, child_pony.gtkwidget(), tab_label_pony.gtkwidget())
 
-/* prepend_page_menu unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "tab_label", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "menu_label", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun prepend_page_menu(child_pony: GtkWidget, tab_label_pony: GtkWidget, menu_label_pony: GtkWidget): I32 =>
+"""
+Prepends a page to @notebook, specifying the widget to use as the
+label in the popup menu.
+"""
+  @gtk_notebook_prepend_page_menu[I32](widget, child_pony.gtkwidget(), tab_label_pony.gtkwidget(), menu_label_pony.gtkwidget())
 
 fun prev_page(): None =>
 """
@@ -282,13 +303,17 @@ in the notebook.
 """
   @gtk_notebook_remove_page[None](widget, page_num_pony)
 
-/* reorder_child unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun reorder_child(child_pony: GtkWidget, position_pony: I32): None =>
+"""
+Reorders the page containing @child, so that it appears in position
+@position. If @position is greater than or equal to the number of
+children in the list or negative, @child will be moved to the end
+of the list.
+"""
+  @gtk_notebook_reorder_child[None](widget, child_pony.gtkwidget(), position_pony)
 
 /* set_action_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkPackType", argname: "pack_type", argtype: "PackType", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "GtkPackType", argname: "pack_type", argtype: "PackType", paramtype: :param, txo: "none"}}
 */
 
 fun set_current_page(page_num_pony: I32): None =>
@@ -306,14 +331,14 @@ adding them to a notebook.
  {:doh, %{argctype: "const gchar*", argname: "group_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
-/* set_menu_label unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "menu_label", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_menu_label(child_pony: GtkWidget, menu_label_pony: GtkWidget): None =>
+"""
+Changes the menu label for the page containing @child.
+"""
+  @gtk_notebook_set_menu_label[None](widget, child_pony.gtkwidget(), menu_label_pony.gtkwidget())
 
 /* set_menu_label_text unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "const gchar*", argname: "menu_text", argtype: "utf8", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "const gchar*", argname: "menu_text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_scrollable(scrollable_pony: Bool): None =>
@@ -337,25 +362,76 @@ Sets whether to show the tabs for the notebook or not.
 """
   @gtk_notebook_set_show_tabs[None](widget, show_tabs_pony)
 
-/* set_tab_detachable unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_tab_detachable(child_pony: GtkWidget, detachable_pony: Bool): None =>
+"""
+Sets whether the tab can be detached from @notebook to another
+notebook or widget.
 
-/* set_tab_label unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkWidget*", argname: "tab_label", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+Note that 2 notebooks must share a common group identificator
+(see gtk_notebook_set_group_name()) to allow automatic tabs
+interchange between them.
+
+If you want a widget to interact with a notebook through DnD
+(i.e.: accept dragged tabs from it) it must be set as a drop
+destination and accept the target “GTK_NOTEBOOK_TAB”. The notebook
+will fill the selection with a GtkWidget** pointing to the child
+widget that corresponds to the dropped tab.
+
+Note that you should use gtk_notebook_detach_tab() instead
+of gtk_container_remove() if you want to remove the tab from
+the source notebook as part of accepting a drop. Otherwise,
+the source notebook will think that the dragged tab was
+removed from underneath the ongoing drag operation, and
+will initiate a drag cancel animation.
+
+|[<!-- language="C" -->
+ static void
+ on_drag_data_received (GtkWidget        *widget,
+                        GdkDragContext   *context,
+                        gint              x,
+                        gint              y,
+                        GtkSelectionData *data,
+                        guint             info,
+                        guint             time,
+                        gpointer          user_data)
+ {
+   GtkWidget *notebook;
+   GtkWidget **child;
+
+   notebook = gtk_drag_get_source_widget (context);
+   child = (void*) gtk_selection_data_get_data (data);
+
+   // process_widget (*child);
+
+   gtk_notebook_detach_tab (GTK_NOTEBOOK (notebook), *child);
+ }
+]|
+
+If you want a notebook to accept drags from other widgets,
+you will have to set your own DnD code to do it.
+"""
+  @gtk_notebook_set_tab_detachable[None](widget, child_pony.gtkwidget(), detachable_pony)
+
+fun set_tab_label(child_pony: GtkWidget, tab_label_pony: GtkWidget): None =>
+"""
+Changes the tab label for @child.
+If %NULL is specified for @tab_label, then the page will
+have the label “page N”.
+"""
+  @gtk_notebook_set_tab_label[None](widget, child_pony.gtkwidget(), tab_label_pony.gtkwidget())
 
 /* set_tab_label_text unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "const gchar*", argname: "tab_text", argtype: "utf8", paramtype: :param, txo: "none"}}
+ {:doh, %{argctype: "const gchar*", argname: "tab_text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_tab_pos unavailable due to typing issues
  {:doh, %{argctype: "GtkPositionType", argname: "pos", argtype: "PositionType", paramtype: :param, txo: "none"}}
 */
 
-/* set_tab_reorderable unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_tab_reorderable(child_pony: GtkWidget, reorderable_pony: Bool): None =>
+"""
+Sets whether the notebook tab can be reordered
+via drag and drop or not.
+"""
+  @gtk_notebook_set_tab_reorderable[None](widget, child_pony.gtkwidget(), reorderable_pony)
 
