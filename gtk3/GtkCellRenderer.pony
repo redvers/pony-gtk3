@@ -85,6 +85,9 @@ class GtkCellRenderer is GtkWidget
 {:txo, "none"} */
 
 fun get_sensitive(): Bool =>
+"""
+Returns the cell renderer’s sensitivity.
+"""
   @gtk_cell_renderer_get_sensitive[Bool](widget)
 
 /* get_size unavailable due to typing issues
@@ -104,9 +107,15 @@ fun get_sensitive(): Bool =>
 {:txo, "none"} */
 
 fun get_visible(): Bool =>
+"""
+Returns the cell renderer’s visibility.
+"""
   @gtk_cell_renderer_get_visible[Bool](widget)
 
 fun is_activatable(): Bool =>
+"""
+Checks whether the cell renderer can do something when activated.
+"""
   @gtk_cell_renderer_is_activatable[Bool](widget)
 
 /* render unavailable due to typing issues
@@ -123,15 +132,27 @@ fun is_activatable(): Bool =>
 */
 
 fun set_fixed_size(width_pony: I32, height_pony: I32): None =>
+"""
+Sets the renderer size to be explicit, independent of the properties set.
+"""
   @gtk_cell_renderer_set_fixed_size[None](widget, width_pony, height_pony)
 
 fun set_padding(xpad_pony: I32, ypad_pony: I32): None =>
+"""
+Sets the renderer’s padding.
+"""
   @gtk_cell_renderer_set_padding[None](widget, xpad_pony, ypad_pony)
 
 fun set_sensitive(sensitive_pony: Bool): None =>
+"""
+Sets the cell renderer’s sensitivity.
+"""
   @gtk_cell_renderer_set_sensitive[None](widget, sensitive_pony)
 
 fun set_visible(visible_pony: Bool): None =>
+"""
+Sets the cell renderer’s visibility.
+"""
   @gtk_cell_renderer_set_visible[None](widget, visible_pony)
 
 /* start_editing unavailable due to return typing issues
@@ -142,5 +163,14 @@ fun set_visible(visible_pony: Bool): None =>
 {:txo, "none"} */
 
 fun stop_editing(canceled_pony: Bool): None =>
+"""
+Informs the cell renderer that the editing is stopped.
+If @canceled is %TRUE, the cell renderer will emit the
+#GtkCellRenderer::editing-canceled signal.
+
+This function should be called by cell renderer implementations
+in response to the #GtkCellEditable::editing-done signal of
+#GtkCellEditable.
+"""
   @gtk_cell_renderer_stop_editing[None](widget, canceled_pony)
 

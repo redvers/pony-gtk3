@@ -19,6 +19,10 @@ class GtkRadioAction is GtkWidget
 
 
 fun get_current_value(): I32 =>
+"""
+Obtains the value property of the currently active member of
+the group to which @action belongs.
+"""
   @gtk_radio_action_get_current_value[I32](widget)
 
 /* get_group unavailable due to return typing issues
@@ -33,6 +37,10 @@ fun get_current_value(): I32 =>
 */
 
 fun set_current_value(current_value_pony: I32): None =>
+"""
+Sets the currently active group member to the member with value
+property @current_value.
+"""
   @gtk_radio_action_set_current_value[None](widget, current_value_pony)
 
 /* set_group unavailable due to typing issues

@@ -33,5 +33,11 @@ class GtkAlignment is GtkWidget
 */
 
 fun set_padding(padding_top_pony: U32, padding_bottom_pony: U32, padding_left_pony: U32, padding_right_pony: U32): None =>
+"""
+Sets the padding on the different sides of the widget.
+The padding adds blank space to the sides of the widget. For instance,
+this can be used to indent the child widget towards the right by adding
+padding on the left.
+"""
   @gtk_alignment_set_padding[None](widget, padding_top_pony, padding_bottom_pony, padding_left_pony, padding_right_pony)
 

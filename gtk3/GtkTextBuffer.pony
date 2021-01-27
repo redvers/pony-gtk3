@@ -44,6 +44,25 @@ class GtkTextBuffer is GtkWidget
 */
 
 fun begin_user_action(): None =>
+"""
+Called to indicate that the buffer operations between here and a
+call to gtk_text_buffer_end_user_action() are part of a single
+user-visible operation. The operations between
+gtk_text_buffer_begin_user_action() and
+gtk_text_buffer_end_user_action() can then be grouped when creating
+an undo stack. #GtkTextBuffer maintains a count of calls to
+gtk_text_buffer_begin_user_action() that have not been closed with
+a call to gtk_text_buffer_end_user_action(), and emits the
+“begin-user-action” and “end-user-action” signals only for the
+outermost pair of calls. This allows you to build user actions
+from other user actions.
+
+The “interactive” buffer mutation functions, such as
+gtk_text_buffer_insert_interactive(), automatically call begin/end
+user action around the buffer operations they perform, so there's
+no need to add extra calls if you user action consists solely of a
+single call to one of those functions.
+"""
   @gtk_text_buffer_begin_user_action[None](widget)
 
 /* copy_clipboard unavailable due to typing issues
@@ -94,6 +113,12 @@ fun begin_user_action(): None =>
 */
 
 fun delete_selection(interactive_pony: Bool, default_editable_pony: Bool): Bool =>
+"""
+Deletes the range between the “insert” and “selection_bound” marks,
+that is, the currently-selected text. If @interactive is %TRUE,
+the editability of the selection will be considered (users can’t delete
+uneditable text).
+"""
   @gtk_text_buffer_delete_selection[Bool](widget, interactive_pony, default_editable_pony)
 
 /* deserialize unavailable due to typing issues
@@ -113,6 +138,10 @@ fun delete_selection(interactive_pony: Bool, default_editable_pony: Bool): Bool 
 */
 
 fun end_user_action(): None =>
+"""
+Should be paired with a call to gtk_text_buffer_begin_user_action().
+See that function for a full explanation.
+"""
   @gtk_text_buffer_end_user_action[None](widget)
 
 /* get_bounds unavailable due to typing issues
@@ -121,6 +150,12 @@ fun end_user_action(): None =>
 */
 
 fun get_char_count(): I32 =>
+"""
+Gets the number of characters in the buffer; note that characters
+and bytes are not the same, you can’t e.g. expect the contents of
+the buffer in string form to be this many bytes long. The character
+count is cached, so this function is very fast.
+"""
   @gtk_text_buffer_get_char_count[I32](widget)
 
 /* get_copy_target_list unavailable due to return typing issues
@@ -142,6 +177,9 @@ fun get_char_count(): I32 =>
 */
 
 fun get_has_selection(): Bool =>
+"""
+Indicates whether the buffer has some text currently selected.
+"""
   @gtk_text_buffer_get_has_selection[Bool](widget)
 
 /* get_insert unavailable due to return typing issues
@@ -178,6 +216,10 @@ fun get_has_selection(): Bool =>
 */
 
 fun get_line_count(): I32 =>
+"""
+Obtains the number of lines in the buffer. This value is cached, so
+the function is very fast.
+"""
   @gtk_text_buffer_get_line_count[I32](widget)
 
 /* get_mark unavailable due to return typing issues
@@ -188,6 +230,12 @@ fun get_line_count(): I32 =>
 {:txo, "none"} */
 
 fun get_modified(): Bool =>
+"""
+Indicates whether the buffer has been modified since the last call
+to gtk_text_buffer_set_modified() set the modification flag to
+%FALSE. Used for example to enable a “save” function in a text
+editor.
+"""
   @gtk_text_buffer_get_modified[Bool](widget)
 
 /* get_paste_target_list unavailable due to return typing issues
@@ -381,6 +429,13 @@ fun get_modified(): Bool =>
 {:txo, "full"} */
 
 fun set_modified(setting_pony: Bool): None =>
+"""
+Used to keep track of whether the buffer has been modified since the
+last time it was saved. Whenever the buffer is saved to disk, call
+gtk_text_buffer_set_modified (@buffer, FALSE). When the buffer is modified,
+it will automatically toggled on the modified bit again. When the modified
+bit flips, the buffer emits the #GtkTextBuffer::modified-changed signal.
+"""
   @gtk_text_buffer_set_modified[None](widget, setting_pony)
 
 /* set_text unavailable due to typing issues

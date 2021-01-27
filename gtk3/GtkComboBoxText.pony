@@ -56,8 +56,14 @@ class GtkComboBoxText is GtkWidget
 */
 
 fun remove(position_pony: I32): None =>
+"""
+Removes the string at @position from @combo_box.
+"""
   @gtk_combo_box_text_remove[None](widget, position_pony)
 
 fun remove_all(): None =>
+"""
+Removes all the text entries from the combo box.
+"""
   @gtk_combo_box_text_remove_all[None](widget)
 

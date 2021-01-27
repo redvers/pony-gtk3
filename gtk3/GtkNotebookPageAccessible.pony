@@ -19,5 +19,8 @@ class GtkNotebookPageAccessible is GtkWidget
 
 
 fun invalidate(): None =>
+"""
+No provided documentation
+"""
   @gtk_notebook_page_accessible_invalidate[None](widget)
 

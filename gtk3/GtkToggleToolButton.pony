@@ -22,8 +22,17 @@ class GtkToggleToolButton is GtkWidget
 
 
 fun get_active(): Bool =>
+"""
+Queries a #GtkToggleToolButton and returns its current state.
+Returns %TRUE if the toggle button is pressed in and %FALSE if it is raised.
+"""
   @gtk_toggle_tool_button_get_active[Bool](widget)
 
 fun set_active(is_active_pony: Bool): None =>
+"""
+Sets the status of the toggle tool button. Set to %TRUE if you
+want the GtkToggleButton to be “pressed in”, and %FALSE to raise it.
+This action causes the toggled signal to be emitted.
+"""
   @gtk_toggle_tool_button_set_active[None](widget, is_active_pony)
 

@@ -19,9 +19,25 @@ class GtkPrintOperation is GtkWidget
 
 
 fun cancel(): None =>
+"""
+Cancels a running print operation. This function may
+be called from a #GtkPrintOperation::begin-print,
+#GtkPrintOperation::paginate or #GtkPrintOperation::draw-page
+signal handler to stop the currently running print
+operation.
+"""
   @gtk_print_operation_cancel[None](widget)
 
 fun draw_page_finish(): None =>
+"""
+Signalize that drawing of particular page is complete.
+
+It is called after completion of page drawing (e.g. drawing in another
+thread).
+If gtk_print_operation_set_defer_drawing() was called before, then this function
+has to be called by application. In another case it is called by the library
+itself.
+"""
   @gtk_print_operation_draw_page_finish[None](widget)
 
 /* get_default_page_setup unavailable due to return typing issues
@@ -32,15 +48,38 @@ fun draw_page_finish(): None =>
 {:txo, "none"} */
 
 fun get_embed_page_setup(): Bool =>
+"""
+Gets the value of #GtkPrintOperation:embed-page-setup property.
+"""
   @gtk_print_operation_get_embed_page_setup[Bool](widget)
 
 fun get_error(): None =>
+"""
+Call this when the result of a print operation is
+%GTK_PRINT_OPERATION_RESULT_ERROR, either as returned by
+gtk_print_operation_run(), or in the #GtkPrintOperation::done signal
+handler. The returned #GError will contain more details on what went wrong.
+"""
   @gtk_print_operation_get_error[None](widget)
 
 fun get_has_selection(): Bool =>
+"""
+Gets the value of #GtkPrintOperation:has-selection property.
+"""
   @gtk_print_operation_get_has_selection[Bool](widget)
 
 fun get_n_pages_to_print(): I32 =>
+"""
+Returns the number of pages that will be printed.
+
+Note that this value is set during print preparation phase
+(%GTK_PRINT_STATUS_PREPARING), so this function should never be
+called before the data generation phase (%GTK_PRINT_STATUS_GENERATING_DATA).
+You can connect to the #GtkPrintOperation::status-changed signal
+and call gtk_print_operation_get_n_pages_to_print() when
+print status is %GTK_PRINT_STATUS_GENERATING_DATA.
+This is typically used to track the progress of print operation.
+"""
   @gtk_print_operation_get_n_pages_to_print[I32](widget)
 
 /* get_print_settings unavailable due to return typing issues
@@ -58,14 +97,34 @@ fun get_n_pages_to_print(): I32 =>
 {:txo, "none"} */
 
 fun get_status_string(): String =>
+"""
+Returns a string representation of the status of the
+print operation. The string is translated and suitable
+for displaying the print status e.g. in a #GtkStatusbar.
+
+Use gtk_print_operation_get_status() to obtain a status
+value that is suitable for programmatic use.
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_print_operation_get_status_string[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_support_selection(): Bool =>
+"""
+Gets the value of #GtkPrintOperation:support-selection property.
+"""
   @gtk_print_operation_get_support_selection[Bool](widget)
 
 fun is_finished(): Bool =>
+"""
+A convenience function to find out if the print operation
+is finished, either successfully (%GTK_PRINT_STATUS_FINISHED)
+or unsuccessfully (%GTK_PRINT_STATUS_FINISHED_ABORTED).
+
+Note: when you enable print status tracking the print operation
+can be in a non-finished state even after done has been called, as
+the operation status then tracks the print job status on the printer.
+"""
   @gtk_print_operation_is_finished[Bool](widget)
 
 /* run unavailable due to return typing issues
@@ -76,9 +135,22 @@ fun is_finished(): Bool =>
 {:txo, "none"} */
 
 fun set_allow_async(allow_async_pony: Bool): None =>
+"""
+Sets whether the gtk_print_operation_run() may return
+before the print operation is completed. Note that
+some platforms may not allow asynchronous operation.
+"""
   @gtk_print_operation_set_allow_async[None](widget, allow_async_pony)
 
 fun set_current_page(current_page_pony: I32): None =>
+"""
+Sets the current page.
+
+If this is called before gtk_print_operation_run(),
+the user will be able to select to print only the current page.
+
+Note that this only makes sense for pre-paginated documents.
+"""
   @gtk_print_operation_set_current_page[None](widget, current_page_pony)
 
 /* set_custom_tab_label unavailable due to typing issues
@@ -90,9 +162,20 @@ fun set_current_page(current_page_pony: I32): None =>
 */
 
 fun set_defer_drawing(): None =>
+"""
+Sets up the #GtkPrintOperation to wait for calling of
+gtk_print_operation_draw_page_finish() from application. It can
+be used for drawing page in another thread.
+
+This function must be called in the callback of “draw-page” signal.
+"""
   @gtk_print_operation_set_defer_drawing[None](widget)
 
 fun set_embed_page_setup(embed_pony: Bool): None =>
+"""
+Embed page size combo box and orientation combo box into page setup page.
+Selected page setup is stored as default page setup in #GtkPrintOperation.
+"""
   @gtk_print_operation_set_embed_page_setup[None](widget, embed_pony)
 
 /* set_export_filename unavailable due to typing issues
@@ -100,6 +183,13 @@ fun set_embed_page_setup(embed_pony: Bool): None =>
 */
 
 fun set_has_selection(has_selection_pony: Bool): None =>
+"""
+Sets whether there is a selection to print.
+
+Application has to set number of pages to which the selection
+will draw by gtk_print_operation_set_n_pages() in a callback of
+#GtkPrintOperation::begin-print.
+"""
   @gtk_print_operation_set_has_selection[None](widget, has_selection_pony)
 
 /* set_job_name unavailable due to typing issues
@@ -107,6 +197,19 @@ fun set_has_selection(has_selection_pony: Bool): None =>
 */
 
 fun set_n_pages(n_pages_pony: I32): None =>
+"""
+Sets the number of pages in the document.
+
+This must be set to a positive number
+before the rendering starts. It may be set in a
+#GtkPrintOperation::begin-print signal hander.
+
+Note that the page numbers passed to the
+#GtkPrintOperation::request-page-setup
+and #GtkPrintOperation::draw-page signals are 0-based, i.e. if
+the user chooses to print all pages, the last ::draw-page signal
+will be for page @n_pages - 1.
+"""
   @gtk_print_operation_set_n_pages[None](widget, n_pages_pony)
 
 /* set_print_settings unavailable due to typing issues
@@ -114,12 +217,28 @@ fun set_n_pages(n_pages_pony: I32): None =>
 */
 
 fun set_show_progress(show_progress_pony: Bool): None =>
+"""
+If @show_progress is %TRUE, the print operation will show a
+progress dialog during the print operation.
+"""
   @gtk_print_operation_set_show_progress[None](widget, show_progress_pony)
 
 fun set_support_selection(support_selection_pony: Bool): None =>
+"""
+Sets whether selection is supported by #GtkPrintOperation.
+"""
   @gtk_print_operation_set_support_selection[None](widget, support_selection_pony)
 
 fun set_track_print_status(track_status_pony: Bool): None =>
+"""
+If track_status is %TRUE, the print operation will try to continue report
+on the status of the print job in the printer queues and printer. This
+can allow your application to show things like “out of paper” issues,
+and when the print job actually reaches the printer.
+
+This function is often implemented using some form of polling, so it should
+not be enabled unless needed.
+"""
   @gtk_print_operation_set_track_print_status[None](widget, track_status_pony)
 
 /* set_unit unavailable due to typing issues
@@ -127,5 +246,13 @@ fun set_track_print_status(track_status_pony: Bool): None =>
 */
 
 fun set_use_full_page(full_page_pony: Bool): None =>
+"""
+If @full_page is %TRUE, the transformation for the cairo context
+obtained from #GtkPrintContext puts the origin at the top left
+corner of the page (which may not be the top left corner of the
+sheet, depending on page orientation and the number of pages per
+sheet). Otherwise, the origin is at the top left corner of the
+imageable area (i.e. inside the margins).
+"""
   @gtk_print_operation_set_use_full_page[None](widget, full_page_pony)
 

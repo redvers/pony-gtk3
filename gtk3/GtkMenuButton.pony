@@ -54,6 +54,10 @@ class GtkMenuButton is GtkWidget
 {:txo, "none"} */
 
 fun get_use_popover(): Bool =>
+"""
+Returns whether a #GtkPopover or a #GtkMenu will be constructed
+from the menu model.
+"""
   @gtk_menu_button_get_use_popover[Bool](widget)
 
 /* set_align_widget unavailable due to typing issues
@@ -77,5 +81,10 @@ fun get_use_popover(): Bool =>
 */
 
 fun set_use_popover(use_popover_pony: Bool): None =>
+"""
+Sets whether to construct a #GtkPopover instead of #GtkMenu
+when gtk_menu_button_set_menu_model() is called. Note that
+this property is only consulted when a new menu model is set.
+"""
   @gtk_menu_button_set_use_popover[None](widget, use_popover_pony)
 

@@ -19,12 +19,29 @@ class GtkRevealer is GtkWidget
 
 
 fun get_child_revealed(): Bool =>
+"""
+Returns whether the child is fully revealed, in other words whether
+the transition to the revealed state is completed.
+"""
   @gtk_revealer_get_child_revealed[Bool](widget)
 
 fun get_reveal_child(): Bool =>
+"""
+Returns whether the child is currently
+revealed. See gtk_revealer_set_reveal_child().
+
+This function returns %TRUE as soon as the transition
+is to the revealed state is started. To learn whether
+the child is fully revealed (ie the transition is completed),
+use gtk_revealer_get_child_revealed().
+"""
   @gtk_revealer_get_reveal_child[Bool](widget)
 
 fun get_transition_duration(): U32 =>
+"""
+Returns the amount of time (in milliseconds) that
+transitions will take.
+"""
   @gtk_revealer_get_transition_duration[U32](widget)
 
 /* get_transition_type unavailable due to return typing issues
@@ -35,9 +52,18 @@ fun get_transition_duration(): U32 =>
 {:txo, "none"} */
 
 fun set_reveal_child(reveal_child_pony: Bool): None =>
+"""
+Tells the #GtkRevealer to reveal or conceal its child.
+
+The transition will be animated with the current
+transition type of @revealer.
+"""
   @gtk_revealer_set_reveal_child[None](widget, reveal_child_pony)
 
 fun set_transition_duration(duration_pony: U32): None =>
+"""
+Sets the duration that transitions will take.
+"""
   @gtk_revealer_set_transition_duration[None](widget, duration_pony)
 
 /* set_transition_type unavailable due to typing issues

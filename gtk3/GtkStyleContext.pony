@@ -119,6 +119,9 @@ class GtkStyleContext is GtkWidget
 */
 
 fun get_scale(): I32 =>
+"""
+Returns the scale used for assets.
+"""
   @gtk_style_context_get_scale[I32](widget)
 
 /* get_screen unavailable due to return typing issues
@@ -170,6 +173,11 @@ fun get_scale(): I32 =>
 */
 
 fun invalidate(): None =>
+"""
+Invalidates @context style information, so it will be reconstructed
+again. It is useful if you modify the @context and need the new
+information immediately.
+"""
   @gtk_style_context_invalidate[None](widget)
 
 /* list_classes unavailable due to return typing issues
@@ -205,6 +213,10 @@ fun invalidate(): None =>
 */
 
 fun pop_animatable_region(): None =>
+"""
+Pops an animatable region from @context.
+See gtk_style_context_push_animatable_region().
+"""
   @gtk_style_context_pop_animatable_region[None](widget)
 
 /* push_animatable_region unavailable due to typing issues
@@ -224,9 +236,22 @@ fun pop_animatable_region(): None =>
 */
 
 fun restore(): None =>
+"""
+Restores @context state to a previous stage.
+See gtk_style_context_save().
+"""
   @gtk_style_context_restore[None](widget)
 
 fun save(): None =>
+"""
+Saves the @context state, so temporary modifications done through
+gtk_style_context_add_class(), gtk_style_context_remove_class(),
+gtk_style_context_set_state(), etc. can quickly be reverted
+in one go through gtk_style_context_restore().
+
+The matching call to gtk_style_context_restore() must be done
+before GTK returns to the main loop.
+"""
   @gtk_style_context_save[None](widget)
 
 /* scroll_animations unavailable due to typing issues
@@ -258,6 +283,9 @@ fun save(): None =>
 */
 
 fun set_scale(scale_pony: I32): None =>
+"""
+Sets the scale to use when getting image assets for the style.
+"""
   @gtk_style_context_set_scale[None](widget, scale_pony)
 
 /* set_screen unavailable due to typing issues

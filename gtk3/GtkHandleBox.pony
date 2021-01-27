@@ -19,6 +19,9 @@ class GtkHandleBox is GtkWidget
 
 
 fun get_child_detached(): Bool =>
+"""
+Whether the handlebox’s child is currently detached.
+"""
   @gtk_handle_box_get_child_detached[Bool](widget)
 
 /* get_handle_position unavailable due to return typing issues

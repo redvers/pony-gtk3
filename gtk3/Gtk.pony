@@ -146,6 +146,30 @@ primitive Gtk
 */
 
 fun check_version(required_major_pony: U32, required_minor_pony: U32, required_micro_pony: U32): String =>
+"""
+Checks that the GTK+ library in use is compatible with the
+given version. Generally you would pass in the constants
+#GTK_MAJOR_VERSION, #GTK_MINOR_VERSION, #GTK_MICRO_VERSION
+as the three arguments to this function; that produces
+a check that the library in use is compatible with
+the version of GTK+ the application or module was compiled
+against.
+
+Compatibility is defined by two things: first the version
+of the running library is newer than the version
+@required_major.required_minor.@required_micro. Second
+the running library must be binary compatible with the
+version @required_major.required_minor.@required_micro
+(same major version.)
+
+This function is primarily for GTK+ modules; the module
+can call this function to check that it wasn’t loaded
+into an incompatible version of GTK+. However, such a
+check isn’t completely reliable, since the module may be
+linked against an old version of GTK+ and calling the
+old version of gtk_check_version(), but still get loaded
+into an application using a newer version of GTK+.
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_check_version[Pointer[U8 val] ref](required_major_pony, required_minor_pony, required_micro_pony)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
@@ -168,6 +192,16 @@ var string_pony: String val = String.from_cstring(cstring_pony).clone()
 */
 
 fun disable_setlocale(): None =>
+"""
+Prevents gtk_init(), gtk_init_check(), gtk_init_with_args() and
+gtk_parse_args() from automatically
+calling `setlocale (LC_ALL, "")`. You would
+want to use this function if you wanted to set the locale for
+your program to something other than the user’s locale, or if
+you wanted to set different values for different locale categories.
+
+Most programs should not need to call this function.
+"""
   @gtk_disable_setlocale[None]()
 
 /* distribute_natural_allocation unavailable due to typing issues
@@ -232,9 +266,30 @@ fun disable_setlocale(): None =>
 */
 
 fun events_pending(): Bool =>
+"""
+Checks if any events are pending.
+
+This can be used to update the UI and invoke timeouts etc.
+while doing some time intensive computation.
+
+## Updating the UI during a long computation
+
+|[<!-- language="C" -->
+ // computation going on...
+
+ while (gtk_events_pending ())
+   gtk_main_iteration ();
+
+ // ...computation continued
+]|
+"""
   @gtk_events_pending[Bool]()
 
 fun gfalse(): Bool =>
+"""
+Analogical to gtk_true(), this function does nothing
+but always returns %FALSE.
+"""
   @gtk_false[Bool]()
 
 /* file_chooser_error_quark unavailable due to return typing issues
@@ -245,6 +300,12 @@ fun gfalse(): Bool =>
 {:txo, "none"} */
 
 fun get_binary_age(): U32 =>
+"""
+Returns the binary age as passed to `libtool`
+when building the GTK+ library the process is running against.
+If `libtool` means nothing to you, don't
+worry about it.
+"""
   @gtk_get_binary_age[U32]()
 
 /* get_current_event unavailable due to return typing issues
@@ -273,6 +334,12 @@ fun get_binary_age(): U32 =>
 {:txo, "none"} */
 
 fun get_debug_flags(): U32 =>
+"""
+Returns the GTK+ debug flags.
+
+This function is intended for GTK+ modules that want
+to adjust their debug output based on GTK+ debug flags.
+"""
   @gtk_get_debug_flags[U32]()
 
 /* get_default_language unavailable due to return typing issues
@@ -290,6 +357,12 @@ fun get_debug_flags(): U32 =>
 {:txo, "none"} */
 
 fun get_interface_age(): U32 =>
+"""
+Returns the interface age as passed to `libtool`
+when building the GTK+ library the process is running against.
+If `libtool` means nothing to you, don't
+worry about it.
+"""
   @gtk_get_interface_age[U32]()
 
 /* get_locale_direction unavailable due to return typing issues
@@ -300,12 +373,39 @@ fun get_interface_age(): U32 =>
 {:txo, "none"} */
 
 fun get_major_version(): U32 =>
+"""
+Returns the major version number of the GTK+ library.
+(e.g. in GTK+ version 3.1.5 this is 3.)
+
+This function is in the library, so it represents the GTK+ library
+your code is running against. Contrast with the #GTK_MAJOR_VERSION
+macro, which represents the major version of the GTK+ headers you
+have included when compiling your code.
+"""
   @gtk_get_major_version[U32]()
 
 fun get_micro_version(): U32 =>
+"""
+Returns the micro version number of the GTK+ library.
+(e.g. in GTK+ version 3.1.5 this is 5.)
+
+This function is in the library, so it represents the GTK+ library
+your code is are running against. Contrast with the
+#GTK_MICRO_VERSION macro, which represents the micro version of the
+GTK+ headers you have included when compiling your code.
+"""
   @gtk_get_micro_version[U32]()
 
 fun get_minor_version(): U32 =>
+"""
+Returns the minor version number of the GTK+ library.
+(e.g. in GTK+ version 3.1.5 this is 1.)
+
+This function is in the library, so it represents the GTK+ library
+your code is are running against. Contrast with the
+#GTK_MINOR_VERSION macro, which represents the minor version of the
+GTK+ headers you have included when compiling your code.
+"""
   @gtk_get_minor_version[U32]()
 
 /* get_option_group unavailable due to return typing issues
@@ -366,6 +466,40 @@ fun get_minor_version(): U32 =>
 {:txo, "none"} */
 
  fun init(): None =>
+ """
+ Call this function before using any other GTK+ functions in your GUI
+applications.  It will initialize everything needed to operate the
+toolkit and parses some standard command line options.
+
+Although you are expected to pass the @argc, @argv parameters from main() to
+this function, it is possible to pass %NULL if @argv is not available or
+commandline handling is not required.
+
+@argc and @argv are adjusted accordingly so your own code will
+never see those standard arguments.
+
+Note that there are some alternative ways to initialize GTK+:
+if you are calling gtk_parse_args(), gtk_init_check(),
+gtk_init_with_args() or g_option_context_parse() with
+the option group returned by gtk_get_option_group(),
+you don’t have to call gtk_init().
+
+And if you are using #GtkApplication, you don't have to call any of the
+initialization functions either; the #GtkApplication::startup handler
+does it for you.
+
+This function will terminate your program if it was unable to
+initialize the windowing system for some reason. If you want
+your program to fall back to a textual interface you want to
+call gtk_init_check() instead.
+
+Since 2.18, GTK+ calls `signal (SIGPIPE, SIG_IGN)`
+during initialization, to ignore SIGPIPE signals, since these are
+almost never wanted in graphical applications. If you do need to
+handle SIGPIPE for some reason, reset the handler after gtk_init(),
+but notice that other libraries (e.g. libdbus or gvfs) might do
+similar things.
+ """
      @gtk_init[None](USize(0), None)
 
 /* init_check unavailable due to typing issues
@@ -387,9 +521,18 @@ fun get_minor_version(): U32 =>
 */
 
 fun key_snooper_remove(snooper_handler_id_pony: U32): None =>
+"""
+Removes the key snooper function with the given id.
+"""
   @gtk_key_snooper_remove[None](snooper_handler_id_pony)
 
 fun main(): None =>
+"""
+Runs the main loop until gtk_main_quit() is called.
+
+You can nest calls to gtk_main(). In that case gtk_main_quit()
+will make the innermost invocation of the main loop return.
+"""
   @gtk_main[None]()
 
 /* main_do_event unavailable due to typing issues
@@ -397,15 +540,35 @@ fun main(): None =>
 */
 
 fun main_iteration(): Bool =>
+"""
+Runs a single iteration of the mainloop.
+
+If no events are waiting to be processed GTK+ will block
+until the next event is noticed. If you don’t want to block
+look at gtk_main_iteration_do() or check if any events are
+pending with gtk_events_pending() first.
+"""
   @gtk_main_iteration[Bool]()
 
 fun main_iteration_do(blocking_pony: Bool): Bool =>
+"""
+Runs a single iteration of the mainloop.
+If no events are available either return or block depending on
+the value of @blocking.
+"""
   @gtk_main_iteration_do[Bool](blocking_pony)
 
 fun main_level(): U32 =>
+"""
+Asks for the current nesting level of the main loop.
+"""
   @gtk_main_level[U32]()
 
 fun main_quit(): None =>
+"""
+Makes the innermost invocation of the main loop return
+when it regains control.
+"""
   @gtk_main_quit[None]()
 
 /* paint_arrow unavailable due to typing issues
@@ -591,6 +754,10 @@ fun main_quit(): None =>
 */
 
 fun paper_size_get_default(): String =>
+"""
+Returns the name of the default paper size, which
+depends on the current locale.
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_paper_size_get_default[Pointer[U8 val] ref]()
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
@@ -761,6 +928,11 @@ var string_pony: String val = String.from_cstring(cstring_pony).clone()
 */
 
 fun rc_reparse_all(): Bool =>
+"""
+If the modification time on any previously read file for the
+default #GtkSettings has changed, discard all style information
+and then reread all previously read RC files.
+"""
   @gtk_rc_reparse_all[Bool]()
 
 /* rc_reparse_all_for_settings unavailable due to typing issues
@@ -1019,6 +1191,9 @@ fun rc_reparse_all(): Bool =>
 */
 
 fun set_debug_flags(flags_pony: U32): None =>
+"""
+Sets the GTK+ debug flags.
+"""
   @gtk_set_debug_flags[None](flags_pony)
 
 /* show_about_dialog unavailable due to typing issues
@@ -1150,6 +1325,11 @@ fun set_debug_flags(flags_pony: U32): None =>
 {:txo, "none"} */
 
 fun test_register_all_types(): None =>
+"""
+Force registration of all core Gtk+ and Gdk object types.
+This allowes to refer to any of those object types via
+g_type_from_name() after calling this function.
+"""
   @gtk_test_register_all_types[None]()
 
 /* test_slider_get_value unavailable due to return typing issues
@@ -1224,4 +1404,47 @@ fun test_register_all_types(): None =>
 */
 
 fun gtrue(): Bool =>
+"""
+All this function does it to return %TRUE.
+
+This can be useful for example if you want to inhibit the deletion
+of a window. Of course you should not do this as the user expects
+a reaction from clicking the close icon of the window...
+
+## A persistent window
+
+|[<!-- language="C" -->
+#include <gtk/gtk.h>
+
+int
+main (int argc, char **argv)
+{
+  GtkWidget *win, *but;
+  const char *text = "Close yourself. I mean it!";
+
+  gtk_init (&argc, &argv);
+
+  win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  g_signal_connect (win,
+                    "delete-event",
+                    G_CALLBACK (gtk_true),
+                    NULL);
+  g_signal_connect (win, "destroy",
+                    G_CALLBACK (gtk_main_quit),
+                    NULL);
+
+  but = gtk_button_new_with_label (text);
+  g_signal_connect_swapped (but, "clicked",
+                            G_CALLBACK (gtk_object_destroy),
+                            win);
+  gtk_container_add (GTK_CONTAINER (win), but);
+
+  gtk_widget_show_all (win);
+
+  gtk_main ();
+
+  return 0;
+}
+]|
+"""
   @gtk_true[Bool]()

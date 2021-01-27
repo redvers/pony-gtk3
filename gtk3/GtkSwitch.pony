@@ -19,14 +19,32 @@ class GtkSwitch is GtkWidget
 
 
 fun get_active(): Bool =>
+"""
+Gets whether the #GtkSwitch is in its “on” or “off” state.
+"""
   @gtk_switch_get_active[Bool](widget)
 
 fun get_state(): Bool =>
+"""
+Gets the underlying state of the #GtkSwitch.
+"""
   @gtk_switch_get_state[Bool](widget)
 
 fun set_active(is_active_pony: Bool): None =>
+"""
+Changes the state of @sw to the desired one.
+"""
   @gtk_switch_set_active[None](widget, is_active_pony)
 
 fun set_state(state_pony: Bool): None =>
+"""
+Sets the underlying state of the #GtkSwitch.
+
+Normally, this is the same as #GtkSwitch:active, unless the switch
+is set up for delayed state changes. This function is typically
+called from a #GtkSwitch::state-set signal handler.
+
+See #GtkSwitch::state-set for details.
+"""
   @gtk_switch_set_state[None](widget, state_pony)
 

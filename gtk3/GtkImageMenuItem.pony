@@ -28,6 +28,10 @@ class GtkImageMenuItem is GtkWidget
 
 
 fun get_always_show_image(): Bool =>
+"""
+Returns whether the menu item will ignore the #GtkSettings:gtk-menu-images
+setting and always show the image, if available.
+"""
   @gtk_image_menu_item_get_always_show_image[Bool](widget)
 
 /* get_image unavailable due to return typing issues
@@ -38,6 +42,10 @@ fun get_always_show_image(): Bool =>
 {:txo, "none"} */
 
 fun get_use_stock(): Bool =>
+"""
+Checks whether the label set in the menuitem is used as a
+stock id to select the stock item for the item.
+"""
   @gtk_image_menu_item_get_use_stock[Bool](widget)
 
 /* set_accel_group unavailable due to typing issues
@@ -45,6 +53,13 @@ fun get_use_stock(): Bool =>
 */
 
 fun set_always_show_image(always_show_pony: Bool): None =>
+"""
+If %TRUE, the menu item will ignore the #GtkSettings:gtk-menu-images
+setting and always show the image, if available.
+
+Use this property if the menuitem would be useless or hard to use
+without the image.
+"""
   @gtk_image_menu_item_set_always_show_image[None](widget, always_show_pony)
 
 /* set_image unavailable due to typing issues
@@ -52,5 +67,9 @@ fun set_always_show_image(always_show_pony: Bool): None =>
 */
 
 fun set_use_stock(use_stock_pony: Bool): None =>
+"""
+If %TRUE, the label set in the menuitem is used as a
+stock id to select the stock item for the item.
+"""
   @gtk_image_menu_item_set_use_stock[None](widget, use_stock_pony)
 

@@ -19,8 +19,14 @@ class GtkSpinner is GtkWidget
 
 
 fun start(): None =>
+"""
+Starts the animation of the spinner.
+"""
   @gtk_spinner_start[None](widget)
 
 fun stop(): None =>
+"""
+Stops the animation of the spinner.
+"""
   @gtk_spinner_stop[None](widget)
 

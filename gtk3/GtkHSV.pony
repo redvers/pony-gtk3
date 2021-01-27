@@ -30,6 +30,12 @@ class GtkHSV is GtkWidget
 */
 
 fun is_adjusting(): Bool =>
+"""
+An HSV color selector can be said to be adjusting if multiple rapid
+changes are being made to its value, for example, when the user is
+adjusting the value with the mouse. This function queries whether
+the HSV color selector is being adjusted or not.
+"""
   @gtk_hsv_is_adjusting[Bool](widget)
 
 /* set_color unavailable due to typing issues
@@ -39,5 +45,8 @@ fun is_adjusting(): Bool =>
 */
 
 fun set_metrics(size_pony: I32, ring_width_pony: I32): None =>
+"""
+Sets the size and ring width of an HSV color selector.
+"""
   @gtk_hsv_set_metrics[None](widget, size_pony, ring_width_pony)
 

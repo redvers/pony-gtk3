@@ -19,11 +19,17 @@ class GtkShortcutLabel is GtkWidget
 
 
 fun get_accelerator(): String =>
+"""
+Retrieves the current accelerator of @self.
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_shortcut_label_get_accelerator[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_disabled_text(): String =>
+"""
+Retrieves the text that is displayed when no accelerator is set.
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_shortcut_label_get_disabled_text[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony

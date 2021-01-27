@@ -22,8 +22,17 @@ class GtkRecentChooserMenu is GtkWidget
 
 
 fun get_show_numbers(): Bool =>
+"""
+Returns the value set by gtk_recent_chooser_menu_set_show_numbers().
+"""
   @gtk_recent_chooser_menu_get_show_numbers[Bool](widget)
 
 fun set_show_numbers(show_numbers_pony: Bool): None =>
+"""
+Sets whether a number should be added to the items of @menu.  The
+numbers are shown to provide a unique character for a mnemonic to
+be used inside ten menu item’s label.  Only the first the items
+get a number to avoid clashes.
+"""
   @gtk_recent_chooser_menu_set_show_numbers[None](widget, show_numbers_pony)
 

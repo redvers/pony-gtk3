@@ -34,9 +34,15 @@ class GtkColorSelection is GtkWidget
 */
 
 fun get_has_opacity_control(): Bool =>
+"""
+Determines whether the colorsel has an opacity control.
+"""
   @gtk_color_selection_get_has_opacity_control[Bool](widget)
 
 fun get_has_palette(): Bool =>
+"""
+Determines whether the color selector has a color palette.
+"""
   @gtk_color_selection_get_has_palette[Bool](widget)
 
 /* get_previous_alpha unavailable due to return typing issues
@@ -55,6 +61,9 @@ fun get_has_palette(): Bool =>
 */
 
 fun is_adjusting(): Bool =>
+"""
+Gets the current state of the @colorsel.
+"""
   @gtk_color_selection_is_adjusting[Bool](widget)
 
 /* set_current_alpha unavailable due to typing issues
@@ -70,9 +79,15 @@ fun is_adjusting(): Bool =>
 */
 
 fun set_has_opacity_control(has_opacity_pony: Bool): None =>
+"""
+Sets the @colorsel to use or not use opacity.
+"""
   @gtk_color_selection_set_has_opacity_control[None](widget, has_opacity_pony)
 
 fun set_has_palette(has_palette_pony: Bool): None =>
+"""
+Shows and hides the palette based upon the value of @has_palette.
+"""
   @gtk_color_selection_set_has_palette[None](widget, has_palette_pony)
 
 /* set_previous_alpha unavailable due to typing issues

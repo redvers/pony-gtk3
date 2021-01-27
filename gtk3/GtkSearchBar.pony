@@ -23,9 +23,15 @@ class GtkSearchBar is GtkWidget
 */
 
 fun get_search_mode(): Bool =>
+"""
+Returns whether the search mode is on or off.
+"""
   @gtk_search_bar_get_search_mode[Bool](widget)
 
 fun get_show_close_button(): Bool =>
+"""
+Returns whether the close button is shown.
+"""
   @gtk_search_bar_get_show_close_button[Bool](widget)
 
 /* handle_event unavailable due to typing issues
@@ -33,8 +39,17 @@ fun get_show_close_button(): Bool =>
 */
 
 fun set_search_mode(search_mode_pony: Bool): None =>
+"""
+Switches the search mode on or off.
+"""
   @gtk_search_bar_set_search_mode[None](widget, search_mode_pony)
 
 fun set_show_close_button(visible_pony: Bool): None =>
+"""
+Shows or hides the close button. Applications that
+already have a “search” toggle button should not show a close
+button in their search bar, as it duplicates the role of the
+toggle button.
+"""
   @gtk_search_bar_set_show_close_button[None](widget, visible_pony)
 

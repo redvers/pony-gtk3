@@ -31,9 +31,19 @@ class GtkAccelLabel is GtkWidget
 {:txo, "none"} */
 
 fun get_accel_width(): U32 =>
+"""
+Returns the width needed to display the accelerator key(s).
+This is used by menus to align all of the #GtkMenuItem widgets, and shouldn't
+be needed by applications.
+"""
   @gtk_accel_label_get_accel_width[U32](widget)
 
 fun refetch(): Bool =>
+"""
+Recreates the string representing the accelerator keys.
+This should not be needed since the string is automatically updated whenever
+accelerators are added or removed from the associated widget.
+"""
   @gtk_accel_label_refetch[Bool](widget)
 
 /* set_accel unavailable due to typing issues

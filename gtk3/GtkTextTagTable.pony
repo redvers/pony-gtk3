@@ -28,6 +28,9 @@ class GtkTextTagTable is GtkWidget
 */
 
 fun get_size(): I32 =>
+"""
+Returns the size of the table (number of tags)
+"""
   @gtk_text_tag_table_get_size[I32](widget)
 
 /* lookup unavailable due to return typing issues

@@ -17,6 +17,13 @@ class GtkClipboard is GtkWidget
 
 
 fun clear(): None =>
+"""
+Clears the contents of the clipboard. Generally this should only
+be called between the time you call gtk_clipboard_set_with_owner()
+or gtk_clipboard_set_with_data(),
+and when the @clear_func you supplied is called. Otherwise, the
+clipboard may be owned by someone else.
+"""
   @gtk_clipboard_clear[None](widget)
 
 /* get_display unavailable due to return typing issues
@@ -99,6 +106,10 @@ fun clear(): None =>
 */
 
 fun store(): None =>
+"""
+Stores the current clipboard data somewhere so that it will stay
+around after the application has quit.
+"""
   @gtk_clipboard_store[None](widget)
 
 /* wait_for_contents unavailable due to return typing issues
@@ -142,6 +153,17 @@ fun store(): None =>
 {:txo, "full"} */
 
 fun wait_is_image_available(): Bool =>
+"""
+Test to see if there is an image available to be pasted
+This is done by requesting the TARGETS atom and checking
+if it contains any of the supported image targets. This function
+waits for the data to be received using the main loop, so events,
+timeouts, etc, may be dispatched during the wait.
+
+This function is a little faster than calling
+gtk_clipboard_wait_for_image() since it doesn’t need to retrieve
+the actual image data.
+"""
   @gtk_clipboard_wait_is_image_available[Bool](widget)
 
 /* wait_is_rich_text_available unavailable due to typing issues
@@ -153,8 +175,30 @@ fun wait_is_image_available(): Bool =>
 */
 
 fun wait_is_text_available(): Bool =>
+"""
+Test to see if there is text available to be pasted
+This is done by requesting the TARGETS atom and checking
+if it contains any of the supported text targets. This function
+waits for the data to be received using the main loop, so events,
+timeouts, etc, may be dispatched during the wait.
+
+This function is a little faster than calling
+gtk_clipboard_wait_for_text() since it doesn’t need to retrieve
+the actual text.
+"""
   @gtk_clipboard_wait_is_text_available[Bool](widget)
 
 fun wait_is_uris_available(): Bool =>
+"""
+Test to see if there is a list of URIs available to be pasted
+This is done by requesting the TARGETS atom and checking
+if it contains the URI targets. This function
+waits for the data to be received using the main loop, so events,
+timeouts, etc, may be dispatched during the wait.
+
+This function is a little faster than calling
+gtk_clipboard_wait_for_uris() since it doesn’t need to retrieve
+the actual URI data.
+"""
   @gtk_clipboard_wait_is_uris_available[Bool](widget)
 

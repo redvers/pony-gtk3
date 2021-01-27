@@ -19,6 +19,9 @@ class GtkCellAreaBox is GtkWidget
 
 
 fun get_spacing(): I32 =>
+"""
+Gets the spacing added between cell renderers.
+"""
   @gtk_cell_area_box_get_spacing[I32](widget)
 
 /* pack_end unavailable due to typing issues
@@ -30,5 +33,8 @@ fun get_spacing(): I32 =>
 */
 
 fun set_spacing(spacing_pony: I32): None =>
+"""
+Sets the spacing to add between cell renderers in @box.
+"""
   @gtk_cell_area_box_set_spacing[None](widget, spacing_pony)
 

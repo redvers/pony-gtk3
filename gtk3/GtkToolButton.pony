@@ -22,6 +22,10 @@ class GtkToolButton is GtkWidget
 
 
 fun get_icon_name(): String =>
+"""
+Returns the name of the themed icon for the tool button,
+see gtk_tool_button_set_icon_name().
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_tool_button_get_icon_name[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
@@ -34,6 +38,11 @@ var string_pony: String val = String.from_cstring(cstring_pony).clone()
 {:txo, "none"} */
 
 fun get_label(): String =>
+"""
+Returns the label used by the tool button, or %NULL if the tool button
+doesn’t have a label. or uses a the label from a stock item. The returned
+string is owned by GTK+, and must not be modified or freed.
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_tool_button_get_label[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
@@ -46,11 +55,19 @@ var string_pony: String val = String.from_cstring(cstring_pony).clone()
 {:txo, "none"} */
 
 fun get_stock_id(): String =>
+"""
+Returns the name of the stock item. See gtk_tool_button_set_stock_id().
+The returned string is owned by GTK+ and must not be freed or modifed.
+"""
   var cstring_pony: Pointer[U8 val] ref = @gtk_tool_button_get_stock_id[Pointer[U8 val] ref](widget)
 var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
 fun get_use_underline(): Bool =>
+"""
+Returns whether underscores in the label property are used as mnemonics
+on menu items on the overflow menu. See gtk_tool_button_set_use_underline().
+"""
   @gtk_tool_button_get_use_underline[Bool](widget)
 
 /* set_icon_name unavailable due to typing issues
@@ -74,5 +91,15 @@ fun get_use_underline(): Bool =>
 */
 
 fun set_use_underline(use_underline_pony: Bool): None =>
+"""
+If set, an underline in the label property indicates that the next character
+should be used for the mnemonic accelerator key in the overflow menu. For
+example, if the label property is “_Open” and @use_underline is %TRUE,
+the label on the tool button will be “Open” and the item on the overflow
+menu will have an underlined “O”.
+
+Labels shown on tool buttons never have mnemonics on them; this property
+only affects the menu item on the overflow menu.
+"""
   @gtk_tool_button_set_use_underline[None](widget, use_underline_pony)
 
