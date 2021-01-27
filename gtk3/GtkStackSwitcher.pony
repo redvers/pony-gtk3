@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF"]
-provides: ["GtkStackSwitcher"]
+provides: ["GtkStackSwitcher val"]
 */
 use "../gobject"
-class GtkStackSwitcher is GtkWidget
+class val GtkStackSwitcher is GtkWidget
 """
 The GtkStackSwitcher widget acts as a controller for a
 #GtkStack; it shows a row of buttons to switch between
@@ -28,21 +28,21 @@ When circumstances require it, GtkStackSwitcher adds the
 .needs-attention style class to the widgets representing the
 stack pages.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_stack_switcher_new[GObjectREF]() //
 
 

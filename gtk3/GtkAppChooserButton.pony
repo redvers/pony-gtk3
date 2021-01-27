@@ -1,9 +1,9 @@
 /*
    needs: ["None", "Pointer[U8 val] ref", "String", "Bool", "GObjectREF"]
-provides: ["GtkAppChooserButton"]
+provides: ["GtkAppChooserButton val"]
 */
 use "../gobject"
-class GtkAppChooserButton is GtkWidget
+class val GtkAppChooserButton is GtkWidget
 """
 The #GtkAppChooserButton is a widget that lets the user select
 an application. It implements the #GtkAppChooser interface.
@@ -28,21 +28,21 @@ emitted when they are selected.
 To track changes in the selected application, use the
 #GtkComboBox::changed signal.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(content_type_pony: String) =>
+  new val create(content_type_pony: String) =>
     widget = @gtk_app_chooser_button_new[GObjectREF](content_type_pony.cstring()) //
 
 

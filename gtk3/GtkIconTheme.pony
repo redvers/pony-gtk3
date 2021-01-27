@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "GObjectREF"]
-provides: ["GtkIconTheme"]
+provides: ["GtkIconTheme val"]
 */
 use "../gobject"
-class GtkIconTheme is GtkWidget
+class val GtkIconTheme is GtkWidget
 """
 #GtkIconTheme provides a facility for looking up icons by name
 and size. The main reason for using a name rather than simply
@@ -74,21 +74,21 @@ else
   }
 ]|
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_icon_theme_new[GObjectREF]() //
 
 

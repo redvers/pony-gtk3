@@ -1,9 +1,9 @@
 /*
    needs: ["U32", "Bool", "None", "GObjectREF"]
-provides: ["GtkGestureSingle"]
+provides: ["GtkGestureSingle val"]
 */
 use "../gobject"
-class GtkGestureSingle is GtkWidget
+class val GtkGestureSingle is GtkWidget
 """
 #GtkGestureSingle is a subclass of #GtkGesture, optimized (although
 not restricted) for dealing with mouse and single-touch gestures. Under
@@ -18,17 +18,17 @@ to interact with through gtk_gesture_single_set_button(), or react to any
 mouse button by setting 0. While the gesture is active, the button being
 currently pressed can be known through gtk_gesture_single_get_current_button().
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

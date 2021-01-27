@@ -1,28 +1,28 @@
 /*
    needs: ["Pointer[U8 val] ref", "String", "GObjectREF"]
-provides: ["GtkShortcutLabel"]
+provides: ["GtkShortcutLabel val"]
 */
 use "../gobject"
-class GtkShortcutLabel is GtkWidget
+class val GtkShortcutLabel is GtkWidget
 """
 #GtkShortcutLabel is a widget that represents a single keyboard shortcut or gesture
 in the user interface.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(accelerator_pony: String) =>
+  new val create(accelerator_pony: String) =>
     widget = @gtk_shortcut_label_new[GObjectREF](accelerator_pony.cstring()) //
 
 

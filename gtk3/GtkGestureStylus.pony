@@ -1,28 +1,28 @@
 /*
-   needs: ["GObjectREF", "GtkWidget"]
-provides: ["GtkGestureStylus"]
+   needs: ["GObjectREF", "GtkWidget val"]
+provides: ["GtkGestureStylus val"]
 */
 use "../gobject"
-class GtkGestureStylus is GtkWidget
+class val GtkGestureStylus is GtkWidget
 """
 #GtkGestureStylus is a #GtkGesture implementation specific to stylus
 input. The provided signals just provide the basic information
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(widget_pony: GtkWidget) =>
+  new val create(widget_pony: GtkWidget val) =>
     widget = @gtk_gesture_stylus_new[GObjectREF](widget_pony.gtkwidget()) //
 
 

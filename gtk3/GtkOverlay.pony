@@ -1,9 +1,9 @@
 /*
    needs: ["None", "GtkWidget", "Bool", "GObjectREF"]
-provides: ["GtkOverlay"]
+provides: ["GtkOverlay val"]
 */
 use "../gobject"
-class GtkOverlay is GtkWidget
+class val GtkOverlay is GtkWidget
 """
 GtkOverlay is a container which contains a single main child, on top
 of which it can place “overlay” widgets. The position of each overlay
@@ -33,21 +33,21 @@ GtkOverlay has a single CSS node with the name “overlay”. Overlay children
 whose alignments cause them to be positioned at an edge get the style classes
 “.left”, “.right”, “.top”, and/or “.bottom” according to their position.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_overlay_new[GObjectREF]() //
 
 

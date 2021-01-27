@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF", "GtkWidget"]
-provides: ["GtkWindowGroup"]
+provides: ["GtkWindowGroup val"]
 */
 use "../gobject"
-class GtkWindowGroup is GtkWidget
+class val GtkWindowGroup is GtkWidget
 """
 A #GtkWindowGroup restricts the effect of grabs to windows
 in the same group, thereby making window groups almost behave
@@ -21,21 +21,21 @@ be removed from the window group and drop their references on the window
 group; when all window have been removed, the window group will be
 freed.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_window_group_new[GObjectREF]() //
 
 

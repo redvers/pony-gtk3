@@ -1,29 +1,29 @@
 /*
-   needs: ["GObjectREF", "GtkWidget"]
-provides: ["GtkGestureRotate"]
+   needs: ["GObjectREF", "GtkWidget val"]
+provides: ["GtkGestureRotate val"]
 */
 use "../gobject"
-class GtkGestureRotate is GtkWidget
+class val GtkGestureRotate is GtkWidget
 """
 #GtkGestureRotate is a #GtkGesture implementation able to recognize
 2-finger rotations, whenever the angle between both handled sequences
 changes, the #GtkGestureRotate::angle-changed signal is emitted.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(widget_pony: GtkWidget) =>
+  new val create(widget_pony: GtkWidget val) =>
     widget = @gtk_gesture_rotate_new[GObjectREF](widget_pony.gtkwidget()) //
 
 

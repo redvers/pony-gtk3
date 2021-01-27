@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF", "Bool", "I32"]
-provides: ["GtkHBox"]
+provides: ["GtkHBox val"]
 */
 use "../gobject"
-class GtkHBox is GtkWidget
+class val GtkHBox is GtkWidget
 """
 #GtkHBox is a container that organizes child widgets into a single row.
 
@@ -24,21 +24,21 @@ need first-child or last-child styling, the recommendation is to switch
 to #GtkGrid. For more information about migrating to #GtkGrid, see
 [Migrating from other containers to GtkGrid][gtk-migrating-GtkGrid].
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(homogeneous_pony: Bool, spacing_pony: I32) =>
+  new val create(homogeneous_pony: Bool, spacing_pony: I32) =>
     widget = @gtk_hbox_new[GObjectREF](homogeneous_pony, spacing_pony) //
 
 

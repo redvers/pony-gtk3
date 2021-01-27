@@ -1,9 +1,9 @@
 /*
    needs: ["None", "Bool", "I32", "Pointer[U8 val] ref", "String", "GObjectREF"]
-provides: ["GtkPrintOperation"]
+provides: ["GtkPrintOperation val"]
 */
 use "../gobject"
-class GtkPrintOperation is GtkWidget
+class val GtkPrintOperation is GtkWidget
 """
 GtkPrintOperation is the high-level, portable printing API.
 It looks a bit different than other GTK+ dialogs such as the
@@ -67,21 +67,21 @@ gtk_print_operation_preview_end_preview() and
 gtk_print_operation_preview_is_selected()
 are useful when implementing a print preview.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_print_operation_new[GObjectREF]() //
 
 

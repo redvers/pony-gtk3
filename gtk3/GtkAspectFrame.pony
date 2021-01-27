@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF", "String", "F32", "Bool"]
-provides: ["GtkAspectFrame"]
+provides: ["GtkAspectFrame val"]
 */
 use "../gobject"
-class GtkAspectFrame is GtkWidget
+class val GtkAspectFrame is GtkWidget
 """
 The #GtkAspectFrame is useful when you want
 pack a widget so that it can resize but always retains
@@ -17,21 +17,21 @@ a frame around the child. The frame will be
 
 GtkAspectFrame uses a CSS node with name frame.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(label_pony: String, xalign_pony: F32, yalign_pony: F32, ratio_pony: F32, obey_child_pony: Bool) =>
+  new val create(label_pony: String, xalign_pony: F32, yalign_pony: F32, ratio_pony: F32, obey_child_pony: Bool) =>
     widget = @gtk_aspect_frame_new[GObjectREF](label_pony.cstring(), xalign_pony, yalign_pony, ratio_pony, obey_child_pony) //
 
 

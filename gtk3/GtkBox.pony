@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF", "GtkWidget", "Bool", "I32", "None", "U32", "GtkOrientation"]
-provides: ["GtkBox"]
+provides: ["GtkBox val"]
 */
 use "../gobject"
-class GtkBox is GtkWidget
+class val GtkBox is GtkWidget
 """
 The GtkBox widget arranges child widgets into a single row or column,
 depending upon the value of its #GtkOrientable:orientation property. Within
@@ -53,21 +53,21 @@ In horizontal orientation, the nodes of the children are always arranged
 from left to right. So :first-child will always select the leftmost child,
 regardless of text direction.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(orientation_pony: GtkOrientation, spacing_pony: I32) =>
+  new val create(orientation_pony: GtkOrientation, spacing_pony: I32) =>
     widget = @gtk_box_new[GObjectREF](orientation_pony, spacing_pony) //
 
 

@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "U32", "GObjectREF", "GtkWidget", "Pointer[U8 val] ref", "String", "None"]
-provides: ["GtkStack"]
+provides: ["GtkStack val"]
 */
 use "../gobject"
-class GtkStack is GtkWidget
+class val GtkStack is GtkWidget
 """
 The GtkStack widget is a container which only shows
 one of its children at a time. In contrast to GtkNotebook,
@@ -22,21 +22,21 @@ The GtkStack widget was added in GTK+ 3.10.
 
 GtkStack has a single CSS node named stack.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_stack_new[GObjectREF]() //
 
 

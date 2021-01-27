@@ -1,9 +1,9 @@
 /*
    needs: ["U32", "I32", "None", "Pointer[U8 val] ref", "String", "GObjectREF"]
-provides: ["GtkEntryBuffer"]
+provides: ["GtkEntryBuffer val"]
 */
 use "../gobject"
-class GtkEntryBuffer is GtkWidget
+class val GtkEntryBuffer is GtkWidget
 """
 The #GtkEntryBuffer class contains the actual text displayed in a
 #GtkEntry widget.
@@ -17,21 +17,21 @@ text to be stored in an alternate location, such as non-pageable memory,
 useful in the case of important passwords. Or a derived class could
 integrate with an application’s concept of undo/redo.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(initial_chars_pony: String, n_initial_chars_pony: I32) =>
+  new val create(initial_chars_pony: String, n_initial_chars_pony: I32) =>
     widget = @gtk_entry_buffer_new[GObjectREF](initial_chars_pony.cstring(), n_initial_chars_pony) //
 
 

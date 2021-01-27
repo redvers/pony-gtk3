@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF"]
-provides: ["GtkModelButton"]
+provides: ["GtkModelButton val"]
 */
 use "../gobject"
-class GtkModelButton is GtkWidget
+class val GtkModelButton is GtkWidget
 """
 GtkModelButton is a button class that can use a #GAction as its model.
 In contrast to #GtkToggleButton or #GtkRadioButton, which can also
@@ -105,21 +105,21 @@ Iconic model buttons (see #GtkModelButton:iconic) change the name of
 their main node to button and add a .model style class to it. The indicator
 subnode is invisible in this case.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_model_button_new[GObjectREF]() //
 
 

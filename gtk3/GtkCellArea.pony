@@ -1,9 +1,9 @@
 /*
    needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF"]
-provides: ["GtkCellArea"]
+provides: ["GtkCellArea val"]
 */
 use "../gobject"
-class GtkCellArea is GtkWidget
+class val GtkCellArea is GtkWidget
 """
 The #GtkCellArea is an abstract class for #GtkCellLayout widgets
 (also referred to as "layouting widgets") to interface with an
@@ -319,17 +319,17 @@ gtk_cell_area_cell_set() or gtk_cell_area_cell_set_valist(). To obtain
 the value of a cell property, use gtk_cell_area_cell_get_property(),
 gtk_cell_area_cell_get() or gtk_cell_area_cell_get_valist().
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

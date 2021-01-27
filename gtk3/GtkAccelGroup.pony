@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "None", "GObjectREF"]
-provides: ["GtkAccelGroup"]
+provides: ["GtkAccelGroup val"]
 */
 use "../gobject"
-class GtkAccelGroup is GtkWidget
+class val GtkAccelGroup is GtkWidget
 """
 A #GtkAccelGroup represents a group of keyboard accelerators,
 typically attached to a toplevel #GtkWindow (with
@@ -21,21 +21,21 @@ entries or buttons; they appear as underlined characters. See
 gtk_label_new_with_mnemonic(). Menu items can have both accelerators
 and mnemonics, of course.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_accel_group_new[GObjectREF]() //
 
 

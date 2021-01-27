@@ -39,7 +39,7 @@ class iso TestGtkBuilder is UnitTest
 //    var cstr2: Pointer[U8 val] ref = @g_type_name_from_instance[Pointer[U8 val] ref](gtype)
 //    Debug("Hello" + String.from_cstring(cstr2) + "World")
     mwin.show_all()
-    mwin.destroy()
+//    mwin.destroy()
 
     Gtk.main()
 

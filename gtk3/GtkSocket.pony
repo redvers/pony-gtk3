@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF"]
-provides: ["GtkSocket"]
+provides: ["GtkSocket val"]
 */
 use "../gobject"
-class GtkSocket is GtkWidget
+class val GtkSocket is GtkWidget
 """
 Together with #GtkPlug, #GtkSocket provides the ability to embed
 widgets from one process into another process in a fashion that
@@ -57,21 +57,21 @@ is compiled for the X11 platform and %GDK_WINDOWING_X11 is defined.
 They can only be used on a #GdkX11Display. To use #GtkPlug and
 #GtkSocket, you need to include the `gtk/gtkx.h` header.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_socket_new[GObjectREF]() //
 
 

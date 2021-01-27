@@ -1,9 +1,9 @@
 /*
-   needs: ["U32", "Bool", "None", "GObjectREF", "GtkApplication"]
-provides: ["GtkApplicationWindow"]
+   needs: ["U32", "Bool", "None", "GObjectREF", "GtkApplication val"]
+provides: ["GtkApplicationWindow val"]
 */
 use "../gobject"
-class GtkApplicationWindow is GtkWidget
+class val GtkApplicationWindow is GtkWidget
 """
 #GtkApplicationWindow is a #GtkWindow subclass that offers some
 extra functionality for better integration with #GtkApplication
@@ -109,21 +109,21 @@ The following attributes are used when constructing submenus:
 - "label": a user-visible string to display
 - "icon": icon name to display
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(application_pony: GtkApplication) =>
+  new val create(application_pony: GtkApplication val) =>
     widget = @gtk_application_window_new[GObjectREF](application_pony.gtkwidget()) //
 
 

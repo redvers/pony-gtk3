@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "None", "U32", "GObjectREF", "String", "GApplicationFlags"]
-provides: ["GtkApplication"]
+provides: ["GtkApplication val"]
 */
 use "../gobject"
-class GtkApplication is GtkWidget
+class val GtkApplication is GtkWidget
 """
 #GtkApplication is a class that handles many important aspects
 of a GTK+ application in a convenient fashion, without enforcing
@@ -82,21 +82,21 @@ session while inhibitors are present.
 [HowDoI: Using GtkApplication](https://wiki.gnome.org/HowDoI/GtkApplication),
 [Getting Started with GTK+: Basics](https://developer.gnome.org/gtk3/stable/gtk-getting-started.html#id-1.2.3.3)
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(application_id_pony: String, flags_pony: GApplicationFlags) =>
+  new val create(application_id_pony: String, flags_pony: GApplicationFlags) =>
     widget = @gtk_application_new[GObjectREF](application_id_pony.cstring(), flags_pony) //
 
 

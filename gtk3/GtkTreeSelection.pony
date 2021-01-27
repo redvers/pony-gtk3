@@ -1,9 +1,9 @@
 /*
    needs: ["I32", "None", "GObjectREF"]
-provides: ["GtkTreeSelection"]
+provides: ["GtkTreeSelection val"]
 */
 use "../gobject"
-class GtkTreeSelection is GtkWidget
+class val GtkTreeSelection is GtkWidget
 """
 The #GtkTreeSelection object is a helper object to manage the selection
 for a #GtkTreeView widget.  The #GtkTreeSelection object is
@@ -29,17 +29,17 @@ Additionally, it may on occasion emit a #GtkTreeSelection::changed signal
 when nothing has happened (mostly as a result of programmers calling
 select_row on an already selected row).
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "None", "GObjectREF"]
-provides: ["GtkGesture"]
+provides: ["GtkGesture val"]
 */
 use "../gobject"
-class GtkGesture is GtkWidget
+class val GtkGesture is GtkWidget
 """
 #GtkGesture is the base object for gesture recognition, although this
 object is quite generalized to serve as a base for multi-touch gestures,
@@ -95,17 +95,17 @@ to enable this support are:
 - If the gesture has %GTK_PHASE_NONE, ensuring events of type
   %GDK_TOUCHPAD_SWIPE and %GDK_TOUCHPAD_PINCH are handled by the #GtkGesture
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

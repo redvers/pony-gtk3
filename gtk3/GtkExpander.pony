@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "I32", "None"]
-provides: ["GtkExpander"]
+provides: ["GtkExpander val"]
 */
 use "../gobject"
-class GtkExpander is GtkWidget
+class val GtkExpander is GtkWidget
 """
 A #GtkExpander allows the user to hide or show its child by clicking
 on an expander triangle similar to the triangles used in a #GtkTreeView.
@@ -87,24 +87,24 @@ GtkExpander has three CSS nodes, the main node with the name expander,
 a subnode with name title and node below it with name arrow. The arrow of an
 expander that is showing its child gets the :checked pseudoclass added to it.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(label_pony: String) =>
+  new val create(label_pony: String) =>
     widget = @gtk_expander_new[GObjectREF](label_pony.cstring()) //
 
-  new new_with_mnemonic(label_pony: String) =>
+  new val new_with_mnemonic(label_pony: String) =>
     widget = @gtk_expander_new_with_mnemonic[GObjectREF](label_pony.cstring()) //
 
 

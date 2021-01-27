@@ -1,9 +1,9 @@
 /*
-   needs: ["Bool", "I32", "Pointer[U8 val] ref", "String", "None", "GObjectREF", "GtkEntryBuffer"]
-provides: ["GtkEntry"]
+   needs: ["Bool", "I32", "Pointer[U8 val] ref", "String", "None", "GObjectREF", "GtkEntryBuffer val"]
+provides: ["GtkEntry val"]
 */
 use "../gobject"
-class GtkEntry is GtkWidget
+class val GtkEntry is GtkWidget
 """
 The #GtkEntry widget is a single line text entry
 widget. A fairly large set of key bindings are supported
@@ -78,24 +78,24 @@ depending on where they are shown in relation to the selection. If there is
 just a single handle for the text cursor, it gets the style class
 .insertion-cursor.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_entry_new[GObjectREF]() //
 
-  new new_with_buffer(buffer_pony: GtkEntryBuffer) =>
+  new val new_with_buffer(buffer_pony: GtkEntryBuffer val) =>
     widget = @gtk_entry_new_with_buffer[GObjectREF](buffer_pony.gtkwidget()) //
 
 

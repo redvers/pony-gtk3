@@ -1,9 +1,9 @@
 /*
-   needs: ["None", "I32", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "Bool", "GtkCellArea"]
-provides: ["GtkEntryCompletion"]
+   needs: ["None", "I32", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "Bool", "GtkCellArea val"]
+provides: ["GtkEntryCompletion val"]
 */
 use "../gobject"
-class GtkEntryCompletion is GtkWidget
+class val GtkEntryCompletion is GtkWidget
 """
 #GtkEntryCompletion is an auxiliary object to be used in conjunction with
 #GtkEntry to provide the completion functionality. It implements the
@@ -46,24 +46,24 @@ gtk_tree_model_filter_get_model(). Don’t forget to use
 gtk_tree_model_filter_convert_iter_to_child_iter() to obtain a
 matching iter.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_entry_completion_new[GObjectREF]() //
 
-  new new_with_area(area_pony: GtkCellArea) =>
+  new val new_with_area(area_pony: GtkCellArea val) =>
     widget = @gtk_entry_completion_new_with_area[GObjectREF](area_pony.gtkwidget()) //
 
 

@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "None", "I32", "GObjectREF"]
-provides: ["GtkCellRenderer"]
+provides: ["GtkCellRenderer val"]
 */
 use "../gobject"
-class GtkCellRenderer is GtkWidget
+class val GtkCellRenderer is GtkWidget
 """
 The #GtkCellRenderer is a base class of a set of objects used for
 rendering a cell to a #cairo_t.  These objects are used primarily by
@@ -41,17 +41,17 @@ corresponding “set” property, e.g. “cell-background-set” corresponds
 to “cell-background”. These “set” properties reflect whether a property
 has been set or not. You should not set them independently.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

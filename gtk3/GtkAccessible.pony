@@ -1,9 +1,9 @@
 /*
    needs: ["None", "GObjectREF", "GtkWidget"]
-provides: ["GtkAccessible"]
+provides: ["GtkAccessible val"]
 */
 use "../gobject"
-class GtkAccessible is GtkWidget
+class val GtkAccessible is GtkWidget
 """
 The #GtkAccessible class is the base class for accessible
 implementations for #GtkWidget subclasses. It is a thin
@@ -17,17 +17,17 @@ the connection between the widget class and its corresponding
 acccessible implementation, override the get_accessible vfunc
 in #GtkWidgetClass.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

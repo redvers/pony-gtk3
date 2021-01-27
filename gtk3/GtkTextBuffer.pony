@@ -1,30 +1,30 @@
 /*
-   needs: ["None", "Bool", "I32", "GObjectREF", "GtkTextTagTable"]
-provides: ["GtkTextBuffer"]
+   needs: ["None", "Bool", "I32", "GObjectREF", "GtkTextTagTable val"]
+provides: ["GtkTextBuffer val"]
 */
 use "../gobject"
-class GtkTextBuffer is GtkWidget
+class val GtkTextBuffer is GtkWidget
 """
 You may wish to begin by reading the
 [text widget conceptual overview][TextWidget]
 which gives an overview of all the objects and data
 types related to the text widget and how they work together.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(table_pony: GtkTextTagTable) =>
+  new val create(table_pony: GtkTextTagTable val) =>
     widget = @gtk_text_buffer_new[GObjectREF](table_pony.gtkwidget()) //
 
 

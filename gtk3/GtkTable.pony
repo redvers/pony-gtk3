@@ -1,9 +1,9 @@
 /*
    needs: ["None", "GtkWidget", "U32", "Bool", "GObjectREF"]
-provides: ["GtkTable"]
+provides: ["GtkTable val"]
 */
 use "../gobject"
-class GtkTable is GtkWidget
+class val GtkTable is GtkWidget
 """
 The #GtkTable functions allow the programmer to arrange widgets in rows and
 columns, making it easy to align many widgets next to each other,
@@ -30,21 +30,21 @@ table will resize themselves to the size of the largest widget in the table.
 > capabilities as GtkTable for arranging widgets in a rectangular grid, but
 > does support height-for-width geometry management.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(rows_pony: U32, columns_pony: U32, homogeneous_pony: Bool) =>
+  new val create(rows_pony: U32, columns_pony: U32, homogeneous_pony: Bool) =>
     widget = @gtk_table_new[GObjectREF](rows_pony, columns_pony, homogeneous_pony) //
 
 

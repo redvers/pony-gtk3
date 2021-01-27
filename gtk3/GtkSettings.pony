@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF"]
-provides: ["GtkSettings"]
+provides: ["GtkSettings val"]
 */
 use "../gobject"
-class GtkSettings is GtkWidget
+class val GtkSettings is GtkWidget
 """
 GtkSettings provide a mechanism to share global settings between
 applications.
@@ -42,17 +42,17 @@ gtk_settings_get_for_screen(), but in many cases, it is more convenient
 to use gtk_widget_get_settings(). gtk_settings_get_default() returns the
 GtkSettings instance for the default screen.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

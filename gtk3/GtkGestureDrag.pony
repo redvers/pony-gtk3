@@ -1,9 +1,9 @@
 /*
-   needs: ["GObjectREF", "GtkWidget"]
-provides: ["GtkGestureDrag"]
+   needs: ["GObjectREF", "GtkWidget val"]
+provides: ["GtkGestureDrag val"]
 */
 use "../gobject"
-class GtkGestureDrag is GtkWidget
+class val GtkGestureDrag is GtkWidget
 """
 #GtkGestureDrag is a #GtkGesture implementation that recognizes drag
 operations. The drag operation itself can be tracked throught the
@@ -12,21 +12,21 @@ operations. The drag operation itself can be tracked throught the
 extracted through gtk_gesture_drag_get_offset() and
 gtk_gesture_drag_get_start_point().
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(widget_pony: GtkWidget) =>
+  new val create(widget_pony: GtkWidget val) =>
     widget = @gtk_gesture_drag_new[GObjectREF](widget_pony.gtkwidget()) //
 
 

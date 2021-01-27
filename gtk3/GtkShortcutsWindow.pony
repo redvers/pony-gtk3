@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF"]
-provides: ["GtkShortcutsWindow"]
+provides: ["GtkShortcutsWindow val"]
 */
 use "../gobject"
-class GtkShortcutsWindow is GtkWidget
+class val GtkShortcutsWindow is GtkWidget
 """
 A GtkShortcutsWindow shows brief information about the keyboard shortcuts
 and gestures of an application. The shortcuts can be grouped, and you can
@@ -46,17 +46,17 @@ and "Terminal Shortcuts".
 
 The .ui file for this example can be found [here](https://git.gnome.org/browse/gtk+/tree/demos/gtk-demo/shortcuts-builder.ui).
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

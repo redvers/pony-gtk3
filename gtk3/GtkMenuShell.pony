@@ -1,9 +1,9 @@
 /*
    needs: ["None", "GtkWidget", "Bool", "GObjectREF", "I32"]
-provides: ["GtkMenuShell"]
+provides: ["GtkMenuShell val"]
 */
 use "../gobject"
-class GtkMenuShell is GtkWidget
+class val GtkMenuShell is GtkWidget
 """
 A #GtkMenuShell is the abstract base class used to derive the
 #GtkMenu and #GtkMenuBar subclasses.
@@ -33,17 +33,17 @@ a selected menu item.) The current menu is the menu that
 contains the current menu item. It will always have a GTK
 grab and receive all key presses.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

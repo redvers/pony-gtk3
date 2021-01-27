@@ -1,9 +1,9 @@
 /*
    needs: ["None", "Bool", "I32", "GObjectREF"]
-provides: ["GtkGLArea"]
+provides: ["GtkGLArea val"]
 */
 use "../gobject"
-class GtkGLArea is GtkWidget
+class val GtkGLArea is GtkWidget
 """
 #GtkGLArea is a widget that allows drawing with OpenGL.
 
@@ -105,21 +105,21 @@ of how to safely initialize the GL state is:
 If you need to change the options for creating the #GdkGLContext
 you should use the #GtkGLArea::create-context signal.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_gl_area_new[GObjectREF]() //
 
 

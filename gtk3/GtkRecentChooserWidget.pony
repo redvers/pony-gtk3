@@ -1,9 +1,9 @@
 /*
-   needs: ["GObjectREF", "GtkRecentManager"]
-provides: ["GtkRecentChooserWidget"]
+   needs: ["GObjectREF", "GtkRecentManager val"]
+provides: ["GtkRecentChooserWidget val"]
 */
 use "../gobject"
-class GtkRecentChooserWidget is GtkWidget
+class val GtkRecentChooserWidget is GtkWidget
 """
 #GtkRecentChooserWidget is a widget suitable for selecting recently used
 files.  It is the main building block of a #GtkRecentChooserDialog.  Most
@@ -15,24 +15,24 @@ Instead, you should use the functions that work on a #GtkRecentChooser.
 
 Recently used files are supported since GTK+ 2.10.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_recent_chooser_widget_new[GObjectREF]() //
 
-  new new_for_manager(manager_pony: GtkRecentManager) =>
+  new val new_for_manager(manager_pony: GtkRecentManager val) =>
     widget = @gtk_recent_chooser_widget_new_for_manager[GObjectREF](manager_pony.gtkwidget()) //
 
 

@@ -1,25 +1,25 @@
 /*
    needs: ["GObjectREF", "GtkWidget", "None"]
-provides: ["GtkEventController"]
+provides: ["GtkEventController val"]
 */
 use "../gobject"
-class GtkEventController is GtkWidget
+class val GtkEventController is GtkWidget
 """
 #GtkEventController is a base, low-level implementation for event
 controllers. Those react to a series of #GdkEvents, and possibly trigger
 actions as a consequence of those.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF", "GtkWidget", "U32", "Bool", "None", "String"]
-provides: ["GtkAccelLabel"]
+provides: ["GtkAccelLabel val"]
 */
 use "../gobject"
-class GtkAccelLabel is GtkWidget
+class val GtkAccelLabel is GtkWidget
 """
 The #GtkAccelLabel widget is a subclass of #GtkLabel that also displays an
 accelerator key on the right of the label text, e.g. “Ctrl+S”.
@@ -66,21 +66,21 @@ label
 Like #GtkLabel, GtkAccelLabel has a main CSS node with the name label.
 It adds a subnode with name accelerator.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(string_pony: String) =>
+  new val create(string_pony: String) =>
     widget = @gtk_accel_label_new[GObjectREF](string_pony.cstring()) //
 
 

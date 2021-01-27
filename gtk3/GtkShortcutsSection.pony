@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF"]
-provides: ["GtkShortcutsSection"]
+provides: ["GtkShortcutsSection val"]
 */
 use "../gobject"
-class GtkShortcutsSection is GtkWidget
+class val GtkShortcutsSection is GtkWidget
 """
 A GtkShortcutsSection collects all the keyboard shortcuts and gestures
 for a major application mode. If your application needs multiple sections,
@@ -16,17 +16,17 @@ the groups in the section are distributed over pages and columns.
 
 This widget is only meant to be used with #GtkShortcutsWindow.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

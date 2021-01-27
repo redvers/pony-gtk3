@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF"]
-provides: ["GtkIMContextSimple"]
+provides: ["GtkIMContextSimple val"]
 */
 use "../gobject"
-class GtkIMContextSimple is GtkWidget
+class val GtkIMContextSimple is GtkWidget
 """
 GtkIMContextSimple is a simple input method context supporting table-based
 input methods. It has a built-in table of compose sequences that is derived
@@ -20,21 +20,21 @@ by typing Ctrl-Shift-u, followed by a hexadecimal Unicode codepoint.
 For example, Ctrl-Shift-u 1 2 3 Enter yields U+0123 LATIN SMALL LETTER
 G WITH CEDILLA, i.e. ģ.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_im_context_simple_new[GObjectREF]() //
 
 

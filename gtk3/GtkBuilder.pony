@@ -1,9 +1,9 @@
 /*
    needs: ["None", "String", "@{(GObjectREF)}", "", "Pointer[U8 val] ref", "GObjectREF", "I64"]
-provides: ["GtkBuilder"]
+provides: ["GtkBuilder val"]
 */
 use "../gobject"
-class GtkBuilder is GtkWidget
+class val GtkBuilder is GtkWidget
 """
 A GtkBuilder is an auxiliary object that reads textual descriptions
 of a user interface and instantiates the described objects. To create
@@ -188,30 +188,30 @@ Additionally, since 3.10 a special <template> tag has been added
 to the format allowing one to define a widget class’s components.
 See the [GtkWidget documentation][composite-templates] for details.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_builder_new[GObjectREF]() //
 
-  new new_from_file(filename_pony: String) =>
+  new val new_from_file(filename_pony: String) =>
     widget = @gtk_builder_new_from_file[GObjectREF](filename_pony.cstring()) //
 
-  new new_from_resource(resource_path_pony: String) =>
+  new val new_from_resource(resource_path_pony: String) =>
     widget = @gtk_builder_new_from_resource[GObjectREF](resource_path_pony.cstring()) //
 
-  new new_from_string(string_pony: String, length_pony: I64) =>
+  new val new_from_string(string_pony: String, length_pony: I64) =>
     widget = @gtk_builder_new_from_string[GObjectREF](string_pony.cstring(), length_pony) //
 
 

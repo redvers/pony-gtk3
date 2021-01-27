@@ -1,9 +1,9 @@
 /*
-   needs: ["Bool", "I32", "None", "GtkWidget", "GObjectREF", "GtkTextBuffer"]
-provides: ["GtkTextView"]
+   needs: ["Bool", "I32", "None", "GtkWidget", "GObjectREF", "GtkTextBuffer val"]
+provides: ["GtkTextView val"]
 */
 use "../gobject"
-class GtkTextView is GtkWidget
+class val GtkTextView is GtkWidget
 """
 You may wish to begin by reading the
 [text widget conceptual overview][TextWidget]
@@ -33,24 +33,24 @@ A node representing the selection will appear below the text node.
 If a context menu is opened, the window node will appear as a subnode
 of the main node.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_text_view_new[GObjectREF]() //
 
-  new new_with_buffer(buffer_pony: GtkTextBuffer) =>
+  new val new_with_buffer(buffer_pony: GtkTextBuffer val) =>
     widget = @gtk_text_view_new_with_buffer[GObjectREF](buffer_pony.gtkwidget()) //
 
 

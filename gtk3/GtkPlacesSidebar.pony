@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "None", "GObjectREF"]
-provides: ["GtkPlacesSidebar"]
+provides: ["GtkPlacesSidebar val"]
 */
 use "../gobject"
-class GtkPlacesSidebar is GtkWidget
+class val GtkPlacesSidebar is GtkWidget
 """
 #GtkPlacesSidebar is a widget that displays a list of frequently-used places in the
 file system:  the user’s home directory, the user’s bookmarks, and volumes and drives.
@@ -39,21 +39,21 @@ be used:
 - .sidebar-placeholder-row for a row that is a placeholder
 - .has-open-popup when a popup is open for a row
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_places_sidebar_new[GObjectREF]() //
 
 

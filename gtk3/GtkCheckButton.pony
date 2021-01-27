@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF", "String"]
-provides: ["GtkCheckButton"]
+provides: ["GtkCheckButton val"]
 */
 use "../gobject"
-class GtkCheckButton is GtkWidget
+class val GtkCheckButton is GtkWidget
 """
 A #GtkCheckButton places a discrete #GtkToggleButton next to a widget,
 (usually a #GtkLabel). See the section on #GtkToggleButton widgets for
@@ -33,27 +33,27 @@ A GtkCheckButton without indicator changes the name of its main node
 to button and adds a .check style class to it. The subnode is invisible
 in this case.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_check_button_new[GObjectREF]() //
 
-  new new_with_label(label_pony: String) =>
+  new val new_with_label(label_pony: String) =>
     widget = @gtk_check_button_new_with_label[GObjectREF](label_pony.cstring()) //
 
-  new new_with_mnemonic(label_pony: String) =>
+  new val new_with_mnemonic(label_pony: String) =>
     widget = @gtk_check_button_new_with_mnemonic[GObjectREF](label_pony.cstring()) //
 
 

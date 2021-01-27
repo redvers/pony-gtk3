@@ -1,9 +1,9 @@
 /*
    needs: ["None", "U32", "GObjectREF"]
-provides: ["GtkStatusbar"]
+provides: ["GtkStatusbar val"]
 */
 use "../gobject"
-class GtkStatusbar is GtkWidget
+class val GtkStatusbar is GtkWidget
 """
 A #GtkStatusbar is usually placed along the bottom of an application's
 main #GtkWindow. It may provide a regular commentary of the application's
@@ -39,21 +39,21 @@ is done using gtk_statusbar_remove().
 
 GtkStatusbar has a single CSS node with name statusbar.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_statusbar_new[GObjectREF]() //
 
 

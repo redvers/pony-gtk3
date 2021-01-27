@@ -1,9 +1,9 @@
 /*
    needs: ["None", "GObjectREF"]
-provides: ["GtkStyleProperties"]
+provides: ["GtkStyleProperties val"]
 */
 use "../gobject"
-class GtkStyleProperties is GtkWidget
+class val GtkStyleProperties is GtkWidget
 """
 GtkStyleProperties provides the storage for style information
 that is used by #GtkStyleContext and other #GtkStyleProvider
@@ -22,21 +22,21 @@ should use the APIs provided by #GtkThemingEngine instead.
 machinery does not use it anymore and all users of this object
 have been deprecated.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_style_properties_new[GObjectREF]() //
 
 

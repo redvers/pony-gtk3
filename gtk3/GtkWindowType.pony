@@ -4,7 +4,7 @@ provides: ["GtkWindowType"]
 */
     type GtkWindowType is ( GtkWindowToplevel | GtkWindowPopup )
 
-primitive GtkWindowToplevel fun apply(): U32 => U32(0)
-primitive GtkWindowPopup fun apply(): U32 => U32(1)
+primitive GtkWindowToplevel fun apply(): U32 val => U32(0)
+primitive GtkWindowPopup fun apply(): U32 val => U32(1)
 
 

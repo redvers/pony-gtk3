@@ -1,9 +1,9 @@
 /*
-   needs: ["GObjectREF", "GtkAdjustment"]
-provides: ["GtkViewport"]
+   needs: ["GObjectREF", "GtkAdjustment val"]
+provides: ["GtkViewport val"]
 */
 use "../gobject"
-class GtkViewport is GtkWidget
+class val GtkViewport is GtkWidget
 """
 The #GtkViewport widget acts as an adaptor class, implementing
 scrollability for child widgets that lack their own scrolling
@@ -25,21 +25,21 @@ than the child widget’s minimum size in a given orientation.
 
 GtkViewport has a single CSS node with name viewport.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(hadjustment_pony: GtkAdjustment, vadjustment_pony: GtkAdjustment) =>
+  new val create(hadjustment_pony: GtkAdjustment val, vadjustment_pony: GtkAdjustment val) =>
     widget = @gtk_viewport_new[GObjectREF](hadjustment_pony.gtkwidget(), vadjustment_pony.gtkwidget()) //
 
 

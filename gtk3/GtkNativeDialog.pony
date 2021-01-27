@@ -1,9 +1,9 @@
 /*
    needs: ["None", "Bool", "I32", "GObjectREF"]
-provides: ["GtkNativeDialog"]
+provides: ["GtkNativeDialog val"]
 */
 use "../gobject"
-class GtkNativeDialog is GtkWidget
+class val GtkNativeDialog is GtkWidget
 """
 Native dialogs are platform dialogs that don't use #GtkDialog or
 #GtkWindow. They are used in order to integrate better with a
@@ -21,17 +21,17 @@ There is also a gtk_native_dialog_run() helper that makes it easy
 to run any native dialog in a modal way with a recursive mainloop,
 similar to gtk_dialog_run().
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

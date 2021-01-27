@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "None", "GObjectREF", "String"]
-provides: ["GtkCheckMenuItem"]
+provides: ["GtkCheckMenuItem val"]
 */
 use "../gobject"
-class GtkCheckMenuItem is GtkWidget
+class val GtkCheckMenuItem is GtkWidget
 """
 A #GtkCheckMenuItem is a menu item that maintains the state of a boolean
 value in addition to a #GtkMenuItem usual role in activating application
@@ -24,27 +24,27 @@ menuitem
 GtkCheckMenuItem has a main CSS node with name menuitem, and a subnode
 with name check, which gets the .left or .right style class.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_check_menu_item_new[GObjectREF]() //
 
-  new new_with_label(label_pony: String) =>
+  new val new_with_label(label_pony: String) =>
     widget = @gtk_check_menu_item_new_with_label[GObjectREF](label_pony.cstring()) //
 
-  new new_with_mnemonic(label_pony: String) =>
+  new val new_with_mnemonic(label_pony: String) =>
     widget = @gtk_check_menu_item_new_with_mnemonic[GObjectREF](label_pony.cstring()) //
 
 

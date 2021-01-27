@@ -1,9 +1,9 @@
 /*
-   needs: ["U32", "Bool", "I32", "None", "GObjectREF", "GtkAdjustment", "F64"]
-provides: ["GtkSpinButton"]
+   needs: ["U32", "Bool", "I32", "None", "GObjectREF", "GtkAdjustment val", "F64"]
+provides: ["GtkSpinButton val"]
 */
 use "../gobject"
-class GtkSpinButton is GtkWidget
+class val GtkSpinButton is GtkWidget
 """
 A #GtkSpinButton is an ideal way to allow the user to set the value of
 some attribute. Rather than having to directly type a number into a
@@ -113,24 +113,24 @@ create_floating_spin_button (void)
 }
 ]|
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(adjustment_pony: GtkAdjustment, climb_rate_pony: F64, digits_pony: U32) =>
+  new val create(adjustment_pony: GtkAdjustment val, climb_rate_pony: F64, digits_pony: U32) =>
     widget = @gtk_spin_button_new[GObjectREF](adjustment_pony.gtkwidget(), climb_rate_pony, digits_pony) //
 
-  new new_with_range(min_pony: F64, max_pony: F64, step_pony: F64) =>
+  new val new_with_range(min_pony: F64, max_pony: F64, step_pony: F64) =>
     widget = @gtk_spin_button_new_with_range[GObjectREF](min_pony, max_pony, step_pony) //
 
 

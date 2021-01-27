@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "U32", "None", "GObjectREF"]
-provides: ["GtkRevealer"]
+provides: ["GtkRevealer val"]
 */
 use "../gobject"
-class GtkRevealer is GtkWidget
+class val GtkRevealer is GtkWidget
 """
 The GtkRevealer widget is a container which animates
 the transition of its child from invisible to visible.
@@ -20,21 +20,21 @@ GtkRevealer has a single CSS node with name revealer.
 
 The GtkRevealer widget was added in GTK+ 3.10.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_revealer_new[GObjectREF]() //
 
 

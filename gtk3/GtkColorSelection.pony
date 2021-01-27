@@ -1,27 +1,27 @@
 /*
    needs: ["Bool", "None", "GObjectREF"]
-provides: ["GtkColorSelection"]
+provides: ["GtkColorSelection val"]
 */
 use "../gobject"
-class GtkColorSelection is GtkWidget
+class val GtkColorSelection is GtkWidget
 """
 No documentation provided
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_color_selection_new[GObjectREF]() //
 
 

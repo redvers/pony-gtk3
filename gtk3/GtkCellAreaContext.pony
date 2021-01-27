@@ -1,9 +1,9 @@
 /*
    needs: ["None", "I32", "GObjectREF"]
-provides: ["GtkCellAreaContext"]
+provides: ["GtkCellAreaContext val"]
 */
 use "../gobject"
-class GtkCellAreaContext is GtkWidget
+class val GtkCellAreaContext is GtkWidget
 """
 The #GtkCellAreaContext object is created by a given #GtkCellArea
 implementation via its #GtkCellAreaClass.create_context() virtual
@@ -16,17 +16,17 @@ same context which was used to request sizes for a given #GtkTreeModel
 row also be used for the same row when calling other #GtkCellArea APIs
 such as gtk_cell_area_render() and gtk_cell_area_event().
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

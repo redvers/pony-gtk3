@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "None", "GObjectREF"]
-provides: ["GtkSwitch"]
+provides: ["GtkSwitch val"]
 */
 use "../gobject"
-class GtkSwitch is GtkWidget
+class val GtkSwitch is GtkWidget
 """
 #GtkSwitch is a widget that has two states: on or off. The user can control
 which state should be active by clicking the empty area, or by dragging the
@@ -22,21 +22,21 @@ switch
 GtkSwitch has two css nodes, the main node with the name switch and a subnode
 named slider. Neither of them is using any style classes.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_switch_new[GObjectREF]() //
 
 

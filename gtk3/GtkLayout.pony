@@ -1,9 +1,9 @@
 /*
-   needs: ["None", "GtkWidget", "I32", "U32", "GObjectREF", "GtkAdjustment"]
-provides: ["GtkLayout"]
+   needs: ["None", "GtkWidget", "I32", "U32", "GObjectREF", "GtkAdjustment val"]
+provides: ["GtkLayout val"]
 */
 use "../gobject"
-class GtkLayout is GtkWidget
+class val GtkLayout is GtkWidget
 """
 #GtkLayout is similar to #GtkDrawingArea in that it’s a “blank slate” and
 doesn’t do anything except paint a blank background by default. It’s
@@ -18,21 +18,21 @@ When handling expose events on a #GtkLayout, you must draw to the #GdkWindow
 returned by gtk_layout_get_bin_window(), rather than to the one returned by
 gtk_widget_get_window() as you would for a #GtkDrawingArea.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(hadjustment_pony: GtkAdjustment, vadjustment_pony: GtkAdjustment) =>
+  new val create(hadjustment_pony: GtkAdjustment val, vadjustment_pony: GtkAdjustment val) =>
     widget = @gtk_layout_new[GObjectREF](hadjustment_pony.gtkwidget(), vadjustment_pony.gtkwidget()) //
 
 

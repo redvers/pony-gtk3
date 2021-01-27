@@ -1,9 +1,9 @@
 /*
    needs: ["Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "None"]
-provides: ["GtkFrame"]
+provides: ["GtkFrame val"]
 */
 use "../gobject"
-class GtkFrame is GtkWidget
+class val GtkFrame is GtkWidget
 """
 The frame widget is a bin that surrounds its child with a decorative
 frame and an optional label. If present, the label is drawn in a gap
@@ -47,21 +47,21 @@ to disable drawing of the border. To do this from code, call
 gtk_frame_set_shadow_type() with %GTK_SHADOW_NONE to add the “.flat” class or
 any other shadow type to remove it.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(label_pony: String) =>
+  new val create(label_pony: String) =>
     widget = @gtk_frame_new[GObjectREF](label_pony.cstring()) //
 
 

@@ -1,9 +1,9 @@
 /*
    needs: ["None", "GObjectREF", "GtkWidget", "Pointer[U8 val] ref", "String", "Bool"]
-provides: ["GtkAction"]
+provides: ["GtkAction val"]
 */
 use "../gobject"
-class GtkAction is GtkWidget
+class val GtkAction is GtkWidget
 """
 > In GTK+ 3.10, GtkAction has been deprecated. Use #GAction
 > instead, and associate actions with #GtkActionable widgets. Use
@@ -53,21 +53,21 @@ if proxy widget has #GtkActivatable:use-action-appearance property set to
 
 When the proxy is activated, it should activate its action.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(name_pony: String, label_pony: String, tooltip_pony: String, stock_id_pony: String) =>
+  new val create(name_pony: String, label_pony: String, tooltip_pony: String, stock_id_pony: String) =>
     widget = @gtk_action_new[GObjectREF](name_pony.cstring(), label_pony.cstring(), tooltip_pony.cstring(), stock_id_pony.cstring()) //
 
 

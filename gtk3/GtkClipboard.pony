@@ -1,9 +1,9 @@
 /*
    needs: ["None", "Bool", "GObjectREF"]
-provides: ["GtkClipboard"]
+provides: ["GtkClipboard val"]
 */
 use "../gobject"
-class GtkClipboard is GtkWidget
+class val GtkClipboard is GtkWidget
 """
 The #GtkClipboard object represents a clipboard of data shared
 between different processes or between different widgets in
@@ -63,17 +63,17 @@ provider, asking for the clipboard in the best available format
 and converting the results into the UTF-8 encoding. (The standard
 form for representing strings in GTK+.)
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

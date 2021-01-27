@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "None", "GObjectREF"]
-provides: ["GtkSeparatorToolItem"]
+provides: ["GtkSeparatorToolItem val"]
 */
 use "../gobject"
-class GtkSeparatorToolItem is GtkWidget
+class val GtkSeparatorToolItem is GtkWidget
 """
 A #GtkSeparatorToolItem is a #GtkToolItem that separates groups of other
 #GtkToolItems. Depending on the theme, a #GtkSeparatorToolItem will
@@ -19,21 +19,21 @@ Use gtk_separator_tool_item_new() to create a new #GtkSeparatorToolItem.
 
 GtkSeparatorToolItem has a single CSS node with name separator.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_separator_tool_item_new[GObjectREF]() //
 
 

@@ -1,29 +1,29 @@
 /*
    needs: ["Bool", "GObjectREF"]
-provides: ["GtkTextChildAnchor"]
+provides: ["GtkTextChildAnchor val"]
 */
 use "../gobject"
-class GtkTextChildAnchor is GtkWidget
+class val GtkTextChildAnchor is GtkWidget
 """
 A #GtkTextChildAnchor is a spot in the buffer where child widgets can
 be “anchored” (inserted inline, as if they were characters). The anchor
 can have multiple widgets anchored, to allow for multiple views.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_text_child_anchor_new[GObjectREF]() //
 
 

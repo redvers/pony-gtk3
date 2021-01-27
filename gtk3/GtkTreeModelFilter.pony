@@ -1,9 +1,9 @@
 /*
    needs: ["None", "I32", "GObjectREF"]
-provides: ["GtkTreeModelFilter"]
+provides: ["GtkTreeModelFilter val"]
 */
 use "../gobject"
-class GtkTreeModelFilter is GtkWidget
+class val GtkTreeModelFilter is GtkWidget
 """
 A #GtkTreeModelFilter is a tree model which wraps another tree model,
 and can do the following things:
@@ -71,17 +71,17 @@ because it does not implement reference counting, or for models that
 do implement reference counting, obtain references on these child levels
 yourself.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

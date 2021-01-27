@@ -1,9 +1,9 @@
 /*
-   needs: ["Bool", "GObjectREF", "GtkWidget", "None", "String", "GtkAccelGroup"]
-provides: ["GtkImageMenuItem"]
+   needs: ["Bool", "GObjectREF", "GtkWidget", "None", "String", "GtkAccelGroup val"]
+provides: ["GtkImageMenuItem val"]
 */
 use "../gobject"
-class GtkImageMenuItem is GtkWidget
+class val GtkImageMenuItem is GtkWidget
 """
 A GtkImageMenuItem is a menu item which has an icon next to the text label.
 
@@ -67,30 +67,30 @@ binding of Ctrl+M:
   gtk_widget_show_all (menu_item);
 ]|
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_image_menu_item_new[GObjectREF]() //
 
-  new new_from_stock(stock_id_pony: String, accel_group_pony: GtkAccelGroup) =>
+  new val new_from_stock(stock_id_pony: String, accel_group_pony: GtkAccelGroup val) =>
     widget = @gtk_image_menu_item_new_from_stock[GObjectREF](stock_id_pony.cstring(), accel_group_pony.gtkwidget()) //
 
-  new new_with_label(label_pony: String) =>
+  new val new_with_label(label_pony: String) =>
     widget = @gtk_image_menu_item_new_with_label[GObjectREF](label_pony.cstring()) //
 
-  new new_with_mnemonic(label_pony: String) =>
+  new val new_with_mnemonic(label_pony: String) =>
     widget = @gtk_image_menu_item_new_with_mnemonic[GObjectREF](label_pony.cstring()) //
 
 

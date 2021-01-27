@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF"]
-provides: ["GtkPopoverMenu"]
+provides: ["GtkPopoverMenu val"]
 */
 use "../gobject"
-class GtkPopoverMenu is GtkWidget
+class val GtkPopoverMenu is GtkWidget
 """
 GtkPopoverMenu is a subclass of #GtkPopover that treats its
 children like menus and allows switching between them. It is
@@ -78,21 +78,21 @@ Just like normal popovers created using gtk_popover_new_from_model,
 #GtkPopoverMenu instances have a single css node called "popover"
 and get the .menu style class.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_popover_menu_new[GObjectREF]() //
 
 

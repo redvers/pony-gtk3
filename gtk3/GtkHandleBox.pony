@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "GObjectREF"]
-provides: ["GtkHandleBox"]
+provides: ["GtkHandleBox val"]
 */
 use "../gobject"
-class GtkHandleBox is GtkWidget
+class val GtkHandleBox is GtkWidget
 """
 The #GtkHandleBox widget allows a portion of a window to be "torn
 off". It is a bin widget which displays its child and a handle that
@@ -31,21 +31,21 @@ so the snap edge should be set to %GTK_POS_BOTTOM.
 > to make it useful and most importantly does not fit well into modern
 > application design. Do not use it. There is no replacement.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_handle_box_new[GObjectREF]() //
 
 

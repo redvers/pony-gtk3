@@ -1,9 +1,9 @@
 /*
-   needs: ["GObjectREF", "GtkWidget"]
-provides: ["GtkGestureMultiPress"]
+   needs: ["GObjectREF", "GtkWidget val"]
+provides: ["GtkGestureMultiPress val"]
 */
 use "../gobject"
-class GtkGestureMultiPress is GtkWidget
+class val GtkGestureMultiPress is GtkWidget
 """
 #GtkGestureMultiPress is a #GtkGesture implementation able to recognize
 multiple clicks on a nearby zone, which can be listened for through the
@@ -16,21 +16,21 @@ touch/button press through gtk_gesture_multi_press_set_area(), so any
 click happening outside that area is considered to be a first click of
 its own.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(widget_pony: GtkWidget) =>
+  new val create(widget_pony: GtkWidget val) =>
     widget = @gtk_gesture_multi_press_new[GObjectREF](widget_pony.gtkwidget()) //
 
 

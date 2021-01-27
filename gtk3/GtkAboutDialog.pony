@@ -1,9 +1,9 @@
 /*
    needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF"]
-provides: ["GtkAboutDialog"]
+provides: ["GtkAboutDialog val"]
 */
 use "../gobject"
-class GtkAboutDialog is GtkWidget
+class val GtkAboutDialog is GtkWidget
 """
 The GtkAboutDialog offers a simple way to display information about
 a program like its logo, name, copyright, website and license. It is
@@ -43,21 +43,21 @@ It is also possible to show a #GtkAboutDialog like any other #GtkDialog,
 e.g. using gtk_dialog_run(). In this case, you might need to know that
 the “Close” button returns the #GTK_RESPONSE_CANCEL response id.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_about_dialog_new[GObjectREF]() //
 
 

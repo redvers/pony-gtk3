@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "U32", "None"]
-provides: ["GtkToolItemGroup"]
+provides: ["GtkToolItemGroup val"]
 */
 use "../gobject"
-class GtkToolItemGroup is GtkWidget
+class val GtkToolItemGroup is GtkWidget
 """
 A #GtkToolItemGroup is used together with #GtkToolPalette to add
 #GtkToolItems to a palette like container with different
@@ -13,21 +13,21 @@ categories and drag and drop support.
 
 GtkToolItemGroup has a single CSS node named toolitemgroup.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(label_pony: String) =>
+  new val create(label_pony: String) =>
     widget = @gtk_tool_item_group_new[GObjectREF](label_pony.cstring()) //
 
 

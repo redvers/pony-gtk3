@@ -1,9 +1,9 @@
 /*
    needs: ["I32", "GObjectREF"]
-provides: ["GtkTextTagTable"]
+provides: ["GtkTextTagTable val"]
 */
 use "../gobject"
-class GtkTextTagTable is GtkWidget
+class val GtkTextTagTable is GtkWidget
 """
 You may wish to begin by reading the
 [text widget conceptual overview][TextWidget]
@@ -25,21 +25,21 @@ An example of a UI definition fragment specifying tags:
 </object>
 ]|
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_text_tag_table_new[GObjectREF]() //
 
 

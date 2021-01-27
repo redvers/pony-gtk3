@@ -1,9 +1,9 @@
 /*
    needs: ["None", "GtkWidget", "GObjectREF"]
-provides: ["GtkTooltip"]
+provides: ["GtkTooltip val"]
 */
 use "../gobject"
-class GtkTooltip is GtkWidget
+class val GtkTooltip is GtkWidget
 """
 Basic tooltips can be realized simply by using gtk_widget_set_tooltip_text()
 or gtk_widget_set_tooltip_markup() without any explicit tooltip object.
@@ -40,17 +40,17 @@ will be used as tooltip window.  This works as follows:
   the return value are exactly as before, return %TRUE to show the window,
   %FALSE to not show it.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 

@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF"]
-provides: ["GtkCssProvider"]
+provides: ["GtkCssProvider val"]
 */
 use "../gobject"
-class GtkCssProvider is GtkWidget
+class val GtkCssProvider is GtkWidget
 """
 GtkCssProvider is an object implementing the #GtkStyleProvider interface.
 It is able to parse [CSS-like][css-overview] input in order to style widgets.
@@ -29,21 +29,21 @@ way back to 3.0.
 In the same way, GTK+ tries to load a gtk-keys.css file for the current
 key theme, as defined by #GtkSettings:gtk-key-theme-name.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_css_provider_new[GObjectREF]() //
 
 

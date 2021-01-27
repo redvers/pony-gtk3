@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "None", "GObjectREF", "String"]
-provides: ["GtkToggleToolButton"]
+provides: ["GtkToggleToolButton val"]
 */
 use "../gobject"
-class GtkToggleToolButton is GtkWidget
+class val GtkToggleToolButton is GtkWidget
 """
 A #GtkToggleToolButton is a #GtkToolItem that contains a toggle
 button.
@@ -14,24 +14,24 @@ Use gtk_toggle_tool_button_new() to create a new GtkToggleToolButton.
 
 GtkToggleToolButton has a single CSS node with name togglebutton.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_toggle_tool_button_new[GObjectREF]() //
 
-  new new_from_stock(stock_id_pony: String) =>
+  new val new_from_stock(stock_id_pony: String) =>
     widget = @gtk_toggle_tool_button_new_from_stock[GObjectREF](stock_id_pony.cstring()) //
 
 

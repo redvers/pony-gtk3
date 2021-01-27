@@ -1,9 +1,9 @@
 /*
    needs: ["Bool", "Pointer[U8 val] ref", "String", "None", "GObjectREF"]
-provides: ["GtkProgressBar"]
+provides: ["GtkProgressBar val"]
 */
 use "../gobject"
-class GtkProgressBar is GtkWidget
+class val GtkProgressBar is GtkWidget
 """
 The #GtkProgressBar is typically used to display the progress of a long
 running operation. It provides a visual clue that processing is underway.
@@ -45,21 +45,21 @@ style class .pulse when in activity mode. It gets the style classes .left,
 end of the GtkProgressBar. The .osd class on the progressbar node is for use
 in overlays like the one Epiphany has for page loading progress.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_progress_bar_new[GObjectREF]() //
 
 

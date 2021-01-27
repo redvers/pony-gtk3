@@ -1,9 +1,9 @@
 /*
    needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF"]
-provides: ["GtkAppChooserWidget"]
+provides: ["GtkAppChooserWidget val"]
 */
 use "../gobject"
-class GtkAppChooserWidget is GtkWidget
+class val GtkAppChooserWidget is GtkWidget
 """
 #GtkAppChooserWidget is a widget for selecting applications.
 It is the main building block for #GtkAppChooserDialog. Most
@@ -27,21 +27,21 @@ To keep track of the selected application, use the
 
 GtkAppChooserWidget has a single CSS node with name appchooser.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create(content_type_pony: String) =>
+  new val create(content_type_pony: String) =>
     widget = @gtk_app_chooser_widget_new[GObjectREF](content_type_pony.cstring()) //
 
 

@@ -1,9 +1,9 @@
 /*
    needs: ["GObjectREF"]
-provides: ["GtkVPaned"]
+provides: ["GtkVPaned val"]
 */
 use "../gobject"
-class GtkVPaned is GtkWidget
+class val GtkVPaned is GtkWidget
 """
 The VPaned widget is a container widget with two
 children arranged vertically. The division between
@@ -12,21 +12,21 @@ a handle. See #GtkPaned for details.
 
 GtkVPaned has been deprecated, use #GtkPaned instead.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
     widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
-  new never_call_this_constructor_or_else_tm() =>
+  new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
 
 
-  new create() =>
+  new val create() =>
     widget = @gtk_vpaned_new[GObjectREF]() //
 
 
