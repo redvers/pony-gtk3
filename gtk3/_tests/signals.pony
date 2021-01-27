@@ -21,11 +21,30 @@ class iso TestSignals is UnitTest
       var gtkentry: GtkEntry = GtkEntry.create_from_GObjectREF(passed_gtkentry)
       var string: String = gtkentry.get_text()
 
-      Debug.out("Activated!")
+      Debug.out("Activated: String=> " + strii)
     }
 
   entry.signal_connect[String]("activate", callback, "testing123")
+//  @g_signal_emit_by_name[None](entry.gtkwidget(), "activate".cstring())
 
+  var ta: TagCheck = TagCheck
+
+  var callback1: @{(GObjectREF, TagCheck)} = @{(passed_gtkentry: GObjectREF, gtag: TagCheck) =>
+    gtag.boom()
+    Debug.out("Activated: TagCheck")
+  }
+
+  entry.signal_connect[TagCheck]("activate", callback1, ta)
   @g_signal_emit_by_name[None](entry.gtkwidget(), "activate".cstring())
+
+
+actor TagCheck
+  new create() =>
+    None
+
+  be boom() =>
+    Debug.out("Activated: Actor Response")
+
+
 
 
