@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["None", "GObjectREF"]
-provides: ["GtkAccessible"]
+   needs: ["None", "GObjectREF", "GtkWidget val"]
+provides: ["GtkAccessible val"]
 */
 use "../gobject"
-class GtkAccessible is GtkWidget
+class val GtkAccessible is GtkWidget
 """
 The #GtkAccessible class is the base class for accessible
 implementations for #GtkWidget subclasses. It is a thin
@@ -18,14 +18,18 @@ the connection between the widget class and its corresponding
 acccessible implementation, override the get_accessible vfunc
 in #GtkWidgetClass.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
+
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
 
 
@@ -37,16 +41,24 @@ when the widget corresponding to a GtkAccessible is destroyed.
 """
   @gtk_accessible_connect_widget_destroyed[None](widget)
 
-/* get_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
-
-/* set_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
+/* Needs conversion code 
+Gets the #GtkWidget corresponding to the #GtkAccessible.
+The returned widget does not have a reference added, so
+you do not need to unref it.
+  fun get_widget(): GtkWidget val =>
+    @gtk_accessible_get_widget[GObjectREF](widget)
 */
+
+fun set_widget(widget_pony: GtkWidget val): None =>
+"""
+Sets the #GtkWidget corresponding to the #GtkAccessible.
+
+@accessible will not hold a reference to @widget.
+It is the caller’s responsibility to ensure that when @widget
+is destroyed, the widget is unset by calling this function
+again with @widget set to %NULL.
+"""
+  @gtk_accessible_set_widget[None](widget, widget_pony.gtkwidget())
 
 
 ```````

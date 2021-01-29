@@ -29,7 +29,7 @@ to #GtkGrid. For more information about migrating to #GtkGrid, see
 
 
 ```pony
-class ref GtkVBox is
+class val GtkVBox is
   GtkWidget ref
 ```
 
@@ -41,29 +41,35 @@ class ref GtkVBox is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L37)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L38)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkVBox ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkVBox val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkVBox](gtk3-GtkVBox.md) ref^
+* [GtkVBox](gtk3-GtkVBox.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L41)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkVBox ref^
+: GtkVBox val^
 ```
 #### Parameters
 
@@ -71,19 +77,34 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkVBox](gtk3-GtkVBox.md) ref^
+* [GtkVBox](gtk3-GtkVBox.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L44)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkVBox val^
+```
+
+#### Returns
+
+* [GtkVBox](gtk3-GtkVBox.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkVBox.md#L48)</span>
+
+
+```pony
+new val create(
   homogeneous_pony: Bool val,
   spacing_pony: I32 val)
-: GtkVBox ref^
+: GtkVBox val^
 ```
 #### Parameters
 
@@ -92,7 +113,7 @@ new ref create(
 
 #### Returns
 
-* [GtkVBox](gtk3-GtkVBox.md) ref^
+* [GtkVBox](gtk3-GtkVBox.md) val^
 
 ---
 

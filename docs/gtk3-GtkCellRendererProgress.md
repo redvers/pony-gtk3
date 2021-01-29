@@ -8,7 +8,7 @@ The #GtkCellRendererProgress cell renderer was added in GTK+ 2.6.
 
 
 ```pony
-class ref GtkCellRendererProgress is
+class val GtkCellRendererProgress is
   GtkWidget ref
 ```
 
@@ -20,29 +20,35 @@ class ref GtkCellRendererProgress is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L16)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L17)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCellRendererProgress ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCellRendererProgress val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCellRendererProgress](gtk3-GtkCellRendererProgress.md) ref^
+* [GtkCellRendererProgress](gtk3-GtkCellRendererProgress.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L19)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L20)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCellRendererProgress ref^
+: GtkCellRendererProgress val^
 ```
 #### Parameters
 
@@ -50,22 +56,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCellRendererProgress](gtk3-GtkCellRendererProgress.md) ref^
+* [GtkCellRendererProgress](gtk3-GtkCellRendererProgress.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L23)</span>
 
 
 ```pony
-new ref create()
-: GtkCellRendererProgress ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkCellRendererProgress val^
 ```
 
 #### Returns
 
-* [GtkCellRendererProgress](gtk3-GtkCellRendererProgress.md) ref^
+* [GtkCellRendererProgress](gtk3-GtkCellRendererProgress.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererProgress.md#L27)</span>
+
+
+```pony
+new val create()
+: GtkCellRendererProgress val^
+```
+
+#### Returns
+
+* [GtkCellRendererProgress](gtk3-GtkCellRendererProgress.md) val^
 
 ---
 

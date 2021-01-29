@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["GObjectREF"]
-provides: ["GtkActionBar"]
+   needs: ["GObjectREF", "GtkWidget val", "None"]
+provides: ["GtkActionBar val"]
 */
 use "../gobject"
-class GtkActionBar is GtkWidget
+class val GtkActionBar is GtkWidget
 """
 GtkActionBar is designed to present contextual actions. It is
 expected to be displayed below the content and expand horizontally
@@ -19,38 +19,49 @@ up different amounts of space.
 
 GtkActionBar has a single CSS node with name actionbar.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_action_bar_new[GObjectREF]() //
 
 
-/* get_center_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
-
-/* pack_end unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
+/* Needs conversion code 
+Retrieves the center bar widget of the bar.
+  fun get_center_widget(): GtkWidget val =>
+    @gtk_action_bar_get_center_widget[GObjectREF](widget)
 */
 
-/* pack_start unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun pack_end(child_pony: GtkWidget val): None =>
+"""
+Adds @child to @action_bar, packed with reference to the
+end of the @action_bar.
+"""
+  @gtk_action_bar_pack_end[None](widget, child_pony.gtkwidget())
 
-/* set_center_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "center_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun pack_start(child_pony: GtkWidget val): None =>
+"""
+Adds @child to @action_bar, packed with reference to the
+start of the @action_bar.
+"""
+  @gtk_action_bar_pack_start[None](widget, child_pony.gtkwidget())
+
+fun set_center_widget(center_widget_pony: GtkWidget val): None =>
+"""
+Sets the center widget for the #GtkActionBar.
+"""
+  @gtk_action_bar_set_center_widget[None](widget, center_widget_pony.gtkwidget())
 
 
 ```````

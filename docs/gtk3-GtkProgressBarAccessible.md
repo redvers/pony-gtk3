@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkProgressBarAccessible is
+class val GtkProgressBarAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkProgressBarAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBarAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBarAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkProgressBarAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkProgressBarAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkProgressBarAccessible](gtk3-GtkProgressBarAccessible.md) ref^
+* [GtkProgressBarAccessible](gtk3-GtkProgressBarAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBarAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBarAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkProgressBarAccessible ref^
+: GtkProgressBarAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkProgressBarAccessible](gtk3-GtkProgressBarAccessible.md) ref^
+* [GtkProgressBarAccessible](gtk3-GtkProgressBarAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBarAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkProgressBarAccessible val^
+```
+
+#### Returns
+
+* [GtkProgressBarAccessible](gtk3-GtkProgressBarAccessible.md) val^
 
 ---
 

@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["None", "I32", "GObjectREF"]
-provides: ["GtkMisc"]
+provides: ["GtkMisc val"]
 */
 use "../gobject"
-class GtkMisc is GtkWidget
+class val GtkMisc is GtkWidget
 """
 The #GtkMisc widget is an abstract widget which is not useful itself, but
 is used to derive subclasses which have alignment and padding attributes.
@@ -22,32 +22,50 @@ Note that the desired effect can in most cases be achieved by using the
 on the child widget, so GtkMisc should not be used in new code. To reflect
 this fact, all #GtkMisc API has been deprecated.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
 
 
-/* get_alignment unavailable due to typing issues
- {:doh, %{argctype: "gfloat*", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
+
+  fun pony_NOT_IMPLEMENTED_YET_get_alignment(): None =>
+    """
+    Gets the X and Y alignment of the widget within its allocation.
+See gtk_misc_set_alignment().
+
+    {:doh, %{argctype: "gfloat*", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gfloat*", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_padding unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "xpad", argtype: "gint", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_padding(): None =>
+    """
+    Gets the padding in the X and Y directions of the widget.
+See gtk_misc_set_padding().
+
+    {:doh, %{argctype: "gint*", argname: "xpad", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "ypad", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* set_alignment unavailable due to typing issues
- {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_alignment(): None =>
+    """
+    Sets the alignment of the widget.
+
+    {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_padding(xpad_pony: I32, ypad_pony: I32): None =>
 """

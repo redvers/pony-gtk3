@@ -19,7 +19,7 @@ They are maintained by GTK+ and you should not set them independently.
 
 
 ```pony
-class ref GtkTextTag is
+class val GtkTextTag is
   GtkWidget ref
 ```
 
@@ -31,29 +31,35 @@ class ref GtkTextTag is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L27)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L28)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkTextTag ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkTextTag val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkTextTag](gtk3-GtkTextTag.md) ref^
+* [GtkTextTag](gtk3-GtkTextTag.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L31)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkTextTag ref^
+: GtkTextTag val^
 ```
 #### Parameters
 
@@ -61,18 +67,33 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkTextTag](gtk3-GtkTextTag.md) ref^
+* [GtkTextTag](gtk3-GtkTextTag.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L34)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkTextTag val^
+```
+
+#### Returns
+
+* [GtkTextTag](gtk3-GtkTextTag.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L38)</span>
+
+
+```pony
+new val create(
   name_pony: String val)
-: GtkTextTag ref^
+: GtkTextTag val^
 ```
 #### Parameters
 
@@ -80,7 +101,7 @@ new ref create(
 
 #### Returns
 
-* [GtkTextTag](gtk3-GtkTextTag.md) ref^
+* [GtkTextTag](gtk3-GtkTextTag.md) val^
 
 ---
 
@@ -111,7 +132,7 @@ fun box gtkwidget()
 ---
 
 ### changed
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L42)</span>
 
 
 Emits the #GtkTextTagTable::tag-changed signal on the #GtkTextTagTable where
@@ -136,8 +157,31 @@ fun box changed(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_event
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L52)</span>
+
+
+    Emits the “event” signal on the #GtkTextTag.
+
+    {:doh, %{argctype: "GObject*", argname: "event_object", argtype: "GObject.Object", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_event()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_priority
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L62)</span>
 
 
 Get the tag priority.
@@ -155,7 +199,7 @@ fun box get_priority()
 ---
 
 ### set_priority
-<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L60)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTag.md#L68)</span>
 
 
 Sets the priority of a #GtkTextTag. Valid priorities

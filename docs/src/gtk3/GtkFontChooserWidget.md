@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["GObjectREF"]
-provides: ["GtkFontChooserWidget"]
+provides: ["GtkFontChooserWidget val"]
 */
 use "../gobject"
-class GtkFontChooserWidget is GtkWidget
+class val GtkFontChooserWidget is GtkWidget
 """
 The #GtkFontChooserWidget widget lists the available fonts,
 styles and sizes, allowing the user to select a font. It is
@@ -24,17 +24,21 @@ gtk_font_chooser_set_preview_text().
 
 GtkFontChooserWidget has a single CSS node with name fontchooser.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_font_chooser_widget_new[GObjectREF]() //
 
 

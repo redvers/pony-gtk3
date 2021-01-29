@@ -229,7 +229,7 @@ other parts of the constructed user interface with the help of the
 
 
 ```pony
-class ref GtkUIManager is
+class val GtkUIManager is
   GtkWidget ref
 ```
 
@@ -241,29 +241,35 @@ class ref GtkUIManager is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L237)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L238)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkUIManager ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkUIManager val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkUIManager](gtk3-GtkUIManager.md) ref^
+* [GtkUIManager](gtk3-GtkUIManager.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L240)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L241)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkUIManager ref^
+: GtkUIManager val^
 ```
 #### Parameters
 
@@ -271,22 +277,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkUIManager](gtk3-GtkUIManager.md) ref^
+* [GtkUIManager](gtk3-GtkUIManager.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L244)</span>
 
 
 ```pony
-new ref create()
-: GtkUIManager ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkUIManager val^
 ```
 
 #### Returns
 
-* [GtkUIManager](gtk3-GtkUIManager.md) ref^
+* [GtkUIManager](gtk3-GtkUIManager.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L248)</span>
+
+
+```pony
+new val create()
+: GtkUIManager val^
+```
+
+#### Returns
+
+* [GtkUIManager](gtk3-GtkUIManager.md) val^
 
 ---
 
@@ -316,8 +337,108 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_add_ui
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L252)</span>
+
+
+    Adds a UI element to the current contents of @manager.
+
+If @type is %GTK_UI_MANAGER_AUTO, GTK+ inserts a menuitem, toolitem or
+separator if such an element can be inserted at the place determined by
+@path. Otherwise @type must indicate an element that can be inserted at
+the place determined by @path.
+
+If @path points to a menuitem or toolitem, the new element will be inserted
+before or after this item, depending on @top.
+
+    {:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "action", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkUIManagerItemType", argname: "gtype", argtype: "UIManagerItemType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_ui()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_ui_from_file
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L271)</span>
+
+
+    Parses a file containing a [UI definition][XML-UI] and
+merges it with the current contents of @manager.
+
+    {:doh, %{argctype: "const gchar*", argname: "filename", argtype: "filename", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_ui_from_file()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_ui_from_resource
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L280)</span>
+
+
+    Parses a resource file containing a [UI definition][XML-UI] and
+merges it with the current contents of @manager.
+
+    {:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_ui_from_resource()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_ui_from_string
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L289)</span>
+
+
+    Parses a string containing a [UI definition][XML-UI] and merges it with
+the current contents of @manager. An enclosing <ui> element is added if
+it is missing.
+
+    {:doh, %{argctype: "const gchar*", argname: "buffer", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gssize", argname: "length", argtype: "gssize", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_ui_from_string()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### ensure_update
-<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L268)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L300)</span>
 
 
 Makes sure that all pending updates to the UI have been completed.
@@ -348,8 +469,84 @@ fun box ensure_update()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_accel_group
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L320)</span>
+
+
+    Returns the #GtkAccelGroup associated with @manager.
+
+    {:argctype, "GtkAccelGroup*"}
+{:argname, "rv"}
+{:argtype, "AccelGroup"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_accel_group()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_action
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L332)</span>
+
+
+    Looks up an action by following a path. See gtk_ui_manager_get_widget()
+for more information about paths.
+
+    {:argctype, "GtkAction*"}
+{:argname, "rv"}
+{:argtype, "Action"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_action()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_action_groups
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L345)</span>
+
+
+    Returns the list of action groups associated with @manager.
+
+    {:argctype, "GList*"}
+{:argname, "rv"}
+{:argtype, "GLib.List"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_action_groups()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_add_tearoffs
-<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L309)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L357)</span>
 
 
 Returns whether menus generated by this #GtkUIManager
@@ -367,8 +564,119 @@ fun box get_add_tearoffs()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_toplevels
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L364)</span>
+
+
+    Obtains a list of all toplevel widgets of the requested types.
+
+    {:argctype, "GSList*"}
+{:argname, "rv"}
+{:argtype, "GLib.SList"}
+{:paramtype, :param}
+{:txo, "container"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_toplevels()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_ui
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L376)</span>
+
+
+    Creates a [UI definition][XML-UI] of the merged UI.
+
+    {:argctype, "gchar*"}
+{:argname, "rv"}
+{:argtype, "utf8"}
+{:paramtype, :param}
+{:txo, "full"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_ui()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_widget
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L388)</span>
+
+
+    Looks up a widget by following a path.
+The path consists of the names specified in the XML description of the UI.
+separated by “/”. Elements which don’t have a name or action attribute in
+the XML (e.g. <popup>) can be addressed by their XML element name
+(e.g. "popup"). The root element ("/ui") can be omitted in the path.
+
+Note that the widget found by following a path that ends in a <menu>;
+element is the menuitem to which the menu is attached, not the menu it
+manages.
+
+Also note that the widgets constructed by a ui manager are not tied to
+the lifecycle of the ui manager. If you add the widgets returned by this
+function to some container or explicitly ref them, they will survive the
+destruction of the ui manager.
+
+    {:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_widget()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_insert_action_group
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L409)</span>
+
+
+    Inserts an action group into the list of action groups associated
+with @manager. Actions in earlier groups hide actions with the same
+name in later groups.
+
+If @pos is larger than the number of action groups in @manager, or
+negative, @action_group will be inserted at the end of the internal
+list.
+
+    {:doh, %{argctype: "GtkActionGroup*", argname: "action_group", argtype: "ActionGroup", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_insert_action_group()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### new_merge_id
-<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L341)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L423)</span>
 
 
 Returns an unused merge id, suitable for use with
@@ -386,8 +694,30 @@ fun box new_merge_id()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_remove_action_group
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L430)</span>
+
+
+    Removes an action group from the list of action groups associated
+with @manager.
+
+    {:doh, %{argctype: "GtkActionGroup*", argname: "action_group", argtype: "ActionGroup", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_remove_action_group()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### remove_ui
-<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L352)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L439)</span>
 
 
 Unmerges the part of @manager's content identified by @merge_id.
@@ -409,7 +739,7 @@ fun box remove_ui(
 ---
 
 ### set_add_tearoffs
-<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L358)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkUIManager.md#L445)</span>
 
 
 Sets the “add_tearoffs” property, which controls whether menus

@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkRendererCellAccessible is
+class val GtkRendererCellAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkRendererCellAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRendererCellAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkRendererCellAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkRendererCellAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkRendererCellAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkRendererCellAccessible](gtk3-GtkRendererCellAccessible.md) ref^
+* [GtkRendererCellAccessible](gtk3-GtkRendererCellAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRendererCellAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRendererCellAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkRendererCellAccessible ref^
+: GtkRendererCellAccessible val^
 ```
 #### Parameters
 
@@ -47,26 +53,41 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkRendererCellAccessible](gtk3-GtkRendererCellAccessible.md) ref^
+* [GtkRendererCellAccessible](gtk3-GtkRendererCellAccessible.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkRendererCellAccessible.md#L20)</span>
 
 
 ```pony
-new ref create(
-  renderer_pony: GtkCellRenderer ref)
-: GtkRendererCellAccessible ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkRendererCellAccessible val^
 ```
-#### Parameters
-
-*   renderer_pony: [GtkCellRenderer](gtk3-GtkCellRenderer.md) ref
 
 #### Returns
 
-* [GtkRendererCellAccessible](gtk3-GtkRendererCellAccessible.md) ref^
+* [GtkRendererCellAccessible](gtk3-GtkRendererCellAccessible.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkRendererCellAccessible.md#L24)</span>
+
+
+```pony
+new val create(
+  renderer_pony: GtkCellRenderer val)
+: GtkRendererCellAccessible val^
+```
+#### Parameters
+
+*   renderer_pony: [GtkCellRenderer](gtk3-GtkCellRenderer.md) val
+
+#### Returns
+
+* [GtkRendererCellAccessible](gtk3-GtkRendererCellAccessible.md) val^
 
 ---
 

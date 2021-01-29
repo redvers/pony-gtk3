@@ -15,7 +15,7 @@ active, the :checked pseudoclass is added to this node.
 
 
 ```pony
-class ref GtkSpinner is
+class val GtkSpinner is
   GtkWidget ref
 ```
 
@@ -27,29 +27,35 @@ class ref GtkSpinner is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L23)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L24)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkSpinner ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkSpinner val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkSpinner](gtk3-GtkSpinner.md) ref^
+* [GtkSpinner](gtk3-GtkSpinner.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L26)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L27)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkSpinner ref^
+: GtkSpinner val^
 ```
 #### Parameters
 
@@ -57,22 +63,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkSpinner](gtk3-GtkSpinner.md) ref^
+* [GtkSpinner](gtk3-GtkSpinner.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L30)</span>
 
 
 ```pony
-new ref create()
-: GtkSpinner ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkSpinner val^
 ```
 
 #### Returns
 
-* [GtkSpinner](gtk3-GtkSpinner.md) ref^
+* [GtkSpinner](gtk3-GtkSpinner.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L34)</span>
+
+
+```pony
+new val create()
+: GtkSpinner val^
+```
+
+#### Returns
+
+* [GtkSpinner](gtk3-GtkSpinner.md) val^
 
 ---
 
@@ -103,7 +124,7 @@ fun box gtkwidget()
 ---
 
 ### start
-<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L38)</span>
 
 
 Starts the animation of the spinner.
@@ -121,7 +142,7 @@ fun box start()
 ---
 
 ### stop
-<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSpinner.md#L44)</span>
 
 
 Stops the animation of the spinner.

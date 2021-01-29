@@ -13,7 +13,7 @@ Recently used files are supported since GTK+ 2.10.
 
 
 ```pony
-class ref GtkRecentChooserWidget is
+class val GtkRecentChooserWidget is
   GtkWidget ref
 ```
 
@@ -25,29 +25,35 @@ class ref GtkRecentChooserWidget is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L21)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L22)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkRecentChooserWidget ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkRecentChooserWidget val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkRecentChooserWidget](gtk3-GtkRecentChooserWidget.md) ref^
+* [GtkRecentChooserWidget](gtk3-GtkRecentChooserWidget.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L25)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkRecentChooserWidget ref^
+: GtkRecentChooserWidget val^
 ```
 #### Parameters
 
@@ -55,41 +61,56 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkRecentChooserWidget](gtk3-GtkRecentChooserWidget.md) ref^
+* [GtkRecentChooserWidget](gtk3-GtkRecentChooserWidget.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L28)</span>
 
 
 ```pony
-new ref create()
-: GtkRecentChooserWidget ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkRecentChooserWidget val^
 ```
 
 #### Returns
 
-* [GtkRecentChooserWidget](gtk3-GtkRecentChooserWidget.md) ref^
+* [GtkRecentChooserWidget](gtk3-GtkRecentChooserWidget.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L32)</span>
+
+
+```pony
+new val create()
+: GtkRecentChooserWidget val^
+```
+
+#### Returns
+
+* [GtkRecentChooserWidget](gtk3-GtkRecentChooserWidget.md) val^
 
 ---
 
 ### new_for_manager
-<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentChooserWidget.md#L35)</span>
 
 
 ```pony
-new ref new_for_manager(
-  manager_pony: GtkRecentManager ref)
-: GtkRecentChooserWidget ref^
+new val new_for_manager(
+  manager_pony: GtkRecentManager val)
+: GtkRecentChooserWidget val^
 ```
 #### Parameters
 
-*   manager_pony: [GtkRecentManager](gtk3-GtkRecentManager.md) ref
+*   manager_pony: [GtkRecentManager](gtk3-GtkRecentManager.md) val
 
 #### Returns
 
-* [GtkRecentChooserWidget](gtk3-GtkRecentChooserWidget.md) ref^
+* [GtkRecentChooserWidget](gtk3-GtkRecentChooserWidget.md) val^
 
 ---
 

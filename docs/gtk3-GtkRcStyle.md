@@ -8,7 +8,7 @@ This can later be composited together with other
 
 
 ```pony
-class ref GtkRcStyle is
+class val GtkRcStyle is
   GtkWidget ref
 ```
 
@@ -20,29 +20,35 @@ class ref GtkRcStyle is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRcStyle.md#L16)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkRcStyle.md#L17)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkRcStyle ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkRcStyle val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkRcStyle](gtk3-GtkRcStyle.md) ref^
+* [GtkRcStyle](gtk3-GtkRcStyle.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRcStyle.md#L19)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRcStyle.md#L20)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkRcStyle ref^
+: GtkRcStyle val^
 ```
 #### Parameters
 
@@ -50,22 +56,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkRcStyle](gtk3-GtkRcStyle.md) ref^
+* [GtkRcStyle](gtk3-GtkRcStyle.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkRcStyle.md#L23)</span>
 
 
 ```pony
-new ref create()
-: GtkRcStyle ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkRcStyle val^
 ```
 
 #### Returns
 
-* [GtkRcStyle](gtk3-GtkRcStyle.md) ref^
+* [GtkRcStyle](gtk3-GtkRcStyle.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkRcStyle.md#L27)</span>
+
+
+```pony
+new val create()
+: GtkRcStyle val^
+```
+
+#### Returns
+
+* [GtkRcStyle](gtk3-GtkRcStyle.md) val^
 
 ---
 
@@ -92,6 +113,33 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_copy
+<span class="source-link">[[Source]](src/gtk3/GtkRcStyle.md#L31)</span>
+
+
+    Makes a copy of the specified #GtkRcStyle. This function
+will correctly copy an RC style that is a member of a class
+derived from #GtkRcStyle.
+
+    {:argctype, "GtkRcStyle*"}
+{:argname, "rv"}
+{:argtype, "RcStyle"}
+{:paramtype, :param}
+{:txo, "full"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_copy()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

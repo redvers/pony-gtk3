@@ -19,7 +19,7 @@ menu window.
 
 
 ```pony
-class ref GtkTearoffMenuItem is
+class val GtkTearoffMenuItem is
   GtkWidget ref
 ```
 
@@ -31,29 +31,35 @@ class ref GtkTearoffMenuItem is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L27)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L28)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkTearoffMenuItem ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkTearoffMenuItem val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkTearoffMenuItem](gtk3-GtkTearoffMenuItem.md) ref^
+* [GtkTearoffMenuItem](gtk3-GtkTearoffMenuItem.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L31)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkTearoffMenuItem ref^
+: GtkTearoffMenuItem val^
 ```
 #### Parameters
 
@@ -61,22 +67,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkTearoffMenuItem](gtk3-GtkTearoffMenuItem.md) ref^
+* [GtkTearoffMenuItem](gtk3-GtkTearoffMenuItem.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L34)</span>
 
 
 ```pony
-new ref create()
-: GtkTearoffMenuItem ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkTearoffMenuItem val^
 ```
 
 #### Returns
 
-* [GtkTearoffMenuItem](gtk3-GtkTearoffMenuItem.md) ref^
+* [GtkTearoffMenuItem](gtk3-GtkTearoffMenuItem.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkTearoffMenuItem.md#L38)</span>
+
+
+```pony
+new val create()
+: GtkTearoffMenuItem val^
+```
+
+#### Returns
+
+* [GtkTearoffMenuItem](gtk3-GtkTearoffMenuItem.md) val^
 
 ---
 

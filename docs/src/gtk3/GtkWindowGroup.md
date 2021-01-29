@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["GObjectREF"]
-provides: ["GtkWindowGroup"]
+   needs: ["GObjectREF", "GtkWidget val"]
+provides: ["GtkWindowGroup val"]
 */
 use "../gobject"
-class GtkWindowGroup is GtkWidget
+class val GtkWindowGroup is GtkWidget
 """
 A #GtkWindowGroup restricts the effect of grabs to windows
 in the same group, thereby making window groups almost behave
@@ -22,48 +22,66 @@ be removed from the window group and drop their references on the window
 group; when all window have been removed, the window group will be
 freed.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_window_group_new[GObjectREF]() //
 
 
-/* add_window unavailable due to typing issues
- {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_add_window(): None =>
+    """
+    Adds a window to a #GtkWindowGroup.
+
+    {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_current_device_grab(): None =>
+    """
+    Returns the current grab widget for @device, or %NULL if none.
+
+    {:doh, %{argctype: "GdkDevice*", argname: "device", argtype: "Gdk.Device", paramtype: :param, txo: "none"}}
+*/
+    """
+
+/* Needs conversion code 
+Gets the current grab widget of the given group,
+see gtk_grab_add().
+  fun get_current_grab(): GtkWidget val =>
+    @gtk_window_group_get_current_grab[GObjectREF](widget)
 */
 
-/* get_current_device_grab unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+  fun pony_NOT_IMPLEMENTED_YET_list_windows(): None =>
+    """
+    Returns a list of the #GtkWindows that belong to @window_group.
 
-/* get_current_grab unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
-
-/* list_windows unavailable due to return typing issues
-{:argctype, "GList*"}
+    {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
 {:paramtype, :param}
-{:txo, "container"} */
-
-/* remove_window unavailable due to typing issues
- {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
+{:txo, "container"}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_remove_window(): None =>
+    """
+    Removes a window from a #GtkWindowGroup.
+
+    {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
+*/
+    """
 
 
 ```````

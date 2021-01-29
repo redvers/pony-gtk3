@@ -10,7 +10,7 @@ GtkVPaned has been deprecated, use #GtkPaned instead.
 
 
 ```pony
-class ref GtkVPaned is
+class val GtkVPaned is
   GtkWidget ref
 ```
 
@@ -22,29 +22,35 @@ class ref GtkVPaned is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkVPaned.md#L18)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkVPaned.md#L19)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkVPaned ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkVPaned val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkVPaned](gtk3-GtkVPaned.md) ref^
+* [GtkVPaned](gtk3-GtkVPaned.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkVPaned.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVPaned.md#L22)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkVPaned ref^
+: GtkVPaned val^
 ```
 #### Parameters
 
@@ -52,22 +58,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkVPaned](gtk3-GtkVPaned.md) ref^
+* [GtkVPaned](gtk3-GtkVPaned.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkVPaned.md#L25)</span>
 
 
 ```pony
-new ref create()
-: GtkVPaned ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkVPaned val^
 ```
 
 #### Returns
 
-* [GtkVPaned](gtk3-GtkVPaned.md) ref^
+* [GtkVPaned](gtk3-GtkVPaned.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkVPaned.md#L29)</span>
+
+
+```pony
+new val create()
+: GtkVPaned val^
+```
+
+#### Returns
+
+* [GtkVPaned](gtk3-GtkVPaned.md) val^
 
 ---
 

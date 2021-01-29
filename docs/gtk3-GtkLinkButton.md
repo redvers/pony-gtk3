@@ -24,7 +24,7 @@ it from a plain #GtkButton, it gets the .link style class.
 
 
 ```pony
-class ref GtkLinkButton is
+class val GtkLinkButton is
   GtkWidget ref
 ```
 
@@ -36,29 +36,35 @@ class ref GtkLinkButton is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L32)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L33)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkLinkButton ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkLinkButton val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkLinkButton](gtk3-GtkLinkButton.md) ref^
+* [GtkLinkButton](gtk3-GtkLinkButton.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L36)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkLinkButton ref^
+: GtkLinkButton val^
 ```
 #### Parameters
 
@@ -66,18 +72,33 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkLinkButton](gtk3-GtkLinkButton.md) ref^
+* [GtkLinkButton](gtk3-GtkLinkButton.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L39)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkLinkButton val^
+```
+
+#### Returns
+
+* [GtkLinkButton](gtk3-GtkLinkButton.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L43)</span>
+
+
+```pony
+new val create(
   uri_pony: String val)
-: GtkLinkButton ref^
+: GtkLinkButton val^
 ```
 #### Parameters
 
@@ -85,19 +106,19 @@ new ref create(
 
 #### Returns
 
-* [GtkLinkButton](gtk3-GtkLinkButton.md) ref^
+* [GtkLinkButton](gtk3-GtkLinkButton.md) val^
 
 ---
 
 ### new_with_label
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L46)</span>
 
 
 ```pony
-new ref new_with_label(
+new val new_with_label(
   uri_pony: String val,
   label_pony: String val)
-: GtkLinkButton ref^
+: GtkLinkButton val^
 ```
 #### Parameters
 
@@ -106,7 +127,7 @@ new ref new_with_label(
 
 #### Returns
 
-* [GtkLinkButton](gtk3-GtkLinkButton.md) ref^
+* [GtkLinkButton](gtk3-GtkLinkButton.md) val^
 
 ---
 
@@ -137,7 +158,7 @@ fun box gtkwidget()
 ---
 
 ### get_uri
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L46)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L50)</span>
 
 
 Retrieves the URI set using gtk_link_button_set_uri().
@@ -155,7 +176,7 @@ fun box get_uri()
 ---
 
 ### get_visited
-<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L58)</span>
 
 
 Retrieves the “visited” state of the URI where the #GtkLinkButton
@@ -176,8 +197,30 @@ fun box get_visited()
 
 ---
 
-### set_visited
+### pony_NOT_IMPLEMENTED_YET_set_uri
 <span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L68)</span>
+
+
+    Sets @uri as the URI where the #GtkLinkButton points. As a side-effect
+this unsets the “visited” state of the button.
+
+    {:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_uri()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_visited
+<span class="source-link">[[Source]](src/gtk3/GtkLinkButton.md#L77)</span>
 
 
 Sets the “visited” state of the URI where the #GtkLinkButton

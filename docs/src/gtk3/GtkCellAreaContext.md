@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["None", "I32", "GObjectREF"]
-provides: ["GtkCellAreaContext"]
+provides: ["GtkCellAreaContext val"]
 */
 use "../gobject"
-class GtkCellAreaContext is GtkWidget
+class val GtkCellAreaContext is GtkWidget
 """
 The #GtkCellAreaContext object is created by a given #GtkCellArea
 implementation via its #GtkCellAreaClass.create_context() virtual
@@ -17,14 +17,18 @@ same context which was used to request sizes for a given #GtkTreeModel
 row also be used for the same row when calling other #GtkCellArea APIs
 such as gtk_cell_area_render() and gtk_cell_area_event().
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
+
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
 
 
@@ -46,37 +50,91 @@ Since 3.0
 """
   @gtk_cell_area_context_allocate[None](widget, width_pony, height_pony)
 
-/* get_allocation unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "width", argtype: "gint", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_allocation(): None =>
+    """
+    Fetches the current allocation size for @context.
+
+If the context was not allocated in width or height, or if the
+context was recently reset with gtk_cell_area_context_reset(),
+the returned value will be -1.
+
+    {:doh, %{argctype: "gint*", argname: "width", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_area unavailable due to return typing issues
-{:argctype, "GtkCellArea*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_area(): None =>
+    """
+    Fetches the #GtkCellArea this @context was created by.
+
+This is generally unneeded by layouting widgets; however,
+it is important for the context implementation itself to
+fetch information about the area it is being used for.
+
+For instance at #GtkCellAreaContextClass.allocate() time
+it’s important to know details about any cell spacing
+that the #GtkCellArea is configured with in order to
+compute a proper allocation.
+
+    {:argctype, "GtkCellArea*"}
 {:argname, "rv"}
 {:argtype, "CellArea"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_preferred_height unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "minimum_height", argtype: "gint", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_preferred_height(): None =>
+    """
+    Gets the accumulative preferred height for all rows which have been
+requested with this context.
+
+After gtk_cell_area_context_reset() is called and/or before ever
+requesting the size of a #GtkCellArea, the returned values are 0.
+
+    {:doh, %{argctype: "gint*", argname: "minimum_height", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_preferred_height_for_width unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "minimum_height", argtype: "gint", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_preferred_height_for_width(): None =>
+    """
+    Gets the accumulative preferred height for @width for all rows
+which have been requested for the same said @width with this context.
+
+After gtk_cell_area_context_reset() is called and/or before ever
+requesting the size of a #GtkCellArea, the returned values are -1.
+
+    {:doh, %{argctype: "gint*", argname: "minimum_height", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_preferred_width unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "minimum_width", argtype: "gint", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_preferred_width(): None =>
+    """
+    Gets the accumulative preferred width for all rows which have been
+requested with this context.
+
+After gtk_cell_area_context_reset() is called and/or before ever
+requesting the size of a #GtkCellArea, the returned values are 0.
+
+    {:doh, %{argctype: "gint*", argname: "minimum_width", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_width", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_preferred_width_for_height unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "minimum_width", argtype: "gint", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_preferred_width_for_height(): None =>
+    """
+    Gets the accumulative preferred width for @height for all rows which
+have been requested for the same said @height with this context.
+
+After gtk_cell_area_context_reset() is called and/or before ever
+requesting the size of a #GtkCellArea, the returned values are -1.
+
+    {:doh, %{argctype: "gint*", argname: "minimum_width", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_width", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun push_preferred_height(minimum_height_pony: I32, natural_height_pony: I32): None =>
 """

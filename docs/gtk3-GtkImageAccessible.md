@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkImageAccessible is
+class val GtkImageAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkImageAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkImageAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkImageAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkImageAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkImageAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkImageAccessible](gtk3-GtkImageAccessible.md) ref^
+* [GtkImageAccessible](gtk3-GtkImageAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkImageAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkImageAccessible ref^
+: GtkImageAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkImageAccessible](gtk3-GtkImageAccessible.md) ref^
+* [GtkImageAccessible](gtk3-GtkImageAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkImageAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkImageAccessible val^
+```
+
+#### Returns
+
+* [GtkImageAccessible](gtk3-GtkImageAccessible.md) val^
 
 ---
 

@@ -65,7 +65,7 @@ binding of Ctrl+M:
 
 
 ```pony
-class ref GtkImageMenuItem is
+class val GtkImageMenuItem is
   GtkWidget ref
 ```
 
@@ -77,29 +77,35 @@ class ref GtkImageMenuItem is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L73)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L74)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkImageMenuItem ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkImageMenuItem val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkImageMenuItem](gtk3-GtkImageMenuItem.md) ref^
+* [GtkImageMenuItem](gtk3-GtkImageMenuItem.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L76)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L77)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkImageMenuItem ref^
+: GtkImageMenuItem val^
 ```
 #### Parameters
 
@@ -107,54 +113,69 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkImageMenuItem](gtk3-GtkImageMenuItem.md) ref^
+* [GtkImageMenuItem](gtk3-GtkImageMenuItem.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L80)</span>
 
 
 ```pony
-new ref create()
-: GtkImageMenuItem ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkImageMenuItem val^
 ```
 
 #### Returns
 
-* [GtkImageMenuItem](gtk3-GtkImageMenuItem.md) ref^
+* [GtkImageMenuItem](gtk3-GtkImageMenuItem.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L84)</span>
+
+
+```pony
+new val create()
+: GtkImageMenuItem val^
+```
+
+#### Returns
+
+* [GtkImageMenuItem](gtk3-GtkImageMenuItem.md) val^
 
 ---
 
 ### new_from_stock
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L83)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L87)</span>
 
 
 ```pony
-new ref new_from_stock(
+new val new_from_stock(
   stock_id_pony: String val,
-  accel_group_pony: GtkAccelGroup ref)
-: GtkImageMenuItem ref^
+  accel_group_pony: GtkAccelGroup val)
+: GtkImageMenuItem val^
 ```
 #### Parameters
 
 *   stock_id_pony: [String](builtin-String.md) val
-*   accel_group_pony: [GtkAccelGroup](gtk3-GtkAccelGroup.md) ref
+*   accel_group_pony: [GtkAccelGroup](gtk3-GtkAccelGroup.md) val
 
 #### Returns
 
-* [GtkImageMenuItem](gtk3-GtkImageMenuItem.md) ref^
+* [GtkImageMenuItem](gtk3-GtkImageMenuItem.md) val^
 
 ---
 
 ### new_with_label
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L86)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L90)</span>
 
 
 ```pony
-new ref new_with_label(
+new val new_with_label(
   label_pony: String val)
-: GtkImageMenuItem ref^
+: GtkImageMenuItem val^
 ```
 #### Parameters
 
@@ -162,18 +183,18 @@ new ref new_with_label(
 
 #### Returns
 
-* [GtkImageMenuItem](gtk3-GtkImageMenuItem.md) ref^
+* [GtkImageMenuItem](gtk3-GtkImageMenuItem.md) val^
 
 ---
 
 ### new_with_mnemonic
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L89)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L93)</span>
 
 
 ```pony
-new ref new_with_mnemonic(
+new val new_with_mnemonic(
   label_pony: String val)
-: GtkImageMenuItem ref^
+: GtkImageMenuItem val^
 ```
 #### Parameters
 
@@ -181,7 +202,7 @@ new ref new_with_mnemonic(
 
 #### Returns
 
-* [GtkImageMenuItem](gtk3-GtkImageMenuItem.md) ref^
+* [GtkImageMenuItem](gtk3-GtkImageMenuItem.md) val^
 
 ---
 
@@ -212,7 +233,7 @@ fun box gtkwidget()
 ---
 
 ### get_always_show_image
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L93)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L97)</span>
 
 
 Returns whether the menu item will ignore the #GtkSettings:gtk-menu-images
@@ -231,7 +252,7 @@ fun box get_always_show_image()
 ---
 
 ### get_use_stock
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L107)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L111)</span>
 
 
 Checks whether the label set in the menuitem is used as a
@@ -249,8 +270,35 @@ fun box get_use_stock()
 
 ---
 
-### set_always_show_image
+### pony_NOT_IMPLEMENTED_YET_set_accel_group
 <span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L118)</span>
+
+
+    Specifies an @accel_group to add the menu items accelerator to
+(this only applies to stock items so a stock item must already
+be set, make sure to call gtk_image_menu_item_set_use_stock()
+and gtk_menu_item_set_label() with a valid stock item first).
+
+If you want this menu item to have changeable accelerators then
+you shouldnt need this (see gtk_image_menu_item_new_from_stock()).
+
+    {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_accel_group()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_always_show_image
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L132)</span>
 
 
 If %TRUE, the menu item will ignore the #GtkSettings:gtk-menu-images
@@ -275,8 +323,32 @@ fun box set_always_show_image(
 
 ---
 
+### set_image
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L142)</span>
+
+
+Sets the image of @image_menu_item to the given widget.
+Note that it depends on the show-menu-images setting whether
+the image will be displayed or not.
+
+
+```pony
+fun box set_image(
+  image_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   image_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_use_stock
-<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L132)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkImageMenuItem.md#L150)</span>
 
 
 If %TRUE, the label set in the menuitem is used as a

@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["None", "I32", "GObjectREF"]
-provides: ["GtkCellRendererText"]
+provides: ["GtkCellRendererText val"]
 */
 use "../gobject"
-class GtkCellRendererText is GtkWidget
+class val GtkCellRendererText is GtkWidget
 """
 A #GtkCellRendererText renders a given text in its cell, using the font, color and
 style information provided by its properties. The text will be ellipsized if it is
@@ -13,17 +13,21 @@ too long and the #GtkCellRendererText:ellipsize property allows it.
 If the #GtkCellRenderer:mode is %GTK_CELL_RENDERER_MODE_EDITABLE,
 the #GtkCellRendererText allows to edit its text using an entry.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_cell_renderer_text_new[GObjectREF]() //
 
 

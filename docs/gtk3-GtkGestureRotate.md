@@ -7,7 +7,7 @@ changes, the #GtkGestureRotate::angle-changed signal is emitted.
 
 
 ```pony
-class ref GtkGestureRotate is
+class val GtkGestureRotate is
   GtkWidget ref
 ```
 
@@ -19,29 +19,35 @@ class ref GtkGestureRotate is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L15)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L16)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkGestureRotate ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkGestureRotate val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkGestureRotate](gtk3-GtkGestureRotate.md) ref^
+* [GtkGestureRotate](gtk3-GtkGestureRotate.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L18)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L19)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkGestureRotate ref^
+: GtkGestureRotate val^
 ```
 #### Parameters
 
@@ -49,26 +55,41 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkGestureRotate](gtk3-GtkGestureRotate.md) ref^
+* [GtkGestureRotate](gtk3-GtkGestureRotate.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L22)</span>
 
 
 ```pony
-new ref create(
-  widget_pony: GtkWidget ref)
-: GtkGestureRotate ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkGestureRotate val^
 ```
-#### Parameters
-
-*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) ref
 
 #### Returns
 
-* [GtkGestureRotate](gtk3-GtkGestureRotate.md) ref^
+* [GtkGestureRotate](gtk3-GtkGestureRotate.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L26)</span>
+
+
+```pony
+new val create(
+  widget_pony: GtkWidget val)
+: GtkGestureRotate val^
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [GtkGestureRotate](gtk3-GtkGestureRotate.md) val^
 
 ---
 
@@ -95,6 +116,33 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_angle_delta
+<span class="source-link">[[Source]](src/gtk3/GtkGestureRotate.md#L30)</span>
+
+
+    If @gesture is active, this function returns the angle difference
+in radians since the gesture was first recognized. If @gesture is
+not active, 0 is returned.
+
+    {:argctype, "gdouble"}
+{:argname, "rv"}
+{:argtype, "gdouble"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_angle_delta()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

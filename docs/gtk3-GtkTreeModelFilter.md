@@ -69,7 +69,7 @@ yourself.
 
 
 ```pony
-class ref GtkTreeModelFilter is
+class val GtkTreeModelFilter is
   GtkWidget ref
 ```
 
@@ -81,29 +81,35 @@ class ref GtkTreeModelFilter is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L77)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L78)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkTreeModelFilter ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkTreeModelFilter val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkTreeModelFilter](gtk3-GtkTreeModelFilter.md) ref^
+* [GtkTreeModelFilter](gtk3-GtkTreeModelFilter.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L80)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L81)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkTreeModelFilter ref^
+: GtkTreeModelFilter val^
 ```
 #### Parameters
 
@@ -111,7 +117,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkTreeModelFilter](gtk3-GtkTreeModelFilter.md) ref^
+* [GtkTreeModelFilter](gtk3-GtkTreeModelFilter.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L84)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkTreeModelFilter val^
+```
+
+#### Returns
+
+* [GtkTreeModelFilter](gtk3-GtkTreeModelFilter.md) val^
 
 ---
 
@@ -142,7 +163,7 @@ fun box gtkwidget()
 ---
 
 ### clear_cache
-<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L86)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L90)</span>
 
 
 This function should almost never be called. It clears the @filter
@@ -164,8 +185,136 @@ fun box clear_cache()
 
 ---
 
-### refilter
+### pony_NOT_IMPLEMENTED_YET_convert_child_iter_to_iter
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L101)</span>
+
+
+    Sets @filter_iter to point to the row in @filter that corresponds to the
+row pointed at by @child_iter.  If @filter_iter was not set, %FALSE is
+returned.
+
+    {:doh, %{argctype: "GtkTreeIter*", argname: "filter_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkTreeIter*", argname: "child_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_convert_child_iter_to_iter()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_convert_child_path_to_path
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L112)</span>
+
+
+    Converts @child_path to a path relative to @filter. That is, @child_path
+points to a path in the child model. The rerturned path will point to the
+same row in the filtered model. If @child_path isn’t a valid path on the
+child model or points to a row which is not visible in @filter, then %NULL
+is returned.
+
+    {:argctype, "GtkTreePath*"}
+{:argname, "rv"}
+{:argtype, "TreePath"}
+{:paramtype, :param}
+{:txo, "full"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_convert_child_path_to_path()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_convert_iter_to_child_iter
 <span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L128)</span>
+
+
+    Sets @child_iter to point to the row pointed to by @filter_iter.
+
+    {:doh, %{argctype: "GtkTreeIter*", argname: "child_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkTreeIter*", argname: "filter_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_convert_iter_to_child_iter()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_convert_path_to_child_path
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L137)</span>
+
+
+    Converts @filter_path to a path on the child model of @filter. That is,
+@filter_path points to a location in @filter. The returned path will
+point to the same location in the model not being filtered. If @filter_path
+does not point to a location in the child model, %NULL is returned.
+
+    {:argctype, "GtkTreePath*"}
+{:argname, "rv"}
+{:argtype, "TreePath"}
+{:paramtype, :param}
+{:txo, "full"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_convert_path_to_child_path()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_model
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L152)</span>
+
+
+    Returns a pointer to the child model of @filter.
+
+    {:argctype, "GtkTreeModel*"}
+{:argname, "rv"}
+{:argtype, "TreeModel"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_model()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### refilter
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L164)</span>
 
 
 Emits ::row_changed for each row in the child model, which causes
@@ -183,8 +332,41 @@ fun box refilter()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_modify_func
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L171)</span>
+
+
+    With the @n_columns and @types parameters, you give an array of column
+types for this model (which will be exposed to the parent model/view).
+The @func, @data and @destroy parameters are for specifying the modify
+function. The modify function will get called for each
+data access, the goal of the modify function is to return the data which
+should be displayed at the location specified using the parameters of the
+modify function.
+
+Note that gtk_tree_model_filter_set_modify_func()
+can only be called once for a given filter model.
+
+    {:doh, %{argctype: "", argname: "types", argtype: "", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkTreeModelFilterModifyFunc", argname: "func", argtype: "TreeModelFilterModifyFunc", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_modify_func()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_visible_column
-<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L142)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L191)</span>
 
 
 Sets @column of the child_model to be the column where @filter should
@@ -205,6 +387,63 @@ fun box set_visible_column(
 #### Parameters
 
 *   column_pony: [I32](builtin-I32.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_visible_func
+<span class="source-link">[[Source]](src/gtk3/GtkTreeModelFilter.md#L204)</span>
+
+
+    Sets the visible function used when filtering the @filter to be @func.
+The function should return %TRUE if the given row should be visible and
+%FALSE otherwise.
+
+If the condition calculated by the function changes over time (e.g.
+because it depends on some global parameters), you must call
+gtk_tree_model_filter_refilter() to keep the visibility information
+of the model up-to-date.
+
+Note that @func is called whenever a row is inserted, when it may still
+be empty. The visible function should therefore take special care of empty
+rows, like in the example below.
+
+|[<!-- language="C" -->
+static gboolean
+visible_func (GtkTreeModel *model,
+              GtkTreeIter  *iter,
+              gpointer      data)
+{
+  // Visible if row is non-empty and first column is “HI”
+  gchar *str;
+  gboolean visible = FALSE;
+
+  gtk_tree_model_get (model, iter, 0, &str, -1);
+  if (str && strcmp (str, "HI") == 0)
+    visible = TRUE;
+  g_free (str);
+
+  return visible;
+}
+]|
+
+Note that gtk_tree_model_filter_set_visible_func() or
+gtk_tree_model_filter_set_visible_column() can only be called
+once for a given filter model.
+
+    {:doh, %{argctype: "GtkTreeModelFilterVisibleFunc", argname: "func", argtype: "TreeModelFilterVisibleFunc", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_visible_func()
+: None val
+```
 
 #### Returns
 

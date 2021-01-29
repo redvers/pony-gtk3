@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkFlowBoxAccessible is
+class val GtkFlowBoxAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkFlowBoxAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkFlowBoxAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkFlowBoxAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkFlowBoxAccessible](gtk3-GtkFlowBoxAccessible.md) ref^
+* [GtkFlowBoxAccessible](gtk3-GtkFlowBoxAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkFlowBoxAccessible ref^
+: GtkFlowBoxAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkFlowBoxAccessible](gtk3-GtkFlowBoxAccessible.md) ref^
+* [GtkFlowBoxAccessible](gtk3-GtkFlowBoxAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkFlowBoxAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkFlowBoxAccessible val^
+```
+
+#### Returns
+
+* [GtkFlowBoxAccessible](gtk3-GtkFlowBoxAccessible.md) val^
 
 ---
 

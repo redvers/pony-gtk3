@@ -26,7 +26,7 @@ GtkToolButton has a single CSS node with name toolbutton.
 
 
 ```pony
-class ref GtkToolButton is
+class val GtkToolButton is
   GtkWidget ref
 ```
 
@@ -38,29 +38,35 @@ class ref GtkToolButton is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L34)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L35)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkToolButton ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkToolButton val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkToolButton](gtk3-GtkToolButton.md) ref^
+* [GtkToolButton](gtk3-GtkToolButton.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L37)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L38)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkToolButton ref^
+: GtkToolButton val^
 ```
 #### Parameters
 
@@ -68,39 +74,54 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkToolButton](gtk3-GtkToolButton.md) ref^
+* [GtkToolButton](gtk3-GtkToolButton.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L41)</span>
 
 
 ```pony
-new ref create(
-  icon_widget_pony: GtkWidget ref,
+new val never_call_this_constructor_or_else_tm()
+: GtkToolButton val^
+```
+
+#### Returns
+
+* [GtkToolButton](gtk3-GtkToolButton.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L45)</span>
+
+
+```pony
+new val create(
+  icon_widget_pony: GtkWidget val,
   label_pony: String val)
-: GtkToolButton ref^
+: GtkToolButton val^
 ```
 #### Parameters
 
-*   icon_widget_pony: [GtkWidget](gtk3-GtkWidget.md) ref
+*   icon_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
 *   label_pony: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkToolButton](gtk3-GtkToolButton.md) ref^
+* [GtkToolButton](gtk3-GtkToolButton.md) val^
 
 ---
 
 ### new_from_stock
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L44)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L48)</span>
 
 
 ```pony
-new ref new_from_stock(
+new val new_from_stock(
   stock_id_pony: String val)
-: GtkToolButton ref^
+: GtkToolButton val^
 ```
 #### Parameters
 
@@ -108,7 +129,7 @@ new ref new_from_stock(
 
 #### Returns
 
-* [GtkToolButton](gtk3-GtkToolButton.md) ref^
+* [GtkToolButton](gtk3-GtkToolButton.md) val^
 
 ---
 
@@ -139,7 +160,7 @@ fun box gtkwidget()
 ---
 
 ### get_icon_name
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L48)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L52)</span>
 
 
 Returns the name of the themed icon for the tool button,
@@ -158,7 +179,7 @@ fun box get_icon_name()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L68)</span>
 
 
 Returns the label used by the tool button, or %NULL if the tool button
@@ -178,7 +199,7 @@ fun box get_label()
 ---
 
 ### get_stock_id
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L81)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L85)</span>
 
 
 Returns the name of the stock item. See gtk_tool_button_set_stock_id().
@@ -197,7 +218,7 @@ fun box get_stock_id()
 ---
 
 ### get_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L90)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L94)</span>
 
 
 Returns whether underscores in the label property are used as mnemonics
@@ -215,8 +236,132 @@ fun box get_use_underline()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_icon_name
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L101)</span>
+
+
+    Sets the icon for the tool button from a named themed icon.
+See the docs for #GtkIconTheme for more details.
+The #GtkToolButton:icon-name property only has an effect if not
+overridden by non-%NULL #GtkToolButton:label-widget,
+#GtkToolButton:icon-widget and #GtkToolButton:stock-id properties.
+
+    {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_icon_name()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_icon_widget
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L113)</span>
+
+
+Sets @icon as the widget used as icon on @button. If @icon_widget is
+%NULL the icon is determined by the #GtkToolButton:stock-id property. If the
+#GtkToolButton:stock-id property is also %NULL, @button will not have an icon.
+
+
+```pony
+fun box set_icon_widget(
+  icon_widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   icon_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_label
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L121)</span>
+
+
+    Sets @label as the label used for the tool button. The #GtkToolButton:label
+property only has an effect if not overridden by a non-%NULL
+#GtkToolButton:label-widget property. If both the #GtkToolButton:label-widget
+and #GtkToolButton:label properties are %NULL, the label is determined by the
+#GtkToolButton:stock-id property. If the #GtkToolButton:stock-id property is
+also %NULL, @button will not have a label.
+
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_label()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_label_widget
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L134)</span>
+
+
+Sets @label_widget as the widget that will be used as the label
+for @button. If @label_widget is %NULL the #GtkToolButton:label property is used
+as label. If #GtkToolButton:label is also %NULL, the label in the stock item
+determined by the #GtkToolButton:stock-id property is used as label. If
+#GtkToolButton:stock-id is also %NULL, @button does not have a label.
+
+
+```pony
+fun box set_label_widget(
+  label_widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   label_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_stock_id
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L144)</span>
+
+
+    Sets the name of the stock item. See gtk_tool_button_new_from_stock().
+The stock_id property only has an effect if not overridden by non-%NULL
+#GtkToolButton:label-widget and #GtkToolButton:icon-widget properties.
+
+    {:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_stock_id()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L117)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolButton.md#L154)</span>
 
 
 If set, an underline in the label property indicates that the next character

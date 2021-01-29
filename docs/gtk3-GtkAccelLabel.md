@@ -64,7 +64,7 @@ It adds a subnode with name accelerator.
 
 
 ```pony
-class ref GtkAccelLabel is
+class val GtkAccelLabel is
   GtkWidget ref
 ```
 
@@ -76,29 +76,35 @@ class ref GtkAccelLabel is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L72)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L73)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkAccelLabel ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkAccelLabel val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkAccelLabel](gtk3-GtkAccelLabel.md) ref^
+* [GtkAccelLabel](gtk3-GtkAccelLabel.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L75)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L76)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkAccelLabel ref^
+: GtkAccelLabel val^
 ```
 #### Parameters
 
@@ -106,18 +112,33 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkAccelLabel](gtk3-GtkAccelLabel.md) ref^
+* [GtkAccelLabel](gtk3-GtkAccelLabel.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L79)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkAccelLabel val^
+```
+
+#### Returns
+
+* [GtkAccelLabel](gtk3-GtkAccelLabel.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L83)</span>
+
+
+```pony
+new val create(
   string_pony: String val)
-: GtkAccelLabel ref^
+: GtkAccelLabel val^
 ```
 #### Parameters
 
@@ -125,7 +146,7 @@ new ref create(
 
 #### Returns
 
-* [GtkAccelLabel](gtk3-GtkAccelLabel.md) ref^
+* [GtkAccelLabel](gtk3-GtkAccelLabel.md) val^
 
 ---
 
@@ -155,8 +176,31 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_accel
+<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L87)</span>
+
+
+    Gets the keyval and modifier mask set with
+gtk_accel_label_set_accel().
+
+    {:doh, %{argctype: "guint*", argname: "accelerator_key", argtype: "guint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "GdkModifierType*", argname: "accelerator_mods", argtype: "Gdk.ModifierType", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_accel()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_accel_width
-<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L95)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L104)</span>
 
 
 Returns the width needed to display the accelerator key(s).
@@ -176,7 +220,7 @@ fun box get_accel_width()
 ---
 
 ### refetch
-<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L103)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L112)</span>
 
 
 Recreates the string representing the accelerator keys.
@@ -192,6 +236,80 @@ fun box refetch()
 #### Returns
 
 * [Bool](builtin-Bool.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_accel
+<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L120)</span>
+
+
+    Manually sets a keyval and modifier mask as the accelerator rendered
+by @accel_label.
+
+If a keyval and modifier are explicitly set then these values are
+used regardless of any associated accel closure or widget.
+
+Providing an @accelerator_key of 0 removes the manual setting.
+
+    {:doh, %{argctype: "GdkModifierType", argname: "accelerator_mods", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_accel()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_accel_closure
+<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L134)</span>
+
+
+    Sets the closure to be monitored by this accelerator label. The closure
+must be connected to an accelerator group; see gtk_accel_group_connect().
+Passing %NULL for @accel_closure will dissociate @accel_label from its
+current closure, if any.
+
+    {:doh, %{argctype: "GClosure*", argname: "accel_closure", argtype: "GObject.Closure", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_accel_closure()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_accel_widget
+<span class="source-link">[[Source]](src/gtk3/GtkAccelLabel.md#L145)</span>
+
+
+Sets the widget to be monitored by this accelerator label. Passing %NULL for
+@accel_widget will dissociate @accel_label from its current widget, if any.
+
+
+```pony
+fun box set_accel_widget(
+  accel_widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   accel_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

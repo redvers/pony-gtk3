@@ -15,7 +15,7 @@ integrate with an application’s concept of undo/redo.
 
 
 ```pony
-class ref GtkEntryBuffer is
+class val GtkEntryBuffer is
   GtkWidget ref
 ```
 
@@ -27,29 +27,35 @@ class ref GtkEntryBuffer is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L23)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L24)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkEntryBuffer ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkEntryBuffer val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkEntryBuffer](gtk3-GtkEntryBuffer.md) ref^
+* [GtkEntryBuffer](gtk3-GtkEntryBuffer.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L26)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L27)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkEntryBuffer ref^
+: GtkEntryBuffer val^
 ```
 #### Parameters
 
@@ -57,19 +63,34 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkEntryBuffer](gtk3-GtkEntryBuffer.md) ref^
+* [GtkEntryBuffer](gtk3-GtkEntryBuffer.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L30)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkEntryBuffer val^
+```
+
+#### Returns
+
+* [GtkEntryBuffer](gtk3-GtkEntryBuffer.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L34)</span>
+
+
+```pony
+new val create(
   initial_chars_pony: String val,
   n_initial_chars_pony: I32 val)
-: GtkEntryBuffer ref^
+: GtkEntryBuffer val^
 ```
 #### Parameters
 
@@ -78,7 +99,7 @@ new ref create(
 
 #### Returns
 
-* [GtkEntryBuffer](gtk3-GtkEntryBuffer.md) ref^
+* [GtkEntryBuffer](gtk3-GtkEntryBuffer.md) val^
 
 ---
 
@@ -109,7 +130,7 @@ fun box gtkwidget()
 ---
 
 ### delete_text
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L38)</span>
 
 
 Deletes a sequence of characters from the buffer. @n_chars characters are
@@ -140,7 +161,7 @@ fun box delete_text(
 ---
 
 ### emit_deleted_text
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L47)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L51)</span>
 
 
 Used when subclassing #GtkEntryBuffer
@@ -163,8 +184,55 @@ fun box emit_deleted_text(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_emit_inserted_text
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L57)</span>
+
+
+    Used when subclassing #GtkEntryBuffer
+
+    {:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_emit_inserted_text()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_bytes
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L65)</span>
+
+
+    Retrieves the length in bytes of the buffer.
+See gtk_entry_buffer_get_length().
+
+    {:argctype, "gsize"}
+{:argname, "rv"}
+{:argtype, "gsize"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_bytes()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L78)</span>
 
 
 Retrieves the length in characters of the buffer.
@@ -182,7 +250,7 @@ fun box get_length()
 ---
 
 ### get_max_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L70)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L84)</span>
 
 
 Retrieves the maximum allowed length of the text in
@@ -201,7 +269,7 @@ fun box get_max_length()
 ---
 
 ### get_text
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L77)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L91)</span>
 
 
 Retrieves the contents of the buffer.
@@ -221,8 +289,37 @@ fun box get_text()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_insert_text
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L102)</span>
+
+
+    Inserts @n_chars characters of @chars into the contents of the
+buffer, at position @position.
+
+If @n_chars is negative, then characters from chars will be inserted
+until a null-terminator is found. If @position or @n_chars are out of
+bounds, or the maximum buffer text length is exceeded, then they are
+coerced to sane values.
+
+Note that the position and length are in characters, not in bytes.
+
+    {:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_insert_text()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_max_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L92)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L118)</span>
 
 
 Sets the maximum allowed length of the contents of the buffer. If
@@ -238,6 +335,32 @@ fun box set_max_length(
 #### Parameters
 
 *   max_length_pony: [I32](builtin-I32.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_text
+<span class="source-link">[[Source]](src/gtk3/GtkEntryBuffer.md#L126)</span>
+
+
+    Sets the text in the buffer.
+
+This is roughly equivalent to calling gtk_entry_buffer_delete_text()
+and gtk_entry_buffer_insert_text().
+
+Note that @n_chars is in characters, not in bytes.
+
+    {:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_text()
+: None val
+```
 
 #### Returns
 

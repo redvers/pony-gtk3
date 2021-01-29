@@ -37,7 +37,7 @@ GtkStatusbar has a single CSS node with name statusbar.
 
 
 ```pony
-class ref GtkStatusbar is
+class val GtkStatusbar is
   GtkWidget ref
 ```
 
@@ -49,29 +49,35 @@ class ref GtkStatusbar is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L45)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L46)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkStatusbar ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkStatusbar val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkStatusbar](gtk3-GtkStatusbar.md) ref^
+* [GtkStatusbar](gtk3-GtkStatusbar.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L48)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L49)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkStatusbar ref^
+: GtkStatusbar val^
 ```
 #### Parameters
 
@@ -79,22 +85,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkStatusbar](gtk3-GtkStatusbar.md) ref^
+* [GtkStatusbar](gtk3-GtkStatusbar.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L52)</span>
 
 
 ```pony
-new ref create()
-: GtkStatusbar ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkStatusbar val^
 ```
 
 #### Returns
 
-* [GtkStatusbar](gtk3-GtkStatusbar.md) ref^
+* [GtkStatusbar](gtk3-GtkStatusbar.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L56)</span>
+
+
+```pony
+new val create()
+: GtkStatusbar val^
+```
+
+#### Returns
+
+* [GtkStatusbar](gtk3-GtkStatusbar.md) val^
 
 ---
 
@@ -124,8 +145,56 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_context_id
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L60)</span>
+
+
+    Returns a new context identifier, given a description
+of the actual context. Note that the description is
+not shown in the UI.
+
+    {:doh, %{argctype: "const gchar*", argname: "context_description", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_context_id()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_message_area
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L70)</span>
+
+
+    Retrieves the box containing the label widget.
+
+    {:argctype, "GtkWidget*"}
+{:argname, "rv"}
+{:argtype, "Box"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_message_area()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### pop
-<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L67)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L82)</span>
 
 
 Removes the first message in the #GtkStatusbar’s stack
@@ -151,8 +220,29 @@ fun box pop(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_push
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L93)</span>
+
+
+    Pushes a new message onto a statusbar’s stack.
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_push()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### remove
-<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L82)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L101)</span>
 
 
 Forces the removal of a message from a statusbar’s stack.
@@ -177,7 +267,7 @@ fun box remove(
 ---
 
 ### remove_all
-<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L89)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbar.md#L108)</span>
 
 
 Forces the removal of all messages from a statusbar's

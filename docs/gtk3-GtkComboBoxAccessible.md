@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkComboBoxAccessible is
+class val GtkComboBoxAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkComboBoxAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkComboBoxAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkComboBoxAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkComboBoxAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkComboBoxAccessible](gtk3-GtkComboBoxAccessible.md) ref^
+* [GtkComboBoxAccessible](gtk3-GtkComboBoxAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkComboBoxAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkComboBoxAccessible ref^
+: GtkComboBoxAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkComboBoxAccessible](gtk3-GtkComboBoxAccessible.md) ref^
+* [GtkComboBoxAccessible](gtk3-GtkComboBoxAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkComboBoxAccessible val^
+```
+
+#### Returns
+
+* [GtkComboBoxAccessible](gtk3-GtkComboBoxAccessible.md) val^
 
 ---
 

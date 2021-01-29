@@ -19,7 +19,7 @@ similar to gtk_dialog_run().
 
 
 ```pony
-class ref GtkNativeDialog is
+class val GtkNativeDialog is
   GtkWidget ref
 ```
 
@@ -31,29 +31,35 @@ class ref GtkNativeDialog is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L27)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L28)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkNativeDialog ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkNativeDialog val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkNativeDialog](gtk3-GtkNativeDialog.md) ref^
+* [GtkNativeDialog](gtk3-GtkNativeDialog.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L31)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkNativeDialog ref^
+: GtkNativeDialog val^
 ```
 #### Parameters
 
@@ -61,7 +67,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkNativeDialog](gtk3-GtkNativeDialog.md) ref^
+* [GtkNativeDialog](gtk3-GtkNativeDialog.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L34)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkNativeDialog val^
+```
+
+#### Returns
+
+* [GtkNativeDialog](gtk3-GtkNativeDialog.md) val^
 
 ---
 
@@ -92,7 +113,7 @@ fun box gtkwidget()
 ---
 
 ### destroy
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L40)</span>
 
 
 Destroys a dialog.
@@ -118,7 +139,7 @@ fun box destroy()
 ---
 
 ### get_modal
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L50)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L54)</span>
 
 
 Returns whether the dialog is modal. See gtk_native_dialog_set_modal().
@@ -135,8 +156,59 @@ fun box get_modal()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_title
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L60)</span>
+
+
+    Gets the title of the #GtkNativeDialog.
+
+    {:argctype, "const char*"}
+{:argname, "rv"}
+{:argtype, "utf8"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_title()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_transient_for
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L72)</span>
+
+
+    Fetches the transient parent for this window. See
+gtk_native_dialog_set_transient_for().
+
+    {:argctype, "GtkWindow*"}
+{:argname, "rv"}
+{:argtype, "Window"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_transient_for()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L70)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L85)</span>
 
 
 Determines whether the dialog is visible.
@@ -154,7 +226,7 @@ fun box get_visible()
 ---
 
 ### hide
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L76)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L91)</span>
 
 
 Hides the dialog if it is visilbe, aborting any interaction. Once this
@@ -176,7 +248,7 @@ fun box hide()
 ---
 
 ### run
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L86)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L101)</span>
 
 
 Blocks in a recursive main loop until @self emits the
@@ -222,7 +294,7 @@ fun box run()
 ---
 
 ### set_modal
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L120)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L135)</span>
 
 
 Sets a dialog modal or non-modal. Modal dialogs prevent interaction
@@ -248,8 +320,56 @@ fun box set_modal(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_title
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L146)</span>
+
+
+    Sets the title of the #GtkNativeDialog.
+
+    {:doh, %{argctype: "const char*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_title()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_transient_for
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L154)</span>
+
+
+    Dialog windows should be set transient for the main application
+window they were spawned from. This allows
+[window managers][gtk-X11-arch] to e.g. keep the
+dialog on top of the main window, or center the dialog over the
+main window.
+
+Passing %NULL for @parent unsets the current transient window.
+
+    {:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_transient_for()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### show
-<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L139)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNativeDialog.md#L168)</span>
 
 
 Shows the dialog on the display, allowing the user to interact with

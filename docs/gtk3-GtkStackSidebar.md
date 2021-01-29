@@ -20,7 +20,7 @@ pages.
 
 
 ```pony
-class ref GtkStackSidebar is
+class val GtkStackSidebar is
   GtkWidget ref
 ```
 
@@ -32,29 +32,35 @@ class ref GtkStackSidebar is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L28)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L29)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkStackSidebar ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkStackSidebar val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkStackSidebar](gtk3-GtkStackSidebar.md) ref^
+* [GtkStackSidebar](gtk3-GtkStackSidebar.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L32)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkStackSidebar ref^
+: GtkStackSidebar val^
 ```
 #### Parameters
 
@@ -62,22 +68,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkStackSidebar](gtk3-GtkStackSidebar.md) ref^
+* [GtkStackSidebar](gtk3-GtkStackSidebar.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L35)</span>
 
 
 ```pony
-new ref create()
-: GtkStackSidebar ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkStackSidebar val^
 ```
 
 #### Returns
 
-* [GtkStackSidebar](gtk3-GtkStackSidebar.md) ref^
+* [GtkStackSidebar](gtk3-GtkStackSidebar.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L39)</span>
+
+
+```pony
+new val create()
+: GtkStackSidebar val^
+```
+
+#### Returns
+
+* [GtkStackSidebar](gtk3-GtkStackSidebar.md) val^
 
 ---
 
@@ -104,6 +125,56 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_stack
+<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L43)</span>
+
+
+    Retrieves the stack.
+See gtk_stack_sidebar_set_stack().
+
+    {:argctype, "GtkStack*"}
+{:argname, "rv"}
+{:argtype, "Stack"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_stack()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_stack
+<span class="source-link">[[Source]](src/gtk3/GtkStackSidebar.md#L56)</span>
+
+
+    Set the #GtkStack associated with this #GtkStackSidebar.
+
+The sidebar widget will automatically update according to the order
+(packing) and items within the given #GtkStack.
+
+    {:doh, %{argctype: "GtkStack*", argname: "stack", argtype: "Stack", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_stack()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

@@ -8,7 +8,7 @@ emitted to report the scale factor.
 
 
 ```pony
-class ref GtkGestureZoom is
+class val GtkGestureZoom is
   GtkWidget ref
 ```
 
@@ -20,29 +20,35 @@ class ref GtkGestureZoom is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L16)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L17)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkGestureZoom ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkGestureZoom val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkGestureZoom](gtk3-GtkGestureZoom.md) ref^
+* [GtkGestureZoom](gtk3-GtkGestureZoom.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L19)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L20)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkGestureZoom ref^
+: GtkGestureZoom val^
 ```
 #### Parameters
 
@@ -50,26 +56,41 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkGestureZoom](gtk3-GtkGestureZoom.md) ref^
+* [GtkGestureZoom](gtk3-GtkGestureZoom.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L23)</span>
 
 
 ```pony
-new ref create(
-  widget_pony: GtkWidget ref)
-: GtkGestureZoom ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkGestureZoom val^
 ```
-#### Parameters
-
-*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) ref
 
 #### Returns
 
-* [GtkGestureZoom](gtk3-GtkGestureZoom.md) ref^
+* [GtkGestureZoom](gtk3-GtkGestureZoom.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L27)</span>
+
+
+```pony
+new val create(
+  widget_pony: GtkWidget val)
+: GtkGestureZoom val^
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [GtkGestureZoom](gtk3-GtkGestureZoom.md) val^
 
 ---
 
@@ -96,6 +117,33 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_scale_delta
+<span class="source-link">[[Source]](src/gtk3/GtkGestureZoom.md#L31)</span>
+
+
+    If @gesture is active, this function returns the zooming difference
+since the gesture was recognized (hence the starting point is
+considered 1:1). If @gesture is not active, 1 is returned.
+
+    {:argctype, "gdouble"}
+{:argname, "rv"}
+{:argtype, "gdouble"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_scale_delta()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

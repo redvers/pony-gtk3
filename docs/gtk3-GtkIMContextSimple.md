@@ -18,7 +18,7 @@ G WITH CEDILLA, i.e. ģ.
 
 
 ```pony
-class ref GtkIMContextSimple is
+class val GtkIMContextSimple is
   GtkWidget ref
 ```
 
@@ -30,29 +30,35 @@ class ref GtkIMContextSimple is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkIMContextSimple.md#L26)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkIMContextSimple.md#L27)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkIMContextSimple ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkIMContextSimple val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkIMContextSimple](gtk3-GtkIMContextSimple.md) ref^
+* [GtkIMContextSimple](gtk3-GtkIMContextSimple.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkIMContextSimple.md#L29)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkIMContextSimple.md#L30)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkIMContextSimple ref^
+: GtkIMContextSimple val^
 ```
 #### Parameters
 
@@ -60,22 +66,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkIMContextSimple](gtk3-GtkIMContextSimple.md) ref^
+* [GtkIMContextSimple](gtk3-GtkIMContextSimple.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkIMContextSimple.md#L33)</span>
 
 
 ```pony
-new ref create()
-: GtkIMContextSimple ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkIMContextSimple val^
 ```
 
 #### Returns
 
-* [GtkIMContextSimple](gtk3-GtkIMContextSimple.md) ref^
+* [GtkIMContextSimple](gtk3-GtkIMContextSimple.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkIMContextSimple.md#L37)</span>
+
+
+```pony
+new val create()
+: GtkIMContextSimple val^
+```
+
+#### Returns
+
+* [GtkIMContextSimple](gtk3-GtkIMContextSimple.md) val^
 
 ---
 
@@ -102,6 +123,56 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_compose_file
+<span class="source-link">[[Source]](src/gtk3/GtkIMContextSimple.md#L41)</span>
+
+
+    No provided documentation
+
+    {:doh, %{argctype: "const gchar*", argname: "compose_file", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_compose_file()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_table
+<span class="source-link">[[Source]](src/gtk3/GtkIMContextSimple.md#L49)</span>
+
+
+    Adds an additional table to search to the input context.
+Each row of the table consists of @max_seq_len key symbols
+followed by two #guint16 interpreted as the high and low
+words of a #gunicode value. Tables are searched starting
+from the last added.
+
+The table must be sorted in dictionary order on the
+numeric value of the key symbol fields. (Values beyond
+the length of the sequence should be zero.)
+
+    {:doh, %{argctype: "", argname: "data", argtype: "", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_table()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

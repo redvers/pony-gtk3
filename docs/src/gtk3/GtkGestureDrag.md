@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["GObjectREF", "GtkWidget"]
-provides: ["GtkGestureDrag"]
+   needs: ["GObjectREF", "GtkWidget val"]
+provides: ["GtkGestureDrag val"]
 */
 use "../gobject"
-class GtkGestureDrag is GtkWidget
+class val GtkGestureDrag is GtkWidget
 """
 #GtkGestureDrag is a #GtkGesture implementation that recognizes drag
 operations. The drag operation itself can be tracked throught the
@@ -13,29 +13,45 @@ operations. The drag operation itself can be tracked throught the
 extracted through gtk_gesture_drag_get_offset() and
 gtk_gesture_drag_get_start_point().
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(widget_pony: GtkWidget) =>
+
+  new val create(widget_pony: GtkWidget val) =>
     widget = @gtk_gesture_drag_new[GObjectREF](widget_pony.gtkwidget()) //
 
 
-/* get_offset unavailable due to typing issues
- {:doh, %{argctype: "gdouble*", argname: "x", argtype: "gdouble", paramtype: :param, txo: "full"}}
-{:doh, %{argctype: "gdouble*", argname: "y", argtype: "gdouble", paramtype: :param, txo: "full"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_get_offset(): None =>
+    """
+    If the @gesture is active, this function returns %TRUE and
+fills in @x and @y with the coordinates of the current point,
+as an offset to the starting drag point.
 
-/* get_start_point unavailable due to typing issues
- {:doh, %{argctype: "gdouble*", argname: "x", argtype: "gdouble", paramtype: :param, txo: "full"}}
+    {:doh, %{argctype: "gdouble*", argname: "x", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "y", argtype: "gdouble", paramtype: :param, txo: "full"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_start_point(): None =>
+    """
+    If the @gesture is active, this function returns %TRUE
+and fills in @x and @y with the drag start coordinates,
+in window-relative coordinates.
+
+    {:doh, %{argctype: "gdouble*", argname: "x", argtype: "gdouble", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gdouble*", argname: "y", argtype: "gdouble", paramtype: :param, txo: "full"}}
+*/
+    """
 
 
 ```````

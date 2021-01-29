@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["Bool", "None", "GObjectREF"]
-provides: ["GtkPlacesSidebar"]
+provides: ["GtkPlacesSidebar val"]
 */
 use "../gobject"
-class GtkPlacesSidebar is GtkWidget
+class val GtkPlacesSidebar is GtkWidget
 """
 #GtkPlacesSidebar is a widget that displays a list of frequently-used places in the
 file system:  the user’s home directory, the user’s bookmarks, and volumes and drives.
@@ -40,23 +40,40 @@ be used:
 - .sidebar-placeholder-row for a row that is a placeholder
 - .has-open-popup when a popup is open for a row
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_places_sidebar_new[GObjectREF]() //
 
 
-/* add_shortcut unavailable due to typing issues
- {:doh, %{argctype: "GFile*", argname: "location", argtype: "Gio.File", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_add_shortcut(): None =>
+    """
+    Applications may want to present some folders in the places sidebar if
+they could be immediately useful to users.  For example, a drawing
+program could add a “/usr/share/clipart” location when the sidebar is
+being used in an “Insert Clipart” dialog box.
+
+This function adds the specified @location to a special place for immutable
+shortcuts.  The shortcuts are application-specific; they are not shared
+across applications, and they are not persistent.  If this function
+is called multiple times with different locations, then they are added
+to the sidebar’s list in the same order as the function is called.
+
+    {:doh, %{argctype: "GFile*", argname: "location", argtype: "Gio.File", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun get_local_only(): Bool =>
 """
@@ -64,26 +81,51 @@ Returns the value previously set with gtk_places_sidebar_set_local_only().
 """
   @gtk_places_sidebar_get_local_only[Bool](widget)
 
-/* get_location unavailable due to return typing issues
-{:argctype, "GFile*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_location(): None =>
+    """
+    Gets the currently selected location in the @sidebar. This can be %NULL when
+nothing is selected, for example, when gtk_places_sidebar_set_location() has
+been called with a location that is not among the sidebar’s list of places to
+show.
+
+You can use this function to get the selection in the @sidebar.  Also, if you
+connect to the #GtkPlacesSidebar::populate-popup signal, you can use this
+function to get the location that is being referred to during the callbacks
+for your menu items.
+
+    {:argctype, "GFile*"}
 {:argname, "rv"}
 {:argtype, "Gio.File"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* get_nth_bookmark unavailable due to return typing issues
-{:argctype, "GFile*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_nth_bookmark(): None =>
+    """
+    This function queries the bookmarks added by the user to the places sidebar,
+and returns one of them.  This function is used by #GtkFileChooser to implement
+the “Alt-1”, “Alt-2”, etc. shortcuts, which activate the cooresponding bookmark.
+
+    {:argctype, "GFile*"}
 {:argname, "rv"}
 {:argtype, "Gio.File"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* get_open_flags unavailable due to return typing issues
-{:argctype, "GtkPlacesOpenFlags"}
+  fun pony_NOT_IMPLEMENTED_YET_get_open_flags(): None =>
+    """
+    Gets the open flags.
+
+    {:argctype, "GtkPlacesOpenFlags"}
 {:argname, "rv"}
 {:argtype, "PlacesOpenFlags"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_show_connect_to_server(): Bool =>
 """
@@ -127,20 +169,43 @@ Returns the value previously set with gtk_places_sidebar_set_show_trash()
 """
   @gtk_places_sidebar_get_show_trash[Bool](widget)
 
-/* list_shortcuts unavailable due to return typing issues
-{:argctype, "GSList*"}
+  fun pony_NOT_IMPLEMENTED_YET_list_shortcuts(): None =>
+    """
+    Gets the list of shortcuts.
+
+    {:argctype, "GSList*"}
 {:argname, "rv"}
 {:argtype, "GLib.SList"}
 {:paramtype, :param}
-{:txo, "full"} */
-
-/* remove_shortcut unavailable due to typing issues
- {:doh, %{argctype: "GFile*", argname: "location", argtype: "Gio.File", paramtype: :param, txo: "none"}}
+{:txo, "full"}
 */
+    """
 
-/* set_drop_targets_visible unavailable due to typing issues
- {:doh, %{argctype: "GdkDragContext*", argname: "context", argtype: "Gdk.DragContext", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_remove_shortcut(): None =>
+    """
+    Removes an application-specific shortcut that has been previously been
+inserted with gtk_places_sidebar_add_shortcut().  If the @location is not a
+shortcut in the sidebar, then nothing is done.
+
+    {:doh, %{argctype: "GFile*", argname: "location", argtype: "Gio.File", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_drop_targets_visible(): None =>
+    """
+    Make the GtkPlacesSidebar show drop targets, so it can show the available
+drop targets and a "new bookmark" row. This improves the Drag-and-Drop
+experience of the user and allows applications to show all available
+drop targets at once.
+
+This needs to be called when the application is aware of an ongoing drag
+that might target the sidebar. The drop-targets-visible state will be unset
+automatically if the drag finishes in the GtkPlacesSidebar. You only need
+to unset the state when the drag ends on some other widget on your application.
+
+    {:doh, %{argctype: "GdkDragContext*", argname: "context", argtype: "Gdk.DragContext", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_local_only(local_only_pony: Bool): None =>
 """
@@ -148,13 +213,39 @@ Sets whether the @sidebar should only show local files.
 """
   @gtk_places_sidebar_set_local_only[None](widget, local_only_pony)
 
-/* set_location unavailable due to typing issues
- {:doh, %{argctype: "GFile*", argname: "location", argtype: "Gio.File", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_location(): None =>
+    """
+    Sets the location that is being shown in the widgets surrounding the
+@sidebar, for example, in a folder view in a file manager.  In turn, the
+@sidebar will highlight that location if it is being shown in the list of
+places, or it will unhighlight everything if the @location is not among the
+places in the list.
 
-/* set_open_flags unavailable due to typing issues
- {:doh, %{argctype: "GtkPlacesOpenFlags", argname: "flags", argtype: "PlacesOpenFlags", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GFile*", argname: "location", argtype: "Gio.File", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_open_flags(): None =>
+    """
+    Sets the way in which the calling application can open new locations from
+the places sidebar.  For example, some applications only open locations
+“directly” into their main view, while others may support opening locations
+in a new notebook tab or a new window.
+
+This function is used to tell the places @sidebar about the ways in which the
+application can open new locations, so that the sidebar can display (or not)
+the “Open in new tab” and “Open in new window” menu items as appropriate.
+
+When the #GtkPlacesSidebar::open-location signal is emitted, its flags
+argument will be set to one of the @flags that was passed in
+gtk_places_sidebar_set_open_flags().
+
+Passing 0 for @flags will cause #GTK_PLACES_OPEN_NORMAL to always be sent
+to callbacks for the “open-location” signal.
+
+    {:doh, %{argctype: "GtkPlacesOpenFlags", argname: "flags", argtype: "PlacesOpenFlags", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_show_connect_to_server(show_connect_to_server_pony: Bool): None =>
 """

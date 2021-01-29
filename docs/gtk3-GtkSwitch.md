@@ -20,7 +20,7 @@ named slider. Neither of them is using any style classes.
 
 
 ```pony
-class ref GtkSwitch is
+class val GtkSwitch is
   GtkWidget ref
 ```
 
@@ -32,29 +32,35 @@ class ref GtkSwitch is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L28)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L29)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkSwitch ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkSwitch val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkSwitch](gtk3-GtkSwitch.md) ref^
+* [GtkSwitch](gtk3-GtkSwitch.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L32)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkSwitch ref^
+: GtkSwitch val^
 ```
 #### Parameters
 
@@ -62,22 +68,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkSwitch](gtk3-GtkSwitch.md) ref^
+* [GtkSwitch](gtk3-GtkSwitch.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L35)</span>
 
 
 ```pony
-new ref create()
-: GtkSwitch ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkSwitch val^
 ```
 
 #### Returns
 
-* [GtkSwitch](gtk3-GtkSwitch.md) ref^
+* [GtkSwitch](gtk3-GtkSwitch.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L39)</span>
+
+
+```pony
+new val create()
+: GtkSwitch val^
+```
+
+#### Returns
+
+* [GtkSwitch](gtk3-GtkSwitch.md) val^
 
 ---
 
@@ -108,7 +129,7 @@ fun box gtkwidget()
 ---
 
 ### get_active
-<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L43)</span>
 
 
 Gets whether the #GtkSwitch is in its “on” or “off” state.
@@ -126,7 +147,7 @@ fun box get_active()
 ---
 
 ### get_state
-<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L45)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L49)</span>
 
 
 Gets the underlying state of the #GtkSwitch.
@@ -144,7 +165,7 @@ fun box get_state()
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L51)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L55)</span>
 
 
 Changes the state of @sw to the desired one.
@@ -166,7 +187,7 @@ fun box set_active(
 ---
 
 ### set_state
-<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L57)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSwitch.md#L61)</span>
 
 
 Sets the underlying state of the #GtkSwitch.

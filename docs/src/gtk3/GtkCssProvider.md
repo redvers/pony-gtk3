@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["GObjectREF"]
-provides: ["GtkCssProvider"]
+provides: ["GtkCssProvider val"]
 */
 use "../gobject"
-class GtkCssProvider is GtkWidget
+class val GtkCssProvider is GtkWidget
 """
 GtkCssProvider is an object implementing the #GtkStyleProvider interface.
 It is able to parse [CSS-like][css-overview] input in order to style widgets.
@@ -30,43 +30,81 @@ way back to 3.0.
 In the same way, GTK+ tries to load a gtk-keys.css file for the current
 key theme, as defined by #GtkSettings:gtk-key-theme-name.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_css_provider_new[GObjectREF]() //
 
 
-/* load_from_data unavailable due to typing issues
- {:doh, %{argctype: "", argname: "data", argtype: "", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_load_from_data(): None =>
+    """
+    Loads @data into @css_provider, and by doing so clears any previously loaded
+information.
+
+    {:doh, %{argctype: "", argname: "data", argtype: "", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gssize", argname: "length", argtype: "gssize", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* load_from_file unavailable due to typing issues
- {:doh, %{argctype: "GFile*", argname: "file", argtype: "Gio.File", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_load_from_file(): None =>
+    """
+    Loads the data contained in @file into @css_provider, making it
+clear any previously loaded information.
+
+    {:doh, %{argctype: "GFile*", argname: "file", argtype: "Gio.File", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* load_from_path unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_load_from_path(): None =>
+    """
+    Loads the data contained in @path into @css_provider, making it clear
+any previously loaded information.
+
+    {:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* load_from_resource unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_load_from_resource(): None =>
+    """
+    Loads the data contained in the resource at @resource_path into
+the #GtkCssProvider, clearing any previously loaded information.
+
+To track errors while loading CSS, connect to the
+#GtkCssProvider::parsing-error signal.
+
+    {:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* to_string unavailable due to return typing issues
-{:argctype, "char*"}
+  fun pony_NOT_IMPLEMENTED_YET_to_string(): None =>
+    """
+    Converts the @provider into a string representation in CSS
+format.
+
+Using gtk_css_provider_load_from_data() with the return value
+from this function on a new provider created with
+gtk_css_provider_new() will basically create a duplicate of
+this @provider.
+
+    {:argctype, "char*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
 
 ```````

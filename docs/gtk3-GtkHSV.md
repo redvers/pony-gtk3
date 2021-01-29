@@ -12,7 +12,7 @@ it was used.
 
 
 ```pony
-class ref GtkHSV is
+class val GtkHSV is
   GtkWidget ref
 ```
 
@@ -24,29 +24,35 @@ class ref GtkHSV is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L20)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L21)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkHSV ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkHSV val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkHSV](gtk3-GtkHSV.md) ref^
+* [GtkHSV](gtk3-GtkHSV.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L23)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L24)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkHSV ref^
+: GtkHSV val^
 ```
 #### Parameters
 
@@ -54,22 +60,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkHSV](gtk3-GtkHSV.md) ref^
+* [GtkHSV](gtk3-GtkHSV.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L27)</span>
 
 
 ```pony
-new ref create()
-: GtkHSV ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkHSV val^
 ```
 
 #### Returns
 
-* [GtkHSV](gtk3-GtkHSV.md) ref^
+* [GtkHSV](gtk3-GtkHSV.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L31)</span>
+
+
+```pony
+new val create()
+: GtkHSV val^
+```
+
+#### Returns
+
+* [GtkHSV](gtk3-GtkHSV.md) val^
 
 ---
 
@@ -99,8 +120,54 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_color
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L35)</span>
+
+
+    Queries the current color in an HSV color selector.
+Returned values will be in the [0.0, 1.0] range.
+
+    {:doh, %{argctype: "gdouble*", argname: "h", argtype: "gdouble", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gdouble*", argname: "s", argtype: "gdouble", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gdouble*", argname: "v", argtype: "gdouble", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_color()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_metrics
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L46)</span>
+
+
+    Queries the size and ring width of an HSV color selector.
+
+    {:doh, %{argctype: "gint*", argname: "size", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "ring_width", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_metrics()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### is_adjusting
-<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L55)</span>
 
 
 An HSV color selector can be said to be adjusting if multiple rapid
@@ -120,8 +187,32 @@ fun box is_adjusting()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_color
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L64)</span>
+
+
+    Sets the current color in an HSV color selector.
+Color component values must be in the [0.0, 1.0] range.
+
+    {:doh, %{argctype: "double", argname: "h", argtype: "gdouble", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "double", argname: "s", argtype: "gdouble", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "double", argname: "v", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_color()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_metrics
-<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L57)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHSV.md#L75)</span>
 
 
 Sets the size and ring width of an HSV color selector.

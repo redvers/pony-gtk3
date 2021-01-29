@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["U32", "I32", "None", "Pointer[U8 val] ref", "String", "GObjectREF"]
-provides: ["GtkEntryBuffer"]
+provides: ["GtkEntryBuffer val"]
 */
 use "../gobject"
-class GtkEntryBuffer is GtkWidget
+class val GtkEntryBuffer is GtkWidget
 """
 The #GtkEntryBuffer class contains the actual text displayed in a
 #GtkEntry widget.
@@ -18,17 +18,21 @@ text to be stored in an alternate location, such as non-pageable memory,
 useful in the case of important passwords. Or a derived class could
 integrate with an application’s concept of undo/redo.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(initial_chars_pony: String, n_initial_chars_pony: I32) =>
+
+  new val create(initial_chars_pony: String, n_initial_chars_pony: I32) =>
     widget = @gtk_entry_buffer_new[GObjectREF](initial_chars_pony.cstring(), n_initial_chars_pony) //
 
 
@@ -51,16 +55,26 @@ Used when subclassing #GtkEntryBuffer
 """
   @gtk_entry_buffer_emit_deleted_text[None](widget, position_pony, n_chars_pony)
 
-/* emit_inserted_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_emit_inserted_text(): None =>
+    """
+    Used when subclassing #GtkEntryBuffer
 
-/* get_bytes unavailable due to return typing issues
-{:argctype, "gsize"}
+    {:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_bytes(): None =>
+    """
+    Retrieves the length in bytes of the buffer.
+See gtk_entry_buffer_get_length().
+
+    {:argctype, "gsize"}
 {:argname, "rv"}
 {:argtype, "gsize"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_length(): U32 =>
 """
@@ -86,9 +100,21 @@ unless this object emits a signal, or is finalized.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* insert_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_insert_text(): None =>
+    """
+    Inserts @n_chars characters of @chars into the contents of the
+buffer, at position @position.
+
+If @n_chars is negative, then characters from chars will be inserted
+until a null-terminator is found. If @position or @n_chars are out of
+bounds, or the maximum buffer text length is exceeded, then they are
+coerced to sane values.
+
+Note that the position and length are in characters, not in bytes.
+
+    {:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_max_length(max_length_pony: I32): None =>
 """
@@ -98,9 +124,18 @@ will be truncated to fit.
 """
   @gtk_entry_buffer_set_max_length[None](widget, max_length_pony)
 
-/* set_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_text(): None =>
+    """
+    Sets the text in the buffer.
+
+This is roughly equivalent to calling gtk_entry_buffer_delete_text()
+and gtk_entry_buffer_insert_text().
+
+Note that @n_chars is in characters, not in bytes.
+
+    {:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 
 ```````

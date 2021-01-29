@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["GObjectREF"]
-provides: ["GtkSettings"]
+provides: ["GtkSettings val"]
 */
 use "../gobject"
-class GtkSettings is GtkWidget
+class val GtkSettings is GtkWidget
 """
 GtkSettings provide a mechanism to share global settings between
 applications.
@@ -43,44 +43,71 @@ gtk_settings_get_for_screen(), but in many cases, it is more convenient
 to use gtk_widget_get_settings(). gtk_settings_get_default() returns the
 GtkSettings instance for the default screen.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
 
 
-/* reset_property unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+  fun pony_NOT_IMPLEMENTED_YET_reset_property(): None =>
+    """
+    Undoes the effect of calling g_object_set() to install an
+application-specific value for a setting. After this call,
+the setting will again follow the session-wide value for
+this setting.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_double_property unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_double_property(): None =>
+    """
+    No provided documentation
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "v_double", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "origin", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_long_property unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_long_property(): None =>
+    """
+    No provided documentation
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "glong", argname: "v_long", argtype: "glong", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "origin", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_property_value unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_property_value(): None =>
+    """
+    No provided documentation
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GtkSettingsValue*", argname: "svalue", argtype: "SettingsValue", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_string_property unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_string_property(): None =>
+    """
+    No provided documentation
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "v_string", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "origin", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 
 ```````

@@ -27,7 +27,7 @@ GtkSearchBar has a single CSS node with name searchbar.
 
 
 ```pony
-class ref GtkSearchBar is
+class val GtkSearchBar is
   GtkWidget ref
 ```
 
@@ -39,29 +39,35 @@ class ref GtkSearchBar is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L35)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L36)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkSearchBar ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkSearchBar val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkSearchBar](gtk3-GtkSearchBar.md) ref^
+* [GtkSearchBar](gtk3-GtkSearchBar.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L39)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkSearchBar ref^
+: GtkSearchBar val^
 ```
 #### Parameters
 
@@ -69,22 +75,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkSearchBar](gtk3-GtkSearchBar.md) ref^
+* [GtkSearchBar](gtk3-GtkSearchBar.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L42)</span>
 
 
 ```pony
-new ref create()
-: GtkSearchBar ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkSearchBar val^
 ```
 
 #### Returns
 
-* [GtkSearchBar](gtk3-GtkSearchBar.md) ref^
+* [GtkSearchBar](gtk3-GtkSearchBar.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L46)</span>
+
+
+```pony
+new val create()
+: GtkSearchBar val^
+```
+
+#### Returns
+
+* [GtkSearchBar](gtk3-GtkSearchBar.md) val^
 
 ---
 
@@ -114,8 +135,32 @@ fun box gtkwidget()
 
 ---
 
-### get_search_mode
+### pony_NOT_IMPLEMENTED_YET_connect_entry
 <span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L50)</span>
+
+
+    Connects the #GtkEntry widget passed as the one to be used in
+this search bar. The entry should be a descendant of the search bar.
+This is only required if the entry isn’t the direct child of the
+search bar (as in our main example).
+
+    {:doh, %{argctype: "GtkEntry*", argname: "entry", argtype: "Entry", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_connect_entry()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### get_search_mode
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L61)</span>
 
 
 Returns whether the search mode is on or off.
@@ -133,7 +178,7 @@ fun box get_search_mode()
 ---
 
 ### get_show_close_button
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L56)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L67)</span>
 
 
 Returns whether the close button is shown.
@@ -150,8 +195,66 @@ fun box get_show_close_button()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_handle_event
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L73)</span>
+
+
+    This function should be called when the top-level
+window which contains the search bar received a key event.
+
+If the key event is handled by the search bar, the bar will
+be shown, the entry populated with the entered text and %GDK_EVENT_STOP
+will be returned. The caller should ensure that events are
+not propagated further.
+
+If no entry has been connected to the search bar, using
+gtk_search_bar_connect_entry(), this function will return
+immediately with a warning.
+
+## Showing the search bar on key presses
+
+|[<!-- language="C" -->
+static gboolean
+on_key_press_event (GtkWidget *widget,
+                    GdkEvent  *event,
+                    gpointer   user_data)
+{
+  GtkSearchBar *bar = GTK_SEARCH_BAR (user_data);
+  return gtk_search_bar_handle_event (bar, event);
+}
+
+static void
+create_toplevel (void)
+{
+  GtkWidget *window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  GtkWindow *search_bar = gtk_search_bar_new ();
+
+ // Add more widgets to the window...
+
+  g_signal_connect (window,
+                   "key-press-event",
+                    G_CALLBACK (on_key_press_event),
+                    search_bar);
+}
+]|
+
+    {:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_handle_event()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_search_mode
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L66)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L118)</span>
 
 
 Switches the search mode on or off.
@@ -173,7 +276,7 @@ fun box set_search_mode(
 ---
 
 ### set_show_close_button
-<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L72)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchBar.md#L124)</span>
 
 
 Shows or hides the close button. Applications that

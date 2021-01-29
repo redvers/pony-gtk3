@@ -11,7 +11,7 @@ GtkVScale has been deprecated, use #GtkScale instead.
 
 
 ```pony
-class ref GtkVScale is
+class val GtkVScale is
   GtkWidget ref
 ```
 
@@ -23,29 +23,35 @@ class ref GtkVScale is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L19)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L20)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkVScale ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkVScale val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkVScale](gtk3-GtkVScale.md) ref^
+* [GtkVScale](gtk3-GtkVScale.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L22)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L23)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkVScale ref^
+: GtkVScale val^
 ```
 #### Parameters
 
@@ -53,39 +59,54 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkVScale](gtk3-GtkVScale.md) ref^
+* [GtkVScale](gtk3-GtkVScale.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L26)</span>
 
 
 ```pony
-new ref create(
-  adjustment_pony: GtkAdjustment ref)
-: GtkVScale ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkVScale val^
 ```
-#### Parameters
-
-*   adjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) ref
 
 #### Returns
 
-* [GtkVScale](gtk3-GtkVScale.md) ref^
+* [GtkVScale](gtk3-GtkVScale.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L30)</span>
+
+
+```pony
+new val create(
+  adjustment_pony: GtkAdjustment val)
+: GtkVScale val^
+```
+#### Parameters
+
+*   adjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) val
+
+#### Returns
+
+* [GtkVScale](gtk3-GtkVScale.md) val^
 
 ---
 
 ### new_with_range
-<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L29)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVScale.md#L33)</span>
 
 
 ```pony
-new ref new_with_range(
+new val new_with_range(
   min_pony: F64 val,
   max_pony: F64 val,
   step_pony: F64 val)
-: GtkVScale ref^
+: GtkVScale val^
 ```
 #### Parameters
 
@@ -95,7 +116,7 @@ new ref new_with_range(
 
 #### Returns
 
-* [GtkVScale](gtk3-GtkVScale.md) ref^
+* [GtkVScale](gtk3-GtkVScale.md) val^
 
 ---
 

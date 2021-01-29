@@ -81,7 +81,7 @@ with a subnode named junction.
 
 
 ```pony
-class ref GtkScrolledWindow is
+class val GtkScrolledWindow is
   GtkWidget ref
 ```
 
@@ -93,29 +93,35 @@ class ref GtkScrolledWindow is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L89)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L90)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkScrolledWindow ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkScrolledWindow val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkScrolledWindow](gtk3-GtkScrolledWindow.md) ref^
+* [GtkScrolledWindow](gtk3-GtkScrolledWindow.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L92)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L93)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkScrolledWindow ref^
+: GtkScrolledWindow val^
 ```
 #### Parameters
 
@@ -123,28 +129,43 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkScrolledWindow](gtk3-GtkScrolledWindow.md) ref^
+* [GtkScrolledWindow](gtk3-GtkScrolledWindow.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L96)</span>
 
 
 ```pony
-new ref create(
-  hadjustment_pony: GtkAdjustment ref,
-  vadjustment_pony: GtkAdjustment ref)
-: GtkScrolledWindow ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkScrolledWindow val^
 ```
-#### Parameters
-
-*   hadjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) ref
-*   vadjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) ref
 
 #### Returns
 
-* [GtkScrolledWindow](gtk3-GtkScrolledWindow.md) ref^
+* [GtkScrolledWindow](gtk3-GtkScrolledWindow.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L100)</span>
+
+
+```pony
+new val create(
+  hadjustment_pony: GtkAdjustment val,
+  vadjustment_pony: GtkAdjustment val)
+: GtkScrolledWindow val^
+```
+#### Parameters
+
+*   hadjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) val
+*   vadjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) val
+
+#### Returns
+
+* [GtkScrolledWindow](gtk3-GtkScrolledWindow.md) val^
 
 ---
 
@@ -174,8 +195,45 @@ fun box gtkwidget()
 
 ---
 
-### get_capture_button_press
+### add_with_viewport
 <span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L104)</span>
+
+
+Used to add children without native scrolling capabilities. This
+is simply a convenience function; it is equivalent to adding the
+unscrollable child to a viewport, then adding the viewport to the
+scrolled window. If a child has native scrolling, use
+gtk_container_add() instead of this function.
+
+The viewport scrolls the child by moving its #GdkWindow, and takes
+the size of the child to be the size of its toplevel #GdkWindow.
+This will be very wrong for most widgets that support native scrolling;
+for example, if you add a widget such as #GtkTreeView with a viewport,
+the whole widget will scroll, including the column headings. Thus,
+widgets with native scrolling support should not be used with the
+#GtkViewport proxy.
+
+A widget supports scrolling natively if it implements the
+#GtkScrollable interface.
+
+
+```pony
+fun box add_with_viewport(
+  child_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   child_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### get_capture_button_press
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L125)</span>
 
 
 Return whether button presses are captured during kinetic
@@ -193,8 +251,35 @@ fun box get_capture_button_press()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_hadjustment
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L132)</span>
+
+
+    Returns the horizontal scrollbar’s adjustment, used to connect the
+horizontal scrollbar to the child widget’s horizontal scroll
+functionality.
+
+    {:argctype, "GtkAdjustment*"}
+{:argname, "rv"}
+{:argtype, "Adjustment"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_hadjustment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_kinetic_scrolling
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L125)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L152)</span>
 
 
 Returns the specified kinetic scrolling behavior.
@@ -212,7 +297,7 @@ fun box get_kinetic_scrolling()
 ---
 
 ### get_max_content_height
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L131)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L158)</span>
 
 
 Returns the maximum content height set.
@@ -230,7 +315,7 @@ fun box get_max_content_height()
 ---
 
 ### get_max_content_width
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L137)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L164)</span>
 
 
 Returns the maximum content width set.
@@ -248,7 +333,7 @@ fun box get_max_content_width()
 ---
 
 ### get_min_content_height
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L143)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L170)</span>
 
 
 Gets the minimal content height of @scrolled_window, or -1 if not set.
@@ -266,7 +351,7 @@ fun box get_min_content_height()
 ---
 
 ### get_min_content_width
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L149)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L176)</span>
 
 
 Gets the minimum content width of @scrolled_window, or -1 if not set.
@@ -284,7 +369,7 @@ fun box get_min_content_width()
 ---
 
 ### get_overlay_scrolling
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L155)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L182)</span>
 
 
 Returns whether overlay scrolling is enabled for this scrolled window.
@@ -301,8 +386,57 @@ fun box get_overlay_scrolling()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_placement
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L188)</span>
+
+
+    Gets the placement of the contents with respect to the scrollbars
+for the scrolled window. See gtk_scrolled_window_set_placement().
+
+    {:argctype, "GtkCornerType"}
+{:argname, "rv"}
+{:argtype, "CornerType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_placement()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_policy
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L201)</span>
+
+
+    Retrieves the current policy values for the horizontal and vertical
+scrollbars. See gtk_scrolled_window_set_policy().
+
+    {:doh, %{argctype: "GtkPolicyType*", argname: "hscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "GtkPolicyType*", argname: "vscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_policy()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_propagate_natural_height
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L173)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L211)</span>
 
 
 Reports whether the natural height of the child will be calculated and propagated
@@ -321,7 +455,7 @@ fun box get_propagate_natural_height()
 ---
 
 ### get_propagate_natural_width
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L180)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L218)</span>
 
 
 Reports whether the natural width of the child will be calculated and propagated
@@ -339,8 +473,60 @@ fun box get_propagate_natural_width()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_shadow_type
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L225)</span>
+
+
+    Gets the shadow type of the scrolled window. See
+gtk_scrolled_window_set_shadow_type().
+
+    {:argctype, "GtkShadowType"}
+{:argname, "rv"}
+{:argtype, "ShadowType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_shadow_type()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_vadjustment
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L238)</span>
+
+
+    Returns the vertical scrollbar’s adjustment, used to connect the
+vertical scrollbar to the child widget’s vertical scroll functionality.
+
+    {:argctype, "GtkAdjustment*"}
+{:argname, "rv"}
+{:argtype, "Adjustment"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_vadjustment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_capture_button_press
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L208)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L257)</span>
 
 
 Changes the behaviour of @scrolled_window with regard to the initial
@@ -371,8 +557,29 @@ fun box set_capture_button_press(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_hadjustment
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L273)</span>
+
+
+    Sets the #GtkAdjustment for the horizontal scrollbar.
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "hadjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_hadjustment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_kinetic_scrolling
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L228)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L281)</span>
 
 
 Turns kinetic scrolling on or off.
@@ -396,7 +603,7 @@ fun box set_kinetic_scrolling(
 ---
 
 ### set_max_content_height
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L236)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L289)</span>
 
 
 Sets the maximum height that @scrolled_window should keep visible. The
@@ -423,7 +630,7 @@ fun box set_max_content_height(
 ---
 
 ### set_max_content_width
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L247)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L300)</span>
 
 
 Sets the maximum width that @scrolled_window should keep visible. The
@@ -450,7 +657,7 @@ fun box set_max_content_width(
 ---
 
 ### set_min_content_height
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L258)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L311)</span>
 
 
 Sets the minimum height that @scrolled_window should keep visible.
@@ -477,7 +684,7 @@ fun box set_min_content_height(
 ---
 
 ### set_min_content_width
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L269)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L322)</span>
 
 
 Sets the minimum width that @scrolled_window should keep visible.
@@ -504,7 +711,7 @@ fun box set_min_content_width(
 ---
 
 ### set_overlay_scrolling
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L280)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L333)</span>
 
 
 Enables or disables overlay scrolling for this scrolled window.
@@ -525,8 +732,67 @@ fun box set_overlay_scrolling(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_placement
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L339)</span>
+
+
+    Sets the placement of the contents with respect to the scrollbars
+for the scrolled window.
+
+The default is %GTK_CORNER_TOP_LEFT, meaning the child is
+in the top left, with the scrollbars underneath and to the right.
+Other values in #GtkCornerType are %GTK_CORNER_TOP_RIGHT,
+%GTK_CORNER_BOTTOM_LEFT, and %GTK_CORNER_BOTTOM_RIGHT.
+
+See also gtk_scrolled_window_get_placement() and
+gtk_scrolled_window_unset_placement().
+
+    {:doh, %{argctype: "GtkCornerType", argname: "window_placement", argtype: "CornerType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_placement()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_policy
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L356)</span>
+
+
+    Sets the scrollbar policy for the horizontal and vertical scrollbars.
+
+The policy determines when the scrollbar should appear; it is a value
+from the #GtkPolicyType enumeration. If %GTK_POLICY_ALWAYS, the
+scrollbar is always present; if %GTK_POLICY_NEVER, the scrollbar is
+never present; if %GTK_POLICY_AUTOMATIC, the scrollbar is present only
+if needed (that is, if the slider part of the bar would be smaller
+than the trough — the display is larger than the page size).
+
+    {:doh, %{argctype: "GtkPolicyType", argname: "hscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkPolicyType", argname: "vscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_policy()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_propagate_natural_height
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L295)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L372)</span>
 
 
 Sets whether the natural height of the child should be calculated and propagated
@@ -549,7 +815,7 @@ fun box set_propagate_natural_height(
 ---
 
 ### set_propagate_natural_width
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L302)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L379)</span>
 
 
 Sets whether the natural width of the child should be calculated and propagated
@@ -571,8 +837,51 @@ fun box set_propagate_natural_width(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_shadow_type
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L386)</span>
+
+
+    Changes the type of shadow drawn around the contents of
+@scrolled_window.
+
+    {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_shadow_type()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_vadjustment
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L395)</span>
+
+
+    Sets the #GtkAdjustment for the vertical scrollbar.
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "vadjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_vadjustment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### unset_placement
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L317)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindow.md#L403)</span>
 
 
 Unsets the placement of the contents with respect to the scrollbars

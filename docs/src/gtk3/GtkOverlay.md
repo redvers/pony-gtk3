@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["GObjectREF"]
-provides: ["GtkOverlay"]
+   needs: ["None", "GtkWidget val", "Bool", "GObjectREF"]
+provides: ["GtkOverlay val"]
 */
 use "../gobject"
-class GtkOverlay is GtkWidget
+class val GtkOverlay is GtkWidget
 """
 GtkOverlay is a container which contains a single main child, on top
 of which it can place “overlay” widgets. The position of each overlay
@@ -34,36 +34,63 @@ GtkOverlay has a single CSS node with the name “overlay”. Overlay children
 whose alignments cause them to be positioned at an edge get the style classes
 “.left”, “.right”, “.top”, and/or “.bottom” according to their position.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_overlay_new[GObjectREF]() //
 
 
-/* add_overlay unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun add_overlay(widget_pony: GtkWidget val): None =>
+"""
+Adds @widget to @overlay.
 
-/* get_overlay_pass_through unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+The widget will be stacked on top of the main widget
+added with gtk_container_add().
 
-/* reorder_overlay unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "int", argname: "index_", argtype: "gint", paramtype: :param, txo: "none"}}
-*/
+The position at which @widget is placed is determined
+from its #GtkWidget:halign and #GtkWidget:valign properties.
+"""
+  @gtk_overlay_add_overlay[None](widget, widget_pony.gtkwidget())
 
-/* set_overlay_pass_through unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
+fun get_overlay_pass_through(widget_pony: GtkWidget val): Bool =>
+"""
+Convenience function to get the value of the #GtkOverlay:pass-through
+child property for @widget.
+"""
+  @gtk_overlay_get_overlay_pass_through[Bool](widget, widget_pony.gtkwidget())
+
+  fun pony_NOT_IMPLEMENTED_YET_reorder_overlay(): None =>
+    """
+    Moves @child to a new @index in the list of @overlay children.
+The list contains overlays in the order that these were
+added to @overlay by default. See also #GtkOverlay:index.
+
+A widget’s index in the @overlay children list determines which order
+the children are drawn if they overlap. The first child is drawn at
+the bottom. It also affects the default focus chain order.
+
+    {:doh, %{argctype: "int", argname: "index_", argtype: "gint", paramtype: :param, txo: "none"}}
 */
+    """
+
+fun set_overlay_pass_through(widget_pony: GtkWidget val, pass_through_pony: Bool): None =>
+"""
+Convenience function to set the value of the #GtkOverlay:pass-through
+child property for @widget.
+"""
+  @gtk_overlay_set_overlay_pass_through[None](widget, widget_pony.gtkwidget(), pass_through_pony)
 
 
 ```````

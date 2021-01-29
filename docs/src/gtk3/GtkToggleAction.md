@@ -1,25 +1,29 @@
 ```````pony-full-source
 /*
    needs: ["Bool", "None", "GObjectREF", "String"]
-provides: ["GtkToggleAction"]
+provides: ["GtkToggleAction val"]
 */
 use "../gobject"
-class GtkToggleAction is GtkWidget
+class val GtkToggleAction is GtkWidget
 """
 A #GtkToggleAction corresponds roughly to a #GtkCheckMenuItem. It has an
 “active” state specifying whether the action has been checked or not.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(name_pony: String, label_pony: String, tooltip_pony: String, stock_id_pony: String) =>
+
+  new val create(name_pony: String, label_pony: String, tooltip_pony: String, stock_id_pony: String) =>
     widget = @gtk_toggle_action_new[GObjectREF](name_pony.cstring(), label_pony.cstring(), tooltip_pony.cstring(), stock_id_pony.cstring()) //
 
 

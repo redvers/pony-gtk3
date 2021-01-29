@@ -8,7 +8,7 @@ This object was added in 3.24.
 
 
 ```pony
-class ref GtkEventControllerKey is
+class val GtkEventControllerKey is
   GtkWidget ref
 ```
 
@@ -20,29 +20,35 @@ class ref GtkEventControllerKey is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L16)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L17)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkEventControllerKey ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkEventControllerKey val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkEventControllerKey](gtk3-GtkEventControllerKey.md) ref^
+* [GtkEventControllerKey](gtk3-GtkEventControllerKey.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L19)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L20)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkEventControllerKey ref^
+: GtkEventControllerKey val^
 ```
 #### Parameters
 
@@ -50,26 +56,41 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkEventControllerKey](gtk3-GtkEventControllerKey.md) ref^
+* [GtkEventControllerKey](gtk3-GtkEventControllerKey.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L23)</span>
 
 
 ```pony
-new ref create(
-  widget_pony: GtkWidget ref)
-: GtkEventControllerKey ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkEventControllerKey val^
 ```
-#### Parameters
-
-*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) ref
 
 #### Returns
 
-* [GtkEventControllerKey](gtk3-GtkEventControllerKey.md) ref^
+* [GtkEventControllerKey](gtk3-GtkEventControllerKey.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L27)</span>
+
+
+```pony
+new val create(
+  widget_pony: GtkWidget val)
+: GtkEventControllerKey val^
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [GtkEventControllerKey](gtk3-GtkEventControllerKey.md) val^
 
 ---
 
@@ -99,8 +120,30 @@ fun box gtkwidget()
 
 ---
 
-### get_group
+### forward
 <span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L31)</span>
+
+
+No provided documentation
+
+
+```pony
+fun box forward(
+  widget_pony: GtkWidget val)
+: Bool val
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [Bool](builtin-Bool.md) val
+
+---
+
+### get_group
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L37)</span>
 
 
 No provided documentation
@@ -114,6 +157,52 @@ fun box get_group()
 #### Returns
 
 * [U32](builtin-U32.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_im_context
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L43)</span>
+
+
+    Gets the IM context of a key controller.
+
+    {:argctype, "GtkIMContext*"}
+{:argname, "rv"}
+{:argtype, "IMContext"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_im_context()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_im_context
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerKey.md#L55)</span>
+
+
+    No provided documentation
+
+    {:doh, %{argctype: "GtkIMContext*", argname: "im_context", argtype: "IMContext", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_im_context()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

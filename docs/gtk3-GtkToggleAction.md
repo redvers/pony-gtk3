@@ -6,7 +6,7 @@ A #GtkToggleAction corresponds roughly to a #GtkCheckMenuItem. It has an
 
 
 ```pony
-class ref GtkToggleAction is
+class val GtkToggleAction is
   GtkWidget ref
 ```
 
@@ -18,29 +18,35 @@ class ref GtkToggleAction is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L14)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L15)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkToggleAction ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkToggleAction val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkToggleAction](gtk3-GtkToggleAction.md) ref^
+* [GtkToggleAction](gtk3-GtkToggleAction.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L18)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkToggleAction ref^
+: GtkToggleAction val^
 ```
 #### Parameters
 
@@ -48,21 +54,36 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkToggleAction](gtk3-GtkToggleAction.md) ref^
+* [GtkToggleAction](gtk3-GtkToggleAction.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L21)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkToggleAction val^
+```
+
+#### Returns
+
+* [GtkToggleAction](gtk3-GtkToggleAction.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L25)</span>
+
+
+```pony
+new val create(
   name_pony: String val,
   label_pony: String val,
   tooltip_pony: String val,
   stock_id_pony: String val)
-: GtkToggleAction ref^
+: GtkToggleAction val^
 ```
 #### Parameters
 
@@ -73,7 +94,7 @@ new ref create(
 
 #### Returns
 
-* [GtkToggleAction](gtk3-GtkToggleAction.md) ref^
+* [GtkToggleAction](gtk3-GtkToggleAction.md) val^
 
 ---
 
@@ -104,7 +125,7 @@ fun box gtkwidget()
 ---
 
 ### get_active
-<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L25)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L29)</span>
 
 
 Returns the checked state of the toggle action.
@@ -122,7 +143,7 @@ fun box get_active()
 ---
 
 ### get_draw_as_radio
-<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L35)</span>
 
 
 Returns whether the action should have proxies like a radio action.
@@ -140,7 +161,7 @@ fun box get_draw_as_radio()
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L37)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L41)</span>
 
 
 Sets the checked state on the toggle action.
@@ -162,7 +183,7 @@ fun box set_active(
 ---
 
 ### set_draw_as_radio
-<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L43)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L47)</span>
 
 
 Sets whether the action should have proxies like a radio action.
@@ -184,7 +205,7 @@ fun box set_draw_as_radio(
 ---
 
 ### toggled
-<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L49)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleAction.md#L53)</span>
 
 
 Emits the “toggled” signal on the toggle action.

@@ -20,7 +20,7 @@ have been deprecated.
 
 
 ```pony
-class ref GtkStyleProperties is
+class val GtkStyleProperties is
   GtkWidget ref
 ```
 
@@ -32,29 +32,35 @@ class ref GtkStyleProperties is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L28)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L29)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkStyleProperties ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkStyleProperties val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkStyleProperties](gtk3-GtkStyleProperties.md) ref^
+* [GtkStyleProperties](gtk3-GtkStyleProperties.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L32)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkStyleProperties ref^
+: GtkStyleProperties val^
 ```
 #### Parameters
 
@@ -62,22 +68,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkStyleProperties](gtk3-GtkStyleProperties.md) ref^
+* [GtkStyleProperties](gtk3-GtkStyleProperties.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L35)</span>
 
 
 ```pony
-new ref create()
-: GtkStyleProperties ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkStyleProperties val^
 ```
 
 #### Returns
 
-* [GtkStyleProperties](gtk3-GtkStyleProperties.md) ref^
+* [GtkStyleProperties](gtk3-GtkStyleProperties.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L39)</span>
+
+
+```pony
+new val create()
+: GtkStyleProperties val^
+```
+
+#### Returns
+
+* [GtkStyleProperties](gtk3-GtkStyleProperties.md) val^
 
 ---
 
@@ -108,7 +129,7 @@ fun box gtkwidget()
 ---
 
 ### clear
-<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L43)</span>
 
 
 Clears all style information from @props.
@@ -116,6 +137,237 @@ Clears all style information from @props.
 
 ```pony
 fun box clear()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L49)</span>
+
+
+    Retrieves several style property values from @props for a
+given state.
+
+    {:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "", argname: "...", argtype: "", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_property
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L59)</span>
+
+
+    Gets a style property from @props for the given state. When done with @value,
+g_value_unset() needs to be called to free any allocated memory.
+
+    {:doh, %{argctype: "const gchar*", argname: "property", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GValue*", argname: "value", argtype: "GObject.Value", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_property()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_valist
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L70)</span>
+
+
+    Retrieves several style property values from @props for a given state.
+
+    {:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "va_list", argname: "args", argtype: "va_list", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_valist()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_lookup_color
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L79)</span>
+
+
+    Returns the symbolic color that is mapped
+to @name.
+
+    {:argctype, "GtkSymbolicColor*"}
+{:argname, "rv"}
+{:argtype, "SymbolicColor"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_lookup_color()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_map_color
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L92)</span>
+
+
+    Maps @color so it can be referenced by @name. See
+gtk_style_properties_lookup_color()
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkSymbolicColor*", argname: "color", argtype: "SymbolicColor", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_map_color()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_merge
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L102)</span>
+
+
+    Merges into @props all the style information contained
+in @props_to_merge. If @replace is %TRUE, the values
+will be overwritten, if it is %FALSE, the older values
+will prevail.
+
+    {:doh, %{argctype: "const GtkStyleProperties*", argname: "props_to_merge", argtype: "StyleProperties", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_merge()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L113)</span>
+
+
+    Sets several style properties on @props.
+
+    {:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "", argname: "...", argtype: "", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_property
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L122)</span>
+
+
+    Sets a styling property in @props.
+
+    {:doh, %{argctype: "const gchar*", argname: "property", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const GValue*", argname: "value", argtype: "GObject.Value", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_property()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_valist
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L132)</span>
+
+
+    Sets several style properties on @props.
+
+    {:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "va_list", argname: "args", argtype: "va_list", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_valist()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_unset_property
+<span class="source-link">[[Source]](src/gtk3/GtkStyleProperties.md#L141)</span>
+
+
+    Unsets a style property in @props.
+
+    {:doh, %{argctype: "const gchar*", argname: "property", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_unset_property()
 : None val
 ```
 

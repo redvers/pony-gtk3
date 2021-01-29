@@ -103,7 +103,7 @@ you should use the #GtkGLArea::create-context signal.
 
 
 ```pony
-class ref GtkGLArea is
+class val GtkGLArea is
   GtkWidget ref
 ```
 
@@ -115,29 +115,35 @@ class ref GtkGLArea is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L111)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L112)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkGLArea ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkGLArea val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkGLArea](gtk3-GtkGLArea.md) ref^
+* [GtkGLArea](gtk3-GtkGLArea.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L114)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L115)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkGLArea ref^
+: GtkGLArea val^
 ```
 #### Parameters
 
@@ -145,22 +151,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkGLArea](gtk3-GtkGLArea.md) ref^
+* [GtkGLArea](gtk3-GtkGLArea.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L118)</span>
 
 
 ```pony
-new ref create()
-: GtkGLArea ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkGLArea val^
 ```
 
 #### Returns
 
-* [GtkGLArea](gtk3-GtkGLArea.md) ref^
+* [GtkGLArea](gtk3-GtkGLArea.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L122)</span>
+
+
+```pony
+new val create()
+: GtkGLArea val^
+```
+
+#### Returns
+
+* [GtkGLArea](gtk3-GtkGLArea.md) val^
 
 ---
 
@@ -191,7 +212,7 @@ fun box gtkwidget()
 ---
 
 ### attach_buffers
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L122)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L126)</span>
 
 
 Ensures that the @area framebuffer object is made the current draw
@@ -215,7 +236,7 @@ fun box attach_buffers()
 ---
 
 ### get_auto_render
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L134)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L138)</span>
 
 
 Returns whether the area is in auto render mode or not.
@@ -232,8 +253,58 @@ fun box get_auto_render()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_context
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L144)</span>
+
+
+    Retrieves the #GdkGLContext used by @area.
+
+    {:argctype, "GdkGLContext*"}
+{:argname, "rv"}
+{:argtype, "Gdk.GLContext"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_context()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_error
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L156)</span>
+
+
+    Gets the current error set on the @area.
+
+    {:argctype, "GError*"}
+{:argname, "rv"}
+{:argtype, "GLib.Error"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_error()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_has_alpha
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L154)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L168)</span>
 
 
 Returns whether the area has an alpha component.
@@ -251,7 +322,7 @@ fun box get_has_alpha()
 ---
 
 ### get_has_depth_buffer
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L160)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L174)</span>
 
 
 Returns whether the area has a depth buffer.
@@ -269,7 +340,7 @@ fun box get_has_depth_buffer()
 ---
 
 ### get_has_stencil_buffer
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L166)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L180)</span>
 
 
 Returns whether the area has a stencil buffer.
@@ -286,8 +357,31 @@ fun box get_has_stencil_buffer()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_required_version
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L186)</span>
+
+
+    Retrieves the required version of OpenGL set
+using gtk_gl_area_set_required_version().
+
+    {:doh, %{argctype: "gint*", argname: "major", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "minor", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_required_version()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_use_es
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L177)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L196)</span>
 
 
 Retrieves the value set by gtk_gl_area_set_use_es().
@@ -305,7 +399,7 @@ fun box get_use_es()
 ---
 
 ### make_current
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L183)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L202)</span>
 
 
 Ensures that the #GdkGLContext used by @area is associated with
@@ -328,7 +422,7 @@ fun box make_current()
 ---
 
 ### queue_render
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L194)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L213)</span>
 
 
 Marks the currently rendered data (if any) as invalid, and queues
@@ -352,7 +446,7 @@ fun box queue_render()
 ---
 
 ### set_auto_render
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L206)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L225)</span>
 
 
 If @auto_render is %TRUE the #GtkGLArea::render signal will be
@@ -381,8 +475,31 @@ fun box set_auto_render(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_error
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L239)</span>
+
+
+    Sets an error on the area which will be shown instead of the
+GL rendering. This is useful in the #GtkGLArea::create-context
+signal if GL context creation fails.
+
+    {:doh, %{argctype: "const GError*", argname: "gerror", argtype: "GLib.Error", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_error()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_has_alpha
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L224)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L249)</span>
 
 
 If @has_alpha is %TRUE the buffer allocated by the widget will have
@@ -409,7 +526,7 @@ fun box set_has_alpha(
 ---
 
 ### set_has_depth_buffer
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L235)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L260)</span>
 
 
 If @has_depth_buffer is %TRUE the widget will allocate and
@@ -433,7 +550,7 @@ fun box set_has_depth_buffer(
 ---
 
 ### set_has_stencil_buffer
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L243)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L268)</span>
 
 
 If @has_stencil_buffer is %TRUE the widget will allocate and
@@ -457,7 +574,7 @@ fun box set_has_stencil_buffer(
 ---
 
 ### set_required_version
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L251)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L276)</span>
 
 
 Sets the required version of OpenGL to be used when creating the context
@@ -484,7 +601,7 @@ fun box set_required_version(
 ---
 
 ### set_use_es
-<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L260)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGLArea.md#L285)</span>
 
 
 Sets whether the @area should create an OpenGL or an OpenGL ES context.

@@ -25,7 +25,7 @@ GtkAppChooserWidget has a single CSS node with name appchooser.
 
 
 ```pony
-class ref GtkAppChooserWidget is
+class val GtkAppChooserWidget is
   GtkWidget ref
 ```
 
@@ -37,29 +37,35 @@ class ref GtkAppChooserWidget is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L33)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L34)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkAppChooserWidget ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkAppChooserWidget val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkAppChooserWidget](gtk3-GtkAppChooserWidget.md) ref^
+* [GtkAppChooserWidget](gtk3-GtkAppChooserWidget.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L37)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkAppChooserWidget ref^
+: GtkAppChooserWidget val^
 ```
 #### Parameters
 
@@ -67,18 +73,33 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkAppChooserWidget](gtk3-GtkAppChooserWidget.md) ref^
+* [GtkAppChooserWidget](gtk3-GtkAppChooserWidget.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L40)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkAppChooserWidget val^
+```
+
+#### Returns
+
+* [GtkAppChooserWidget](gtk3-GtkAppChooserWidget.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L44)</span>
+
+
+```pony
+new val create(
   content_type_pony: String val)
-: GtkAppChooserWidget ref^
+: GtkAppChooserWidget val^
 ```
 #### Parameters
 
@@ -86,7 +107,7 @@ new ref create(
 
 #### Returns
 
-* [GtkAppChooserWidget](gtk3-GtkAppChooserWidget.md) ref^
+* [GtkAppChooserWidget](gtk3-GtkAppChooserWidget.md) val^
 
 ---
 
@@ -117,7 +138,7 @@ fun box gtkwidget()
 ---
 
 ### get_default_text
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L44)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L48)</span>
 
 
 Returns the text that is shown if there are not applications
@@ -136,7 +157,7 @@ fun box get_default_text()
 ---
 
 ### get_show_all
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L53)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L57)</span>
 
 
 Returns the current value of the #GtkAppChooserWidget:show-all
@@ -155,7 +176,7 @@ fun box get_show_all()
 ---
 
 ### get_show_default
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L60)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L64)</span>
 
 
 Returns the current value of the #GtkAppChooserWidget:show-default
@@ -174,7 +195,7 @@ fun box get_show_default()
 ---
 
 ### get_show_fallback
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L67)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L71)</span>
 
 
 Returns the current value of the #GtkAppChooserWidget:show-fallback
@@ -193,7 +214,7 @@ fun box get_show_fallback()
 ---
 
 ### get_show_other
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L74)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L78)</span>
 
 
 Returns the current value of the #GtkAppChooserWidget:show-other
@@ -212,7 +233,7 @@ fun box get_show_other()
 ---
 
 ### get_show_recommended
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L81)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L85)</span>
 
 
 Returns the current value of the #GtkAppChooserWidget:show-recommended
@@ -230,8 +251,30 @@ fun box get_show_recommended()
 
 ---
 
-### set_show_all
+### pony_NOT_IMPLEMENTED_YET_set_default_text
 <span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L92)</span>
+
+
+    Sets the text that is shown if there are not applications
+that can handle the content type.
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_default_text()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_show_all
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L101)</span>
 
 
 Sets whether the app chooser should show all applications
@@ -254,7 +297,7 @@ fun box set_show_all(
 ---
 
 ### set_show_default
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L99)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L108)</span>
 
 
 Sets whether the app chooser should show the default handler
@@ -277,7 +320,7 @@ fun box set_show_default(
 ---
 
 ### set_show_fallback
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L106)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L115)</span>
 
 
 Sets whether the app chooser should show related applications
@@ -300,7 +343,7 @@ fun box set_show_fallback(
 ---
 
 ### set_show_other
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L113)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L122)</span>
 
 
 Sets whether the app chooser should show applications
@@ -323,7 +366,7 @@ fun box set_show_other(
 ---
 
 ### set_show_recommended
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L120)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserWidget.md#L129)</span>
 
 
 Sets whether the app chooser should show recommended applications

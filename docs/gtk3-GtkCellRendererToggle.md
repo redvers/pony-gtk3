@@ -8,7 +8,7 @@ When activated, it emits the #GtkCellRendererToggle::toggled signal.
 
 
 ```pony
-class ref GtkCellRendererToggle is
+class val GtkCellRendererToggle is
   GtkWidget ref
 ```
 
@@ -20,29 +20,35 @@ class ref GtkCellRendererToggle is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L16)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L17)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCellRendererToggle ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCellRendererToggle val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCellRendererToggle](gtk3-GtkCellRendererToggle.md) ref^
+* [GtkCellRendererToggle](gtk3-GtkCellRendererToggle.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L19)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L20)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCellRendererToggle ref^
+: GtkCellRendererToggle val^
 ```
 #### Parameters
 
@@ -50,22 +56,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCellRendererToggle](gtk3-GtkCellRendererToggle.md) ref^
+* [GtkCellRendererToggle](gtk3-GtkCellRendererToggle.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L23)</span>
 
 
 ```pony
-new ref create()
-: GtkCellRendererToggle ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkCellRendererToggle val^
 ```
 
 #### Returns
 
-* [GtkCellRendererToggle](gtk3-GtkCellRendererToggle.md) ref^
+* [GtkCellRendererToggle](gtk3-GtkCellRendererToggle.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L27)</span>
+
+
+```pony
+new val create()
+: GtkCellRendererToggle val^
+```
+
+#### Returns
+
+* [GtkCellRendererToggle](gtk3-GtkCellRendererToggle.md) val^
 
 ---
 
@@ -96,7 +117,7 @@ fun box gtkwidget()
 ---
 
 ### get_activatable
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L31)</span>
 
 
 Returns whether the cell renderer is activatable. See
@@ -115,7 +136,7 @@ fun box get_activatable()
 ---
 
 ### get_active
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L38)</span>
 
 
 Returns whether the cell renderer is active. See
@@ -134,7 +155,7 @@ fun box get_active()
 ---
 
 ### get_radio
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L41)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L45)</span>
 
 
 Returns whether we’re rendering radio toggles rather than checkboxes.
@@ -152,7 +173,7 @@ fun box get_radio()
 ---
 
 ### set_activatable
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L47)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L51)</span>
 
 
 Makes the cell renderer activatable.
@@ -174,7 +195,7 @@ fun box set_activatable(
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L53)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L57)</span>
 
 
 Activates or deactivates a cell renderer.
@@ -196,7 +217,7 @@ fun box set_active(
 ---
 
 ### set_radio
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L59)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererToggle.md#L63)</span>
 
 
 If @radio is %TRUE, the cell renderer renders a radio toggle

@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkListBoxRow is
+class val GtkListBoxRow is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkListBoxRow is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkListBoxRow ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkListBoxRow val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkListBoxRow](gtk3-GtkListBoxRow.md) ref^
+* [GtkListBoxRow](gtk3-GtkListBoxRow.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkListBoxRow ref^
+: GtkListBoxRow val^
 ```
 #### Parameters
 
@@ -47,22 +53,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkListBoxRow](gtk3-GtkListBoxRow.md) ref^
+* [GtkListBoxRow](gtk3-GtkListBoxRow.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L20)</span>
 
 
 ```pony
-new ref create()
-: GtkListBoxRow ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkListBoxRow val^
 ```
 
 #### Returns
 
-* [GtkListBoxRow](gtk3-GtkListBoxRow.md) ref^
+* [GtkListBoxRow](gtk3-GtkListBoxRow.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L24)</span>
+
+
+```pony
+new val create()
+: GtkListBoxRow val^
+```
+
+#### Returns
+
+* [GtkListBoxRow](gtk3-GtkListBoxRow.md) val^
 
 ---
 
@@ -93,7 +114,7 @@ fun box gtkwidget()
 ---
 
 ### changed
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L24)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L28)</span>
 
 
 Marks @row as changed, causing any state that depends on this
@@ -126,7 +147,7 @@ fun box changed()
 ---
 
 ### get_activatable
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L45)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L49)</span>
 
 
 Gets the value of the #GtkListBoxRow:activatable property
@@ -145,7 +166,7 @@ fun box get_activatable()
 ---
 
 ### get_index
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L59)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L64)</span>
 
 
 Gets the current index of the @row in its #GtkListBox container.
@@ -163,7 +184,7 @@ fun box get_index()
 ---
 
 ### get_selectable
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L65)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L70)</span>
 
 
 Gets the value of the #GtkListBoxRow:selectable property
@@ -182,7 +203,7 @@ fun box get_selectable()
 ---
 
 ### is_selected
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L72)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L77)</span>
 
 
 Returns whether the child is currently selected in its
@@ -201,7 +222,7 @@ fun box is_selected()
 ---
 
 ### set_activatable
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L79)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L84)</span>
 
 
 Set the #GtkListBoxRow:activatable property for this row.
@@ -222,8 +243,32 @@ fun box set_activatable(
 
 ---
 
+### set_header
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L90)</span>
+
+
+Sets the current header of the @row. This is only allowed to be called
+from a #GtkListBoxUpdateHeaderFunc. It will replace any existing
+header in the row, and be shown in front of the row in the listbox.
+
+
+```pony
+fun box set_header(
+  header_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   header_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_selectable
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L89)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRow.md#L98)</span>
 
 
 Set the #GtkListBoxRow:selectable property for this row.

@@ -28,7 +28,7 @@ you can use gtk_search_entry_handle_event() to pass events.
 
 
 ```pony
-class ref GtkSearchEntry is
+class val GtkSearchEntry is
   GtkWidget ref
 ```
 
@@ -40,29 +40,35 @@ class ref GtkSearchEntry is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkSearchEntry.md#L36)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkSearchEntry.md#L37)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkSearchEntry ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkSearchEntry val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkSearchEntry](gtk3-GtkSearchEntry.md) ref^
+* [GtkSearchEntry](gtk3-GtkSearchEntry.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkSearchEntry.md#L39)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSearchEntry.md#L40)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkSearchEntry ref^
+: GtkSearchEntry val^
 ```
 #### Parameters
 
@@ -70,22 +76,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkSearchEntry](gtk3-GtkSearchEntry.md) ref^
+* [GtkSearchEntry](gtk3-GtkSearchEntry.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkSearchEntry.md#L43)</span>
 
 
 ```pony
-new ref create()
-: GtkSearchEntry ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkSearchEntry val^
 ```
 
 #### Returns
 
-* [GtkSearchEntry](gtk3-GtkSearchEntry.md) ref^
+* [GtkSearchEntry](gtk3-GtkSearchEntry.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkSearchEntry.md#L47)</span>
+
+
+```pony
+new val create()
+: GtkSearchEntry val^
+```
+
+#### Returns
+
+* [GtkSearchEntry](gtk3-GtkSearchEntry.md) val^
 
 ---
 
@@ -112,6 +133,37 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_handle_event
+<span class="source-link">[[Source]](src/gtk3/GtkSearchEntry.md#L51)</span>
+
+
+    This function should be called when the top-level window
+which contains the search entry received a key event. If
+the entry is part of a #GtkSearchBar, it is preferable
+to call gtk_search_bar_handle_event() instead, which will
+reveal the entry in addition to passing the event to this
+function.
+
+If the key event is handled by the search entry and starts
+or continues a search, %GDK_EVENT_STOP will be returned.
+The caller should ensure that the entry is shown in this
+case, and not propagate the event further.
+
+    {:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_handle_event()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

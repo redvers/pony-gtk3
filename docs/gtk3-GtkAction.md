@@ -51,7 +51,7 @@ When the proxy is activated, it should activate its action.
 
 
 ```pony
-class ref GtkAction is
+class val GtkAction is
   GtkWidget ref
 ```
 
@@ -63,29 +63,35 @@ class ref GtkAction is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L59)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L60)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkAction ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkAction val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkAction](gtk3-GtkAction.md) ref^
+* [GtkAction](gtk3-GtkAction.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L62)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L63)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkAction ref^
+: GtkAction val^
 ```
 #### Parameters
 
@@ -93,21 +99,36 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkAction](gtk3-GtkAction.md) ref^
+* [GtkAction](gtk3-GtkAction.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkAction.md#L66)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkAction val^
+```
+
+#### Returns
+
+* [GtkAction](gtk3-GtkAction.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L70)</span>
+
+
+```pony
+new val create(
   name_pony: String val,
   label_pony: String val,
   tooltip_pony: String val,
   stock_id_pony: String val)
-: GtkAction ref^
+: GtkAction val^
 ```
 #### Parameters
 
@@ -118,7 +139,7 @@ new ref create(
 
 #### Returns
 
-* [GtkAction](gtk3-GtkAction.md) ref^
+* [GtkAction](gtk3-GtkAction.md) val^
 
 ---
 
@@ -149,7 +170,7 @@ fun box gtkwidget()
 ---
 
 ### activate
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L70)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L74)</span>
 
 
 Emits the “activate” signal on the specified action, if it isn't
@@ -171,7 +192,7 @@ fun box activate()
 ---
 
 ### block_activate
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L80)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L84)</span>
 
 
 Disable activation signals from the action
@@ -194,7 +215,7 @@ fun box block_activate()
 ---
 
 ### connect_accelerator
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L91)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L95)</span>
 
 
 Installs the accelerator for @action if @action has an
@@ -218,8 +239,30 @@ fun box connect_accelerator()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_create_icon
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L108)</span>
+
+
+    This function is intended for use by action implementations to
+create icons displayed in the proxy widgets.
+
+    {:doh, %{argctype: "GtkIconSize", argname: "icon_size", argtype: "gint", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_create_icon()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### disconnect_accelerator
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L132)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L137)</span>
 
 
 Undoes the effect of one call to gtk_action_connect_accelerator().
@@ -236,8 +279,33 @@ fun box disconnect_accelerator()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_accel_closure
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L143)</span>
+
+
+    Returns the accel closure for this action.
+
+    {:argctype, "GClosure*"}
+{:argname, "rv"}
+{:argtype, "GObject.Closure"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_accel_closure()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_accel_path
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L145)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L155)</span>
 
 
 Returns the accel path for this action.
@@ -255,7 +323,7 @@ fun box get_accel_path()
 ---
 
 ### get_always_show_image
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L153)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L163)</span>
 
 
 Returns whether @action's menu item proxies will always
@@ -273,8 +341,33 @@ fun box get_always_show_image()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_gicon
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L170)</span>
+
+
+    Gets the gicon of @action.
+
+    {:argctype, "GIcon*"}
+{:argname, "rv"}
+{:argtype, "Gio.Icon"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_gicon()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_icon_name
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L167)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L182)</span>
 
 
 Gets the icon name of @action.
@@ -292,7 +385,7 @@ fun box get_icon_name()
 ---
 
 ### get_is_important
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L175)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L190)</span>
 
 
 Checks whether @action is important or not
@@ -310,7 +403,7 @@ fun box get_is_important()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L181)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L196)</span>
 
 
 Gets the label text of @action.
@@ -328,7 +421,7 @@ fun box get_label()
 ---
 
 ### get_name
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L189)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L204)</span>
 
 
 Returns the name of the action.
@@ -345,8 +438,34 @@ fun box get_name()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_proxies
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L212)</span>
+
+
+    Returns the proxy widgets for an action.
+See also gtk_activatable_get_related_action().
+
+    {:argctype, "GSList*"}
+{:argname, "rv"}
+{:argtype, "GLib.SList"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_proxies()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L204)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L225)</span>
 
 
 Returns whether the action itself is sensitive. Note that this doesn’t
@@ -366,7 +485,7 @@ fun box get_sensitive()
 ---
 
 ### get_short_label
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L212)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L233)</span>
 
 
 Gets the short label text of @action.
@@ -384,7 +503,7 @@ fun box get_short_label()
 ---
 
 ### get_stock_id
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L220)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L241)</span>
 
 
 Gets the stock id of @action.
@@ -402,7 +521,7 @@ fun box get_stock_id()
 ---
 
 ### get_tooltip
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L228)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L249)</span>
 
 
 Gets the tooltip text of @action.
@@ -420,7 +539,7 @@ fun box get_tooltip()
 ---
 
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L236)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L257)</span>
 
 
 Returns whether the action itself is visible. Note that this doesn’t
@@ -440,7 +559,7 @@ fun box get_visible()
 ---
 
 ### get_visible_horizontal
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L244)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L265)</span>
 
 
 Checks whether @action is visible when horizontal
@@ -458,7 +577,7 @@ fun box get_visible_horizontal()
 ---
 
 ### get_visible_vertical
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L250)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L271)</span>
 
 
 Checks whether @action is visible when horizontal
@@ -476,7 +595,7 @@ fun box get_visible_vertical()
 ---
 
 ### is_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L256)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L277)</span>
 
 
 Returns whether the action is effectively sensitive.
@@ -494,7 +613,7 @@ fun box is_sensitive()
 ---
 
 ### is_visible
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L262)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L283)</span>
 
 
 Returns whether the action is effectively visible.
@@ -511,8 +630,57 @@ fun box is_visible()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_accel_group
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L289)</span>
+
+
+    Sets the #GtkAccelGroup in which the accelerator for this action
+will be installed.
+
+    {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_accel_group()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_accel_path
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L298)</span>
+
+
+    Sets the accel path for this action.  All proxy widgets associated
+with the action will have this accel path, so that their
+accelerators are consistent.
+
+Note that @accel_path string will be stored in a #GQuark. Therefore, if you
+pass a static string, you can save some memory by interning it first with
+g_intern_static_string().
+
+    {:doh, %{argctype: "const gchar*", argname: "accel_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_accel_path()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_always_show_image
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L276)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L312)</span>
 
 
 Sets whether @action's menu item proxies will ignore the
@@ -537,8 +705,50 @@ fun box set_always_show_image(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_gicon
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L322)</span>
+
+
+    Sets the icon of @action.
+
+    {:doh, %{argctype: "GIcon*", argname: "icon", argtype: "Gio.Icon", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_gicon()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_icon_name
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L330)</span>
+
+
+    Sets the icon name on @action
+
+    {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_icon_name()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_is_important
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L294)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L338)</span>
 
 
 Sets whether the action is important, this attribute is used
@@ -561,8 +771,29 @@ fun box set_is_important(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_label
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L346)</span>
+
+
+    Sets the label of @action.
+
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_label()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L306)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L354)</span>
 
 
 Sets the :sensitive property of the action to @sensitive. Note that
@@ -586,8 +817,71 @@ fun box set_sensitive(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_short_label
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L363)</span>
+
+
+    Sets a shorter label text on @action.
+
+    {:doh, %{argctype: "const gchar*", argname: "short_label", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_short_label()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_stock_id
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L371)</span>
+
+
+    Sets the stock id on @action
+
+    {:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_stock_id()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_tooltip
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L379)</span>
+
+
+    Sets the tooltip text on @action
+
+    {:doh, %{argctype: "const gchar*", argname: "tooltip", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_tooltip()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_visible
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L327)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L387)</span>
 
 
 Sets the :visible property of the action to @visible. Note that
@@ -612,7 +906,7 @@ fun box set_visible(
 ---
 
 ### set_visible_horizontal
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L336)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L396)</span>
 
 
 Sets whether @action is visible when horizontal
@@ -634,7 +928,7 @@ fun box set_visible_horizontal(
 ---
 
 ### set_visible_vertical
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L342)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L402)</span>
 
 
 Sets whether @action is visible when vertical
@@ -656,7 +950,7 @@ fun box set_visible_vertical(
 ---
 
 ### unblock_activate
-<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L348)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAction.md#L408)</span>
 
 
 Reenable activation signals from the action

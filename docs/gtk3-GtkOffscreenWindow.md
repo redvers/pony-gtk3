@@ -21,7 +21,7 @@ will emit a #GtkWidget::damage-event signal.
 
 
 ```pony
-class ref GtkOffscreenWindow is
+class val GtkOffscreenWindow is
   GtkWidget ref
 ```
 
@@ -33,29 +33,35 @@ class ref GtkOffscreenWindow is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkOffscreenWindow.md#L29)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkOffscreenWindow.md#L30)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkOffscreenWindow ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkOffscreenWindow val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkOffscreenWindow](gtk3-GtkOffscreenWindow.md) ref^
+* [GtkOffscreenWindow](gtk3-GtkOffscreenWindow.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkOffscreenWindow.md#L32)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkOffscreenWindow.md#L33)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkOffscreenWindow ref^
+: GtkOffscreenWindow val^
 ```
 #### Parameters
 
@@ -63,22 +69,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkOffscreenWindow](gtk3-GtkOffscreenWindow.md) ref^
+* [GtkOffscreenWindow](gtk3-GtkOffscreenWindow.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkOffscreenWindow.md#L36)</span>
 
 
 ```pony
-new ref create()
-: GtkOffscreenWindow ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkOffscreenWindow val^
 ```
 
 #### Returns
 
-* [GtkOffscreenWindow](gtk3-GtkOffscreenWindow.md) ref^
+* [GtkOffscreenWindow](gtk3-GtkOffscreenWindow.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkOffscreenWindow.md#L40)</span>
+
+
+```pony
+new val create()
+: GtkOffscreenWindow val^
+```
+
+#### Returns
+
+* [GtkOffscreenWindow](gtk3-GtkOffscreenWindow.md) val^
 
 ---
 
@@ -105,6 +126,61 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_pixbuf
+<span class="source-link">[[Source]](src/gtk3/GtkOffscreenWindow.md#L44)</span>
+
+
+    Retrieves a snapshot of the contained widget in the form of
+a #GdkPixbuf.  This is a new pixbuf with a reference count of 1,
+and the application should unreference it once it is no longer
+needed.
+
+    {:argctype, "GdkPixbuf*"}
+{:argname, "rv"}
+{:argtype, "GdkPixbuf.Pixbuf"}
+{:paramtype, :param}
+{:txo, "full"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_pixbuf()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_surface
+<span class="source-link">[[Source]](src/gtk3/GtkOffscreenWindow.md#L59)</span>
+
+
+    Retrieves a snapshot of the contained widget in the form of
+a #cairo_surface_t.  If you need to keep this around over window
+resizes then you should add a reference to it.
+
+    {:argctype, "cairo_surface_t*"}
+{:argname, "rv"}
+{:argtype, "cairo.Surface"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_surface()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

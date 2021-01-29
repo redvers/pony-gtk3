@@ -55,7 +55,7 @@ They can only be used on a #GdkX11Display. To use #GtkPlug and
 
 
 ```pony
-class ref GtkSocket is
+class val GtkSocket is
   GtkWidget ref
 ```
 
@@ -67,29 +67,35 @@ class ref GtkSocket is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkSocket.md#L63)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkSocket.md#L64)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkSocket ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkSocket val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkSocket](gtk3-GtkSocket.md) ref^
+* [GtkSocket](gtk3-GtkSocket.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkSocket.md#L66)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSocket.md#L67)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkSocket ref^
+: GtkSocket val^
 ```
 #### Parameters
 
@@ -97,22 +103,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkSocket](gtk3-GtkSocket.md) ref^
+* [GtkSocket](gtk3-GtkSocket.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkSocket.md#L70)</span>
 
 
 ```pony
-new ref create()
-: GtkSocket ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkSocket val^
 ```
 
 #### Returns
 
-* [GtkSocket](gtk3-GtkSocket.md) ref^
+* [GtkSocket](gtk3-GtkSocket.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkSocket.md#L74)</span>
+
+
+```pony
+new val create()
+: GtkSocket val^
+```
+
+#### Returns
+
+* [GtkSocket](gtk3-GtkSocket.md) val^
 
 ---
 
@@ -139,6 +160,94 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_id
+<span class="source-link">[[Source]](src/gtk3/GtkSocket.md#L78)</span>
+
+
+    Adds an XEMBED client, such as a #GtkPlug, to the #GtkSocket.  The
+client may be in the same process or in a different process.
+
+To embed a #GtkPlug in a #GtkSocket, you can either create the
+#GtkPlug with `gtk_plug_new (0)`, call
+gtk_plug_get_id() to get the window ID of the plug, and then pass that to the
+gtk_socket_add_id(), or you can call gtk_socket_get_id() to get the
+window ID for the socket, and call gtk_plug_new() passing in that
+ID.
+
+The #GtkSocket must have already be added into a toplevel window
+ before you can make this call.
+
+    {:doh, %{argctype: "Window", argname: "window", argtype: "xlib.Window", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_id()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_id
+<span class="source-link">[[Source]](src/gtk3/GtkSocket.md#L97)</span>
+
+
+    Gets the window ID of a #GtkSocket widget, which can then
+be used to create a client embedded inside the socket, for
+instance with gtk_plug_new().
+
+The #GtkSocket must have already be added into a toplevel window
+before you can make this call.
+
+    {:argctype, "Window"}
+{:argname, "rv"}
+{:argtype, "xlib.Window"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_id()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_plug_window
+<span class="source-link">[[Source]](src/gtk3/GtkSocket.md#L114)</span>
+
+
+    Retrieves the window of the plug. Use this to check if the plug has
+been created inside of the socket.
+
+    {:argctype, "GdkWindow*"}
+{:argname, "rv"}
+{:argtype, "Gdk.Window"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_plug_window()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

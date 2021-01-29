@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["GObjectREF"]
-provides: ["GtkStackSidebar"]
+provides: ["GtkStackSidebar val"]
 */
 use "../gobject"
-class GtkStackSidebar is GtkWidget
+class val GtkStackSidebar is GtkWidget
 """
 A GtkStackSidebar enables you to quickly and easily provide a
 consistent "sidebar" object for your user interface.
@@ -23,30 +23,47 @@ When circumstances require it, GtkStackSidebar adds the
 .needs-attention style class to the widgets representing the stack
 pages.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_stack_sidebar_new[GObjectREF]() //
 
 
-/* get_stack unavailable due to return typing issues
-{:argctype, "GtkStack*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_stack(): None =>
+    """
+    Retrieves the stack.
+See gtk_stack_sidebar_set_stack().
+
+    {:argctype, "GtkStack*"}
 {:argname, "rv"}
 {:argtype, "Stack"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* set_stack unavailable due to typing issues
- {:doh, %{argctype: "GtkStack*", argname: "stack", argtype: "Stack", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_stack(): None =>
+    """
+    Set the #GtkStack associated with this #GtkStackSidebar.
+
+The sidebar widget will automatically update according to the order
+(packing) and items within the given #GtkStack.
+
+    {:doh, %{argctype: "GtkStack*", argname: "stack", argtype: "Stack", paramtype: :param, txo: "none"}}
+*/
+    """
 
 
 ```````

@@ -1,33 +1,36 @@
 ```````pony-full-source
 /*
-   needs: ["GObjectREF", "String"]
-provides: ["GtkColorSelectionDialog"]
+   needs: ["GObjectREF", "GtkWidget val", "String"]
+provides: ["GtkColorSelectionDialog val"]
 */
 use "../gobject"
-class GtkColorSelectionDialog is GtkWidget
+class val GtkColorSelectionDialog is GtkWidget
 """
 No documentation provided
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(title_pony: String) =>
+
+  new val create(title_pony: String) =>
     widget = @gtk_color_selection_dialog_new[GObjectREF](title_pony.cstring()) //
 
 
-/* get_color_selection unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+Retrieves the #GtkColorSelection widget embedded in the dialog.
+  fun get_color_selection(): GtkWidget val =>
+    @gtk_color_selection_dialog_get_color_selection[GObjectREF](widget)
+*/
 
 
 ```````

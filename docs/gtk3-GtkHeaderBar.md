@@ -19,7 +19,7 @@ features typical of titlebars while allowing the addition of child widgets.
 
 
 ```pony
-class ref GtkHeaderBar is
+class val GtkHeaderBar is
   GtkWidget ref
 ```
 
@@ -31,29 +31,35 @@ class ref GtkHeaderBar is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L27)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L28)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkHeaderBar ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkHeaderBar val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkHeaderBar](gtk3-GtkHeaderBar.md) ref^
+* [GtkHeaderBar](gtk3-GtkHeaderBar.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L31)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkHeaderBar ref^
+: GtkHeaderBar val^
 ```
 #### Parameters
 
@@ -61,22 +67,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkHeaderBar](gtk3-GtkHeaderBar.md) ref^
+* [GtkHeaderBar](gtk3-GtkHeaderBar.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L34)</span>
 
 
 ```pony
-new ref create()
-: GtkHeaderBar ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkHeaderBar val^
 ```
 
 #### Returns
 
-* [GtkHeaderBar](gtk3-GtkHeaderBar.md) ref^
+* [GtkHeaderBar](gtk3-GtkHeaderBar.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L38)</span>
+
+
+```pony
+new val create()
+: GtkHeaderBar val^
+```
+
+#### Returns
+
+* [GtkHeaderBar](gtk3-GtkHeaderBar.md) val^
 
 ---
 
@@ -107,7 +128,7 @@ fun box gtkwidget()
 ---
 
 ### get_decoration_layout
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L45)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L49)</span>
 
 
 Gets the decoration layout set with
@@ -126,7 +147,7 @@ fun box get_decoration_layout()
 ---
 
 ### get_has_subtitle
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L58)</span>
 
 
 Retrieves whether the header bar reserves space for
@@ -145,7 +166,7 @@ fun box get_has_subtitle()
 ---
 
 ### get_show_close_button
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L65)</span>
 
 
 Returns whether this header bar shows the standard window
@@ -164,7 +185,7 @@ fun box get_show_close_button()
 ---
 
 ### get_subtitle
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L68)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L72)</span>
 
 
 Retrieves the subtitle of the header. See gtk_header_bar_set_subtitle().
@@ -182,7 +203,7 @@ fun box get_subtitle()
 ---
 
 ### get_title
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L76)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L80)</span>
 
 
 Retrieves the title of the header. See gtk_header_bar_set_title().
@@ -199,8 +220,122 @@ fun box get_title()
 
 ---
 
+### pack_end
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L88)</span>
+
+
+Adds @child to @bar, packed with reference to the
+end of the @bar.
+
+
+```pony
+fun box pack_end(
+  child_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   child_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pack_start
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L95)</span>
+
+
+Adds @child to @bar, packed with reference to the
+start of the @bar.
+
+
+```pony
+fun box pack_start(
+  child_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   child_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_custom_title
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L102)</span>
+
+
+Sets a custom title for the #GtkHeaderBar.
+
+The title should help a user identify the current view. This
+supersedes any title set by gtk_header_bar_set_title() or
+gtk_header_bar_set_subtitle(). To achieve the same style as
+the builtin title and subtitle, use the “title” and “subtitle”
+style classes.
+
+You should set the custom title to %NULL, for the header title
+label to be visible again.
+
+
+```pony
+fun box set_custom_title(
+  title_widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   title_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_decoration_layout
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L117)</span>
+
+
+    Sets the decoration layout for this header bar, overriding
+the #GtkSettings:gtk-decoration-layout setting.
+
+There can be valid reasons for overriding the setting, such
+as a header bar design that does not allow for buttons to take
+room on the right, or only offers room for a single close button.
+Split header bars are another example for overriding the
+setting.
+
+The format of the string is button names, separated by commas.
+A colon separates the buttons that should appear on the left
+from those on the right. Recognized button names are minimize,
+maximize, close, icon (the window icon) and menu (a menu button
+for the fallback app menu).
+
+For example, “menu:minimize,maximize,close” specifies a menu
+on the left, and minimize, maximize and close buttons on the right.
+
+    {:doh, %{argctype: "const gchar*", argname: "layout", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_decoration_layout()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_has_subtitle
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L100)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L141)</span>
 
 
 Sets whether the header bar should reserve space
@@ -223,7 +358,7 @@ fun box set_has_subtitle(
 ---
 
 ### set_show_close_button
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L107)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L148)</span>
 
 
 Sets whether this header bar shows the standard window decorations,
@@ -238,6 +373,55 @@ fun box set_show_close_button(
 #### Parameters
 
 *   setting_pony: [Bool](builtin-Bool.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_subtitle
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L155)</span>
+
+
+    Sets the subtitle of the #GtkHeaderBar. The title should give a user
+an additional detail to help him identify the current view.
+
+Note that GtkHeaderBar by default reserves room for the subtitle,
+even if none is currently set. If this is not desired, set the
+#GtkHeaderBar:has-subtitle property to %FALSE.
+
+    {:doh, %{argctype: "const gchar*", argname: "subtitle", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_subtitle()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_title
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBar.md#L168)</span>
+
+
+    Sets the title of the #GtkHeaderBar. The title should help a user
+identify the current view. A good title should not include the
+application name.
+
+    {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_title()
+: None val
+```
 
 #### Returns
 

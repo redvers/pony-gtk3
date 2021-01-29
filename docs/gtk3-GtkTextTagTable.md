@@ -23,7 +23,7 @@ An example of a UI definition fragment specifying tags:
 
 
 ```pony
-class ref GtkTextTagTable is
+class val GtkTextTagTable is
   GtkWidget ref
 ```
 
@@ -35,29 +35,35 @@ class ref GtkTextTagTable is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L31)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L32)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkTextTagTable ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkTextTagTable val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkTextTagTable](gtk3-GtkTextTagTable.md) ref^
+* [GtkTextTagTable](gtk3-GtkTextTagTable.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L35)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkTextTagTable ref^
+: GtkTextTagTable val^
 ```
 #### Parameters
 
@@ -65,22 +71,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkTextTagTable](gtk3-GtkTextTagTable.md) ref^
+* [GtkTextTagTable](gtk3-GtkTextTagTable.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L38)</span>
 
 
 ```pony
-new ref create()
-: GtkTextTagTable ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkTextTagTable val^
 ```
 
 #### Returns
 
-* [GtkTextTagTable](gtk3-GtkTextTagTable.md) ref^
+* [GtkTextTagTable](gtk3-GtkTextTagTable.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L42)</span>
+
+
+```pony
+new val create()
+: GtkTextTagTable val^
+```
+
+#### Returns
+
+* [GtkTextTagTable](gtk3-GtkTextTagTable.md) val^
 
 ---
 
@@ -110,8 +131,57 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_add
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L46)</span>
+
+
+    Add a tag to the table. The tag is assigned the highest priority
+in the table.
+
+@tag must not be in a tag table already, and may not have
+the same name as an already-added tag.
+
+    {:doh, %{argctype: "GtkTextTag*", argname: "gtag", argtype: "TextTag", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_foreach
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L58)</span>
+
+
+    Calls @func on each tag in @table, with user data @data.
+Note that the table may not be modified while iterating
+over it (you can’t add/remove tags).
+
+    {:doh, %{argctype: "GtkTextTagTableForeach", argname: "func", argtype: "TextTagTableForeach", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_foreach()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_size
-<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L51)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L69)</span>
 
 
 Returns the size of the table (number of tags)
@@ -125,6 +195,55 @@ fun box get_size()
 #### Returns
 
 * [I32](builtin-I32.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_lookup
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L75)</span>
+
+
+    Look up a named tag.
+
+    {:argctype, "GtkTextTag*"}
+{:argname, "rv"}
+{:argtype, "TextTag"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_lookup()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_remove
+<span class="source-link">[[Source]](src/gtk3/GtkTextTagTable.md#L87)</span>
+
+
+    Remove a tag from the table. If a #GtkTextBuffer has @table as its tag table,
+the tag is removed from the buffer. The table’s reference to the tag is
+removed, so the tag will end up destroyed if you don’t have a reference to
+it.
+
+    {:doh, %{argctype: "GtkTextTag*", argname: "gtag", argtype: "TextTag", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_remove()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

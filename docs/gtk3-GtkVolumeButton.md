@@ -7,7 +7,7 @@ icons, tooltips and accessible labels.
 
 
 ```pony
-class ref GtkVolumeButton is
+class val GtkVolumeButton is
   GtkWidget ref
 ```
 
@@ -19,29 +19,35 @@ class ref GtkVolumeButton is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L15)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L16)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkVolumeButton ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkVolumeButton val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkVolumeButton](gtk3-GtkVolumeButton.md) ref^
+* [GtkVolumeButton](gtk3-GtkVolumeButton.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L18)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L19)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkVolumeButton ref^
+: GtkVolumeButton val^
 ```
 #### Parameters
 
@@ -49,22 +55,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkVolumeButton](gtk3-GtkVolumeButton.md) ref^
+* [GtkVolumeButton](gtk3-GtkVolumeButton.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L22)</span>
 
 
 ```pony
-new ref create()
-: GtkVolumeButton ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkVolumeButton val^
 ```
 
 #### Returns
 
-* [GtkVolumeButton](gtk3-GtkVolumeButton.md) ref^
+* [GtkVolumeButton](gtk3-GtkVolumeButton.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkVolumeButton.md#L26)</span>
+
+
+```pony
+new val create()
+: GtkVolumeButton val^
+```
+
+#### Returns
+
+* [GtkVolumeButton](gtk3-GtkVolumeButton.md) val^
 
 ---
 

@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["None", "Bool", "U32", "GObjectREF"]
-provides: ["GtkUIManager"]
+provides: ["GtkUIManager val"]
 */
 use "../gobject"
-class GtkUIManager is GtkWidget
+class val GtkUIManager is GtkWidget
 """
 > GtkUIManager is deprecated since GTK+ 3.10. To construct user interfaces
 > from XML definitions, you should use #GtkBuilder, #GMenuModel, et al. To
@@ -232,39 +232,71 @@ other parts of the constructed user interface with the help of the
 </object>
 ]|
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_ui_manager_new[GObjectREF]() //
 
 
-/* add_ui unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_add_ui(): None =>
+    """
+    Adds a UI element to the current contents of @manager.
+
+If @type is %GTK_UI_MANAGER_AUTO, GTK+ inserts a menuitem, toolitem or
+separator if such an element can be inserted at the place determined by
+@path. Otherwise @type must indicate an element that can be inserted at
+the place determined by @path.
+
+If @path points to a menuitem or toolitem, the new element will be inserted
+before or after this item, depending on @top.
+
+    {:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "action", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkUIManagerItemType", argname: "gtype", argtype: "UIManagerItemType", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* add_ui_from_file unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "filename", argtype: "filename", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_add_ui_from_file(): None =>
+    """
+    Parses a file containing a [UI definition][XML-UI] and
+merges it with the current contents of @manager.
+
+    {:doh, %{argctype: "const gchar*", argname: "filename", argtype: "filename", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* add_ui_from_resource unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_add_ui_from_resource(): None =>
+    """
+    Parses a resource file containing a [UI definition][XML-UI] and
+merges it with the current contents of @manager.
+
+    {:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* add_ui_from_string unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "buffer", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_add_ui_from_string(): None =>
+    """
+    Parses a string containing a [UI definition][XML-UI] and merges it with
+the current contents of @manager. An enclosing <ui> element is added if
+it is missing.
+
+    {:doh, %{argctype: "const gchar*", argname: "buffer", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gssize", argname: "length", argtype: "gssize", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun ensure_update(): None =>
 """
@@ -286,26 +318,42 @@ gtk_widget_show (window);
 """
   @gtk_ui_manager_ensure_update[None](widget)
 
-/* get_accel_group unavailable due to return typing issues
-{:argctype, "GtkAccelGroup*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_accel_group(): None =>
+    """
+    Returns the #GtkAccelGroup associated with @manager.
+
+    {:argctype, "GtkAccelGroup*"}
 {:argname, "rv"}
 {:argtype, "AccelGroup"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_action unavailable due to return typing issues
-{:argctype, "GtkAction*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_action(): None =>
+    """
+    Looks up an action by following a path. See gtk_ui_manager_get_widget()
+for more information about paths.
+
+    {:argctype, "GtkAction*"}
 {:argname, "rv"}
 {:argtype, "Action"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_action_groups unavailable due to return typing issues
-{:argctype, "GList*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_action_groups(): None =>
+    """
+    Returns the list of action groups associated with @manager.
+
+    {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_add_tearoffs(): Bool =>
 """
@@ -314,30 +362,64 @@ will have tearoff menu items.
 """
   @gtk_ui_manager_get_add_tearoffs[Bool](widget)
 
-/* get_toplevels unavailable due to return typing issues
-{:argctype, "GSList*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_toplevels(): None =>
+    """
+    Obtains a list of all toplevel widgets of the requested types.
+
+    {:argctype, "GSList*"}
 {:argname, "rv"}
 {:argtype, "GLib.SList"}
 {:paramtype, :param}
-{:txo, "container"} */
+{:txo, "container"}
+*/
+    """
 
-/* get_ui unavailable due to return typing issues
-{:argctype, "gchar*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_ui(): None =>
+    """
+    Creates a [UI definition][XML-UI] of the merged UI.
+
+    {:argctype, "gchar*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
 {:paramtype, :param}
-{:txo, "full"} */
-
-/* get_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
-
-/* insert_action_group unavailable due to typing issues
- {:doh, %{argctype: "GtkActionGroup*", argname: "action_group", argtype: "ActionGroup", paramtype: :param, txo: "none"}}
+{:txo, "full"}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_widget(): None =>
+    """
+    Looks up a widget by following a path.
+The path consists of the names specified in the XML description of the UI.
+separated by “/”. Elements which don’t have a name or action attribute in
+the XML (e.g. <popup>) can be addressed by their XML element name
+(e.g. "popup"). The root element ("/ui") can be omitted in the path.
+
+Note that the widget found by following a path that ends in a <menu>;
+element is the menuitem to which the menu is attached, not the menu it
+manages.
+
+Also note that the widgets constructed by a ui manager are not tied to
+the lifecycle of the ui manager. If you add the widgets returned by this
+function to some container or explicitly ref them, they will survive the
+destruction of the ui manager.
+
+    {:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_insert_action_group(): None =>
+    """
+    Inserts an action group into the list of action groups associated
+with @manager. Actions in earlier groups hide actions with the same
+name in later groups.
+
+If @pos is larger than the number of action groups in @manager, or
+negative, @action_group will be inserted at the end of the internal
+list.
+
+    {:doh, %{argctype: "GtkActionGroup*", argname: "action_group", argtype: "ActionGroup", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun new_merge_id(): U32 =>
 """
@@ -346,9 +428,14 @@ gtk_ui_manager_add_ui().
 """
   @gtk_ui_manager_new_merge_id[U32](widget)
 
-/* remove_action_group unavailable due to typing issues
- {:doh, %{argctype: "GtkActionGroup*", argname: "action_group", argtype: "ActionGroup", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_remove_action_group(): None =>
+    """
+    Removes an action group from the list of action groups associated
+with @manager.
+
+    {:doh, %{argctype: "GtkActionGroup*", argname: "action_group", argtype: "ActionGroup", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun remove_ui(merge_id_pony: U32): None =>
 """

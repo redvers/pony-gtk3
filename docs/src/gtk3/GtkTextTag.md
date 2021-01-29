@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["None", "Bool", "I32", "GObjectREF", "String"]
-provides: ["GtkTextTag"]
+provides: ["GtkTextTag val"]
 */
 use "../gobject"
-class GtkTextTag is GtkWidget
+class val GtkTextTag is GtkWidget
 """
 You may wish to begin by reading the
 [text widget conceptual overview][TextWidget]
@@ -22,17 +22,21 @@ For each property of #GtkTextTag, there is a “set” property, e.g.
 whether a property has been set or not.
 They are maintained by GTK+ and you should not set them independently.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(name_pony: String) =>
+
+  new val create(name_pony: String) =>
     widget = @gtk_text_tag_new[GObjectREF](name_pony.cstring()) //
 
 
@@ -46,11 +50,15 @@ function is useful for a #GtkTextTag subclass.
 """
   @gtk_text_tag_changed[None](widget, size_changed_pony)
 
-/* event unavailable due to typing issues
- {:doh, %{argctype: "GObject*", argname: "event_object", argtype: "GObject.Object", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_event(): None =>
+    """
+    Emits the “event” signal on the #GtkTextTag.
+
+    {:doh, %{argctype: "GObject*", argname: "event_object", argtype: "GObject.Object", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun get_priority(): I32 =>
 """

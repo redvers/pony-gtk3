@@ -31,7 +31,7 @@ in this case.
 
 
 ```pony
-class ref GtkCheckButton is
+class val GtkCheckButton is
   GtkWidget ref
 ```
 
@@ -43,29 +43,35 @@ class ref GtkCheckButton is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L39)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L40)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCheckButton ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCheckButton val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCheckButton](gtk3-GtkCheckButton.md) ref^
+* [GtkCheckButton](gtk3-GtkCheckButton.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L43)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCheckButton ref^
+: GtkCheckButton val^
 ```
 #### Parameters
 
@@ -73,33 +79,48 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCheckButton](gtk3-GtkCheckButton.md) ref^
+* [GtkCheckButton](gtk3-GtkCheckButton.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L46)</span>
 
 
 ```pony
-new ref create()
-: GtkCheckButton ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkCheckButton val^
 ```
 
 #### Returns
 
-* [GtkCheckButton](gtk3-GtkCheckButton.md) ref^
+* [GtkCheckButton](gtk3-GtkCheckButton.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L50)</span>
+
+
+```pony
+new val create()
+: GtkCheckButton val^
+```
+
+#### Returns
+
+* [GtkCheckButton](gtk3-GtkCheckButton.md) val^
 
 ---
 
 ### new_with_label
-<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L49)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L53)</span>
 
 
 ```pony
-new ref new_with_label(
+new val new_with_label(
   label_pony: String val)
-: GtkCheckButton ref^
+: GtkCheckButton val^
 ```
 #### Parameters
 
@@ -107,18 +128,18 @@ new ref new_with_label(
 
 #### Returns
 
-* [GtkCheckButton](gtk3-GtkCheckButton.md) ref^
+* [GtkCheckButton](gtk3-GtkCheckButton.md) val^
 
 ---
 
 ### new_with_mnemonic
-<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L52)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckButton.md#L56)</span>
 
 
 ```pony
-new ref new_with_mnemonic(
+new val new_with_mnemonic(
   label_pony: String val)
-: GtkCheckButton ref^
+: GtkCheckButton val^
 ```
 #### Parameters
 
@@ -126,7 +147,7 @@ new ref new_with_mnemonic(
 
 #### Returns
 
-* [GtkCheckButton](gtk3-GtkCheckButton.md) ref^
+* [GtkCheckButton](gtk3-GtkCheckButton.md) val^
 
 ---
 

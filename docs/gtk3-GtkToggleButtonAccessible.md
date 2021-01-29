@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkToggleButtonAccessible is
+class val GtkToggleButtonAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkToggleButtonAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButtonAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButtonAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkToggleButtonAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkToggleButtonAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkToggleButtonAccessible](gtk3-GtkToggleButtonAccessible.md) ref^
+* [GtkToggleButtonAccessible](gtk3-GtkToggleButtonAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButtonAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButtonAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkToggleButtonAccessible ref^
+: GtkToggleButtonAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkToggleButtonAccessible](gtk3-GtkToggleButtonAccessible.md) ref^
+* [GtkToggleButtonAccessible](gtk3-GtkToggleButtonAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButtonAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkToggleButtonAccessible val^
+```
+
+#### Returns
+
+* [GtkToggleButtonAccessible](gtk3-GtkToggleButtonAccessible.md) val^
 
 ---
 

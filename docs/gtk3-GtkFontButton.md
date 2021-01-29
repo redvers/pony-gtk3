@@ -11,7 +11,7 @@ GtkFontButton has a single CSS node with name button and style class .font.
 
 
 ```pony
-class ref GtkFontButton is
+class val GtkFontButton is
   GtkWidget ref
 ```
 
@@ -23,29 +23,35 @@ class ref GtkFontButton is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L19)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L20)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkFontButton ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkFontButton val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkFontButton](gtk3-GtkFontButton.md) ref^
+* [GtkFontButton](gtk3-GtkFontButton.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L22)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L23)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkFontButton ref^
+: GtkFontButton val^
 ```
 #### Parameters
 
@@ -53,33 +59,48 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkFontButton](gtk3-GtkFontButton.md) ref^
+* [GtkFontButton](gtk3-GtkFontButton.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L26)</span>
 
 
 ```pony
-new ref create()
-: GtkFontButton ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkFontButton val^
 ```
 
 #### Returns
 
-* [GtkFontButton](gtk3-GtkFontButton.md) ref^
+* [GtkFontButton](gtk3-GtkFontButton.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L30)</span>
+
+
+```pony
+new val create()
+: GtkFontButton val^
+```
+
+#### Returns
+
+* [GtkFontButton](gtk3-GtkFontButton.md) val^
 
 ---
 
 ### new_with_font
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L29)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L33)</span>
 
 
 ```pony
-new ref new_with_font(
+new val new_with_font(
   fontname_pony: String val)
-: GtkFontButton ref^
+: GtkFontButton val^
 ```
 #### Parameters
 
@@ -87,7 +108,7 @@ new ref new_with_font(
 
 #### Returns
 
-* [GtkFontButton](gtk3-GtkFontButton.md) ref^
+* [GtkFontButton](gtk3-GtkFontButton.md) val^
 
 ---
 
@@ -118,7 +139,7 @@ fun box gtkwidget()
 ---
 
 ### get_font_name
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L37)</span>
 
 
 Retrieves the name of the currently selected font. This name includes
@@ -141,7 +162,7 @@ fun box get_font_name()
 ---
 
 ### get_show_size
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L46)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L50)</span>
 
 
 Returns whether the font size will be shown in the label.
@@ -159,7 +180,7 @@ fun box get_show_size()
 ---
 
 ### get_show_style
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L52)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L56)</span>
 
 
 Returns whether the name of the font style will be shown in the label.
@@ -177,7 +198,7 @@ fun box get_show_style()
 ---
 
 ### get_title
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L58)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L62)</span>
 
 
 Retrieves the title of the font chooser dialog.
@@ -195,7 +216,7 @@ fun box get_title()
 ---
 
 ### get_use_font
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L66)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L70)</span>
 
 
 Returns whether the selected font is used in the label.
@@ -213,7 +234,7 @@ fun box get_use_font()
 ---
 
 ### get_use_size
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L72)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L76)</span>
 
 
 Returns whether the selected size is used in the label.
@@ -230,8 +251,29 @@ fun box get_use_size()
 
 ---
 
-### set_show_size
+### pony_NOT_IMPLEMENTED_YET_set_font_name
 <span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L82)</span>
+
+
+    Sets or updates the currently-displayed font in font picker dialog.
+
+    {:doh, %{argctype: "const gchar*", argname: "fontname", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_font_name()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_show_size
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L90)</span>
 
 
 If @show_size is %TRUE, the font size will be displayed along with the name of the selected font.
@@ -253,7 +295,7 @@ fun box set_show_size(
 ---
 
 ### set_show_style
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L88)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L96)</span>
 
 
 If @show_style is %TRUE, the font style will be displayed along with name of the selected font.
@@ -274,8 +316,29 @@ fun box set_show_style(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_title
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L102)</span>
+
+
+    Sets the title for the font chooser dialog.
+
+    {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_title()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_use_font
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L98)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L110)</span>
 
 
 If @use_font is %TRUE, the font name will be written using the selected font.
@@ -297,7 +360,7 @@ fun box set_use_font(
 ---
 
 ### set_use_size
-<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L104)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontButton.md#L116)</span>
 
 
 If @use_size is %TRUE, the font name will be written using the selected size.

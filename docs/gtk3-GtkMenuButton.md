@@ -87,7 +87,7 @@ it from a plain #GtkButton, it gets the .popup style class.
 
 
 ```pony
-class ref GtkMenuButton is
+class val GtkMenuButton is
   GtkWidget ref
 ```
 
@@ -99,29 +99,35 @@ class ref GtkMenuButton is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L95)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L96)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkMenuButton ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkMenuButton val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkMenuButton](gtk3-GtkMenuButton.md) ref^
+* [GtkMenuButton](gtk3-GtkMenuButton.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L98)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L99)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkMenuButton ref^
+: GtkMenuButton val^
 ```
 #### Parameters
 
@@ -129,22 +135,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkMenuButton](gtk3-GtkMenuButton.md) ref^
+* [GtkMenuButton](gtk3-GtkMenuButton.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L102)</span>
 
 
 ```pony
-new ref create()
-: GtkMenuButton ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkMenuButton val^
 ```
 
 #### Returns
 
-* [GtkMenuButton](gtk3-GtkMenuButton.md) ref^
+* [GtkMenuButton](gtk3-GtkMenuButton.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L106)</span>
+
+
+```pony
+new val create()
+: GtkMenuButton val^
+```
+
+#### Returns
+
+* [GtkMenuButton](gtk3-GtkMenuButton.md) val^
 
 ---
 
@@ -174,8 +195,112 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_direction
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L116)</span>
+
+
+    Returns the direction the popup will be pointing at when popped up.
+
+    {:argctype, "GtkArrowType"}
+{:argname, "rv"}
+{:argtype, "ArrowType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_direction()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_menu_model
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L128)</span>
+
+
+    Returns the #GMenuModel used to generate the popup.
+
+    {:argctype, "GMenuModel*"}
+{:argname, "rv"}
+{:argtype, "Gio.MenuModel"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_menu_model()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_popover
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L140)</span>
+
+
+    Returns the #GtkPopover that pops out of the button.
+If the button is not using a #GtkPopover, this function
+returns %NULL.
+
+    {:argctype, "GtkPopover*"}
+{:argname, "rv"}
+{:argtype, "Popover"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_popover()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_popup
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L154)</span>
+
+
+    Returns the #GtkMenu that pops out of the button.
+If the button does not use a #GtkMenu, this function
+returns %NULL.
+
+    {:argctype, "GtkMenu*"}
+{:argname, "rv"}
+{:argtype, "Menu"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_popup()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_use_popover
-<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L141)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L168)</span>
 
 
 Returns whether a #GtkPopover or a #GtkMenu will be constructed
@@ -193,8 +318,149 @@ fun box get_use_popover()
 
 ---
 
+### set_align_widget
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L175)</span>
+
+
+Sets the #GtkWidget to use to line the menu with when popped up.
+Note that the @align_widget must contain the #GtkMenuButton itself.
+
+Setting it to %NULL means that the menu will be aligned with the
+button itself.
+
+Note that this property is only used with menus currently,
+and not for popovers.
+
+
+```pony
+fun box set_align_widget(
+  align_widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   align_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_direction
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L188)</span>
+
+
+    Sets the direction in which the popup will be popped up, as
+well as changing the arrow’s direction. The child will not
+be changed to an arrow if it was customized.
+
+If the does not fit in the available space in the given direction,
+GTK+ will its best to keep it inside the screen and fully visible.
+
+If you pass %GTK_ARROW_NONE for a @direction, the popup will behave
+as if you passed %GTK_ARROW_DOWN (although you won’t see any arrows).
+
+    {:doh, %{argctype: "GtkArrowType", argname: "direction", argtype: "ArrowType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_direction()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_menu_model
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L204)</span>
+
+
+    Sets the #GMenuModel from which the popup will be constructed,
+or %NULL to dissociate any existing menu model and disable the button.
+
+Depending on the value of #GtkMenuButton:use-popover, either a
+#GtkMenu will be created with gtk_menu_new_from_model(), or a
+#GtkPopover with gtk_popover_new_from_model(). In either case,
+actions will be connected as documented for these functions.
+
+If #GtkMenuButton:popup or #GtkMenuButton:popover are already set, those
+widgets are dissociated from the @menu_button, and those properties are set
+to %NULL.
+
+    {:doh, %{argctype: "GMenuModel*", argname: "menu_model", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_menu_model()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_popover
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L222)</span>
+
+
+Sets the #GtkPopover that will be popped up when the @menu_button is clicked,
+or %NULL to dissociate any existing popover and disable the button.
+
+If #GtkMenuButton:menu-model or #GtkMenuButton:popup are set, those objects
+are dissociated from the @menu_button, and those properties are set to %NULL.
+
+
+```pony
+fun box set_popover(
+  popover_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   popover_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_popup
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L232)</span>
+
+
+Sets the #GtkMenu that will be popped up when the @menu_button is clicked, or
+%NULL to dissociate any existing menu and disable the button.
+
+If #GtkMenuButton:menu-model or #GtkMenuButton:popover are set, those objects
+are dissociated from the @menu_button, and those properties are set to %NULL.
+
+
+```pony
+fun box set_popup(
+  menu_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   menu_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_use_popover
-<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L168)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuButton.md#L242)</span>
 
 
 Sets whether to construct a #GtkPopover instead of #GtkMenu

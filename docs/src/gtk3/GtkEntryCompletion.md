@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["None", "I32", "Pointer[U8 val] ref", "String", "Bool", "GObjectREF", "GtkCellArea"]
-provides: ["GtkEntryCompletion"]
+   needs: ["None", "I32", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget val", "Bool", "GtkCellArea val"]
+provides: ["GtkEntryCompletion val"]
 */
 use "../gobject"
-class GtkEntryCompletion is GtkWidget
+class val GtkEntryCompletion is GtkWidget
 """
 #GtkEntryCompletion is an auxiliary object to be used in conjunction with
 #GtkEntry to provide the completion functionality. It implements the
@@ -47,20 +47,24 @@ gtk_tree_model_filter_get_model(). Don’t forget to use
 gtk_tree_model_filter_convert_iter_to_child_iter() to obtain a
 matching iter.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_entry_completion_new[GObjectREF]() //
 
-  new new_with_area(area_pony: GtkCellArea) =>
+  new val new_with_area(area_pony: GtkCellArea val) =>
     widget = @gtk_entry_completion_new_with_area[GObjectREF](area_pony.gtkwidget()) //
 
 
@@ -72,12 +76,20 @@ view will be updated accordingly.
 """
   @gtk_entry_completion_complete[None](widget)
 
-/* compute_prefix unavailable due to return typing issues
-{:argctype, "gchar*"}
+  fun pony_NOT_IMPLEMENTED_YET_compute_prefix(): None =>
+    """
+    Computes the common prefix that is shared by all rows in @completion
+that start with @key. If no row matches @key, %NULL will be returned.
+Note that a text column must have been set for this function to work,
+see gtk_entry_completion_set_text_column() for details.
+
+    {:argctype, "gchar*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
 fun delete_action(index__pony: I32): None =>
 """
@@ -97,12 +109,11 @@ the completion or %NULL if there’s no completion ongoing.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_entry unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+Gets the entry @completion has been attached to.
+  fun get_entry(): GtkWidget val =>
+    @gtk_entry_completion_get_entry[GObjectREF](widget)
+*/
 
 fun get_inline_completion(): Bool =>
 """
@@ -123,12 +134,18 @@ Returns the minimum key length as set for @completion.
 """
   @gtk_entry_completion_get_minimum_key_length[I32](widget)
 
-/* get_model unavailable due to return typing issues
-{:argctype, "GtkTreeModel*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_model(): None =>
+    """
+    Returns the model the #GtkEntryCompletion is using as data source.
+Returns %NULL if the model is unset.
+
+    {:argctype, "GtkTreeModel*"}
 {:argname, "rv"}
 {:argtype, "TreeModel"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_popup_completion(): Bool =>
 """
@@ -156,13 +173,27 @@ Returns the column in the model of @completion to get strings from.
 """
   @gtk_entry_completion_get_text_column[I32](widget)
 
-/* insert_action_markup unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_insert_action_markup(): None =>
+    """
+    Inserts an action in @completion’s action item list at position @index_
+with markup @markup.
 
-/* insert_action_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_insert_action_text(): None =>
+    """
+    Inserts an action in @completion’s action item list at position @index_
+with text @text. If you want the action item to have markup, use
+gtk_entry_completion_insert_action_markup().
+
+Note that @index_ is a relative position in the list of actions and
+the position of an action can change when deleting a different action.
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun insert_prefix(): None =>
 """
@@ -184,11 +215,17 @@ inside the entry.
 """
   @gtk_entry_completion_set_inline_selection[None](widget, inline_selection_pony)
 
-/* set_match_func unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryCompletionMatchFunc", argname: "func", argtype: "EntryCompletionMatchFunc", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_match_func(): None =>
+    """
+    Sets the match function for @completion to be @func. The match function
+is used to determine if a row should or should not be in the completion
+list.
+
+    {:doh, %{argctype: "GtkEntryCompletionMatchFunc", argname: "func", argtype: "EntryCompletionMatchFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "func_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "func_notify", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_minimum_key_length(length_pony: I32): None =>
 """
@@ -199,9 +236,15 @@ key takes a lot of time and will come up with meaningless results anyway
 """
   @gtk_entry_completion_set_minimum_key_length[None](widget, length_pony)
 
-/* set_model unavailable due to typing issues
- {:doh, %{argctype: "GtkTreeModel*", argname: "model", argtype: "TreeModel", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_model(): None =>
+    """
+    Sets the model for a #GtkEntryCompletion. If @completion already has
+a model set, it will remove it before setting the new model.
+If model is %NULL, then it will unset the model.
+
+    {:doh, %{argctype: "GtkTreeModel*", argname: "model", argtype: "TreeModel", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_popup_completion(popup_completion_pony: Bool): None =>
 """

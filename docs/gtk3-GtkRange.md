@@ -11,7 +11,7 @@ of the “steppers”. It also provides properties and methods for setting a
 
 
 ```pony
-class ref GtkRange is
+class val GtkRange is
   GtkWidget ref
 ```
 
@@ -23,29 +23,35 @@ class ref GtkRange is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L19)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L20)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkRange ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkRange val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkRange](gtk3-GtkRange.md) ref^
+* [GtkRange](gtk3-GtkRange.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L22)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L23)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkRange ref^
+: GtkRange val^
 ```
 #### Parameters
 
@@ -53,7 +59,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkRange](gtk3-GtkRange.md) ref^
+* [GtkRange](gtk3-GtkRange.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L26)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkRange val^
+```
+
+#### Returns
+
+* [GtkRange](gtk3-GtkRange.md) val^
 
 ---
 
@@ -83,8 +104,61 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_adjustment
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L32)</span>
+
+
+    Get the #GtkAdjustment which is the “model” object for #GtkRange.
+See gtk_range_set_adjustment() for details.
+The return value does not have a reference added, so should not
+be unreferenced.
+
+    {:argctype, "GtkAdjustment*"}
+{:argname, "rv"}
+{:argtype, "Adjustment"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_adjustment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_fill_level
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L47)</span>
+
+
+    Gets the current position of the fill level indicator.
+
+    {:argctype, "gdouble"}
+{:argname, "rv"}
+{:argtype, "gdouble"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_fill_level()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_flippable
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L59)</span>
 
 
 Gets the value set by gtk_range_set_flippable().
@@ -102,7 +176,7 @@ fun box get_flippable()
 ---
 
 ### get_inverted
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L48)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L65)</span>
 
 
 Gets the value set by gtk_range_set_inverted().
@@ -119,8 +193,34 @@ fun box get_inverted()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_lower_stepper_sensitivity
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L71)</span>
+
+
+    Gets the sensitivity policy for the stepper that points to the
+'lower' end of the GtkRange’s adjustment.
+
+    {:argctype, "GtkSensitivityType"}
+{:argname, "rv"}
+{:argtype, "SensitivityType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_lower_stepper_sensitivity()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_min_slider_size
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L84)</span>
 
 
 This function is useful mainly for #GtkRange subclasses.
@@ -139,8 +239,32 @@ fun box get_min_slider_size()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_range_rect
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L92)</span>
+
+
+    This function returns the area that contains the range’s trough
+and its steppers, in widget->window coordinates.
+
+This function is useful mainly for #GtkRange subclasses.
+
+    {:doh, %{argctype: "GdkRectangle*", argname: "range_rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_range_rect()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_restrict_to_fill_level
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L73)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L103)</span>
 
 
 Gets whether the range is restricted to the fill level.
@@ -158,7 +282,7 @@ fun box get_restrict_to_fill_level()
 ---
 
 ### get_round_digits
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L79)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L109)</span>
 
 
 Gets the number of digits to round the value to when
@@ -177,7 +301,7 @@ fun box get_round_digits()
 ---
 
 ### get_show_fill_level
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L86)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L116)</span>
 
 
 Gets whether the range displays the fill level graphically.
@@ -194,8 +318,33 @@ fun box get_show_fill_level()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_slider_range
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L122)</span>
+
+
+    This function returns sliders range along the long dimension,
+in widget->window coordinates.
+
+This function is useful mainly for #GtkRange subclasses.
+
+    {:doh, %{argctype: "gint*", argname: "slider_start", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "slider_end", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_slider_range()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_slider_size_fixed
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L97)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L134)</span>
 
 
 This function is useful mainly for #GtkRange subclasses.
@@ -214,8 +363,123 @@ fun box get_slider_size_fixed()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_upper_stepper_sensitivity
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L142)</span>
+
+
+    Gets the sensitivity policy for the stepper that points to the
+'upper' end of the GtkRange’s adjustment.
+
+    {:argctype, "GtkSensitivityType"}
+{:argname, "rv"}
+{:argtype, "SensitivityType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_upper_stepper_sensitivity()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_value
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L155)</span>
+
+
+    Gets the current value of the range.
+
+    {:argctype, "gdouble"}
+{:argname, "rv"}
+{:argtype, "gdouble"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_value()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_adjustment
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L167)</span>
+
+
+    Sets the adjustment to be used as the “model” object for this range
+widget. The adjustment indicates the current range value, the
+minimum and maximum range values, the step/page increments used
+for keybindings and scrolling, and the page size. The page size
+is normally 0 for #GtkScale and nonzero for #GtkScrollbar, and
+indicates the size of the visible area of the widget being scrolled.
+The page size affects the size of the scrollbar slider.
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_adjustment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_fill_level
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L181)</span>
+
+
+    Set the new position of the fill level indicator.
+
+The “fill level” is probably best described by its most prominent
+use case, which is an indicator for the amount of pre-buffering in
+a streaming media player. In that use case, the value of the range
+would indicate the current play position, and the fill level would
+be the position up to which the file/stream has been downloaded.
+
+This amount of prebuffering can be displayed on the range’s trough
+and is themeable separately from the trough. To enable fill level
+display, use gtk_range_set_show_fill_level(). The range defaults
+to not showing the fill level.
+
+Additionally, it’s possible to restrict the range’s slider position
+to values which are smaller than the fill level. This is controller
+by gtk_range_set_restrict_to_fill_level() and is by default
+enabled.
+
+    {:doh, %{argctype: "gdouble", argname: "fill_level", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_fill_level()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_flippable
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L127)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L205)</span>
 
 
 If a range is flippable, it will switch its direction if it is
@@ -239,8 +503,33 @@ fun box set_flippable(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_increments
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L214)</span>
+
+
+    Sets the step and page sizes for the range.
+The step size is used when the user clicks the #GtkScrollbar
+arrows or moves #GtkScale via arrow keys. The page size
+is used for example when moving via Page Up or Page Down keys.
+
+    {:doh, %{argctype: "gdouble", argname: "step", argtype: "gdouble", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gdouble", argname: "page", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_increments()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_inverted
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L141)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L226)</span>
 
 
 Ranges normally move from lower to higher values as the
@@ -264,8 +553,30 @@ fun box set_inverted(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_lower_stepper_sensitivity
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L235)</span>
+
+
+    Sets the sensitivity policy for the stepper that points to the
+'lower' end of the GtkRange’s adjustment.
+
+    {:doh, %{argctype: "GtkSensitivityType", argname: "sensitivity", argtype: "SensitivityType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_lower_stepper_sensitivity()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_min_slider_size
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L154)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L244)</span>
 
 
 Sets the minimum size of the range’s slider.
@@ -288,8 +599,32 @@ fun box set_min_slider_size(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_range
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L252)</span>
+
+
+    Sets the allowable values in the #GtkRange, and clamps the range
+value to be between @min and @max. (If the range has a non-zero
+page size, it is clamped between @min and @max - page-size.)
+
+    {:doh, %{argctype: "gdouble", argname: "min", argtype: "gdouble", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gdouble", argname: "max", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_range()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_restrict_to_fill_level
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L167)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L263)</span>
 
 
 Sets whether the slider is restricted to the fill level. See
@@ -313,7 +648,7 @@ fun box set_restrict_to_fill_level(
 ---
 
 ### set_round_digits
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L175)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L271)</span>
 
 
 Sets the number of digits to round the value to when
@@ -336,7 +671,7 @@ fun box set_round_digits(
 ---
 
 ### set_show_fill_level
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L182)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L278)</span>
 
 
 Sets whether a graphical fill level is show on the trough. See
@@ -360,7 +695,7 @@ fun box set_show_fill_level(
 ---
 
 ### set_slider_size_fixed
-<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L190)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L286)</span>
 
 
 Sets whether the range’s slider has a fixed size, or a size that
@@ -377,6 +712,52 @@ fun box set_slider_size_fixed(
 #### Parameters
 
 *   size_fixed_pony: [Bool](builtin-Bool.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_upper_stepper_sensitivity
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L295)</span>
+
+
+    Sets the sensitivity policy for the stepper that points to the
+'upper' end of the GtkRange’s adjustment.
+
+    {:doh, %{argctype: "GtkSensitivityType", argname: "sensitivity", argtype: "SensitivityType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_upper_stepper_sensitivity()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_value
+<span class="source-link">[[Source]](src/gtk3/GtkRange.md#L304)</span>
+
+
+    Sets the current value of the range; if the value is outside the
+minimum or maximum range values, it will be clamped to fit inside
+them. The range emits the #GtkRange::value-changed signal if the
+value changes.
+
+    {:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_value()
+: None val
+```
 
 #### Returns
 

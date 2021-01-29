@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["None", "U32", "GObjectREF"]
-provides: ["GtkStatusbar"]
+provides: ["GtkStatusbar val"]
 */
 use "../gobject"
-class GtkStatusbar is GtkWidget
+class val GtkStatusbar is GtkWidget
 """
 A #GtkStatusbar is usually placed along the bottom of an application's
 main #GtkWindow. It may provide a regular commentary of the application's
@@ -40,30 +40,45 @@ is done using gtk_statusbar_remove().
 
 GtkStatusbar has a single CSS node with name statusbar.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_statusbar_new[GObjectREF]() //
 
 
-/* get_context_id unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "context_description", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_get_context_id(): None =>
+    """
+    Returns a new context identifier, given a description
+of the actual context. Note that the description is
+not shown in the UI.
 
-/* get_message_area unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
+    {:doh, %{argctype: "const gchar*", argname: "context_description", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_message_area(): None =>
+    """
+    Retrieves the box containing the label widget.
+
+    {:argctype, "GtkWidget*"}
 {:argname, "rv"}
 {:argtype, "Box"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun pop(context_id_pony: U32): None =>
 """
@@ -76,9 +91,13 @@ context id.
 """
   @gtk_statusbar_pop[None](widget, context_id_pony)
 
-/* push unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_push(): None =>
+    """
+    Pushes a new message onto a statusbar’s stack.
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun remove(context_id_pony: U32, message_id_pony: U32): None =>
 """

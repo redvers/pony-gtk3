@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkHeaderBarAccessible is
+class val GtkHeaderBarAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkHeaderBarAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBarAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBarAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkHeaderBarAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkHeaderBarAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkHeaderBarAccessible](gtk3-GtkHeaderBarAccessible.md) ref^
+* [GtkHeaderBarAccessible](gtk3-GtkHeaderBarAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkHeaderBarAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBarAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkHeaderBarAccessible ref^
+: GtkHeaderBarAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkHeaderBarAccessible](gtk3-GtkHeaderBarAccessible.md) ref^
+* [GtkHeaderBarAccessible](gtk3-GtkHeaderBarAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkHeaderBarAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkHeaderBarAccessible val^
+```
+
+#### Returns
+
+* [GtkHeaderBarAccessible](gtk3-GtkHeaderBarAccessible.md) val^
 
 ---
 

@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF"]
-provides: ["GtkAboutDialog"]
+provides: ["GtkAboutDialog val"]
 */
 use "../gobject"
-class GtkAboutDialog is GtkWidget
+class val GtkAboutDialog is GtkWidget
 """
 The GtkAboutDialog offers a simple way to display information about
 a program like its logo, name, copyright, website and license. It is
@@ -44,38 +44,58 @@ It is also possible to show a #GtkAboutDialog like any other #GtkDialog,
 e.g. using gtk_dialog_run(). In this case, you might need to know that
 the “Close” button returns the #GTK_RESPONSE_CANCEL response id.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_about_dialog_new[GObjectREF]() //
 
 
-/* add_credit_section unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "section_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_add_credit_section(): None =>
+    """
+    Creates a new section in the Credits page.
+
+    {:doh, %{argctype: "const gchar*", argname: "section_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "people", argtype: "", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* get_artists unavailable due to return typing issues
-{:argctype, ""}
+  fun pony_NOT_IMPLEMENTED_YET_get_artists(): None =>
+    """
+    Returns the string which are displayed in the artists tab
+of the secondary credits dialog.
+
+    {:argctype, ""}
 {:argname, "rv"}
 {:argtype, ""}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_authors unavailable due to return typing issues
-{:argctype, ""}
+  fun pony_NOT_IMPLEMENTED_YET_get_authors(): None =>
+    """
+    Returns the string which are displayed in the authors tab
+of the secondary credits dialog.
+
+    {:argctype, ""}
 {:argname, "rv"}
 {:argtype, ""}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_comments(): String =>
 """
@@ -93,12 +113,18 @@ Returns the copyright string.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_documenters unavailable due to return typing issues
-{:argctype, ""}
+  fun pony_NOT_IMPLEMENTED_YET_get_documenters(): None =>
+    """
+    Returns the string which are displayed in the documenters
+tab of the secondary credits dialog.
+
+    {:argctype, ""}
 {:argname, "rv"}
 {:argtype, ""}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_license(): String =>
 """
@@ -108,19 +134,29 @@ Returns the license information.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_license_type unavailable due to return typing issues
-{:argctype, "GtkLicense"}
+  fun pony_NOT_IMPLEMENTED_YET_get_license_type(): None =>
+    """
+    Retrieves the license set using gtk_about_dialog_set_license_type()
+
+    {:argctype, "GtkLicense"}
 {:argname, "rv"}
 {:argtype, "License"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_logo unavailable due to return typing issues
-{:argctype, "GdkPixbuf*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_logo(): None =>
+    """
+    Returns the pixbuf displayed as logo in the about dialog.
+
+    {:argctype, "GdkPixbuf*"}
 {:argname, "rv"}
 {:argtype, "GdkPixbuf.Pixbuf"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_logo_icon_name(): String =>
 """
@@ -178,61 +214,148 @@ automatically wrapped.
 """
   @gtk_about_dialog_get_wrap_license[Bool](widget)
 
-/* set_artists unavailable due to typing issues
- {:doh, %{argctype: "", argname: "artists", argtype: "", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_artists(): None =>
+    """
+    Sets the strings which are displayed in the artists tab
+of the secondary credits dialog.
 
-/* set_authors unavailable due to typing issues
- {:doh, %{argctype: "", argname: "authors", argtype: "", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "", argname: "artists", argtype: "", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_comments unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "comments", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_authors(): None =>
+    """
+    Sets the strings which are displayed in the authors tab
+of the secondary credits dialog.
 
-/* set_copyright unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "copyright", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "", argname: "authors", argtype: "", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_documenters unavailable due to typing issues
- {:doh, %{argctype: "", argname: "documenters", argtype: "", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_comments(): None =>
+    """
+    Sets the comments string to display in the about dialog.
+This should be a short string of one or two lines.
 
-/* set_license unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "license", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "const gchar*", argname: "comments", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_license_type unavailable due to typing issues
- {:doh, %{argctype: "GtkLicense", argname: "license_type", argtype: "License", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_copyright(): None =>
+    """
+    Sets the copyright string to display in the about dialog.
+This should be a short string of one or two lines.
 
-/* set_logo unavailable due to typing issues
- {:doh, %{argctype: "GdkPixbuf*", argname: "logo", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "const gchar*", argname: "copyright", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_logo_icon_name unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_documenters(): None =>
+    """
+    Sets the strings which are displayed in the documenters tab
+of the secondary credits dialog.
 
-/* set_program_name unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "", argname: "documenters", argtype: "", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_translator_credits unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "translator_credits", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_license(): None =>
+    """
+    Sets the license information to be displayed in the secondary
+license dialog. If @license is %NULL, the license button is
+hidden.
 
-/* set_version unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "version", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "const gchar*", argname: "license", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_website unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "website", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_license_type(): None =>
+    """
+    Sets the license of the application showing the @about dialog from a
+list of known licenses.
 
-/* set_website_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "website_label", argtype: "utf8", paramtype: :param, txo: "none"}}
+This function overrides the license set using
+gtk_about_dialog_set_license().
+
+    {:doh, %{argctype: "GtkLicense", argname: "license_type", argtype: "License", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_logo(): None =>
+    """
+    Sets the pixbuf to be displayed as logo in the about dialog.
+If it is %NULL, the default window icon set with
+gtk_window_set_default_icon() will be used.
+
+    {:doh, %{argctype: "GdkPixbuf*", argname: "logo", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_logo_icon_name(): None =>
+    """
+    Sets the pixbuf to be displayed as logo in the about dialog.
+If it is %NULL, the default window icon set with
+gtk_window_set_default_icon() will be used.
+
+    {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_program_name(): None =>
+    """
+    Sets the name to display in the about dialog.
+If this is not set, it defaults to g_get_application_name().
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_translator_credits(): None =>
+    """
+    Sets the translator credits string which is displayed in
+the translators tab of the secondary credits dialog.
+
+The intended use for this string is to display the translator
+of the language which is currently used in the user interface.
+Using gettext(), a simple way to achieve that is to mark the
+string for translation:
+|[<!-- language="C" -->
+GtkWidget *about = gtk_about_dialog_new ();
+gtk_about_dialog_set_translator_credits (GTK_ABOUT_DIALOG (about),
+                                         _("translator-credits"));
+]|
+It is a good idea to use the customary msgid “translator-credits” for this
+purpose, since translators will already know the purpose of that msgid, and
+since #GtkAboutDialog will detect if “translator-credits” is untranslated
+and hide the tab.
+
+    {:doh, %{argctype: "const gchar*", argname: "translator_credits", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_version(): None =>
+    """
+    Sets the version string to display in the about dialog.
+
+    {:doh, %{argctype: "const gchar*", argname: "version", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_website(): None =>
+    """
+    Sets the URL to use for the website link.
+
+    {:doh, %{argctype: "const gchar*", argname: "website", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_website_label(): None =>
+    """
+    Sets the label to be used for the website link.
+
+    {:doh, %{argctype: "const gchar*", argname: "website_label", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_wrap_license(wrap_license_pony: Bool): None =>
 """

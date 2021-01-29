@@ -6,7 +6,7 @@ a color. It implements the #GtkColorChooser interface.
 
 
 ```pony
-class ref GtkColorChooserDialog is
+class val GtkColorChooserDialog is
   GtkWidget ref
 ```
 
@@ -18,29 +18,35 @@ class ref GtkColorChooserDialog is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L14)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L15)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkColorChooserDialog ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkColorChooserDialog val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkColorChooserDialog](gtk3-GtkColorChooserDialog.md) ref^
+* [GtkColorChooserDialog](gtk3-GtkColorChooserDialog.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L18)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkColorChooserDialog ref^
+: GtkColorChooserDialog val^
 ```
 #### Parameters
 
@@ -48,28 +54,43 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkColorChooserDialog](gtk3-GtkColorChooserDialog.md) ref^
+* [GtkColorChooserDialog](gtk3-GtkColorChooserDialog.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L21)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkColorChooserDialog val^
+```
+
+#### Returns
+
+* [GtkColorChooserDialog](gtk3-GtkColorChooserDialog.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkColorChooserDialog.md#L25)</span>
+
+
+```pony
+new val create(
   title_pony: String val,
-  parent_pony: GtkWindow ref)
-: GtkColorChooserDialog ref^
+  parent_pony: GtkWindow val)
+: GtkColorChooserDialog val^
 ```
 #### Parameters
 
 *   title_pony: [String](builtin-String.md) val
-*   parent_pony: [GtkWindow](gtk3-GtkWindow.md) ref
+*   parent_pony: [GtkWindow](gtk3-GtkWindow.md) val
 
 #### Returns
 
-* [GtkColorChooserDialog](gtk3-GtkColorChooserDialog.md) ref^
+* [GtkColorChooserDialog](gtk3-GtkColorChooserDialog.md) val^
 
 ---
 

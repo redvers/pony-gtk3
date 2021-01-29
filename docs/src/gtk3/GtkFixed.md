@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["GObjectREF"]
-provides: ["GtkFixed"]
+   needs: ["None", "GtkWidget val", "I32", "GObjectREF"]
+provides: ["GtkFixed val"]
 */
 use "../gobject"
-class GtkFixed is GtkWidget
+class val GtkFixed is GtkWidget
 """
 The #GtkFixed widget is a container which can place child widgets
 at fixed positions and with fixed sizes, given in pixels. #GtkFixed
@@ -47,27 +47,35 @@ widget. But you should be aware of the tradeoffs.
 See also #GtkLayout, which shares the ability to perform fixed positioning
 of child widgets and additionally adds custom drawing and scrollability.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_fixed_new[GObjectREF]() //
 
 
-/* move unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun move(widget_pony: GtkWidget val, x_pony: I32, y_pony: I32): None =>
+"""
+Moves a child of a #GtkFixed container to the given position.
+"""
+  @gtk_fixed_move[None](widget, widget_pony.gtkwidget(), x_pony, y_pony)
 
-/* put unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun put(widget_pony: GtkWidget val, x_pony: I32, y_pony: I32): None =>
+"""
+Adds a widget to a #GtkFixed container at the given position.
+"""
+  @gtk_fixed_put[None](widget, widget_pony.gtkwidget(), x_pony, y_pony)
 
 
 ```````

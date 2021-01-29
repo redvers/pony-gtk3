@@ -9,7 +9,7 @@ The #GtkCellRendererAccel cell renderer was added in GTK+ 2.10.
 
 
 ```pony
-class ref GtkCellRendererAccel is
+class val GtkCellRendererAccel is
   GtkWidget ref
 ```
 
@@ -21,29 +21,35 @@ class ref GtkCellRendererAccel is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L17)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L18)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCellRendererAccel ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCellRendererAccel val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCellRendererAccel](gtk3-GtkCellRendererAccel.md) ref^
+* [GtkCellRendererAccel](gtk3-GtkCellRendererAccel.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L21)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCellRendererAccel ref^
+: GtkCellRendererAccel val^
 ```
 #### Parameters
 
@@ -51,22 +57,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCellRendererAccel](gtk3-GtkCellRendererAccel.md) ref^
+* [GtkCellRendererAccel](gtk3-GtkCellRendererAccel.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L24)</span>
 
 
 ```pony
-new ref create()
-: GtkCellRendererAccel ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkCellRendererAccel val^
 ```
 
 #### Returns
 
-* [GtkCellRendererAccel](gtk3-GtkCellRendererAccel.md) ref^
+* [GtkCellRendererAccel](gtk3-GtkCellRendererAccel.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererAccel.md#L28)</span>
+
+
+```pony
+new val create()
+: GtkCellRendererAccel val^
+```
+
+#### Returns
+
+* [GtkCellRendererAccel](gtk3-GtkCellRendererAccel.md) val^
 
 ---
 

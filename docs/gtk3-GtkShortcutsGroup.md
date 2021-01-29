@@ -10,7 +10,7 @@ This widget is only meant to be used with #GtkShortcutsWindow.
 
 
 ```pony
-class ref GtkShortcutsGroup is
+class val GtkShortcutsGroup is
   GtkWidget ref
 ```
 
@@ -22,29 +22,35 @@ class ref GtkShortcutsGroup is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L18)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L19)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkShortcutsGroup ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkShortcutsGroup val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkShortcutsGroup](gtk3-GtkShortcutsGroup.md) ref^
+* [GtkShortcutsGroup](gtk3-GtkShortcutsGroup.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L22)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkShortcutsGroup ref^
+: GtkShortcutsGroup val^
 ```
 #### Parameters
 
@@ -52,7 +58,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkShortcutsGroup](gtk3-GtkShortcutsGroup.md) ref^
+* [GtkShortcutsGroup](gtk3-GtkShortcutsGroup.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsGroup.md#L25)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkShortcutsGroup val^
+```
+
+#### Returns
+
+* [GtkShortcutsGroup](gtk3-GtkShortcutsGroup.md) val^
 
 ---
 

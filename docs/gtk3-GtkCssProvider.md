@@ -27,7 +27,7 @@ key theme, as defined by #GtkSettings:gtk-key-theme-name.
 
 
 ```pony
-class ref GtkCssProvider is
+class val GtkCssProvider is
   GtkWidget ref
 ```
 
@@ -39,29 +39,35 @@ class ref GtkCssProvider is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCssProvider.md#L35)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCssProvider.md#L36)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCssProvider ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCssProvider val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCssProvider](gtk3-GtkCssProvider.md) ref^
+* [GtkCssProvider](gtk3-GtkCssProvider.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCssProvider.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCssProvider.md#L39)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCssProvider ref^
+: GtkCssProvider val^
 ```
 #### Parameters
 
@@ -69,22 +75,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCssProvider](gtk3-GtkCssProvider.md) ref^
+* [GtkCssProvider](gtk3-GtkCssProvider.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkCssProvider.md#L42)</span>
 
 
 ```pony
-new ref create()
-: GtkCssProvider ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkCssProvider val^
 ```
 
 #### Returns
 
-* [GtkCssProvider](gtk3-GtkCssProvider.md) ref^
+* [GtkCssProvider](gtk3-GtkCssProvider.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkCssProvider.md#L46)</span>
+
+
+```pony
+new val create()
+: GtkCssProvider val^
+```
+
+#### Returns
+
+* [GtkCssProvider](gtk3-GtkCssProvider.md) val^
 
 ---
 
@@ -111,6 +132,129 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_load_from_data
+<span class="source-link">[[Source]](src/gtk3/GtkCssProvider.md#L50)</span>
+
+
+    Loads @data into @css_provider, and by doing so clears any previously loaded
+information.
+
+    {:doh, %{argctype: "", argname: "data", argtype: "", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gssize", argname: "length", argtype: "gssize", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_load_from_data()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_load_from_file
+<span class="source-link">[[Source]](src/gtk3/GtkCssProvider.md#L60)</span>
+
+
+    Loads the data contained in @file into @css_provider, making it
+clear any previously loaded information.
+
+    {:doh, %{argctype: "GFile*", argname: "file", argtype: "Gio.File", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_load_from_file()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_load_from_path
+<span class="source-link">[[Source]](src/gtk3/GtkCssProvider.md#L69)</span>
+
+
+    Loads the data contained in @path into @css_provider, making it clear
+any previously loaded information.
+
+    {:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_load_from_path()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_load_from_resource
+<span class="source-link">[[Source]](src/gtk3/GtkCssProvider.md#L78)</span>
+
+
+    Loads the data contained in the resource at @resource_path into
+the #GtkCssProvider, clearing any previously loaded information.
+
+To track errors while loading CSS, connect to the
+#GtkCssProvider::parsing-error signal.
+
+    {:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_load_from_resource()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_to_string
+<span class="source-link">[[Source]](src/gtk3/GtkCssProvider.md#L90)</span>
+
+
+    Converts the @provider into a string representation in CSS
+format.
+
+Using gtk_css_provider_load_from_data() with the return value
+from this function on a new provider created with
+gtk_css_provider_new() will basically create a duplicate of
+this @provider.
+
+    {:argctype, "char*"}
+{:argname, "rv"}
+{:argtype, "utf8"}
+{:paramtype, :param}
+{:txo, "full"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_to_string()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

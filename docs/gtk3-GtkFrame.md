@@ -45,7 +45,7 @@ any other shadow type to remove it.
 
 
 ```pony
-class ref GtkFrame is
+class val GtkFrame is
   GtkWidget ref
 ```
 
@@ -57,29 +57,35 @@ class ref GtkFrame is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L53)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L54)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkFrame ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkFrame val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkFrame](gtk3-GtkFrame.md) ref^
+* [GtkFrame](gtk3-GtkFrame.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L56)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L57)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkFrame ref^
+: GtkFrame val^
 ```
 #### Parameters
 
@@ -87,18 +93,33 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkFrame](gtk3-GtkFrame.md) ref^
+* [GtkFrame](gtk3-GtkFrame.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L60)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkFrame val^
+```
+
+#### Returns
+
+* [GtkFrame](gtk3-GtkFrame.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L64)</span>
+
+
+```pony
+new val create(
   label_pony: String val)
-: GtkFrame ref^
+: GtkFrame val^
 ```
 #### Parameters
 
@@ -106,7 +127,7 @@ new ref create(
 
 #### Returns
 
-* [GtkFrame](gtk3-GtkFrame.md) ref^
+* [GtkFrame](gtk3-GtkFrame.md) val^
 
 ---
 
@@ -137,7 +158,7 @@ fun box gtkwidget()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L68)</span>
 
 
 If the frame’s label widget is a #GtkLabel, returns the
@@ -154,6 +175,147 @@ fun box get_label()
 #### Returns
 
 * [String](builtin-String.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_label_align
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L79)</span>
+
+
+    Retrieves the X and Y alignment of the frame’s label. See
+gtk_frame_set_label_align().
+
+    {:doh, %{argctype: "gfloat*", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gfloat*", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_label_align()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_shadow_type
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L96)</span>
+
+
+    Retrieves the shadow type of the frame. See
+gtk_frame_set_shadow_type().
+
+    {:argctype, "GtkShadowType"}
+{:argname, "rv"}
+{:argtype, "ShadowType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_shadow_type()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_label
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L109)</span>
+
+
+    Removes the current #GtkFrame:label-widget. If @label is not %NULL, creates a
+new #GtkLabel with that text and adds it as the #GtkFrame:label-widget.
+
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_label()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_label_align
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L118)</span>
+
+
+    Sets the alignment of the frame widget’s label. The
+default values for a newly created frame are 0.0 and 0.5.
+
+    {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_label_align()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_label_widget
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L128)</span>
+
+
+Sets the #GtkFrame:label-widget for the frame. This is the widget that
+will appear embedded in the top edge of the frame as a title.
+
+
+```pony
+fun box set_label_widget(
+  label_widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   label_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_shadow_type
+<span class="source-link">[[Source]](src/gtk3/GtkFrame.md#L135)</span>
+
+
+    Sets the #GtkFrame:shadow-type for @frame, i.e. whether it is drawn without
+(%GTK_SHADOW_NONE) or with (other values) a visible border. Values other than
+%GTK_SHADOW_NONE are treated identically by GtkFrame. The chosen type is
+applied by removing or adding the .flat class to the CSS node named border.
+
+    {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_shadow_type()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

@@ -7,7 +7,7 @@ can have multiple widgets anchored, to allow for multiple views.
 
 
 ```pony
-class ref GtkTextChildAnchor is
+class val GtkTextChildAnchor is
   GtkWidget ref
 ```
 
@@ -19,29 +19,35 @@ class ref GtkTextChildAnchor is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L15)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L16)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkTextChildAnchor ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkTextChildAnchor val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkTextChildAnchor](gtk3-GtkTextChildAnchor.md) ref^
+* [GtkTextChildAnchor](gtk3-GtkTextChildAnchor.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L18)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L19)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkTextChildAnchor ref^
+: GtkTextChildAnchor val^
 ```
 #### Parameters
 
@@ -49,22 +55,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkTextChildAnchor](gtk3-GtkTextChildAnchor.md) ref^
+* [GtkTextChildAnchor](gtk3-GtkTextChildAnchor.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L22)</span>
 
 
 ```pony
-new ref create()
-: GtkTextChildAnchor ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkTextChildAnchor val^
 ```
 
 #### Returns
 
-* [GtkTextChildAnchor](gtk3-GtkTextChildAnchor.md) ref^
+* [GtkTextChildAnchor](gtk3-GtkTextChildAnchor.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L26)</span>
+
+
+```pony
+new val create()
+: GtkTextChildAnchor val^
+```
+
+#### Returns
+
+* [GtkTextChildAnchor](gtk3-GtkTextChildAnchor.md) val^
 
 ---
 
@@ -95,7 +116,7 @@ fun box gtkwidget()
 ---
 
 ### get_deleted
-<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L26)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L30)</span>
 
 
 Determines whether a child anchor has been deleted from
@@ -114,6 +135,32 @@ fun box get_deleted()
 #### Returns
 
 * [Bool](builtin-Bool.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_widgets
+<span class="source-link">[[Source]](src/gtk3/GtkTextChildAnchor.md#L41)</span>
+
+
+    Gets a list of all widgets anchored at this child anchor.
+The returned list should be freed with g_list_free().
+
+    {:argctype, "GList*"}
+{:argname, "rv"}
+{:argtype, "GLib.List"}
+{:paramtype, :param}
+{:txo, "container"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_widgets()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

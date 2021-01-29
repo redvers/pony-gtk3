@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["Bool", "Pointer[U8 val] ref", "String", "I32", "None", "GObjectREF"]
-provides: ["GtkExpander"]
+   needs: ["Bool", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget val", "I32", "None"]
+provides: ["GtkExpander val"]
 */
 use "../gobject"
-class GtkExpander is GtkWidget
+class val GtkExpander is GtkWidget
 """
 A #GtkExpander allows the user to hide or show its child by clicking
 on an expander triangle similar to the triangles used in a #GtkTreeView.
@@ -88,20 +88,24 @@ GtkExpander has three CSS nodes, the main node with the name expander,
 a subnode with name title and node below it with name arrow. The arrow of an
 expander that is showing its child gets the :checked pseudoclass added to it.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(label_pony: String) =>
+
+  new val create(label_pony: String) =>
     widget = @gtk_expander_new[GObjectREF](label_pony.cstring()) //
 
-  new new_with_mnemonic(label_pony: String) =>
+  new val new_with_mnemonic(label_pony: String) =>
     widget = @gtk_expander_new_with_mnemonic[GObjectREF](label_pony.cstring()) //
 
 
@@ -139,12 +143,12 @@ horizontal space allocated to @expander.
 """
   @gtk_expander_get_label_fill[Bool](widget)
 
-/* get_label_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+Retrieves the label widget for the frame. See
+gtk_expander_set_label_widget().
+  fun get_label_widget(): GtkWidget val =>
+    @gtk_expander_get_label_widget[GObjectREF](widget)
+*/
 
 fun get_resize_toplevel(): Bool =>
 """
@@ -182,9 +186,15 @@ child widget to be hidden.
 """
   @gtk_expander_set_expanded[None](widget, expanded_pony)
 
-/* set_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_label(): None =>
+    """
+    Sets the text of the label of the expander to @label.
+
+This will also clear any previously set labels.
+
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_label_fill(label_fill_pony: Bool): None =>
 """
@@ -195,9 +205,12 @@ Note that this function has no effect since 3.20.
 """
   @gtk_expander_set_label_fill[None](widget, label_fill_pony)
 
-/* set_label_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "label_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_label_widget(label_widget_pony: GtkWidget val): None =>
+"""
+Set the label widget for the expander. This is the widget
+that will appear embedded alongside the expander arrow.
+"""
+  @gtk_expander_set_label_widget[None](widget, label_widget_pony.gtkwidget())
 
 fun set_resize_toplevel(resize_toplevel_pony: Bool): None =>
 """

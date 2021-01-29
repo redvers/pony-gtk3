@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["None", "Bool", "I32", "GObjectREF"]
-provides: ["GtkNativeDialog"]
+provides: ["GtkNativeDialog val"]
 */
 use "../gobject"
-class GtkNativeDialog is GtkWidget
+class val GtkNativeDialog is GtkWidget
 """
 Native dialogs are platform dialogs that don't use #GtkDialog or
 #GtkWindow. They are used in order to integrate better with a
@@ -22,14 +22,18 @@ There is also a gtk_native_dialog_run() helper that makes it easy
 to run any native dialog in a modal way with a recursive mainloop,
 similar to gtk_dialog_run().
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
+
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
 
 
@@ -54,19 +58,30 @@ Returns whether the dialog is modal. See gtk_native_dialog_set_modal().
 """
   @gtk_native_dialog_get_modal[Bool](widget)
 
-/* get_title unavailable due to return typing issues
-{:argctype, "const char*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_title(): None =>
+    """
+    Gets the title of the #GtkNativeDialog.
+
+    {:argctype, "const char*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_transient_for unavailable due to return typing issues
-{:argctype, "GtkWindow*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_transient_for(): None =>
+    """
+    Fetches the transient parent for this window. See
+gtk_native_dialog_set_transient_for().
+
+    {:argctype, "GtkWindow*"}
 {:argname, "rv"}
 {:argtype, "Window"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_visible(): Bool =>
 """
@@ -129,13 +144,27 @@ will then disallow lowering the dialog below the parent.
 """
   @gtk_native_dialog_set_modal[None](widget, modal_pony)
 
-/* set_title unavailable due to typing issues
- {:doh, %{argctype: "const char*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_title(): None =>
+    """
+    Sets the title of the #GtkNativeDialog.
 
-/* set_transient_for unavailable due to typing issues
- {:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "const char*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_transient_for(): None =>
+    """
+    Dialog windows should be set transient for the main application
+window they were spawned from. This allows
+[window managers][gtk-X11-arch] to e.g. keep the
+dialog on top of the main window, or center the dialog over the
+main window.
+
+Passing %NULL for @parent unsets the current transient window.
+
+    {:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun show(): None =>
 """

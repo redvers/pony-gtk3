@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["Bool", "GObjectREF"]
-provides: ["GtkHandleBox"]
+provides: ["GtkHandleBox val"]
 */
 use "../gobject"
-class GtkHandleBox is GtkWidget
+class val GtkHandleBox is GtkWidget
 """
 The #GtkHandleBox widget allows a portion of a window to be "torn
 off". It is a bin widget which displays its child and a handle that
@@ -32,17 +32,21 @@ so the snap edge should be set to %GTK_POS_BOTTOM.
 > to make it useful and most importantly does not fit well into modern
 > application design. Do not use it. There is no replacement.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_handle_box_new[GObjectREF]() //
 
 
@@ -52,38 +56,81 @@ Whether the handlebox’s child is currently detached.
 """
   @gtk_handle_box_get_child_detached[Bool](widget)
 
-/* get_handle_position unavailable due to return typing issues
-{:argctype, "GtkPositionType"}
+  fun pony_NOT_IMPLEMENTED_YET_get_handle_position(): None =>
+    """
+    Gets the handle position of the handle box. See
+gtk_handle_box_set_handle_position().
+
+    {:argctype, "GtkPositionType"}
 {:argname, "rv"}
 {:argtype, "PositionType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_shadow_type unavailable due to return typing issues
-{:argctype, "GtkShadowType"}
+  fun pony_NOT_IMPLEMENTED_YET_get_shadow_type(): None =>
+    """
+    Gets the type of shadow drawn around the handle box. See
+gtk_handle_box_set_shadow_type().
+
+    {:argctype, "GtkShadowType"}
 {:argname, "rv"}
 {:argtype, "ShadowType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_snap_edge unavailable due to return typing issues
-{:argctype, "GtkPositionType"}
+  fun pony_NOT_IMPLEMENTED_YET_get_snap_edge(): None =>
+    """
+    Gets the edge used for determining reattachment of the handle box.
+See gtk_handle_box_set_snap_edge().
+
+    {:argctype, "GtkPositionType"}
 {:argname, "rv"}
 {:argtype, "PositionType"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* set_handle_position unavailable due to typing issues
- {:doh, %{argctype: "GtkPositionType", argname: "position", argtype: "PositionType", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
 
-/* set_shadow_type unavailable due to typing issues
- {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_handle_position(): None =>
+    """
+    Sets the side of the handlebox where the handle is drawn.
 
-/* set_snap_edge unavailable due to typing issues
- {:doh, %{argctype: "GtkPositionType", argname: "edge", argtype: "PositionType", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GtkPositionType", argname: "position", argtype: "PositionType", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_shadow_type(): None =>
+    """
+    Sets the type of shadow to be drawn around the border
+of the handle box.
+
+    {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_snap_edge(): None =>
+    """
+    Sets the snap edge of a handlebox. The snap edge is
+the edge of the detached child that must be aligned
+with the corresponding edge of the “ghost” left
+behind when the child was detached to reattach
+the torn-off window. Usually, the snap edge should
+be chosen so that it stays in the same place on
+the screen when the handlebox is torn off.
+
+If the snap edge is not set, then an appropriate value
+will be guessed from the handle position. If the
+handle position is %GTK_POS_RIGHT or %GTK_POS_LEFT,
+then the snap edge will be %GTK_POS_TOP, otherwise
+it will be %GTK_POS_LEFT.
+
+    {:doh, %{argctype: "GtkPositionType", argname: "edge", argtype: "PositionType", paramtype: :param, txo: "none"}}
+*/
+    """
 
 
 ```````

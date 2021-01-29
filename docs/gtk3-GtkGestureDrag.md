@@ -10,7 +10,7 @@ gtk_gesture_drag_get_start_point().
 
 
 ```pony
-class ref GtkGestureDrag is
+class val GtkGestureDrag is
   GtkWidget ref
 ```
 
@@ -22,29 +22,35 @@ class ref GtkGestureDrag is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L18)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L19)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkGestureDrag ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkGestureDrag val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkGestureDrag](gtk3-GtkGestureDrag.md) ref^
+* [GtkGestureDrag](gtk3-GtkGestureDrag.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L22)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkGestureDrag ref^
+: GtkGestureDrag val^
 ```
 #### Parameters
 
@@ -52,26 +58,41 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkGestureDrag](gtk3-GtkGestureDrag.md) ref^
+* [GtkGestureDrag](gtk3-GtkGestureDrag.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L25)</span>
 
 
 ```pony
-new ref create(
-  widget_pony: GtkWidget ref)
-: GtkGestureDrag ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkGestureDrag val^
 ```
-#### Parameters
-
-*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) ref
 
 #### Returns
 
-* [GtkGestureDrag](gtk3-GtkGestureDrag.md) ref^
+* [GtkGestureDrag](gtk3-GtkGestureDrag.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L29)</span>
+
+
+```pony
+new val create(
+  widget_pony: GtkWidget val)
+: GtkGestureDrag val^
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [GtkGestureDrag](gtk3-GtkGestureDrag.md) val^
 
 ---
 
@@ -98,6 +119,54 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_offset
+<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L33)</span>
+
+
+    If the @gesture is active, this function returns %TRUE and
+fills in @x and @y with the coordinates of the current point,
+as an offset to the starting drag point.
+
+    {:doh, %{argctype: "gdouble*", argname: "x", argtype: "gdouble", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gdouble*", argname: "y", argtype: "gdouble", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_offset()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_start_point
+<span class="source-link">[[Source]](src/gtk3/GtkGestureDrag.md#L44)</span>
+
+
+    If the @gesture is active, this function returns %TRUE
+and fills in @x and @y with the drag start coordinates,
+in window-relative coordinates.
+
+    {:doh, %{argctype: "gdouble*", argname: "x", argtype: "gdouble", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gdouble*", argname: "y", argtype: "gdouble", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_start_point()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

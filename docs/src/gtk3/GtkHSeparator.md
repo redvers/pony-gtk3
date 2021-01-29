@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["GObjectREF"]
-provides: ["GtkHSeparator"]
+provides: ["GtkHSeparator val"]
 */
 use "../gobject"
-class GtkHSeparator is GtkWidget
+class val GtkHSeparator is GtkWidget
 """
 The #GtkHSeparator widget is a horizontal separator, used to group the
 widgets within a window. It displays a horizontal line with a shadow to
@@ -17,17 +17,21 @@ make it appear sunken into the interface.
 
 GtkHSeparator has been deprecated, use #GtkSeparator instead.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_hseparator_new[GObjectREF]() //
 
 

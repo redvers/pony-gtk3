@@ -19,7 +19,7 @@ this fact, all #GtkMisc API has been deprecated.
 
 
 ```pony
-class ref GtkMisc is
+class val GtkMisc is
   GtkWidget ref
 ```
 
@@ -31,29 +31,35 @@ class ref GtkMisc is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L27)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L28)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkMisc ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkMisc val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkMisc](gtk3-GtkMisc.md) ref^
+* [GtkMisc](gtk3-GtkMisc.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L31)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkMisc ref^
+: GtkMisc val^
 ```
 #### Parameters
 
@@ -61,7 +67,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkMisc](gtk3-GtkMisc.md) ref^
+* [GtkMisc](gtk3-GtkMisc.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L34)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkMisc val^
+```
+
+#### Returns
+
+* [GtkMisc](gtk3-GtkMisc.md) val^
 
 ---
 
@@ -91,8 +112,76 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_alignment
+<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L40)</span>
+
+
+    Gets the X and Y alignment of the widget within its allocation.
+See gtk_misc_set_alignment().
+
+    {:doh, %{argctype: "gfloat*", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gfloat*", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_alignment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_padding
+<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L50)</span>
+
+
+    Gets the padding in the X and Y directions of the widget.
+See gtk_misc_set_padding().
+
+    {:doh, %{argctype: "gint*", argname: "xpad", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "ypad", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_padding()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_alignment
+<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L60)</span>
+
+
+    Sets the alignment of the widget.
+
+    {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_alignment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_padding
-<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L51)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMisc.md#L69)</span>
 
 
 Sets the amount of space to add around the widget.

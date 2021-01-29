@@ -26,7 +26,7 @@ stack pages.
 
 
 ```pony
-class ref GtkStackSwitcher is
+class val GtkStackSwitcher is
   GtkWidget ref
 ```
 
@@ -38,29 +38,35 @@ class ref GtkStackSwitcher is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L34)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L35)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkStackSwitcher ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkStackSwitcher val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkStackSwitcher](gtk3-GtkStackSwitcher.md) ref^
+* [GtkStackSwitcher](gtk3-GtkStackSwitcher.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L37)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L38)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkStackSwitcher ref^
+: GtkStackSwitcher val^
 ```
 #### Parameters
 
@@ -68,22 +74,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkStackSwitcher](gtk3-GtkStackSwitcher.md) ref^
+* [GtkStackSwitcher](gtk3-GtkStackSwitcher.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L41)</span>
 
 
 ```pony
-new ref create()
-: GtkStackSwitcher ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkStackSwitcher val^
 ```
 
 #### Returns
 
-* [GtkStackSwitcher](gtk3-GtkStackSwitcher.md) ref^
+* [GtkStackSwitcher](gtk3-GtkStackSwitcher.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L45)</span>
+
+
+```pony
+new val create()
+: GtkStackSwitcher val^
+```
+
+#### Returns
+
+* [GtkStackSwitcher](gtk3-GtkStackSwitcher.md) val^
 
 ---
 
@@ -110,6 +131,53 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_stack
+<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L49)</span>
+
+
+    Retrieves the stack.
+See gtk_stack_switcher_set_stack().
+
+    {:argctype, "GtkStack*"}
+{:argname, "rv"}
+{:argtype, "Stack"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_stack()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_stack
+<span class="source-link">[[Source]](src/gtk3/GtkStackSwitcher.md#L62)</span>
+
+
+    Sets the stack to control.
+
+    {:doh, %{argctype: "GtkStack*", argname: "stack", argtype: "Stack", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_stack()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

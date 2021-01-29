@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["None", "Bool", "U32", "I32", "GObjectREF"]
-provides: ["GtkCalendar"]
+provides: ["GtkCalendar val"]
 */
 use "../gobject"
-class GtkCalendar is GtkWidget
+class val GtkCalendar is GtkWidget
 """
 #GtkCalendar is a widget that displays a Gregorian calendar, one month
 at a time. It can be created with gtk_calendar_new().
@@ -28,17 +28,21 @@ legal calendar in most countries, it was adopted progressively
 between 1582 and 1929. Display before these dates is likely to be
 historically incorrect.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_calendar_new[GObjectREF]() //
 
 
@@ -48,11 +52,15 @@ Remove all visual markers.
 """
   @gtk_calendar_clear_marks[None](widget)
 
-/* get_date unavailable due to typing issues
- {:doh, %{argctype: "guint*", argname: "year", argtype: "guint", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_date(): None =>
+    """
+    Obtains the selected date from a #GtkCalendar.
+
+    {:doh, %{argctype: "guint*", argname: "year", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "month", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "day", argtype: "guint", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun get_day_is_marked(day_pony: U32): Bool =>
 """
@@ -74,12 +82,17 @@ See #GtkCalendar:detail-width-chars.
 """
   @gtk_calendar_get_detail_width_chars[I32](widget)
 
-/* get_display_options unavailable due to return typing issues
-{:argctype, "GtkCalendarDisplayOptions"}
+  fun pony_NOT_IMPLEMENTED_YET_get_display_options(): None =>
+    """
+    Returns the current display options of @calendar.
+
+    {:argctype, "GtkCalendarDisplayOptions"}
 {:argname, "rv"}
 {:argtype, "CalendarDisplayOptions"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun mark_day(day_pony: U32): None =>
 """
@@ -99,11 +112,24 @@ Shifts the calendar to a different month.
 """
   @gtk_calendar_select_month[None](widget, month_pony, year_pony)
 
-/* set_detail_func unavailable due to typing issues
- {:doh, %{argctype: "GtkCalendarDetailFunc", argname: "func", argtype: "CalendarDetailFunc", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_detail_func(): None =>
+    """
+    Installs a function which provides Pango markup with detail information
+for each day. Examples for such details are holidays or appointments. That
+information is shown below each day when #GtkCalendar:show-details is set.
+A tooltip containing with full detail information is provided, if the entire
+text should not fit into the details area, or if #GtkCalendar:show-details
+is not set.
+
+The size of the details area can be restricted by setting the
+#GtkCalendar:detail-width-chars and #GtkCalendar:detail-height-rows
+properties.
+
+    {:doh, %{argctype: "GtkCalendarDetailFunc", argname: "func", argtype: "CalendarDetailFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_detail_height_rows(rows_pony: I32): None =>
 """
@@ -119,9 +145,14 @@ See #GtkCalendar:detail-width-chars.
 """
   @gtk_calendar_set_detail_width_chars[None](widget, chars_pony)
 
-/* set_display_options unavailable due to typing issues
- {:doh, %{argctype: "GtkCalendarDisplayOptions", argname: "flags", argtype: "CalendarDisplayOptions", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_display_options(): None =>
+    """
+    Sets display options (whether to display the heading and the month
+headings).
+
+    {:doh, %{argctype: "GtkCalendarDisplayOptions", argname: "flags", argtype: "CalendarDisplayOptions", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun unmark_day(day_pony: U32): None =>
 """

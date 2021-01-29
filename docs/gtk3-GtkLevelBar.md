@@ -97,7 +97,7 @@ regardless of text direction.
 
 
 ```pony
-class ref GtkLevelBar is
+class val GtkLevelBar is
   GtkWidget ref
 ```
 
@@ -109,29 +109,35 @@ class ref GtkLevelBar is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L105)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L106)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkLevelBar ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkLevelBar val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkLevelBar](gtk3-GtkLevelBar.md) ref^
+* [GtkLevelBar](gtk3-GtkLevelBar.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L108)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L109)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkLevelBar ref^
+: GtkLevelBar val^
 ```
 #### Parameters
 
@@ -139,34 +145,49 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkLevelBar](gtk3-GtkLevelBar.md) ref^
+* [GtkLevelBar](gtk3-GtkLevelBar.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L112)</span>
 
 
 ```pony
-new ref create()
-: GtkLevelBar ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkLevelBar val^
 ```
 
 #### Returns
 
-* [GtkLevelBar](gtk3-GtkLevelBar.md) ref^
+* [GtkLevelBar](gtk3-GtkLevelBar.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L116)</span>
+
+
+```pony
+new val create()
+: GtkLevelBar val^
+```
+
+#### Returns
+
+* [GtkLevelBar](gtk3-GtkLevelBar.md) val^
 
 ---
 
 ### new_for_interval
-<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L115)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L119)</span>
 
 
 ```pony
-new ref new_for_interval(
+new val new_for_interval(
   min_value_pony: F64 val,
   max_value_pony: F64 val)
-: GtkLevelBar ref^
+: GtkLevelBar val^
 ```
 #### Parameters
 
@@ -175,7 +196,7 @@ new ref new_for_interval(
 
 #### Returns
 
-* [GtkLevelBar](gtk3-GtkLevelBar.md) ref^
+* [GtkLevelBar](gtk3-GtkLevelBar.md) val^
 
 ---
 
@@ -205,8 +226,36 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_add_offset_value
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L123)</span>
+
+
+    Adds a new offset marker on @self at the position specified by @value.
+When the bar value is in the interval topped by @value (or between @value
+and #GtkLevelBar:max-value in case the offset is the last one on the bar)
+a style class named `level-`@name will be applied
+when rendering the level bar fill.
+If another offset marker named @name exists, its value will be
+replaced by @value.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_offset_value()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_inverted
-<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L124)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L138)</span>
 
 
 Return the value of the #GtkLevelBar:inverted property.
@@ -223,8 +272,153 @@ fun box get_inverted()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_max_value
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L144)</span>
+
+
+    Returns the value of the #GtkLevelBar:max-value property.
+
+    {:argctype, "gdouble"}
+{:argname, "rv"}
+{:argtype, "gdouble"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_max_value()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_min_value
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L156)</span>
+
+
+    Returns the value of the #GtkLevelBar:min-value property.
+
+    {:argctype, "gdouble"}
+{:argname, "rv"}
+{:argtype, "gdouble"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_min_value()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_mode
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L168)</span>
+
+
+    Returns the value of the #GtkLevelBar:mode property.
+
+    {:argctype, "GtkLevelBarMode"}
+{:argname, "rv"}
+{:argtype, "LevelBarMode"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_mode()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_offset_value
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L180)</span>
+
+
+    Fetches the value specified for the offset marker @name in @self,
+returning %TRUE in case an offset named @name was found.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gdouble*", argname: "value", argtype: "gdouble", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_offset_value()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_value
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L190)</span>
+
+
+    Returns the value of the #GtkLevelBar:value property.
+
+    {:argctype, "gdouble"}
+{:argname, "rv"}
+{:argtype, "gdouble"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_value()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_remove_offset_value
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L202)</span>
+
+
+    Removes an offset marker previously added with
+gtk_level_bar_add_offset_value().
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_remove_offset_value()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_inverted
-<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L167)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L211)</span>
 
 
 Sets the value of the #GtkLevelBar:inverted property.
@@ -238,6 +432,96 @@ fun box set_inverted(
 #### Parameters
 
 *   inverted_pony: [Bool](builtin-Bool.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_max_value
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L217)</span>
+
+
+    Sets the value of the #GtkLevelBar:max-value property.
+
+You probably want to update preexisting level offsets after calling
+this function.
+
+    {:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_max_value()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_min_value
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L228)</span>
+
+
+    Sets the value of the #GtkLevelBar:min-value property.
+
+You probably want to update preexisting level offsets after calling
+this function.
+
+    {:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_min_value()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_mode
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L239)</span>
+
+
+    Sets the value of the #GtkLevelBar:mode property.
+
+    {:doh, %{argctype: "GtkLevelBarMode", argname: "mode", argtype: "LevelBarMode", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_mode()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_value
+<span class="source-link">[[Source]](src/gtk3/GtkLevelBar.md#L247)</span>
+
+
+    Sets the value of the #GtkLevelBar:value property.
+
+    {:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_value()
+: None val
+```
 
 #### Returns
 

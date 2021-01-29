@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF"]
-provides: ["GtkFontButton"]
+provides: ["GtkFontButton val"]
 */
 use "../gobject"
-class GtkFontButton is GtkWidget
+class val GtkFontButton is GtkWidget
 """
 The #GtkFontButton is a button which displays the currently selected
 font an allows to open a font chooser dialog to change the font.
@@ -14,20 +14,24 @@ It is suitable widget for selecting a font in a preference dialog.
 
 GtkFontButton has a single CSS node with name button and style class .font.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_font_button_new[GObjectREF]() //
 
-  new new_with_font(fontname_pony: String) =>
+  new val new_with_font(fontname_pony: String) =>
     widget = @gtk_font_button_new_with_font[GObjectREF](fontname_pony.cstring()) //
 
 
@@ -76,9 +80,13 @@ Returns whether the selected size is used in the label.
 """
   @gtk_font_button_get_use_size[Bool](widget)
 
-/* set_font_name unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "fontname", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_font_name(): None =>
+    """
+    Sets or updates the currently-displayed font in font picker dialog.
+
+    {:doh, %{argctype: "const gchar*", argname: "fontname", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_show_size(show_size_pony: Bool): None =>
 """
@@ -92,9 +100,13 @@ If @show_style is %TRUE, the font style will be displayed along with name of the
 """
   @gtk_font_button_set_show_style[None](widget, show_style_pony)
 
-/* set_title unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_title(): None =>
+    """
+    Sets the title for the font chooser dialog.
+
+    {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_use_font(use_font_pony: Bool): None =>
 """

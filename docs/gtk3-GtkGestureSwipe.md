@@ -14,7 +14,7 @@ All velocities are reported in pixels/sec units.
 
 
 ```pony
-class ref GtkGestureSwipe is
+class val GtkGestureSwipe is
   GtkWidget ref
 ```
 
@@ -26,29 +26,35 @@ class ref GtkGestureSwipe is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L22)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L23)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkGestureSwipe ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkGestureSwipe val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkGestureSwipe](gtk3-GtkGestureSwipe.md) ref^
+* [GtkGestureSwipe](gtk3-GtkGestureSwipe.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L25)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L26)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkGestureSwipe ref^
+: GtkGestureSwipe val^
 ```
 #### Parameters
 
@@ -56,26 +62,41 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkGestureSwipe](gtk3-GtkGestureSwipe.md) ref^
+* [GtkGestureSwipe](gtk3-GtkGestureSwipe.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L29)</span>
 
 
 ```pony
-new ref create(
-  widget_pony: GtkWidget ref)
-: GtkGestureSwipe ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkGestureSwipe val^
 ```
-#### Parameters
-
-*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) ref
 
 #### Returns
 
-* [GtkGestureSwipe](gtk3-GtkGestureSwipe.md) ref^
+* [GtkGestureSwipe](gtk3-GtkGestureSwipe.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L33)</span>
+
+
+```pony
+new val create(
+  widget_pony: GtkWidget val)
+: GtkGestureSwipe val^
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [GtkGestureSwipe](gtk3-GtkGestureSwipe.md) val^
 
 ---
 
@@ -102,6 +123,30 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_velocity
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSwipe.md#L37)</span>
+
+
+    If the gesture is recognized, this function returns %TRUE and fill in
+@velocity_x and @velocity_y with the recorded velocity, as per the
+last event(s) processed.
+
+    {:doh, %{argctype: "gdouble*", argname: "velocity_x", argtype: "gdouble", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gdouble*", argname: "velocity_y", argtype: "gdouble", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_velocity()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

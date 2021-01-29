@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkCellAccessible is
+class val GtkCellAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkCellAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCellAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCellAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCellAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCellAccessible](gtk3-GtkCellAccessible.md) ref^
+* [GtkCellAccessible](gtk3-GtkCellAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCellAccessible ref^
+: GtkCellAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCellAccessible](gtk3-GtkCellAccessible.md) ref^
+* [GtkCellAccessible](gtk3-GtkCellAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkCellAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkCellAccessible val^
+```
+
+#### Returns
+
+* [GtkCellAccessible](gtk3-GtkCellAccessible.md) val^
 
 ---
 

@@ -39,7 +39,7 @@ has been set or not. You should not set them independently.
 
 
 ```pony
-class ref GtkCellRenderer is
+class val GtkCellRenderer is
   GtkWidget ref
 ```
 
@@ -51,29 +51,35 @@ class ref GtkCellRenderer is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L47)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L48)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCellRenderer ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCellRenderer val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCellRenderer](gtk3-GtkCellRenderer.md) ref^
+* [GtkCellRenderer](gtk3-GtkCellRenderer.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L50)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L51)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCellRenderer ref^
+: GtkCellRenderer val^
 ```
 #### Parameters
 
@@ -81,7 +87,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCellRenderer](gtk3-GtkCellRenderer.md) ref^
+* [GtkCellRenderer](gtk3-GtkCellRenderer.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L54)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkCellRenderer val^
+```
+
+#### Returns
+
+* [GtkCellRenderer](gtk3-GtkCellRenderer.md) val^
 
 ---
 
@@ -111,8 +132,264 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_activate
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L60)</span>
+
+
+    Passes an activate event to the cell renderer for possible processing.
+Some cell renderers may use events; for example, #GtkCellRendererToggle
+toggles when it gets a mouse click.
+
+    {:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const GdkRectangle*", argname: "background_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkCellRendererState", argname: "flags", argtype: "CellRendererState", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_activate()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_aligned_area
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L74)</span>
+
+
+    Gets the aligned area used by @cell inside @cell_area. Used for finding
+the appropriate edit and focus rectangle.
+
+    {:doh, %{argctype: "GtkCellRendererState", argname: "flags", argtype: "CellRendererState", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GdkRectangle*", argname: "aligned_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_aligned_area()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_alignment
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L85)</span>
+
+
+    Fills in @xalign and @yalign with the appropriate values of @cell.
+
+    {:doh, %{argctype: "gfloat*", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gfloat*", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_alignment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_fixed_size
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L94)</span>
+
+
+    Fills in @width and @height with the appropriate size of @cell.
+
+    {:doh, %{argctype: "gint*", argname: "width", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "height", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_fixed_size()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_padding
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L103)</span>
+
+
+    Fills in @xpad and @ypad with the appropriate values of @cell.
+
+    {:doh, %{argctype: "gint*", argname: "xpad", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "ypad", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_padding()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_preferred_height
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L112)</span>
+
+
+    Retreives a renderer’s natural size when rendered to @widget.
+
+    {:doh, %{argctype: "gint*", argname: "minimum_size", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "natural_size", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_preferred_height()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_preferred_height_for_width
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L121)</span>
+
+
+    Retreives a cell renderers’s minimum and natural height if it were rendered to
+@widget with the specified @width.
+
+    {:doh, %{argctype: "gint*", argname: "minimum_height", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "natural_height", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_preferred_height_for_width()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_preferred_size
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L131)</span>
+
+
+    Retrieves the minimum and natural size of a cell taking
+into account the widget’s preference for height-for-width management.
+
+    {:doh, %{argctype: "GtkRequisition*", argname: "minimum_size", argtype: "Requisition", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkRequisition*", argname: "natural_size", argtype: "Requisition", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_preferred_size()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_preferred_width
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L141)</span>
+
+
+    Retreives a renderer’s natural size when rendered to @widget.
+
+    {:doh, %{argctype: "gint*", argname: "minimum_size", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "natural_size", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_preferred_width()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_preferred_width_for_height
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L150)</span>
+
+
+    Retreives a cell renderers’s minimum and natural width if it were rendered to
+@widget with the specified @height.
+
+    {:doh, %{argctype: "gint*", argname: "minimum_width", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "natural_width", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_preferred_width_for_height()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_request_mode
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L160)</span>
+
+
+    Gets whether the cell renderer prefers a height-for-width layout
+or a width-for-height layout.
+
+    {:argctype, "GtkSizeRequestMode"}
+{:argname, "rv"}
+{:argtype, "SizeRequestMode"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_request_mode()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L124)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L173)</span>
 
 
 Returns the cell renderer’s sensitivity.
@@ -129,8 +406,66 @@ fun box get_sensitive()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_size
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L179)</span>
+
+
+    Obtains the width and height needed to render the cell. Used by view
+widgets to determine the appropriate size for the cell_area passed to
+gtk_cell_renderer_render().  If @cell_area is not %NULL, fills in the
+x and y offsets (if set) of the cell relative to this location.
+
+Please note that the values set in @width and @height, as well as those
+in @x_offset and @y_offset are inclusive of the xpad and ypad properties.
+
+    {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gint*", argname: "x_offset", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "y_offset", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "width", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "height", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_size()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_state
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L197)</span>
+
+
+    Translates the cell renderer state to #GtkStateFlags,
+based on the cell renderer and widget sensitivity, and
+the given #GtkCellRendererState.
+
+    {:argctype, "GtkStateFlags"}
+{:argname, "rv"}
+{:argtype, "StateFlags"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_state()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L146)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L211)</span>
 
 
 Returns the cell renderer’s visibility.
@@ -148,7 +483,7 @@ fun box get_visible()
 ---
 
 ### is_activatable
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L152)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L217)</span>
 
 
 Checks whether the cell renderer can do something when activated.
@@ -165,8 +500,60 @@ fun box is_activatable()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_render
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L223)</span>
+
+
+    Invokes the virtual render function of the #GtkCellRenderer. The three
+passed-in rectangles are areas in @cr. Most renderers will draw within
+@cell_area; the xalign, yalign, xpad, and ypad fields of the #GtkCellRenderer
+should be honored with respect to @cell_area. @background_area includes the
+blank space around the cell, and also the area containing the tree expander;
+so the @background_area rectangles for all cells tile to cover the entire
+@window.
+
+    {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const GdkRectangle*", argname: "background_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkCellRendererState", argname: "flags", argtype: "CellRendererState", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_render()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_alignment
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L240)</span>
+
+
+    Sets the renderer’s alignment within its available space.
+
+    {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_alignment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_fixed_size
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L171)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L249)</span>
 
 
 Sets the renderer size to be explicit, independent of the properties set.
@@ -190,7 +577,7 @@ fun box set_fixed_size(
 ---
 
 ### set_padding
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L177)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L255)</span>
 
 
 Sets the renderer’s padding.
@@ -214,7 +601,7 @@ fun box set_padding(
 ---
 
 ### set_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L183)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L261)</span>
 
 
 Sets the cell renderer’s sensitivity.
@@ -236,7 +623,7 @@ fun box set_sensitive(
 ---
 
 ### set_visible
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L189)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L267)</span>
 
 
 Sets the cell renderer’s visibility.
@@ -257,8 +644,34 @@ fun box set_visible(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_start_editing
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L273)</span>
+
+
+    Starts editing the contents of this @cell, through a new #GtkCellEditable
+widget created by the #GtkCellRendererClass.start_editing virtual function.
+
+    {:argctype, "GtkCellEditable*"}
+{:argname, "rv"}
+{:argtype, "CellEditable"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_start_editing()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### stop_editing
-<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L202)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRenderer.md#L286)</span>
 
 
 Informs the cell renderer that the editing is stopped.

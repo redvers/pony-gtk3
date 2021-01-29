@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["None", "Pointer[U8 val] ref", "String", "Bool", "I32", "GObjectREF"]
-provides: ["GtkMenuItem"]
+   needs: ["None", "Pointer[U8 val] ref", "String", "Bool", "GObjectREF", "GtkWidget val", "I32"]
+provides: ["GtkMenuItem val"]
 */
 use "../gobject"
-class GtkMenuItem is GtkWidget
+class val GtkMenuItem is GtkWidget
 """
 The #GtkMenuItem widget and the derived widgets are the only valid
 children for menus. Their function is to correctly handle highlighting,
@@ -53,23 +53,27 @@ GtkMenuItem has a single CSS node with name menuitem. If the menuitem
 has a submenu, it gets another CSS node with name arrow, which has
 the .left or .right style class.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_menu_item_new[GObjectREF]() //
 
-  new new_with_label(label_pony: String) =>
+  new val new_with_label(label_pony: String) =>
     widget = @gtk_menu_item_new_with_label[GObjectREF](label_pony.cstring()) //
 
-  new new_with_mnemonic(label_pony: String) =>
+  new val new_with_mnemonic(label_pony: String) =>
     widget = @gtk_menu_item_new_with_mnemonic[GObjectREF](label_pony.cstring()) //
 
 
@@ -118,12 +122,12 @@ side of the menu bar.
 """
   @gtk_menu_item_get_right_justified[Bool](widget)
 
-/* get_submenu unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+Gets the submenu underneath this menu item, if any.
+See gtk_menu_item_set_submenu().
+  fun get_submenu(): GtkWidget val =>
+    @gtk_menu_item_get_submenu[GObjectREF](widget)
+*/
 
 fun get_use_underline(): Bool =>
 """
@@ -138,13 +142,39 @@ Emits the #GtkMenuItem::select signal on the given item.
 """
   @gtk_menu_item_select[None](widget)
 
-/* set_accel_path unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "accel_path", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_accel_path(): None =>
+    """
+    Set the accelerator path on @menu_item, through which runtime
+changes of the menu item’s accelerator caused by the user can be
+identified and saved to persistent storage (see gtk_accel_map_save()
+on this). To set up a default accelerator for this menu item, call
+gtk_accel_map_add_entry() with the same @accel_path. See also
+gtk_accel_map_add_entry() on the specifics of accelerator paths,
+and gtk_menu_set_accel_path() for a more convenient variant of
+this function.
 
-/* set_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+This function is basically a convenience wrapper that handles
+calling gtk_widget_set_accel_path() with the appropriate accelerator
+group for the menu item.
+
+Note that you do need to set an accelerator on the parent menu with
+gtk_menu_set_accel_group() for this to work.
+
+Note that @accel_path string will be stored in a #GQuark.
+Therefore, if you pass a static string, you can save some memory
+by interning it first with g_intern_static_string().
+
+    {:doh, %{argctype: "const gchar*", argname: "accel_path", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_label(): None =>
+    """
+    Sets @text on the @menu_item label
+
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_reserve_indicator(reserve_pony: Bool): None =>
 """
@@ -167,9 +197,14 @@ or Arabic, right-justified-menu-items appear at the left.)
 """
   @gtk_menu_item_set_right_justified[None](widget, right_justified_pony)
 
-/* set_submenu unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "submenu", argtype: "Menu", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_submenu(): None =>
+    """
+    Sets or replaces the menu item’s submenu, or removes it when a %NULL
+submenu is passed.
+
+    {:doh, %{argctype: "GtkWidget*", argname: "submenu", argtype: "Menu", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_use_underline(setting_pony: Bool): None =>
 """
@@ -184,9 +219,13 @@ Emits the #GtkMenuItem::toggle-size-allocate signal on the given item.
 """
   @gtk_menu_item_toggle_size_allocate[None](widget, allocation_pony)
 
-/* toggle_size_request unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "requisition", argtype: "gint", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_toggle_size_request(): None =>
+    """
+    Emits the #GtkMenuItem::toggle-size-request signal on the given item.
+
+    {:doh, %{argctype: "gint*", argname: "requisition", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
 
 ```````

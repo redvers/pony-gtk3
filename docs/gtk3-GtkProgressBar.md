@@ -43,7 +43,7 @@ in overlays like the one Epiphany has for page loading progress.
 
 
 ```pony
-class ref GtkProgressBar is
+class val GtkProgressBar is
   GtkWidget ref
 ```
 
@@ -55,29 +55,35 @@ class ref GtkProgressBar is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L51)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L52)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkProgressBar ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkProgressBar val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkProgressBar](gtk3-GtkProgressBar.md) ref^
+* [GtkProgressBar](gtk3-GtkProgressBar.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L55)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkProgressBar ref^
+: GtkProgressBar val^
 ```
 #### Parameters
 
@@ -85,22 +91,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkProgressBar](gtk3-GtkProgressBar.md) ref^
+* [GtkProgressBar](gtk3-GtkProgressBar.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L58)</span>
 
 
 ```pony
-new ref create()
-: GtkProgressBar ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkProgressBar val^
 ```
 
 #### Returns
 
-* [GtkProgressBar](gtk3-GtkProgressBar.md) ref^
+* [GtkProgressBar](gtk3-GtkProgressBar.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L62)</span>
+
+
+```pony
+new val create()
+: GtkProgressBar val^
+```
+
+#### Returns
+
+* [GtkProgressBar](gtk3-GtkProgressBar.md) val^
 
 ---
 
@@ -130,8 +151,59 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_ellipsize
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L66)</span>
+
+
+    Returns the ellipsizing position of the progress bar.
+See gtk_progress_bar_set_ellipsize().
+
+    {:argctype, "PangoEllipsizeMode"}
+{:argname, "rv"}
+{:argtype, "Pango.EllipsizeMode"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_ellipsize()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_fraction
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L79)</span>
+
+
+    Returns the current fraction of the task that’s been completed.
+
+    {:argctype, "gdouble"}
+{:argname, "rv"}
+{:argtype, "gdouble"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_fraction()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_inverted
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L76)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L91)</span>
 
 
 Gets the value set by gtk_progress_bar_set_inverted().
@@ -148,8 +220,33 @@ fun box get_inverted()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_pulse_step
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L97)</span>
+
+
+    Retrieves the pulse step set with gtk_progress_bar_set_pulse_step().
+
+    {:argctype, "gdouble"}
+{:argname, "rv"}
+{:argtype, "gdouble"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_pulse_step()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_show_text
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L89)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L109)</span>
 
 
 Gets the value of the #GtkProgressBar:show-text property.
@@ -168,7 +265,7 @@ fun box get_show_text()
 ---
 
 ### get_text
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L96)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L116)</span>
 
 
 Retrieves the text that is displayed with the progress bar,
@@ -189,7 +286,7 @@ fun box get_text()
 ---
 
 ### pulse
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L107)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L127)</span>
 
 
 Indicates that some progress has been made, but you don’t know how much.
@@ -210,8 +307,53 @@ fun box pulse()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_ellipsize
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L137)</span>
+
+
+    Sets the mode used to ellipsize (add an ellipsis: "...") the
+text if there is not enough space to render the entire string.
+
+    {:doh, %{argctype: "PangoEllipsizeMode", argname: "mode", argtype: "Pango.EllipsizeMode", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_ellipsize()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_fraction
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L146)</span>
+
+
+    Causes the progress bar to “fill in” the given fraction
+of the bar. The fraction should be between 0.0 and 1.0,
+inclusive.
+
+    {:doh, %{argctype: "gdouble", argname: "fraction", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_fraction()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_inverted
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L125)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L156)</span>
 
 
 Progress bars normally grow from top to bottom or left to right.
@@ -233,8 +375,30 @@ fun box set_inverted(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_pulse_step
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L163)</span>
+
+
+    Sets the fraction of total progress bar length to move the
+bouncing block for each call to gtk_progress_bar_pulse().
+
+    {:doh, %{argctype: "gdouble", argname: "fraction", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_pulse_step()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_show_text
-<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L136)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L172)</span>
 
 
 Sets whether the progress bar will show text next to the bar.
@@ -255,6 +419,36 @@ fun box set_show_text(
 #### Parameters
 
 *   show_text_pony: [Bool](builtin-Bool.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_text
+<span class="source-link">[[Source]](src/gtk3/GtkProgressBar.md#L185)</span>
+
+
+    Causes the given @text to appear next to the progress bar.
+
+If @text is %NULL and #GtkProgressBar:show-text is %TRUE, the current
+value of #GtkProgressBar:fraction will be displayed as a percentage.
+
+If @text is non-%NULL and #GtkProgressBar:show-text is %TRUE, the text
+will be displayed. In this case, it will not display the progress
+percentage. If @text is the empty string, the progress bar will still
+be styled and sized suitably for containing text, as long as
+#GtkProgressBar:show-text is %TRUE.
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_text()
+: None val
+```
 
 #### Returns
 

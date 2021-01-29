@@ -12,7 +12,7 @@ GtkToggleToolButton has a single CSS node with name togglebutton.
 
 
 ```pony
-class ref GtkToggleToolButton is
+class val GtkToggleToolButton is
   GtkWidget ref
 ```
 
@@ -24,29 +24,35 @@ class ref GtkToggleToolButton is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L20)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L21)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkToggleToolButton ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkToggleToolButton val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkToggleToolButton](gtk3-GtkToggleToolButton.md) ref^
+* [GtkToggleToolButton](gtk3-GtkToggleToolButton.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L23)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L24)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkToggleToolButton ref^
+: GtkToggleToolButton val^
 ```
 #### Parameters
 
@@ -54,33 +60,48 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkToggleToolButton](gtk3-GtkToggleToolButton.md) ref^
+* [GtkToggleToolButton](gtk3-GtkToggleToolButton.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L27)</span>
 
 
 ```pony
-new ref create()
-: GtkToggleToolButton ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkToggleToolButton val^
 ```
 
 #### Returns
 
-* [GtkToggleToolButton](gtk3-GtkToggleToolButton.md) ref^
+* [GtkToggleToolButton](gtk3-GtkToggleToolButton.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L31)</span>
+
+
+```pony
+new val create()
+: GtkToggleToolButton val^
+```
+
+#### Returns
+
+* [GtkToggleToolButton](gtk3-GtkToggleToolButton.md) val^
 
 ---
 
 ### new_from_stock
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L34)</span>
 
 
 ```pony
-new ref new_from_stock(
+new val new_from_stock(
   stock_id_pony: String val)
-: GtkToggleToolButton ref^
+: GtkToggleToolButton val^
 ```
 #### Parameters
 
@@ -88,7 +109,7 @@ new ref new_from_stock(
 
 #### Returns
 
-* [GtkToggleToolButton](gtk3-GtkToggleToolButton.md) ref^
+* [GtkToggleToolButton](gtk3-GtkToggleToolButton.md) val^
 
 ---
 
@@ -119,7 +140,7 @@ fun box gtkwidget()
 ---
 
 ### get_active
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L38)</span>
 
 
 Queries a #GtkToggleToolButton and returns its current state.
@@ -138,7 +159,7 @@ fun box get_active()
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L41)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleToolButton.md#L45)</span>
 
 
 Sets the status of the toggle tool button. Set to %TRUE if you

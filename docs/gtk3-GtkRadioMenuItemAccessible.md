@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkRadioMenuItemAccessible is
+class val GtkRadioMenuItemAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkRadioMenuItemAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRadioMenuItemAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkRadioMenuItemAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkRadioMenuItemAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkRadioMenuItemAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkRadioMenuItemAccessible](gtk3-GtkRadioMenuItemAccessible.md) ref^
+* [GtkRadioMenuItemAccessible](gtk3-GtkRadioMenuItemAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRadioMenuItemAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRadioMenuItemAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkRadioMenuItemAccessible ref^
+: GtkRadioMenuItemAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkRadioMenuItemAccessible](gtk3-GtkRadioMenuItemAccessible.md) ref^
+* [GtkRadioMenuItemAccessible](gtk3-GtkRadioMenuItemAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkRadioMenuItemAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkRadioMenuItemAccessible val^
+```
+
+#### Returns
+
+* [GtkRadioMenuItemAccessible](gtk3-GtkRadioMenuItemAccessible.md) val^
 
 ---
 

@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkScrolledWindowAccessible is
+class val GtkScrolledWindowAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkScrolledWindowAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindowAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindowAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkScrolledWindowAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkScrolledWindowAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkScrolledWindowAccessible](gtk3-GtkScrolledWindowAccessible.md) ref^
+* [GtkScrolledWindowAccessible](gtk3-GtkScrolledWindowAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindowAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindowAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkScrolledWindowAccessible ref^
+: GtkScrolledWindowAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkScrolledWindowAccessible](gtk3-GtkScrolledWindowAccessible.md) ref^
+* [GtkScrolledWindowAccessible](gtk3-GtkScrolledWindowAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkScrolledWindowAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkScrolledWindowAccessible val^
+```
+
+#### Returns
+
+* [GtkScrolledWindowAccessible](gtk3-GtkScrolledWindowAccessible.md) val^
 
 ---
 

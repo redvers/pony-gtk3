@@ -24,7 +24,7 @@ GtkColorChooserWidget has a single CSS node with name colorchooser.
 
 
 ```pony
-class ref GtkColorChooserWidget is
+class val GtkColorChooserWidget is
   GtkWidget ref
 ```
 
@@ -36,29 +36,35 @@ class ref GtkColorChooserWidget is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkColorChooserWidget.md#L32)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkColorChooserWidget.md#L33)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkColorChooserWidget ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkColorChooserWidget val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkColorChooserWidget](gtk3-GtkColorChooserWidget.md) ref^
+* [GtkColorChooserWidget](gtk3-GtkColorChooserWidget.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkColorChooserWidget.md#L35)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorChooserWidget.md#L36)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkColorChooserWidget ref^
+: GtkColorChooserWidget val^
 ```
 #### Parameters
 
@@ -66,22 +72,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkColorChooserWidget](gtk3-GtkColorChooserWidget.md) ref^
+* [GtkColorChooserWidget](gtk3-GtkColorChooserWidget.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkColorChooserWidget.md#L39)</span>
 
 
 ```pony
-new ref create()
-: GtkColorChooserWidget ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkColorChooserWidget val^
 ```
 
 #### Returns
 
-* [GtkColorChooserWidget](gtk3-GtkColorChooserWidget.md) ref^
+* [GtkColorChooserWidget](gtk3-GtkColorChooserWidget.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkColorChooserWidget.md#L43)</span>
+
+
+```pony
+new val create()
+: GtkColorChooserWidget val^
+```
+
+#### Returns
+
+* [GtkColorChooserWidget](gtk3-GtkColorChooserWidget.md) val^
 
 ---
 

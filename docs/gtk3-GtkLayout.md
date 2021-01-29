@@ -16,7 +16,7 @@ gtk_widget_get_window() as you would for a #GtkDrawingArea.
 
 
 ```pony
-class ref GtkLayout is
+class val GtkLayout is
   GtkWidget ref
 ```
 
@@ -28,29 +28,35 @@ class ref GtkLayout is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L24)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L25)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkLayout ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkLayout val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkLayout](gtk3-GtkLayout.md) ref^
+* [GtkLayout](gtk3-GtkLayout.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L28)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkLayout ref^
+: GtkLayout val^
 ```
 #### Parameters
 
@@ -58,28 +64,43 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkLayout](gtk3-GtkLayout.md) ref^
+* [GtkLayout](gtk3-GtkLayout.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L31)</span>
 
 
 ```pony
-new ref create(
-  hadjustment_pony: GtkAdjustment ref,
-  vadjustment_pony: GtkAdjustment ref)
-: GtkLayout ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkLayout val^
 ```
-#### Parameters
-
-*   hadjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) ref
-*   vadjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) ref
 
 #### Returns
 
-* [GtkLayout](gtk3-GtkLayout.md) ref^
+* [GtkLayout](gtk3-GtkLayout.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L35)</span>
+
+
+```pony
+new val create(
+  hadjustment_pony: GtkAdjustment val,
+  vadjustment_pony: GtkAdjustment val)
+: GtkLayout val^
+```
+#### Parameters
+
+*   hadjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) val
+*   vadjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) val
+
+#### Returns
+
+* [GtkLayout](gtk3-GtkLayout.md) val^
 
 ---
 
@@ -109,8 +130,193 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_bin_window
+<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L39)</span>
+
+
+    Retrieve the bin window of the layout used for drawing operations.
+
+    {:argctype, "GdkWindow*"}
+{:argname, "rv"}
+{:argtype, "Gdk.Window"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_bin_window()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_hadjustment
+<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L51)</span>
+
+
+    This function should only be called after the layout has been
+placed in a #GtkScrolledWindow or otherwise configured for
+scrolling. It returns the #GtkAdjustment used for communication
+between the horizontal scrollbar and @layout.
+
+See #GtkScrolledWindow, #GtkScrollbar, #GtkAdjustment for details.
+
+    {:argctype, "GtkAdjustment*"}
+{:argname, "rv"}
+{:argtype, "Adjustment"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_hadjustment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_size
+<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L68)</span>
+
+
+    Gets the size that has been set on the layout, and that determines
+the total extents of the layout’s scrollbar area. See
+gtk_layout_set_size ().
+
+    {:doh, %{argctype: "guint*", argname: "width", argtype: "guint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "guint*", argname: "height", argtype: "guint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_size()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_vadjustment
+<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L79)</span>
+
+
+    This function should only be called after the layout has been
+placed in a #GtkScrolledWindow or otherwise configured for
+scrolling. It returns the #GtkAdjustment used for communication
+between the vertical scrollbar and @layout.
+
+See #GtkScrolledWindow, #GtkScrollbar, #GtkAdjustment for details.
+
+    {:argctype, "GtkAdjustment*"}
+{:argname, "rv"}
+{:argtype, "Adjustment"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_vadjustment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### move
+<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L96)</span>
+
+
+Moves a current child of @layout to a new position.
+
+
+```pony
+fun box move(
+  child_widget_pony: GtkWidget val,
+  x_pony: I32 val,
+  y_pony: I32 val)
+: None val
+```
+#### Parameters
+
+*   child_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+*   x_pony: [I32](builtin-I32.md) val
+*   y_pony: [I32](builtin-I32.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### put
+<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L102)</span>
+
+
+Adds @child_widget to @layout, at position (@x,@y).
+@layout becomes the new parent container of @child_widget.
+
+
+```pony
+fun box put(
+  child_widget_pony: GtkWidget val,
+  x_pony: I32 val,
+  y_pony: I32 val)
+: None val
+```
+#### Parameters
+
+*   child_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+*   x_pony: [I32](builtin-I32.md) val
+*   y_pony: [I32](builtin-I32.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_hadjustment
+<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L109)</span>
+
+
+    Sets the horizontal scroll adjustment for the layout.
+
+See #GtkScrolledWindow, #GtkScrollbar, #GtkAdjustment for details.
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_hadjustment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_size
-<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L73)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L119)</span>
 
 
 Sets the size of the scrollable area of the layout.
@@ -126,6 +332,29 @@ fun box set_size(
 
 *   width_pony: [U32](builtin-U32.md) val
 *   height_pony: [U32](builtin-U32.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_vadjustment
+<span class="source-link">[[Source]](src/gtk3/GtkLayout.md#L125)</span>
+
+
+    Sets the vertical scroll adjustment for the layout.
+
+See #GtkScrolledWindow, #GtkScrollbar, #GtkAdjustment for details.
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_vadjustment()
+: None val
+```
 
 #### Returns
 

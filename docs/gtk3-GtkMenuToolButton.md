@@ -25,7 +25,7 @@ An example for a UI definition fragment with menus:
 
 
 ```pony
-class ref GtkMenuToolButton is
+class val GtkMenuToolButton is
   GtkWidget ref
 ```
 
@@ -37,29 +37,35 @@ class ref GtkMenuToolButton is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkMenuToolButton.md#L33)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkMenuToolButton.md#L34)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkMenuToolButton ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkMenuToolButton val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkMenuToolButton](gtk3-GtkMenuToolButton.md) ref^
+* [GtkMenuToolButton](gtk3-GtkMenuToolButton.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkMenuToolButton.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuToolButton.md#L37)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkMenuToolButton ref^
+: GtkMenuToolButton val^
 ```
 #### Parameters
 
@@ -67,39 +73,54 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkMenuToolButton](gtk3-GtkMenuToolButton.md) ref^
+* [GtkMenuToolButton](gtk3-GtkMenuToolButton.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkMenuToolButton.md#L40)</span>
 
 
 ```pony
-new ref create(
-  icon_widget_pony: GtkWidget ref,
+new val never_call_this_constructor_or_else_tm()
+: GtkMenuToolButton val^
+```
+
+#### Returns
+
+* [GtkMenuToolButton](gtk3-GtkMenuToolButton.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkMenuToolButton.md#L44)</span>
+
+
+```pony
+new val create(
+  icon_widget_pony: GtkWidget val,
   label_pony: String val)
-: GtkMenuToolButton ref^
+: GtkMenuToolButton val^
 ```
 #### Parameters
 
-*   icon_widget_pony: [GtkWidget](gtk3-GtkWidget.md) ref
+*   icon_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
 *   label_pony: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkMenuToolButton](gtk3-GtkMenuToolButton.md) ref^
+* [GtkMenuToolButton](gtk3-GtkMenuToolButton.md) val^
 
 ---
 
 ### new_from_stock
-<span class="source-link">[[Source]](src/gtk3/GtkMenuToolButton.md#L43)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuToolButton.md#L47)</span>
 
 
 ```pony
-new ref new_from_stock(
+new val new_from_stock(
   stock_id_pony: String val)
-: GtkMenuToolButton ref^
+: GtkMenuToolButton val^
 ```
 #### Parameters
 
@@ -107,7 +128,7 @@ new ref new_from_stock(
 
 #### Returns
 
-* [GtkMenuToolButton](gtk3-GtkMenuToolButton.md) ref^
+* [GtkMenuToolButton](gtk3-GtkMenuToolButton.md) val^
 
 ---
 
@@ -134,6 +155,75 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_arrow_tooltip_markup
+<span class="source-link">[[Source]](src/gtk3/GtkMenuToolButton.md#L57)</span>
+
+
+    Sets the tooltip markup text to be used as tooltip for the arrow button
+which pops up the menu.  See gtk_tool_item_set_tooltip_text() for setting
+a tooltip on the whole #GtkMenuToolButton.
+
+    {:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_arrow_tooltip_markup()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_arrow_tooltip_text
+<span class="source-link">[[Source]](src/gtk3/GtkMenuToolButton.md#L67)</span>
+
+
+    Sets the tooltip text to be used as tooltip for the arrow button which
+pops up the menu.  See gtk_tool_item_set_tooltip_text() for setting a tooltip
+on the whole #GtkMenuToolButton.
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_arrow_tooltip_text()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_menu
+<span class="source-link">[[Source]](src/gtk3/GtkMenuToolButton.md#L77)</span>
+
+
+Sets the #GtkMenu that is popped up when the user clicks on the arrow.
+If @menu is NULL, the arrow button becomes insensitive.
+
+
+```pony
+fun box set_menu(
+  menu_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   menu_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

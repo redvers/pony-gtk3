@@ -17,7 +17,7 @@ GtkSeparatorToolItem has a single CSS node with name separator.
 
 
 ```pony
-class ref GtkSeparatorToolItem is
+class val GtkSeparatorToolItem is
   GtkWidget ref
 ```
 
@@ -29,29 +29,35 @@ class ref GtkSeparatorToolItem is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L25)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L26)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkSeparatorToolItem ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkSeparatorToolItem val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkSeparatorToolItem](gtk3-GtkSeparatorToolItem.md) ref^
+* [GtkSeparatorToolItem](gtk3-GtkSeparatorToolItem.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L28)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L29)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkSeparatorToolItem ref^
+: GtkSeparatorToolItem val^
 ```
 #### Parameters
 
@@ -59,22 +65,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkSeparatorToolItem](gtk3-GtkSeparatorToolItem.md) ref^
+* [GtkSeparatorToolItem](gtk3-GtkSeparatorToolItem.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L32)</span>
 
 
 ```pony
-new ref create()
-: GtkSeparatorToolItem ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkSeparatorToolItem val^
 ```
 
 #### Returns
 
-* [GtkSeparatorToolItem](gtk3-GtkSeparatorToolItem.md) ref^
+* [GtkSeparatorToolItem](gtk3-GtkSeparatorToolItem.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L36)</span>
+
+
+```pony
+new val create()
+: GtkSeparatorToolItem val^
+```
+
+#### Returns
+
+* [GtkSeparatorToolItem](gtk3-GtkSeparatorToolItem.md) val^
 
 ---
 
@@ -105,7 +126,7 @@ fun box gtkwidget()
 ---
 
 ### get_draw
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L40)</span>
 
 
 Returns whether @item is drawn as a line, or just blank.
@@ -124,7 +145,7 @@ fun box get_draw()
 ---
 
 ### set_draw
-<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L43)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSeparatorToolItem.md#L47)</span>
 
 
 Whether @item is drawn as a vertical line, or just blank.

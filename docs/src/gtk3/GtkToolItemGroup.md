@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["Bool", "Pointer[U8 val] ref", "String", "U32", "None", "GObjectREF"]
-provides: ["GtkToolItemGroup"]
+   needs: ["Bool", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget val", "U32", "None"]
+provides: ["GtkToolItemGroup val"]
 */
 use "../gobject"
-class GtkToolItemGroup is GtkWidget
+class val GtkToolItemGroup is GtkWidget
 """
 A #GtkToolItemGroup is used together with #GtkToolPalette to add
 #GtkToolItems to a palette like container with different
@@ -14,17 +14,21 @@ categories and drag and drop support.
 
 GtkToolItemGroup has a single CSS node named toolitemgroup.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(label_pony: String) =>
+
+  new val create(label_pony: String) =>
     widget = @gtk_tool_item_group_new[GObjectREF](label_pony.cstring()) //
 
 
@@ -34,30 +38,49 @@ Gets whether @group is collapsed or expanded.
 """
   @gtk_tool_item_group_get_collapsed[Bool](widget)
 
-/* get_drop_item unavailable due to return typing issues
-{:argctype, "GtkToolItem*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_drop_item(): None =>
+    """
+    Gets the tool item at position (x, y).
+
+    {:argctype, "GtkToolItem*"}
 {:argname, "rv"}
 {:argtype, "ToolItem"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_ellipsize unavailable due to return typing issues
-{:argctype, "PangoEllipsizeMode"}
+  fun pony_NOT_IMPLEMENTED_YET_get_ellipsize(): None =>
+    """
+    Gets the ellipsization mode of @group.
+
+    {:argctype, "PangoEllipsizeMode"}
 {:argname, "rv"}
 {:argtype, "Pango.EllipsizeMode"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_header_relief unavailable due to return typing issues
-{:argctype, "GtkReliefStyle"}
+  fun pony_NOT_IMPLEMENTED_YET_get_header_relief(): None =>
+    """
+    Gets the relief mode of the header button of @group.
+
+    {:argctype, "GtkReliefStyle"}
 {:argname, "rv"}
 {:argtype, "ReliefStyle"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* get_item_position unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_item_position(): None =>
+    """
+    Gets the position of @item in @group as index.
+
+    {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun get_label(): String =>
 """
@@ -67,12 +90,12 @@ Gets the label of @group.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_label_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+Gets the label widget of @group.
+See gtk_tool_item_group_set_label_widget().
+  fun get_label_widget(): GtkWidget val =>
+    @gtk_tool_item_group_get_label_widget[GObjectREF](widget)
+*/
 
 fun get_n_items(): U32 =>
 """
@@ -80,16 +103,25 @@ Gets the number of tool items in @group.
 """
   @gtk_tool_item_group_get_n_items[U32](widget)
 
-/* get_nth_item unavailable due to return typing issues
-{:argctype, "GtkToolItem*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_nth_item(): None =>
+    """
+    Gets the tool item at @index in group.
+
+    {:argctype, "GtkToolItem*"}
 {:argname, "rv"}
 {:argtype, "ToolItem"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* insert unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_insert(): None =>
+    """
+    Inserts @item at @position in the list of children of @group.
+
+    {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_collapsed(collapsed_pony: Bool): None =>
 """
@@ -97,25 +129,47 @@ Sets whether the @group should be collapsed or expanded.
 """
   @gtk_tool_item_group_set_collapsed[None](widget, collapsed_pony)
 
-/* set_ellipsize unavailable due to typing issues
- {:doh, %{argctype: "PangoEllipsizeMode", argname: "ellipsize", argtype: "Pango.EllipsizeMode", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_ellipsize(): None =>
+    """
+    Sets the ellipsization mode which should be used by labels in @group.
 
-/* set_header_relief unavailable due to typing issues
- {:doh, %{argctype: "GtkReliefStyle", argname: "style", argtype: "ReliefStyle", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "PangoEllipsizeMode", argname: "ellipsize", argtype: "Pango.EllipsizeMode", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_item_position unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_header_relief(): None =>
+    """
+    Set the button relief of the group header.
+See gtk_button_set_relief() for details.
 
-/* set_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GtkReliefStyle", argname: "style", argtype: "ReliefStyle", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_label_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "label_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_item_position(): None =>
+    """
+    Sets the position of @item in the list of children of @group.
+
+    {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_label(): None =>
+    """
+    Sets the label of the tool item group. The label is displayed in the header
+of the group.
+
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+fun set_label_widget(label_widget_pony: GtkWidget val): None =>
+"""
+Sets the label of the tool item group.
+The label widget is displayed in the header of the group, in place
+of the usual label.
+"""
+  @gtk_tool_item_group_set_label_widget[None](widget, label_widget_pony.gtkwidget())
 
 
 ```````

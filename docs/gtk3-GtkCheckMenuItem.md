@@ -22,7 +22,7 @@ with name check, which gets the .left or .right style class.
 
 
 ```pony
-class ref GtkCheckMenuItem is
+class val GtkCheckMenuItem is
   GtkWidget ref
 ```
 
@@ -34,29 +34,35 @@ class ref GtkCheckMenuItem is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L30)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L31)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCheckMenuItem ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCheckMenuItem val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCheckMenuItem](gtk3-GtkCheckMenuItem.md) ref^
+* [GtkCheckMenuItem](gtk3-GtkCheckMenuItem.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L34)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCheckMenuItem ref^
+: GtkCheckMenuItem val^
 ```
 #### Parameters
 
@@ -64,33 +70,48 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCheckMenuItem](gtk3-GtkCheckMenuItem.md) ref^
+* [GtkCheckMenuItem](gtk3-GtkCheckMenuItem.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L37)</span>
 
 
 ```pony
-new ref create()
-: GtkCheckMenuItem ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkCheckMenuItem val^
 ```
 
 #### Returns
 
-* [GtkCheckMenuItem](gtk3-GtkCheckMenuItem.md) ref^
+* [GtkCheckMenuItem](gtk3-GtkCheckMenuItem.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L41)</span>
+
+
+```pony
+new val create()
+: GtkCheckMenuItem val^
+```
+
+#### Returns
+
+* [GtkCheckMenuItem](gtk3-GtkCheckMenuItem.md) val^
 
 ---
 
 ### new_with_label
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L44)</span>
 
 
 ```pony
-new ref new_with_label(
+new val new_with_label(
   label_pony: String val)
-: GtkCheckMenuItem ref^
+: GtkCheckMenuItem val^
 ```
 #### Parameters
 
@@ -98,18 +119,18 @@ new ref new_with_label(
 
 #### Returns
 
-* [GtkCheckMenuItem](gtk3-GtkCheckMenuItem.md) ref^
+* [GtkCheckMenuItem](gtk3-GtkCheckMenuItem.md) val^
 
 ---
 
 ### new_with_mnemonic
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L43)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L47)</span>
 
 
 ```pony
-new ref new_with_mnemonic(
+new val new_with_mnemonic(
   label_pony: String val)
-: GtkCheckMenuItem ref^
+: GtkCheckMenuItem val^
 ```
 #### Parameters
 
@@ -117,7 +138,7 @@ new ref new_with_mnemonic(
 
 #### Returns
 
-* [GtkCheckMenuItem](gtk3-GtkCheckMenuItem.md) ref^
+* [GtkCheckMenuItem](gtk3-GtkCheckMenuItem.md) val^
 
 ---
 
@@ -148,7 +169,7 @@ fun box gtkwidget()
 ---
 
 ### get_active
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L47)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L51)</span>
 
 
 Returns whether the check menu item is active. See
@@ -167,7 +188,7 @@ fun box get_active()
 ---
 
 ### get_draw_as_radio
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L58)</span>
 
 
 Returns whether @check_menu_item looks like a #GtkRadioMenuItem
@@ -185,7 +206,7 @@ fun box get_draw_as_radio()
 ---
 
 ### get_inconsistent
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L60)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L64)</span>
 
 
 Retrieves the value set by gtk_check_menu_item_set_inconsistent().
@@ -203,7 +224,7 @@ fun box get_inconsistent()
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L66)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L70)</span>
 
 
 Sets the active state of the menu item’s check box.
@@ -225,7 +246,7 @@ fun box set_active(
 ---
 
 ### set_draw_as_radio
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L72)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L76)</span>
 
 
 Sets whether @check_menu_item is drawn like a #GtkRadioMenuItem
@@ -247,7 +268,7 @@ fun box set_draw_as_radio(
 ---
 
 ### set_inconsistent
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L78)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L82)</span>
 
 
 If the user has selected a range of elements (such as some text or
@@ -276,7 +297,7 @@ fun box set_inconsistent(
 ---
 
 ### toggled
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L91)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItem.md#L95)</span>
 
 
 Emits the #GtkCheckMenuItem::toggled signal.

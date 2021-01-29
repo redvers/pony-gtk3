@@ -44,7 +44,7 @@ matching iter.
 
 
 ```pony
-class ref GtkEntryCompletion is
+class val GtkEntryCompletion is
   GtkWidget ref
 ```
 
@@ -56,29 +56,35 @@ class ref GtkEntryCompletion is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L52)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L53)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkEntryCompletion ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkEntryCompletion val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkEntryCompletion](gtk3-GtkEntryCompletion.md) ref^
+* [GtkEntryCompletion](gtk3-GtkEntryCompletion.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L55)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L56)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkEntryCompletion ref^
+: GtkEntryCompletion val^
 ```
 #### Parameters
 
@@ -86,41 +92,56 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkEntryCompletion](gtk3-GtkEntryCompletion.md) ref^
+* [GtkEntryCompletion](gtk3-GtkEntryCompletion.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L59)</span>
 
 
 ```pony
-new ref create()
-: GtkEntryCompletion ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkEntryCompletion val^
 ```
 
 #### Returns
 
-* [GtkEntryCompletion](gtk3-GtkEntryCompletion.md) ref^
+* [GtkEntryCompletion](gtk3-GtkEntryCompletion.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L63)</span>
+
+
+```pony
+new val create()
+: GtkEntryCompletion val^
+```
+
+#### Returns
+
+* [GtkEntryCompletion](gtk3-GtkEntryCompletion.md) val^
 
 ---
 
 ### new_with_area
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L62)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L66)</span>
 
 
 ```pony
-new ref new_with_area(
-  area_pony: GtkCellArea ref)
-: GtkEntryCompletion ref^
+new val new_with_area(
+  area_pony: GtkCellArea val)
+: GtkEntryCompletion val^
 ```
 #### Parameters
 
-*   area_pony: [GtkCellArea](gtk3-GtkCellArea.md) ref
+*   area_pony: [GtkCellArea](gtk3-GtkCellArea.md) val
 
 #### Returns
 
-* [GtkEntryCompletion](gtk3-GtkEntryCompletion.md) ref^
+* [GtkEntryCompletion](gtk3-GtkEntryCompletion.md) val^
 
 ---
 
@@ -151,7 +172,7 @@ fun box gtkwidget()
 ---
 
 ### complete
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L66)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L70)</span>
 
 
 Requests a completion operation, or in other words a refiltering of the
@@ -170,8 +191,36 @@ fun box complete()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_compute_prefix
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L78)</span>
+
+
+    Computes the common prefix that is shared by all rows in @completion
+that start with @key. If no row matches @key, %NULL will be returned.
+Note that a text column must have been set for this function to work,
+see gtk_entry_completion_set_text_column() for details.
+
+    {:argctype, "gchar*"}
+{:argname, "rv"}
+{:argtype, "utf8"}
+{:paramtype, :param}
+{:txo, "full"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_compute_prefix()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### delete_action
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L81)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L93)</span>
 
 
 Deletes the action at @index_ from @completion’s action list.
@@ -196,7 +245,7 @@ fun box delete_action(
 ---
 
 ### get_completion_prefix
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L90)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L102)</span>
 
 
 Get the original text entered by the user that triggered
@@ -215,7 +264,7 @@ fun box get_completion_prefix()
 ---
 
 ### get_inline_completion
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L106)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L117)</span>
 
 
 Returns whether the common prefix of the possible completions should
@@ -234,7 +283,7 @@ fun box get_inline_completion()
 ---
 
 ### get_inline_selection
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L113)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L124)</span>
 
 
 Returns %TRUE if inline-selection mode is turned on.
@@ -252,7 +301,7 @@ fun box get_inline_selection()
 ---
 
 ### get_minimum_key_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L119)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L130)</span>
 
 
 Returns the minimum key length as set for @completion.
@@ -269,8 +318,34 @@ fun box get_minimum_key_length()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_model
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L136)</span>
+
+
+    Returns the model the #GtkEntryCompletion is using as data source.
+Returns %NULL if the model is unset.
+
+    {:argctype, "GtkTreeModel*"}
+{:argname, "rv"}
+{:argtype, "TreeModel"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_model()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_popup_completion
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L132)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L149)</span>
 
 
 Returns whether the completions should be presented in a popup window.
@@ -288,7 +363,7 @@ fun box get_popup_completion()
 ---
 
 ### get_popup_set_width
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L138)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L155)</span>
 
 
 Returns whether the  completion popup window will be resized to the
@@ -307,7 +382,7 @@ fun box get_popup_set_width()
 ---
 
 ### get_popup_single_match
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L145)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L162)</span>
 
 
 Returns whether the completion popup window will appear even if there is
@@ -326,7 +401,7 @@ fun box get_popup_single_match()
 ---
 
 ### get_text_column
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L152)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L169)</span>
 
 
 Returns the column in the model of @completion to get strings from.
@@ -343,8 +418,56 @@ fun box get_text_column()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_insert_action_markup
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L175)</span>
+
+
+    Inserts an action in @completion’s action item list at position @index_
+with markup @markup.
+
+    {:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_insert_action_markup()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_insert_action_text
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L184)</span>
+
+
+    Inserts an action in @completion’s action item list at position @index_
+with text @text. If you want the action item to have markup, use
+gtk_entry_completion_insert_action_markup().
+
+Note that @index_ is a relative position in the list of actions and
+the position of an action can change when deleting a different action.
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_insert_action_text()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### insert_prefix
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L166)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L197)</span>
 
 
 Requests a prefix insertion.
@@ -362,7 +485,7 @@ fun box insert_prefix()
 ---
 
 ### set_inline_completion
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L172)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L203)</span>
 
 
 Sets whether the common prefix of the possible completions should
@@ -385,7 +508,7 @@ fun box set_inline_completion(
 ---
 
 ### set_inline_selection
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L179)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L210)</span>
 
 
 Sets whether it is possible to cycle through the possible completions
@@ -407,8 +530,33 @@ fun box set_inline_selection(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_match_func
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L217)</span>
+
+
+    Sets the match function for @completion to be @func. The match function
+is used to determine if a row should or should not be in the completion
+list.
+
+    {:doh, %{argctype: "GtkEntryCompletionMatchFunc", argname: "func", argtype: "EntryCompletionMatchFunc", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gpointer", argname: "func_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GDestroyNotify", argname: "func_notify", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_match_func()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_minimum_key_length
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L192)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L229)</span>
 
 
 Requires the length of the search key for @completion to be at least
@@ -432,8 +580,31 @@ fun box set_minimum_key_length(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_model
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L238)</span>
+
+
+    Sets the model for a #GtkEntryCompletion. If @completion already has
+a model set, it will remove it before setting the new model.
+If model is %NULL, then it will unset the model.
+
+    {:doh, %{argctype: "GtkTreeModel*", argname: "model", argtype: "TreeModel", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_model()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_popup_completion
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L205)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L248)</span>
 
 
 Sets whether the completions should be presented in a popup window.
@@ -455,7 +626,7 @@ fun box set_popup_completion(
 ---
 
 ### set_popup_set_width
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L211)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L254)</span>
 
 
 Sets whether the completion popup window will be resized to be the same
@@ -478,7 +649,7 @@ fun box set_popup_set_width(
 ---
 
 ### set_popup_single_match
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L218)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L261)</span>
 
 
 Sets whether the completion popup window will appear even if there is
@@ -502,7 +673,7 @@ fun box set_popup_single_match(
 ---
 
 ### set_text_column
-<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L226)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEntryCompletion.md#L269)</span>
 
 
 Convenience function for setting up the most used case of this code: a

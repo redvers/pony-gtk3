@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["Bool", "Pointer[U8 val] ref", "String", "None", "GObjectREF"]
-provides: ["GtkTextMark"]
+provides: ["GtkTextMark val"]
 */
 use "../gobject"
-class GtkTextMark is GtkWidget
+class val GtkTextMark is GtkWidget
 """
 You may wish to begin by reading the
 [text widget conceptual overview][TextWidget]
@@ -36,26 +36,36 @@ Marks optionally have names; these can be convenient to avoid passing the
 
 Marks are typically created using the gtk_text_buffer_create_mark() function.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(name_pony: String, left_gravity_pony: Bool) =>
+
+  new val create(name_pony: String, left_gravity_pony: Bool) =>
     widget = @gtk_text_mark_new[GObjectREF](name_pony.cstring(), left_gravity_pony) //
 
 
-/* get_buffer unavailable due to return typing issues
-{:argctype, "GtkTextBuffer*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_buffer(): None =>
+    """
+    Gets the buffer this mark is located inside,
+or %NULL if the mark is deleted.
+
+    {:argctype, "GtkTextBuffer*"}
 {:argname, "rv"}
 {:argtype, "TextBuffer"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_deleted(): Bool =>
 """

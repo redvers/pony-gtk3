@@ -53,7 +53,7 @@ it doesn’t allow you to specify a signal.
 
 
 ```pony
-class ref GtkActionGroup is
+class val GtkActionGroup is
   GtkWidget ref
 ```
 
@@ -65,29 +65,35 @@ class ref GtkActionGroup is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L61)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L62)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkActionGroup ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkActionGroup val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkActionGroup](gtk3-GtkActionGroup.md) ref^
+* [GtkActionGroup](gtk3-GtkActionGroup.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L65)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkActionGroup ref^
+: GtkActionGroup val^
 ```
 #### Parameters
 
@@ -95,18 +101,33 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkActionGroup](gtk3-GtkActionGroup.md) ref^
+* [GtkActionGroup](gtk3-GtkActionGroup.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L68)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkActionGroup val^
+```
+
+#### Returns
+
+* [GtkActionGroup](gtk3-GtkActionGroup.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L72)</span>
+
+
+```pony
+new val create(
   name_pony: String val)
-: GtkActionGroup ref^
+: GtkActionGroup val^
 ```
 #### Parameters
 
@@ -114,7 +135,7 @@ new ref create(
 
 #### Returns
 
-* [GtkActionGroup](gtk3-GtkActionGroup.md) ref^
+* [GtkActionGroup](gtk3-GtkActionGroup.md) val^
 
 ---
 
@@ -144,8 +165,264 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_add_action
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L76)</span>
+
+
+    Adds an action object to the action group. Note that this function
+does not set up the accel path of the action, which can lead to problems
+if a user tries to modify the accelerator of a menuitem associated with
+the action. Therefore you must either set the accel path yourself with
+gtk_action_set_accel_path(), or use
+`gtk_action_group_add_action_with_accel (..., NULL)`.
+
+    {:doh, %{argctype: "GtkAction*", argname: "action", argtype: "Action", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_action()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_action_with_accel
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L89)</span>
+
+
+    Adds an action object to the action group and sets up the accelerator.
+
+If @accelerator is %NULL, attempts to use the accelerator associated
+with the stock_id of the action.
+
+Accel paths are set to `<Actions>/group-name/action-name`.
+
+    {:doh, %{argctype: "GtkAction*", argname: "action", argtype: "Action", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "accelerator", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_action_with_accel()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_actions
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L103)</span>
+
+
+    This is a convenience function to create a number of actions and add them
+to the action group.
+
+The “activate” signals of the actions are connected to the callbacks
+and their accel paths are set to `<Actions>/group-name/action-name`.
+
+    {:doh, %{argctype: "", argname: "entries", argtype: "", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_actions()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_actions_full
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L116)</span>
+
+
+    This variant of gtk_action_group_add_actions() adds a #GDestroyNotify
+callback for @user_data.
+
+    {:doh, %{argctype: "", argname: "entries", argtype: "", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_actions_full()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_radio_actions
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L127)</span>
+
+
+    This is a convenience routine to create a group of radio actions and
+add them to the action group.
+
+The “changed” signal of the first radio action is connected to the
+@on_change callback and the accel paths of the actions are set to
+`<Actions>/group-name/action-name`.
+
+    {:doh, %{argctype: "", argname: "entries", argtype: "", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GCallback", argname: "on_change", argtype: "GObject.Callback", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_radio_actions()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_radio_actions_full
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L142)</span>
+
+
+    This variant of gtk_action_group_add_radio_actions() adds a
+#GDestroyNotify callback for @user_data.
+
+    {:doh, %{argctype: "", argname: "entries", argtype: "", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GCallback", argname: "on_change", argtype: "GObject.Callback", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_radio_actions_full()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_toggle_actions
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L154)</span>
+
+
+    This is a convenience function to create a number of toggle actions and add them
+to the action group.
+
+The “activate” signals of the actions are connected to the callbacks
+and their accel paths are set to `<Actions>/group-name/action-name`.
+
+    {:doh, %{argctype: "", argname: "entries", argtype: "", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_toggle_actions()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_toggle_actions_full
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L167)</span>
+
+
+    This variant of gtk_action_group_add_toggle_actions() adds a
+#GDestroyNotify callback for @user_data.
+
+    {:doh, %{argctype: "", argname: "entries", argtype: "", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_toggle_actions_full()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_accel_group
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L178)</span>
+
+
+    Gets the accelerator group.
+
+    {:argctype, "GtkAccelGroup*"}
+{:argname, "rv"}
+{:argtype, "AccelGroup"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_accel_group()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_action
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L190)</span>
+
+
+    Looks up an action in the action group by name.
+
+    {:argctype, "GtkAction*"}
+{:argname, "rv"}
+{:argtype, "Action"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_action()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_name
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L130)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L202)</span>
 
 
 Gets the name of the action group.
@@ -163,7 +440,7 @@ fun box get_name()
 ---
 
 ### get_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L138)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L210)</span>
 
 
 Returns %TRUE if the group is sensitive.  The constituent actions
@@ -184,7 +461,7 @@ fun box get_sensitive()
 ---
 
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L147)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L219)</span>
 
 
 Returns %TRUE if the group is visible.  The constituent actions
@@ -204,8 +481,75 @@ fun box get_visible()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_list_actions
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L228)</span>
+
+
+    Lists the actions in the action group.
+
+    {:argctype, "GList*"}
+{:argname, "rv"}
+{:argtype, "GLib.List"}
+{:paramtype, :param}
+{:txo, "container"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_list_actions()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_remove_action
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L240)</span>
+
+
+    Removes an action object from the action group.
+
+    {:doh, %{argctype: "GtkAction*", argname: "action", argtype: "Action", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_remove_action()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_accel_group
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L248)</span>
+
+
+    Sets the accelerator group to be used by every action in this group.
+
+    {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_accel_group()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_sensitive
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L171)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L256)</span>
 
 
 Changes the sensitivity of @action_group
@@ -226,8 +570,61 @@ fun box set_sensitive(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_translate_func
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L262)</span>
+
+
+    Sets a function to be used for translating the @label and @tooltip of
+#GtkActionEntrys added by gtk_action_group_add_actions().
+
+If you’re using gettext(), it is enough to set the translation domain
+with gtk_action_group_set_translation_domain().
+
+    {:doh, %{argctype: "GtkTranslateFunc", argname: "func", argtype: "TranslateFunc", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GDestroyNotify", argname: "notify", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_translate_func()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_translation_domain
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L276)</span>
+
+
+    Sets the translation domain and uses g_dgettext() for translating the
+@label and @tooltip of #GtkActionEntrys added by
+gtk_action_group_add_actions().
+
+If you’re not using gettext() for localization, see
+gtk_action_group_set_translate_func().
+
+    {:doh, %{argctype: "const gchar*", argname: "domain", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_translation_domain()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_visible
-<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L187)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L289)</span>
 
 
 Changes the visible of @action_group.
@@ -241,6 +638,29 @@ fun box set_visible(
 #### Parameters
 
 *   visible_pony: [Bool](builtin-Bool.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_translate_string
+<span class="source-link">[[Source]](src/gtk3/GtkActionGroup.md#L295)</span>
+
+
+    Translates a string using the function set with
+gtk_action_group_set_translate_func(). This
+is mainly intended for language bindings.
+
+    {:doh, %{argctype: "const gchar*", argname: "string", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_translate_string()
+: None val
+```
 
 #### Returns
 

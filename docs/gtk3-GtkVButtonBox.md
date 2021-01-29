@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkVButtonBox is
+class val GtkVButtonBox is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkVButtonBox is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkVButtonBox.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkVButtonBox.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkVButtonBox ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkVButtonBox val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkVButtonBox](gtk3-GtkVButtonBox.md) ref^
+* [GtkVButtonBox](gtk3-GtkVButtonBox.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkVButtonBox.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVButtonBox.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkVButtonBox ref^
+: GtkVButtonBox val^
 ```
 #### Parameters
 
@@ -47,22 +53,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkVButtonBox](gtk3-GtkVButtonBox.md) ref^
+* [GtkVButtonBox](gtk3-GtkVButtonBox.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkVButtonBox.md#L20)</span>
 
 
 ```pony
-new ref create()
-: GtkVButtonBox ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkVButtonBox val^
 ```
 
 #### Returns
 
-* [GtkVButtonBox](gtk3-GtkVButtonBox.md) ref^
+* [GtkVButtonBox](gtk3-GtkVButtonBox.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkVButtonBox.md#L24)</span>
+
+
+```pony
+new val create()
+: GtkVButtonBox val^
+```
+
+#### Returns
+
+* [GtkVButtonBox](gtk3-GtkVButtonBox.md) val^
 
 ---
 

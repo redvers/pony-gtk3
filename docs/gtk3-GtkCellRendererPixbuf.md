@@ -16,7 +16,7 @@ pixbuf, it renders that one.
 
 
 ```pony
-class ref GtkCellRendererPixbuf is
+class val GtkCellRendererPixbuf is
   GtkWidget ref
 ```
 
@@ -28,29 +28,35 @@ class ref GtkCellRendererPixbuf is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L24)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L25)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCellRendererPixbuf ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCellRendererPixbuf val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCellRendererPixbuf](gtk3-GtkCellRendererPixbuf.md) ref^
+* [GtkCellRendererPixbuf](gtk3-GtkCellRendererPixbuf.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L28)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCellRendererPixbuf ref^
+: GtkCellRendererPixbuf val^
 ```
 #### Parameters
 
@@ -58,22 +64,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCellRendererPixbuf](gtk3-GtkCellRendererPixbuf.md) ref^
+* [GtkCellRendererPixbuf](gtk3-GtkCellRendererPixbuf.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L31)</span>
 
 
 ```pony
-new ref create()
-: GtkCellRendererPixbuf ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkCellRendererPixbuf val^
 ```
 
 #### Returns
 
-* [GtkCellRendererPixbuf](gtk3-GtkCellRendererPixbuf.md) ref^
+* [GtkCellRendererPixbuf](gtk3-GtkCellRendererPixbuf.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererPixbuf.md#L35)</span>
+
+
+```pony
+new val create()
+: GtkCellRendererPixbuf val^
+```
+
+#### Returns
+
+* [GtkCellRendererPixbuf](gtk3-GtkCellRendererPixbuf.md) val^
 
 ---
 

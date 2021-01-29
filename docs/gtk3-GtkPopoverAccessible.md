@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkPopoverAccessible is
+class val GtkPopoverAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkPopoverAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkPopoverAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkPopoverAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkPopoverAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkPopoverAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkPopoverAccessible](gtk3-GtkPopoverAccessible.md) ref^
+* [GtkPopoverAccessible](gtk3-GtkPopoverAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkPopoverAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPopoverAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkPopoverAccessible ref^
+: GtkPopoverAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkPopoverAccessible](gtk3-GtkPopoverAccessible.md) ref^
+* [GtkPopoverAccessible](gtk3-GtkPopoverAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkPopoverAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkPopoverAccessible val^
+```
+
+#### Returns
+
+* [GtkPopoverAccessible](gtk3-GtkPopoverAccessible.md) val^
 
 ---
 

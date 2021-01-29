@@ -57,7 +57,7 @@ the #GtkAccelMap::changed signal.
 
 
 ```pony
-class ref GtkAccelMap is
+class val GtkAccelMap is
   GtkWidget ref
 ```
 
@@ -69,29 +69,35 @@ class ref GtkAccelMap is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAccelMap.md#L65)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkAccelMap.md#L66)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkAccelMap ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkAccelMap val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkAccelMap](gtk3-GtkAccelMap.md) ref^
+* [GtkAccelMap](gtk3-GtkAccelMap.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAccelMap.md#L68)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAccelMap.md#L69)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkAccelMap ref^
+: GtkAccelMap val^
 ```
 #### Parameters
 
@@ -99,7 +105,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkAccelMap](gtk3-GtkAccelMap.md) ref^
+* [GtkAccelMap](gtk3-GtkAccelMap.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkAccelMap.md#L72)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkAccelMap val^
+```
+
+#### Returns
+
+* [GtkAccelMap](gtk3-GtkAccelMap.md) val^
 
 ---
 

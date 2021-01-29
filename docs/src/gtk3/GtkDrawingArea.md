@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["GObjectREF"]
-provides: ["GtkDrawingArea"]
+provides: ["GtkDrawingArea val"]
 */
 use "../gobject"
-class GtkDrawingArea is GtkWidget
+class val GtkDrawingArea is GtkWidget
 """
 The #GtkDrawingArea widget is used for creating custom user interface
 elements. It’s essentially a blank widget; you can draw on it. After
@@ -90,17 +90,21 @@ area is focused. Use gtk_widget_has_focus() in your expose event
 handler to decide whether to draw the focus indicator. See
 gtk_render_focus() for one way to draw focus.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_drawing_area_new[GObjectREF]() //
 
 

@@ -6,7 +6,7 @@ in the user interface.
 
 
 ```pony
-class ref GtkShortcutLabel is
+class val GtkShortcutLabel is
   GtkWidget ref
 ```
 
@@ -18,29 +18,35 @@ class ref GtkShortcutLabel is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L14)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L15)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkShortcutLabel ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkShortcutLabel val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkShortcutLabel](gtk3-GtkShortcutLabel.md) ref^
+* [GtkShortcutLabel](gtk3-GtkShortcutLabel.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L18)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkShortcutLabel ref^
+: GtkShortcutLabel val^
 ```
 #### Parameters
 
@@ -48,18 +54,33 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkShortcutLabel](gtk3-GtkShortcutLabel.md) ref^
+* [GtkShortcutLabel](gtk3-GtkShortcutLabel.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L21)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkShortcutLabel val^
+```
+
+#### Returns
+
+* [GtkShortcutLabel](gtk3-GtkShortcutLabel.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L25)</span>
+
+
+```pony
+new val create(
   accelerator_pony: String val)
-: GtkShortcutLabel ref^
+: GtkShortcutLabel val^
 ```
 #### Parameters
 
@@ -67,7 +88,7 @@ new ref create(
 
 #### Returns
 
-* [GtkShortcutLabel](gtk3-GtkShortcutLabel.md) ref^
+* [GtkShortcutLabel](gtk3-GtkShortcutLabel.md) val^
 
 ---
 
@@ -98,7 +119,7 @@ fun box gtkwidget()
 ---
 
 ### get_accelerator
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L25)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L29)</span>
 
 
 Retrieves the current accelerator of @self.
@@ -116,7 +137,7 @@ fun box get_accelerator()
 ---
 
 ### get_disabled_text
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L37)</span>
 
 
 Retrieves the text that is displayed when no accelerator is set.
@@ -130,6 +151,48 @@ fun box get_disabled_text()
 #### Returns
 
 * [String](builtin-String.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_accelerator
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L45)</span>
+
+
+    Sets the accelerator to be displayed by @self.
+
+    {:doh, %{argctype: "const gchar*", argname: "accelerator", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_accelerator()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_disabled_text
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutLabel.md#L53)</span>
+
+
+    Sets the text to be displayed by @self when no accelerator is set.
+
+    {:doh, %{argctype: "const gchar*", argname: "disabled_text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_disabled_text()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

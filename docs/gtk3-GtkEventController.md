@@ -7,7 +7,7 @@ actions as a consequence of those.
 
 
 ```pony
-class ref GtkEventController is
+class val GtkEventController is
   GtkWidget ref
 ```
 
@@ -19,29 +19,35 @@ class ref GtkEventController is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L15)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L16)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkEventController ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkEventController val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkEventController](gtk3-GtkEventController.md) ref^
+* [GtkEventController](gtk3-GtkEventController.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L18)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L19)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkEventController ref^
+: GtkEventController val^
 ```
 #### Parameters
 
@@ -49,7 +55,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkEventController](gtk3-GtkEventController.md) ref^
+* [GtkEventController](gtk3-GtkEventController.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L22)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkEventController val^
+```
+
+#### Returns
+
+* [GtkEventController](gtk3-GtkEventController.md) val^
 
 ---
 
@@ -79,8 +100,55 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_propagation_phase
+<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L28)</span>
+
+
+    Gets the propagation phase at which @controller handles events.
+
+    {:argctype, "GtkPropagationPhase"}
+{:argname, "rv"}
+{:argtype, "PropagationPhase"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_propagation_phase()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_handle_event
+<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L46)</span>
+
+
+    Feeds an events into @controller, so it can be interpreted
+and the controller actions triggered.
+
+    {:doh, %{argctype: "const GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_handle_event()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### reset
-<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L55)</span>
 
 
 Resets the @controller to a clean state. Every interaction
@@ -90,6 +158,31 @@ will be dropped at this point.
 
 ```pony
 fun box reset()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_propagation_phase
+<span class="source-link">[[Source]](src/gtk3/GtkEventController.md#L63)</span>
+
+
+    Sets the propagation phase at which a controller handles events.
+
+If @phase is %GTK_PHASE_NONE, no automatic event handling will be
+performed, but other additional gesture maintenance will. In that phase,
+the events can be managed by calling gtk_event_controller_handle_event().
+
+    {:doh, %{argctype: "GtkPropagationPhase", argname: "phase", argtype: "PropagationPhase", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_propagation_phase()
 : None val
 ```
 

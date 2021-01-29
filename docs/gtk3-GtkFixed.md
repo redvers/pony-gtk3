@@ -44,7 +44,7 @@ of child widgets and additionally adds custom drawing and scrollability.
 
 
 ```pony
-class ref GtkFixed is
+class val GtkFixed is
   GtkWidget ref
 ```
 
@@ -56,29 +56,35 @@ class ref GtkFixed is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkFixed.md#L52)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkFixed.md#L53)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkFixed ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkFixed val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkFixed](gtk3-GtkFixed.md) ref^
+* [GtkFixed](gtk3-GtkFixed.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkFixed.md#L55)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFixed.md#L56)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkFixed ref^
+: GtkFixed val^
 ```
 #### Parameters
 
@@ -86,22 +92,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkFixed](gtk3-GtkFixed.md) ref^
+* [GtkFixed](gtk3-GtkFixed.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkFixed.md#L59)</span>
 
 
 ```pony
-new ref create()
-: GtkFixed ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkFixed val^
 ```
 
 #### Returns
 
-* [GtkFixed](gtk3-GtkFixed.md) ref^
+* [GtkFixed](gtk3-GtkFixed.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkFixed.md#L63)</span>
+
+
+```pony
+new val create()
+: GtkFixed val^
+```
+
+#### Returns
+
+* [GtkFixed](gtk3-GtkFixed.md) val^
 
 ---
 
@@ -128,6 +149,58 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### move
+<span class="source-link">[[Source]](src/gtk3/GtkFixed.md#L67)</span>
+
+
+Moves a child of a #GtkFixed container to the given position.
+
+
+```pony
+fun box move(
+  widget_pony: GtkWidget val,
+  x_pony: I32 val,
+  y_pony: I32 val)
+: None val
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+*   x_pony: [I32](builtin-I32.md) val
+*   y_pony: [I32](builtin-I32.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### put
+<span class="source-link">[[Source]](src/gtk3/GtkFixed.md#L73)</span>
+
+
+Adds a widget to a #GtkFixed container at the given position.
+
+
+```pony
+fun box put(
+  widget_pony: GtkWidget val,
+  x_pony: I32 val,
+  y_pony: I32 val)
+: None val
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+*   x_pony: [I32](builtin-I32.md) val
+*   y_pony: [I32](builtin-I32.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

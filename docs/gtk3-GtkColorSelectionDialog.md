@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkColorSelectionDialog is
+class val GtkColorSelectionDialog is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkColorSelectionDialog is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelectionDialog.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelectionDialog.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkColorSelectionDialog ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkColorSelectionDialog val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkColorSelectionDialog](gtk3-GtkColorSelectionDialog.md) ref^
+* [GtkColorSelectionDialog](gtk3-GtkColorSelectionDialog.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkColorSelectionDialog.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelectionDialog.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkColorSelectionDialog ref^
+: GtkColorSelectionDialog val^
 ```
 #### Parameters
 
@@ -47,18 +53,33 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkColorSelectionDialog](gtk3-GtkColorSelectionDialog.md) ref^
+* [GtkColorSelectionDialog](gtk3-GtkColorSelectionDialog.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkColorSelectionDialog.md#L20)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkColorSelectionDialog val^
+```
+
+#### Returns
+
+* [GtkColorSelectionDialog](gtk3-GtkColorSelectionDialog.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkColorSelectionDialog.md#L24)</span>
+
+
+```pony
+new val create(
   title_pony: String val)
-: GtkColorSelectionDialog ref^
+: GtkColorSelectionDialog val^
 ```
 #### Parameters
 
@@ -66,7 +87,7 @@ new ref create(
 
 #### Returns
 
-* [GtkColorSelectionDialog](gtk3-GtkColorSelectionDialog.md) ref^
+* [GtkColorSelectionDialog](gtk3-GtkColorSelectionDialog.md) val^
 
 ---
 

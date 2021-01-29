@@ -11,7 +11,7 @@ signal will be emitted.
 
 
 ```pony
-class ref GtkGestureLongPress is
+class val GtkGestureLongPress is
   GtkWidget ref
 ```
 
@@ -23,29 +23,35 @@ class ref GtkGestureLongPress is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L19)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L20)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkGestureLongPress ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkGestureLongPress val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkGestureLongPress](gtk3-GtkGestureLongPress.md) ref^
+* [GtkGestureLongPress](gtk3-GtkGestureLongPress.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L22)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L23)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkGestureLongPress ref^
+: GtkGestureLongPress val^
 ```
 #### Parameters
 
@@ -53,26 +59,41 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkGestureLongPress](gtk3-GtkGestureLongPress.md) ref^
+* [GtkGestureLongPress](gtk3-GtkGestureLongPress.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L26)</span>
 
 
 ```pony
-new ref create(
-  widget_pony: GtkWidget ref)
-: GtkGestureLongPress ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkGestureLongPress val^
 ```
-#### Parameters
-
-*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) ref
 
 #### Returns
 
-* [GtkGestureLongPress](gtk3-GtkGestureLongPress.md) ref^
+* [GtkGestureLongPress](gtk3-GtkGestureLongPress.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkGestureLongPress.md#L30)</span>
+
+
+```pony
+new val create(
+  widget_pony: GtkWidget val)
+: GtkGestureLongPress val^
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [GtkGestureLongPress](gtk3-GtkGestureLongPress.md) val^
 
 ---
 

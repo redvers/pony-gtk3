@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkPlugAccessible is
+class val GtkPlugAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkPlugAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkPlugAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkPlugAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkPlugAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkPlugAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkPlugAccessible](gtk3-GtkPlugAccessible.md) ref^
+* [GtkPlugAccessible](gtk3-GtkPlugAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkPlugAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPlugAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkPlugAccessible ref^
+: GtkPlugAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkPlugAccessible](gtk3-GtkPlugAccessible.md) ref^
+* [GtkPlugAccessible](gtk3-GtkPlugAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkPlugAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkPlugAccessible val^
+```
+
+#### Returns
+
+* [GtkPlugAccessible](gtk3-GtkPlugAccessible.md) val^
 
 ---
 
@@ -74,6 +95,31 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_id
+<span class="source-link">[[Source]](src/gtk3/GtkPlugAccessible.md#L26)</span>
+
+
+    No provided documentation
+
+    {:argctype, "gchar*"}
+{:argname, "rv"}
+{:argtype, "utf8"}
+{:paramtype, :param}
+{:txo, "full"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_id()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

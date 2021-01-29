@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["GObjectREF"]
-provides: ["GtkPrintContext"]
+provides: ["GtkPrintContext val"]
 */
 use "../gobject"
-class GtkPrintContext is GtkWidget
+class val GtkPrintContext is GtkWidget
 """
 A GtkPrintContext encapsulates context information that is required when
 drawing pages for printing, such as the cairo context and important
@@ -74,93 +74,162 @@ draw_page (GtkPrintOperation *operation,
 
 Printing support was added in GTK+ 2.10.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
 
 
-/* create_pango_context unavailable due to return typing issues
-{:argctype, "PangoContext*"}
+
+  fun pony_NOT_IMPLEMENTED_YET_create_pango_context(): None =>
+    """
+    Creates a new #PangoContext that can be used with the
+#GtkPrintContext.
+
+    {:argctype, "PangoContext*"}
 {:argname, "rv"}
 {:argtype, "Pango.Context"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* create_pango_layout unavailable due to return typing issues
-{:argctype, "PangoLayout*"}
+  fun pony_NOT_IMPLEMENTED_YET_create_pango_layout(): None =>
+    """
+    Creates a new #PangoLayout that is suitable for use
+with the #GtkPrintContext.
+
+    {:argctype, "PangoLayout*"}
 {:argname, "rv"}
 {:argtype, "Pango.Layout"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* get_cairo_context unavailable due to return typing issues
-{:argctype, "cairo_t*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_cairo_context(): None =>
+    """
+    Obtains the cairo context that is associated with the
+#GtkPrintContext.
+
+    {:argctype, "cairo_t*"}
 {:argname, "rv"}
 {:argtype, "cairo.Context"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_dpi_x unavailable due to return typing issues
-{:argctype, "gdouble"}
+  fun pony_NOT_IMPLEMENTED_YET_get_dpi_x(): None =>
+    """
+    Obtains the horizontal resolution of the #GtkPrintContext,
+in dots per inch.
+
+    {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_dpi_y unavailable due to return typing issues
-{:argctype, "gdouble"}
+  fun pony_NOT_IMPLEMENTED_YET_get_dpi_y(): None =>
+    """
+    Obtains the vertical resolution of the #GtkPrintContext,
+in dots per inch.
+
+    {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_hard_margins unavailable due to typing issues
- {:doh, %{argctype: "gdouble*", argname: "top", argtype: "gdouble", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_hard_margins(): None =>
+    """
+    Obtains the hardware printer margins of the #GtkPrintContext, in units.
+
+    {:doh, %{argctype: "gdouble*", argname: "top", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "bottom", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "left", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "right", argtype: "gdouble", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_height unavailable due to return typing issues
-{:argctype, "gdouble"}
+  fun pony_NOT_IMPLEMENTED_YET_get_height(): None =>
+    """
+    Obtains the height of the #GtkPrintContext, in pixels.
+
+    {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_page_setup unavailable due to return typing issues
-{:argctype, "GtkPageSetup*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_page_setup(): None =>
+    """
+    Obtains the #GtkPageSetup that determines the page
+dimensions of the #GtkPrintContext.
+
+    {:argctype, "GtkPageSetup*"}
 {:argname, "rv"}
 {:argtype, "PageSetup"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_pango_fontmap unavailable due to return typing issues
-{:argctype, "PangoFontMap*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_pango_fontmap(): None =>
+    """
+    Returns a #PangoFontMap that is suitable for use
+with the #GtkPrintContext.
+
+    {:argctype, "PangoFontMap*"}
 {:argname, "rv"}
 {:argtype, "Pango.FontMap"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_width unavailable due to return typing issues
-{:argctype, "gdouble"}
+  fun pony_NOT_IMPLEMENTED_YET_get_width(): None =>
+    """
+    Obtains the width of the #GtkPrintContext, in pixels.
+
+    {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* set_cairo_context unavailable due to typing issues
- {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_cairo_context(): None =>
+    """
+    Sets a new cairo context on a print context.
+
+This function is intended to be used when implementing
+an internal print preview, it is not needed for printing,
+since GTK+ itself creates a suitable cairo context in that
+case.
+
+    {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "double", argname: "dpi_x", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "double", argname: "dpi_y", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
+    """
 
 
 ```````

@@ -21,7 +21,7 @@ GtkFontChooserWidget has a single CSS node with name fontchooser.
 
 
 ```pony
-class ref GtkFontChooserWidget is
+class val GtkFontChooserWidget is
   GtkWidget ref
 ```
 
@@ -33,29 +33,35 @@ class ref GtkFontChooserWidget is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkFontChooserWidget.md#L29)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkFontChooserWidget.md#L30)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkFontChooserWidget ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkFontChooserWidget val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkFontChooserWidget](gtk3-GtkFontChooserWidget.md) ref^
+* [GtkFontChooserWidget](gtk3-GtkFontChooserWidget.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkFontChooserWidget.md#L32)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkFontChooserWidget.md#L33)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkFontChooserWidget ref^
+: GtkFontChooserWidget val^
 ```
 #### Parameters
 
@@ -63,22 +69,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkFontChooserWidget](gtk3-GtkFontChooserWidget.md) ref^
+* [GtkFontChooserWidget](gtk3-GtkFontChooserWidget.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkFontChooserWidget.md#L36)</span>
 
 
 ```pony
-new ref create()
-: GtkFontChooserWidget ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkFontChooserWidget val^
 ```
 
 #### Returns
 
-* [GtkFontChooserWidget](gtk3-GtkFontChooserWidget.md) ref^
+* [GtkFontChooserWidget](gtk3-GtkFontChooserWidget.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkFontChooserWidget.md#L40)</span>
+
+
+```pony
+new val create()
+: GtkFontChooserWidget val^
+```
+
+#### Returns
+
+* [GtkFontChooserWidget](gtk3-GtkFontChooserWidget.md) val^
 
 ---
 

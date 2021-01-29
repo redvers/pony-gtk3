@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["None", "I32", "GObjectREF"]
-provides: ["GtkAssistant"]
+   needs: ["None", "GtkWidget val", "I32", "GObjectREF", "Bool", "Pointer[U8 val] ref", "String"]
+provides: ["GtkAssistant val"]
 */
 use "../gobject"
-class GtkAssistant is GtkWidget
+class val GtkAssistant is GtkWidget
 """
 A #GtkAssistant is a widget used to represent a generally complex
 operation splitted in several steps, guiding the user through its
@@ -35,27 +35,35 @@ as necessary.
 
 GtkAssistant has a single CSS node with the name assistant.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_assistant_new[GObjectREF]() //
 
 
-/* add_action_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun add_action_widget(child_pony: GtkWidget val): None =>
+"""
+Adds a widget to the action area of a #GtkAssistant.
+"""
+  @gtk_assistant_add_action_widget[None](widget, child_pony.gtkwidget())
 
-/* append_page unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "page", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun append_page(page_pony: GtkWidget val): I32 =>
+"""
+Appends a page to the @assistant.
+"""
+  @gtk_assistant_append_page[I32](widget, page_pony.gtkwidget())
 
 fun commit(): None =>
 """
@@ -83,49 +91,73 @@ Returns the number of pages in the @assistant
 """
   @gtk_assistant_get_n_pages[I32](widget)
 
-/* get_nth_page unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
-
-/* get_page_complete unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "page", argtype: "Widget", paramtype: :param, txo: "none"}}
+/* Needs conversion code 
+Returns the child widget contained in page number @page_num.
+  fun get_nth_page(page_num_pony: I32): GtkWidget val =>
+    @gtk_assistant_get_nth_page[GObjectREF](widget, page_num_pony)
 */
 
-/* get_page_has_padding unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "page", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun get_page_complete(page_pony: GtkWidget val): Bool =>
+"""
+Gets whether @page is complete.
+"""
+  @gtk_assistant_get_page_complete[Bool](widget, page_pony.gtkwidget())
 
-/* get_page_header_image unavailable due to return typing issues
-{:argctype, "GdkPixbuf*"}
+fun get_page_has_padding(page_pony: GtkWidget val): Bool =>
+"""
+Gets whether page has padding.
+"""
+  @gtk_assistant_get_page_has_padding[Bool](widget, page_pony.gtkwidget())
+
+  fun pony_NOT_IMPLEMENTED_YET_get_page_header_image(): None =>
+    """
+    Gets the header image for @page.
+
+    {:argctype, "GdkPixbuf*"}
 {:argname, "rv"}
 {:argtype, "GdkPixbuf.Pixbuf"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_page_side_image unavailable due to return typing issues
-{:argctype, "GdkPixbuf*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_page_side_image(): None =>
+    """
+    Gets the side image for @page.
+
+    {:argctype, "GdkPixbuf*"}
 {:argname, "rv"}
 {:argtype, "GdkPixbuf.Pixbuf"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* get_page_title unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "page", argtype: "Widget", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
 
-/* get_page_type unavailable due to return typing issues
-{:argctype, "GtkAssistantPageType"}
+fun get_page_title(page_pony: GtkWidget val): String =>
+"""
+Gets the title for @page.
+"""
+  var cstring_pony: Pointer[U8 val] ref = @gtk_assistant_get_page_title[Pointer[U8 val] ref](widget, page_pony.gtkwidget())
+  var string_pony: String val = String.from_cstring(cstring_pony).clone()
+  consume string_pony
+
+  fun pony_NOT_IMPLEMENTED_YET_get_page_type(): None =>
+    """
+    Gets the page type of @page.
+
+    {:argctype, "GtkAssistantPageType"}
 {:argname, "rv"}
 {:argtype, "AssistantPageType"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* insert_page unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "page", argtype: "Widget", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
+
+fun insert_page(page_pony: GtkWidget val, position_pony: I32): I32 =>
+"""
+Inserts a page in the @assistant at a given position.
+"""
+  @gtk_assistant_insert_page[I32](widget, page_pony.gtkwidget(), position_pony)
 
 fun next_page(): None =>
 """
@@ -139,9 +171,11 @@ This function is for use when creating pages of the
 """
   @gtk_assistant_next_page[None](widget)
 
-/* prepend_page unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "page", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun prepend_page(page_pony: GtkWidget val): I32 =>
+"""
+Prepends a page to the @assistant.
+"""
+  @gtk_assistant_prepend_page[I32](widget, page_pony.gtkwidget())
 
 fun previous_page(): None =>
 """
@@ -155,9 +189,11 @@ This function is for use when creating pages of the
 """
   @gtk_assistant_previous_page[None](widget)
 
-/* remove_action_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun remove_action_widget(child_pony: GtkWidget val): None =>
+"""
+Removes a widget from the action area of a #GtkAssistant.
+"""
+  @gtk_assistant_remove_action_widget[None](widget, child_pony.gtkwidget())
 
 fun remove_page(page_num_pony: I32): None =>
 """
@@ -175,39 +211,77 @@ gtk_assistant_set_forward_page_func().
 """
   @gtk_assistant_set_current_page[None](widget, page_num_pony)
 
-/* set_forward_page_func unavailable due to typing issues
- {:doh, %{argctype: "GtkAssistantPageFunc", argname: "page_func", argtype: "AssistantPageFunc", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_forward_page_func(): None =>
+    """
+    Sets the page forwarding function to be @page_func.
+
+This function will be used to determine what will be
+the next page when the user presses the forward button.
+Setting @page_func to %NULL will make the assistant to
+use the default forward function, which just goes to the
+next visible page.
+
+    {:doh, %{argctype: "GtkAssistantPageFunc", argname: "page_func", argtype: "AssistantPageFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_page_complete unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "page", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_page_complete(page_pony: GtkWidget val, complete_pony: Bool): None =>
+"""
+Sets whether @page contents are complete.
 
-/* set_page_has_padding unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "page", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+This will make @assistant update the buttons state
+to be able to continue the task.
+"""
+  @gtk_assistant_set_page_complete[None](widget, page_pony.gtkwidget(), complete_pony)
 
-/* set_page_header_image unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "page", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
-*/
+fun set_page_has_padding(page_pony: GtkWidget val, has_padding_pony: Bool): None =>
+"""
+Sets whether the assistant is adding padding around
+the page.
+"""
+  @gtk_assistant_set_page_has_padding[None](widget, page_pony.gtkwidget(), has_padding_pony)
 
-/* set_page_side_image unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "page", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_page_header_image(): None =>
+    """
+    Sets a header image for @page.
 
-/* set_page_title unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "page", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_page_type unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "page", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkAssistantPageType", argname: "gtype", argtype: "AssistantPageType", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_page_side_image(): None =>
+    """
+    Sets a side image for @page.
+
+This image used to be displayed in the side area of the assistant
+when @page is the current page.
+
+    {:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_page_title(): None =>
+    """
+    Sets a title for @page.
+
+The title is displayed in the header area of the assistant
+when @page is the current page.
+
+    {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_page_type(): None =>
+    """
+    Sets the page type for @page.
+
+The page type determines the page behavior in the @assistant.
+
+    {:doh, %{argctype: "GtkAssistantPageType", argname: "gtype", argtype: "AssistantPageType", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun update_buttons_state(): None =>
 """

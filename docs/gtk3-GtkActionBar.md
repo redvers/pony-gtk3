@@ -16,7 +16,7 @@ GtkActionBar has a single CSS node with name actionbar.
 
 
 ```pony
-class ref GtkActionBar is
+class val GtkActionBar is
   GtkWidget ref
 ```
 
@@ -28,29 +28,35 @@ class ref GtkActionBar is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L24)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L25)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkActionBar ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkActionBar val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkActionBar](gtk3-GtkActionBar.md) ref^
+* [GtkActionBar](gtk3-GtkActionBar.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L28)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkActionBar ref^
+: GtkActionBar val^
 ```
 #### Parameters
 
@@ -58,22 +64,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkActionBar](gtk3-GtkActionBar.md) ref^
+* [GtkActionBar](gtk3-GtkActionBar.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L31)</span>
 
 
 ```pony
-new ref create()
-: GtkActionBar ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkActionBar val^
 ```
 
 #### Returns
 
-* [GtkActionBar](gtk3-GtkActionBar.md) ref^
+* [GtkActionBar](gtk3-GtkActionBar.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L35)</span>
+
+
+```pony
+new val create()
+: GtkActionBar val^
+```
+
+#### Returns
+
+* [GtkActionBar](gtk3-GtkActionBar.md) val^
 
 ---
 
@@ -100,6 +121,74 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pack_end
+<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L45)</span>
+
+
+Adds @child to @action_bar, packed with reference to the
+end of the @action_bar.
+
+
+```pony
+fun box pack_end(
+  child_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   child_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pack_start
+<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L52)</span>
+
+
+Adds @child to @action_bar, packed with reference to the
+start of the @action_bar.
+
+
+```pony
+fun box pack_start(
+  child_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   child_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_center_widget
+<span class="source-link">[[Source]](src/gtk3/GtkActionBar.md#L59)</span>
+
+
+Sets the center widget for the #GtkActionBar.
+
+
+```pony
+fun box set_center_widget(
+  center_widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   center_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

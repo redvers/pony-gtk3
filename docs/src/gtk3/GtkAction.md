@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["None", "Pointer[U8 val] ref", "String", "Bool", "GObjectREF"]
-provides: ["GtkAction"]
+   needs: ["None", "GObjectREF", "GtkWidget val", "Pointer[U8 val] ref", "String", "Bool"]
+provides: ["GtkAction val"]
 */
 use "../gobject"
-class GtkAction is GtkWidget
+class val GtkAction is GtkWidget
 """
 > In GTK+ 3.10, GtkAction has been deprecated. Use #GAction
 > instead, and associate actions with #GtkActionable widgets. Use
@@ -54,17 +54,21 @@ if proxy widget has #GtkActivatable:use-action-appearance property set to
 
 When the proxy is activated, it should activate its action.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(name_pony: String, label_pony: String, tooltip_pony: String, stock_id_pony: String) =>
+
+  new val create(name_pony: String, label_pony: String, tooltip_pony: String, stock_id_pony: String) =>
     widget = @gtk_action_new[GObjectREF](name_pony.cstring(), label_pony.cstring(), tooltip_pony.cstring(), stock_id_pony.cstring()) //
 
 
@@ -102,33 +106,34 @@ gtk_action_disconnect_accelerator() has been called as many times.
 """
   @gtk_action_connect_accelerator[None](widget)
 
-/* create_icon unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+  fun pony_NOT_IMPLEMENTED_YET_create_icon(): None =>
+    """
+    This function is intended for use by action implementations to
+create icons displayed in the proxy widgets.
 
-/* create_menu unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+    {:doh, %{argctype: "GtkIconSize", argname: "icon_size", argtype: "gint", paramtype: :param, txo: "none"}}
+*/
+    """
 
-/* create_menu_item unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+If @action provides a #GtkMenu widget as a submenu for the menu
+item or the toolbar item it creates, this function returns an
+instance of that menu.
+  fun create_menu(): GtkWidget val =>
+    @gtk_action_create_menu[GObjectREF](widget)
+*/
 
-/* create_tool_item unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+Creates a menu item widget that proxies for the given action.
+  fun create_menu_item(): GtkWidget val =>
+    @gtk_action_create_menu_item[GObjectREF](widget)
+*/
+
+/* Needs conversion code 
+Creates a toolbar item widget that proxies for the given action.
+  fun create_tool_item(): GtkWidget val =>
+    @gtk_action_create_tool_item[GObjectREF](widget)
+*/
 
 fun disconnect_accelerator(): None =>
 """
@@ -136,12 +141,17 @@ Undoes the effect of one call to gtk_action_connect_accelerator().
 """
   @gtk_action_disconnect_accelerator[None](widget)
 
-/* get_accel_closure unavailable due to return typing issues
-{:argctype, "GClosure*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_accel_closure(): None =>
+    """
+    Returns the accel closure for this action.
+
+    {:argctype, "GClosure*"}
 {:argname, "rv"}
 {:argtype, "GObject.Closure"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_accel_path(): String =>
 """
@@ -158,12 +168,17 @@ show their image, if available.
 """
   @gtk_action_get_always_show_image[Bool](widget)
 
-/* get_gicon unavailable due to return typing issues
-{:argctype, "GIcon*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_gicon(): None =>
+    """
+    Gets the gicon of @action.
+
+    {:argctype, "GIcon*"}
 {:argname, "rv"}
 {:argtype, "Gio.Icon"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_icon_name(): String =>
 """
@@ -195,12 +210,18 @@ Returns the name of the action.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_proxies unavailable due to return typing issues
-{:argctype, "GSList*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_proxies(): None =>
+    """
+    Returns the proxy widgets for an action.
+See also gtk_activatable_get_related_action().
+
+    {:argctype, "GSList*"}
 {:argname, "rv"}
 {:argtype, "GLib.SList"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_sensitive(): Bool =>
 """
@@ -266,13 +287,28 @@ Returns whether the action is effectively visible.
 """
   @gtk_action_is_visible[Bool](widget)
 
-/* set_accel_group unavailable due to typing issues
- {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_accel_group(): None =>
+    """
+    Sets the #GtkAccelGroup in which the accelerator for this action
+will be installed.
 
-/* set_accel_path unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "accel_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_accel_path(): None =>
+    """
+    Sets the accel path for this action.  All proxy widgets associated
+with the action will have this accel path, so that their
+accelerators are consistent.
+
+Note that @accel_path string will be stored in a #GQuark. Therefore, if you
+pass a static string, you can save some memory by interning it first with
+g_intern_static_string().
+
+    {:doh, %{argctype: "const gchar*", argname: "accel_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_always_show_image(always_show_pony: Bool): None =>
 """
@@ -284,13 +320,21 @@ without their image.
 """
   @gtk_action_set_always_show_image[None](widget, always_show_pony)
 
-/* set_gicon unavailable due to typing issues
- {:doh, %{argctype: "GIcon*", argname: "icon", argtype: "Gio.Icon", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_gicon(): None =>
+    """
+    Sets the icon of @action.
 
-/* set_icon_name unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GIcon*", argname: "icon", argtype: "Gio.Icon", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_icon_name(): None =>
+    """
+    Sets the icon name on @action
+
+    {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_is_important(is_important_pony: Bool): None =>
 """
@@ -300,9 +344,13 @@ or not.
 """
   @gtk_action_set_is_important[None](widget, is_important_pony)
 
-/* set_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_label(): None =>
+    """
+    Sets the label of @action.
+
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_sensitive(sensitive_pony: Bool): None =>
 """
@@ -313,17 +361,29 @@ for that.
 """
   @gtk_action_set_sensitive[None](widget, sensitive_pony)
 
-/* set_short_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "short_label", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_short_label(): None =>
+    """
+    Sets a shorter label text on @action.
 
-/* set_stock_id unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "const gchar*", argname: "short_label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_tooltip unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "tooltip", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_stock_id(): None =>
+    """
+    Sets the stock id on @action
+
+    {:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_tooltip(): None =>
+    """
+    Sets the tooltip text on @action
+
+    {:doh, %{argctype: "const gchar*", argname: "tooltip", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_visible(visible_pony: Bool): None =>
 """

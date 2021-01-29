@@ -6,7 +6,7 @@ input. The provided signals just provide the basic information
 
 
 ```pony
-class ref GtkGestureStylus is
+class val GtkGestureStylus is
   GtkWidget ref
 ```
 
@@ -18,29 +18,35 @@ class ref GtkGestureStylus is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L14)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L15)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkGestureStylus ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkGestureStylus val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkGestureStylus](gtk3-GtkGestureStylus.md) ref^
+* [GtkGestureStylus](gtk3-GtkGestureStylus.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L17)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L18)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkGestureStylus ref^
+: GtkGestureStylus val^
 ```
 #### Parameters
 
@@ -48,26 +54,41 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkGestureStylus](gtk3-GtkGestureStylus.md) ref^
+* [GtkGestureStylus](gtk3-GtkGestureStylus.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L21)</span>
 
 
 ```pony
-new ref create(
-  widget_pony: GtkWidget ref)
-: GtkGestureStylus ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkGestureStylus val^
 ```
-#### Parameters
-
-*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) ref
 
 #### Returns
 
-* [GtkGestureStylus](gtk3-GtkGestureStylus.md) ref^
+* [GtkGestureStylus](gtk3-GtkGestureStylus.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L25)</span>
+
+
+```pony
+new val create(
+  widget_pony: GtkWidget val)
+: GtkGestureStylus val^
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [GtkGestureStylus](gtk3-GtkGestureStylus.md) val^
 
 ---
 
@@ -94,6 +115,84 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_axes
+<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L29)</span>
+
+
+    Returns the current values for the requested @axes. This function
+must be called from either the #GtkGestureStylus:down,
+#GtkGestureStylus:motion, #GtkGestureStylus:up or #GtkGestureStylus:proximity
+signals.
+
+    {:doh, %{argctype: "", argname: "axes", argtype: "", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "", argname: "values", argtype: "", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_axes()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_axis
+<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L41)</span>
+
+
+    Returns the current value for the requested @axis. This function
+must be called from either the #GtkGestureStylus:down,
+#GtkGestureStylus:motion, #GtkGestureStylus:up or #GtkGestureStylus:proximity
+signals.
+
+    {:doh, %{argctype: "GdkAxisUse", argname: "axis", argtype: "Gdk.AxisUse", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gdouble*", argname: "value", argtype: "gdouble", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_axis()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_device_tool
+<span class="source-link">[[Source]](src/gtk3/GtkGestureStylus.md#L53)</span>
+
+
+    Returns the #GdkDeviceTool currently driving input through this gesture.
+This function must be called from either the #GtkGestureStylus::down,
+#GtkGestureStylus::motion, #GtkGestureStylus::up or #GtkGestureStylus::proximity
+signal handlers.
+
+    {:argctype, "GdkDeviceTool*"}
+{:argname, "rv"}
+{:argtype, "Gdk.DeviceTool"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_device_tool()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

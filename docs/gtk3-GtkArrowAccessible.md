@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkArrowAccessible is
+class val GtkArrowAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkArrowAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkArrowAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkArrowAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkArrowAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkArrowAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkArrowAccessible](gtk3-GtkArrowAccessible.md) ref^
+* [GtkArrowAccessible](gtk3-GtkArrowAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkArrowAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkArrowAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkArrowAccessible ref^
+: GtkArrowAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkArrowAccessible](gtk3-GtkArrowAccessible.md) ref^
+* [GtkArrowAccessible](gtk3-GtkArrowAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkArrowAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkArrowAccessible val^
+```
+
+#### Returns
+
+* [GtkArrowAccessible](gtk3-GtkArrowAccessible.md) val^
 
 ---
 

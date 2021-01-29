@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkPanedAccessible is
+class val GtkPanedAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkPanedAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkPanedAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkPanedAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkPanedAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkPanedAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkPanedAccessible](gtk3-GtkPanedAccessible.md) ref^
+* [GtkPanedAccessible](gtk3-GtkPanedAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkPanedAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPanedAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkPanedAccessible ref^
+: GtkPanedAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkPanedAccessible](gtk3-GtkPanedAccessible.md) ref^
+* [GtkPanedAccessible](gtk3-GtkPanedAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkPanedAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkPanedAccessible val^
+```
+
+#### Returns
+
+* [GtkPanedAccessible](gtk3-GtkPanedAccessible.md) val^
 
 ---
 

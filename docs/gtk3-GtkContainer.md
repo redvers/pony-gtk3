@@ -34,12 +34,12 @@ fun box gtkwidget()
 
 ```pony
 fun box add(
-  childwidget: GtkWidget ref)
+  childwidget: GtkWidget val)
 : None val
 ```
 #### Parameters
 
-*   childwidget: [GtkWidget](gtk3-GtkWidget.md) ref
+*   childwidget: [GtkWidget](gtk3-GtkWidget.md) val
 
 #### Returns
 

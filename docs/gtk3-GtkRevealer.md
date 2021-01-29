@@ -18,7 +18,7 @@ The GtkRevealer widget was added in GTK+ 3.10.
 
 
 ```pony
-class ref GtkRevealer is
+class val GtkRevealer is
   GtkWidget ref
 ```
 
@@ -30,29 +30,35 @@ class ref GtkRevealer is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L26)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L27)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkRevealer ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkRevealer val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkRevealer](gtk3-GtkRevealer.md) ref^
+* [GtkRevealer](gtk3-GtkRevealer.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L29)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L30)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkRevealer ref^
+: GtkRevealer val^
 ```
 #### Parameters
 
@@ -60,22 +66,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkRevealer](gtk3-GtkRevealer.md) ref^
+* [GtkRevealer](gtk3-GtkRevealer.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L33)</span>
 
 
 ```pony
-new ref create()
-: GtkRevealer ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkRevealer val^
 ```
 
 #### Returns
 
-* [GtkRevealer](gtk3-GtkRevealer.md) ref^
+* [GtkRevealer](gtk3-GtkRevealer.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L37)</span>
+
+
+```pony
+new val create()
+: GtkRevealer val^
+```
+
+#### Returns
+
+* [GtkRevealer](gtk3-GtkRevealer.md) val^
 
 ---
 
@@ -106,7 +127,7 @@ fun box gtkwidget()
 ---
 
 ### get_child_revealed
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L37)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L41)</span>
 
 
 Returns whether the child is fully revealed, in other words whether
@@ -125,7 +146,7 @@ fun box get_child_revealed()
 ---
 
 ### get_reveal_child
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L44)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L48)</span>
 
 
 Returns whether the child is currently
@@ -149,7 +170,7 @@ fun box get_reveal_child()
 ---
 
 ### get_transition_duration
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L56)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L60)</span>
 
 
 Returns the amount of time (in milliseconds) that
@@ -167,8 +188,34 @@ fun box get_transition_duration()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_transition_type
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L67)</span>
+
+
+    Gets the type of animation that will be used
+for transitions in @revealer.
+
+    {:argctype, "GtkRevealerTransitionType"}
+{:argname, "rv"}
+{:argtype, "RevealerTransitionType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_transition_type()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_reveal_child
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L70)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L80)</span>
 
 
 Tells the #GtkRevealer to reveal or conceal its child.
@@ -193,7 +240,7 @@ fun box set_reveal_child(
 ---
 
 ### set_transition_duration
-<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L79)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L89)</span>
 
 
 Sets the duration that transitions will take.
@@ -207,6 +254,29 @@ fun box set_transition_duration(
 #### Parameters
 
 *   duration_pony: [U32](builtin-U32.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_transition_type
+<span class="source-link">[[Source]](src/gtk3/GtkRevealer.md#L95)</span>
+
+
+    Sets the type of animation that will be used for
+transitions in @revealer. Available types include
+various kinds of fades and slides.
+
+    {:doh, %{argctype: "GtkRevealerTransitionType", argname: "transition", argtype: "RevealerTransitionType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_transition_type()
+: None val
+```
 
 #### Returns
 

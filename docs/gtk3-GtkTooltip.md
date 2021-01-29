@@ -38,7 +38,7 @@ will be used as tooltip window.  This works as follows:
 
 
 ```pony
-class ref GtkTooltip is
+class val GtkTooltip is
   GtkWidget ref
 ```
 
@@ -50,29 +50,35 @@ class ref GtkTooltip is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTooltip.md#L46)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkTooltip.md#L47)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkTooltip ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkTooltip val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkTooltip](gtk3-GtkTooltip.md) ref^
+* [GtkTooltip](gtk3-GtkTooltip.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTooltip.md#L49)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTooltip.md#L50)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkTooltip ref^
+: GtkTooltip val^
 ```
 #### Parameters
 
@@ -80,7 +86,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkTooltip](gtk3-GtkTooltip.md) ref^
+* [GtkTooltip](gtk3-GtkTooltip.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkTooltip.md#L53)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkTooltip val^
+```
+
+#### Returns
+
+* [GtkTooltip](gtk3-GtkTooltip.md) val^
 
 ---
 
@@ -107,6 +128,200 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### set_custom
+<span class="source-link">[[Source]](src/gtk3/GtkTooltip.md#L59)</span>
+
+
+Replaces the widget packed into the tooltip with
+@custom_widget. @custom_widget does not get destroyed when the tooltip goes
+away.
+By default a box with a #GtkImage and #GtkLabel is embedded in
+the tooltip, which can be configured using gtk_tooltip_set_markup()
+and gtk_tooltip_set_icon().
+
+
+```pony
+fun box set_custom(
+  custom_widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   custom_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_icon
+<span class="source-link">[[Source]](src/gtk3/GtkTooltip.md#L70)</span>
+
+
+    Sets the icon of the tooltip (which is in front of the text) to be
+@pixbuf.  If @pixbuf is %NULL, the image will be hidden.
+
+    {:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_icon()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_icon_from_gicon
+<span class="source-link">[[Source]](src/gtk3/GtkTooltip.md#L79)</span>
+
+
+    Sets the icon of the tooltip (which is in front of the text)
+to be the icon indicated by @gicon with the size indicated
+by @size. If @gicon is %NULL, the image will be hidden.
+
+    {:doh, %{argctype: "GIcon*", argname: "gicon", argtype: "Gio.Icon", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkIconSize", argname: "size", argtype: "gint", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_icon_from_gicon()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_icon_from_icon_name
+<span class="source-link">[[Source]](src/gtk3/GtkTooltip.md#L90)</span>
+
+
+    Sets the icon of the tooltip (which is in front of the text) to be
+the icon indicated by @icon_name with the size indicated
+by @size.  If @icon_name is %NULL, the image will be hidden.
+
+    {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkIconSize", argname: "size", argtype: "gint", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_icon_from_icon_name()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_icon_from_stock
+<span class="source-link">[[Source]](src/gtk3/GtkTooltip.md#L101)</span>
+
+
+    Sets the icon of the tooltip (which is in front of the text) to be
+the stock item indicated by @stock_id with the size indicated
+by @size.  If @stock_id is %NULL, the image will be hidden.
+
+    {:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkIconSize", argname: "size", argtype: "gint", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_icon_from_stock()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_markup
+<span class="source-link">[[Source]](src/gtk3/GtkTooltip.md#L112)</span>
+
+
+    Sets the text of the tooltip to be @markup, which is marked up
+with the [Pango text markup language][PangoMarkupFormat].
+If @markup is %NULL, the label will be hidden.
+
+    {:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_markup()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_text
+<span class="source-link">[[Source]](src/gtk3/GtkTooltip.md#L122)</span>
+
+
+    Sets the text of the tooltip to be @text. If @text is %NULL, the label
+will be hidden. See also gtk_tooltip_set_markup().
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_text()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_tip_area
+<span class="source-link">[[Source]](src/gtk3/GtkTooltip.md#L131)</span>
+
+
+    Sets the area of the widget, where the contents of this tooltip apply,
+to be @rect (in widget coordinates).  This is especially useful for
+properly setting tooltips on #GtkTreeView rows and cells, #GtkIconViews,
+etc.
+
+For setting tooltips on #GtkTreeView, please refer to the convenience
+functions for this: gtk_tree_view_set_tooltip_row() and
+gtk_tree_view_set_tooltip_cell().
+
+    {:doh, %{argctype: "const GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_tip_area()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

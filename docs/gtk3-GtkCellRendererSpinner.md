@@ -14,7 +14,7 @@ gtk_tree_view_column_add_attribute().
 
 
 ```pony
-class ref GtkCellRendererSpinner is
+class val GtkCellRendererSpinner is
   GtkWidget ref
 ```
 
@@ -26,29 +26,35 @@ class ref GtkCellRendererSpinner is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L22)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L23)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCellRendererSpinner ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCellRendererSpinner val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCellRendererSpinner](gtk3-GtkCellRendererSpinner.md) ref^
+* [GtkCellRendererSpinner](gtk3-GtkCellRendererSpinner.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L25)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L26)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCellRendererSpinner ref^
+: GtkCellRendererSpinner val^
 ```
 #### Parameters
 
@@ -56,22 +62,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCellRendererSpinner](gtk3-GtkCellRendererSpinner.md) ref^
+* [GtkCellRendererSpinner](gtk3-GtkCellRendererSpinner.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L29)</span>
 
 
 ```pony
-new ref create()
-: GtkCellRendererSpinner ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkCellRendererSpinner val^
 ```
 
 #### Returns
 
-* [GtkCellRendererSpinner](gtk3-GtkCellRendererSpinner.md) ref^
+* [GtkCellRendererSpinner](gtk3-GtkCellRendererSpinner.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpinner.md#L33)</span>
+
+
+```pony
+new val create()
+: GtkCellRendererSpinner val^
+```
+
+#### Returns
+
+* [GtkCellRendererSpinner](gtk3-GtkCellRendererSpinner.md) val^
 
 ---
 

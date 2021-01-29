@@ -11,7 +11,7 @@ GtkToolItemGroup has a single CSS node named toolitemgroup.
 
 
 ```pony
-class ref GtkToolItemGroup is
+class val GtkToolItemGroup is
   GtkWidget ref
 ```
 
@@ -23,29 +23,35 @@ class ref GtkToolItemGroup is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L19)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L20)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkToolItemGroup ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkToolItemGroup val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkToolItemGroup](gtk3-GtkToolItemGroup.md) ref^
+* [GtkToolItemGroup](gtk3-GtkToolItemGroup.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L22)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L23)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkToolItemGroup ref^
+: GtkToolItemGroup val^
 ```
 #### Parameters
 
@@ -53,18 +59,33 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkToolItemGroup](gtk3-GtkToolItemGroup.md) ref^
+* [GtkToolItemGroup](gtk3-GtkToolItemGroup.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L26)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkToolItemGroup val^
+```
+
+#### Returns
+
+* [GtkToolItemGroup](gtk3-GtkToolItemGroup.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L30)</span>
+
+
+```pony
+new val create(
   label_pony: String val)
-: GtkToolItemGroup ref^
+: GtkToolItemGroup val^
 ```
 #### Parameters
 
@@ -72,7 +93,7 @@ new ref create(
 
 #### Returns
 
-* [GtkToolItemGroup](gtk3-GtkToolItemGroup.md) ref^
+* [GtkToolItemGroup](gtk3-GtkToolItemGroup.md) val^
 
 ---
 
@@ -103,7 +124,7 @@ fun box gtkwidget()
 ---
 
 ### get_collapsed
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L34)</span>
 
 
 Gets whether @group is collapsed or expanded.
@@ -120,8 +141,104 @@ fun box get_collapsed()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_drop_item
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L40)</span>
+
+
+    Gets the tool item at position (x, y).
+
+    {:argctype, "GtkToolItem*"}
+{:argname, "rv"}
+{:argtype, "ToolItem"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_drop_item()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_ellipsize
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L52)</span>
+
+
+    Gets the ellipsization mode of @group.
+
+    {:argctype, "PangoEllipsizeMode"}
+{:argname, "rv"}
+{:argtype, "Pango.EllipsizeMode"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_ellipsize()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_header_relief
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L64)</span>
+
+
+    Gets the relief mode of the header button of @group.
+
+    {:argctype, "GtkReliefStyle"}
+{:argname, "rv"}
+{:argtype, "ReliefStyle"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_header_relief()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_item_position
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L76)</span>
+
+
+    Gets the position of @item in @group as index.
+
+    {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_item_position()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L84)</span>
 
 
 Gets the label of @group.
@@ -139,7 +256,7 @@ fun box get_label()
 ---
 
 ### get_n_items
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L76)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L99)</span>
 
 
 Gets the number of tool items in @group.
@@ -156,8 +273,54 @@ fun box get_n_items()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_nth_item
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L105)</span>
+
+
+    Gets the tool item at @index in group.
+
+    {:argctype, "GtkToolItem*"}
+{:argname, "rv"}
+{:argtype, "ToolItem"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_nth_item()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_insert
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L117)</span>
+
+
+    Inserts @item at @position in the list of children of @group.
+
+    {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_insert()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_collapsed
-<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L93)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L125)</span>
 
 
 Sets whether the @group should be collapsed or expanded.
@@ -171,6 +334,116 @@ fun box set_collapsed(
 #### Parameters
 
 *   collapsed_pony: [Bool](builtin-Bool.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_ellipsize
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L131)</span>
+
+
+    Sets the ellipsization mode which should be used by labels in @group.
+
+    {:doh, %{argctype: "PangoEllipsizeMode", argname: "ellipsize", argtype: "Pango.EllipsizeMode", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_ellipsize()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_header_relief
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L139)</span>
+
+
+    Set the button relief of the group header.
+See gtk_button_set_relief() for details.
+
+    {:doh, %{argctype: "GtkReliefStyle", argname: "style", argtype: "ReliefStyle", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_header_relief()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_item_position
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L148)</span>
+
+
+    Sets the position of @item in the list of children of @group.
+
+    {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_item_position()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_label
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L156)</span>
+
+
+    Sets the label of the tool item group. The label is displayed in the header
+of the group.
+
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_label()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_label_widget
+<span class="source-link">[[Source]](src/gtk3/GtkToolItemGroup.md#L165)</span>
+
+
+Sets the label of the tool item group.
+The label widget is displayed in the header of the group, in place
+of the usual label.
+
+
+```pony
+fun box set_label_widget(
+  label_widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   label_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
 
 #### Returns
 

@@ -103,7 +103,7 @@ subnode is invisible in this case.
 
 
 ```pony
-class ref GtkModelButton is
+class val GtkModelButton is
   GtkWidget ref
 ```
 
@@ -115,29 +115,35 @@ class ref GtkModelButton is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkModelButton.md#L111)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkModelButton.md#L112)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkModelButton ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkModelButton val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkModelButton](gtk3-GtkModelButton.md) ref^
+* [GtkModelButton](gtk3-GtkModelButton.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkModelButton.md#L114)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkModelButton.md#L115)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkModelButton ref^
+: GtkModelButton val^
 ```
 #### Parameters
 
@@ -145,22 +151,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkModelButton](gtk3-GtkModelButton.md) ref^
+* [GtkModelButton](gtk3-GtkModelButton.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkModelButton.md#L118)</span>
 
 
 ```pony
-new ref create()
-: GtkModelButton ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkModelButton val^
 ```
 
 #### Returns
 
-* [GtkModelButton](gtk3-GtkModelButton.md) ref^
+* [GtkModelButton](gtk3-GtkModelButton.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkModelButton.md#L122)</span>
+
+
+```pony
+new val create()
+: GtkModelButton val^
+```
+
+#### Returns
+
+* [GtkModelButton](gtk3-GtkModelButton.md) val^
 
 ---
 

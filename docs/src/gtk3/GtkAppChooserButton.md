@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["None", "Pointer[U8 val] ref", "String", "Bool", "GObjectREF"]
-provides: ["GtkAppChooserButton"]
+provides: ["GtkAppChooserButton val"]
 */
 use "../gobject"
-class GtkAppChooserButton is GtkWidget
+class val GtkAppChooserButton is GtkWidget
 """
 The #GtkAppChooserButton is a widget that lets the user select
 an application. It implements the #GtkAppChooser interface.
@@ -29,25 +29,38 @@ emitted when they are selected.
 To track changes in the selected application, use the
 #GtkComboBox::changed signal.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(content_type_pony: String) =>
+
+  new val create(content_type_pony: String) =>
     widget = @gtk_app_chooser_button_new[GObjectREF](content_type_pony.cstring()) //
 
 
-/* append_custom_item unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_append_custom_item(): None =>
+    """
+    Appends a custom item to the list of applications that is shown
+in the popup; the item name must be unique per-widget.
+Clients can use the provided name as a detail for the
+#GtkAppChooserButton::custom-item-activated signal, to add a
+callback for the activation of a particular custom item in the list.
+See also gtk_app_chooser_button_append_separator().
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GIcon*", argname: "icon", argtype: "Gio.Icon", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun append_separator(): None =>
 """
@@ -78,13 +91,26 @@ property.
 """
   @gtk_app_chooser_button_get_show_dialog_item[Bool](widget)
 
-/* set_active_custom_item unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_active_custom_item(): None =>
+    """
+    Selects a custom item previously added with
+gtk_app_chooser_button_append_custom_item().
 
-/* set_heading unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "heading", argtype: "utf8", paramtype: :param, txo: "none"}}
+Use gtk_app_chooser_refresh() to bring the selection
+to its initial state.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_heading(): None =>
+    """
+    Sets the text to display at the top of the dialog.
+If the heading is not set, the dialog displays a default text.
+
+    {:doh, %{argctype: "const gchar*", argname: "heading", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_show_default_item(setting_pony: Bool): None =>
 """

@@ -14,7 +14,7 @@ See the #GtkToolbar class for a description of the toolbar widget, and
 
 
 ```pony
-class ref GtkToolItem is
+class val GtkToolItem is
   GtkWidget ref
 ```
 
@@ -26,29 +26,35 @@ class ref GtkToolItem is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L22)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L23)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkToolItem ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkToolItem val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkToolItem](gtk3-GtkToolItem.md) ref^
+* [GtkToolItem](gtk3-GtkToolItem.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L25)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L26)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkToolItem ref^
+: GtkToolItem val^
 ```
 #### Parameters
 
@@ -56,22 +62,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkToolItem](gtk3-GtkToolItem.md) ref^
+* [GtkToolItem](gtk3-GtkToolItem.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L29)</span>
 
 
 ```pony
-new ref create()
-: GtkToolItem ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkToolItem val^
 ```
 
 #### Returns
 
-* [GtkToolItem](gtk3-GtkToolItem.md) ref^
+* [GtkToolItem](gtk3-GtkToolItem.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L33)</span>
+
+
+```pony
+new val create()
+: GtkToolItem val^
+```
+
+#### Returns
+
+* [GtkToolItem](gtk3-GtkToolItem.md) val^
 
 ---
 
@@ -101,8 +122,35 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_ellipsize_mode
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L37)</span>
+
+
+    Returns the ellipsize mode used for @tool_item. Custom subclasses of
+#GtkToolItem should call this function to find out how text should
+be ellipsized.
+
+    {:argctype, "PangoEllipsizeMode"}
+{:argname, "rv"}
+{:argtype, "Pango.EllipsizeMode"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_ellipsize_mode()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_expand
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L51)</span>
 
 
 Returns whether @tool_item is allocated extra space.
@@ -121,7 +169,7 @@ fun box get_expand()
 ---
 
 ### get_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L47)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L58)</span>
 
 
 Returns whether @tool_item is the same size as other homogeneous
@@ -139,8 +187,35 @@ fun box get_homogeneous()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_icon_size
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L65)</span>
+
+
+    Returns the icon size used for @tool_item. Custom subclasses of
+#GtkToolItem should call this function to find out what size icons
+they should use.
+
+    {:argctype, "GtkIconSize"}
+{:argname, "rv"}
+{:argtype, "gint"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_icon_size()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_is_important
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L79)</span>
 
 
 Returns whether @tool_item is considered important. See
@@ -158,8 +233,207 @@ fun box get_is_important()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_orientation
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L86)</span>
+
+
+    Returns the orientation used for @tool_item. Custom subclasses of
+#GtkToolItem should call this function to find out what size icons
+they should use.
+
+    {:argctype, "GtkOrientation"}
+{:argname, "rv"}
+{:argtype, "Orientation"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_orientation()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_proxy_menu_item
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L100)</span>
+
+
+    If @menu_item_id matches the string passed to
+gtk_tool_item_set_proxy_menu_item() return the corresponding #GtkMenuItem.
+
+Custom subclasses of #GtkToolItem should use this function to
+update their menu item when the #GtkToolItem changes. That the
+@menu_item_ids must match ensures that a #GtkToolItem
+will not inadvertently change a menu item that they did not create.
+
+    {:doh, %{argctype: "const gchar*", argname: "menu_item_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_proxy_menu_item()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_relief_style
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L114)</span>
+
+
+    Returns the relief style of @tool_item. See gtk_button_set_relief().
+Custom subclasses of #GtkToolItem should call this function in the handler
+of the #GtkToolItem::toolbar_reconfigured signal to find out the
+relief style of buttons.
+
+    {:argctype, "GtkReliefStyle"}
+{:argname, "rv"}
+{:argtype, "ReliefStyle"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_relief_style()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_text_alignment
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L129)</span>
+
+
+    Returns the text alignment used for @tool_item. Custom subclasses of
+#GtkToolItem should call this function to find out how text should
+be aligned.
+
+    {:argctype, "gfloat"}
+{:argname, "rv"}
+{:argtype, "gfloat"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_text_alignment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_text_orientation
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L143)</span>
+
+
+    Returns the text orientation used for @tool_item. Custom subclasses of
+#GtkToolItem should call this function to find out how text should
+be orientated.
+
+    {:argctype, "GtkOrientation"}
+{:argname, "rv"}
+{:argtype, "Orientation"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_text_orientation()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_text_size_group
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L157)</span>
+
+
+    Returns the size group used for labels in @tool_item.
+Custom subclasses of #GtkToolItem should call this function
+and use the size group for labels.
+
+    {:argctype, "GtkSizeGroup*"}
+{:argname, "rv"}
+{:argtype, "SizeGroup"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_text_size_group()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_toolbar_style
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L171)</span>
+
+
+    Returns the toolbar style used for @tool_item. Custom subclasses of
+#GtkToolItem should call this function in the handler of the
+GtkToolItem::toolbar_reconfigured signal to find out in what style
+the toolbar is displayed and change themselves accordingly
+
+Possibilities are:
+- %GTK_TOOLBAR_BOTH, meaning the tool item should show
+  both an icon and a label, stacked vertically
+- %GTK_TOOLBAR_ICONS, meaning the toolbar shows only icons
+- %GTK_TOOLBAR_TEXT, meaning the tool item should only show text
+- %GTK_TOOLBAR_BOTH_HORIZ, meaning the tool item should show
+  both an icon and a label, arranged horizontally
+
+    {:argctype, "GtkToolbarStyle"}
+{:argname, "rv"}
+{:argtype, "ToolbarStyle"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_toolbar_style()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_use_drag_window
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L117)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L194)</span>
 
 
 Returns whether @tool_item has a drag window. See
@@ -178,7 +452,7 @@ fun box get_use_drag_window()
 ---
 
 ### get_visible_horizontal
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L124)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L201)</span>
 
 
 Returns whether the @tool_item is visible on toolbars that are
@@ -197,7 +471,7 @@ fun box get_visible_horizontal()
 ---
 
 ### get_visible_vertical
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L131)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L208)</span>
 
 
 Returns whether @tool_item is visible when the toolbar is docked vertically.
@@ -216,7 +490,7 @@ fun box get_visible_vertical()
 ---
 
 ### rebuild_menu
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L138)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L215)</span>
 
 
 Calling this function signals to the toolbar that the
@@ -240,7 +514,7 @@ fun box rebuild_menu()
 ---
 
 ### set_expand
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L157)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L235)</span>
 
 
 Sets whether @tool_item is allocated extra space when there
@@ -265,7 +539,7 @@ fun box set_expand(
 ---
 
 ### set_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L166)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L244)</span>
 
 
 Sets whether @tool_item is to be allocated the same size as other
@@ -289,7 +563,7 @@ fun box set_homogeneous(
 ---
 
 ### set_is_important
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L174)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L252)</span>
 
 
 Sets whether @tool_item should be considered important. The #GtkToolButton
@@ -314,8 +588,77 @@ fun box set_is_important(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_proxy_menu_item
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L262)</span>
+
+
+    Sets the #GtkMenuItem used in the toolbar overflow menu. The
+@menu_item_id is used to identify the caller of this function and
+should also be used with gtk_tool_item_get_proxy_menu_item().
+
+See also #GtkToolItem::create-menu-proxy.
+
+    {:doh, %{argctype: "const gchar*", argname: "menu_item_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_proxy_menu_item()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_tooltip_markup
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L274)</span>
+
+
+    Sets the markup text to be displayed as tooltip on the item.
+See gtk_widget_set_tooltip_markup().
+
+    {:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_tooltip_markup()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_tooltip_text
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L283)</span>
+
+
+    Sets the text to be displayed as tooltip on the item.
+See gtk_widget_set_tooltip_text().
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_tooltip_text()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_use_drag_window
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L197)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L292)</span>
 
 
 Sets whether @tool_item has a drag window. When %TRUE the
@@ -340,7 +683,7 @@ fun box set_use_drag_window(
 ---
 
 ### set_visible_horizontal
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L206)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L301)</span>
 
 
 Sets whether @tool_item is visible when the toolbar is docked horizontally.
@@ -362,7 +705,7 @@ fun box set_visible_horizontal(
 ---
 
 ### set_visible_vertical
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L212)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L307)</span>
 
 
 Sets whether @tool_item is visible when the toolbar is docked
@@ -387,7 +730,7 @@ fun box set_visible_vertical(
 ---
 
 ### toolbar_reconfigured
-<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L221)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolItem.md#L316)</span>
 
 
 Emits the signal #GtkToolItem::toolbar_reconfigured on @tool_item.

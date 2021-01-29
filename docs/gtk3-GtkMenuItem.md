@@ -50,7 +50,7 @@ the .left or .right style class.
 
 
 ```pony
-class ref GtkMenuItem is
+class val GtkMenuItem is
   GtkWidget ref
 ```
 
@@ -62,29 +62,35 @@ class ref GtkMenuItem is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L58)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L59)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkMenuItem ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkMenuItem val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkMenuItem](gtk3-GtkMenuItem.md) ref^
+* [GtkMenuItem](gtk3-GtkMenuItem.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L62)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkMenuItem ref^
+: GtkMenuItem val^
 ```
 #### Parameters
 
@@ -92,33 +98,48 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkMenuItem](gtk3-GtkMenuItem.md) ref^
+* [GtkMenuItem](gtk3-GtkMenuItem.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L65)</span>
 
 
 ```pony
-new ref create()
-: GtkMenuItem ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkMenuItem val^
 ```
 
 #### Returns
 
-* [GtkMenuItem](gtk3-GtkMenuItem.md) ref^
+* [GtkMenuItem](gtk3-GtkMenuItem.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L69)</span>
+
+
+```pony
+new val create()
+: GtkMenuItem val^
+```
+
+#### Returns
+
+* [GtkMenuItem](gtk3-GtkMenuItem.md) val^
 
 ---
 
 ### new_with_label
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L68)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L72)</span>
 
 
 ```pony
-new ref new_with_label(
+new val new_with_label(
   label_pony: String val)
-: GtkMenuItem ref^
+: GtkMenuItem val^
 ```
 #### Parameters
 
@@ -126,18 +147,18 @@ new ref new_with_label(
 
 #### Returns
 
-* [GtkMenuItem](gtk3-GtkMenuItem.md) ref^
+* [GtkMenuItem](gtk3-GtkMenuItem.md) val^
 
 ---
 
 ### new_with_mnemonic
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L71)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L75)</span>
 
 
 ```pony
-new ref new_with_mnemonic(
+new val new_with_mnemonic(
   label_pony: String val)
-: GtkMenuItem ref^
+: GtkMenuItem val^
 ```
 #### Parameters
 
@@ -145,7 +166,7 @@ new ref new_with_mnemonic(
 
 #### Returns
 
-* [GtkMenuItem](gtk3-GtkMenuItem.md) ref^
+* [GtkMenuItem](gtk3-GtkMenuItem.md) val^
 
 ---
 
@@ -176,7 +197,7 @@ fun box gtkwidget()
 ---
 
 ### activate
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L75)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L79)</span>
 
 
 Emits the #GtkMenuItem::activate signal on the given item
@@ -194,7 +215,7 @@ fun box activate()
 ---
 
 ### deselect
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L81)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L85)</span>
 
 
 Emits the #GtkMenuItem::deselect signal on the given item.
@@ -212,7 +233,7 @@ fun box deselect()
 ---
 
 ### get_accel_path
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L87)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L91)</span>
 
 
 Retrieve the accelerator path that was previously set on @menu_item.
@@ -232,7 +253,7 @@ fun box get_accel_path()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L97)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L101)</span>
 
 
 Sets @text on the @menu_item label
@@ -250,7 +271,7 @@ fun box get_label()
 ---
 
 ### get_reserve_indicator
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L105)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L109)</span>
 
 
 Returns whether the @menu_item reserves space for
@@ -270,7 +291,7 @@ fun box get_reserve_indicator()
 ---
 
 ### get_right_justified
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L113)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L117)</span>
 
 
 Gets whether the menu item appears justified at the right
@@ -289,7 +310,7 @@ fun box get_right_justified()
 ---
 
 ### get_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L127)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L131)</span>
 
 
 Checks if an underline in the text indicates the next character
@@ -308,7 +329,7 @@ fun box get_use_underline()
 ---
 
 ### select
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L134)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L138)</span>
 
 
 Emits the #GtkMenuItem::select signal on the given item.
@@ -325,8 +346,68 @@ fun box select()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_accel_path
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L144)</span>
+
+
+    Set the accelerator path on @menu_item, through which runtime
+changes of the menu item’s accelerator caused by the user can be
+identified and saved to persistent storage (see gtk_accel_map_save()
+on this). To set up a default accelerator for this menu item, call
+gtk_accel_map_add_entry() with the same @accel_path. See also
+gtk_accel_map_add_entry() on the specifics of accelerator paths,
+and gtk_menu_set_accel_path() for a more convenient variant of
+this function.
+
+This function is basically a convenience wrapper that handles
+calling gtk_widget_set_accel_path() with the appropriate accelerator
+group for the menu item.
+
+Note that you do need to set an accelerator on the parent menu with
+gtk_menu_set_accel_group() for this to work.
+
+Note that @accel_path string will be stored in a #GQuark.
+Therefore, if you pass a static string, you can save some memory
+by interning it first with g_intern_static_string().
+
+    {:doh, %{argctype: "const gchar*", argname: "accel_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_accel_path()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_label
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L170)</span>
+
+
+    Sets @text on the @menu_item label
+
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_label()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_reserve_indicator
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L148)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L178)</span>
 
 
 Sets whether the @menu_item should reserve space for
@@ -353,7 +434,7 @@ fun box set_reserve_indicator(
 ---
 
 ### set_right_justified
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L159)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L189)</span>
 
 
 Sets whether the menu item appears justified at the right
@@ -378,8 +459,30 @@ fun box set_right_justified(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_submenu
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L199)</span>
+
+
+    Sets or replaces the menu item’s submenu, or removes it when a %NULL
+submenu is passed.
+
+    {:doh, %{argctype: "GtkWidget*", argname: "submenu", argtype: "Menu", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_submenu()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L173)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L208)</span>
 
 
 If true, an underline in the text indicates the next character
@@ -402,7 +505,7 @@ fun box set_use_underline(
 ---
 
 ### toggle_size_allocate
-<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L180)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L215)</span>
 
 
 Emits the #GtkMenuItem::toggle-size-allocate signal on the given item.
@@ -416,6 +519,27 @@ fun box toggle_size_allocate(
 #### Parameters
 
 *   allocation_pony: [I32](builtin-I32.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_toggle_size_request
+<span class="source-link">[[Source]](src/gtk3/GtkMenuItem.md#L221)</span>
+
+
+    Emits the #GtkMenuItem::toggle-size-request signal on the given item.
+
+    {:doh, %{argctype: "gint*", argname: "requisition", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_toggle_size_request()
+: None val
+```
 
 #### Returns
 

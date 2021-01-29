@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkListBoxRowAccessible is
+class val GtkListBoxRowAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkListBoxRowAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRowAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRowAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkListBoxRowAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkListBoxRowAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkListBoxRowAccessible](gtk3-GtkListBoxRowAccessible.md) ref^
+* [GtkListBoxRowAccessible](gtk3-GtkListBoxRowAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkListBoxRowAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRowAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkListBoxRowAccessible ref^
+: GtkListBoxRowAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkListBoxRowAccessible](gtk3-GtkListBoxRowAccessible.md) ref^
+* [GtkListBoxRowAccessible](gtk3-GtkListBoxRowAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkListBoxRowAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkListBoxRowAccessible val^
+```
+
+#### Returns
+
+* [GtkListBoxRowAccessible](gtk3-GtkListBoxRowAccessible.md) val^
 
 ---
 

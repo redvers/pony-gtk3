@@ -9,7 +9,7 @@ GtkVSeparator has been deprecated, use #GtkSeparator instead.
 
 
 ```pony
-class ref GtkVSeparator is
+class val GtkVSeparator is
   GtkWidget ref
 ```
 
@@ -21,29 +21,35 @@ class ref GtkVSeparator is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L17)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L18)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkVSeparator ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkVSeparator val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkVSeparator](gtk3-GtkVSeparator.md) ref^
+* [GtkVSeparator](gtk3-GtkVSeparator.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L20)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L21)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkVSeparator ref^
+: GtkVSeparator val^
 ```
 #### Parameters
 
@@ -51,22 +57,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkVSeparator](gtk3-GtkVSeparator.md) ref^
+* [GtkVSeparator](gtk3-GtkVSeparator.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L24)</span>
 
 
 ```pony
-new ref create()
-: GtkVSeparator ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkVSeparator val^
 ```
 
 #### Returns
 
-* [GtkVSeparator](gtk3-GtkVSeparator.md) ref^
+* [GtkVSeparator](gtk3-GtkVSeparator.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkVSeparator.md#L28)</span>
+
+
+```pony
+new val create()
+: GtkVSeparator val^
+```
+
+#### Returns
+
+* [GtkVSeparator](gtk3-GtkVSeparator.md) val^
 
 ---
 

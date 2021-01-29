@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["GObjectREF"]
-provides: ["GtkPopoverMenu"]
+provides: ["GtkPopoverMenu val"]
 */
 use "../gobject"
-class GtkPopoverMenu is GtkWidget
+class val GtkPopoverMenu is GtkWidget
 """
 GtkPopoverMenu is a subclass of #GtkPopover that treats its
 children like menus and allows switching between them. It is
@@ -79,23 +79,39 @@ Just like normal popovers created using gtk_popover_new_from_model,
 #GtkPopoverMenu instances have a single css node called "popover"
 and get the .menu style class.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_popover_menu_new[GObjectREF]() //
 
 
-/* open_submenu unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_open_submenu(): None =>
+    """
+    Opens a submenu of the @popover. The @name
+must be one of the names given to the submenus
+of @popover with #GtkPopoverMenu:submenu, or
+"main" to switch back to the main menu.
+
+#GtkModelButton will open submenus automatically
+when the #GtkModelButton:menu-name property is set,
+so this function is only needed when you are using
+other kinds of widgets to initiate menu changes.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 
 ```````

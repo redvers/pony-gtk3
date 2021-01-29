@@ -31,7 +31,7 @@ whose alignments cause them to be positioned at an edge get the style classes
 
 
 ```pony
-class ref GtkOverlay is
+class val GtkOverlay is
   GtkWidget ref
 ```
 
@@ -43,29 +43,35 @@ class ref GtkOverlay is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkOverlay.md#L39)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkOverlay.md#L40)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkOverlay ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkOverlay val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkOverlay](gtk3-GtkOverlay.md) ref^
+* [GtkOverlay](gtk3-GtkOverlay.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkOverlay.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkOverlay.md#L43)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkOverlay ref^
+: GtkOverlay val^
 ```
 #### Parameters
 
@@ -73,22 +79,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkOverlay](gtk3-GtkOverlay.md) ref^
+* [GtkOverlay](gtk3-GtkOverlay.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkOverlay.md#L46)</span>
 
 
 ```pony
-new ref create()
-: GtkOverlay ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkOverlay val^
 ```
 
 #### Returns
 
-* [GtkOverlay](gtk3-GtkOverlay.md) ref^
+* [GtkOverlay](gtk3-GtkOverlay.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkOverlay.md#L50)</span>
+
+
+```pony
+new val create()
+: GtkOverlay val^
+```
+
+#### Returns
+
+* [GtkOverlay](gtk3-GtkOverlay.md) val^
 
 ---
 
@@ -115,6 +136,109 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### add_overlay
+<span class="source-link">[[Source]](src/gtk3/GtkOverlay.md#L54)</span>
+
+
+Adds @widget to @overlay.
+
+The widget will be stacked on top of the main widget
+added with gtk_container_add().
+
+The position at which @widget is placed is determined
+from its #GtkWidget:halign and #GtkWidget:valign properties.
+
+
+```pony
+fun box add_overlay(
+  widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### get_overlay_pass_through
+<span class="source-link">[[Source]](src/gtk3/GtkOverlay.md#L66)</span>
+
+
+Convenience function to get the value of the #GtkOverlay:pass-through
+child property for @widget.
+
+
+```pony
+fun box get_overlay_pass_through(
+  widget_pony: GtkWidget val)
+: Bool val
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [Bool](builtin-Bool.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_reorder_overlay
+<span class="source-link">[[Source]](src/gtk3/GtkOverlay.md#L73)</span>
+
+
+    Moves @child to a new @index in the list of @overlay children.
+The list contains overlays in the order that these were
+added to @overlay by default. See also #GtkOverlay:index.
+
+A widget’s index in the @overlay children list determines which order
+the children are drawn if they overlap. The first child is drawn at
+the bottom. It also affects the default focus chain order.
+
+    {:doh, %{argctype: "int", argname: "index_", argtype: "gint", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_reorder_overlay()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_overlay_pass_through
+<span class="source-link">[[Source]](src/gtk3/GtkOverlay.md#L87)</span>
+
+
+Convenience function to set the value of the #GtkOverlay:pass-through
+child property for @widget.
+
+
+```pony
+fun box set_overlay_pass_through(
+  widget_pony: GtkWidget val,
+  pass_through_pony: Bool val)
+: None val
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+*   pass_through_pony: [Bool](builtin-Bool.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

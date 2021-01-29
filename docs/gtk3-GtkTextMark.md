@@ -33,7 +33,7 @@ Marks are typically created using the gtk_text_buffer_create_mark() function.
 
 
 ```pony
-class ref GtkTextMark is
+class val GtkTextMark is
   GtkWidget ref
 ```
 
@@ -45,29 +45,35 @@ class ref GtkTextMark is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L41)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L42)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkTextMark ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkTextMark val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkTextMark](gtk3-GtkTextMark.md) ref^
+* [GtkTextMark](gtk3-GtkTextMark.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L44)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L45)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkTextMark ref^
+: GtkTextMark val^
 ```
 #### Parameters
 
@@ -75,19 +81,34 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkTextMark](gtk3-GtkTextMark.md) ref^
+* [GtkTextMark](gtk3-GtkTextMark.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L48)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkTextMark val^
+```
+
+#### Returns
+
+* [GtkTextMark](gtk3-GtkTextMark.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L52)</span>
+
+
+```pony
+new val create(
   name_pony: String val,
   left_gravity_pony: Bool val)
-: GtkTextMark ref^
+: GtkTextMark val^
 ```
 #### Parameters
 
@@ -96,7 +117,7 @@ new ref create(
 
 #### Returns
 
-* [GtkTextMark](gtk3-GtkTextMark.md) ref^
+* [GtkTextMark](gtk3-GtkTextMark.md) val^
 
 ---
 
@@ -126,8 +147,34 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_buffer
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L56)</span>
+
+
+    Gets the buffer this mark is located inside,
+or %NULL if the mark is deleted.
+
+    {:argctype, "GtkTextBuffer*"}
+{:argname, "rv"}
+{:argtype, "TextBuffer"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_buffer()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_deleted
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L59)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L69)</span>
 
 
 Returns %TRUE if the mark has been removed from its buffer
@@ -147,7 +194,7 @@ fun box get_deleted()
 ---
 
 ### get_left_gravity
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L67)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L77)</span>
 
 
 Determines whether the mark has left gravity.
@@ -165,7 +212,7 @@ fun box get_left_gravity()
 ---
 
 ### get_name
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L73)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L83)</span>
 
 
 Returns the mark name; returns NULL for anonymous marks.
@@ -183,7 +230,7 @@ fun box get_name()
 ---
 
 ### get_visible
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L81)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L91)</span>
 
 
 Returns %TRUE if the mark is visible (i.e. a cursor is displayed
@@ -202,7 +249,7 @@ fun box get_visible()
 ---
 
 ### set_visible
-<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L88)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTextMark.md#L98)</span>
 
 
 Sets the visibility of @mark; the insertion point is normally

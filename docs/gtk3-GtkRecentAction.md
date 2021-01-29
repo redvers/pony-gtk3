@@ -12,7 +12,7 @@ action for a <toolitem> element.
 
 
 ```pony
-class ref GtkRecentAction is
+class val GtkRecentAction is
   GtkWidget ref
 ```
 
@@ -24,29 +24,35 @@ class ref GtkRecentAction is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L20)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L21)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkRecentAction ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkRecentAction val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkRecentAction](gtk3-GtkRecentAction.md) ref^
+* [GtkRecentAction](gtk3-GtkRecentAction.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L23)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L24)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkRecentAction ref^
+: GtkRecentAction val^
 ```
 #### Parameters
 
@@ -54,21 +60,36 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkRecentAction](gtk3-GtkRecentAction.md) ref^
+* [GtkRecentAction](gtk3-GtkRecentAction.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L27)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkRecentAction val^
+```
+
+#### Returns
+
+* [GtkRecentAction](gtk3-GtkRecentAction.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L31)</span>
+
+
+```pony
+new val create(
   name_pony: String val,
   label_pony: String val,
   tooltip_pony: String val,
   stock_id_pony: String val)
-: GtkRecentAction ref^
+: GtkRecentAction val^
 ```
 #### Parameters
 
@@ -79,22 +100,22 @@ new ref create(
 
 #### Returns
 
-* [GtkRecentAction](gtk3-GtkRecentAction.md) ref^
+* [GtkRecentAction](gtk3-GtkRecentAction.md) val^
 
 ---
 
 ### new_for_manager
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L34)</span>
 
 
 ```pony
-new ref new_for_manager(
+new val new_for_manager(
   name_pony: String val,
   label_pony: String val,
   tooltip_pony: String val,
   stock_id_pony: String val,
-  manager_pony: GtkRecentManager ref)
-: GtkRecentAction ref^
+  manager_pony: GtkRecentManager val)
+: GtkRecentAction val^
 ```
 #### Parameters
 
@@ -102,11 +123,11 @@ new ref new_for_manager(
 *   label_pony: [String](builtin-String.md) val
 *   tooltip_pony: [String](builtin-String.md) val
 *   stock_id_pony: [String](builtin-String.md) val
-*   manager_pony: [GtkRecentManager](gtk3-GtkRecentManager.md) ref
+*   manager_pony: [GtkRecentManager](gtk3-GtkRecentManager.md) val
 
 #### Returns
 
-* [GtkRecentAction](gtk3-GtkRecentAction.md) ref^
+* [GtkRecentAction](gtk3-GtkRecentAction.md) val^
 
 ---
 
@@ -137,7 +158,7 @@ fun box gtkwidget()
 ---
 
 ### get_show_numbers
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L38)</span>
 
 
 Returns the value set by gtk_recent_chooser_menu_set_show_numbers().
@@ -155,7 +176,7 @@ fun box get_show_numbers()
 ---
 
 ### set_show_numbers
-<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkRecentAction.md#L44)</span>
 
 
 Sets whether a number should be added to the items shown by the

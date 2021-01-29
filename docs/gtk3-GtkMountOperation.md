@@ -5,7 +5,7 @@ This should not be accessed directly. Use the accessor functions below.
 
 
 ```pony
-class ref GtkMountOperation is
+class val GtkMountOperation is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkMountOperation is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkMountOperation ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkMountOperation val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkMountOperation](gtk3-GtkMountOperation.md) ref^
+* [GtkMountOperation](gtk3-GtkMountOperation.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkMountOperation ref^
+: GtkMountOperation val^
 ```
 #### Parameters
 
@@ -47,26 +53,41 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkMountOperation](gtk3-GtkMountOperation.md) ref^
+* [GtkMountOperation](gtk3-GtkMountOperation.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L20)</span>
 
 
 ```pony
-new ref create(
-  parent_pony: GtkWindow ref)
-: GtkMountOperation ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkMountOperation val^
 ```
-#### Parameters
-
-*   parent_pony: [GtkWindow](gtk3-GtkWindow.md) ref
 
 #### Returns
 
-* [GtkMountOperation](gtk3-GtkMountOperation.md) ref^
+* [GtkMountOperation](gtk3-GtkMountOperation.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L24)</span>
+
+
+```pony
+new val create(
+  parent_pony: GtkWindow val)
+: GtkMountOperation val^
+```
+#### Parameters
+
+*   parent_pony: [GtkWindow](gtk3-GtkWindow.md) val
+
+#### Returns
+
+* [GtkMountOperation](gtk3-GtkMountOperation.md) val^
 
 ---
 
@@ -96,8 +117,59 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_parent
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L28)</span>
+
+
+    Gets the transient parent used by the #GtkMountOperation
+
+    {:argctype, "GtkWindow*"}
+{:argname, "rv"}
+{:argtype, "Window"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_parent()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_screen
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L40)</span>
+
+
+    Gets the screen on which windows of the #GtkMountOperation
+will be shown.
+
+    {:argctype, "GdkScreen*"}
+{:argname, "rv"}
+{:argtype, "Gdk.Screen"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_screen()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### is_showing
-<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L53)</span>
 
 
 Returns whether the #GtkMountOperation is currently displaying
@@ -112,6 +184,49 @@ fun box is_showing()
 #### Returns
 
 * [Bool](builtin-Bool.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_parent
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L60)</span>
+
+
+    Sets the transient parent for windows shown by the
+#GtkMountOperation.
+
+    {:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_parent()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_screen
+<span class="source-link">[[Source]](src/gtk3/GtkMountOperation.md#L69)</span>
+
+
+    Sets the screen to show windows of the #GtkMountOperation on.
+
+    {:doh, %{argctype: "GdkScreen*", argname: "screen", argtype: "Gdk.Screen", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_screen()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

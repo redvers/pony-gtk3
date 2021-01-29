@@ -31,7 +31,7 @@ grab and receive all key presses.
 
 
 ```pony
-class ref GtkMenuShell is
+class val GtkMenuShell is
   GtkWidget ref
 ```
 
@@ -43,29 +43,35 @@ class ref GtkMenuShell is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L39)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L40)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkMenuShell ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkMenuShell val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkMenuShell](gtk3-GtkMenuShell.md) ref^
+* [GtkMenuShell](gtk3-GtkMenuShell.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L42)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L43)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkMenuShell ref^
+: GtkMenuShell val^
 ```
 #### Parameters
 
@@ -73,7 +79,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkMenuShell](gtk3-GtkMenuShell.md) ref^
+* [GtkMenuShell](gtk3-GtkMenuShell.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L46)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkMenuShell val^
+```
+
+#### Returns
+
+* [GtkMenuShell](gtk3-GtkMenuShell.md) val^
 
 ---
 
@@ -103,8 +124,108 @@ fun box gtkwidget()
 
 ---
 
+### activate_item
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L52)</span>
+
+
+Activates the menu item within the menu shell.
+
+
+```pony
+fun box activate_item(
+  menu_item_pony: GtkWidget val,
+  force_deactivate_pony: Bool val)
+: None val
+```
+#### Parameters
+
+*   menu_item_pony: [GtkWidget](gtk3-GtkWidget.md) val
+*   force_deactivate_pony: [Bool](builtin-Bool.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_append
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L58)</span>
+
+
+    Adds a new #GtkMenuItem to the end of the menu shell's
+item list.
+
+    {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "MenuItem", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_append()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_bind_model
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L67)</span>
+
+
+    Establishes a binding between a #GtkMenuShell and a #GMenuModel.
+
+The contents of @shell are removed and then refilled with menu items
+according to @model.  When @model changes, @shell is updated.
+Calling this function twice on @shell with different @model will
+cause the first binding to be replaced with a binding to the new
+model. If @model is %NULL then any previous binding is undone and
+all children are removed.
+
+@with_separators determines if toplevel items (eg: sections) have
+separators inserted between them.  This is typically desired for
+menus but doesn’t make sense for menubars.
+
+If @action_namespace is non-%NULL then the effect is as if all
+actions mentioned in the @model have their names prefixed with the
+namespace, plus a dot.  For example, if the action “quit” is
+mentioned and @action_namespace is “app” then the effective action
+name is “app.quit”.
+
+This function uses #GtkActionable to define the action name and
+target values on the created menu items.  If you want to use an
+action group other than “app” and “win”, or if you want to use a
+#GtkMenuShell outside of a #GtkApplicationWindow, then you will need
+to attach your own action group to the widget hierarchy using
+gtk_widget_insert_action_group().  As an example, if you created a
+group with a “quit” action and inserted it with the name “mygroup”
+then you would use the action name “mygroup.quit” in your
+#GMenuModel.
+
+For most cases you are probably better off using
+gtk_menu_new_from_model() or gtk_menu_bar_new_from_model() or just
+directly passing the #GMenuModel to gtk_application_set_app_menu() or
+gtk_application_set_menubar().
+
+    {:doh, %{argctype: "GMenuModel*", argname: "model", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "action_namespace", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_bind_model()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### cancel
-<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L108)</span>
 
 
 Cancels the selection within the menu shell.
@@ -122,7 +243,7 @@ fun box cancel()
 ---
 
 ### deactivate
-<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L67)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L114)</span>
 
 
 Deactivates the menu shell.
@@ -143,7 +264,7 @@ fun box deactivate()
 ---
 
 ### deselect
-<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L76)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L123)</span>
 
 
 Deselects the currently selected item from the menu shell,
@@ -162,7 +283,7 @@ fun box deselect()
 ---
 
 ### get_take_focus
-<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L97)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L145)</span>
 
 
 Returns %TRUE if the menu shell will take the keyboard focus on popup.
@@ -179,8 +300,56 @@ fun box get_take_focus()
 
 ---
 
+### insert
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L151)</span>
+
+
+Adds a new #GtkMenuItem to the menu shell’s item list
+at the position indicated by @position.
+
+
+```pony
+fun box insert(
+  child_pony: GtkWidget val,
+  position_pony: I32 val)
+: None val
+```
+#### Parameters
+
+*   child_pony: [GtkWidget](gtk3-GtkWidget.md) val
+*   position_pony: [I32](builtin-I32.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### prepend
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L158)</span>
+
+
+Adds a new #GtkMenuItem to the beginning of the menu shell's
+item list.
+
+
+```pony
+fun box prepend(
+  child_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   child_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### select_first
-<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L111)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L165)</span>
 
 
 Select the first visible or selectable child of the menu shell;
@@ -203,8 +372,30 @@ fun box select_first(
 
 ---
 
+### select_item
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L173)</span>
+
+
+Selects the menu item from the menu shell.
+
+
+```pony
+fun box select_item(
+  menu_item_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   menu_item_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_take_focus
-<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L123)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkMenuShell.md#L179)</span>
 
 
 If @take_focus is %TRUE (the default) the menu shell will take

@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["None", "Bool", "I32", "GObjectREF"]
-provides: ["GtkGLArea"]
+provides: ["GtkGLArea val"]
 */
 use "../gobject"
-class GtkGLArea is GtkWidget
+class val GtkGLArea is GtkWidget
 """
 #GtkGLArea is a widget that allows drawing with OpenGL.
 
@@ -106,17 +106,21 @@ of how to safely initialize the GL state is:
 If you need to change the options for creating the #GdkGLContext
 you should use the #GtkGLArea::create-context signal.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_gl_area_new[GObjectREF]() //
 
 
@@ -138,19 +142,29 @@ Returns whether the area is in auto render mode or not.
 """
   @gtk_gl_area_get_auto_render[Bool](widget)
 
-/* get_context unavailable due to return typing issues
-{:argctype, "GdkGLContext*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_context(): None =>
+    """
+    Retrieves the #GdkGLContext used by @area.
+
+    {:argctype, "GdkGLContext*"}
 {:argname, "rv"}
 {:argtype, "Gdk.GLContext"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_error unavailable due to return typing issues
-{:argctype, "GError*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_error(): None =>
+    """
+    Gets the current error set on the @area.
+
+    {:argctype, "GError*"}
 {:argname, "rv"}
 {:argtype, "GLib.Error"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_has_alpha(): Bool =>
 """
@@ -170,10 +184,15 @@ Returns whether the area has a stencil buffer.
 """
   @gtk_gl_area_get_has_stencil_buffer[Bool](widget)
 
-/* get_required_version unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "major", argtype: "gint", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_required_version(): None =>
+    """
+    Retrieves the required version of OpenGL set
+using gtk_gl_area_set_required_version().
+
+    {:doh, %{argctype: "gint*", argname: "major", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "minor", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun get_use_es(): Bool =>
 """
@@ -218,9 +237,15 @@ the scene changes seldomly, but takes a long time to redraw.
 """
   @gtk_gl_area_set_auto_render[None](widget, auto_render_pony)
 
-/* set_error unavailable due to typing issues
- {:doh, %{argctype: "const GError*", argname: "gerror", argtype: "GLib.Error", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_error(): None =>
+    """
+    Sets an error on the area which will be shown instead of the
+GL rendering. This is useful in the #GtkGLArea::create-context
+signal if GL context creation fails.
+
+    {:doh, %{argctype: "const GError*", argname: "gerror", argtype: "GLib.Error", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_has_alpha(has_alpha_pony: Bool): None =>
 """

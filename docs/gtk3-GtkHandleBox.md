@@ -29,7 +29,7 @@ so the snap edge should be set to %GTK_POS_BOTTOM.
 
 
 ```pony
-class ref GtkHandleBox is
+class val GtkHandleBox is
   GtkWidget ref
 ```
 
@@ -41,29 +41,35 @@ class ref GtkHandleBox is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L37)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L38)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkHandleBox ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkHandleBox val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkHandleBox](gtk3-GtkHandleBox.md) ref^
+* [GtkHandleBox](gtk3-GtkHandleBox.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L41)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkHandleBox ref^
+: GtkHandleBox val^
 ```
 #### Parameters
 
@@ -71,22 +77,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkHandleBox](gtk3-GtkHandleBox.md) ref^
+* [GtkHandleBox](gtk3-GtkHandleBox.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L44)</span>
 
 
 ```pony
-new ref create()
-: GtkHandleBox ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkHandleBox val^
 ```
 
 #### Returns
 
-* [GtkHandleBox](gtk3-GtkHandleBox.md) ref^
+* [GtkHandleBox](gtk3-GtkHandleBox.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L48)</span>
+
+
+```pony
+new val create()
+: GtkHandleBox val^
+```
+
+#### Returns
+
+* [GtkHandleBox](gtk3-GtkHandleBox.md) val^
 
 ---
 
@@ -117,7 +138,7 @@ fun box gtkwidget()
 ---
 
 ### get_child_detached
-<span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L48)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L52)</span>
 
 
 Whether the handlebox’s child is currently detached.
@@ -131,6 +152,160 @@ fun box get_child_detached()
 #### Returns
 
 * [Bool](builtin-Bool.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_handle_position
+<span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L58)</span>
+
+
+    Gets the handle position of the handle box. See
+gtk_handle_box_set_handle_position().
+
+    {:argctype, "GtkPositionType"}
+{:argname, "rv"}
+{:argtype, "PositionType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_handle_position()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_shadow_type
+<span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L71)</span>
+
+
+    Gets the type of shadow drawn around the handle box. See
+gtk_handle_box_set_shadow_type().
+
+    {:argctype, "GtkShadowType"}
+{:argname, "rv"}
+{:argtype, "ShadowType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_shadow_type()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_snap_edge
+<span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L84)</span>
+
+
+    Gets the edge used for determining reattachment of the handle box.
+See gtk_handle_box_set_snap_edge().
+
+    {:argctype, "GtkPositionType"}
+{:argname, "rv"}
+{:argtype, "PositionType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_snap_edge()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_handle_position
+<span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L97)</span>
+
+
+    Sets the side of the handlebox where the handle is drawn.
+
+    {:doh, %{argctype: "GtkPositionType", argname: "position", argtype: "PositionType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_handle_position()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_shadow_type
+<span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L105)</span>
+
+
+    Sets the type of shadow to be drawn around the border
+of the handle box.
+
+    {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_shadow_type()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_snap_edge
+<span class="source-link">[[Source]](src/gtk3/GtkHandleBox.md#L114)</span>
+
+
+    Sets the snap edge of a handlebox. The snap edge is
+the edge of the detached child that must be aligned
+with the corresponding edge of the “ghost” left
+behind when the child was detached to reattach
+the torn-off window. Usually, the snap edge should
+be chosen so that it stays in the same place on
+the screen when the handlebox is torn off.
+
+If the snap edge is not set, then an appropriate value
+will be guessed from the handle position. If the
+handle position is %GTK_POS_RIGHT or %GTK_POS_LEFT,
+then the snap edge will be %GTK_POS_TOP, otherwise
+it will be %GTK_POS_LEFT.
+
+    {:doh, %{argctype: "GtkPositionType", argname: "edge", argtype: "PositionType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_snap_edge()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

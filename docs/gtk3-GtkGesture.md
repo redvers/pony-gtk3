@@ -93,7 +93,7 @@ to enable this support are:
 
 
 ```pony
-class ref GtkGesture is
+class val GtkGesture is
   GtkWidget ref
 ```
 
@@ -105,29 +105,35 @@ class ref GtkGesture is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L101)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L102)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkGesture ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkGesture val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkGesture](gtk3-GtkGesture.md) ref^
+* [GtkGesture](gtk3-GtkGesture.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L104)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L105)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkGesture ref^
+: GtkGesture val^
 ```
 #### Parameters
 
@@ -135,7 +141,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkGesture](gtk3-GtkGesture.md) ref^
+* [GtkGesture](gtk3-GtkGesture.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L108)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkGesture val^
+```
+
+#### Returns
+
+* [GtkGesture](gtk3-GtkGesture.md) val^
 
 ---
 
@@ -165,8 +186,325 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_bounding_box
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L114)</span>
+
+
+    If there are touch sequences being currently handled by @gesture,
+this function returns %TRUE and fills in @rect with the bounding
+box containing all active touches. Otherwise, %FALSE will be
+returned.
+
+Note: This function will yield unexpected results on touchpad
+gestures. Since there is no correlation between physical and
+pixel distances, these will look as if constrained in an
+infinitely small area, @rect width and height will thus be 0
+regardless of the number of touchpoints.
+
+    {:doh, %{argctype: "GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_bounding_box()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_bounding_box_center
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L131)</span>
+
+
+    If there are touch sequences being currently handled by @gesture,
+this function returns %TRUE and fills in @x and @y with the center
+of the bounding box containing all active touches. Otherwise, %FALSE
+will be returned.
+
+    {:doh, %{argctype: "gdouble*", argname: "x", argtype: "gdouble", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gdouble*", argname: "y", argtype: "gdouble", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_bounding_box_center()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_device
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L143)</span>
+
+
+    Returns the master #GdkDevice that is currently operating
+on @gesture, or %NULL if the gesture is not being interacted.
+
+    {:argctype, "GdkDevice*"}
+{:argname, "rv"}
+{:argtype, "Gdk.Device"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_device()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_group
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L156)</span>
+
+
+    Returns all gestures in the group of @gesture
+
+    {:argctype, "GList*"}
+{:argname, "rv"}
+{:argtype, "GLib.List"}
+{:paramtype, :param}
+{:txo, "container"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_group()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_last_event
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L168)</span>
+
+
+    Returns the last event that was processed for @sequence.
+
+Note that the returned pointer is only valid as long as the @sequence
+is still interpreted by the @gesture. If in doubt, you should make
+a copy of the event.
+
+    {:argctype, "const GdkEvent*"}
+{:argname, "rv"}
+{:argtype, "Gdk.Event"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_last_event()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_last_updated_sequence
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L184)</span>
+
+
+    Returns the #GdkEventSequence that was last updated on @gesture.
+
+    {:argctype, "GdkEventSequence*"}
+{:argname, "rv"}
+{:argtype, "Gdk.EventSequence"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_last_updated_sequence()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_point
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L196)</span>
+
+
+    If @sequence is currently being interpreted by @gesture, this
+function returns %TRUE and fills in @x and @y with the last coordinates
+stored for that event sequence. The coordinates are always relative to the
+widget allocation.
+
+    {:doh, %{argctype: "GdkEventSequence*", argname: "sequence", argtype: "Gdk.EventSequence", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gdouble*", argname: "x", argtype: "gdouble", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gdouble*", argname: "y", argtype: "gdouble", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_point()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_sequence_state
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L209)</span>
+
+
+    Returns the @sequence state, as seen by @gesture.
+
+    {:argctype, "GtkEventSequenceState"}
+{:argname, "rv"}
+{:argtype, "EventSequenceState"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_sequence_state()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_sequences
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L221)</span>
+
+
+    Returns the list of #GdkEventSequences currently being interpreted
+by @gesture.
+
+    {:argctype, "GList*"}
+{:argname, "rv"}
+{:argtype, "GLib.List"}
+{:paramtype, :param}
+{:txo, "container"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_sequences()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_window
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L234)</span>
+
+
+    Returns the user-defined window that receives the events
+handled by @gesture. See gtk_gesture_set_window() for more
+information.
+
+    {:argctype, "GdkWindow*"}
+{:argname, "rv"}
+{:argtype, "Gdk.Window"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_window()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_group
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L248)</span>
+
+
+    Adds @gesture to the same group than @group_gesture. Gestures
+are by default isolated in their own groups.
+
+When gestures are grouped, the state of #GdkEventSequences
+is kept in sync for all of those, so calling gtk_gesture_set_sequence_state(),
+on one will transfer the same value to the others.
+
+Groups also perform an "implicit grabbing" of sequences, if a
+#GdkEventSequence state is set to #GTK_EVENT_SEQUENCE_CLAIMED on one group,
+every other gesture group attached to the same #GtkWidget will switch the
+state for that sequence to #GTK_EVENT_SEQUENCE_DENIED.
+
+    {:doh, %{argctype: "GtkGesture*", argname: "gesture", argtype: "Gesture", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_group()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_handles_sequence
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L266)</span>
+
+
+    Returns %TRUE if @gesture is currently handling events corresponding to
+@sequence.
+
+    {:doh, %{argctype: "GdkEventSequence*", argname: "sequence", argtype: "Gdk.EventSequence", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_handles_sequence()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### is_active
-<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L182)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L275)</span>
 
 
 Returns %TRUE if the gesture is currently active.
@@ -185,8 +523,29 @@ fun box is_active()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_is_grouped_with
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L283)</span>
+
+
+    Returns %TRUE if both gestures pertain to the same group.
+
+    {:doh, %{argctype: "GtkGesture*", argname: "other", argtype: "Gesture", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_is_grouped_with()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### is_recognized
-<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L194)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L291)</span>
 
 
 Returns %TRUE if the gesture is currently recognized.
@@ -206,8 +565,117 @@ fun box is_recognized()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_sequence_state
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L300)</span>
+
+
+    Sets the state of @sequence in @gesture. Sequences start
+in state #GTK_EVENT_SEQUENCE_NONE, and whenever they change
+state, they can never go back to that state. Likewise,
+sequences in state #GTK_EVENT_SEQUENCE_DENIED cannot turn
+back to a not denied state. With these rules, the lifetime
+of an event sequence is constrained to the next four:
+
+* None
+* None → Denied
+* None → Claimed
+* None → Claimed → Denied
+
+Note: Due to event handling ordering, it may be unsafe to
+set the state on another gesture within a #GtkGesture::begin
+signal handler, as the callback might be executed before
+the other gesture knows about the sequence. A safe way to
+perform this could be:
+
+|[
+static void
+first_gesture_begin_cb (GtkGesture       *first_gesture,
+                        GdkEventSequence *sequence,
+                        gpointer          user_data)
+{
+  gtk_gesture_set_sequence_state (first_gesture, sequence, GTK_EVENT_SEQUENCE_CLAIMED);
+  gtk_gesture_set_sequence_state (second_gesture, sequence, GTK_EVENT_SEQUENCE_DENIED);
+}
+
+static void
+second_gesture_begin_cb (GtkGesture       *second_gesture,
+                         GdkEventSequence *sequence,
+                         gpointer          user_data)
+{
+  if (gtk_gesture_get_sequence_state (first_gesture, sequence) == GTK_EVENT_SEQUENCE_CLAIMED)
+    gtk_gesture_set_sequence_state (second_gesture, sequence, GTK_EVENT_SEQUENCE_DENIED);
+}
+]|
+
+If both gestures are in the same group, just set the state on
+the gesture emitting the event, the sequence will be already
+be initialized to the group's global state when the second
+gesture processes the event.
+
+    {:doh, %{argctype: "GdkEventSequence*", argname: "sequence", argtype: "Gdk.EventSequence", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkEventSequenceState", argname: "state", argtype: "EventSequenceState", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_sequence_state()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_state
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L350)</span>
+
+
+    Sets the state of all sequences that @gesture is currently
+interacting with. See gtk_gesture_set_sequence_state()
+for more details on sequence states.
+
+    {:doh, %{argctype: "GtkEventSequenceState", argname: "state", argtype: "EventSequenceState", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_state()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_window
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L360)</span>
+
+
+    Sets a specific window to receive events about, so @gesture
+will effectively handle only events targeting @window, or
+a child of it. @window must pertain to gtk_event_controller_get_widget().
+
+    {:doh, %{argctype: "GdkWindow*", argname: "window", argtype: "Gdk.Window", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_window()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### ungroup
-<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L216)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGesture.md#L370)</span>
 
 
 Separates @gesture into an isolated group.

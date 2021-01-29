@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkIMMulticontext is
+class val GtkIMMulticontext is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkIMMulticontext is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkIMMulticontext.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkIMMulticontext.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkIMMulticontext ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkIMMulticontext val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkIMMulticontext](gtk3-GtkIMMulticontext.md) ref^
+* [GtkIMMulticontext](gtk3-GtkIMMulticontext.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkIMMulticontext.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkIMMulticontext.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkIMMulticontext ref^
+: GtkIMMulticontext val^
 ```
 #### Parameters
 
@@ -47,22 +53,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkIMMulticontext](gtk3-GtkIMMulticontext.md) ref^
+* [GtkIMMulticontext](gtk3-GtkIMMulticontext.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkIMMulticontext.md#L20)</span>
 
 
 ```pony
-new ref create()
-: GtkIMMulticontext ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkIMMulticontext val^
 ```
 
 #### Returns
 
-* [GtkIMMulticontext](gtk3-GtkIMMulticontext.md) ref^
+* [GtkIMMulticontext](gtk3-GtkIMMulticontext.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkIMMulticontext.md#L24)</span>
+
+
+```pony
+new val create()
+: GtkIMMulticontext val^
+```
+
+#### Returns
+
+* [GtkIMMulticontext](gtk3-GtkIMMulticontext.md) val^
 
 ---
 
@@ -89,6 +110,78 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_append_menuitems
+<span class="source-link">[[Source]](src/gtk3/GtkIMMulticontext.md#L28)</span>
+
+
+    Add menuitems for various available input methods to a menu;
+the menuitems, when selected, will switch the input method
+for the context and the global default input method.
+
+    {:doh, %{argctype: "GtkMenuShell*", argname: "menushell", argtype: "MenuShell", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_append_menuitems()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_context_id
+<span class="source-link">[[Source]](src/gtk3/GtkIMMulticontext.md#L38)</span>
+
+
+    Gets the id of the currently active slave of the @context.
+
+    {:argctype, "const char*"}
+{:argname, "rv"}
+{:argtype, "utf8"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_context_id()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_context_id
+<span class="source-link">[[Source]](src/gtk3/GtkIMMulticontext.md#L50)</span>
+
+
+    Sets the context id for @context.
+
+This causes the currently active slave of @context to be
+replaced by the slave corresponding to the new context id.
+
+    {:doh, %{argctype: "const char*", argname: "context_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_context_id()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

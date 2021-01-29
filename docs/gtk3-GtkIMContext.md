@@ -70,7 +70,7 @@ in order for the new input method to become available to GTK+ applications.
 
 
 ```pony
-class ref GtkIMContext is
+class val GtkIMContext is
   GtkWidget ref
 ```
 
@@ -82,29 +82,35 @@ class ref GtkIMContext is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L78)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L79)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkIMContext ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkIMContext val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkIMContext](gtk3-GtkIMContext.md) ref^
+* [GtkIMContext](gtk3-GtkIMContext.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L81)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L82)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkIMContext ref^
+: GtkIMContext val^
 ```
 #### Parameters
 
@@ -112,7 +118,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkIMContext](gtk3-GtkIMContext.md) ref^
+* [GtkIMContext](gtk3-GtkIMContext.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L85)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkIMContext val^
+```
+
+#### Returns
+
+* [GtkIMContext](gtk3-GtkIMContext.md) val^
 
 ---
 
@@ -143,7 +164,7 @@ fun box gtkwidget()
 ---
 
 ### delete_surrounding
-<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L87)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L91)</span>
 
 
 Asks the widget that the input context is attached to to delete
@@ -181,8 +202,31 @@ fun box delete_surrounding(
 
 ---
 
-### focus_in
+### pony_NOT_IMPLEMENTED_YET_filter_keypress
 <span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L112)</span>
+
+
+    Allow an input method to internally handle key press and release
+events. If this function returns %TRUE, then no further processing
+should be done for this key event.
+
+    {:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_filter_keypress()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### focus_in
+<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L122)</span>
 
 
 Notify the input method that the widget to which this
@@ -203,7 +247,7 @@ fun box focus_in()
 ---
 
 ### focus_out
-<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L121)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L131)</span>
 
 
 Notify the input method that the widget to which this
@@ -223,8 +267,67 @@ fun box focus_out()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_preedit_string
+<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L140)</span>
+
+
+    Retrieve the current preedit string for the input context,
+and a list of attributes to apply to the string.
+This string should be displayed inserted at the insertion
+point.
+
+    {:doh, %{argctype: "gchar**", argname: "str", argtype: "utf8", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "PangoAttrList**", argname: "attrs", argtype: "Pango.AttrList", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "cursor_pos", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_preedit_string()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_surrounding
+<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L153)</span>
+
+
+    Retrieves context around the insertion point. Input methods
+typically want context in order to constrain input text based on
+existing text; this is important for languages such as Thai where
+only some sequences of characters are allowed.
+
+This function is implemented by emitting the
+GtkIMContext::retrieve_surrounding signal on the input method; in
+response to this signal, a widget should provide as much context as
+is available, up to an entire paragraph, by calling
+gtk_im_context_set_surrounding(). Note that there is no obligation
+for a widget to respond to the ::retrieve_surrounding signal, so input
+methods must be prepared to function without context.
+
+    {:doh, %{argctype: "gchar**", argname: "text", argtype: "utf8", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "cursor_index", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_surrounding()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### reset
-<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L141)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L173)</span>
 
 
 Notify the input method that a change such as a change in cursor
@@ -243,8 +346,79 @@ fun box reset()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_client_window
+<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L181)</span>
+
+
+    Set the client window for the input context; this is the
+#GdkWindow in which the input appears. This window is
+used in order to correctly position status windows, and may
+also be used for purposes internal to the input method.
+
+    {:doh, %{argctype: "GdkWindow*", argname: "window", argtype: "Gdk.Window", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_client_window()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_cursor_location
+<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L192)</span>
+
+
+    Notify the input method that a change in cursor
+position has been made. The location is relative to the client
+window.
+
+    {:doh, %{argctype: "const GdkRectangle*", argname: "area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_cursor_location()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_surrounding
+<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L202)</span>
+
+
+    Sets surrounding context around the insertion point and preedit
+string. This function is expected to be called in response to the
+GtkIMContext::retrieve_surrounding signal, and will likely have no
+effect if called at other times.
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_surrounding()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_use_preedit
-<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L161)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkIMContext.md#L213)</span>
 
 
 Sets whether the IM context should use the preedit string

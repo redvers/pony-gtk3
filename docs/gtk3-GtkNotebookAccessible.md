@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkNotebookAccessible is
+class val GtkNotebookAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkNotebookAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkNotebookAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkNotebookAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkNotebookAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkNotebookAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkNotebookAccessible](gtk3-GtkNotebookAccessible.md) ref^
+* [GtkNotebookAccessible](gtk3-GtkNotebookAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkNotebookAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkNotebookAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkNotebookAccessible ref^
+: GtkNotebookAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkNotebookAccessible](gtk3-GtkNotebookAccessible.md) ref^
+* [GtkNotebookAccessible](gtk3-GtkNotebookAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkNotebookAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkNotebookAccessible val^
+```
+
+#### Returns
+
+* [GtkNotebookAccessible](gtk3-GtkNotebookAccessible.md) val^
 
 ---
 

@@ -40,7 +40,7 @@ GtkSettings instance for the default screen.
 
 
 ```pony
-class ref GtkSettings is
+class val GtkSettings is
   GtkWidget ref
 ```
 
@@ -52,29 +52,35 @@ class ref GtkSettings is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkSettings.md#L48)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkSettings.md#L49)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkSettings ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkSettings val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkSettings](gtk3-GtkSettings.md) ref^
+* [GtkSettings](gtk3-GtkSettings.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkSettings.md#L51)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSettings.md#L52)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkSettings ref^
+: GtkSettings val^
 ```
 #### Parameters
 
@@ -82,7 +88,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkSettings](gtk3-GtkSettings.md) ref^
+* [GtkSettings](gtk3-GtkSettings.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkSettings.md#L55)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkSettings val^
+```
+
+#### Returns
+
+* [GtkSettings](gtk3-GtkSettings.md) val^
 
 ---
 
@@ -109,6 +130,121 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_reset_property
+<span class="source-link">[[Source]](src/gtk3/GtkSettings.md#L61)</span>
+
+
+    Undoes the effect of calling g_object_set() to install an
+application-specific value for a setting. After this call,
+the setting will again follow the session-wide value for
+this setting.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_reset_property()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_double_property
+<span class="source-link">[[Source]](src/gtk3/GtkSettings.md#L72)</span>
+
+
+    No provided documentation
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gdouble", argname: "v_double", argtype: "gdouble", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "origin", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_double_property()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_long_property
+<span class="source-link">[[Source]](src/gtk3/GtkSettings.md#L82)</span>
+
+
+    No provided documentation
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "glong", argname: "v_long", argtype: "glong", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "origin", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_long_property()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_property_value
+<span class="source-link">[[Source]](src/gtk3/GtkSettings.md#L92)</span>
+
+
+    No provided documentation
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const GtkSettingsValue*", argname: "svalue", argtype: "SettingsValue", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_property_value()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_string_property
+<span class="source-link">[[Source]](src/gtk3/GtkSettings.md#L101)</span>
+
+
+    No provided documentation
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "v_string", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "origin", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_string_property()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

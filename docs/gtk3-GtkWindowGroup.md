@@ -19,7 +19,7 @@ freed.
 
 
 ```pony
-class ref GtkWindowGroup is
+class val GtkWindowGroup is
   GtkWidget ref
 ```
 
@@ -31,29 +31,35 @@ class ref GtkWindowGroup is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkWindowGroup.md#L27)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkWindowGroup.md#L28)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkWindowGroup ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkWindowGroup val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkWindowGroup](gtk3-GtkWindowGroup.md) ref^
+* [GtkWindowGroup](gtk3-GtkWindowGroup.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkWindowGroup.md#L30)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindowGroup.md#L31)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkWindowGroup ref^
+: GtkWindowGroup val^
 ```
 #### Parameters
 
@@ -61,22 +67,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkWindowGroup](gtk3-GtkWindowGroup.md) ref^
+* [GtkWindowGroup](gtk3-GtkWindowGroup.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkWindowGroup.md#L34)</span>
 
 
 ```pony
-new ref create()
-: GtkWindowGroup ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkWindowGroup val^
 ```
 
 #### Returns
 
-* [GtkWindowGroup](gtk3-GtkWindowGroup.md) ref^
+* [GtkWindowGroup](gtk3-GtkWindowGroup.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkWindowGroup.md#L38)</span>
+
+
+```pony
+new val create()
+: GtkWindowGroup val^
+```
+
+#### Returns
+
+* [GtkWindowGroup](gtk3-GtkWindowGroup.md) val^
 
 ---
 
@@ -103,6 +124,94 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_window
+<span class="source-link">[[Source]](src/gtk3/GtkWindowGroup.md#L42)</span>
+
+
+    Adds a window to a #GtkWindowGroup.
+
+    {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_window()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_current_device_grab
+<span class="source-link">[[Source]](src/gtk3/GtkWindowGroup.md#L50)</span>
+
+
+    Returns the current grab widget for @device, or %NULL if none.
+
+    {:doh, %{argctype: "GdkDevice*", argname: "device", argtype: "Gdk.Device", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_current_device_grab()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_list_windows
+<span class="source-link">[[Source]](src/gtk3/GtkWindowGroup.md#L65)</span>
+
+
+    Returns a list of the #GtkWindows that belong to @window_group.
+
+    {:argctype, "GList*"}
+{:argname, "rv"}
+{:argtype, "GLib.List"}
+{:paramtype, :param}
+{:txo, "container"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_list_windows()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_remove_window
+<span class="source-link">[[Source]](src/gtk3/GtkWindowGroup.md#L77)</span>
+
+
+    Removes a window from a #GtkWindowGroup.
+
+    {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_remove_window()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

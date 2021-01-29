@@ -107,7 +107,7 @@ The following attributes are used when constructing submenus:
 
 
 ```pony
-class ref GtkApplicationWindow is
+class val GtkApplicationWindow is
   GtkWidget ref
 ```
 
@@ -119,29 +119,35 @@ class ref GtkApplicationWindow is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L115)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L116)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkApplicationWindow ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkApplicationWindow val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkApplicationWindow](gtk3-GtkApplicationWindow.md) ref^
+* [GtkApplicationWindow](gtk3-GtkApplicationWindow.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L118)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L119)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkApplicationWindow ref^
+: GtkApplicationWindow val^
 ```
 #### Parameters
 
@@ -149,26 +155,41 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkApplicationWindow](gtk3-GtkApplicationWindow.md) ref^
+* [GtkApplicationWindow](gtk3-GtkApplicationWindow.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L122)</span>
 
 
 ```pony
-new ref create(
-  application_pony: GtkApplication ref)
-: GtkApplicationWindow ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkApplicationWindow val^
 ```
-#### Parameters
-
-*   application_pony: [GtkApplication](gtk3-GtkApplication.md) ref
 
 #### Returns
 
-* [GtkApplicationWindow](gtk3-GtkApplicationWindow.md) ref^
+* [GtkApplicationWindow](gtk3-GtkApplicationWindow.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L126)</span>
+
+
+```pony
+new val create(
+  application_pony: GtkApplication val)
+: GtkApplicationWindow val^
+```
+#### Parameters
+
+*   application_pony: [GtkApplication](gtk3-GtkApplication.md) val
+
+#### Returns
+
+* [GtkApplicationWindow](gtk3-GtkApplicationWindow.md) val^
 
 ---
 
@@ -198,8 +219,34 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_help_overlay
+<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L130)</span>
+
+
+    Gets the #GtkShortcutsWindow that has been set up with
+a prior call to gtk_application_window_set_help_overlay().
+
+    {:argctype, "GtkShortcutsWindow*"}
+{:argname, "rv"}
+{:argtype, "ShortcutsWindow"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_help_overlay()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_id
-<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L133)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L143)</span>
 
 
 Returns the unique ID of the window. If the window has not yet been added to
@@ -218,7 +265,7 @@ fun box get_id()
 ---
 
 ### get_show_menubar
-<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L140)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L150)</span>
 
 
 Returns whether the window will display a menubar for the app menu
@@ -236,8 +283,33 @@ fun box get_show_menubar()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_help_overlay
+<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L157)</span>
+
+
+    Associates a shortcuts window with the application window, and
+sets up an action with the name win.show-help-overlay to present
+it.
+
+@window takes resposibility for destroying @help_overlay.
+
+    {:doh, %{argctype: "GtkShortcutsWindow*", argname: "help_overlay", argtype: "ShortcutsWindow", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_help_overlay()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_show_menubar
-<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L151)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkApplicationWindow.md#L169)</span>
 
 
 Sets whether the window will display a menubar for the app menu

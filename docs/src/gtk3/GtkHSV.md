@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["Bool", "None", "I32", "GObjectREF"]
-provides: ["GtkHSV"]
+provides: ["GtkHSV val"]
 */
 use "../gobject"
-class GtkHSV is GtkWidget
+class val GtkHSV is GtkWidget
 """
 #GtkHSV is the “color wheel” part of a complete color selector widget.
 It allows to select a color by determining its HSV components in an
@@ -15,30 +15,43 @@ saturation.
 #GtkHSV has been deprecated together with #GtkColorSelection, where
 it was used.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_hsv_new[GObjectREF]() //
 
 
-/* get_color unavailable due to typing issues
- {:doh, %{argctype: "gdouble*", argname: "h", argtype: "gdouble", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_color(): None =>
+    """
+    Queries the current color in an HSV color selector.
+Returned values will be in the [0.0, 1.0] range.
+
+    {:doh, %{argctype: "gdouble*", argname: "h", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "s", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "v", argtype: "gdouble", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_metrics unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "size", argtype: "gint", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_metrics(): None =>
+    """
+    Queries the size and ring width of an HSV color selector.
+
+    {:doh, %{argctype: "gint*", argname: "size", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "ring_width", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun is_adjusting(): Bool =>
 """
@@ -49,11 +62,16 @@ the HSV color selector is being adjusted or not.
 """
   @gtk_hsv_is_adjusting[Bool](widget)
 
-/* set_color unavailable due to typing issues
- {:doh, %{argctype: "double", argname: "h", argtype: "gdouble", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_color(): None =>
+    """
+    Sets the current color in an HSV color selector.
+Color component values must be in the [0.0, 1.0] range.
+
+    {:doh, %{argctype: "double", argname: "h", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "double", argname: "s", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "double", argname: "v", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_metrics(size_pony: I32, ring_width_pony: I32): None =>
 """

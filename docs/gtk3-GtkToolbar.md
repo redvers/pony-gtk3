@@ -27,7 +27,7 @@ GtkToolbar has a single CSS node with name toolbar.
 
 
 ```pony
-class ref GtkToolbar is
+class val GtkToolbar is
   GtkWidget ref
 ```
 
@@ -39,29 +39,35 @@ class ref GtkToolbar is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L35)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L36)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkToolbar ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkToolbar val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkToolbar](gtk3-GtkToolbar.md) ref^
+* [GtkToolbar](gtk3-GtkToolbar.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L38)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L39)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkToolbar ref^
+: GtkToolbar val^
 ```
 #### Parameters
 
@@ -69,22 +75,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkToolbar](gtk3-GtkToolbar.md) ref^
+* [GtkToolbar](gtk3-GtkToolbar.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L42)</span>
 
 
 ```pony
-new ref create()
-: GtkToolbar ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkToolbar val^
 ```
 
 #### Returns
 
-* [GtkToolbar](gtk3-GtkToolbar.md) ref^
+* [GtkToolbar](gtk3-GtkToolbar.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L46)</span>
+
+
+```pony
+new val create()
+: GtkToolbar val^
+```
+
+#### Returns
+
+* [GtkToolbar](gtk3-GtkToolbar.md) val^
 
 ---
 
@@ -115,7 +136,7 @@ fun box gtkwidget()
 ---
 
 ### get_drop_index
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L46)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L50)</span>
 
 
 Returns the position corresponding to the indicated point on
@@ -143,8 +164,55 @@ fun box get_drop_index(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_icon_size
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L61)</span>
+
+
+    Retrieves the icon size for the toolbar. See gtk_toolbar_set_icon_size().
+
+    {:argctype, "GtkIconSize"}
+{:argname, "rv"}
+{:argtype, "IconSize"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_icon_size()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_item_index
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L73)</span>
+
+
+    Returns the position of @item on the toolbar, starting from 0.
+It is an error if @item is not a child of the toolbar.
+
+    {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_item_index()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_n_items
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L68)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L82)</span>
 
 
 Returns the number of items on the toolbar.
@@ -161,8 +229,60 @@ fun box get_n_items()
 
 ---
 
-### get_show_arrow
+### pony_NOT_IMPLEMENTED_YET_get_nth_item
 <span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L88)</span>
+
+
+    Returns the @n'th item on @toolbar, or %NULL if the
+toolbar does not contain an @n'th item.
+
+    {:argctype, "GtkToolItem*"}
+{:argname, "rv"}
+{:argtype, "ToolItem"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_nth_item()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_relief_style
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L101)</span>
+
+
+    Returns the relief style of buttons on @toolbar. See
+gtk_button_set_relief().
+
+    {:argctype, "GtkReliefStyle"}
+{:argname, "rv"}
+{:argtype, "ReliefStyle"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_relief_style()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### get_show_arrow
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L114)</span>
 
 
 Returns whether the toolbar has an overflow menu.
@@ -180,8 +300,114 @@ fun box get_show_arrow()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_style
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L121)</span>
+
+
+    Retrieves whether the toolbar has text, icons, or both . See
+gtk_toolbar_set_style().
+
+    {:argctype, "GtkToolbarStyle"}
+{:argname, "rv"}
+{:argtype, "ToolbarStyle"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_style()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_insert
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L134)</span>
+
+
+    Insert a #GtkToolItem into the toolbar at position @pos. If @pos is
+0 the item is prepended to the start of the toolbar. If @pos is
+negative, the item is appended to the end of the toolbar.
+
+    {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_insert()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_drop_highlight_item
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L144)</span>
+
+
+    Highlights @toolbar to give an idea of what it would look like
+if @item was added to @toolbar at the position indicated by @index_.
+If @item is %NULL, highlighting is turned off. In that case @index_
+is ignored.
+
+The @tool_item passed to this function must not be part of any widget
+hierarchy. When an item is set as drop highlight item it can not
+added to any widget hierarchy or used as highlight item for another
+toolbar.
+
+    {:doh, %{argctype: "GtkToolItem*", argname: "tool_item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_drop_highlight_item()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_icon_size
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L160)</span>
+
+
+    This function sets the size of stock icons in the toolbar. You
+can call it both before you add the icons and after they’ve been
+added. The size you set will override user preferences for the default
+icon size.
+
+This should only be used for special-purpose toolbars, normal
+application toolbars should respect the user preferences for the
+size of icons.
+
+    {:doh, %{argctype: "GtkIconSize", argname: "icon_size", argtype: "IconSize", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_icon_size()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_show_arrow
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L114)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L175)</span>
 
 
 Sets whether to show an overflow menu when @toolbar isn’t allocated enough
@@ -207,8 +433,29 @@ fun box set_show_arrow(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_style
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L186)</span>
+
+
+    Alters the view of @toolbar to display either icons only, text only, or both.
+
+    {:doh, %{argctype: "GtkToolbarStyle", argname: "style", argtype: "ToolbarStyle", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_style()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### unset_icon_size
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L129)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L194)</span>
 
 
 Unsets toolbar icon size set with gtk_toolbar_set_icon_size(), so that
@@ -227,7 +474,7 @@ fun box unset_icon_size()
 ---
 
 ### unset_style
-<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L136)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToolbar.md#L201)</span>
 
 
 Unsets a toolbar style set with gtk_toolbar_set_style(), so that

@@ -23,7 +23,7 @@ GtkViewport has a single CSS node with name viewport.
 
 
 ```pony
-class ref GtkViewport is
+class val GtkViewport is
   GtkWidget ref
 ```
 
@@ -35,29 +35,35 @@ class ref GtkViewport is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L31)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L32)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkViewport ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkViewport val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkViewport](gtk3-GtkViewport.md) ref^
+* [GtkViewport](gtk3-GtkViewport.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L34)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L35)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkViewport ref^
+: GtkViewport val^
 ```
 #### Parameters
 
@@ -65,28 +71,43 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkViewport](gtk3-GtkViewport.md) ref^
+* [GtkViewport](gtk3-GtkViewport.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L38)</span>
 
 
 ```pony
-new ref create(
-  hadjustment_pony: GtkAdjustment ref,
-  vadjustment_pony: GtkAdjustment ref)
-: GtkViewport ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkViewport val^
 ```
-#### Parameters
-
-*   hadjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) ref
-*   vadjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) ref
 
 #### Returns
 
-* [GtkViewport](gtk3-GtkViewport.md) ref^
+* [GtkViewport](gtk3-GtkViewport.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L42)</span>
+
+
+```pony
+new val create(
+  hadjustment_pony: GtkAdjustment val,
+  vadjustment_pony: GtkAdjustment val)
+: GtkViewport val^
+```
+#### Parameters
+
+*   hadjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) val
+*   vadjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) val
+
+#### Returns
+
+* [GtkViewport](gtk3-GtkViewport.md) val^
 
 ---
 
@@ -113,6 +134,195 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_bin_window
+<span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L46)</span>
+
+
+    Gets the bin window of the #GtkViewport.
+
+    {:argctype, "GdkWindow*"}
+{:argname, "rv"}
+{:argtype, "Gdk.Window"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_bin_window()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_hadjustment
+<span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L58)</span>
+
+
+    Returns the horizontal adjustment of the viewport.
+
+    {:argctype, "GtkAdjustment*"}
+{:argname, "rv"}
+{:argtype, "Adjustment"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_hadjustment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_shadow_type
+<span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L70)</span>
+
+
+    Gets the shadow type of the #GtkViewport. See
+gtk_viewport_set_shadow_type().
+
+    {:argctype, "GtkShadowType"}
+{:argname, "rv"}
+{:argtype, "ShadowType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_shadow_type()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_vadjustment
+<span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L83)</span>
+
+
+    Returns the vertical adjustment of the viewport.
+
+    {:argctype, "GtkAdjustment*"}
+{:argname, "rv"}
+{:argtype, "Adjustment"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_vadjustment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_view_window
+<span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L95)</span>
+
+
+    Gets the view window of the #GtkViewport.
+
+    {:argctype, "GdkWindow*"}
+{:argname, "rv"}
+{:argtype, "Gdk.Window"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_view_window()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_hadjustment
+<span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L107)</span>
+
+
+    Sets the horizontal adjustment of the viewport.
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_hadjustment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_shadow_type
+<span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L115)</span>
+
+
+    Sets the shadow type of the viewport.
+
+    {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_shadow_type()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_vadjustment
+<span class="source-link">[[Source]](src/gtk3/GtkViewport.md#L123)</span>
+
+
+    Sets the vertical adjustment of the viewport.
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_vadjustment()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

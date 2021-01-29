@@ -10,7 +10,7 @@ Many GTK+ widgets are subclasses of #GtkBin, including #GtkWindow,
 
 
 ```pony
-class ref GtkBin is
+class val GtkBin is
   GtkWidget ref
 ```
 
@@ -22,29 +22,35 @@ class ref GtkBin is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkBin.md#L18)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkBin.md#L19)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkBin ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkBin val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkBin](gtk3-GtkBin.md) ref^
+* [GtkBin](gtk3-GtkBin.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkBin.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkBin.md#L22)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkBin ref^
+: GtkBin val^
 ```
 #### Parameters
 
@@ -52,7 +58,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkBin](gtk3-GtkBin.md) ref^
+* [GtkBin](gtk3-GtkBin.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkBin.md#L25)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkBin val^
+```
+
+#### Returns
+
+* [GtkBin](gtk3-GtkBin.md) val^
 
 ---
 

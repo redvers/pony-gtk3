@@ -1,41 +1,58 @@
 ```````pony-full-source
 /*
    needs: ["GObjectREF"]
-provides: ["GtkContainerCellAccessible"]
+provides: ["GtkContainerCellAccessible val"]
 */
 use "../gobject"
-class GtkContainerCellAccessible is GtkWidget
+class val GtkContainerCellAccessible is GtkWidget
 """
 No documentation provided
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_container_cell_accessible_new[GObjectREF]() //
 
 
-/* add_child unavailable due to typing issues
- {:doh, %{argctype: "GtkCellAccessible*", argname: "child", argtype: "CellAccessible", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_add_child(): None =>
+    """
+    No provided documentation
 
-/* get_children unavailable due to return typing issues
-{:argctype, "GList*"}
+    {:doh, %{argctype: "GtkCellAccessible*", argname: "child", argtype: "CellAccessible", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_children(): None =>
+    """
+    Get a list of children.
+
+    {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* remove_child unavailable due to typing issues
- {:doh, %{argctype: "GtkCellAccessible*", argname: "child", argtype: "CellAccessible", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_remove_child(): None =>
+    """
+    No provided documentation
+
+    {:doh, %{argctype: "GtkCellAccessible*", argname: "child", argtype: "CellAccessible", paramtype: :param, txo: "none"}}
+*/
+    """
 
 
 ```````

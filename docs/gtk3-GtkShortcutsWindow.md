@@ -44,7 +44,7 @@ The .ui file for this example can be found [here](https://git.gnome.org/browse/g
 
 
 ```pony
-class ref GtkShortcutsWindow is
+class val GtkShortcutsWindow is
   GtkWidget ref
 ```
 
@@ -56,29 +56,35 @@ class ref GtkShortcutsWindow is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L52)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L53)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkShortcutsWindow ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkShortcutsWindow val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkShortcutsWindow](gtk3-GtkShortcutsWindow.md) ref^
+* [GtkShortcutsWindow](gtk3-GtkShortcutsWindow.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L55)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L56)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkShortcutsWindow ref^
+: GtkShortcutsWindow val^
 ```
 #### Parameters
 
@@ -86,7 +92,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkShortcutsWindow](gtk3-GtkShortcutsWindow.md) ref^
+* [GtkShortcutsWindow](gtk3-GtkShortcutsWindow.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkShortcutsWindow.md#L59)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkShortcutsWindow val^
+```
+
+#### Returns
+
+* [GtkShortcutsWindow](gtk3-GtkShortcutsWindow.md) val^
 
 ---
 

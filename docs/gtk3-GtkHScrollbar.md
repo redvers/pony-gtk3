@@ -12,7 +12,7 @@ GtkHScrollbar has been deprecated, use #GtkScrollbar instead.
 
 
 ```pony
-class ref GtkHScrollbar is
+class val GtkHScrollbar is
   GtkWidget ref
 ```
 
@@ -24,29 +24,35 @@ class ref GtkHScrollbar is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L20)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L21)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkHScrollbar ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkHScrollbar val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkHScrollbar](gtk3-GtkHScrollbar.md) ref^
+* [GtkHScrollbar](gtk3-GtkHScrollbar.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L23)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L24)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkHScrollbar ref^
+: GtkHScrollbar val^
 ```
 #### Parameters
 
@@ -54,26 +60,41 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkHScrollbar](gtk3-GtkHScrollbar.md) ref^
+* [GtkHScrollbar](gtk3-GtkHScrollbar.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L27)</span>
 
 
 ```pony
-new ref create(
-  adjustment_pony: GtkAdjustment ref)
-: GtkHScrollbar ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkHScrollbar val^
 ```
-#### Parameters
-
-*   adjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) ref
 
 #### Returns
 
-* [GtkHScrollbar](gtk3-GtkHScrollbar.md) ref^
+* [GtkHScrollbar](gtk3-GtkHScrollbar.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkHScrollbar.md#L31)</span>
+
+
+```pony
+new val create(
+  adjustment_pony: GtkAdjustment val)
+: GtkHScrollbar val^
+```
+#### Parameters
+
+*   adjustment_pony: [GtkAdjustment](gtk3-GtkAdjustment.md) val
+
+#### Returns
+
+* [GtkHScrollbar](gtk3-GtkHScrollbar.md) val^
 
 ---
 

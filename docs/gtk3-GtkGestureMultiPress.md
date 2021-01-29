@@ -14,7 +14,7 @@ its own.
 
 
 ```pony
-class ref GtkGestureMultiPress is
+class val GtkGestureMultiPress is
   GtkWidget ref
 ```
 
@@ -26,29 +26,35 @@ class ref GtkGestureMultiPress is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L22)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L23)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkGestureMultiPress ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkGestureMultiPress val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkGestureMultiPress](gtk3-GtkGestureMultiPress.md) ref^
+* [GtkGestureMultiPress](gtk3-GtkGestureMultiPress.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L25)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L26)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkGestureMultiPress ref^
+: GtkGestureMultiPress val^
 ```
 #### Parameters
 
@@ -56,26 +62,41 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkGestureMultiPress](gtk3-GtkGestureMultiPress.md) ref^
+* [GtkGestureMultiPress](gtk3-GtkGestureMultiPress.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L29)</span>
 
 
 ```pony
-new ref create(
-  widget_pony: GtkWidget ref)
-: GtkGestureMultiPress ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkGestureMultiPress val^
 ```
-#### Parameters
-
-*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) ref
 
 #### Returns
 
-* [GtkGestureMultiPress](gtk3-GtkGestureMultiPress.md) ref^
+* [GtkGestureMultiPress](gtk3-GtkGestureMultiPress.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L33)</span>
+
+
+```pony
+new val create(
+  widget_pony: GtkWidget val)
+: GtkGestureMultiPress val^
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [GtkGestureMultiPress](gtk3-GtkGestureMultiPress.md) val^
 
 ---
 
@@ -102,6 +123,59 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_area
+<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L37)</span>
+
+
+    If an area was set through gtk_gesture_multi_press_set_area(),
+this function will return %TRUE and fill in @rect with the
+press area. See gtk_gesture_multi_press_set_area() for more
+details on what the press area represents.
+
+    {:doh, %{argctype: "GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_area()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_area
+<span class="source-link">[[Source]](src/gtk3/GtkGestureMultiPress.md#L48)</span>
+
+
+    If @rect is non-%NULL, the press area will be checked to be
+confined within the rectangle, otherwise the button count
+will be reset so the press is seen as being the first one.
+If @rect is %NULL, the area will be reset to an unrestricted
+state.
+
+Note: The rectangle is only used to determine whether any
+non-first click falls within the expected area. This is not
+akin to an input shape.
+
+    {:doh, %{argctype: "const GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_area()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

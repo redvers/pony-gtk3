@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF", "GtkWidget"]
-provides: ["GtkToolButton"]
+   needs: ["Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget val", "Bool", "None"]
+provides: ["GtkToolButton val"]
 */
 use "../gobject"
-class GtkToolButton is GtkWidget
+class val GtkToolButton is GtkWidget
 """
 #GtkToolButtons are #GtkToolItems containing buttons.
 
@@ -29,20 +29,24 @@ the button does not have a icon.
 
 GtkToolButton has a single CSS node with name toolbutton.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(icon_widget_pony: GtkWidget, label_pony: String) =>
+
+  new val create(icon_widget_pony: GtkWidget val, label_pony: String) =>
     widget = @gtk_tool_button_new[GObjectREF](icon_widget_pony.gtkwidget(), label_pony.cstring()) //
 
-  new new_from_stock(stock_id_pony: String) =>
+  new val new_from_stock(stock_id_pony: String) =>
     widget = @gtk_tool_button_new_from_stock[GObjectREF](stock_id_pony.cstring()) //
 
 
@@ -55,12 +59,12 @@ see gtk_tool_button_set_icon_name().
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_icon_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+Return the widget used as icon widget on @button.
+See gtk_tool_button_set_icon_widget().
+  fun get_icon_widget(): GtkWidget val =>
+    @gtk_tool_button_get_icon_widget[GObjectREF](widget)
+*/
 
 fun get_label(): String =>
 """
@@ -72,12 +76,12 @@ string is owned by GTK+, and must not be modified or freed.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_label_widget unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+Returns the widget used as label on @button.
+See gtk_tool_button_set_label_widget().
+  fun get_label_widget(): GtkWidget val =>
+    @gtk_tool_button_get_label_widget[GObjectREF](widget)
+*/
 
 fun get_stock_id(): String =>
 """
@@ -95,25 +99,58 @@ on menu items on the overflow menu. See gtk_tool_button_set_use_underline().
 """
   @gtk_tool_button_get_use_underline[Bool](widget)
 
-/* set_icon_name unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_icon_name(): None =>
+    """
+    Sets the icon for the tool button from a named themed icon.
+See the docs for #GtkIconTheme for more details.
+The #GtkToolButton:icon-name property only has an effect if not
+overridden by non-%NULL #GtkToolButton:label-widget,
+#GtkToolButton:icon-widget and #GtkToolButton:stock-id properties.
 
-/* set_icon_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "icon_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+fun set_icon_widget(icon_widget_pony: GtkWidget val): None =>
+"""
+Sets @icon as the widget used as icon on @button. If @icon_widget is
+%NULL the icon is determined by the #GtkToolButton:stock-id property. If the
+#GtkToolButton:stock-id property is also %NULL, @button will not have an icon.
+"""
+  @gtk_tool_button_set_icon_widget[None](widget, icon_widget_pony.gtkwidget())
 
-/* set_label_widget unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "label_widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_label(): None =>
+    """
+    Sets @label as the label used for the tool button. The #GtkToolButton:label
+property only has an effect if not overridden by a non-%NULL
+#GtkToolButton:label-widget property. If both the #GtkToolButton:label-widget
+and #GtkToolButton:label properties are %NULL, the label is determined by the
+#GtkToolButton:stock-id property. If the #GtkToolButton:stock-id property is
+also %NULL, @button will not have a label.
 
-/* set_stock_id unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
+
+fun set_label_widget(label_widget_pony: GtkWidget val): None =>
+"""
+Sets @label_widget as the widget that will be used as the label
+for @button. If @label_widget is %NULL the #GtkToolButton:label property is used
+as label. If #GtkToolButton:label is also %NULL, the label in the stock item
+determined by the #GtkToolButton:stock-id property is used as label. If
+#GtkToolButton:stock-id is also %NULL, @button does not have a label.
+"""
+  @gtk_tool_button_set_label_widget[None](widget, label_widget_pony.gtkwidget())
+
+  fun pony_NOT_IMPLEMENTED_YET_set_stock_id(): None =>
+    """
+    Sets the name of the stock item. See gtk_tool_button_new_from_stock().
+The stock_id property only has an effect if not overridden by non-%NULL
+#GtkToolButton:label-widget and #GtkToolButton:icon-widget properties.
+
+    {:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_use_underline(use_underline_pony: Bool): None =>
 """

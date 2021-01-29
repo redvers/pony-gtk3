@@ -16,7 +16,7 @@ currently pressed can be known through gtk_gesture_single_get_current_button().
 
 
 ```pony
-class ref GtkGestureSingle is
+class val GtkGestureSingle is
   GtkWidget ref
 ```
 
@@ -28,29 +28,35 @@ class ref GtkGestureSingle is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L24)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L25)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkGestureSingle ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkGestureSingle val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkGestureSingle](gtk3-GtkGestureSingle.md) ref^
+* [GtkGestureSingle](gtk3-GtkGestureSingle.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L28)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkGestureSingle ref^
+: GtkGestureSingle val^
 ```
 #### Parameters
 
@@ -58,7 +64,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkGestureSingle](gtk3-GtkGestureSingle.md) ref^
+* [GtkGestureSingle](gtk3-GtkGestureSingle.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L31)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkGestureSingle val^
+```
+
+#### Returns
+
+* [GtkGestureSingle](gtk3-GtkGestureSingle.md) val^
 
 ---
 
@@ -89,7 +110,7 @@ fun box gtkwidget()
 ---
 
 ### get_button
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L37)</span>
 
 
 Returns the button number @gesture listens for, or 0 if @gesture
@@ -108,7 +129,7 @@ fun box get_button()
 ---
 
 ### get_current_button
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L44)</span>
 
 
 Returns the button number currently interacting with @gesture, or 0 if there
@@ -126,8 +147,34 @@ fun box get_current_button()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_current_sequence
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L51)</span>
+
+
+    Returns the event sequence currently interacting with @gesture.
+This is only meaningful if gtk_gesture_is_active() returns %TRUE.
+
+    {:argctype, "GdkEventSequence*"}
+{:argname, "rv"}
+{:argtype, "Gdk.EventSequence"}
+{:paramtype, :param}
+{:txo, "full"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_current_sequence()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_exclusive
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L64)</span>
 
 
 Gets whether a gesture is exclusive. For more information, see
@@ -146,7 +193,7 @@ fun box get_exclusive()
 ---
 
 ### get_touch_only
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L61)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L71)</span>
 
 
 Returns %TRUE if the gesture is only triggered by touch events.
@@ -164,7 +211,7 @@ fun box get_touch_only()
 ---
 
 ### set_button
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L67)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L77)</span>
 
 
 Sets the button number @gesture listens to. If non-0, every
@@ -188,7 +235,7 @@ fun box set_button(
 ---
 
 ### set_exclusive
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L75)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L85)</span>
 
 
 Sets whether @gesture is exclusive. An exclusive gesture will
@@ -213,7 +260,7 @@ fun box set_exclusive(
 ---
 
 ### set_touch_only
-<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L84)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGestureSingle.md#L94)</span>
 
 
 If @touch_only is %TRUE, @gesture will only handle events of type

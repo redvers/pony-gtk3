@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["None", "Bool", "GObjectREF"]
-provides: ["GtkMenuShell"]
+   needs: ["None", "GtkWidget val", "Bool", "GObjectREF", "I32"]
+provides: ["GtkMenuShell val"]
 */
 use "../gobject"
-class GtkMenuShell is GtkWidget
+class val GtkMenuShell is GtkWidget
 """
 A #GtkMenuShell is the abstract base class used to derive the
 #GtkMenu and #GtkMenuBar subclasses.
@@ -34,30 +34,77 @@ a selected menu item.) The current menu is the menu that
 contains the current menu item. It will always have a GTK
 grab and receive all key presses.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
 
 
-/* activate_item unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "menu_item", argtype: "Widget", paramtype: :param, txo: "none"}}
+
+fun activate_item(menu_item_pony: GtkWidget val, force_deactivate_pony: Bool): None =>
+"""
+Activates the menu item within the menu shell.
+"""
+  @gtk_menu_shell_activate_item[None](widget, menu_item_pony.gtkwidget(), force_deactivate_pony)
+
+  fun pony_NOT_IMPLEMENTED_YET_append(): None =>
+    """
+    Adds a new #GtkMenuItem to the end of the menu shell's
+item list.
+
+    {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "MenuItem", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* append unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "MenuItem", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_bind_model(): None =>
+    """
+    Establishes a binding between a #GtkMenuShell and a #GMenuModel.
 
-/* bind_model unavailable due to typing issues
- {:doh, %{argctype: "GMenuModel*", argname: "model", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
+The contents of @shell are removed and then refilled with menu items
+according to @model.  When @model changes, @shell is updated.
+Calling this function twice on @shell with different @model will
+cause the first binding to be replaced with a binding to the new
+model. If @model is %NULL then any previous binding is undone and
+all children are removed.
+
+@with_separators determines if toplevel items (eg: sections) have
+separators inserted between them.  This is typically desired for
+menus but doesn’t make sense for menubars.
+
+If @action_namespace is non-%NULL then the effect is as if all
+actions mentioned in the @model have their names prefixed with the
+namespace, plus a dot.  For example, if the action “quit” is
+mentioned and @action_namespace is “app” then the effective action
+name is “app.quit”.
+
+This function uses #GtkActionable to define the action name and
+target values on the created menu items.  If you want to use an
+action group other than “app” and “win”, or if you want to use a
+#GtkMenuShell outside of a #GtkApplicationWindow, then you will need
+to attach your own action group to the widget hierarchy using
+gtk_widget_insert_action_group().  As an example, if you created a
+group with a “quit” action and inserted it with the name “mygroup”
+then you would use the action name “mygroup.quit” in your
+#GMenuModel.
+
+For most cases you are probably better off using
+gtk_menu_new_from_model() or gtk_menu_bar_new_from_model() or just
+directly passing the #GMenuModel to gtk_application_set_app_menu() or
+gtk_application_set_menubar().
+
+    {:doh, %{argctype: "GMenuModel*", argname: "model", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "action_namespace", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun cancel(): None =>
 """
@@ -81,19 +128,20 @@ if any.
 """
   @gtk_menu_shell_deselect[None](widget)
 
-/* get_parent_shell unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+Gets the parent menu shell.
 
-/* get_selected_item unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+The parent menu shell of a submenu is the #GtkMenu or #GtkMenuBar
+from which it was opened up.
+  fun get_parent_shell(): GtkWidget val =>
+    @gtk_menu_shell_get_parent_shell[GObjectREF](widget)
+*/
+
+/* Needs conversion code 
+Gets the currently selected item.
+  fun get_selected_item(): GtkWidget val =>
+    @gtk_menu_shell_get_selected_item[GObjectREF](widget)
+*/
 
 fun get_take_focus(): Bool =>
 """
@@ -101,13 +149,19 @@ Returns %TRUE if the menu shell will take the keyboard focus on popup.
 """
   @gtk_menu_shell_get_take_focus[Bool](widget)
 
-/* insert unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun insert(child_pony: GtkWidget val, position_pony: I32): None =>
+"""
+Adds a new #GtkMenuItem to the menu shell’s item list
+at the position indicated by @position.
+"""
+  @gtk_menu_shell_insert[None](widget, child_pony.gtkwidget(), position_pony)
 
-/* prepend unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun prepend(child_pony: GtkWidget val): None =>
+"""
+Adds a new #GtkMenuItem to the beginning of the menu shell's
+item list.
+"""
+  @gtk_menu_shell_prepend[None](widget, child_pony.gtkwidget())
 
 fun select_first(search_sensitive_pony: Bool): None =>
 """
@@ -117,9 +171,11 @@ item.
 """
   @gtk_menu_shell_select_first[None](widget, search_sensitive_pony)
 
-/* select_item unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "menu_item", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun select_item(menu_item_pony: GtkWidget val): None =>
+"""
+Selects the menu item from the menu shell.
+"""
+  @gtk_menu_shell_select_item[None](widget, menu_item_pony.gtkwidget())
 
 fun set_take_focus(take_focus_pony: Bool): None =>
 """

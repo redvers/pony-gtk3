@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["U32", "Bool", "None", "GObjectREF"]
-provides: ["GtkTable"]
+   needs: ["None", "GtkWidget val", "U32", "Bool", "GObjectREF"]
+provides: ["GtkTable val"]
 */
 use "../gobject"
-class GtkTable is GtkWidget
+class val GtkTable is GtkWidget
 """
 The #GtkTable functions allow the programmer to arrange widgets in rows and
 columns, making it easy to align many widgets next to each other,
@@ -31,29 +31,54 @@ table will resize themselves to the size of the largest widget in the table.
 > capabilities as GtkTable for arranging widgets in a rectangular grid, but
 > does support height-for-width geometry management.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(rows_pony: U32, columns_pony: U32, homogeneous_pony: Bool) =>
+
+  new val create(rows_pony: U32, columns_pony: U32, homogeneous_pony: Bool) =>
     widget = @gtk_table_new[GObjectREF](rows_pony, columns_pony, homogeneous_pony) //
 
 
-/* attach unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-{:doh, %{argctype: "GtkAttachOptions", argname: "xoptions", argtype: "AttachOptions", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_attach(): None =>
+    """
+    Adds a widget to a table. The number of “cells” that a widget will occupy is
+specified by @left_attach, @right_attach, @top_attach and @bottom_attach.
+These each represent the leftmost, rightmost, uppermost and lowest column
+and row numbers of the table. (Columns and rows are indexed from zero).
+
+To make a button occupy the lower right cell of a 2x2 table, use
+|[
+gtk_table_attach (table, button,
+                  1, 2, // left, right attach
+                  1, 2, // top, bottom attach
+                  xoptions, yoptions,
+                  xpadding, ypadding);
+]|
+If you want to make the button span the entire bottom row, use @left_attach == 0 and @right_attach = 2 instead.
+
+    {:doh, %{argctype: "GtkAttachOptions", argname: "xoptions", argtype: "AttachOptions", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkAttachOptions", argname: "yoptions", argtype: "AttachOptions", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* attach_defaults unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "widget", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun attach_defaults(widget_pony: GtkWidget val, left_attach_pony: U32, right_attach_pony: U32, top_attach_pony: U32, bottom_attach_pony: U32): None =>
+"""
+As there are many options associated with gtk_table_attach(), this convenience
+function provides the programmer with a means to add children to a table with
+identical padding and expansion options. The values used for the #GtkAttachOptions
+are `GTK_EXPAND | GTK_FILL`, and the padding is set to 0.
+"""
+  @gtk_table_attach_defaults[None](widget, widget_pony.gtkwidget(), left_attach_pony, right_attach_pony, top_attach_pony, bottom_attach_pony)
 
 fun get_col_spacing(column_pony: U32): U32 =>
 """
@@ -92,10 +117,14 @@ row @row + 1. See gtk_table_set_row_spacing().
 """
   @gtk_table_get_row_spacing[U32](widget, row_pony)
 
-/* get_size unavailable due to typing issues
- {:doh, %{argctype: "guint*", argname: "rows", argtype: "guint", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_size(): None =>
+    """
+    Gets the number of rows and columns in the table.
+
+    {:doh, %{argctype: "guint*", argname: "rows", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "columns", argtype: "guint", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun resize(rows_pony: U32, columns_pony: U32): None =>
 """

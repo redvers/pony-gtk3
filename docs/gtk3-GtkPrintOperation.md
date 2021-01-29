@@ -65,7 +65,7 @@ are useful when implementing a print preview.
 
 
 ```pony
-class ref GtkPrintOperation is
+class val GtkPrintOperation is
   GtkWidget ref
 ```
 
@@ -77,29 +77,35 @@ class ref GtkPrintOperation is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L73)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L74)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkPrintOperation ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkPrintOperation val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkPrintOperation](gtk3-GtkPrintOperation.md) ref^
+* [GtkPrintOperation](gtk3-GtkPrintOperation.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L76)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L77)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkPrintOperation ref^
+: GtkPrintOperation val^
 ```
 #### Parameters
 
@@ -107,22 +113,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkPrintOperation](gtk3-GtkPrintOperation.md) ref^
+* [GtkPrintOperation](gtk3-GtkPrintOperation.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L80)</span>
 
 
 ```pony
-new ref create()
-: GtkPrintOperation ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkPrintOperation val^
 ```
 
 #### Returns
 
-* [GtkPrintOperation](gtk3-GtkPrintOperation.md) ref^
+* [GtkPrintOperation](gtk3-GtkPrintOperation.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L84)</span>
+
+
+```pony
+new val create()
+: GtkPrintOperation val^
+```
+
+#### Returns
+
+* [GtkPrintOperation](gtk3-GtkPrintOperation.md) val^
 
 ---
 
@@ -153,7 +174,7 @@ fun box gtkwidget()
 ---
 
 ### cancel
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L84)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L88)</span>
 
 
 Cancels a running print operation. This function may
@@ -175,7 +196,7 @@ fun box cancel()
 ---
 
 ### draw_page_finish
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L94)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L98)</span>
 
 
 Signalize that drawing of particular page is complete.
@@ -198,8 +219,34 @@ fun box draw_page_finish()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_default_page_setup
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L110)</span>
+
+
+    Returns the default page setup, see
+gtk_print_operation_set_default_page_setup().
+
+    {:argctype, "GtkPageSetup*"}
+{:argname, "rv"}
+{:argtype, "PageSetup"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_default_page_setup()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_embed_page_setup
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L113)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L123)</span>
 
 
 Gets the value of #GtkPrintOperation:embed-page-setup property.
@@ -217,7 +264,7 @@ fun box get_embed_page_setup()
 ---
 
 ### get_error
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L119)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L129)</span>
 
 
 Call this when the result of a print operation is
@@ -238,7 +285,7 @@ fun box get_error()
 ---
 
 ### get_has_selection
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L128)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L138)</span>
 
 
 Gets the value of #GtkPrintOperation:has-selection property.
@@ -256,7 +303,7 @@ fun box get_has_selection()
 ---
 
 ### get_n_pages_to_print
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L134)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L144)</span>
 
 
 Returns the number of pages that will be printed.
@@ -281,8 +328,63 @@ fun box get_n_pages_to_print()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_print_settings
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L158)</span>
+
+
+    Returns the current print settings.
+
+Note that the return value is %NULL until either
+gtk_print_operation_set_print_settings() or
+gtk_print_operation_run() have been called.
+
+    {:argctype, "GtkPrintSettings*"}
+{:argname, "rv"}
+{:argtype, "PrintSettings"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_print_settings()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_status
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L174)</span>
+
+
+    Returns the status of the print operation.
+Also see gtk_print_operation_get_status_string().
+
+    {:argctype, "GtkPrintStatus"}
+{:argname, "rv"}
+{:argtype, "PrintStatus"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_status()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_status_string
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L162)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L187)</span>
 
 
 Returns a string representation of the status of the
@@ -305,7 +407,7 @@ fun box get_status_string()
 ---
 
 ### get_support_selection
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L175)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L200)</span>
 
 
 Gets the value of #GtkPrintOperation:support-selection property.
@@ -323,7 +425,7 @@ fun box get_support_selection()
 ---
 
 ### is_finished
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L181)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L206)</span>
 
 
 A convenience function to find out if the print operation
@@ -346,8 +448,87 @@ fun box is_finished()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_run
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L218)</span>
+
+
+    Runs the print operation, by first letting the user modify
+print settings in the print dialog, and then print the document.
+
+Normally that this function does not return until the rendering of all
+pages is complete. You can connect to the
+#GtkPrintOperation::status-changed signal on @op to obtain some
+information about the progress of the print operation.
+Furthermore, it may use a recursive mainloop to show the print dialog.
+
+If you call gtk_print_operation_set_allow_async() or set the
+#GtkPrintOperation:allow-async property the operation will run
+asynchronously if this is supported on the platform. The
+#GtkPrintOperation::done signal will be emitted with the result of the
+operation when the it is done (i.e. when the dialog is canceled, or when
+the print succeeds or fails).
+|[<!-- language="C" -->
+if (settings != NULL)
+  gtk_print_operation_set_print_settings (print, settings);
+  
+if (page_setup != NULL)
+  gtk_print_operation_set_default_page_setup (print, page_setup);
+  
+g_signal_connect (print, "begin-print",
+                  G_CALLBACK (begin_print), &data);
+g_signal_connect (print, "draw-page",
+                  G_CALLBACK (draw_page), &data);
+ 
+res = gtk_print_operation_run (print,
+                               GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG,
+                               parent,
+                               &error);
+ 
+if (res == GTK_PRINT_OPERATION_RESULT_ERROR)
+ {
+   error_dialog = gtk_message_dialog_new (GTK_WINDOW (parent),
+  			                     GTK_DIALOG_DESTROY_WITH_PARENT,
+					     GTK_MESSAGE_ERROR,
+					     GTK_BUTTONS_CLOSE,
+					     "Error printing file:\n%s",
+					     error->message);
+   g_signal_connect (error_dialog, "response",
+                     G_CALLBACK (gtk_widget_destroy), NULL);
+   gtk_widget_show (error_dialog);
+   g_error_free (error);
+ }
+else if (res == GTK_PRINT_OPERATION_RESULT_APPLY)
+ {
+   if (settings != NULL)
+g_object_unref (settings);
+   settings = g_object_ref (gtk_print_operation_get_print_settings (print));
+ }
+]|
+
+Note that gtk_print_operation_run() can only be called once on a
+given #GtkPrintOperation.
+
+    {:argctype, "GtkPrintOperationResult"}
+{:argname, "rv"}
+{:argtype, "PrintOperationResult"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_run()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_allow_async
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L200)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L284)</span>
 
 
 Sets whether the gtk_print_operation_run() may return
@@ -371,7 +552,7 @@ fun box set_allow_async(
 ---
 
 ### set_current_page
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L208)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L292)</span>
 
 
 Sets the current page.
@@ -397,8 +578,54 @@ fun box set_current_page(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_custom_tab_label
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L303)</span>
+
+
+    Sets the label for the tab holding custom widgets.
+
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_custom_tab_label()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_default_page_setup
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L311)</span>
+
+
+    Makes @default_page_setup the default page setup for @op.
+
+This page setup will be used by gtk_print_operation_run(),
+but it can be overridden on a per-page basis by connecting
+to the #GtkPrintOperation::request-page-setup signal.
+
+    {:doh, %{argctype: "GtkPageSetup*", argname: "default_page_setup", argtype: "PageSetup", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_default_page_setup()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_defer_drawing
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L227)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L323)</span>
 
 
 Sets up the #GtkPrintOperation to wait for calling of
@@ -420,7 +647,7 @@ fun box set_defer_drawing()
 ---
 
 ### set_embed_page_setup
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L237)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L333)</span>
 
 
 Embed page size combo box and orientation combo box into page setup page.
@@ -442,8 +669,36 @@ fun box set_embed_page_setup(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_export_filename
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L340)</span>
+
+
+    Sets up the #GtkPrintOperation to generate a file instead
+of showing the print dialog. The indended use of this function
+is for implementing “Export to PDF” actions. Currently, PDF
+is the only supported format.
+
+“Print to PDF” support is independent of this and is done
+by letting the user pick the “Print to PDF” item from the list
+of printers in the print dialog.
+
+    {:doh, %{argctype: "const gchar*", argname: "filename", argtype: "filename", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_export_filename()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_has_selection
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L248)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L355)</span>
 
 
 Sets whether there is a selection to print.
@@ -468,8 +723,33 @@ fun box set_has_selection(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_job_name
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L365)</span>
+
+
+    Sets the name of the print job. The name is used to identify
+the job (e.g. in monitoring applications like eggcups).
+
+If you don’t set a job name, GTK+ picks a default one by
+numbering successive print jobs.
+
+    {:doh, %{argctype: "const gchar*", argname: "job_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_job_name()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_n_pages
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L262)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L377)</span>
 
 
 Sets the number of pages in the document.
@@ -500,8 +780,31 @@ fun box set_n_pages(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_print_settings
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L393)</span>
+
+
+    Sets the print settings for @op. This is typically used to
+re-establish print settings from a previous print operation,
+see gtk_print_operation_run().
+
+    {:doh, %{argctype: "GtkPrintSettings*", argname: "print_settings", argtype: "PrintSettings", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_print_settings()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_show_progress
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L282)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L403)</span>
 
 
 If @show_progress is %TRUE, the print operation will show a
@@ -524,7 +827,7 @@ fun box set_show_progress(
 ---
 
 ### set_support_selection
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L289)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L410)</span>
 
 
 Sets whether selection is supported by #GtkPrintOperation.
@@ -546,7 +849,7 @@ fun box set_support_selection(
 ---
 
 ### set_track_print_status
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L295)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L416)</span>
 
 
 If track_status is %TRUE, the print operation will try to continue report
@@ -573,8 +876,31 @@ fun box set_track_print_status(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_unit
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L428)</span>
+
+
+    Sets up the transformation for the cairo context obtained from
+#GtkPrintContext in such a way that distances are measured in
+units of @unit.
+
+    {:doh, %{argctype: "GtkUnit", argname: "unit", argtype: "Unit", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_unit()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_use_full_page
-<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L311)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPrintOperation.md#L438)</span>
 
 
 If @full_page is %TRUE, the transformation for the cairo context

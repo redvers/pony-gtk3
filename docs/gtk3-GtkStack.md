@@ -20,7 +20,7 @@ GtkStack has a single CSS node named stack.
 
 
 ```pony
-class ref GtkStack is
+class val GtkStack is
   GtkWidget ref
 ```
 
@@ -32,29 +32,35 @@ class ref GtkStack is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L28)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L29)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkStack ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkStack val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkStack](gtk3-GtkStack.md) ref^
+* [GtkStack](gtk3-GtkStack.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L32)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkStack ref^
+: GtkStack val^
 ```
 #### Parameters
 
@@ -62,22 +68,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkStack](gtk3-GtkStack.md) ref^
+* [GtkStack](gtk3-GtkStack.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkStack.md#L35)</span>
 
 
 ```pony
-new ref create()
-: GtkStack ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkStack val^
 ```
 
 #### Returns
 
-* [GtkStack](gtk3-GtkStack.md) ref^
+* [GtkStack](gtk3-GtkStack.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L39)</span>
+
+
+```pony
+new val create()
+: GtkStack val^
+```
+
+#### Returns
+
+* [GtkStack](gtk3-GtkStack.md) val^
 
 ---
 
@@ -107,8 +128,78 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_add_named
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L43)</span>
+
+
+    Adds a child to @stack.
+The child is identified by the @name.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_named()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_titled
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L52)</span>
+
+
+    Adds a child to @stack.
+The child is identified by the @name. The @title
+will be used by #GtkStackSwitcher to represent
+@child in a tab bar, so it should be short.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_titled()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_child_by_name
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L64)</span>
+
+
+    Finds the child of the #GtkStack with the name given as
+the argument. Returns %NULL if there is no child with this
+name.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_child_by_name()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_hhomogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L57)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L74)</span>
 
 
 Gets whether @stack is horizontally homogeneous.
@@ -127,7 +218,7 @@ fun box get_hhomogeneous()
 ---
 
 ### get_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L64)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L81)</span>
 
 
 Gets whether @stack is homogeneous.
@@ -146,7 +237,7 @@ fun box get_homogeneous()
 ---
 
 ### get_interpolate_size
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L71)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L88)</span>
 
 
 Returns wether the #GtkStack is set up to interpolate between
@@ -165,7 +256,7 @@ fun box get_interpolate_size()
 ---
 
 ### get_transition_duration
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L78)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L95)</span>
 
 
 Returns the amount of time (in milliseconds) that
@@ -184,7 +275,7 @@ fun box get_transition_duration()
 ---
 
 ### get_transition_running
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L85)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L102)</span>
 
 
 Returns whether the @stack is currently in a transition from one page to
@@ -202,8 +293,34 @@ fun box get_transition_running()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_transition_type
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L109)</span>
+
+
+    Gets the type of animation that will be used
+for transitions between pages in @stack.
+
+    {:argctype, "GtkStackTransitionType"}
+{:argname, "rv"}
+{:argtype, "StackTransitionType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_transition_type()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_vhomogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L99)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L122)</span>
 
 
 Gets whether @stack is vertically homogeneous.
@@ -222,7 +339,7 @@ fun box get_vhomogeneous()
 ---
 
 ### get_visible_child_name
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L113)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L136)</span>
 
 
 Returns the name of the currently visible child of @stack, or
@@ -241,7 +358,7 @@ fun box get_visible_child_name()
 ---
 
 ### set_hhomogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L122)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L145)</span>
 
 
 Sets the #GtkStack to be horizontally homogeneous or not.
@@ -266,7 +383,7 @@ fun box set_hhomogeneous(
 ---
 
 ### set_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L131)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L154)</span>
 
 
 Sets the #GtkStack to be homogeneous or not. If it
@@ -295,7 +412,7 @@ fun box set_homogeneous(
 ---
 
 ### set_interpolate_size
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L144)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L167)</span>
 
 
 Sets whether or not @stack will interpolate its size when
@@ -321,7 +438,7 @@ fun box set_interpolate_size(
 ---
 
 ### set_transition_duration
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L154)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L177)</span>
 
 
 Sets the duration that transitions between pages in @stack
@@ -343,8 +460,35 @@ fun box set_transition_duration(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_transition_type
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L184)</span>
+
+
+    Sets the type of animation that will be used for
+transitions between pages in @stack. Available
+types include various kinds of fades and slides.
+
+The transition type can be changed without problems
+at runtime, so it is possible to change the animation
+based on the page that is about to become current.
+
+    {:doh, %{argctype: "GtkStackTransitionType", argname: "transition", argtype: "StackTransitionType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_transition_type()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_vhomogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L165)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L198)</span>
 
 
 Sets the #GtkStack to be vertically homogeneous or not.
@@ -361,6 +505,93 @@ fun box set_vhomogeneous(
 #### Parameters
 
 *   vhomogeneous_pony: [Bool](builtin-Bool.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_visible_child
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L207)</span>
+
+
+Makes @child the visible child of @stack.
+
+If @child is different from the currently
+visible child, the transition between the
+two will be animated with the current
+transition type of @stack.
+
+Note that the @child widget has to be visible itself
+(see gtk_widget_show()) in order to become the visible
+child of @stack.
+
+
+```pony
+fun box set_visible_child(
+  child_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   child_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_visible_child_full
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L222)</span>
+
+
+    Makes the child with the given name visible.
+
+Note that the child widget has to be visible itself
+(see gtk_widget_show()) in order to become the visible
+child of @stack.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GtkStackTransitionType", argname: "transition", argtype: "StackTransitionType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_visible_child_full()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_visible_child_name
+<span class="source-link">[[Source]](src/gtk3/GtkStack.md#L235)</span>
+
+
+    Makes the child with the given name visible.
+
+If @child is different from the currently
+visible child, the transition between the
+two will be animated with the current
+transition type of @stack.
+
+Note that the child widget has to be visible itself
+(see gtk_widget_show()) in order to become the visible
+child of @stack.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_visible_child_name()
+: None val
+```
 
 #### Returns
 

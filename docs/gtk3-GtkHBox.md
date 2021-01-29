@@ -22,7 +22,7 @@ to #GtkGrid. For more information about migrating to #GtkGrid, see
 
 
 ```pony
-class ref GtkHBox is
+class val GtkHBox is
   GtkWidget ref
 ```
 
@@ -34,29 +34,35 @@ class ref GtkHBox is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L30)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L31)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkHBox ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkHBox val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkHBox](gtk3-GtkHBox.md) ref^
+* [GtkHBox](gtk3-GtkHBox.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L33)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L34)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkHBox ref^
+: GtkHBox val^
 ```
 #### Parameters
 
@@ -64,19 +70,34 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkHBox](gtk3-GtkHBox.md) ref^
+* [GtkHBox](gtk3-GtkHBox.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L37)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkHBox val^
+```
+
+#### Returns
+
+* [GtkHBox](gtk3-GtkHBox.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkHBox.md#L41)</span>
+
+
+```pony
+new val create(
   homogeneous_pony: Bool val,
   spacing_pony: I32 val)
-: GtkHBox ref^
+: GtkHBox val^
 ```
 #### Parameters
 
@@ -85,7 +106,7 @@ new ref create(
 
 #### Returns
 
-* [GtkHBox](gtk3-GtkHBox.md) ref^
+* [GtkHBox](gtk3-GtkHBox.md) val^
 
 ---
 

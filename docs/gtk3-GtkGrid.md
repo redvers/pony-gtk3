@@ -20,7 +20,7 @@ GtkGrid uses a single CSS node with name grid.
 
 
 ```pony
-class ref GtkGrid is
+class val GtkGrid is
   GtkWidget ref
 ```
 
@@ -32,29 +32,35 @@ class ref GtkGrid is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L28)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L29)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkGrid ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkGrid val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkGrid](gtk3-GtkGrid.md) ref^
+* [GtkGrid](gtk3-GtkGrid.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L31)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L32)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkGrid ref^
+: GtkGrid val^
 ```
 #### Parameters
 
@@ -62,22 +68,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkGrid](gtk3-GtkGrid.md) ref^
+* [GtkGrid](gtk3-GtkGrid.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L35)</span>
 
 
 ```pony
-new ref create()
-: GtkGrid ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkGrid val^
 ```
 
 #### Returns
 
-* [GtkGrid](gtk3-GtkGrid.md) ref^
+* [GtkGrid](gtk3-GtkGrid.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L39)</span>
+
+
+```pony
+new val create()
+: GtkGrid val^
+```
+
+#### Returns
+
+* [GtkGrid](gtk3-GtkGrid.md) val^
 
 ---
 
@@ -107,8 +128,71 @@ fun box gtkwidget()
 
 ---
 
+### attach
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L43)</span>
+
+
+Adds a widget to the grid.
+
+The position of @child is determined by @left and @top. The
+number of “cells” that @child will occupy is determined by
+@width and @height.
+
+
+```pony
+fun box attach(
+  child_pony: GtkWidget val,
+  left_pony: I32 val,
+  top_pony: I32 val,
+  width_pony: I32 val,
+  height_pony: I32 val)
+: None val
+```
+#### Parameters
+
+*   child_pony: [GtkWidget](gtk3-GtkWidget.md) val
+*   left_pony: [I32](builtin-I32.md) val
+*   top_pony: [I32](builtin-I32.md) val
+*   width_pony: [I32](builtin-I32.md) val
+*   height_pony: [I32](builtin-I32.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_attach_next_to
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L53)</span>
+
+
+    Adds a widget to the grid.
+
+The widget is placed next to @sibling, on the side determined by
+@side. When @sibling is %NULL, the widget is placed in row (for
+left or right placement) or column 0 (for top or bottom placement),
+at the end indicated by @side.
+
+Attaching widgets labeled [1], [2], [3] with @sibling == %NULL and
+@side == %GTK_POS_LEFT yields a layout of [3][2][1].
+
+    {:doh, %{argctype: "GtkPositionType", argname: "side", argtype: "PositionType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_attach_next_to()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_baseline_row
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L49)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L69)</span>
 
 
 Returns which row defines the global baseline of @grid.
@@ -126,7 +210,7 @@ fun box get_baseline_row()
 ---
 
 ### get_column_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L62)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L82)</span>
 
 
 Returns whether all columns of @grid have the same width.
@@ -144,7 +228,7 @@ fun box get_column_homogeneous()
 ---
 
 ### get_column_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L68)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L88)</span>
 
 
 Returns the amount of space between the columns of @grid.
@@ -161,8 +245,35 @@ fun box get_column_spacing()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_row_baseline_position
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L94)</span>
+
+
+    Returns the baseline position of @row as set
+by gtk_grid_set_row_baseline_position() or the default value
+%GTK_BASELINE_POSITION_CENTER.
+
+    {:argctype, "GtkBaselinePosition"}
+{:argname, "rv"}
+{:argtype, "BaselinePosition"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_row_baseline_position()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_row_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L81)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L108)</span>
 
 
 Returns whether all rows of @grid have the same height.
@@ -180,7 +291,7 @@ fun box get_row_homogeneous()
 ---
 
 ### get_row_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L87)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L114)</span>
 
 
 Returns the amount of space between the rows of @grid.
@@ -198,7 +309,7 @@ fun box get_row_spacing()
 ---
 
 ### insert_column
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L93)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L120)</span>
 
 
 Inserts a column at the specified position.
@@ -223,8 +334,34 @@ fun box insert_column(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_insert_next_to
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L130)</span>
+
+
+    Inserts a row or column at the specified position.
+
+The new row or column is placed next to @sibling, on the side
+determined by @side. If @side is %GTK_POS_TOP or %GTK_POS_BOTTOM,
+a row is inserted. If @side is %GTK_POS_LEFT of %GTK_POS_RIGHT,
+a column is inserted.
+
+    {:doh, %{argctype: "GtkPositionType", argname: "side", argtype: "PositionType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_insert_next_to()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### insert_row
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L108)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L143)</span>
 
 
 Inserts a row at the specified position.
@@ -250,7 +387,7 @@ fun box insert_row(
 ---
 
 ### remove_column
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L118)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L153)</span>
 
 
 Removes a column from the grid.
@@ -277,7 +414,7 @@ fun box remove_column(
 ---
 
 ### remove_row
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L129)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L164)</span>
 
 
 Removes a row from the grid.
@@ -304,7 +441,7 @@ fun box remove_row(
 ---
 
 ### set_baseline_row
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L140)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L175)</span>
 
 
 Sets which row defines the global baseline for the entire grid.
@@ -329,7 +466,7 @@ fun box set_baseline_row(
 ---
 
 ### set_column_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L149)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L184)</span>
 
 
 Sets whether all columns of @grid will have the same width.
@@ -351,7 +488,7 @@ fun box set_column_homogeneous(
 ---
 
 ### set_column_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L155)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L190)</span>
 
 
 Sets the amount of space between columns of @grid.
@@ -372,8 +509,30 @@ fun box set_column_spacing(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_row_baseline_position
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L196)</span>
+
+
+    Sets how the baseline should be positioned on @row of the
+grid, in case that row is assigned more space than is requested.
+
+    {:doh, %{argctype: "GtkBaselinePosition", argname: "pos", argtype: "BaselinePosition", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_row_baseline_position()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_row_homogeneous
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L165)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L205)</span>
 
 
 Sets whether all rows of @grid will have the same height.
@@ -395,7 +554,7 @@ fun box set_row_homogeneous(
 ---
 
 ### set_row_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L171)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkGrid.md#L211)</span>
 
 
 Sets the amount of space between rows of @grid.

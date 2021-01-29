@@ -87,7 +87,7 @@ gtk_render_focus() for one way to draw focus.
 
 
 ```pony
-class ref GtkDrawingArea is
+class val GtkDrawingArea is
   GtkWidget ref
 ```
 
@@ -99,29 +99,35 @@ class ref GtkDrawingArea is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkDrawingArea.md#L95)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkDrawingArea.md#L96)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkDrawingArea ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkDrawingArea val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkDrawingArea](gtk3-GtkDrawingArea.md) ref^
+* [GtkDrawingArea](gtk3-GtkDrawingArea.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkDrawingArea.md#L98)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkDrawingArea.md#L99)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkDrawingArea ref^
+: GtkDrawingArea val^
 ```
 #### Parameters
 
@@ -129,22 +135,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkDrawingArea](gtk3-GtkDrawingArea.md) ref^
+* [GtkDrawingArea](gtk3-GtkDrawingArea.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkDrawingArea.md#L102)</span>
 
 
 ```pony
-new ref create()
-: GtkDrawingArea ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkDrawingArea val^
 ```
 
 #### Returns
 
-* [GtkDrawingArea](gtk3-GtkDrawingArea.md) ref^
+* [GtkDrawingArea](gtk3-GtkDrawingArea.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkDrawingArea.md#L106)</span>
+
+
+```pony
+new val create()
+: GtkDrawingArea val^
+```
+
+#### Returns
+
+* [GtkDrawingArea](gtk3-GtkDrawingArea.md) val^
 
 ---
 

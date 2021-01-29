@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["GObjectREF"]
-provides: ["GtkBin"]
+   needs: ["GObjectREF", "GtkWidget val"]
+provides: ["GtkBin val"]
 */
 use "../gobject"
-class GtkBin is GtkWidget
+class val GtkBin is GtkWidget
 """
 The #GtkBin widget is a container with just one child.
 It is not very useful itself, but it is useful for deriving subclasses,
@@ -13,24 +13,29 @@ since it provides common code needed for handling a single child widget.
 Many GTK+ widgets are subclasses of #GtkBin, including #GtkWindow,
 #GtkButton, #GtkFrame, #GtkHandleBox or #GtkScrolledWindow.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
 
 
-/* get_child unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+
+/* Needs conversion code 
+Gets the child of the #GtkBin, or %NULL if the bin contains
+no child widget. The returned widget does not have a reference
+added, so you do not need to unref it.
+  fun get_child(): GtkWidget val =>
+    @gtk_bin_get_child[GObjectREF](widget)
+*/
 
 
 ```````

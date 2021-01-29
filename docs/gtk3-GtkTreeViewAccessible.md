@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkTreeViewAccessible is
+class val GtkTreeViewAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkTreeViewAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkTreeViewAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkTreeViewAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkTreeViewAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkTreeViewAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkTreeViewAccessible](gtk3-GtkTreeViewAccessible.md) ref^
+* [GtkTreeViewAccessible](gtk3-GtkTreeViewAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkTreeViewAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkTreeViewAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkTreeViewAccessible ref^
+: GtkTreeViewAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkTreeViewAccessible](gtk3-GtkTreeViewAccessible.md) ref^
+* [GtkTreeViewAccessible](gtk3-GtkTreeViewAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkTreeViewAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkTreeViewAccessible val^
+```
+
+#### Returns
+
+* [GtkTreeViewAccessible](gtk3-GtkTreeViewAccessible.md) val^
 
 ---
 

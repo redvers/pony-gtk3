@@ -8,7 +8,7 @@ This object was added in 3.24.
 
 
 ```pony
-class ref GtkEventControllerMotion is
+class val GtkEventControllerMotion is
   GtkWidget ref
 ```
 
@@ -20,29 +20,35 @@ class ref GtkEventControllerMotion is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkEventControllerMotion.md#L16)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerMotion.md#L17)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkEventControllerMotion ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkEventControllerMotion val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkEventControllerMotion](gtk3-GtkEventControllerMotion.md) ref^
+* [GtkEventControllerMotion](gtk3-GtkEventControllerMotion.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkEventControllerMotion.md#L19)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerMotion.md#L20)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkEventControllerMotion ref^
+: GtkEventControllerMotion val^
 ```
 #### Parameters
 
@@ -50,26 +56,41 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkEventControllerMotion](gtk3-GtkEventControllerMotion.md) ref^
+* [GtkEventControllerMotion](gtk3-GtkEventControllerMotion.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkEventControllerMotion.md#L23)</span>
 
 
 ```pony
-new ref create(
-  widget_pony: GtkWidget ref)
-: GtkEventControllerMotion ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkEventControllerMotion val^
 ```
-#### Parameters
-
-*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) ref
 
 #### Returns
 
-* [GtkEventControllerMotion](gtk3-GtkEventControllerMotion.md) ref^
+* [GtkEventControllerMotion](gtk3-GtkEventControllerMotion.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkEventControllerMotion.md#L27)</span>
+
+
+```pony
+new val create(
+  widget_pony: GtkWidget val)
+: GtkEventControllerMotion val^
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [GtkEventControllerMotion](gtk3-GtkEventControllerMotion.md) val^
 
 ---
 

@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["Bool", "None", "GObjectREF", "String", "GtkAccelGroup"]
-provides: ["GtkImageMenuItem"]
+   needs: ["Bool", "GObjectREF", "GtkWidget val", "None", "String", "GtkAccelGroup val"]
+provides: ["GtkImageMenuItem val"]
 */
 use "../gobject"
-class GtkImageMenuItem is GtkWidget
+class val GtkImageMenuItem is GtkWidget
 """
 A GtkImageMenuItem is a menu item which has an icon next to the text label.
 
@@ -68,26 +68,30 @@ binding of Ctrl+M:
   gtk_widget_show_all (menu_item);
 ]|
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create() =>
+
+  new val create() =>
     widget = @gtk_image_menu_item_new[GObjectREF]() //
 
-  new new_from_stock(stock_id_pony: String, accel_group_pony: GtkAccelGroup) =>
+  new val new_from_stock(stock_id_pony: String, accel_group_pony: GtkAccelGroup val) =>
     widget = @gtk_image_menu_item_new_from_stock[GObjectREF](stock_id_pony.cstring(), accel_group_pony.gtkwidget()) //
 
-  new new_with_label(label_pony: String) =>
+  new val new_with_label(label_pony: String) =>
     widget = @gtk_image_menu_item_new_with_label[GObjectREF](label_pony.cstring()) //
 
-  new new_with_mnemonic(label_pony: String) =>
+  new val new_with_mnemonic(label_pony: String) =>
     widget = @gtk_image_menu_item_new_with_mnemonic[GObjectREF](label_pony.cstring()) //
 
 
@@ -98,12 +102,12 @@ setting and always show the image, if available.
 """
   @gtk_image_menu_item_get_always_show_image[Bool](widget)
 
-/* get_image unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+Gets the widget that is currently set as the image of @image_menu_item.
+See gtk_image_menu_item_set_image().
+  fun get_image(): GtkWidget val =>
+    @gtk_image_menu_item_get_image[GObjectREF](widget)
+*/
 
 fun get_use_stock(): Bool =>
 """
@@ -112,9 +116,19 @@ stock id to select the stock item for the item.
 """
   @gtk_image_menu_item_get_use_stock[Bool](widget)
 
-/* set_accel_group unavailable due to typing issues
- {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_accel_group(): None =>
+    """
+    Specifies an @accel_group to add the menu items accelerator to
+(this only applies to stock items so a stock item must already
+be set, make sure to call gtk_image_menu_item_set_use_stock()
+and gtk_menu_item_set_label() with a valid stock item first).
+
+If you want this menu item to have changeable accelerators then
+you shouldnt need this (see gtk_image_menu_item_new_from_stock()).
+
+    {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_always_show_image(always_show_pony: Bool): None =>
 """
@@ -126,9 +140,13 @@ without the image.
 """
   @gtk_image_menu_item_set_always_show_image[None](widget, always_show_pony)
 
-/* set_image unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "image", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun set_image(image_pony: GtkWidget val): None =>
+"""
+Sets the image of @image_menu_item to the given widget.
+Note that it depends on the show-menu-images setting whether
+the image will be displayed or not.
+"""
+  @gtk_image_menu_item_set_image[None](widget, image_pony.gtkwidget())
 
 fun set_use_stock(use_stock_pony: Bool): None =>
 """

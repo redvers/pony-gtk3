@@ -85,7 +85,7 @@ expander that is showing its child gets the :checked pseudoclass added to it.
 
 
 ```pony
-class ref GtkExpander is
+class val GtkExpander is
   GtkWidget ref
 ```
 
@@ -97,29 +97,35 @@ class ref GtkExpander is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L93)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L94)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkExpander ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkExpander val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkExpander](gtk3-GtkExpander.md) ref^
+* [GtkExpander](gtk3-GtkExpander.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L96)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L97)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkExpander ref^
+: GtkExpander val^
 ```
 #### Parameters
 
@@ -127,18 +133,33 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkExpander](gtk3-GtkExpander.md) ref^
+* [GtkExpander](gtk3-GtkExpander.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L100)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkExpander val^
+```
+
+#### Returns
+
+* [GtkExpander](gtk3-GtkExpander.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L104)</span>
+
+
+```pony
+new val create(
   label_pony: String val)
-: GtkExpander ref^
+: GtkExpander val^
 ```
 #### Parameters
 
@@ -146,18 +167,18 @@ new ref create(
 
 #### Returns
 
-* [GtkExpander](gtk3-GtkExpander.md) ref^
+* [GtkExpander](gtk3-GtkExpander.md) val^
 
 ---
 
 ### new_with_mnemonic
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L103)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L107)</span>
 
 
 ```pony
-new ref new_with_mnemonic(
+new val new_with_mnemonic(
   label_pony: String val)
-: GtkExpander ref^
+: GtkExpander val^
 ```
 #### Parameters
 
@@ -165,7 +186,7 @@ new ref new_with_mnemonic(
 
 #### Returns
 
-* [GtkExpander](gtk3-GtkExpander.md) ref^
+* [GtkExpander](gtk3-GtkExpander.md) val^
 
 ---
 
@@ -196,7 +217,7 @@ fun box gtkwidget()
 ---
 
 ### get_expanded
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L107)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L111)</span>
 
 
 Queries a #GtkExpander and returns its current state. Returns %TRUE
@@ -217,7 +238,7 @@ fun box get_expanded()
 ---
 
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L116)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L120)</span>
 
 
 Fetches the text from a label widget including any embedded
@@ -245,7 +266,7 @@ fun box get_label()
 ---
 
 ### get_label_fill
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L134)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L138)</span>
 
 
 Returns whether the label widget will fill all available
@@ -264,7 +285,7 @@ fun box get_label_fill()
 ---
 
 ### get_resize_toplevel
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L148)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L152)</span>
 
 
 Returns whether the expander will resize the toplevel widget
@@ -283,7 +304,7 @@ fun box get_resize_toplevel()
 ---
 
 ### get_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L155)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L159)</span>
 
 
 Gets the value set by gtk_expander_set_spacing().
@@ -301,7 +322,7 @@ fun box get_spacing()
 ---
 
 ### get_use_markup
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L161)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L165)</span>
 
 
 Returns whether the label’s text is interpreted as marked up with
@@ -321,7 +342,7 @@ fun box get_use_markup()
 ---
 
 ### get_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L169)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L173)</span>
 
 
 Returns whether an embedded underline in the expander label
@@ -340,7 +361,7 @@ fun box get_use_underline()
 ---
 
 ### set_expanded
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L176)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L180)</span>
 
 
 Sets the state of the expander. Set to %TRUE, if you want
@@ -363,8 +384,31 @@ fun box set_expanded(
 
 ---
 
-### set_label_fill
+### pony_NOT_IMPLEMENTED_YET_set_label
 <span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L188)</span>
+
+
+    Sets the text of the label of the expander to @label.
+
+This will also clear any previously set labels.
+
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_label()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_label_fill
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L198)</span>
 
 
 Sets whether the label widget should fill all available
@@ -388,8 +432,31 @@ fun box set_label_fill(
 
 ---
 
+### set_label_widget
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L207)</span>
+
+
+Set the label widget for the expander. This is the widget
+that will appear embedded alongside the expander arrow.
+
+
+```pony
+fun box set_label_widget(
+  label_widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   label_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_resize_toplevel
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L201)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L214)</span>
 
 
 Sets whether the expander will resize the toplevel widget
@@ -412,7 +479,7 @@ fun box set_resize_toplevel(
 ---
 
 ### set_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L208)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L221)</span>
 
 
 Sets the spacing field of @expander, which is the number of
@@ -435,7 +502,7 @@ fun box set_spacing(
 ---
 
 ### set_use_markup
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L215)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L228)</span>
 
 
 Sets whether the text of the label contains markup in
@@ -459,7 +526,7 @@ fun box set_use_markup(
 ---
 
 ### set_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L223)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkExpander.md#L236)</span>
 
 
 If true, an underline in the text of the expander label indicates

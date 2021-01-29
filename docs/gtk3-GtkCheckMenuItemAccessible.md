@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkCheckMenuItemAccessible is
+class val GtkCheckMenuItemAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkCheckMenuItemAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItemAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItemAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCheckMenuItemAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCheckMenuItemAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCheckMenuItemAccessible](gtk3-GtkCheckMenuItemAccessible.md) ref^
+* [GtkCheckMenuItemAccessible](gtk3-GtkCheckMenuItemAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItemAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItemAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCheckMenuItemAccessible ref^
+: GtkCheckMenuItemAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCheckMenuItemAccessible](gtk3-GtkCheckMenuItemAccessible.md) ref^
+* [GtkCheckMenuItemAccessible](gtk3-GtkCheckMenuItemAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkCheckMenuItemAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkCheckMenuItemAccessible val^
+```
+
+#### Returns
+
+* [GtkCheckMenuItemAccessible](gtk3-GtkCheckMenuItemAccessible.md) val^
 
 ---
 

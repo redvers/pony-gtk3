@@ -26,7 +26,7 @@ To track changes in the selected application, use the
 
 
 ```pony
-class ref GtkAppChooserButton is
+class val GtkAppChooserButton is
   GtkWidget ref
 ```
 
@@ -38,29 +38,35 @@ class ref GtkAppChooserButton is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L34)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L35)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkAppChooserButton ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkAppChooserButton val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkAppChooserButton](gtk3-GtkAppChooserButton.md) ref^
+* [GtkAppChooserButton](gtk3-GtkAppChooserButton.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L37)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L38)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkAppChooserButton ref^
+: GtkAppChooserButton val^
 ```
 #### Parameters
 
@@ -68,18 +74,33 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkAppChooserButton](gtk3-GtkAppChooserButton.md) ref^
+* [GtkAppChooserButton](gtk3-GtkAppChooserButton.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L41)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkAppChooserButton val^
+```
+
+#### Returns
+
+* [GtkAppChooserButton](gtk3-GtkAppChooserButton.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L45)</span>
+
+
+```pony
+new val create(
   content_type_pony: String val)
-: GtkAppChooserButton ref^
+: GtkAppChooserButton val^
 ```
 #### Parameters
 
@@ -87,7 +108,7 @@ new ref create(
 
 #### Returns
 
-* [GtkAppChooserButton](gtk3-GtkAppChooserButton.md) ref^
+* [GtkAppChooserButton](gtk3-GtkAppChooserButton.md) val^
 
 ---
 
@@ -117,8 +138,36 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_append_custom_item
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L49)</span>
+
+
+    Appends a custom item to the list of applications that is shown
+in the popup; the item name must be unique per-widget.
+Clients can use the provided name as a detail for the
+#GtkAppChooserButton::custom-item-activated signal, to add a
+callback for the activation of a particular custom item in the list.
+See also gtk_app_chooser_button_append_separator().
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GIcon*", argname: "icon", argtype: "Gio.Icon", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_append_custom_item()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### append_separator
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L51)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L64)</span>
 
 
 Appends a separator to the list of applications that is shown
@@ -137,7 +186,7 @@ fun box append_separator()
 ---
 
 ### get_heading
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L58)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L71)</span>
 
 
 Returns the text to display at the top of the dialog.
@@ -155,7 +204,7 @@ fun box get_heading()
 ---
 
 ### get_show_default_item
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L66)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L79)</span>
 
 
 Returns the current value of the #GtkAppChooserButton:show-default-item
@@ -174,7 +223,7 @@ fun box get_show_default_item()
 ---
 
 ### get_show_dialog_item
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L73)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L86)</span>
 
 
 Returns the current value of the #GtkAppChooserButton:show-dialog-item
@@ -192,8 +241,55 @@ fun box get_show_dialog_item()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_active_custom_item
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L93)</span>
+
+
+    Selects a custom item previously added with
+gtk_app_chooser_button_append_custom_item().
+
+Use gtk_app_chooser_refresh() to bring the selection
+to its initial state.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_active_custom_item()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_heading
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L105)</span>
+
+
+    Sets the text to display at the top of the dialog.
+If the heading is not set, the dialog displays a default text.
+
+    {:doh, %{argctype: "const gchar*", argname: "heading", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_heading()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_show_default_item
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L88)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L114)</span>
 
 
 Sets whether the dropdown menu of this button should show the
@@ -216,7 +312,7 @@ fun box set_show_default_item(
 ---
 
 ### set_show_dialog_item
-<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L95)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAppChooserButton.md#L121)</span>
 
 
 Sets whether the dropdown menu of this button should show an

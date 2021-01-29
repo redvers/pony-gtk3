@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkToplevelAccessible is
+class val GtkToplevelAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkToplevelAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkToplevelAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkToplevelAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkToplevelAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkToplevelAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkToplevelAccessible](gtk3-GtkToplevelAccessible.md) ref^
+* [GtkToplevelAccessible](gtk3-GtkToplevelAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkToplevelAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToplevelAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkToplevelAccessible ref^
+: GtkToplevelAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkToplevelAccessible](gtk3-GtkToplevelAccessible.md) ref^
+* [GtkToplevelAccessible](gtk3-GtkToplevelAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkToplevelAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkToplevelAccessible val^
+```
+
+#### Returns
+
+* [GtkToplevelAccessible](gtk3-GtkToplevelAccessible.md) val^
 
 ---
 
@@ -74,6 +95,31 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_children
+<span class="source-link">[[Source]](src/gtk3/GtkToplevelAccessible.md#L26)</span>
+
+
+    No provided documentation
+
+    {:argctype, "GList*"}
+{:argname, "rv"}
+{:argtype, "GLib.List"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_children()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

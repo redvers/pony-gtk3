@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
-   needs: ["Bool", "I32", "None", "GObjectREF", "GtkAdjustment"]
-provides: ["GtkScrolledWindow"]
+   needs: ["None", "GtkWidget val", "Bool", "GObjectREF", "I32", "GtkAdjustment val"]
+provides: ["GtkScrolledWindow val"]
 */
 use "../gobject"
-class GtkScrolledWindow is GtkWidget
+class val GtkScrolledWindow is GtkWidget
 """
 GtkScrolledWindow is a container that accepts a single child widget, makes
 that child scrollable using either internally added scrollbars or externally
@@ -84,23 +84,44 @@ scrolling (.overlay-indicator, .dragging, .hovering) on its scrollbars.
 If both scrollbars are visible, the area where they meet is drawn
 with a subnode named junction.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(hadjustment_pony: GtkAdjustment, vadjustment_pony: GtkAdjustment) =>
+
+  new val create(hadjustment_pony: GtkAdjustment val, vadjustment_pony: GtkAdjustment val) =>
     widget = @gtk_scrolled_window_new[GObjectREF](hadjustment_pony.gtkwidget(), vadjustment_pony.gtkwidget()) //
 
 
-/* add_with_viewport unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "Widget", paramtype: :param, txo: "none"}}
-*/
+fun add_with_viewport(child_pony: GtkWidget val): None =>
+"""
+Used to add children without native scrolling capabilities. This
+is simply a convenience function; it is equivalent to adding the
+unscrollable child to a viewport, then adding the viewport to the
+scrolled window. If a child has native scrolling, use
+gtk_container_add() instead of this function.
+
+The viewport scrolls the child by moving its #GdkWindow, and takes
+the size of the child to be the size of its toplevel #GdkWindow.
+This will be very wrong for most widgets that support native scrolling;
+for example, if you add a widget such as #GtkTreeView with a viewport,
+the whole widget will scroll, including the column headings. Thus,
+widgets with native scrolling support should not be used with the
+#GtkViewport proxy.
+
+A widget supports scrolling natively if it implements the
+#GtkScrollable interface.
+"""
+  @gtk_scrolled_window_add_with_viewport[None](widget, child_pony.gtkwidget())
 
 fun get_capture_button_press(): Bool =>
 """
@@ -109,19 +130,25 @@ scrolling. See gtk_scrolled_window_set_capture_button_press().
 """
   @gtk_scrolled_window_get_capture_button_press[Bool](widget)
 
-/* get_hadjustment unavailable due to return typing issues
-{:argctype, "GtkAdjustment*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_hadjustment(): None =>
+    """
+    Returns the horizontal scrollbar’s adjustment, used to connect the
+horizontal scrollbar to the child widget’s horizontal scroll
+functionality.
+
+    {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_hscrollbar unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+Returns the horizontal scrollbar of @scrolled_window.
+  fun get_hscrollbar(): GtkWidget val =>
+    @gtk_scrolled_window_get_hscrollbar[GObjectREF](widget)
+*/
 
 fun get_kinetic_scrolling(): Bool =>
 """
@@ -159,17 +186,28 @@ Returns whether overlay scrolling is enabled for this scrolled window.
 """
   @gtk_scrolled_window_get_overlay_scrolling[Bool](widget)
 
-/* get_placement unavailable due to return typing issues
-{:argctype, "GtkCornerType"}
+  fun pony_NOT_IMPLEMENTED_YET_get_placement(): None =>
+    """
+    Gets the placement of the contents with respect to the scrollbars
+for the scrolled window. See gtk_scrolled_window_set_placement().
+
+    {:argctype, "GtkCornerType"}
 {:argname, "rv"}
 {:argtype, "CornerType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_policy unavailable due to typing issues
- {:doh, %{argctype: "GtkPolicyType*", argname: "hscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_policy(): None =>
+    """
+    Retrieves the current policy values for the horizontal and vertical
+scrollbars. See gtk_scrolled_window_set_policy().
+
+    {:doh, %{argctype: "GtkPolicyType*", argname: "hscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "GtkPolicyType*", argname: "vscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun get_propagate_natural_height(): Bool =>
 """
@@ -185,26 +223,37 @@ through the scrolled window’s requested natural width.
 """
   @gtk_scrolled_window_get_propagate_natural_width[Bool](widget)
 
-/* get_shadow_type unavailable due to return typing issues
-{:argctype, "GtkShadowType"}
+  fun pony_NOT_IMPLEMENTED_YET_get_shadow_type(): None =>
+    """
+    Gets the shadow type of the scrolled window. See
+gtk_scrolled_window_set_shadow_type().
+
+    {:argctype, "GtkShadowType"}
 {:argname, "rv"}
 {:argtype, "ShadowType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_vadjustment unavailable due to return typing issues
-{:argctype, "GtkAdjustment*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_vadjustment(): None =>
+    """
+    Returns the vertical scrollbar’s adjustment, used to connect the
+vertical scrollbar to the child widget’s vertical scroll functionality.
+
+    {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_vscrollbar unavailable due to return typing issues
-{:argctype, "GtkWidget*"}
-{:argname, "rv"}
-{:argtype, "Widget"}
-{:paramtype, :param}
-{:txo, "none"} */
+/* Needs conversion code 
+Returns the vertical scrollbar of @scrolled_window.
+  fun get_vscrollbar(): GtkWidget val =>
+    @gtk_scrolled_window_get_vscrollbar[GObjectREF](widget)
+*/
 
 fun set_capture_button_press(capture_button_press_pony: Bool): None =>
 """
@@ -222,9 +271,13 @@ This setting only has an effect if kinetic scrolling is enabled.
 """
   @gtk_scrolled_window_set_capture_button_press[None](widget, capture_button_press_pony)
 
-/* set_hadjustment unavailable due to typing issues
- {:doh, %{argctype: "GtkAdjustment*", argname: "hadjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_hadjustment(): None =>
+    """
+    Sets the #GtkAdjustment for the horizontal scrollbar.
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "hadjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_kinetic_scrolling(kinetic_scrolling_pony: Bool): None =>
 """
@@ -284,14 +337,38 @@ Enables or disables overlay scrolling for this scrolled window.
 """
   @gtk_scrolled_window_set_overlay_scrolling[None](widget, overlay_scrolling_pony)
 
-/* set_placement unavailable due to typing issues
- {:doh, %{argctype: "GtkCornerType", argname: "window_placement", argtype: "CornerType", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_placement(): None =>
+    """
+    Sets the placement of the contents with respect to the scrollbars
+for the scrolled window.
 
-/* set_policy unavailable due to typing issues
- {:doh, %{argctype: "GtkPolicyType", argname: "hscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "none"}}
+The default is %GTK_CORNER_TOP_LEFT, meaning the child is
+in the top left, with the scrollbars underneath and to the right.
+Other values in #GtkCornerType are %GTK_CORNER_TOP_RIGHT,
+%GTK_CORNER_BOTTOM_LEFT, and %GTK_CORNER_BOTTOM_RIGHT.
+
+See also gtk_scrolled_window_get_placement() and
+gtk_scrolled_window_unset_placement().
+
+    {:doh, %{argctype: "GtkCornerType", argname: "window_placement", argtype: "CornerType", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_policy(): None =>
+    """
+    Sets the scrollbar policy for the horizontal and vertical scrollbars.
+
+The policy determines when the scrollbar should appear; it is a value
+from the #GtkPolicyType enumeration. If %GTK_POLICY_ALWAYS, the
+scrollbar is always present; if %GTK_POLICY_NEVER, the scrollbar is
+never present; if %GTK_POLICY_AUTOMATIC, the scrollbar is present only
+if needed (that is, if the slider part of the bar would be smaller
+than the trough — the display is larger than the page size).
+
+    {:doh, %{argctype: "GtkPolicyType", argname: "hscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkPolicyType", argname: "vscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_propagate_natural_height(propagate_pony: Bool): None =>
 """
@@ -307,13 +384,22 @@ through the scrolled window’s requested natural width.
 """
   @gtk_scrolled_window_set_propagate_natural_width[None](widget, propagate_pony)
 
-/* set_shadow_type unavailable due to typing issues
- {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_shadow_type(): None =>
+    """
+    Changes the type of shadow drawn around the contents of
+@scrolled_window.
 
-/* set_vadjustment unavailable due to typing issues
- {:doh, %{argctype: "GtkAdjustment*", argname: "vadjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_vadjustment(): None =>
+    """
+    Sets the #GtkAdjustment for the vertical scrollbar.
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "vadjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun unset_placement(): None =>
 """

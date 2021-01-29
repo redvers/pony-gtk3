@@ -16,7 +16,7 @@ The #GtkCellRendererCombo cell renderer was added in GTK+ 2.6.
 
 
 ```pony
-class ref GtkCellRendererCombo is
+class val GtkCellRendererCombo is
   GtkWidget ref
 ```
 
@@ -28,29 +28,35 @@ class ref GtkCellRendererCombo is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererCombo.md#L24)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererCombo.md#L25)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCellRendererCombo ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCellRendererCombo val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCellRendererCombo](gtk3-GtkCellRendererCombo.md) ref^
+* [GtkCellRendererCombo](gtk3-GtkCellRendererCombo.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererCombo.md#L27)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererCombo.md#L28)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCellRendererCombo ref^
+: GtkCellRendererCombo val^
 ```
 #### Parameters
 
@@ -58,22 +64,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCellRendererCombo](gtk3-GtkCellRendererCombo.md) ref^
+* [GtkCellRendererCombo](gtk3-GtkCellRendererCombo.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererCombo.md#L31)</span>
 
 
 ```pony
-new ref create()
-: GtkCellRendererCombo ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkCellRendererCombo val^
 ```
 
 #### Returns
 
-* [GtkCellRendererCombo](gtk3-GtkCellRendererCombo.md) ref^
+* [GtkCellRendererCombo](gtk3-GtkCellRendererCombo.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererCombo.md#L35)</span>
+
+
+```pony
+new val create()
+: GtkCellRendererCombo val^
+```
+
+#### Returns
+
+* [GtkCellRendererCombo](gtk3-GtkCellRendererCombo.md) val^
 
 ---
 

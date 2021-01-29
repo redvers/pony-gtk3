@@ -21,7 +21,7 @@ argument to gtk_cell_area_box_pack_start() and gtk_cell_area_box_pack_end().
 
 
 ```pony
-class ref GtkCellAreaBox is
+class val GtkCellAreaBox is
   GtkWidget ref
 ```
 
@@ -33,29 +33,35 @@ class ref GtkCellAreaBox is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L29)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L30)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCellAreaBox ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCellAreaBox val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCellAreaBox](gtk3-GtkCellAreaBox.md) ref^
+* [GtkCellAreaBox](gtk3-GtkCellAreaBox.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L32)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L33)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCellAreaBox ref^
+: GtkCellAreaBox val^
 ```
 #### Parameters
 
@@ -63,22 +69,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCellAreaBox](gtk3-GtkCellAreaBox.md) ref^
+* [GtkCellAreaBox](gtk3-GtkCellAreaBox.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L36)</span>
 
 
 ```pony
-new ref create()
-: GtkCellAreaBox ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkCellAreaBox val^
 ```
 
 #### Returns
 
-* [GtkCellAreaBox](gtk3-GtkCellAreaBox.md) ref^
+* [GtkCellAreaBox](gtk3-GtkCellAreaBox.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L40)</span>
+
+
+```pony
+new val create()
+: GtkCellAreaBox val^
+```
+
+#### Returns
+
+* [GtkCellAreaBox](gtk3-GtkCellAreaBox.md) val^
 
 ---
 
@@ -109,7 +130,7 @@ fun box gtkwidget()
 ---
 
 ### get_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L40)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L44)</span>
 
 
 Gets the spacing added between cell renderers.
@@ -126,8 +147,56 @@ fun box get_spacing()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_pack_end
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L50)</span>
+
+
+    Adds @renderer to @box, packed with reference to the end of @box.
+
+The @renderer is packed after (away from end of) any other
+#GtkCellRenderer packed with reference to the end of @box.
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_pack_end()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_pack_start
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L61)</span>
+
+
+    Adds @renderer to @box, packed with reference to the start of @box.
+
+The @renderer is packed after any other #GtkCellRenderer packed
+with reference to the start of @box.
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_pack_start()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_spacing
-<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellAreaBox.md#L72)</span>
 
 
 Sets the spacing to add between cell renderers in @box.

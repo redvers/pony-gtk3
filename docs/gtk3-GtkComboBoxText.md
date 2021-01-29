@@ -55,7 +55,7 @@ children, and the .linked class to the node of its internal box.
 
 
 ```pony
-class ref GtkComboBoxText is
+class val GtkComboBoxText is
   GtkWidget ref
 ```
 
@@ -67,29 +67,35 @@ class ref GtkComboBoxText is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L63)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L64)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkComboBoxText ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkComboBoxText val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkComboBoxText](gtk3-GtkComboBoxText.md) ref^
+* [GtkComboBoxText](gtk3-GtkComboBoxText.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L66)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L67)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkComboBoxText ref^
+: GtkComboBoxText val^
 ```
 #### Parameters
 
@@ -97,37 +103,52 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkComboBoxText](gtk3-GtkComboBoxText.md) ref^
+* [GtkComboBoxText](gtk3-GtkComboBoxText.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L70)</span>
 
 
 ```pony
-new ref create()
-: GtkComboBoxText ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkComboBoxText val^
 ```
 
 #### Returns
 
-* [GtkComboBoxText](gtk3-GtkComboBoxText.md) ref^
+* [GtkComboBoxText](gtk3-GtkComboBoxText.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L74)</span>
+
+
+```pony
+new val create()
+: GtkComboBoxText val^
+```
+
+#### Returns
+
+* [GtkComboBoxText](gtk3-GtkComboBoxText.md) val^
 
 ---
 
 ### new_with_entry
-<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L73)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L77)</span>
 
 
 ```pony
-new ref new_with_entry()
-: GtkComboBoxText ref^
+new val new_with_entry()
+: GtkComboBoxText val^
 ```
 
 #### Returns
 
-* [GtkComboBoxText](gtk3-GtkComboBoxText.md) ref^
+* [GtkComboBoxText](gtk3-GtkComboBoxText.md) val^
 
 ---
 
@@ -157,8 +178,188 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_append
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L81)</span>
+
+
+    Appends @text to the list of strings stored in @combo_box.
+If @id is non-%NULL then it is used as the ID of the row.
+
+This is the same as calling gtk_combo_box_text_insert() with a
+position of -1.
+
+    {:doh, %{argctype: "const gchar*", argname: "id", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_append()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_append_text
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L94)</span>
+
+
+    Appends @text to the list of strings stored in @combo_box.
+
+This is the same as calling gtk_combo_box_text_insert_text() with a
+position of -1.
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_append_text()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_active_text
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L105)</span>
+
+
+    Returns the currently active string in @combo_box, or %NULL
+if none is selected. If @combo_box contains an entry, this
+function will return its contents (which will not necessarily
+be an item from the list).
+
+    {:argctype, "gchar*"}
+{:argname, "rv"}
+{:argtype, "utf8"}
+{:paramtype, :param}
+{:txo, "full"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_active_text()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_insert
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L120)</span>
+
+
+    Inserts @text at @position in the list of strings stored in @combo_box.
+If @id is non-%NULL then it is used as the ID of the row.  See
+#GtkComboBox:id-column.
+
+If @position is negative then @text is appended.
+
+    {:doh, %{argctype: "const gchar*", argname: "id", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_insert()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_insert_text
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L133)</span>
+
+
+    Inserts @text at @position in the list of strings stored in @combo_box.
+
+If @position is negative then @text is appended.
+
+This is the same as calling gtk_combo_box_text_insert() with a %NULL
+ID string.
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_insert_text()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_prepend
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L146)</span>
+
+
+    Prepends @text to the list of strings stored in @combo_box.
+If @id is non-%NULL then it is used as the ID of the row.
+
+This is the same as calling gtk_combo_box_text_insert() with a
+position of 0.
+
+    {:doh, %{argctype: "const gchar*", argname: "id", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_prepend()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_prepend_text
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L159)</span>
+
+
+    Prepends @text to the list of strings stored in @combo_box.
+
+This is the same as calling gtk_combo_box_text_insert_text() with a
+position of 0.
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_prepend_text()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### remove
-<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L111)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L170)</span>
 
 
 Removes the string at @position from @combo_box.
@@ -180,7 +381,7 @@ fun box remove(
 ---
 
 ### remove_all
-<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L117)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkComboBoxText.md#L176)</span>
 
 
 Removes all the text entries from the combo box.

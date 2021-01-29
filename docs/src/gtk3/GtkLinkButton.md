@@ -1,10 +1,10 @@
 ```````pony-full-source
 /*
    needs: ["Pointer[U8 val] ref", "String", "Bool", "None", "GObjectREF"]
-provides: ["GtkLinkButton"]
+provides: ["GtkLinkButton val"]
 */
 use "../gobject"
-class GtkLinkButton is GtkWidget
+class val GtkLinkButton is GtkWidget
 """
 A GtkLinkButton is a #GtkButton with a hyperlink, similar to the one
 used by web browsers, which triggers an action when clicked. It is useful
@@ -27,20 +27,24 @@ signal handler.
 GtkLinkButton has a single CSS node with name button. To differentiate
 it from a plain #GtkButton, it gets the .link style class.
 """
-  var widget: GObjectREF
+  var widget: GObjectREF val
 
-  fun gtkwidget(): GObjectREF => widget
-  new never_call_this_constructor_or_else_tm() =>
-    widget = GObjectREF
+  fun gtkwidget(): GObjectREF val => widget
 
-  new create_from_GObjectREF(widget': GObjectREF) =>
+  new val create_from_GtkBuilder(gtkbuilder: GtkBuilder, glade_id: String) =>
+    widget = @gtk_builder_get_object[GObjectREF](gtkbuilder.gtkwidget(), glade_id.cstring())
+
+  new val create_from_GObjectREF(widget': GObjectREF) =>
     widget = widget'
 
+  new val never_call_this_constructor_or_else_tm() =>
+    widget = GObjectREF
 
-  new create(uri_pony: String) =>
+
+  new val create(uri_pony: String) =>
     widget = @gtk_link_button_new[GObjectREF](uri_pony.cstring()) //
 
-  new new_with_label(uri_pony: String, label_pony: String) =>
+  new val new_with_label(uri_pony: String, label_pony: String) =>
     widget = @gtk_link_button_new_with_label[GObjectREF](uri_pony.cstring(), label_pony.cstring()) //
 
 
@@ -62,9 +66,14 @@ The state may also be changed using gtk_link_button_set_visited().
 """
   @gtk_link_button_get_visited[Bool](widget)
 
-/* set_uri unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_uri(): None =>
+    """
+    Sets @uri as the URI where the #GtkLinkButton points. As a side-effect
+this unsets the “visited” state of the button.
+
+    {:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_visited(visited_pony: Bool): None =>
 """

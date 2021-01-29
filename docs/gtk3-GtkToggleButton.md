@@ -64,7 +64,7 @@ void make_toggles (void) {
 
 
 ```pony
-class ref GtkToggleButton is
+class val GtkToggleButton is
   GtkWidget ref
 ```
 
@@ -76,29 +76,35 @@ class ref GtkToggleButton is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L72)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L73)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkToggleButton ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkToggleButton val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkToggleButton](gtk3-GtkToggleButton.md) ref^
+* [GtkToggleButton](gtk3-GtkToggleButton.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L75)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L76)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkToggleButton ref^
+: GtkToggleButton val^
 ```
 #### Parameters
 
@@ -106,33 +112,48 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkToggleButton](gtk3-GtkToggleButton.md) ref^
+* [GtkToggleButton](gtk3-GtkToggleButton.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L79)</span>
 
 
 ```pony
-new ref create()
-: GtkToggleButton ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkToggleButton val^
 ```
 
 #### Returns
 
-* [GtkToggleButton](gtk3-GtkToggleButton.md) ref^
+* [GtkToggleButton](gtk3-GtkToggleButton.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L83)</span>
+
+
+```pony
+new val create()
+: GtkToggleButton val^
+```
+
+#### Returns
+
+* [GtkToggleButton](gtk3-GtkToggleButton.md) val^
 
 ---
 
 ### new_with_label
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L82)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L86)</span>
 
 
 ```pony
-new ref new_with_label(
+new val new_with_label(
   label_pony: String val)
-: GtkToggleButton ref^
+: GtkToggleButton val^
 ```
 #### Parameters
 
@@ -140,18 +161,18 @@ new ref new_with_label(
 
 #### Returns
 
-* [GtkToggleButton](gtk3-GtkToggleButton.md) ref^
+* [GtkToggleButton](gtk3-GtkToggleButton.md) val^
 
 ---
 
 ### new_with_mnemonic
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L85)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L89)</span>
 
 
 ```pony
-new ref new_with_mnemonic(
+new val new_with_mnemonic(
   label_pony: String val)
-: GtkToggleButton ref^
+: GtkToggleButton val^
 ```
 #### Parameters
 
@@ -159,7 +180,7 @@ new ref new_with_mnemonic(
 
 #### Returns
 
-* [GtkToggleButton](gtk3-GtkToggleButton.md) ref^
+* [GtkToggleButton](gtk3-GtkToggleButton.md) val^
 
 ---
 
@@ -190,7 +211,7 @@ fun box gtkwidget()
 ---
 
 ### get_active
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L89)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L93)</span>
 
 
 Queries a #GtkToggleButton and returns its current state. Returns %TRUE if
@@ -209,7 +230,7 @@ fun box get_active()
 ---
 
 ### get_inconsistent
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L96)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L100)</span>
 
 
 Gets the value set by gtk_toggle_button_set_inconsistent().
@@ -227,7 +248,7 @@ fun box get_inconsistent()
 ---
 
 ### get_mode
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L102)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L106)</span>
 
 
 Retrieves whether the button is displayed as a separate indicator
@@ -246,7 +267,7 @@ fun box get_mode()
 ---
 
 ### set_active
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L109)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L113)</span>
 
 
 Sets the status of the toggle button. Set to %TRUE if you want the
@@ -271,7 +292,7 @@ fun box set_active(
 ---
 
 ### set_inconsistent
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L118)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L122)</span>
 
 
 If the user has selected a range of elements (such as some text or
@@ -300,7 +321,7 @@ fun box set_inconsistent(
 ---
 
 ### set_mode
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L131)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L135)</span>
 
 
 Sets whether the button is displayed as a separate indicator and label.
@@ -331,7 +352,7 @@ fun box set_mode(
 ---
 
 ### toggled
-<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L146)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkToggleButton.md#L150)</span>
 
 
 Emits the #GtkToggleButton::toggled signal on the

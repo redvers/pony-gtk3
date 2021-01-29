@@ -15,7 +15,7 @@ GtkAspectFrame uses a CSS node with name frame.
 
 
 ```pony
-class ref GtkAspectFrame is
+class val GtkAspectFrame is
   GtkWidget ref
 ```
 
@@ -27,29 +27,35 @@ class ref GtkAspectFrame is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L23)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L24)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkAspectFrame ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkAspectFrame val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkAspectFrame](gtk3-GtkAspectFrame.md) ref^
+* [GtkAspectFrame](gtk3-GtkAspectFrame.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L26)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L27)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkAspectFrame ref^
+: GtkAspectFrame val^
 ```
 #### Parameters
 
@@ -57,22 +63,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkAspectFrame](gtk3-GtkAspectFrame.md) ref^
+* [GtkAspectFrame](gtk3-GtkAspectFrame.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L30)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkAspectFrame val^
+```
+
+#### Returns
+
+* [GtkAspectFrame](gtk3-GtkAspectFrame.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L34)</span>
+
+
+```pony
+new val create(
   label_pony: String val,
   xalign_pony: F32 val,
   yalign_pony: F32 val,
   ratio_pony: F32 val,
   obey_child_pony: Bool val)
-: GtkAspectFrame ref^
+: GtkAspectFrame val^
 ```
 #### Parameters
 
@@ -84,7 +105,7 @@ new ref create(
 
 #### Returns
 
-* [GtkAspectFrame](gtk3-GtkAspectFrame.md) ref^
+* [GtkAspectFrame](gtk3-GtkAspectFrame.md) val^
 
 ---
 
@@ -111,6 +132,29 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set
+<span class="source-link">[[Source]](src/gtk3/GtkAspectFrame.md#L38)</span>
+
+
+    Set parameters for an existing #GtkAspectFrame.
+
+    {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gfloat", argname: "ratio", argtype: "gfloat", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

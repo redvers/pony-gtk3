@@ -76,7 +76,7 @@ and get the .menu style class.
 
 
 ```pony
-class ref GtkPopoverMenu is
+class val GtkPopoverMenu is
   GtkWidget ref
 ```
 
@@ -88,29 +88,35 @@ class ref GtkPopoverMenu is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkPopoverMenu.md#L84)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkPopoverMenu.md#L85)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkPopoverMenu ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkPopoverMenu val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkPopoverMenu](gtk3-GtkPopoverMenu.md) ref^
+* [GtkPopoverMenu](gtk3-GtkPopoverMenu.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkPopoverMenu.md#L87)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkPopoverMenu.md#L88)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkPopoverMenu ref^
+: GtkPopoverMenu val^
 ```
 #### Parameters
 
@@ -118,22 +124,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkPopoverMenu](gtk3-GtkPopoverMenu.md) ref^
+* [GtkPopoverMenu](gtk3-GtkPopoverMenu.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkPopoverMenu.md#L91)</span>
 
 
 ```pony
-new ref create()
-: GtkPopoverMenu ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkPopoverMenu val^
 ```
 
 #### Returns
 
-* [GtkPopoverMenu](gtk3-GtkPopoverMenu.md) ref^
+* [GtkPopoverMenu](gtk3-GtkPopoverMenu.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkPopoverMenu.md#L95)</span>
+
+
+```pony
+new val create()
+: GtkPopoverMenu val^
+```
+
+#### Returns
+
+* [GtkPopoverMenu](gtk3-GtkPopoverMenu.md) val^
 
 ---
 
@@ -160,6 +181,35 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_open_submenu
+<span class="source-link">[[Source]](src/gtk3/GtkPopoverMenu.md#L99)</span>
+
+
+    Opens a submenu of the @popover. The @name
+must be one of the names given to the submenus
+of @popover with #GtkPopoverMenu:submenu, or
+"main" to switch back to the main menu.
+
+#GtkModelButton will open submenus automatically
+when the #GtkModelButton:menu-name property is set,
+so this function is only needed when you are using
+other kinds of widgets to initiate menu changes.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_open_submenu()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

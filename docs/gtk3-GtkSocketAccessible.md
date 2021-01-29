@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkSocketAccessible is
+class val GtkSocketAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkSocketAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkSocketAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkSocketAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkSocketAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkSocketAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkSocketAccessible](gtk3-GtkSocketAccessible.md) ref^
+* [GtkSocketAccessible](gtk3-GtkSocketAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkSocketAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkSocketAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkSocketAccessible ref^
+: GtkSocketAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkSocketAccessible](gtk3-GtkSocketAccessible.md) ref^
+* [GtkSocketAccessible](gtk3-GtkSocketAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkSocketAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkSocketAccessible val^
+```
+
+#### Returns
+
+* [GtkSocketAccessible](gtk3-GtkSocketAccessible.md) val^
 
 ---
 
@@ -74,6 +95,27 @@ fun box gtkwidget()
 #### Returns
 
 * [GObjectREF](gtk3-..-gobject-GObjectREF.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_embed
+<span class="source-link">[[Source]](src/gtk3/GtkSocketAccessible.md#L26)</span>
+
+
+    No provided documentation
+
+    {:doh, %{argctype: "gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_embed()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
 
 ---
 

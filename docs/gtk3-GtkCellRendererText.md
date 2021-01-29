@@ -10,7 +10,7 @@ the #GtkCellRendererText allows to edit its text using an entry.
 
 
 ```pony
-class ref GtkCellRendererText is
+class val GtkCellRendererText is
   GtkWidget ref
 ```
 
@@ -22,29 +22,35 @@ class ref GtkCellRendererText is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L18)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L19)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCellRendererText ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCellRendererText val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCellRendererText](gtk3-GtkCellRendererText.md) ref^
+* [GtkCellRendererText](gtk3-GtkCellRendererText.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L21)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L22)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCellRendererText ref^
+: GtkCellRendererText val^
 ```
 #### Parameters
 
@@ -52,22 +58,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCellRendererText](gtk3-GtkCellRendererText.md) ref^
+* [GtkCellRendererText](gtk3-GtkCellRendererText.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L25)</span>
 
 
 ```pony
-new ref create()
-: GtkCellRendererText ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkCellRendererText val^
 ```
 
 #### Returns
 
-* [GtkCellRendererText](gtk3-GtkCellRendererText.md) ref^
+* [GtkCellRendererText](gtk3-GtkCellRendererText.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L29)</span>
+
+
+```pony
+new val create()
+: GtkCellRendererText val^
+```
+
+#### Returns
+
+* [GtkCellRendererText](gtk3-GtkCellRendererText.md) val^
 
 ---
 
@@ -98,7 +119,7 @@ fun box gtkwidget()
 ---
 
 ### set_fixed_height_from_font
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L29)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererText.md#L33)</span>
 
 
 Sets the height of a renderer to explicitly be determined by the “font” and

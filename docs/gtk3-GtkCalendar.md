@@ -25,7 +25,7 @@ historically incorrect.
 
 
 ```pony
-class ref GtkCalendar is
+class val GtkCalendar is
   GtkWidget ref
 ```
 
@@ -37,29 +37,35 @@ class ref GtkCalendar is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L33)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L34)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCalendar ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCalendar val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCalendar](gtk3-GtkCalendar.md) ref^
+* [GtkCalendar](gtk3-GtkCalendar.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L36)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L37)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCalendar ref^
+: GtkCalendar val^
 ```
 #### Parameters
 
@@ -67,22 +73,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCalendar](gtk3-GtkCalendar.md) ref^
+* [GtkCalendar](gtk3-GtkCalendar.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L40)</span>
 
 
 ```pony
-new ref create()
-: GtkCalendar ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkCalendar val^
 ```
 
 #### Returns
 
-* [GtkCalendar](gtk3-GtkCalendar.md) ref^
+* [GtkCalendar](gtk3-GtkCalendar.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L44)</span>
+
+
+```pony
+new val create()
+: GtkCalendar val^
+```
+
+#### Returns
+
+* [GtkCalendar](gtk3-GtkCalendar.md) val^
 
 ---
 
@@ -113,7 +134,7 @@ fun box gtkwidget()
 ---
 
 ### clear_marks
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L44)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L48)</span>
 
 
 Remove all visual markers.
@@ -130,8 +151,31 @@ fun box clear_marks()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_date
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L54)</span>
+
+
+    Obtains the selected date from a #GtkCalendar.
+
+    {:doh, %{argctype: "guint*", argname: "year", argtype: "guint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "guint*", argname: "month", argtype: "guint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "guint*", argname: "day", argtype: "guint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_date()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_day_is_marked
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L56)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L64)</span>
 
 
 Returns if the @day of the @calendar is already marked.
@@ -153,7 +197,7 @@ fun box get_day_is_marked(
 ---
 
 ### get_detail_height_rows
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L62)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L70)</span>
 
 
 Queries the height of detail cells, in rows.
@@ -172,7 +216,7 @@ fun box get_detail_height_rows()
 ---
 
 ### get_detail_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L69)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L77)</span>
 
 
 Queries the width of detail cells, in characters.
@@ -190,8 +234,33 @@ fun box get_detail_width_chars()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_display_options
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L84)</span>
+
+
+    Returns the current display options of @calendar.
+
+    {:argctype, "GtkCalendarDisplayOptions"}
+{:argname, "rv"}
+{:argtype, "CalendarDisplayOptions"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_display_options()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### mark_day
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L83)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L96)</span>
 
 
 Places a visual marker on a particular day.
@@ -213,7 +282,7 @@ fun box mark_day(
 ---
 
 ### select_day
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L89)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L102)</span>
 
 
 Selects a day from the current month.
@@ -235,7 +304,7 @@ fun box select_day(
 ---
 
 ### select_month
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L95)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L108)</span>
 
 
 Shifts the calendar to a different month.
@@ -258,8 +327,40 @@ fun box select_month(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_detail_func
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L114)</span>
+
+
+    Installs a function which provides Pango markup with detail information
+for each day. Examples for such details are holidays or appointments. That
+information is shown below each day when #GtkCalendar:show-details is set.
+A tooltip containing with full detail information is provided, if the entire
+text should not fit into the details area, or if #GtkCalendar:show-details
+is not set.
+
+The size of the details area can be restricted by setting the
+#GtkCalendar:detail-width-chars and #GtkCalendar:detail-height-rows
+properties.
+
+    {:doh, %{argctype: "GtkCalendarDetailFunc", argname: "func", argtype: "CalendarDetailFunc", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_detail_func()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_detail_height_rows
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L107)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L133)</span>
 
 
 Updates the height of detail cells.
@@ -282,7 +383,7 @@ fun box set_detail_height_rows(
 ---
 
 ### set_detail_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L114)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L140)</span>
 
 
 Updates the width of detail cells.
@@ -304,8 +405,30 @@ fun box set_detail_width_chars(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_display_options
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L147)</span>
+
+
+    Sets display options (whether to display the heading and the month
+headings).
+
+    {:doh, %{argctype: "GtkCalendarDisplayOptions", argname: "flags", argtype: "CalendarDisplayOptions", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_display_options()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### unmark_day
-<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L125)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCalendar.md#L156)</span>
 
 
 Removes the visual marker from a particular day.

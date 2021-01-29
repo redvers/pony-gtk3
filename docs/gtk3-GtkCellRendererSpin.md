@@ -17,7 +17,7 @@ The #GtkCellRendererSpin cell renderer was added in GTK+ 2.10.
 
 
 ```pony
-class ref GtkCellRendererSpin is
+class val GtkCellRendererSpin is
   GtkWidget ref
 ```
 
@@ -29,29 +29,35 @@ class ref GtkCellRendererSpin is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L25)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L26)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkCellRendererSpin ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkCellRendererSpin val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkCellRendererSpin](gtk3-GtkCellRendererSpin.md) ref^
+* [GtkCellRendererSpin](gtk3-GtkCellRendererSpin.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L28)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L29)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkCellRendererSpin ref^
+: GtkCellRendererSpin val^
 ```
 #### Parameters
 
@@ -59,22 +65,37 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkCellRendererSpin](gtk3-GtkCellRendererSpin.md) ref^
+* [GtkCellRendererSpin](gtk3-GtkCellRendererSpin.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L32)</span>
 
 
 ```pony
-new ref create()
-: GtkCellRendererSpin ref^
+new val never_call_this_constructor_or_else_tm()
+: GtkCellRendererSpin val^
 ```
 
 #### Returns
 
-* [GtkCellRendererSpin](gtk3-GtkCellRendererSpin.md) ref^
+* [GtkCellRendererSpin](gtk3-GtkCellRendererSpin.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkCellRendererSpin.md#L36)</span>
+
+
+```pony
+new val create()
+: GtkCellRendererSpin val^
+```
+
+#### Returns
+
+* [GtkCellRendererSpin](gtk3-GtkCellRendererSpin.md) val^
 
 ---
 

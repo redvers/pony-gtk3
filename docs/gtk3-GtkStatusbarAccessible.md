@@ -5,7 +5,7 @@ No documentation provided
 
 
 ```pony
-class ref GtkStatusbarAccessible is
+class val GtkStatusbarAccessible is
   GtkWidget ref
 ```
 
@@ -17,29 +17,35 @@ class ref GtkStatusbarAccessible is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkStatusbarAccessible.md#L13)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbarAccessible.md#L14)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkStatusbarAccessible ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkStatusbarAccessible val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkStatusbarAccessible](gtk3-GtkStatusbarAccessible.md) ref^
+* [GtkStatusbarAccessible](gtk3-GtkStatusbarAccessible.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkStatusbarAccessible.md#L16)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbarAccessible.md#L17)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkStatusbarAccessible ref^
+: GtkStatusbarAccessible val^
 ```
 #### Parameters
 
@@ -47,7 +53,22 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkStatusbarAccessible](gtk3-GtkStatusbarAccessible.md) ref^
+* [GtkStatusbarAccessible](gtk3-GtkStatusbarAccessible.md) val^
+
+---
+
+### never_call_this_constructor_or_else_tm
+<span class="source-link">[[Source]](src/gtk3/GtkStatusbarAccessible.md#L20)</span>
+
+
+```pony
+new val never_call_this_constructor_or_else_tm()
+: GtkStatusbarAccessible val^
+```
+
+#### Returns
+
+* [GtkStatusbarAccessible](gtk3-GtkStatusbarAccessible.md) val^
 
 ---
 

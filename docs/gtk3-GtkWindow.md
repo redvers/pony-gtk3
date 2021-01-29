@@ -59,7 +59,7 @@ widget that is added as a titlebar child.
 
 
 ```pony
-class ref GtkWindow is
+class val GtkWindow is
   GtkContainer ref
 ```
 
@@ -71,29 +71,35 @@ class ref GtkWindow is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L67)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L68)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkWindow ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkWindow val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkWindow](gtk3-GtkWindow.md) ref^
+* [GtkWindow](gtk3-GtkWindow.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L70)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L71)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkWindow ref^
+: GtkWindow val^
 ```
 #### Parameters
 
@@ -101,18 +107,33 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkWindow](gtk3-GtkWindow.md) ref^
+* [GtkWindow](gtk3-GtkWindow.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L74)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkWindow val^
+```
+
+#### Returns
+
+* [GtkWindow](gtk3-GtkWindow.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L78)</span>
+
+
+```pony
+new val create(
   gtype_pony: (GtkWindowToplevel val | GtkWindowPopup val))
-: GtkWindow ref^
+: GtkWindow val^
 ```
 #### Parameters
 
@@ -120,7 +141,7 @@ new ref create(
 
 #### Returns
 
-* [GtkWindow](gtk3-GtkWindow.md) ref^
+* [GtkWindow](gtk3-GtkWindow.md) val^
 
 ---
 
@@ -151,7 +172,7 @@ fun box gtkwidget()
 ---
 
 ### activate_default
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L78)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L82)</span>
 
 
 Activates the default widget for the window, unless the current
@@ -172,7 +193,7 @@ fun box activate_default()
 ---
 
 ### activate_focus
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L87)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L91)</span>
 
 
 Activates the current focused widget within the window.
@@ -189,8 +210,132 @@ fun box activate_focus()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_activate_key
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L97)</span>
+
+
+    Activates mnemonics and accelerators for this #GtkWindow. This is normally
+called by the default ::key_press_event handler for toplevel windows,
+however in some cases it may be useful to call this directly when
+overriding the standard key handling for a toplevel window.
+
+    {:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_activate_key()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_add_accel_group
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L108)</span>
+
+
+    Associate @accel_group with @window, such that calling
+gtk_accel_groups_activate() on @window will activate accelerators
+in @accel_group.
+
+    {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_add_accel_group()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### add_mnemonic
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L118)</span>
+
+
+Adds a mnemonic to this window.
+
+
+```pony
+fun box add_mnemonic(
+  keyval_pony: U32 val,
+  target_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   keyval_pony: [U32](builtin-U32.md) val
+*   target_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_begin_move_drag
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L124)</span>
+
+
+    Starts moving a window. This function is used if an application has
+window movement grips. When GDK can support it, the window movement
+will be done using the standard mechanism for the
+[window manager][gtk-X11-arch] or windowing
+system. Otherwise, GDK will try to emulate window movement,
+potentially not all that well, depending on the windowing system.
+
+    {:doh, %{argctype: "guint32", argname: "timestamp", argtype: "guint32", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_begin_move_drag()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_begin_resize_drag
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L137)</span>
+
+
+    Starts resizing a window. This function is used if an application
+has window resizing controls. When GDK can support it, the resize
+will be done using the standard mechanism for the
+[window manager][gtk-X11-arch] or windowing
+system. Otherwise, GDK will try to emulate window resizing,
+potentially not all that well, depending on the windowing system.
+
+    {:doh, %{argctype: "GdkWindowEdge", argname: "edge", argtype: "Gdk.WindowEdge", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "guint32", argname: "timestamp", argtype: "guint32", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_begin_resize_drag()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### close
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L114)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L151)</span>
 
 
 Requests that the window is closed, similar to what happens
@@ -212,7 +357,7 @@ fun box close()
 ---
 
 ### deiconify
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L124)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L161)</span>
 
 
 Asks to deiconify (i.e. unminimize) the specified @window. Note
@@ -237,7 +382,7 @@ fun box deiconify()
 ---
 
 ### fullscreen
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L137)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L174)</span>
 
 
 Asks to place @window in the fullscreen state. Note that you
@@ -263,8 +408,33 @@ fun box fullscreen()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_fullscreen_on_monitor
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L189)</span>
+
+
+    Asks to place @window in the fullscreen state. Note that you shouldn't assume
+the window is definitely full screen afterward.
+
+You can track the fullscreen state via the "window-state-event" signal
+on #GtkWidget.
+
+    {:doh, %{argctype: "GdkScreen*", argname: "screen", argtype: "Gdk.Screen", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_fullscreen_on_monitor()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_accept_focus
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L156)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L201)</span>
 
 
 Gets the value set by gtk_window_set_accept_focus().
@@ -281,8 +451,33 @@ fun box get_accept_focus()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_application
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L207)</span>
+
+
+    Gets the #GtkApplication associated with the window (if any).
+
+    {:argctype, "GtkApplication*"}
+{:argname, "rv"}
+{:argtype, "Application"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_application()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_decorated
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L176)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L226)</span>
 
 
 Returns whether the window has been set to have decorations
@@ -300,8 +495,33 @@ fun box get_decorated()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_default_size
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L233)</span>
+
+
+    Gets the default size of the window. A value of -1 for the width or
+height indicates that a default size has not been explicitly set
+for that dimension, so the “natural” size of the window will be
+used.
+
+    {:doh, %{argctype: "gint*", argname: "width", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "height", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_default_size()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_deletable
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L195)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L252)</span>
 
 
 Returns whether the window has been set to have a close button
@@ -320,7 +540,7 @@ fun box get_deletable()
 ---
 
 ### get_destroy_with_parent
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L202)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L259)</span>
 
 
 Returns whether the window will be destroyed with its transient parent. See
@@ -339,7 +559,7 @@ fun box get_destroy_with_parent()
 ---
 
 ### get_focus_on_map
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L216)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L276)</span>
 
 
 Gets the value set by gtk_window_set_focus_on_map().
@@ -357,7 +577,7 @@ fun box get_focus_on_map()
 ---
 
 ### get_focus_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L222)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L282)</span>
 
 
 Gets the value of the #GtkWindow:focus-visible property.
@@ -374,8 +594,60 @@ fun box get_focus_visible()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_gravity
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L288)</span>
+
+
+    Gets the value set by gtk_window_set_gravity().
+
+    {:argctype, "GdkGravity"}
+{:argname, "rv"}
+{:argtype, "Gdk.Gravity"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_gravity()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_group
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L300)</span>
+
+
+    Returns the group for @window or the default group, if
+@window is %NULL or if @window does not have an explicit
+window group.
+
+    {:argctype, "GtkWindowGroup*"}
+{:argname, "rv"}
+{:argtype, "WindowGroup"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_group()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_has_resize_grip
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L242)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L314)</span>
 
 
 Determines whether the window may have a resize grip.
@@ -393,7 +665,7 @@ fun box get_has_resize_grip()
 ---
 
 ### get_hide_titlebar_when_maximized
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L248)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L320)</span>
 
 
 Returns whether the window has requested to have its titlebar hidden
@@ -411,8 +683,62 @@ fun box get_hide_titlebar_when_maximized()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_icon
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L327)</span>
+
+
+    Gets the value set by gtk_window_set_icon() (or if you've
+called gtk_window_set_icon_list(), gets the first icon in
+the icon list).
+
+    {:argctype, "GdkPixbuf*"}
+{:argname, "rv"}
+{:argtype, "GdkPixbuf.Pixbuf"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_icon()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_icon_list
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L341)</span>
+
+
+    Retrieves the list of icons set by gtk_window_set_icon_list().
+The list is copied, but the reference count on each
+member won’t be incremented.
+
+    {:argctype, "GList*"}
+{:argname, "rv"}
+{:argtype, "GLib.List"}
+{:paramtype, :param}
+{:txo, "container"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_icon_list()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_icon_name
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L269)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L355)</span>
 
 
 Returns the name of the themed icon for the window,
@@ -430,8 +756,34 @@ fun box get_icon_name()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_mnemonic_modifier
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L364)</span>
+
+
+    Returns the mnemonic modifier for this window. See
+gtk_window_set_mnemonic_modifier().
+
+    {:argctype, "GdkModifierType"}
+{:argname, "rv"}
+{:argtype, "Gdk.ModifierType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_mnemonic_modifier()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_mnemonics_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L285)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L377)</span>
 
 
 Gets the value of the #GtkWindow:mnemonics-visible property.
@@ -449,7 +801,7 @@ fun box get_mnemonics_visible()
 ---
 
 ### get_modal
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L291)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L383)</span>
 
 
 Returns whether the window is modal. See gtk_window_set_modal().
@@ -466,8 +818,91 @@ fun box get_modal()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_opacity
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L389)</span>
+
+
+    Fetches the requested opacity for this window. See
+gtk_window_set_opacity().
+
+    {:argctype, "gdouble"}
+{:argname, "rv"}
+{:argtype, "gdouble"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_opacity()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_position
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L402)</span>
+
+
+    This function returns the position you need to pass to
+gtk_window_move() to keep @window in its current position.
+This means that the meaning of the returned value varies with
+window gravity. See gtk_window_move() for more details.
+
+The reliability of this function depends on the windowing system
+currently in use. Some windowing systems, such as Wayland, do not
+support a global coordinate system, and thus the position of the
+window will always be (0, 0). Others, like X11, do not have a reliable
+way to obtain the geometry of the decorations of a window if they are
+provided by the window manager. Additionally, on X11, window manager
+have been known to mismanage window gravity, which result in windows
+moving even if you use the coordinates of the current position as
+returned by this function.
+
+If you haven’t changed the window gravity, its gravity will be
+#GDK_GRAVITY_NORTH_WEST. This means that gtk_window_get_position()
+gets the position of the top-left corner of the window manager
+frame for the window. gtk_window_move() sets the position of this
+same top-left corner.
+
+If a window has gravity #GDK_GRAVITY_STATIC the window manager
+frame is not relevant, and thus gtk_window_get_position() will
+always produce accurate results. However you can’t use static
+gravity to do things like place a window in a corner of the screen,
+because static gravity ignores the window manager decorations.
+
+Ideally, this function should return appropriate values if the
+window has client side decorations, assuming that the windowing
+system supports global coordinates.
+
+In practice, saving the window position should not be left to
+applications, as they lack enough knowledge of the windowing
+system and the window manager state to effectively do so. The
+appropriate way to implement saving the window position is to
+use a platform-specific protocol, wherever that is available.
+
+    {:doh, %{argctype: "gint*", argname: "root_x", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "root_y", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_position()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_resizable
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L309)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L446)</span>
 
 
 Gets the value set by gtk_window_set_resizable().
@@ -484,8 +919,30 @@ fun box get_resizable()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_resize_grip_area
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L452)</span>
+
+
+    If a window has a resize grip, this will retrieve the grip
+position, width and height into the specified #GdkRectangle.
+
+    {:doh, %{argctype: "GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_resize_grip_area()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_role
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L319)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L461)</span>
 
 
 Returns the role of the window. See gtk_window_set_role() for
@@ -503,8 +960,126 @@ fun box get_role()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_screen
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L470)</span>
+
+
+    Returns the #GdkScreen associated with @window.
+
+    {:argctype, "GdkScreen*"}
+{:argname, "rv"}
+{:argtype, "Gdk.Screen"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_screen()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_size
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L482)</span>
+
+
+    Obtains the current size of @window.
+
+If @window is not visible on screen, this function return the size GTK+
+will suggest to the [window manager][gtk-X11-arch] for the initial window
+size (but this is not reliably the same as the size the window manager
+will actually select). See: gtk_window_set_default_size().
+
+Depending on the windowing system and the window manager constraints,
+the size returned by this function may not match the size set using
+gtk_window_resize(); additionally, since gtk_window_resize() may be
+implemented as an asynchronous operation, GTK+ cannot guarantee in any
+way that this code:
+
+|[<!-- language="C" -->
+  // width and height are set elsewhere
+  gtk_window_resize (window, width, height);
+
+  int new_width, new_height;
+  gtk_window_get_size (window, &new_width, &new_height);
+]|
+
+will result in `new_width` and `new_height` matching `width` and
+`height`, respectively.
+
+This function will return the logical size of the #GtkWindow,
+excluding the widgets used in client side decorations; there is,
+however, no guarantee that the result will be completely accurate
+because client side decoration may include widgets that depend on
+the user preferences and that may not be visibile at the time you
+call this function.
+
+The dimensions returned by this function are suitable for being
+stored across sessions; use gtk_window_set_default_size() to
+restore them when before showing the window.
+
+To avoid potential race conditions, you should only call this
+function in response to a size change notification, for instance
+inside a handler for the #GtkWidget::size-allocate signal, or
+inside a handler for the #GtkWidget::configure-event signal:
+
+|[<!-- language="C" -->
+static void
+on_size_allocate (GtkWidget *widget, GtkAllocation *allocation)
+{
+  int new_width, new_height;
+
+  gtk_window_get_size (GTK_WINDOW (widget), &new_width, &new_height);
+
+  ...
+}
+]|
+
+Note that, if you connect to the #GtkWidget::size-allocate signal,
+you should not use the dimensions of the #GtkAllocation passed to
+the signal handler, as the allocation may contain client side
+decorations added by GTK+, depending on the windowing system in
+use.
+
+If you are getting a window size in order to position the window
+on the screen, you should, instead, simply set the window’s semantic
+type with gtk_window_set_type_hint(), which allows the window manager
+to e.g. center dialogs. Also, if you set the transient parent of
+dialogs with gtk_window_set_transient_for() window managers will
+often center the dialog over its parent window. It's much preferred
+to let the window manager handle these cases rather than doing it
+yourself, because all apps will behave consistently and according to
+user or system preferences, if the window manager handles it. Also,
+the window manager can take into account the size of the window
+decorations and border that it may add, and of which GTK+ has no
+knowledge. Additionally, positioning windows in global screen coordinates
+may not be allowed by the windowing system. For more information,
+see: gtk_window_set_position().
+
+    {:doh, %{argctype: "gint*", argname: "width", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "height", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_size()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_skip_pager_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L340)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L562)</span>
 
 
 Gets the value set by gtk_window_set_skip_pager_hint().
@@ -522,7 +1097,7 @@ fun box get_skip_pager_hint()
 ---
 
 ### get_skip_taskbar_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L346)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L568)</span>
 
 
 Gets the value set by gtk_window_set_skip_taskbar_hint()
@@ -540,7 +1115,7 @@ fun box get_skip_taskbar_hint()
 ---
 
 ### get_title
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L352)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L574)</span>
 
 
 Retrieves the title of the window. See gtk_window_set_title().
@@ -557,8 +1132,59 @@ fun box get_title()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_transient_for
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L589)</span>
+
+
+    Fetches the transient parent for this window. See
+gtk_window_set_transient_for().
+
+    {:argctype, "GtkWindow*"}
+{:argname, "rv"}
+{:argtype, "Window"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_transient_for()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_type_hint
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L602)</span>
+
+
+    Gets the type hint for this window. See gtk_window_set_type_hint().
+
+    {:argctype, "GdkWindowTypeHint"}
+{:argname, "rv"}
+{:argtype, "Gdk.WindowTypeHint"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_type_hint()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_urgency_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L381)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L614)</span>
 
 
 Gets the value set by gtk_window_set_urgency_hint()
@@ -575,8 +1201,33 @@ fun box get_urgency_hint()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_window_type
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L620)</span>
+
+
+    Gets the type of the window. See #GtkWindowType.
+
+    {:argctype, "GtkWindowType"}
+{:argname, "rv"}
+{:argtype, "WindowType"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_window_type()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### has_group
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L394)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L632)</span>
 
 
 Returns whether @window has an explicit window group.
@@ -594,7 +1245,7 @@ fun box has_group()
 ---
 
 ### has_toplevel_focus
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L400)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L638)</span>
 
 
 Returns whether the input focus is within this GtkWindow.
@@ -614,7 +1265,7 @@ fun box has_toplevel_focus()
 ---
 
 ### iconify
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L408)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L646)</span>
 
 
 Asks to iconify (i.e. minimize) the specified @window. Note that
@@ -645,7 +1296,7 @@ fun box iconify()
 ---
 
 ### is_active
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L427)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L665)</span>
 
 
 Returns whether the window is part of the current active toplevel.
@@ -669,7 +1320,7 @@ fun box is_active()
 ---
 
 ### is_maximized
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L439)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L677)</span>
 
 
 Retrieves the current maximized state of @window.
@@ -693,7 +1344,7 @@ fun box is_maximized()
 ---
 
 ### maximize
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L451)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L689)</span>
 
 
 Asks to maximize @window, so that it becomes full-screen. Note that
@@ -724,8 +1375,29 @@ fun box maximize()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_mnemonic_activate
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L709)</span>
+
+
+    Activates the targets associated with the mnemonic.
+
+    {:doh, %{argctype: "GdkModifierType", argname: "modifier", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_mnemonic_activate()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### move
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L475)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L717)</span>
 
 
 Asks the [window manager][gtk-X11-arch] to move
@@ -780,8 +1452,99 @@ fun box move(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_parse_geometry
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L755)</span>
+
+
+    Parses a standard X Window System geometry string - see the
+manual page for X (type “man X”) for details on this.
+gtk_window_parse_geometry() does work on all GTK+ ports
+including Win32 but is primarily intended for an X environment.
+
+If either a size or a position can be extracted from the
+geometry string, gtk_window_parse_geometry() returns %TRUE
+and calls gtk_window_set_default_size() and/or gtk_window_move()
+to resize/move the window.
+
+If gtk_window_parse_geometry() returns %TRUE, it will also
+set the #GDK_HINT_USER_POS and/or #GDK_HINT_USER_SIZE hints
+indicating to the window manager that the size/position of
+the window was user-specified. This causes most window
+managers to honor the geometry.
+
+Note that for gtk_window_parse_geometry() to work as expected, it has
+to be called when the window has its “final” size, i.e. after calling
+gtk_widget_show_all() on the contents and gtk_window_set_geometry_hints()
+on the window.
+|[<!-- language="C" -->
+#include <gtk/gtk.h>
+
+static void
+fill_with_content (GtkWidget *vbox)
+{
+  // fill with content...
+}
+
+int
+main (int argc, char *argv[])
+{
+  GtkWidget *window, *vbox;
+  GdkGeometry size_hints = {
+    100, 50, 0, 0, 100, 50, 10,
+    10, 0.0, 0.0, GDK_GRAVITY_NORTH_WEST
+  };
+
+  gtk_init (&argc, &argv);
+
+  window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+
+  gtk_container_add (GTK_CONTAINER (window), vbox);
+  fill_with_content (vbox);
+  gtk_widget_show_all (vbox);
+
+  gtk_window_set_geometry_hints (GTK_WINDOW (window),
+	  			    NULL,
+				    &size_hints,
+				    GDK_HINT_MIN_SIZE |
+				    GDK_HINT_BASE_SIZE |
+				    GDK_HINT_RESIZE_INC);
+
+  if (argc > 1)
+    {
+      gboolean res;
+      res = gtk_window_parse_geometry (GTK_WINDOW (window),
+                                       argv[1]);
+      if (! res)
+        fprintf (stderr,
+                 "Failed to parse “%s”\n",
+                 argv[1]);
+    }
+
+  gtk_widget_show_all (window);
+  gtk_main ();
+
+  return 0;
+}
+]|
+
+    {:doh, %{argctype: "const gchar*", argname: "geometry", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_parse_geometry()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### present
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L517)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L833)</span>
 
 
 Presents a window to the user. This function should not be used
@@ -800,8 +1563,117 @@ fun box present()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_present_with_time
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L841)</span>
+
+
+    Presents a window to the user. This may mean raising the window
+in the stacking order, deiconifying it, moving it to the current
+desktop, and/or giving it the keyboard focus, possibly dependent
+on the user’s platform, window manager, and preferences.
+
+If @window is hidden, this function calls gtk_widget_show()
+as well.
+
+This function should be used when the user tries to open a window
+that’s already open. Say for example the preferences dialog is
+currently open, and the user chooses Preferences from the menu
+a second time; use gtk_window_present() to move the already-open dialog
+where the user can see it.
+
+Presents a window to the user in response to a user interaction. The
+timestamp should be gathered when the window was requested to be shown
+(when clicking a link for example), rather than once the window is
+ready to be shown.
+
+    {:doh, %{argctype: "guint32", argname: "timestamp", argtype: "guint32", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_present_with_time()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_propagate_key_event
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L866)</span>
+
+
+    Propagate a key press or release event to the focus widget and
+up the focus container chain until a widget handles @event.
+This is normally called by the default ::key_press_event and
+::key_release_event handlers for toplevel windows,
+however in some cases it may be useful to call this directly when
+overriding the standard key handling for a toplevel window.
+
+    {:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_propagate_key_event()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_remove_accel_group
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L879)</span>
+
+
+    Reverses the effects of gtk_window_add_accel_group().
+
+    {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_remove_accel_group()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### remove_mnemonic
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L887)</span>
+
+
+Removes a mnemonic from this window.
+
+
+```pony
+fun box remove_mnemonic(
+  keyval_pony: U32 val,
+  target_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   keyval_pony: [U32](builtin-U32.md) val
+*   target_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### reshow_with_initial_size
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L541)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L893)</span>
 
 
 Hides @window, then reshows it, resetting the
@@ -821,7 +1693,7 @@ fun box reshow_with_initial_size()
 ---
 
 ### resize
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L549)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L901)</span>
 
 
 Resizes the window as if the user had done so, obeying geometry
@@ -872,7 +1744,7 @@ fun box resize(
 ---
 
 ### resize_grip_is_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L582)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L934)</span>
 
 
 Determines whether a resize grip is visible for the specified window.
@@ -890,7 +1762,7 @@ fun box resize_grip_is_visible()
 ---
 
 ### resize_to_geometry
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L588)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L940)</span>
 
 
 Like gtk_window_resize(), but @width and @height are interpreted
@@ -916,7 +1788,7 @@ fun box resize_to_geometry(
 ---
 
 ### set_accept_focus
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L596)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L948)</span>
 
 
 Windows may set a hint asking the desktop environment not to receive
@@ -938,8 +1810,75 @@ fun box set_accept_focus(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_application
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L955)</span>
+
+
+    Sets or unsets the #GtkApplication associated with the window.
+
+The application will be kept alive for at least as long as it has any windows
+associated with it (see g_application_hold() for a way to keep it alive
+without windows).
+
+Normally, the connection between the application and the window will remain
+until the window is destroyed, but you can explicitly remove it by setting
+the @application to %NULL.
+
+This is equivalent to calling gtk_application_remove_window() and/or
+gtk_application_add_window() on the old/new applications as relevant.
+
+    {:doh, %{argctype: "GtkApplication*", argname: "application", argtype: "Application", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_application()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_attached_to
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L974)</span>
+
+
+Marks @window as attached to @attach_widget. This creates a logical binding
+between the window and the widget it belongs to, which is used by GTK+ to
+propagate information such as styling or accessibility to @window as if it
+was a children of @attach_widget.
+
+Examples of places where specifying this relation is useful are for instance
+a #GtkMenu created by a #GtkComboBox, a completion popup window
+created by #GtkEntry or a typeahead search entry created by #GtkTreeView.
+
+Note that this function should not be confused with
+gtk_window_set_transient_for(), which specifies a window manager relation
+between two toplevels instead.
+
+Passing %NULL for @attach_widget detaches the window.
+
+
+```pony
+fun box set_attached_to(
+  attach_widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   attach_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_decorated
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L611)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L993)</span>
 
 
 By default, windows are decorated with a title bar, resize
@@ -970,8 +1909,36 @@ fun box set_decorated(
 
 ---
 
+### set_default
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1009)</span>
+
+
+The default widget is the widget that’s activated when the user
+presses Enter in a dialog (for example). This function sets or
+unsets the default widget for a #GtkWindow. When setting (rather
+than unsetting) the default widget it’s generally easier to call
+gtk_widget_grab_default() on the widget. Before making a widget
+the default widget, you must call gtk_widget_set_can_default() on
+the widget you’d like to make the default.
+
+
+```pony
+fun box set_default(
+  default_widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   default_widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_default_geometry
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L631)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1021)</span>
 
 
 Like gtk_window_set_default_size(), but @width and @height are interpreted
@@ -997,7 +1964,7 @@ fun box set_default_geometry(
 ---
 
 ### set_default_size
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L639)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1029)</span>
 
 
 Sets the default size of a window. If the window’s “natural” size
@@ -1053,7 +2020,7 @@ fun box set_default_size(
 ---
 
 ### set_deletable
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L677)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1067)</span>
 
 
 By default, windows have a close button in the window frame. Some
@@ -1084,7 +2051,7 @@ fun box set_deletable(
 ---
 
 ### set_destroy_with_parent
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L692)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1082)</span>
 
 
 If @setting is %TRUE, then destroying the transient parent of @window
@@ -1108,8 +2075,34 @@ fun box set_destroy_with_parent(
 
 ---
 
+### set_focus
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1091)</span>
+
+
+If @focus is not the current focus widget, and is focusable, sets
+it as the focus widget for the window. If @focus is %NULL, unsets
+the focus widget for this window. To set the focus to a particular
+widget in the toplevel, it is usually more convenient to use
+gtk_widget_grab_focus() instead of this function.
+
+
+```pony
+fun box set_focus(
+  focus_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   focus_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_focus_on_map
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L705)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1101)</span>
 
 
 Windows may set a hint asking the desktop environment not to receive
@@ -1133,7 +2126,7 @@ fun box set_focus_on_map(
 ---
 
 ### set_focus_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L713)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1109)</span>
 
 
 Sets the #GtkWindow:focus-visible property.
@@ -1154,8 +2147,59 @@ fun box set_focus_visible(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_geometry_hints
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1115)</span>
+
+
+    This function sets up hints about how a window can be resized by
+the user.  You can set a minimum and maximum size; allowed resize
+increments (e.g. for xterm, you can only resize by the size of a
+character); aspect ratios; and more. See the #GdkGeometry struct.
+
+    {:doh, %{argctype: "GdkGeometry*", argname: "geometry", argtype: "Gdk.Geometry", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "GdkWindowHints", argname: "geom_mask", argtype: "Gdk.WindowHints", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_geometry_hints()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_gravity
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1127)</span>
+
+
+    Window gravity defines the meaning of coordinates passed to
+gtk_window_move(). See gtk_window_move() and #GdkGravity for
+more details.
+
+The default window gravity is #GDK_GRAVITY_NORTH_WEST which will
+typically “do what you mean.”
+
+    {:doh, %{argctype: "GdkGravity", argname: "gravity", argtype: "Gdk.Gravity", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_gravity()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_has_resize_grip
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L729)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1140)</span>
 
 
 Sets whether @window has a corner resize grip.
@@ -1182,7 +2226,7 @@ fun box set_has_resize_grip(
 ---
 
 ### set_has_user_ref_count
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L740)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1151)</span>
 
 
 Tells GTK+ whether to drop its extra reference to the window
@@ -1210,7 +2254,7 @@ fun box set_has_user_ref_count(
 ---
 
 ### set_hide_titlebar_when_maximized
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L752)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1163)</span>
 
 
 If @setting is %TRUE, then @window will request that it’s titlebar
@@ -1240,8 +2284,143 @@ fun box set_hide_titlebar_when_maximized(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_icon
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1178)</span>
+
+
+    Sets up the icon representing a #GtkWindow. This icon is used when
+the window is minimized (also known as iconified).  Some window
+managers or desktop environments may also place it in the window
+frame, or display it in other contexts. On others, the icon is not
+used at all, so your mileage may vary.
+
+The icon should be provided in whatever size it was naturally
+drawn; that is, don’t scale the image before passing it to
+GTK+. Scaling is postponed until the last minute, when the desired
+final size is known, to allow best quality.
+
+If you have your icon hand-drawn in multiple sizes, use
+gtk_window_set_icon_list(). Then the best size will be used.
+
+This function is equivalent to calling gtk_window_set_icon_list()
+with a 1-element list.
+
+See also gtk_window_set_default_icon_list() to set the icon
+for all windows in your application in one go.
+
+    {:doh, %{argctype: "GdkPixbuf*", argname: "icon", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_icon()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_icon_from_file
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1204)</span>
+
+
+    Sets the icon for @window.
+Warns on failure if @err is %NULL.
+
+This function is equivalent to calling gtk_window_set_icon()
+with a pixbuf created by loading the image from @filename.
+
+    {:doh, %{argctype: "const gchar*", argname: "filename", argtype: "filename", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_icon_from_file()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_icon_list
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1216)</span>
+
+
+    Sets up the icon representing a #GtkWindow. The icon is used when
+the window is minimized (also known as iconified).  Some window
+managers or desktop environments may also place it in the window
+frame, or display it in other contexts. On others, the icon is not
+used at all, so your mileage may vary.
+
+gtk_window_set_icon_list() allows you to pass in the same icon in
+several hand-drawn sizes. The list should contain the natural sizes
+your icon is available in; that is, don’t scale the image before
+passing it to GTK+. Scaling is postponed until the last minute,
+when the desired final size is known, to allow best quality.
+
+By passing several sizes, you may improve the final image quality
+of the icon, by reducing or eliminating automatic image scaling.
+
+Recommended sizes to provide: 16x16, 32x32, 48x48 at minimum, and
+larger images (64x64, 128x128) if you have them.
+
+See also gtk_window_set_default_icon_list() to set the icon
+for all windows in your application in one go.
+
+Note that transient windows (those who have been set transient for another
+window using gtk_window_set_transient_for()) will inherit their
+icon from their transient parent. So there’s no need to explicitly
+set the icon on transient windows.
+
+    {:doh, %{argctype: "GList*", argname: "list", argtype: "GLib.List", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_icon_list()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_icon_name
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1248)</span>
+
+
+    Sets the icon for the window from a named themed icon.
+See the docs for #GtkIconTheme for more details.
+On some platforms, the window icon is not used at all.
+
+Note that this has nothing to do with the WM_ICON_NAME
+property which is mentioned in the ICCCM.
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_icon_name()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_keep_above
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L783)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1261)</span>
 
 
 Asks to keep @window above, so that it stays on top. Note that
@@ -1282,7 +2461,7 @@ fun box set_keep_above(
 ---
 
 ### set_keep_below
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L808)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1286)</span>
 
 
 Asks to keep @window below, so that it stays in bottom. Note that
@@ -1322,8 +2501,29 @@ fun box set_keep_below(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_mnemonic_modifier
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1311)</span>
+
+
+    Sets the mnemonic modifier for this window.
+
+    {:doh, %{argctype: "GdkModifierType", argname: "modifier", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_mnemonic_modifier()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_mnemonics_visible
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L837)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1319)</span>
 
 
 Sets the #GtkWindow:mnemonics-visible property.
@@ -1345,7 +2545,7 @@ fun box set_mnemonics_visible(
 ---
 
 ### set_modal
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L843)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1325)</span>
 
 
 Sets a window modal or non-modal. Modal windows prevent interaction
@@ -1371,8 +2571,60 @@ fun box set_modal(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_opacity
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1336)</span>
+
+
+    Request the windowing system to make @window partially transparent,
+with opacity 0 being fully transparent and 1 fully opaque. (Values
+of the opacity parameter are clamped to the [0,1] range.) On X11
+this has any effect only on X screens with a compositing manager
+running. See gtk_widget_is_composited(). On Windows it should work
+always.
+
+Note that setting a window’s opacity after the window has been
+shown causes it to flicker once on Windows.
+
+    {:doh, %{argctype: "gdouble", argname: "opacity", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_opacity()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_position
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1352)</span>
+
+
+    Sets a position constraint for this window. If the old or new
+constraint is %GTK_WIN_POS_CENTER_ALWAYS, this will also cause
+the window to be repositioned to satisfy the new constraint.
+
+    {:doh, %{argctype: "GtkWindowPosition", argname: "position", argtype: "WindowPosition", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_position()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_resizable
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L862)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1362)</span>
 
 
 Sets whether the user can resize a window. Windows are user resizable
@@ -1394,8 +2646,63 @@ fun box set_resizable(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_role
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1369)</span>
+
+
+    This function is only useful on X11, not with other GTK+ targets.
+
+In combination with the window title, the window role allows a
+[window manager][gtk-X11-arch] to identify "the
+same" window when an application is restarted. So for example you
+might set the “toolbox” role on your app’s toolbox window, so that
+when the user restarts their session, the window manager can put
+the toolbox back in the same place.
+
+If a window already has a unique title, you don’t need to set the
+role, since the WM can use the title to identify the window when
+restoring the session.
+
+    {:doh, %{argctype: "const gchar*", argname: "role", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_role()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_screen
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1388)</span>
+
+
+    Sets the #GdkScreen where the @window is displayed; if
+the window is already mapped, it will be unmapped, and
+then remapped on the new screen.
+
+    {:doh, %{argctype: "GdkScreen*", argname: "screen", argtype: "Gdk.Screen", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_screen()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_skip_pager_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L877)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1398)</span>
 
 
 Windows may set a hint asking the desktop environment not to display
@@ -1421,7 +2728,7 @@ fun box set_skip_pager_hint(
 ---
 
 ### set_skip_taskbar_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L887)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1408)</span>
 
 
 Windows may set a hint asking the desktop environment not to display
@@ -1443,8 +2750,163 @@ fun box set_skip_taskbar_hint(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_startup_id
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1415)</span>
+
+
+    Startup notification identifiers are used by desktop environment to
+track application startup, to provide user feedback and other
+features. This function changes the corresponding property on the
+underlying GdkWindow. Normally, startup identifier is managed
+automatically and you should only use this function in special cases
+like transferring focus from other processes. You should use this
+function before calling gtk_window_present() or any equivalent
+function generating a window map event.
+
+This function is only useful on X11, not with other GTK+ targets.
+
+    {:doh, %{argctype: "const gchar*", argname: "startup_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_startup_id()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_title
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1432)</span>
+
+
+    Sets the title of the #GtkWindow. The title of a window will be
+displayed in its title bar; on the X Window System, the title bar
+is rendered by the [window manager][gtk-X11-arch],
+so exactly how the title appears to users may vary
+according to a user’s exact configuration. The title should help a
+user distinguish this window from other windows they may have
+open. A good title might include the application name and current
+document filename, for example.
+
+    {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_title()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### set_titlebar
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1447)</span>
+
+
+Sets a custom titlebar for @window.
+
+A typical widget used here is #GtkHeaderBar, as it provides various features
+expected of a titlebar while allowing the addition of child widgets to it.
+
+If you set a custom titlebar, GTK+ will do its best to convince
+the window manager not to put its own titlebar on the window.
+Depending on the system, this function may not work for a window
+that is already visible, so you set the titlebar before calling
+gtk_widget_show().
+
+
+```pony
+fun box set_titlebar(
+  titlebar_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   titlebar_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_transient_for
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1462)</span>
+
+
+    Dialog windows should be set transient for the main application
+window they were spawned from. This allows
+[window managers][gtk-X11-arch] to e.g. keep the
+dialog on top of the main window, or center the dialog over the
+main window. gtk_dialog_new_with_buttons() and other convenience
+functions in GTK+ will sometimes call
+gtk_window_set_transient_for() on your behalf.
+
+Passing %NULL for @parent unsets the current transient window.
+
+On Wayland, this function can also be used to attach a new
+#GTK_WINDOW_POPUP to a #GTK_WINDOW_TOPLEVEL parent already mapped
+on screen so that the #GTK_WINDOW_POPUP will be created as a
+subsurface-based window #GDK_WINDOW_SUBSURFACE which can be
+positioned at will relatively to the #GTK_WINDOW_TOPLEVEL surface.
+
+On Windows, this function puts the child window on top of the parent,
+much as the window manager would have done on X.
+
+    {:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_transient_for()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_type_hint
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1487)</span>
+
+
+    By setting the type hint for the window, you allow the window
+manager to decorate and handle the window in a way which is
+suitable to the function of the window in your application.
+
+This function should be called before the window becomes visible.
+
+gtk_dialog_new_with_buttons() and other convenience functions in GTK+
+will sometimes call gtk_window_set_type_hint() on your behalf.
+
+    {:doh, %{argctype: "GdkWindowTypeHint", argname: "hint", argtype: "Gdk.WindowTypeHint", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_type_hint()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_urgency_hint
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L914)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1502)</span>
 
 
 Windows may set a hint asking the desktop environment to draw
@@ -1466,8 +2928,37 @@ fun box set_urgency_hint(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_wmclass
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1509)</span>
+
+
+    Don’t use this function. It sets the X Window System “class” and
+“name” hints for a window.  According to the ICCCM, you should
+always set these to the same value for all windows in an
+application, and GTK+ sets them to that value by default, so calling
+this function is sort of pointless. However, you may want to call
+gtk_window_set_role() on each window in your application, for the
+benefit of the session manager. Setting the role allows the window
+manager to restore window positions when loading a saved session.
+
+    {:doh, %{argctype: "const gchar*", argname: "wmclass_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "const gchar*", argname: "wmclass_class", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_wmclass()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### stick
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L926)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1525)</span>
 
 
 Asks to stick @window, which means that it will appear on all user
@@ -1496,7 +2987,7 @@ fun box stick()
 ---
 
 ### unfullscreen
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L943)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1542)</span>
 
 
 Asks to toggle off the fullscreen state for @window. Note that you
@@ -1523,7 +3014,7 @@ fun box unfullscreen()
 ---
 
 ### unmaximize
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L958)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1557)</span>
 
 
 Asks to unmaximize @window. Note that you shouldn’t assume the
@@ -1549,7 +3040,7 @@ fun box unmaximize()
 ---
 
 ### unstick
-<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L972)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkWindow.md#L1571)</span>
 
 
 Asks to unstick @window, which means that it will appear on only
@@ -1580,12 +3071,12 @@ fun box unstick()
 
 ```pony
 fun box add(
-  childwidget: GtkWidget ref)
+  childwidget: GtkWidget val)
 : None val
 ```
 #### Parameters
 
-*   childwidget: [GtkWidget](gtk3-GtkWidget.md) ref
+*   childwidget: [GtkWidget](gtk3-GtkWidget.md) val
 
 #### Returns
 

@@ -180,7 +180,7 @@ the #GtkLabel::activate-link signal and the gtk_label_get_current_uri() function
 
 
 ```pony
-class ref GtkLabel is
+class val GtkLabel is
   GtkWidget ref
 ```
 
@@ -192,29 +192,35 @@ class ref GtkLabel is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L188)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L189)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkLabel ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkLabel val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkLabel](gtk3-GtkLabel.md) ref^
+* [GtkLabel](gtk3-GtkLabel.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L191)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L192)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkLabel ref^
+: GtkLabel val^
 ```
 #### Parameters
 
@@ -222,18 +228,33 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkLabel](gtk3-GtkLabel.md) ref^
+* [GtkLabel](gtk3-GtkLabel.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L195)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkLabel val^
+```
+
+#### Returns
+
+* [GtkLabel](gtk3-GtkLabel.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L199)</span>
+
+
+```pony
+new val create(
   str_pony: String val)
-: GtkLabel ref^
+: GtkLabel val^
 ```
 #### Parameters
 
@@ -241,18 +262,18 @@ new ref create(
 
 #### Returns
 
-* [GtkLabel](gtk3-GtkLabel.md) ref^
+* [GtkLabel](gtk3-GtkLabel.md) val^
 
 ---
 
 ### new_with_mnemonic
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L198)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L202)</span>
 
 
 ```pony
-new ref new_with_mnemonic(
+new val new_with_mnemonic(
   str_pony: String val)
-: GtkLabel ref^
+: GtkLabel val^
 ```
 #### Parameters
 
@@ -260,7 +281,7 @@ new ref new_with_mnemonic(
 
 #### Returns
 
-* [GtkLabel](gtk3-GtkLabel.md) ref^
+* [GtkLabel](gtk3-GtkLabel.md) val^
 
 ---
 
@@ -290,8 +311,64 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_angle
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L206)</span>
+
+
+    Gets the angle of rotation for the label. See
+gtk_label_set_angle().
+
+    {:argctype, "gdouble"}
+{:argname, "rv"}
+{:argtype, "gdouble"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_angle()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_attributes
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L219)</span>
+
+
+    Gets the attribute list that was set on the label using
+gtk_label_set_attributes(), if any. This function does
+not reflect attributes that come from the labels markup
+(see gtk_label_set_markup()). If you want to get the
+effective attributes for the label, use
+pango_layout_get_attribute (gtk_label_get_layout (label)).
+
+    {:argctype, "PangoAttrList*"}
+{:argname, "rv"}
+{:argtype, "Pango.AttrList"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_attributes()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_current_uri
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L216)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L236)</span>
 
 
 Returns the URI for the currently active link in the label.
@@ -314,8 +391,58 @@ fun box get_current_uri()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_ellipsize
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L250)</span>
+
+
+    Returns the ellipsizing position of the label. See gtk_label_set_ellipsize().
+
+    {:argctype, "PangoEllipsizeMode"}
+{:argname, "rv"}
+{:argtype, "Pango.EllipsizeMode"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_ellipsize()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_justify
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L262)</span>
+
+
+    Returns the justification of the label. See gtk_label_set_justify().
+
+    {:argctype, "GtkJustification"}
+{:argname, "rv"}
+{:argtype, "Justification"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_justify()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_label
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L244)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L274)</span>
 
 
 Fetches the text from a label widget including any embedded
@@ -334,8 +461,68 @@ fun box get_label()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_layout
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L284)</span>
+
+
+    Gets the #PangoLayout used to display the label.
+The layout is useful to e.g. convert text positions to
+pixel positions, in combination with gtk_label_get_layout_offsets().
+The returned layout is owned by the @label so need not be
+freed by the caller. The @label is free to recreate its layout at
+any time, so it should be considered read-only.
+
+    {:argctype, "PangoLayout*"}
+{:argname, "rv"}
+{:argtype, "Pango.Layout"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_layout()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_layout_offsets
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L301)</span>
+
+
+    Obtains the coordinates where the label will draw the #PangoLayout
+representing the text in the label; useful to convert mouse events
+into coordinates inside the #PangoLayout, e.g. to take some action
+if some part of the label is clicked. Of course you will need to
+create a #GtkEventBox to receive the events, and pack the label
+inside it, since labels are windowless (they return %FALSE from
+gtk_widget_get_has_window()). Remember
+when using the #PangoLayout functions you need to convert to
+and from pixels using PANGO_PIXELS() or #PANGO_SCALE.
+
+    {:doh, %{argctype: "gint*", argname: "x", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "y", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_layout_offsets()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_line_wrap
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L266)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L318)</span>
 
 
 Returns whether lines in the label are automatically wrapped.
@@ -353,8 +540,33 @@ fun box get_line_wrap()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_line_wrap_mode
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L325)</span>
+
+
+    Returns line wrap mode used by the label. See gtk_label_set_line_wrap_mode().
+
+    {:argctype, "PangoWrapMode"}
+{:argname, "rv"}
+{:argtype, "Pango.WrapMode"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_line_wrap_mode()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_lines
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L280)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L337)</span>
 
 
 Gets the number of lines to which an ellipsized, wrapping
@@ -373,7 +585,7 @@ fun box get_lines()
 ---
 
 ### get_max_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L287)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L344)</span>
 
 
 Retrieves the desired maximum width of @label, in characters. See
@@ -392,7 +604,7 @@ fun box get_max_width_chars()
 ---
 
 ### get_mnemonic_keyval
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L294)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L351)</span>
 
 
 If the label has been set so that it has an mnemonic key this function
@@ -412,7 +624,7 @@ fun box get_mnemonic_keyval()
 ---
 
 ### get_selectable
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L309)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L366)</span>
 
 
 Gets the value set by gtk_label_set_selectable().
@@ -429,8 +641,31 @@ fun box get_selectable()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_selection_bounds
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L372)</span>
+
+
+    Gets the selected range of characters in the label, returning %TRUE
+if there’s a selection.
+
+    {:doh, %{argctype: "gint*", argname: "start", argtype: "gint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "gint*", argname: "gend", argtype: "gint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_selection_bounds()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### get_single_line_mode
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L320)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L382)</span>
 
 
 Returns whether the label is in single line mode.
@@ -448,7 +683,7 @@ fun box get_single_line_mode()
 ---
 
 ### get_text
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L326)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L388)</span>
 
 
 Fetches the text from a label widget, as displayed on the
@@ -468,7 +703,7 @@ fun box get_text()
 ---
 
 ### get_track_visited_links
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L336)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L398)</span>
 
 
 Returns whether the label is currently keeping track
@@ -487,7 +722,7 @@ fun box get_track_visited_links()
 ---
 
 ### get_use_markup
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L343)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L405)</span>
 
 
 Returns whether the label’s text is interpreted as marked up with
@@ -507,7 +742,7 @@ fun box get_use_markup()
 ---
 
 ### get_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L351)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L413)</span>
 
 
 Returns whether an embedded underline in the label indicates a
@@ -526,7 +761,7 @@ fun box get_use_underline()
 ---
 
 ### get_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L358)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L420)</span>
 
 
 Retrieves the desired width of @label, in characters. See
@@ -544,8 +779,58 @@ fun box get_width_chars()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_xalign
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L427)</span>
+
+
+    Gets the #GtkLabel:xalign property for @label.
+
+    {:argctype, "gfloat"}
+{:argname, "rv"}
+{:argtype, "gfloat"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_xalign()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_get_yalign
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L439)</span>
+
+
+    Gets the #GtkLabel:yalign property for @label.
+
+    {:argctype, "gfloat"}
+{:argname, "rv"}
+{:argtype, "gfloat"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_yalign()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### select_region
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L379)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L451)</span>
 
 
 Selects a range of characters in the label, if the label is selectable.
@@ -571,8 +856,133 @@ fun box select_region(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_angle
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L460)</span>
+
+
+    Sets the angle of rotation for the label. An angle of 90 reads from
+from bottom to top, an angle of 270, from top to bottom. The angle
+setting for the label is ignored if the label is selectable,
+wrapped, or ellipsized.
+
+    {:doh, %{argctype: "gdouble", argname: "angle", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_angle()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_attributes
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L471)</span>
+
+
+    Sets a #PangoAttrList; the attributes in the list are applied to the
+label text.
+
+The attributes set with this function will be applied
+and merged with any other attributes previously effected by way
+of the #GtkLabel:use-underline or #GtkLabel:use-markup properties.
+While it is not recommended to mix markup strings with manually set
+attributes, if you must; know that the attributes will be applied
+to the label after the markup string is parsed.
+
+    {:doh, %{argctype: "PangoAttrList*", argname: "attrs", argtype: "Pango.AttrList", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_attributes()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_ellipsize
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L487)</span>
+
+
+    Sets the mode used to ellipsize (add an ellipsis: "...") to the text
+if there is not enough space to render the entire string.
+
+    {:doh, %{argctype: "PangoEllipsizeMode", argname: "mode", argtype: "Pango.EllipsizeMode", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_ellipsize()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_justify
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L496)</span>
+
+
+    Sets the alignment of the lines in the text of the label relative to
+each other. %GTK_JUSTIFY_LEFT is the default value when the widget is
+first created with gtk_label_new(). If you instead want to set the
+alignment of the label as a whole, use gtk_widget_set_halign() instead.
+gtk_label_set_justify() has no effect on labels containing only a
+single line.
+
+    {:doh, %{argctype: "GtkJustification", argname: "jtype", argtype: "Justification", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_justify()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_label
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L509)</span>
+
+
+    Sets the text of the label. The label is interpreted as
+including embedded underlines and/or Pango markup depending
+on the values of the #GtkLabel:use-underline and
+#GtkLabel:use-markup properties.
+
+    {:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_label()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_line_wrap
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L408)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L520)</span>
 
 
 Toggles line wrapping within the #GtkLabel widget. %TRUE makes it break
@@ -601,8 +1011,31 @@ fun box set_line_wrap(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_line_wrap_mode
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L534)</span>
+
+
+    If line wrapping is on (see gtk_label_set_line_wrap()) this controls how
+the line wrapping is done. The default is %PANGO_WRAP_WORD which means
+wrap on word boundaries.
+
+    {:doh, %{argctype: "PangoWrapMode", argname: "wrap_mode", argtype: "Pango.WrapMode", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_line_wrap_mode()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_lines
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L426)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L544)</span>
 
 
 Sets the number of lines to which an ellipsized, wrapping label
@@ -626,8 +1059,82 @@ fun box set_lines(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_markup
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L553)</span>
+
+
+    Parses @str which is marked up with the
+[Pango text markup language][PangoMarkupFormat], setting the
+label’s text and attribute list based on the parse results.
+
+If the @str is external data, you may need to escape it with
+g_markup_escape_text() or g_markup_printf_escaped():
+
+|[<!-- language="C" -->
+GtkWidget *label = gtk_label_new (NULL);
+const char *str = "some text";
+const char *format = "<span style=\"italic\">\%s</span>";
+char *markup;
+
+markup = g_markup_printf_escaped (format, str);
+gtk_label_set_markup (GTK_LABEL (label), markup);
+g_free (markup);
+]|
+
+This function will set the #GtkLabel:use-markup property to %TRUE as
+a side effect.
+
+If you set the label contents using the #GtkLabel:label property you
+should also ensure that you set the #GtkLabel:use-markup property
+accordingly.
+
+See also: gtk_label_set_text()
+
+    {:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_markup()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_markup_with_mnemonic
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L586)</span>
+
+
+    Parses @str which is marked up with the
+[Pango text markup language][PangoMarkupFormat],
+setting the label’s text and attribute list based on the parse results.
+If characters in @str are preceded by an underscore, they are underlined
+indicating that they represent a keyboard accelerator called a mnemonic.
+
+The mnemonic key can be used to activate another widget, chosen
+automatically, or explicitly using gtk_label_set_mnemonic_widget().
+
+    {:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_markup_with_mnemonic()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_max_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L443)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L601)</span>
 
 
 Sets the desired maximum width in characters of @label to @n_chars.
@@ -648,8 +1155,67 @@ fun box set_max_width_chars(
 
 ---
 
+### set_mnemonic_widget
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L607)</span>
+
+
+If the label has been set so that it has an mnemonic key (using
+i.e. gtk_label_set_markup_with_mnemonic(),
+gtk_label_set_text_with_mnemonic(), gtk_label_new_with_mnemonic()
+or the “use_underline” property) the label can be associated with a
+widget that is the target of the mnemonic. When the label is inside
+a widget (like a #GtkButton or a #GtkNotebook tab) it is
+automatically associated with the correct widget, but sometimes
+(i.e. when the target is a #GtkEntry next to the label) you need to
+set it explicitly using this function.
+
+The target widget will be accelerated by emitting the
+GtkWidget::mnemonic-activate signal on it. The default handler for
+this signal will activate the widget if there are no mnemonic collisions
+and toggle focus between the colliding widgets otherwise.
+
+
+```pony
+fun box set_mnemonic_widget(
+  widget_pony: GtkWidget val)
+: None val
+```
+#### Parameters
+
+*   widget_pony: [GtkWidget](gtk3-GtkWidget.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_pattern
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L626)</span>
+
+
+    The pattern of underlines you want under the existing text within the
+#GtkLabel widget.  For example if the current text of the label says
+“FooBarBaz” passing a pattern of “___   ___” will underline
+“Foo” and “Baz” but not “Bar”.
+
+    {:doh, %{argctype: "const gchar*", argname: "pattern", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_pattern()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_selectable
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L457)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L637)</span>
 
 
 Selectable labels allow the user to select text from the label, for
@@ -672,7 +1238,7 @@ fun box set_selectable(
 ---
 
 ### set_single_line_mode
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L464)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L644)</span>
 
 
 Sets whether the label is in single line mode.
@@ -693,8 +1259,63 @@ fun box set_single_line_mode(
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_set_text
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L650)</span>
+
+
+    Sets the text within the #GtkLabel widget. It overwrites any text that
+was there before.
+
+This function will clear any previously set mnemonic accelerators, and
+set the #GtkLabel:use-underline property to %FALSE as a side effect.
+
+This function will set the #GtkLabel:use-markup property to %FALSE
+as a side effect.
+
+See also: gtk_label_set_markup()
+
+    {:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_text()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_text_with_mnemonic
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L667)</span>
+
+
+    Sets the label’s text from the string @str.
+If characters in @str are preceded by an underscore, they are underlined
+indicating that they represent a keyboard accelerator called a mnemonic.
+The mnemonic key can be used to activate another widget, chosen
+automatically, or explicitly using gtk_label_set_mnemonic_widget().
+
+    {:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_text_with_mnemonic()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_track_visited_links
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L478)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L679)</span>
 
 
 Sets whether the label should keep track of clicked
@@ -717,7 +1338,7 @@ fun box set_track_visited_links(
 ---
 
 ### set_use_markup
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L485)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L686)</span>
 
 
 Sets whether the text of the label contains markup in
@@ -741,7 +1362,7 @@ fun box set_use_markup(
 ---
 
 ### set_use_underline
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L493)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L694)</span>
 
 
 If true, an underline in the text indicates the next character should be
@@ -764,7 +1385,7 @@ fun box set_use_underline(
 ---
 
 ### set_width_chars
-<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L500)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L701)</span>
 
 
 Sets the desired width in characters of @label to @n_chars.
@@ -778,6 +1399,48 @@ fun box set_width_chars(
 #### Parameters
 
 *   n_chars_pony: [I32](builtin-I32.md) val
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_xalign
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L707)</span>
+
+
+    Sets the #GtkLabel:xalign property for @label.
+
+    {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_xalign()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set_yalign
+<span class="source-link">[[Source]](src/gtk3/GtkLabel.md#L715)</span>
+
+
+    Sets the #GtkLabel:yalign property for @label.
+
+    {:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set_yalign()
+: None val
+```
 
 #### Returns
 

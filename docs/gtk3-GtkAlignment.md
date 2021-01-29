@@ -21,7 +21,7 @@ child widget.
 
 
 ```pony
-class ref GtkAlignment is
+class val GtkAlignment is
   GtkWidget ref
 ```
 
@@ -33,29 +33,35 @@ class ref GtkAlignment is
 
 ## Constructors
 
-### never_call_this_constructor_or_else_tm
-<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L29)</span>
+### create_from_GtkBuilder
+<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L30)</span>
 
 
 ```pony
-new ref never_call_this_constructor_or_else_tm()
-: GtkAlignment ref^
+new val create_from_GtkBuilder(
+  gtkbuilder: GtkBuilder val,
+  glade_id: String val)
+: GtkAlignment val^
 ```
+#### Parameters
+
+*   gtkbuilder: [GtkBuilder](gtk3-GtkBuilder.md) val
+*   glade_id: [String](builtin-String.md) val
 
 #### Returns
 
-* [GtkAlignment](gtk3-GtkAlignment.md) ref^
+* [GtkAlignment](gtk3-GtkAlignment.md) val^
 
 ---
 
 ### create_from_GObjectREF
-<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L32)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L33)</span>
 
 
 ```pony
-new ref create_from_GObjectREF(
+new val create_from_GObjectREF(
   widget': GObjectREF val)
-: GtkAlignment ref^
+: GtkAlignment val^
 ```
 #### Parameters
 
@@ -63,21 +69,36 @@ new ref create_from_GObjectREF(
 
 #### Returns
 
-* [GtkAlignment](gtk3-GtkAlignment.md) ref^
+* [GtkAlignment](gtk3-GtkAlignment.md) val^
 
 ---
 
-### create
+### never_call_this_constructor_or_else_tm
 <span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L36)</span>
 
 
 ```pony
-new ref create(
+new val never_call_this_constructor_or_else_tm()
+: GtkAlignment val^
+```
+
+#### Returns
+
+* [GtkAlignment](gtk3-GtkAlignment.md) val^
+
+---
+
+### create
+<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L40)</span>
+
+
+```pony
+new val create(
   xalign_pony: F32 val,
   yalign_pony: F32 val,
   xscale_pony: F32 val,
   yscale_pony: F32 val)
-: GtkAlignment ref^
+: GtkAlignment val^
 ```
 #### Parameters
 
@@ -88,7 +109,7 @@ new ref create(
 
 #### Returns
 
-* [GtkAlignment](gtk3-GtkAlignment.md) ref^
+* [GtkAlignment](gtk3-GtkAlignment.md) val^
 
 ---
 
@@ -118,8 +139,57 @@ fun box gtkwidget()
 
 ---
 
+### pony_NOT_IMPLEMENTED_YET_get_padding
+<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L44)</span>
+
+
+    Gets the padding on the different sides of the widget.
+See gtk_alignment_set_padding ().
+
+    {:doh, %{argctype: "guint*", argname: "padding_top", argtype: "guint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "guint*", argname: "padding_bottom", argtype: "guint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "guint*", argname: "padding_left", argtype: "guint", paramtype: :param, txo: "full"}}
+{:doh, %{argctype: "guint*", argname: "padding_right", argtype: "guint", paramtype: :param, txo: "full"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_get_padding()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
+### pony_NOT_IMPLEMENTED_YET_set
+<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L56)</span>
+
+
+    Sets the #GtkAlignment values.
+
+    {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gfloat", argname: "xscale", argtype: "gfloat", paramtype: :param, txo: "none"}}
+{:doh, %{argctype: "gfloat", argname: "yscale", argtype: "gfloat", paramtype: :param, txo: "none"}}
+*/
+
+
+```pony
+fun box pony_NOT_IMPLEMENTED_YET_set()
+: None val
+```
+
+#### Returns
+
+* [None](builtin-None.md) val
+
+---
+
 ### set_padding
-<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L54)</span>
+<span class="source-link">[[Source]](src/gtk3/GtkAlignment.md#L67)</span>
 
 
 Sets the padding on the different sides of the widget.
