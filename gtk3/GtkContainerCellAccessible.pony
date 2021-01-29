@@ -25,21 +25,31 @@ No documentation provided
     widget = @gtk_container_cell_accessible_new[GObjectREF]() //
 
 
-/* add_child unavailable due to typing issues
-No provided documentation
-{:doh, %{argctype: "GtkCellAccessible*", argname: "child", argtype: "CellAccessible", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_add_child(): None =>
+    """
+    No provided documentation
 
-/* get_children unavailable due to return typing issues
-Get a list of children.
-{:argctype, "GList*"}
+    {:doh, %{argctype: "GtkCellAccessible*", argname: "child", argtype: "CellAccessible", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_children(): None =>
+    """
+    Get a list of children.
+
+    {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* remove_child unavailable due to typing issues
-No provided documentation
-{:doh, %{argctype: "GtkCellAccessible*", argname: "child", argtype: "CellAccessible", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_remove_child(): None =>
+    """
+    No provided documentation
+
+    {:doh, %{argctype: "GtkCellAccessible*", argname: "child", argtype: "CellAccessible", paramtype: :param, txo: "none"}}
+*/
+    """
 

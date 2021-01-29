@@ -54,19 +54,25 @@ Gets the #GtkMenu associated with #GtkMenuToolButton.
     @gtk_menu_tool_button_get_menu[GObjectREF](widget)
 */
 
-/* set_arrow_tooltip_markup unavailable due to typing issues
-Sets the tooltip markup text to be used as tooltip for the arrow button
+  fun pony_NOT_IMPLEMENTED_YET_set_arrow_tooltip_markup(): None =>
+    """
+    Sets the tooltip markup text to be used as tooltip for the arrow button
 which pops up the menu.  See gtk_tool_item_set_tooltip_text() for setting
 a tooltip on the whole #GtkMenuToolButton.
-{:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* set_arrow_tooltip_text unavailable due to typing issues
-Sets the tooltip text to be used as tooltip for the arrow button which
+    {:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_arrow_tooltip_text(): None =>
+    """
+    Sets the tooltip text to be used as tooltip for the arrow button which
 pops up the menu.  See gtk_tool_item_set_tooltip_text() for setting a tooltip
 on the whole #GtkMenuToolButton.
-{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_menu(menu_pony: GtkWidget val): None =>
 """

@@ -46,73 +46,104 @@ Clears all style information from @props.
 """
   @gtk_style_properties_clear[None](widget)
 
-/* get unavailable due to typing issues
-Retrieves several style property values from @props for a
+  fun pony_NOT_IMPLEMENTED_YET_get(): None =>
+    """
+    Retrieves several style property values from @props for a
 given state.
-{:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "...", argtype: "", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* get_property unavailable due to typing issues
-Gets a style property from @props for the given state. When done with @value,
+  fun pony_NOT_IMPLEMENTED_YET_get_property(): None =>
+    """
+    Gets a style property from @props for the given state. When done with @value,
 g_value_unset() needs to be called to free any allocated memory.
-{:doh, %{argctype: "const gchar*", argname: "property", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "property", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GValue*", argname: "value", argtype: "GObject.Value", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_valist unavailable due to typing issues
-Retrieves several style property values from @props for a given state.
-{:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_valist(): None =>
+    """
+    Retrieves several style property values from @props for a given state.
+
+    {:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "va_list", argname: "args", argtype: "va_list", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* lookup_color unavailable due to return typing issues
-Returns the symbolic color that is mapped
+  fun pony_NOT_IMPLEMENTED_YET_lookup_color(): None =>
+    """
+    Returns the symbolic color that is mapped
 to @name.
-{:argctype, "GtkSymbolicColor*"}
+
+    {:argctype, "GtkSymbolicColor*"}
 {:argname, "rv"}
 {:argtype, "SymbolicColor"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* map_color unavailable due to typing issues
-Maps @color so it can be referenced by @name. See
+  fun pony_NOT_IMPLEMENTED_YET_map_color(): None =>
+    """
+    Maps @color so it can be referenced by @name. See
 gtk_style_properties_lookup_color()
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkSymbolicColor*", argname: "color", argtype: "SymbolicColor", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* merge unavailable due to typing issues
-Merges into @props all the style information contained
+  fun pony_NOT_IMPLEMENTED_YET_merge(): None =>
+    """
+    Merges into @props all the style information contained
 in @props_to_merge. If @replace is %TRUE, the values
 will be overwritten, if it is %FALSE, the older values
 will prevail.
-{:doh, %{argctype: "const GtkStyleProperties*", argname: "props_to_merge", argtype: "StyleProperties", paramtype: :param, txo: "none"}}
-*/
 
-/* set unavailable due to typing issues
-Sets several style properties on @props.
-{:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "const GtkStyleProperties*", argname: "props_to_merge", argtype: "StyleProperties", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set(): None =>
+    """
+    Sets several style properties on @props.
+
+    {:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "...", argtype: "", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_property unavailable due to typing issues
-Sets a styling property in @props.
-{:doh, %{argctype: "const gchar*", argname: "property", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_property(): None =>
+    """
+    Sets a styling property in @props.
+
+    {:doh, %{argctype: "const gchar*", argname: "property", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GValue*", argname: "value", argtype: "GObject.Value", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_valist unavailable due to typing issues
-Sets several style properties on @props.
-{:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_valist(): None =>
+    """
+    Sets several style properties on @props.
+
+    {:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "va_list", argname: "args", argtype: "va_list", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* unset_property unavailable due to typing issues
-Unsets a style property in @props.
-{:doh, %{argctype: "const gchar*", argname: "property", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_unset_property(): None =>
+    """
+    Unsets a style property in @props.
+
+    {:doh, %{argctype: "const gchar*", argname: "property", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStateFlags", argname: "state", argtype: "StateFlags", paramtype: :param, txo: "none"}}
 */
+    """
 

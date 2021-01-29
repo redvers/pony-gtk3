@@ -55,46 +55,65 @@ Whether the handlebox’s child is currently detached.
 """
   @gtk_handle_box_get_child_detached[Bool](widget)
 
-/* get_handle_position unavailable due to return typing issues
-Gets the handle position of the handle box. See
+  fun pony_NOT_IMPLEMENTED_YET_get_handle_position(): None =>
+    """
+    Gets the handle position of the handle box. See
 gtk_handle_box_set_handle_position().
-{:argctype, "GtkPositionType"}
+
+    {:argctype, "GtkPositionType"}
 {:argname, "rv"}
 {:argtype, "PositionType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_shadow_type unavailable due to return typing issues
-Gets the type of shadow drawn around the handle box. See
+  fun pony_NOT_IMPLEMENTED_YET_get_shadow_type(): None =>
+    """
+    Gets the type of shadow drawn around the handle box. See
 gtk_handle_box_set_shadow_type().
-{:argctype, "GtkShadowType"}
+
+    {:argctype, "GtkShadowType"}
 {:argname, "rv"}
 {:argtype, "ShadowType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_snap_edge unavailable due to return typing issues
-Gets the edge used for determining reattachment of the handle box.
+  fun pony_NOT_IMPLEMENTED_YET_get_snap_edge(): None =>
+    """
+    Gets the edge used for determining reattachment of the handle box.
 See gtk_handle_box_set_snap_edge().
-{:argctype, "GtkPositionType"}
+
+    {:argctype, "GtkPositionType"}
 {:argname, "rv"}
 {:argtype, "PositionType"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* set_handle_position unavailable due to typing issues
-Sets the side of the handlebox where the handle is drawn.
-{:doh, %{argctype: "GtkPositionType", argname: "position", argtype: "PositionType", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
 
-/* set_shadow_type unavailable due to typing issues
-Sets the type of shadow to be drawn around the border
+  fun pony_NOT_IMPLEMENTED_YET_set_handle_position(): None =>
+    """
+    Sets the side of the handlebox where the handle is drawn.
+
+    {:doh, %{argctype: "GtkPositionType", argname: "position", argtype: "PositionType", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_shadow_type(): None =>
+    """
+    Sets the type of shadow to be drawn around the border
 of the handle box.
-{:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-*/
 
-/* set_snap_edge unavailable due to typing issues
-Sets the snap edge of a handlebox. The snap edge is
+    {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_snap_edge(): None =>
+    """
+    Sets the snap edge of a handlebox. The snap edge is
 the edge of the detached child that must be aligned
 with the corresponding edge of the “ghost” left
 behind when the child was detached to reattach
@@ -107,6 +126,8 @@ will be guessed from the handle position. If the
 handle position is %GTK_POS_RIGHT or %GTK_POS_LEFT,
 then the snap edge will be %GTK_POS_TOP, otherwise
 it will be %GTK_POS_LEFT.
-{:doh, %{argctype: "GtkPositionType", argname: "edge", argtype: "PositionType", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkPositionType", argname: "edge", argtype: "PositionType", paramtype: :param, txo: "none"}}
 */
+    """
 

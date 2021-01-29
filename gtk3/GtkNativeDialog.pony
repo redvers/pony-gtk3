@@ -57,22 +57,30 @@ Returns whether the dialog is modal. See gtk_native_dialog_set_modal().
 """
   @gtk_native_dialog_get_modal[Bool](widget)
 
-/* get_title unavailable due to return typing issues
-Gets the title of the #GtkNativeDialog.
-{:argctype, "const char*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_title(): None =>
+    """
+    Gets the title of the #GtkNativeDialog.
+
+    {:argctype, "const char*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_transient_for unavailable due to return typing issues
-Fetches the transient parent for this window. See
+  fun pony_NOT_IMPLEMENTED_YET_get_transient_for(): None =>
+    """
+    Fetches the transient parent for this window. See
 gtk_native_dialog_set_transient_for().
-{:argctype, "GtkWindow*"}
+
+    {:argctype, "GtkWindow*"}
 {:argname, "rv"}
 {:argtype, "Window"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_visible(): Bool =>
 """
@@ -135,21 +143,27 @@ will then disallow lowering the dialog below the parent.
 """
   @gtk_native_dialog_set_modal[None](widget, modal_pony)
 
-/* set_title unavailable due to typing issues
-Sets the title of the #GtkNativeDialog.
-{:doh, %{argctype: "const char*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_title(): None =>
+    """
+    Sets the title of the #GtkNativeDialog.
 
-/* set_transient_for unavailable due to typing issues
-Dialog windows should be set transient for the main application
+    {:doh, %{argctype: "const char*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_transient_for(): None =>
+    """
+    Dialog windows should be set transient for the main application
 window they were spawned from. This allows
 [window managers][gtk-X11-arch] to e.g. keep the
 dialog on top of the main window, or center the dialog over the
 main window.
 
 Passing %NULL for @parent unsets the current transient window.
-{:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun show(): None =>
 """

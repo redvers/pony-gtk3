@@ -120,17 +120,20 @@ regardless of text direction.
     widget = @gtk_level_bar_new_for_interval[GObjectREF](min_value_pony, max_value_pony) //
 
 
-/* add_offset_value unavailable due to typing issues
-Adds a new offset marker on @self at the position specified by @value.
+  fun pony_NOT_IMPLEMENTED_YET_add_offset_value(): None =>
+    """
+    Adds a new offset marker on @self at the position specified by @value.
 When the bar value is in the interval topped by @value (or between @value
 and #GtkLevelBar:max-value in case the offset is the last one on the bar)
 a style class named `level-`@name will be applied
 when rendering the level bar fill.
 If another offset marker named @name exists, its value will be
 replaced by @value.
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun get_inverted(): Bool =>
 """
@@ -138,50 +141,72 @@ Return the value of the #GtkLevelBar:inverted property.
 """
   @gtk_level_bar_get_inverted[Bool](widget)
 
-/* get_max_value unavailable due to return typing issues
-Returns the value of the #GtkLevelBar:max-value property.
-{:argctype, "gdouble"}
+  fun pony_NOT_IMPLEMENTED_YET_get_max_value(): None =>
+    """
+    Returns the value of the #GtkLevelBar:max-value property.
+
+    {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_min_value unavailable due to return typing issues
-Returns the value of the #GtkLevelBar:min-value property.
-{:argctype, "gdouble"}
+  fun pony_NOT_IMPLEMENTED_YET_get_min_value(): None =>
+    """
+    Returns the value of the #GtkLevelBar:min-value property.
+
+    {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_mode unavailable due to return typing issues
-Returns the value of the #GtkLevelBar:mode property.
-{:argctype, "GtkLevelBarMode"}
+  fun pony_NOT_IMPLEMENTED_YET_get_mode(): None =>
+    """
+    Returns the value of the #GtkLevelBar:mode property.
+
+    {:argctype, "GtkLevelBarMode"}
 {:argname, "rv"}
 {:argtype, "LevelBarMode"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_offset_value unavailable due to typing issues
-Fetches the value specified for the offset marker @name in @self,
+  fun pony_NOT_IMPLEMENTED_YET_get_offset_value(): None =>
+    """
+    Fetches the value specified for the offset marker @name in @self,
 returning %TRUE in case an offset named @name was found.
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble*", argname: "value", argtype: "gdouble", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_value unavailable due to return typing issues
-Returns the value of the #GtkLevelBar:value property.
-{:argctype, "gdouble"}
+  fun pony_NOT_IMPLEMENTED_YET_get_value(): None =>
+    """
+    Returns the value of the #GtkLevelBar:value property.
+
+    {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* remove_offset_value unavailable due to typing issues
-Removes an offset marker previously added with
-gtk_level_bar_add_offset_value().
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_remove_offset_value(): None =>
+    """
+    Removes an offset marker previously added with
+gtk_level_bar_add_offset_value().
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_inverted(inverted_pony: Bool): None =>
 """
@@ -189,29 +214,41 @@ Sets the value of the #GtkLevelBar:inverted property.
 """
   @gtk_level_bar_set_inverted[None](widget, inverted_pony)
 
-/* set_max_value unavailable due to typing issues
-Sets the value of the #GtkLevelBar:max-value property.
+  fun pony_NOT_IMPLEMENTED_YET_set_max_value(): None =>
+    """
+    Sets the value of the #GtkLevelBar:max-value property.
 
 You probably want to update preexisting level offsets after calling
 this function.
-{:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
-*/
 
-/* set_min_value unavailable due to typing issues
-Sets the value of the #GtkLevelBar:min-value property.
+    {:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_min_value(): None =>
+    """
+    Sets the value of the #GtkLevelBar:min-value property.
 
 You probably want to update preexisting level offsets after calling
 this function.
-{:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
-*/
 
-/* set_mode unavailable due to typing issues
-Sets the value of the #GtkLevelBar:mode property.
-{:doh, %{argctype: "GtkLevelBarMode", argname: "mode", argtype: "LevelBarMode", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_value unavailable due to typing issues
-Sets the value of the #GtkLevelBar:value property.
-{:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_mode(): None =>
+    """
+    Sets the value of the #GtkLevelBar:mode property.
+
+    {:doh, %{argctype: "GtkLevelBarMode", argname: "mode", argtype: "LevelBarMode", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_value(): None =>
+    """
+    Sets the value of the #GtkLevelBar:value property.
+
+    {:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+    """
 

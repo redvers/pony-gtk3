@@ -40,16 +40,23 @@ No provided documentation
 """
   @gtk_event_controller_key_get_group[U32](widget)
 
-/* get_im_context unavailable due to return typing issues
-Gets the IM context of a key controller.
-{:argctype, "GtkIMContext*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_im_context(): None =>
+    """
+    Gets the IM context of a key controller.
+
+    {:argctype, "GtkIMContext*"}
 {:argname, "rv"}
 {:argtype, "IMContext"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* set_im_context unavailable due to typing issues
-No provided documentation
-{:doh, %{argctype: "GtkIMContext*", argname: "im_context", argtype: "IMContext", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_im_context(): None =>
+    """
+    No provided documentation
+
+    {:doh, %{argctype: "GtkIMContext*", argname: "im_context", argtype: "IMContext", paramtype: :param, txo: "none"}}
+*/
+    """
 

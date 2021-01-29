@@ -98,50 +98,68 @@ all unreffed iters will be invalid.
 """
   @gtk_tree_model_filter_clear_cache[None](widget)
 
-/* convert_child_iter_to_iter unavailable due to typing issues
-Sets @filter_iter to point to the row in @filter that corresponds to the
+  fun pony_NOT_IMPLEMENTED_YET_convert_child_iter_to_iter(): None =>
+    """
+    Sets @filter_iter to point to the row in @filter that corresponds to the
 row pointed at by @child_iter.  If @filter_iter was not set, %FALSE is
 returned.
-{:doh, %{argctype: "GtkTreeIter*", argname: "filter_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTreeIter*", argname: "filter_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkTreeIter*", argname: "child_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* convert_child_path_to_path unavailable due to return typing issues
-Converts @child_path to a path relative to @filter. That is, @child_path
+  fun pony_NOT_IMPLEMENTED_YET_convert_child_path_to_path(): None =>
+    """
+    Converts @child_path to a path relative to @filter. That is, @child_path
 points to a path in the child model. The rerturned path will point to the
 same row in the filtered model. If @child_path isn’t a valid path on the
 child model or points to a row which is not visible in @filter, then %NULL
 is returned.
-{:argctype, "GtkTreePath*"}
+
+    {:argctype, "GtkTreePath*"}
 {:argname, "rv"}
 {:argtype, "TreePath"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* convert_iter_to_child_iter unavailable due to typing issues
-Sets @child_iter to point to the row pointed to by @filter_iter.
-{:doh, %{argctype: "GtkTreeIter*", argname: "child_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_convert_iter_to_child_iter(): None =>
+    """
+    Sets @child_iter to point to the row pointed to by @filter_iter.
+
+    {:doh, %{argctype: "GtkTreeIter*", argname: "child_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkTreeIter*", argname: "filter_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* convert_path_to_child_path unavailable due to return typing issues
-Converts @filter_path to a path on the child model of @filter. That is,
+  fun pony_NOT_IMPLEMENTED_YET_convert_path_to_child_path(): None =>
+    """
+    Converts @filter_path to a path on the child model of @filter. That is,
 @filter_path points to a location in @filter. The returned path will
 point to the same location in the model not being filtered. If @filter_path
 does not point to a location in the child model, %NULL is returned.
-{:argctype, "GtkTreePath*"}
+
+    {:argctype, "GtkTreePath*"}
 {:argname, "rv"}
 {:argtype, "TreePath"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* get_model unavailable due to return typing issues
-Returns a pointer to the child model of @filter.
-{:argctype, "GtkTreeModel*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_model(): None =>
+    """
+    Returns a pointer to the child model of @filter.
+
+    {:argctype, "GtkTreeModel*"}
 {:argname, "rv"}
 {:argtype, "TreeModel"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun refilter(): None =>
 """
@@ -150,8 +168,9 @@ the filter to re-evaluate whether a row is visible or not.
 """
   @gtk_tree_model_filter_refilter[None](widget)
 
-/* set_modify_func unavailable due to typing issues
-With the @n_columns and @types parameters, you give an array of column
+  fun pony_NOT_IMPLEMENTED_YET_set_modify_func(): None =>
+    """
+    With the @n_columns and @types parameters, you give an array of column
 types for this model (which will be exposed to the parent model/view).
 The @func, @data and @destroy parameters are for specifying the modify
 function. The modify function will get called for each
@@ -161,11 +180,13 @@ modify function.
 
 Note that gtk_tree_model_filter_set_modify_func()
 can only be called once for a given filter model.
-{:doh, %{argctype: "", argname: "types", argtype: "", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "", argname: "types", argtype: "", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkTreeModelFilterModifyFunc", argname: "func", argtype: "TreeModelFilterModifyFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_visible_column(column_pony: I32): None =>
 """
@@ -180,8 +201,9 @@ once for a given filter model.
 """
   @gtk_tree_model_filter_set_visible_column[None](widget, column_pony)
 
-/* set_visible_func unavailable due to typing issues
-Sets the visible function used when filtering the @filter to be @func.
+  fun pony_NOT_IMPLEMENTED_YET_set_visible_func(): None =>
+    """
+    Sets the visible function used when filtering the @filter to be @func.
 The function should return %TRUE if the given row should be visible and
 %FALSE otherwise.
 
@@ -216,8 +238,10 @@ visible_func (GtkTreeModel *model,
 Note that gtk_tree_model_filter_set_visible_func() or
 gtk_tree_model_filter_set_visible_column() can only be called
 once for a given filter model.
-{:doh, %{argctype: "GtkTreeModelFilterVisibleFunc", argname: "func", argtype: "TreeModelFilterVisibleFunc", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTreeModelFilterVisibleFunc", argname: "func", argtype: "TreeModelFilterVisibleFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
+    """
 

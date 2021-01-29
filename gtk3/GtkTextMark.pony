@@ -53,14 +53,18 @@ Marks are typically created using the gtk_text_buffer_create_mark() function.
     widget = @gtk_text_mark_new[GObjectREF](name_pony.cstring(), left_gravity_pony) //
 
 
-/* get_buffer unavailable due to return typing issues
-Gets the buffer this mark is located inside,
+  fun pony_NOT_IMPLEMENTED_YET_get_buffer(): None =>
+    """
+    Gets the buffer this mark is located inside,
 or %NULL if the mark is deleted.
-{:argctype, "GtkTextBuffer*"}
+
+    {:argctype, "GtkTextBuffer*"}
 {:argname, "rv"}
 {:argtype, "TextBuffer"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_deleted(): Bool =>
 """

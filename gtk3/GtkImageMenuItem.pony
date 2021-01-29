@@ -115,16 +115,19 @@ stock id to select the stock item for the item.
 """
   @gtk_image_menu_item_get_use_stock[Bool](widget)
 
-/* set_accel_group unavailable due to typing issues
-Specifies an @accel_group to add the menu items accelerator to
+  fun pony_NOT_IMPLEMENTED_YET_set_accel_group(): None =>
+    """
+    Specifies an @accel_group to add the menu items accelerator to
 (this only applies to stock items so a stock item must already
 be set, make sure to call gtk_image_menu_item_set_use_stock()
 and gtk_menu_item_set_label() with a valid stock item first).
 
 If you want this menu item to have changeable accelerators then
 you shouldnt need this (see gtk_image_menu_item_new_from_stock()).
-{:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_always_show_image(always_show_pony: Bool): None =>
 """

@@ -46,17 +46,20 @@ To track changes in the selected application, use the
     widget = @gtk_app_chooser_button_new[GObjectREF](content_type_pony.cstring()) //
 
 
-/* append_custom_item unavailable due to typing issues
-Appends a custom item to the list of applications that is shown
+  fun pony_NOT_IMPLEMENTED_YET_append_custom_item(): None =>
+    """
+    Appends a custom item to the list of applications that is shown
 in the popup; the item name must be unique per-widget.
 Clients can use the provided name as a detail for the
 #GtkAppChooserButton::custom-item-activated signal, to add a
 callback for the activation of a particular custom item in the list.
 See also gtk_app_chooser_button_append_separator().
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GIcon*", argname: "icon", argtype: "Gio.Icon", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun append_separator(): None =>
 """
@@ -87,20 +90,26 @@ property.
 """
   @gtk_app_chooser_button_get_show_dialog_item[Bool](widget)
 
-/* set_active_custom_item unavailable due to typing issues
-Selects a custom item previously added with
+  fun pony_NOT_IMPLEMENTED_YET_set_active_custom_item(): None =>
+    """
+    Selects a custom item previously added with
 gtk_app_chooser_button_append_custom_item().
 
 Use gtk_app_chooser_refresh() to bring the selection
 to its initial state.
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* set_heading unavailable due to typing issues
-Sets the text to display at the top of the dialog.
-If the heading is not set, the dialog displays a default text.
-{:doh, %{argctype: "const gchar*", argname: "heading", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_heading(): None =>
+    """
+    Sets the text to display at the top of the dialog.
+If the heading is not set, the dialog displays a default text.
+
+    {:doh, %{argctype: "const gchar*", argname: "heading", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_show_default_item(setting_pony: Bool): None =>
 """

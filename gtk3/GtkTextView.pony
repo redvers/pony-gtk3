@@ -54,13 +54,17 @@ of the main node.
     widget = @gtk_text_view_new_with_buffer[GObjectREF](buffer_pony.gtkwidget()) //
 
 
-/* add_child_at_anchor unavailable due to typing issues
-Adds a child widget in the text buffer, at the given @anchor.
-{:doh, %{argctype: "GtkTextChildAnchor*", argname: "anchor", argtype: "TextChildAnchor", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_add_child_at_anchor(): None =>
+    """
+    Adds a child widget in the text buffer, at the given @anchor.
 
-/* add_child_in_window unavailable due to typing issues
-Adds a child at fixed coordinates in one of the text widget's
+    {:doh, %{argctype: "GtkTextChildAnchor*", argname: "anchor", argtype: "TextChildAnchor", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_add_child_in_window(): None =>
+    """
+    Adds a child at fixed coordinates in one of the text widget's
 windows.
 
 The window must have nonzero size (see
@@ -70,11 +74,14 @@ placing a child in #GTK_TEXT_WINDOW_WIDGET, scrolling is
 irrelevant, the child floats above all scrollable areas. But when
 placing a child in one of the scrollable windows (border windows or
 text window) it will move with the scrolling as needed.
-{:doh, %{argctype: "GtkTextWindowType", argname: "which_window", argtype: "TextWindowType", paramtype: :param, txo: "none"}}
-*/
 
-/* backward_display_line unavailable due to typing issues
-Moves the given @iter backward by one display (wrapped) line.
+    {:doh, %{argctype: "GtkTextWindowType", argname: "which_window", argtype: "TextWindowType", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_backward_display_line(): None =>
+    """
+    Moves the given @iter backward by one display (wrapped) line.
 A display line is different from a paragraph. Paragraphs are
 separated by newlines or other paragraph separator characters.
 Display lines are created by line-wrapping a paragraph. If
@@ -82,11 +89,14 @@ wrapping is turned off, display lines and paragraphs will be the
 same. Display lines are divided differently for each view, since
 they depend on the view’s width; paragraphs are the same in all
 views, since they depend on the contents of the #GtkTextBuffer.
-{:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
-*/
 
-/* backward_display_line_start unavailable due to typing issues
-Moves the given @iter backward to the next display line start.
+    {:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_backward_display_line_start(): None =>
+    """
+    Moves the given @iter backward to the next display line start.
 A display line is different from a paragraph. Paragraphs are
 separated by newlines or other paragraph separator characters.
 Display lines are created by line-wrapping a paragraph. If
@@ -94,22 +104,28 @@ wrapping is turned off, display lines and paragraphs will be the
 same. Display lines are divided differently for each view, since
 they depend on the view’s width; paragraphs are the same in all
 views, since they depend on the contents of the #GtkTextBuffer.
-{:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
-*/
 
-/* buffer_to_window_coords unavailable due to typing issues
-Converts coordinate (@buffer_x, @buffer_y) to coordinates for the window
+    {:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_buffer_to_window_coords(): None =>
+    """
+    Converts coordinate (@buffer_x, @buffer_y) to coordinates for the window
 @win, and stores the result in (@window_x, @window_y).
 
 Note that you can’t convert coordinates for a nonexisting window (see
 gtk_text_view_set_border_window_size()).
-{:doh, %{argctype: "GtkTextWindowType", argname: "win", argtype: "TextWindowType", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTextWindowType", argname: "win", argtype: "TextWindowType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "window_x", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "window_y", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* forward_display_line unavailable due to typing issues
-Moves the given @iter forward by one display (wrapped) line.
+  fun pony_NOT_IMPLEMENTED_YET_forward_display_line(): None =>
+    """
+    Moves the given @iter forward by one display (wrapped) line.
 A display line is different from a paragraph. Paragraphs are
 separated by newlines or other paragraph separator characters.
 Display lines are created by line-wrapping a paragraph. If
@@ -117,11 +133,14 @@ wrapping is turned off, display lines and paragraphs will be the
 same. Display lines are divided differently for each view, since
 they depend on the view’s width; paragraphs are the same in all
 views, since they depend on the contents of the #GtkTextBuffer.
-{:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
-*/
 
-/* forward_display_line_end unavailable due to typing issues
-Moves the given @iter forward to the next display line end.
+    {:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_forward_display_line_end(): None =>
+    """
+    Moves the given @iter forward to the next display line end.
 A display line is different from a paragraph. Paragraphs are
 separated by newlines or other paragraph separator characters.
 Display lines are created by line-wrapping a paragraph. If
@@ -129,8 +148,10 @@ wrapping is turned off, display lines and paragraphs will be the
 same. Display lines are divided differently for each view, since
 they depend on the view’s width; paragraphs are the same in all
 views, since they depend on the contents of the #GtkTextBuffer.
-{:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun get_accepts_tab(): Bool =>
 """
@@ -139,11 +160,14 @@ gtk_text_view_set_accepts_tab().
 """
   @gtk_text_view_get_accepts_tab[Bool](widget)
 
-/* get_border_window_size unavailable due to typing issues
-Gets the width of the specified border window. See
+  fun pony_NOT_IMPLEMENTED_YET_get_border_window_size(): None =>
+    """
+    Gets the width of the specified border window. See
 gtk_text_view_set_border_window_size().
-{:doh, %{argctype: "GtkTextWindowType", argname: "gtype", argtype: "TextWindowType", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTextWindowType", argname: "gtype", argtype: "TextWindowType", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun get_bottom_margin(): I32 =>
 """
@@ -151,18 +175,23 @@ Gets the bottom margin for text in the @text_view.
 """
   @gtk_text_view_get_bottom_margin[I32](widget)
 
-/* get_buffer unavailable due to return typing issues
-Returns the #GtkTextBuffer being displayed by this text view.
+  fun pony_NOT_IMPLEMENTED_YET_get_buffer(): None =>
+    """
+    Returns the #GtkTextBuffer being displayed by this text view.
 The reference count on the buffer is not incremented; the caller
 of this function won’t own a new reference.
-{:argctype, "GtkTextBuffer*"}
+
+    {:argctype, "GtkTextBuffer*"}
 {:argname, "rv"}
 {:argtype, "TextBuffer"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_cursor_locations unavailable due to typing issues
-Given an @iter within a text layout, determine the positions of the
+  fun pony_NOT_IMPLEMENTED_YET_get_cursor_locations(): None =>
+    """
+    Given an @iter within a text layout, determine the positions of the
 strong and weak cursors if the insertion point is at that
 iterator. The position of each cursor is stored as a zero-width
 rectangle. The strong cursor location is the location where
@@ -181,10 +210,12 @@ cursor’s offset within the preedit sequence.
 The rectangle position is in buffer coordinates; use
 gtk_text_view_buffer_to_window_coords() to convert these
 coordinates to coordinates for one of the windows in the text view.
-{:doh, %{argctype: "const GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkRectangle*", argname: "strong", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkRectangle*", argname: "weak", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun get_cursor_visible(): Bool =>
 """
@@ -192,8 +223,9 @@ Find out whether the cursor should be displayed.
 """
   @gtk_text_view_get_cursor_visible[Bool](widget)
 
-/* get_default_attributes unavailable due to return typing issues
-Obtains a copy of the default text attributes. These are the
+  fun pony_NOT_IMPLEMENTED_YET_get_default_attributes(): None =>
+    """
+    Obtains a copy of the default text attributes. These are the
 attributes used for text unless a tag overrides them.
 You’d typically pass the default attributes in to
 gtk_text_iter_get_attributes() in order to get the
@@ -201,11 +233,14 @@ attributes in effect at a given text position.
 
 The return value is a copy owned by the caller of this function,
 and should be freed with gtk_text_attributes_unref().
-{:argctype, "GtkTextAttributes*"}
+
+    {:argctype, "GtkTextAttributes*"}
 {:argname, "rv"}
 {:argtype, "TextAttributes"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
 fun get_editable(): Bool =>
 """
@@ -214,13 +249,17 @@ buffer may override this setting for some ranges of text.
 """
   @gtk_text_view_get_editable[Bool](widget)
 
-/* get_hadjustment unavailable due to return typing issues
-Gets the horizontal-scrolling #GtkAdjustment.
-{:argctype, "GtkAdjustment*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_hadjustment(): None =>
+    """
+    Gets the horizontal-scrolling #GtkAdjustment.
+
+    {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_indent(): I32 =>
 """
@@ -230,33 +269,45 @@ The indentation may be negative.
 """
   @gtk_text_view_get_indent[I32](widget)
 
-/* get_input_hints unavailable due to return typing issues
-Gets the value of the #GtkTextView:input-hints property.
-{:argctype, "GtkInputHints"}
+  fun pony_NOT_IMPLEMENTED_YET_get_input_hints(): None =>
+    """
+    Gets the value of the #GtkTextView:input-hints property.
+
+    {:argctype, "GtkInputHints"}
 {:argname, "rv"}
 {:argtype, "InputHints"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_input_purpose unavailable due to return typing issues
-Gets the value of the #GtkTextView:input-purpose property.
-{:argctype, "GtkInputPurpose"}
+  fun pony_NOT_IMPLEMENTED_YET_get_input_purpose(): None =>
+    """
+    Gets the value of the #GtkTextView:input-purpose property.
+
+    {:argctype, "GtkInputPurpose"}
 {:argname, "rv"}
 {:argtype, "InputPurpose"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_iter_at_location unavailable due to typing issues
-Retrieves the iterator at buffer coordinates @x and @y. Buffer
+  fun pony_NOT_IMPLEMENTED_YET_get_iter_at_location(): None =>
+    """
+    Retrieves the iterator at buffer coordinates @x and @y. Buffer
 coordinates are coordinates for the entire buffer, not just the
 currently-displayed portion.  If you have coordinates from an
 event, you have to convert those to buffer coordinates with
 gtk_text_view_window_to_buffer_coords().
-{:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
-*/
 
-/* get_iter_at_position unavailable due to typing issues
-Retrieves the iterator pointing to the character at buffer
+    {:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_iter_at_position(): None =>
+    """
+    Retrieves the iterator pointing to the character at buffer
 coordinates @x and @y. Buffer coordinates are coordinates for
 the entire buffer, not just the currently-displayed portion.
 If you have coordinates from an event, you have to convert
@@ -266,27 +317,36 @@ gtk_text_view_window_to_buffer_coords().
 Note that this is different from gtk_text_view_get_iter_at_location(),
 which returns cursor locations, i.e. positions between
 characters.
-{:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "trailing", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_iter_location unavailable due to typing issues
-Gets a rectangle which roughly contains the character at @iter.
+  fun pony_NOT_IMPLEMENTED_YET_get_iter_location(): None =>
+    """
+    Gets a rectangle which roughly contains the character at @iter.
 The rectangle position is in buffer coordinates; use
 gtk_text_view_buffer_to_window_coords() to convert these
 coordinates to coordinates for one of the windows in the text view.
-{:doh, %{argctype: "const GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkRectangle*", argname: "location", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* get_justification unavailable due to return typing issues
-Gets the default justification of paragraphs in @text_view.
+  fun pony_NOT_IMPLEMENTED_YET_get_justification(): None =>
+    """
+    Gets the default justification of paragraphs in @text_view.
 Tags in the buffer may override the default.
-{:argctype, "GtkJustification"}
+
+    {:argctype, "GtkJustification"}
 {:argname, "rv"}
 {:argtype, "Justification"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_left_margin(): I32 =>
 """
@@ -295,24 +355,30 @@ Tags in the buffer may override the default.
 """
   @gtk_text_view_get_left_margin[I32](widget)
 
-/* get_line_at_y unavailable due to typing issues
-Gets the #GtkTextIter at the start of the line containing
+  fun pony_NOT_IMPLEMENTED_YET_get_line_at_y(): None =>
+    """
+    Gets the #GtkTextIter at the start of the line containing
 the coordinate @y. @y is in buffer coordinates, convert from
 window coordinates with gtk_text_view_window_to_buffer_coords().
 If non-%NULL, @line_top will be filled with the coordinate of the top
 edge of the line.
-{:doh, %{argctype: "GtkTextIter*", argname: "target_iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTextIter*", argname: "target_iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "line_top", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_line_yrange unavailable due to typing issues
-Gets the y coordinate of the top of the line containing @iter,
+  fun pony_NOT_IMPLEMENTED_YET_get_line_yrange(): None =>
+    """
+    Gets the y coordinate of the top of the line containing @iter,
 and the height of the line. The coordinate is a buffer coordinate;
 convert to window coordinates with gtk_text_view_buffer_to_window_coords().
-{:doh, %{argctype: "const GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "y", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun get_monospace(): Bool =>
 """
@@ -356,16 +422,20 @@ in the buffer may override the default.
 """
   @gtk_text_view_get_right_margin[I32](widget)
 
-/* get_tabs unavailable due to return typing issues
-Gets the default tabs for @text_view. Tags in the buffer may
+  fun pony_NOT_IMPLEMENTED_YET_get_tabs(): None =>
+    """
+    Gets the default tabs for @text_view. Tags in the buffer may
 override the defaults. The returned array will be %NULL if
 “standard” (8-space) tabs are used. Free the return value
 with pango_tab_array_free().
-{:argctype, "PangoTabArray*"}
+
+    {:argctype, "PangoTabArray*"}
 {:argname, "rv"}
 {:argtype, "Pango.TabArray"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
 fun get_top_margin(): I32 =>
 """
@@ -373,55 +443,75 @@ Gets the top margin for text in the @text_view.
 """
   @gtk_text_view_get_top_margin[I32](widget)
 
-/* get_vadjustment unavailable due to return typing issues
-Gets the vertical-scrolling #GtkAdjustment.
-{:argctype, "GtkAdjustment*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_vadjustment(): None =>
+    """
+    Gets the vertical-scrolling #GtkAdjustment.
+
+    {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_visible_rect unavailable due to typing issues
-Fills @visible_rect with the currently-visible
+  fun pony_NOT_IMPLEMENTED_YET_get_visible_rect(): None =>
+    """
+    Fills @visible_rect with the currently-visible
 region of the buffer, in buffer coordinates. Convert to window coordinates
 with gtk_text_view_buffer_to_window_coords().
-{:doh, %{argctype: "GdkRectangle*", argname: "visible_rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
-*/
 
-/* get_window unavailable due to return typing issues
-Retrieves the #GdkWindow corresponding to an area of the text view;
+    {:doh, %{argctype: "GdkRectangle*", argname: "visible_rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_window(): None =>
+    """
+    Retrieves the #GdkWindow corresponding to an area of the text view;
 possible windows include the overall widget window, child windows
 on the left, right, top, bottom, and the window that displays the
 text buffer. Windows are %NULL and nonexistent if their width or
 height is 0, and are nonexistent before the widget has been
 realized.
-{:argctype, "GdkWindow*"}
+
+    {:argctype, "GdkWindow*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Window"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_window_type unavailable due to return typing issues
-Usually used to find out which window an event corresponds to.
+  fun pony_NOT_IMPLEMENTED_YET_get_window_type(): None =>
+    """
+    Usually used to find out which window an event corresponds to.
 
 If you connect to an event signal on @text_view, this function
 should be called on `event->window` to see which window it was.
-{:argctype, "GtkTextWindowType"}
+
+    {:argctype, "GtkTextWindowType"}
 {:argname, "rv"}
 {:argtype, "TextWindowType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_wrap_mode unavailable due to return typing issues
-Gets the line wrapping for the view.
-{:argctype, "GtkWrapMode"}
+  fun pony_NOT_IMPLEMENTED_YET_get_wrap_mode(): None =>
+    """
+    Gets the line wrapping for the view.
+
+    {:argctype, "GtkWrapMode"}
 {:argname, "rv"}
 {:argtype, "WrapMode"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* im_context_filter_keypress unavailable due to typing issues
-Allow the #GtkTextView input method to internally handle key press
+  fun pony_NOT_IMPLEMENTED_YET_im_context_filter_keypress(): None =>
+    """
+    Allow the #GtkTextView input method to internally handle key press
 and release events. If this function returns %TRUE, then no further
 processing should be done for this key event. See
 gtk_im_context_filter_keypress().
@@ -451,8 +541,10 @@ gtk_foo_bar_key_press_event (GtkWidget   *widget,
   return GTK_WIDGET_CLASS (gtk_foo_bar_parent_class)->key_press_event (widget, event);
 }
 ]|
-{:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun move_child(child_pony: GtkWidget val, xpos_pony: I32, ypos_pony: I32): None =>
 """
@@ -460,14 +552,18 @@ Updates the position of a child, as for gtk_text_view_add_child_in_window().
 """
   @gtk_text_view_move_child[None](widget, child_pony.gtkwidget(), xpos_pony, ypos_pony)
 
-/* move_mark_onscreen unavailable due to typing issues
-Moves a mark within the buffer so that it's
+  fun pony_NOT_IMPLEMENTED_YET_move_mark_onscreen(): None =>
+    """
+    Moves a mark within the buffer so that it's
 located within the currently-visible text area.
-{:doh, %{argctype: "GtkTextMark*", argname: "mark", argtype: "TextMark", paramtype: :param, txo: "none"}}
-*/
 
-/* move_visually unavailable due to typing issues
-Move the iterator a given number of characters visually, treating
+    {:doh, %{argctype: "GtkTextMark*", argname: "mark", argtype: "TextMark", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_move_visually(): None =>
+    """
+    Move the iterator a given number of characters visually, treating
 it as the strong cursor position. If @count is positive, then the
 new strong cursor position will be @count positions to the right of
 the old cursor position. If @count is negative then the new strong
@@ -478,8 +574,10 @@ In the presence of bi-directional text, the correspondence
 between logical and visual order will depend on the direction
 of the current run, and there may be jumps when the cursor
 is moved off of the end of a run.
-{:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun place_cursor_onscreen(): Bool =>
 """
@@ -509,14 +607,18 @@ would confuse on-going input method behavior.
 """
   @gtk_text_view_reset_im_context[None](widget)
 
-/* scroll_mark_onscreen unavailable due to typing issues
-Scrolls @text_view the minimum distance such that @mark is contained
+  fun pony_NOT_IMPLEMENTED_YET_scroll_mark_onscreen(): None =>
+    """
+    Scrolls @text_view the minimum distance such that @mark is contained
 within the visible area of the widget.
-{:doh, %{argctype: "GtkTextMark*", argname: "mark", argtype: "TextMark", paramtype: :param, txo: "none"}}
-*/
 
-/* scroll_to_iter unavailable due to typing issues
-Scrolls @text_view so that @iter is on the screen in the position
+    {:doh, %{argctype: "GtkTextMark*", argname: "mark", argtype: "TextMark", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_scroll_to_iter(): None =>
+    """
+    Scrolls @text_view so that @iter is on the screen in the position
 indicated by @xalign and @yalign. An alignment of 0.0 indicates
 left or top, 1.0 indicates right or bottom, 0.5 means center.
 If @use_align is %FALSE, the text scrolls the minimal distance to
@@ -530,25 +632,30 @@ handler; so this function may not have the desired effect if it’s
 called before the height computations. To avoid oddness, consider
 using gtk_text_view_scroll_to_mark() which saves a point to be
 scrolled to after line validation.
-{:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "within_margin", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "xalign", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "yalign", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* scroll_to_mark unavailable due to typing issues
-Scrolls @text_view so that @mark is on the screen in the position
+  fun pony_NOT_IMPLEMENTED_YET_scroll_to_mark(): None =>
+    """
+    Scrolls @text_view so that @mark is on the screen in the position
 indicated by @xalign and @yalign. An alignment of 0.0 indicates
 left or top, 1.0 indicates right or bottom, 0.5 means center.
 If @use_align is %FALSE, the text scrolls the minimal distance to
 get the mark onscreen, possibly not scrolling at all. The effective
 screen for purposes of this function is reduced by a margin of size
 @within_margin.
-{:doh, %{argctype: "GtkTextMark*", argname: "mark", argtype: "TextMark", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTextMark*", argname: "mark", argtype: "TextMark", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "within_margin", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "xalign", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "yalign", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_accepts_tab(accepts_tab_pony: Bool): None =>
 """
@@ -559,16 +666,19 @@ chain.
 """
   @gtk_text_view_set_accepts_tab[None](widget, accepts_tab_pony)
 
-/* set_border_window_size unavailable due to typing issues
-Sets the width of %GTK_TEXT_WINDOW_LEFT or %GTK_TEXT_WINDOW_RIGHT,
+  fun pony_NOT_IMPLEMENTED_YET_set_border_window_size(): None =>
+    """
+    Sets the width of %GTK_TEXT_WINDOW_LEFT or %GTK_TEXT_WINDOW_RIGHT,
 or the height of %GTK_TEXT_WINDOW_TOP or %GTK_TEXT_WINDOW_BOTTOM.
 Automatically destroys the corresponding window if the size is set
 to 0, and creates the window if the size is set to non-zero.  This
 function can only be used for the “border windows”, and it won’t
 work with %GTK_TEXT_WINDOW_WIDGET, %GTK_TEXT_WINDOW_TEXT, or
 %GTK_TEXT_WINDOW_PRIVATE.
-{:doh, %{argctype: "GtkTextWindowType", argname: "gtype", argtype: "TextWindowType", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTextWindowType", argname: "gtype", argtype: "TextWindowType", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_bottom_margin(bottom_margin_pony: I32): None =>
 """
@@ -579,14 +689,17 @@ In CSS terms, the value set here is padding.
 """
   @gtk_text_view_set_bottom_margin[None](widget, bottom_margin_pony)
 
-/* set_buffer unavailable due to typing issues
-Sets @buffer as the buffer being displayed by @text_view. The previous
+  fun pony_NOT_IMPLEMENTED_YET_set_buffer(): None =>
+    """
+    Sets @buffer as the buffer being displayed by @text_view. The previous
 buffer displayed by the text view is unreferenced, and a reference is
 added to @buffer. If you owned a reference to @buffer before passing it
 to this function, you must remove that reference yourself; #GtkTextView
 will not “adopt” it.
-{:doh, %{argctype: "GtkTextBuffer*", argname: "buffer", argtype: "TextBuffer", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTextBuffer*", argname: "buffer", argtype: "TextBuffer", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_cursor_visible(setting_pony: Bool): None =>
 """
@@ -614,24 +727,33 @@ Tags in the buffer may override the default.
 """
   @gtk_text_view_set_indent[None](widget, indent_pony)
 
-/* set_input_hints unavailable due to typing issues
-Sets the #GtkTextView:input-hints property, which
+  fun pony_NOT_IMPLEMENTED_YET_set_input_hints(): None =>
+    """
+    Sets the #GtkTextView:input-hints property, which
 allows input methods to fine-tune their behaviour.
-{:doh, %{argctype: "GtkInputHints", argname: "hints", argtype: "InputHints", paramtype: :param, txo: "none"}}
-*/
 
-/* set_input_purpose unavailable due to typing issues
-Sets the #GtkTextView:input-purpose property which
+    {:doh, %{argctype: "GtkInputHints", argname: "hints", argtype: "InputHints", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_input_purpose(): None =>
+    """
+    Sets the #GtkTextView:input-purpose property which
 can be used by on-screen keyboards and other input
 methods to adjust their behaviour.
-{:doh, %{argctype: "GtkInputPurpose", argname: "purpose", argtype: "InputPurpose", paramtype: :param, txo: "none"}}
-*/
 
-/* set_justification unavailable due to typing issues
-Sets the default justification of text in @text_view.
-Tags in the view’s buffer may override the default.
-{:doh, %{argctype: "GtkJustification", argname: "justification", argtype: "Justification", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GtkInputPurpose", argname: "purpose", argtype: "InputPurpose", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_justification(): None =>
+    """
+    Sets the default justification of text in @text_view.
+Tags in the view’s buffer may override the default.
+
+    {:doh, %{argctype: "GtkJustification", argname: "justification", argtype: "Justification", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_left_margin(left_margin_pony: I32): None =>
 """
@@ -690,11 +812,14 @@ In CSS terms, the value set here is padding.
 """
   @gtk_text_view_set_right_margin[None](widget, right_margin_pony)
 
-/* set_tabs unavailable due to typing issues
-Sets the default tab stops for paragraphs in @text_view.
+  fun pony_NOT_IMPLEMENTED_YET_set_tabs(): None =>
+    """
+    Sets the default tab stops for paragraphs in @text_view.
 Tags in the buffer may override the default.
-{:doh, %{argctype: "PangoTabArray*", argname: "tabs", argtype: "Pango.TabArray", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "PangoTabArray*", argname: "tabs", argtype: "Pango.TabArray", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_top_margin(top_margin_pony: I32): None =>
 """
@@ -705,26 +830,35 @@ In CSS terms, the value set here is padding.
 """
   @gtk_text_view_set_top_margin[None](widget, top_margin_pony)
 
-/* set_wrap_mode unavailable due to typing issues
-Sets the line wrapping for the view.
-{:doh, %{argctype: "GtkWrapMode", argname: "wrap_mode", argtype: "WrapMode", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_wrap_mode(): None =>
+    """
+    Sets the line wrapping for the view.
 
-/* starts_display_line unavailable due to typing issues
-Determines whether @iter is at the start of a display line.
+    {:doh, %{argctype: "GtkWrapMode", argname: "wrap_mode", argtype: "WrapMode", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_starts_display_line(): None =>
+    """
+    Determines whether @iter is at the start of a display line.
 See gtk_text_view_forward_display_line() for an explanation of
 display lines vs. paragraphs.
-{:doh, %{argctype: "const GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
-*/
 
-/* window_to_buffer_coords unavailable due to typing issues
-Converts coordinates on the window identified by @win to buffer
+    {:doh, %{argctype: "const GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_window_to_buffer_coords(): None =>
+    """
+    Converts coordinates on the window identified by @win to buffer
 coordinates, storing the result in (@buffer_x,@buffer_y).
 
 Note that you can’t convert coordinates for a nonexisting window (see
 gtk_text_view_set_border_window_size()).
-{:doh, %{argctype: "GtkTextWindowType", argname: "win", argtype: "TextWindowType", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTextWindowType", argname: "win", argtype: "TextWindowType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "buffer_x", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "buffer_y", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 

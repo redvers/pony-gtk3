@@ -41,24 +41,32 @@ will emit a #GtkWidget::damage-event signal.
     widget = @gtk_offscreen_window_new[GObjectREF]() //
 
 
-/* get_pixbuf unavailable due to return typing issues
-Retrieves a snapshot of the contained widget in the form of
+  fun pony_NOT_IMPLEMENTED_YET_get_pixbuf(): None =>
+    """
+    Retrieves a snapshot of the contained widget in the form of
 a #GdkPixbuf.  This is a new pixbuf with a reference count of 1,
 and the application should unreference it once it is no longer
 needed.
-{:argctype, "GdkPixbuf*"}
+
+    {:argctype, "GdkPixbuf*"}
 {:argname, "rv"}
 {:argtype, "GdkPixbuf.Pixbuf"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* get_surface unavailable due to return typing issues
-Retrieves a snapshot of the contained widget in the form of
+  fun pony_NOT_IMPLEMENTED_YET_get_surface(): None =>
+    """
+    Retrieves a snapshot of the contained widget in the form of
 a #cairo_surface_t.  If you need to keep this around over window
 resizes then you should add a reference to it.
-{:argctype, "cairo_surface_t*"}
+
+    {:argctype, "cairo_surface_t*"}
 {:argname, "rv"}
 {:argtype, "cairo.Surface"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 

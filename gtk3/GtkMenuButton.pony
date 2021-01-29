@@ -113,41 +113,57 @@ Returns the parent #GtkWidget to use to line up with menu.
     @gtk_menu_button_get_align_widget[GObjectREF](widget)
 */
 
-/* get_direction unavailable due to return typing issues
-Returns the direction the popup will be pointing at when popped up.
-{:argctype, "GtkArrowType"}
+  fun pony_NOT_IMPLEMENTED_YET_get_direction(): None =>
+    """
+    Returns the direction the popup will be pointing at when popped up.
+
+    {:argctype, "GtkArrowType"}
 {:argname, "rv"}
 {:argtype, "ArrowType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_menu_model unavailable due to return typing issues
-Returns the #GMenuModel used to generate the popup.
-{:argctype, "GMenuModel*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_menu_model(): None =>
+    """
+    Returns the #GMenuModel used to generate the popup.
+
+    {:argctype, "GMenuModel*"}
 {:argname, "rv"}
 {:argtype, "Gio.MenuModel"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_popover unavailable due to return typing issues
-Returns the #GtkPopover that pops out of the button.
+  fun pony_NOT_IMPLEMENTED_YET_get_popover(): None =>
+    """
+    Returns the #GtkPopover that pops out of the button.
 If the button is not using a #GtkPopover, this function
 returns %NULL.
-{:argctype, "GtkPopover*"}
+
+    {:argctype, "GtkPopover*"}
 {:argname, "rv"}
 {:argtype, "Popover"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_popup unavailable due to return typing issues
-Returns the #GtkMenu that pops out of the button.
+  fun pony_NOT_IMPLEMENTED_YET_get_popup(): None =>
+    """
+    Returns the #GtkMenu that pops out of the button.
 If the button does not use a #GtkMenu, this function
 returns %NULL.
-{:argctype, "GtkMenu*"}
+
+    {:argctype, "GtkMenu*"}
 {:argname, "rv"}
 {:argtype, "Menu"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_use_popover(): Bool =>
 """
@@ -169,8 +185,9 @@ and not for popovers.
 """
   @gtk_menu_button_set_align_widget[None](widget, align_widget_pony.gtkwidget())
 
-/* set_direction unavailable due to typing issues
-Sets the direction in which the popup will be popped up, as
+  fun pony_NOT_IMPLEMENTED_YET_set_direction(): None =>
+    """
+    Sets the direction in which the popup will be popped up, as
 well as changing the arrow’s direction. The child will not
 be changed to an arrow if it was customized.
 
@@ -179,11 +196,14 @@ GTK+ will its best to keep it inside the screen and fully visible.
 
 If you pass %GTK_ARROW_NONE for a @direction, the popup will behave
 as if you passed %GTK_ARROW_DOWN (although you won’t see any arrows).
-{:doh, %{argctype: "GtkArrowType", argname: "direction", argtype: "ArrowType", paramtype: :param, txo: "none"}}
-*/
 
-/* set_menu_model unavailable due to typing issues
-Sets the #GMenuModel from which the popup will be constructed,
+    {:doh, %{argctype: "GtkArrowType", argname: "direction", argtype: "ArrowType", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_menu_model(): None =>
+    """
+    Sets the #GMenuModel from which the popup will be constructed,
 or %NULL to dissociate any existing menu model and disable the button.
 
 Depending on the value of #GtkMenuButton:use-popover, either a
@@ -194,8 +214,10 @@ actions will be connected as documented for these functions.
 If #GtkMenuButton:popup or #GtkMenuButton:popover are already set, those
 widgets are dissociated from the @menu_button, and those properties are set
 to %NULL.
-{:doh, %{argctype: "GMenuModel*", argname: "menu_model", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GMenuModel*", argname: "menu_model", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_popover(popover_pony: GtkWidget val): None =>
 """

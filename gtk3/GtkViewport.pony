@@ -43,59 +43,88 @@ GtkViewport has a single CSS node with name viewport.
     widget = @gtk_viewport_new[GObjectREF](hadjustment_pony.gtkwidget(), vadjustment_pony.gtkwidget()) //
 
 
-/* get_bin_window unavailable due to return typing issues
-Gets the bin window of the #GtkViewport.
-{:argctype, "GdkWindow*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_bin_window(): None =>
+    """
+    Gets the bin window of the #GtkViewport.
+
+    {:argctype, "GdkWindow*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Window"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_hadjustment unavailable due to return typing issues
-Returns the horizontal adjustment of the viewport.
-{:argctype, "GtkAdjustment*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_hadjustment(): None =>
+    """
+    Returns the horizontal adjustment of the viewport.
+
+    {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_shadow_type unavailable due to return typing issues
-Gets the shadow type of the #GtkViewport. See
+  fun pony_NOT_IMPLEMENTED_YET_get_shadow_type(): None =>
+    """
+    Gets the shadow type of the #GtkViewport. See
 gtk_viewport_set_shadow_type().
-{:argctype, "GtkShadowType"}
+
+    {:argctype, "GtkShadowType"}
 {:argname, "rv"}
 {:argtype, "ShadowType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_vadjustment unavailable due to return typing issues
-Returns the vertical adjustment of the viewport.
-{:argctype, "GtkAdjustment*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_vadjustment(): None =>
+    """
+    Returns the vertical adjustment of the viewport.
+
+    {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_view_window unavailable due to return typing issues
-Gets the view window of the #GtkViewport.
-{:argctype, "GdkWindow*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_view_window(): None =>
+    """
+    Gets the view window of the #GtkViewport.
+
+    {:argctype, "GdkWindow*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Window"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* set_hadjustment unavailable due to typing issues
-Sets the horizontal adjustment of the viewport.
-{:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
 
-/* set_shadow_type unavailable due to typing issues
-Sets the shadow type of the viewport.
-{:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_hadjustment(): None =>
+    """
+    Sets the horizontal adjustment of the viewport.
 
-/* set_vadjustment unavailable due to typing issues
-Sets the vertical adjustment of the viewport.
-{:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_shadow_type(): None =>
+    """
+    Sets the shadow type of the viewport.
+
+    {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_vadjustment(): None =>
+    """
+    Sets the vertical adjustment of the viewport.
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+*/
+    """
 

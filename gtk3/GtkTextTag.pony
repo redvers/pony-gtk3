@@ -49,12 +49,15 @@ function is useful for a #GtkTextTag subclass.
 """
   @gtk_text_tag_changed[None](widget, size_changed_pony)
 
-/* event unavailable due to typing issues
-Emits the “event” signal on the #GtkTextTag.
-{:doh, %{argctype: "GObject*", argname: "event_object", argtype: "GObject.Object", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_event(): None =>
+    """
+    Emits the “event” signal on the #GtkTextTag.
+
+    {:doh, %{argctype: "GObject*", argname: "event_object", argtype: "GObject.Object", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GtkTextIter*", argname: "iter", argtype: "TextIter", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun get_priority(): I32 =>
 """

@@ -25,22 +25,30 @@ This should not be accessed directly. Use the accessor functions below.
     widget = @gtk_mount_operation_new[GObjectREF](parent_pony.gtkwidget()) //
 
 
-/* get_parent unavailable due to return typing issues
-Gets the transient parent used by the #GtkMountOperation
-{:argctype, "GtkWindow*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_parent(): None =>
+    """
+    Gets the transient parent used by the #GtkMountOperation
+
+    {:argctype, "GtkWindow*"}
 {:argname, "rv"}
 {:argtype, "Window"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_screen unavailable due to return typing issues
-Gets the screen on which windows of the #GtkMountOperation
+  fun pony_NOT_IMPLEMENTED_YET_get_screen(): None =>
+    """
+    Gets the screen on which windows of the #GtkMountOperation
 will be shown.
-{:argctype, "GdkScreen*"}
+
+    {:argctype, "GdkScreen*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Screen"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun is_showing(): Bool =>
 """
@@ -49,14 +57,20 @@ a window.
 """
   @gtk_mount_operation_is_showing[Bool](widget)
 
-/* set_parent unavailable due to typing issues
-Sets the transient parent for windows shown by the
+  fun pony_NOT_IMPLEMENTED_YET_set_parent(): None =>
+    """
+    Sets the transient parent for windows shown by the
 #GtkMountOperation.
-{:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}
-*/
 
-/* set_screen unavailable due to typing issues
-Sets the screen to show windows of the #GtkMountOperation on.
-{:doh, %{argctype: "GdkScreen*", argname: "screen", argtype: "Gdk.Screen", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_screen(): None =>
+    """
+    Sets the screen to show windows of the #GtkMountOperation on.
+
+    {:doh, %{argctype: "GdkScreen*", argname: "screen", argtype: "Gdk.Screen", paramtype: :param, txo: "none"}}
+*/
+    """
 

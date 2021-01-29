@@ -41,22 +41,28 @@ child widget.
     widget = @gtk_alignment_new[GObjectREF](xalign_pony, yalign_pony, xscale_pony, yscale_pony) //
 
 
-/* get_padding unavailable due to typing issues
-Gets the padding on the different sides of the widget.
+  fun pony_NOT_IMPLEMENTED_YET_get_padding(): None =>
+    """
+    Gets the padding on the different sides of the widget.
 See gtk_alignment_set_padding ().
-{:doh, %{argctype: "guint*", argname: "padding_top", argtype: "guint", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "guint*", argname: "padding_top", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "padding_bottom", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "padding_left", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "padding_right", argtype: "guint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* set unavailable due to typing issues
-Sets the #GtkAlignment values.
-{:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set(): None =>
+    """
+    Sets the #GtkAlignment values.
+
+    {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gfloat", argname: "xscale", argtype: "gfloat", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gfloat", argname: "yscale", argtype: "gfloat", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_padding(padding_top_pony: U32, padding_bottom_pony: U32, padding_left_pony: U32, padding_right_pony: U32): None =>
 """

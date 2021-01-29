@@ -28,13 +28,17 @@ emitted to report the scale factor.
     widget = @gtk_gesture_zoom_new[GObjectREF](widget_pony.gtkwidget()) //
 
 
-/* get_scale_delta unavailable due to return typing issues
-If @gesture is active, this function returns the zooming difference
+  fun pony_NOT_IMPLEMENTED_YET_get_scale_delta(): None =>
+    """
+    If @gesture is active, this function returns the zooming difference
 since the gesture was recognized (hence the starting point is
 considered 1:1). If @gesture is not active, 1 is returned.
-{:argctype, "gdouble"}
+
+    {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 

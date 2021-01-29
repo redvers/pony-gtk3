@@ -89,11 +89,14 @@ property.
 """
   @gtk_app_chooser_widget_get_show_recommended[Bool](widget)
 
-/* set_default_text unavailable due to typing issues
-Sets the text that is shown if there are not applications
+  fun pony_NOT_IMPLEMENTED_YET_set_default_text(): None =>
+    """
+    Sets the text that is shown if there are not applications
 that can handle the content type.
-{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_show_all(setting_pony: Bool): None =>
 """

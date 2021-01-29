@@ -40,20 +40,27 @@ pages.
     widget = @gtk_stack_sidebar_new[GObjectREF]() //
 
 
-/* get_stack unavailable due to return typing issues
-Retrieves the stack.
+  fun pony_NOT_IMPLEMENTED_YET_get_stack(): None =>
+    """
+    Retrieves the stack.
 See gtk_stack_sidebar_set_stack().
-{:argctype, "GtkStack*"}
+
+    {:argctype, "GtkStack*"}
 {:argname, "rv"}
 {:argtype, "Stack"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* set_stack unavailable due to typing issues
-Set the #GtkStack associated with this #GtkStackSidebar.
+  fun pony_NOT_IMPLEMENTED_YET_set_stack(): None =>
+    """
+    Set the #GtkStack associated with this #GtkStackSidebar.
 
 The sidebar widget will automatically update according to the order
 (packing) and items within the given #GtkStack.
-{:doh, %{argctype: "GtkStack*", argname: "stack", argtype: "Stack", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkStack*", argname: "stack", argtype: "Stack", paramtype: :param, txo: "none"}}
 */
+    """
 

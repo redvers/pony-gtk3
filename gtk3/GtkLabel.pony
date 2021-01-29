@@ -203,27 +203,35 @@ the #GtkLabel::activate-link signal and the gtk_label_get_current_uri() function
     widget = @gtk_label_new_with_mnemonic[GObjectREF](str_pony.cstring()) //
 
 
-/* get_angle unavailable due to return typing issues
-Gets the angle of rotation for the label. See
+  fun pony_NOT_IMPLEMENTED_YET_get_angle(): None =>
+    """
+    Gets the angle of rotation for the label. See
 gtk_label_set_angle().
-{:argctype, "gdouble"}
+
+    {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_attributes unavailable due to return typing issues
-Gets the attribute list that was set on the label using
+  fun pony_NOT_IMPLEMENTED_YET_get_attributes(): None =>
+    """
+    Gets the attribute list that was set on the label using
 gtk_label_set_attributes(), if any. This function does
 not reflect attributes that come from the labels markup
 (see gtk_label_set_markup()). If you want to get the
 effective attributes for the label, use
 pango_layout_get_attribute (gtk_label_get_layout (label)).
-{:argctype, "PangoAttrList*"}
+
+    {:argctype, "PangoAttrList*"}
 {:argname, "rv"}
 {:argtype, "Pango.AttrList"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_current_uri(): String =>
 """
@@ -239,21 +247,29 @@ or for use in a #GtkWidget::query-tooltip handler.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_ellipsize unavailable due to return typing issues
-Returns the ellipsizing position of the label. See gtk_label_set_ellipsize().
-{:argctype, "PangoEllipsizeMode"}
+  fun pony_NOT_IMPLEMENTED_YET_get_ellipsize(): None =>
+    """
+    Returns the ellipsizing position of the label. See gtk_label_set_ellipsize().
+
+    {:argctype, "PangoEllipsizeMode"}
 {:argname, "rv"}
 {:argtype, "Pango.EllipsizeMode"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_justify unavailable due to return typing issues
-Returns the justification of the label. See gtk_label_set_justify().
-{:argctype, "GtkJustification"}
+  fun pony_NOT_IMPLEMENTED_YET_get_justify(): None =>
+    """
+    Returns the justification of the label. See gtk_label_set_justify().
+
+    {:argctype, "GtkJustification"}
 {:argname, "rv"}
 {:argtype, "Justification"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_label(): String =>
 """
@@ -265,21 +281,26 @@ gtk_label_get_text()).
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_layout unavailable due to return typing issues
-Gets the #PangoLayout used to display the label.
+  fun pony_NOT_IMPLEMENTED_YET_get_layout(): None =>
+    """
+    Gets the #PangoLayout used to display the label.
 The layout is useful to e.g. convert text positions to
 pixel positions, in combination with gtk_label_get_layout_offsets().
 The returned layout is owned by the @label so need not be
 freed by the caller. The @label is free to recreate its layout at
 any time, so it should be considered read-only.
-{:argctype, "PangoLayout*"}
+
+    {:argctype, "PangoLayout*"}
 {:argname, "rv"}
 {:argtype, "Pango.Layout"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_layout_offsets unavailable due to typing issues
-Obtains the coordinates where the label will draw the #PangoLayout
+  fun pony_NOT_IMPLEMENTED_YET_get_layout_offsets(): None =>
+    """
+    Obtains the coordinates where the label will draw the #PangoLayout
 representing the text in the label; useful to convert mouse events
 into coordinates inside the #PangoLayout, e.g. to take some action
 if some part of the label is clicked. Of course you will need to
@@ -288,9 +309,11 @@ inside it, since labels are windowless (they return %FALSE from
 gtk_widget_get_has_window()). Remember
 when using the #PangoLayout functions you need to convert to
 and from pixels using PANGO_PIXELS() or #PANGO_SCALE.
-{:doh, %{argctype: "gint*", argname: "x", argtype: "gint", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "gint*", argname: "x", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "y", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun get_line_wrap(): Bool =>
 """
@@ -299,13 +322,17 @@ See gtk_label_set_line_wrap().
 """
   @gtk_label_get_line_wrap[Bool](widget)
 
-/* get_line_wrap_mode unavailable due to return typing issues
-Returns line wrap mode used by the label. See gtk_label_set_line_wrap_mode().
-{:argctype, "PangoWrapMode"}
+  fun pony_NOT_IMPLEMENTED_YET_get_line_wrap_mode(): None =>
+    """
+    Returns line wrap mode used by the label. See gtk_label_set_line_wrap_mode().
+
+    {:argctype, "PangoWrapMode"}
 {:argname, "rv"}
 {:argtype, "Pango.WrapMode"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_lines(): I32 =>
 """
@@ -342,12 +369,15 @@ Gets the value set by gtk_label_set_selectable().
 """
   @gtk_label_get_selectable[Bool](widget)
 
-/* get_selection_bounds unavailable due to typing issues
-Gets the selected range of characters in the label, returning %TRUE
+  fun pony_NOT_IMPLEMENTED_YET_get_selection_bounds(): None =>
+    """
+    Gets the selected range of characters in the label, returning %TRUE
 if there’s a selection.
-{:doh, %{argctype: "gint*", argname: "start", argtype: "gint", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "gint*", argname: "start", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "gend", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun get_single_line_mode(): Bool =>
 """
@@ -394,21 +424,29 @@ gtk_label_set_width_chars().
 """
   @gtk_label_get_width_chars[I32](widget)
 
-/* get_xalign unavailable due to return typing issues
-Gets the #GtkLabel:xalign property for @label.
-{:argctype, "gfloat"}
-{:argname, "rv"}
-{:argtype, "gfloat"}
-{:paramtype, :param}
-{:txo, "none"} */
+  fun pony_NOT_IMPLEMENTED_YET_get_xalign(): None =>
+    """
+    Gets the #GtkLabel:xalign property for @label.
 
-/* get_yalign unavailable due to return typing issues
-Gets the #GtkLabel:yalign property for @label.
-{:argctype, "gfloat"}
+    {:argctype, "gfloat"}
 {:argname, "rv"}
 {:argtype, "gfloat"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_yalign(): None =>
+    """
+    Gets the #GtkLabel:yalign property for @label.
+
+    {:argctype, "gfloat"}
+{:argname, "rv"}
+{:argtype, "gfloat"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+    """
 
 fun select_region(start_offset_pony: I32, end_offset_pony: I32): None =>
 """
@@ -419,16 +457,20 @@ this function has no effect. If @start_offset or
 """
   @gtk_label_select_region[None](widget, start_offset_pony, end_offset_pony)
 
-/* set_angle unavailable due to typing issues
-Sets the angle of rotation for the label. An angle of 90 reads from
+  fun pony_NOT_IMPLEMENTED_YET_set_angle(): None =>
+    """
+    Sets the angle of rotation for the label. An angle of 90 reads from
 from bottom to top, an angle of 270, from top to bottom. The angle
 setting for the label is ignored if the label is selectable,
 wrapped, or ellipsized.
-{:doh, %{argctype: "gdouble", argname: "angle", argtype: "gdouble", paramtype: :param, txo: "none"}}
-*/
 
-/* set_attributes unavailable due to typing issues
-Sets a #PangoAttrList; the attributes in the list are applied to the
+    {:doh, %{argctype: "gdouble", argname: "angle", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_attributes(): None =>
+    """
+    Sets a #PangoAttrList; the attributes in the list are applied to the
 label text.
 
 The attributes set with this function will be applied
@@ -437,32 +479,43 @@ of the #GtkLabel:use-underline or #GtkLabel:use-markup properties.
 While it is not recommended to mix markup strings with manually set
 attributes, if you must; know that the attributes will be applied
 to the label after the markup string is parsed.
-{:doh, %{argctype: "PangoAttrList*", argname: "attrs", argtype: "Pango.AttrList", paramtype: :param, txo: "none"}}
-*/
 
-/* set_ellipsize unavailable due to typing issues
-Sets the mode used to ellipsize (add an ellipsis: "...") to the text
+    {:doh, %{argctype: "PangoAttrList*", argname: "attrs", argtype: "Pango.AttrList", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_ellipsize(): None =>
+    """
+    Sets the mode used to ellipsize (add an ellipsis: "...") to the text
 if there is not enough space to render the entire string.
-{:doh, %{argctype: "PangoEllipsizeMode", argname: "mode", argtype: "Pango.EllipsizeMode", paramtype: :param, txo: "none"}}
-*/
 
-/* set_justify unavailable due to typing issues
-Sets the alignment of the lines in the text of the label relative to
+    {:doh, %{argctype: "PangoEllipsizeMode", argname: "mode", argtype: "Pango.EllipsizeMode", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_justify(): None =>
+    """
+    Sets the alignment of the lines in the text of the label relative to
 each other. %GTK_JUSTIFY_LEFT is the default value when the widget is
 first created with gtk_label_new(). If you instead want to set the
 alignment of the label as a whole, use gtk_widget_set_halign() instead.
 gtk_label_set_justify() has no effect on labels containing only a
 single line.
-{:doh, %{argctype: "GtkJustification", argname: "jtype", argtype: "Justification", paramtype: :param, txo: "none"}}
-*/
 
-/* set_label unavailable due to typing issues
-Sets the text of the label. The label is interpreted as
+    {:doh, %{argctype: "GtkJustification", argname: "jtype", argtype: "Justification", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_label(): None =>
+    """
+    Sets the text of the label. The label is interpreted as
 including embedded underlines and/or Pango markup depending
 on the values of the #GtkLabel:use-underline and
 #GtkLabel:use-markup properties.
-{:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_line_wrap(wrap_pony: Bool): None =>
 """
@@ -478,12 +531,15 @@ set the label’s width using gtk_widget_set_size_request().
 """
   @gtk_label_set_line_wrap[None](widget, wrap_pony)
 
-/* set_line_wrap_mode unavailable due to typing issues
-If line wrapping is on (see gtk_label_set_line_wrap()) this controls how
+  fun pony_NOT_IMPLEMENTED_YET_set_line_wrap_mode(): None =>
+    """
+    If line wrapping is on (see gtk_label_set_line_wrap()) this controls how
 the line wrapping is done. The default is %PANGO_WRAP_WORD which means
 wrap on word boundaries.
-{:doh, %{argctype: "PangoWrapMode", argname: "wrap_mode", argtype: "Pango.WrapMode", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "PangoWrapMode", argname: "wrap_mode", argtype: "Pango.WrapMode", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_lines(lines_pony: I32): None =>
 """
@@ -494,8 +550,9 @@ number of lines.
 """
   @gtk_label_set_lines[None](widget, lines_pony)
 
-/* set_markup unavailable due to typing issues
-Parses @str which is marked up with the
+  fun pony_NOT_IMPLEMENTED_YET_set_markup(): None =>
+    """
+    Parses @str which is marked up with the
 [Pango text markup language][PangoMarkupFormat], setting the
 label’s text and attribute list based on the parse results.
 
@@ -521,11 +578,14 @@ should also ensure that you set the #GtkLabel:use-markup property
 accordingly.
 
 See also: gtk_label_set_text()
-{:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* set_markup_with_mnemonic unavailable due to typing issues
-Parses @str which is marked up with the
+    {:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_markup_with_mnemonic(): None =>
+    """
+    Parses @str which is marked up with the
 [Pango text markup language][PangoMarkupFormat],
 setting the label’s text and attribute list based on the parse results.
 If characters in @str are preceded by an underscore, they are underlined
@@ -533,8 +593,10 @@ indicating that they represent a keyboard accelerator called a mnemonic.
 
 The mnemonic key can be used to activate another widget, chosen
 automatically, or explicitly using gtk_label_set_mnemonic_widget().
-{:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_max_width_chars(n_chars_pony: I32): None =>
 """
@@ -561,13 +623,16 @@ and toggle focus between the colliding widgets otherwise.
 """
   @gtk_label_set_mnemonic_widget[None](widget, widget_pony.gtkwidget())
 
-/* set_pattern unavailable due to typing issues
-The pattern of underlines you want under the existing text within the
+  fun pony_NOT_IMPLEMENTED_YET_set_pattern(): None =>
+    """
+    The pattern of underlines you want under the existing text within the
 #GtkLabel widget.  For example if the current text of the label says
 “FooBarBaz” passing a pattern of “___   ___” will underline
 “Foo” and “Baz” but not “Bar”.
-{:doh, %{argctype: "const gchar*", argname: "pattern", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "pattern", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_selectable(setting_pony: Bool): None =>
 """
@@ -582,8 +647,9 @@ Sets whether the label is in single line mode.
 """
   @gtk_label_set_single_line_mode[None](widget, single_line_mode_pony)
 
-/* set_text unavailable due to typing issues
-Sets the text within the #GtkLabel widget. It overwrites any text that
+  fun pony_NOT_IMPLEMENTED_YET_set_text(): None =>
+    """
+    Sets the text within the #GtkLabel widget. It overwrites any text that
 was there before.
 
 This function will clear any previously set mnemonic accelerators, and
@@ -593,17 +659,22 @@ This function will set the #GtkLabel:use-markup property to %FALSE
 as a side effect.
 
 See also: gtk_label_set_markup()
-{:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* set_text_with_mnemonic unavailable due to typing issues
-Sets the label’s text from the string @str.
+    {:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_text_with_mnemonic(): None =>
+    """
+    Sets the label’s text from the string @str.
 If characters in @str are preceded by an underscore, they are underlined
 indicating that they represent a keyboard accelerator called a mnemonic.
 The mnemonic key can be used to activate another widget, chosen
 automatically, or explicitly using gtk_label_set_mnemonic_widget().
-{:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "str", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_track_visited_links(track_links_pony: Bool): None =>
 """
@@ -633,13 +704,19 @@ Sets the desired width in characters of @label to @n_chars.
 """
   @gtk_label_set_width_chars[None](widget, n_chars_pony)
 
-/* set_xalign unavailable due to typing issues
-Sets the #GtkLabel:xalign property for @label.
-{:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_xalign(): None =>
+    """
+    Sets the #GtkLabel:xalign property for @label.
 
-/* set_yalign unavailable due to typing issues
-Sets the #GtkLabel:yalign property for @label.
-{:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_yalign(): None =>
+    """
+    Sets the #GtkLabel:yalign property for @label.
+
+    {:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+*/
+    """
 

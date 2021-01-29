@@ -31,8 +31,9 @@ Gets the “Cancel” button.
     @gtk_font_selection_dialog_get_cancel_button[GObjectREF](widget)
 */
 
-/* get_font_name unavailable due to return typing issues
-Gets the currently-selected font name.
+  fun pony_NOT_IMPLEMENTED_YET_get_font_name(): None =>
+    """
+    Gets the currently-selected font name.
 
 Note that this can be a different string than what you set with
 gtk_font_selection_dialog_set_font_name(), as the font selection widget
@@ -40,11 +41,14 @@ may normalize font names and thus return a string with a different
 structure. For example, “Helvetica Italic Bold 12” could be normalized
 to “Helvetica Bold Italic 12”.  Use pango_font_description_equal()
 if you want to compare two font descriptions.
-{:argctype, "gchar*"}
+
+    {:argctype, "gchar*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
 /* Needs conversion code 
 Retrieves the #GtkFontSelection widget embedded in the dialog.
@@ -66,13 +70,19 @@ Gets the text displayed in the preview area.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* set_font_name unavailable due to typing issues
-Sets the currently selected font.
-{:doh, %{argctype: "const gchar*", argname: "fontname", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_font_name(): None =>
+    """
+    Sets the currently selected font.
 
-/* set_preview_text unavailable due to typing issues
-Sets the text displayed in the preview area.
-{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "const gchar*", argname: "fontname", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_preview_text(): None =>
+    """
+    Sets the text displayed in the preview area.
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
 

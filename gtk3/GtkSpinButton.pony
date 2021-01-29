@@ -134,20 +134,27 @@ create_floating_spin_button (void)
     widget = @gtk_spin_button_new_with_range[GObjectREF](min_pony, max_pony, step_pony) //
 
 
-/* configure unavailable due to typing issues
-Changes the properties of an existing spin button. The adjustment,
+  fun pony_NOT_IMPLEMENTED_YET_configure(): None =>
+    """
+    Changes the properties of an existing spin button. The adjustment,
 climb rate, and number of decimal places are updated accordingly.
-{:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "climb_rate", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* get_adjustment unavailable due to return typing issues
-Get the adjustment associated with a #GtkSpinButton
-{:argctype, "GtkAdjustment*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_adjustment(): None =>
+    """
+    Get the adjustment associated with a #GtkSpinButton
+
+    {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_digits(): U32 =>
 """
@@ -155,12 +162,15 @@ Fetches the precision of @spin_button. See gtk_spin_button_set_digits().
 """
   @gtk_spin_button_get_digits[U32](widget)
 
-/* get_increments unavailable due to typing issues
-Gets the current step and page the increments used by @spin_button. See
+  fun pony_NOT_IMPLEMENTED_YET_get_increments(): None =>
+    """
+    Gets the current step and page the increments used by @spin_button. See
 gtk_spin_button_set_increments().
-{:doh, %{argctype: "gdouble*", argname: "step", argtype: "gdouble", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "gdouble*", argname: "step", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "page", argtype: "gdouble", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun get_numeric(): Bool =>
 """
@@ -169,12 +179,15 @@ See gtk_spin_button_set_numeric().
 """
   @gtk_spin_button_get_numeric[Bool](widget)
 
-/* get_range unavailable due to typing issues
-Gets the range allowed for @spin_button.
+  fun pony_NOT_IMPLEMENTED_YET_get_range(): None =>
+    """
+    Gets the range allowed for @spin_button.
 See gtk_spin_button_set_range().
-{:doh, %{argctype: "gdouble*", argname: "min", argtype: "gdouble", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "gdouble*", argname: "min", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "max", argtype: "gdouble", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun get_snap_to_ticks(): Bool =>
 """
@@ -183,22 +196,30 @@ See gtk_spin_button_set_snap_to_ticks().
 """
   @gtk_spin_button_get_snap_to_ticks[Bool](widget)
 
-/* get_update_policy unavailable due to return typing issues
-Gets the update behavior of a spin button.
+  fun pony_NOT_IMPLEMENTED_YET_get_update_policy(): None =>
+    """
+    Gets the update behavior of a spin button.
 See gtk_spin_button_set_update_policy().
-{:argctype, "GtkSpinButtonUpdatePolicy"}
+
+    {:argctype, "GtkSpinButtonUpdatePolicy"}
 {:argname, "rv"}
 {:argtype, "SpinButtonUpdatePolicy"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_value unavailable due to return typing issues
-Get the value in the @spin_button.
-{:argctype, "gdouble"}
+  fun pony_NOT_IMPLEMENTED_YET_get_value(): None =>
+    """
+    Get the value in the @spin_button.
+
+    {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_value_as_int(): I32 =>
 """
@@ -214,10 +235,13 @@ exceeded. See gtk_spin_button_set_wrap().
 """
   @gtk_spin_button_get_wrap[Bool](widget)
 
-/* set_adjustment unavailable due to typing issues
-Replaces the #GtkAdjustment associated with @spin_button.
-{:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_adjustment(): None =>
+    """
+    Replaces the #GtkAdjustment associated with @spin_button.
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_digits(digits_pony: U32): None =>
 """
@@ -226,12 +250,15 @@ is allowed.
 """
   @gtk_spin_button_set_digits[None](widget, digits_pony)
 
-/* set_increments unavailable due to typing issues
-Sets the step and page increments for spin_button.  This affects how
+  fun pony_NOT_IMPLEMENTED_YET_set_increments(): None =>
+    """
+    Sets the step and page increments for spin_button.  This affects how
 quickly the value changes when the spin button’s arrows are activated.
-{:doh, %{argctype: "gdouble", argname: "step", argtype: "gdouble", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "gdouble", argname: "step", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "page", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_numeric(numeric_pony: Bool): None =>
 """
@@ -240,14 +267,17 @@ into the spin button.
 """
   @gtk_spin_button_set_numeric[None](widget, numeric_pony)
 
-/* set_range unavailable due to typing issues
-Sets the minimum and maximum allowable values for @spin_button.
+  fun pony_NOT_IMPLEMENTED_YET_set_range(): None =>
+    """
+    Sets the minimum and maximum allowable values for @spin_button.
 
 If the current value is outside this range, it will be adjusted
 to fit within the range, otherwise it will remain unchanged.
-{:doh, %{argctype: "gdouble", argname: "min", argtype: "gdouble", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "gdouble", argname: "min", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "max", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_snap_to_ticks(snap_to_ticks_pony: Bool): None =>
 """
@@ -257,17 +287,23 @@ providing an invalid value.
 """
   @gtk_spin_button_set_snap_to_ticks[None](widget, snap_to_ticks_pony)
 
-/* set_update_policy unavailable due to typing issues
-Sets the update behavior of a spin button.
+  fun pony_NOT_IMPLEMENTED_YET_set_update_policy(): None =>
+    """
+    Sets the update behavior of a spin button.
 This determines whether the spin button is always updated
 or only when a valid value is set.
-{:doh, %{argctype: "GtkSpinButtonUpdatePolicy", argname: "policy", argtype: "SpinButtonUpdatePolicy", paramtype: :param, txo: "none"}}
-*/
 
-/* set_value unavailable due to typing issues
-Sets the value of @spin_button.
-{:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GtkSpinButtonUpdatePolicy", argname: "policy", argtype: "SpinButtonUpdatePolicy", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_value(): None =>
+    """
+    Sets the value of @spin_button.
+
+    {:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_wrap(wrap_pony: Bool): None =>
 """
@@ -277,12 +313,15 @@ of the range is exceeded.
 """
   @gtk_spin_button_set_wrap[None](widget, wrap_pony)
 
-/* spin unavailable due to typing issues
-Increment or decrement a spin button’s value in a specified
+  fun pony_NOT_IMPLEMENTED_YET_spin(): None =>
+    """
+    Increment or decrement a spin button’s value in a specified
 direction by a specified amount.
-{:doh, %{argctype: "GtkSpinType", argname: "direction", argtype: "SpinType", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkSpinType", argname: "direction", argtype: "SpinType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "increment", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun update(): None =>
 """

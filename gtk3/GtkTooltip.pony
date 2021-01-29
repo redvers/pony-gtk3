@@ -67,51 +67,70 @@ and gtk_tooltip_set_icon().
 """
   @gtk_tooltip_set_custom[None](widget, custom_widget_pony.gtkwidget())
 
-/* set_icon unavailable due to typing issues
-Sets the icon of the tooltip (which is in front of the text) to be
+  fun pony_NOT_IMPLEMENTED_YET_set_icon(): None =>
+    """
+    Sets the icon of the tooltip (which is in front of the text) to be
 @pixbuf.  If @pixbuf is %NULL, the image will be hidden.
-{:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
-*/
 
-/* set_icon_from_gicon unavailable due to typing issues
-Sets the icon of the tooltip (which is in front of the text)
+    {:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_icon_from_gicon(): None =>
+    """
+    Sets the icon of the tooltip (which is in front of the text)
 to be the icon indicated by @gicon with the size indicated
 by @size. If @gicon is %NULL, the image will be hidden.
-{:doh, %{argctype: "GIcon*", argname: "gicon", argtype: "Gio.Icon", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GIcon*", argname: "gicon", argtype: "Gio.Icon", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkIconSize", argname: "size", argtype: "gint", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_icon_from_icon_name unavailable due to typing issues
-Sets the icon of the tooltip (which is in front of the text) to be
+  fun pony_NOT_IMPLEMENTED_YET_set_icon_from_icon_name(): None =>
+    """
+    Sets the icon of the tooltip (which is in front of the text) to be
 the icon indicated by @icon_name with the size indicated
 by @size.  If @icon_name is %NULL, the image will be hidden.
-{:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkIconSize", argname: "size", argtype: "gint", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_icon_from_stock unavailable due to typing issues
-Sets the icon of the tooltip (which is in front of the text) to be
+  fun pony_NOT_IMPLEMENTED_YET_set_icon_from_stock(): None =>
+    """
+    Sets the icon of the tooltip (which is in front of the text) to be
 the stock item indicated by @stock_id with the size indicated
 by @size.  If @stock_id is %NULL, the image will be hidden.
-{:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkIconSize", argname: "size", argtype: "gint", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_markup unavailable due to typing issues
-Sets the text of the tooltip to be @markup, which is marked up
+  fun pony_NOT_IMPLEMENTED_YET_set_markup(): None =>
+    """
+    Sets the text of the tooltip to be @markup, which is marked up
 with the [Pango text markup language][PangoMarkupFormat].
 If @markup is %NULL, the label will be hidden.
-{:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* set_text unavailable due to typing issues
-Sets the text of the tooltip to be @text. If @text is %NULL, the label
+    {:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_text(): None =>
+    """
+    Sets the text of the tooltip to be @text. If @text is %NULL, the label
 will be hidden. See also gtk_tooltip_set_markup().
-{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* set_tip_area unavailable due to typing issues
-Sets the area of the widget, where the contents of this tooltip apply,
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_tip_area(): None =>
+    """
+    Sets the area of the widget, where the contents of this tooltip apply,
 to be @rect (in widget coordinates).  This is especially useful for
 properly setting tooltips on #GtkTreeView rows and cells, #GtkIconViews,
 etc.
@@ -119,6 +138,8 @@ etc.
 For setting tooltips on #GtkTreeView, please refer to the convenience
 functions for this: gtk_tree_view_set_tooltip_row() and
 gtk_tree_view_set_tooltip_cell().
-{:doh, %{argctype: "const GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 */
+    """
 

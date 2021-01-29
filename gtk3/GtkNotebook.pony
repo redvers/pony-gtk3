@@ -128,10 +128,13 @@ not be cancelled.
 """
   @gtk_notebook_detach_tab[None](widget, child_pony.gtkwidget())
 
-/* get_action_widget unavailable due to typing issues
-Gets one of the action widgets. See gtk_notebook_set_action_widget().
-{:doh, %{argctype: "GtkPackType", argname: "pack_type", argtype: "PackType", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_action_widget(): None =>
+    """
+    Gets one of the action widgets. See gtk_notebook_set_action_widget().
+
+    {:doh, %{argctype: "GtkPackType", argname: "pack_type", argtype: "PackType", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun get_current_page(): I32 =>
 """
@@ -201,13 +204,17 @@ Returns whether the tab contents can be detached from @notebook.
 """
   @gtk_notebook_get_tab_detachable[Bool](widget, child_pony.gtkwidget())
 
-/* get_tab_hborder unavailable due to return typing issues
-Returns the horizontal width of a tab border.
-{:argctype, "guint16"}
+  fun pony_NOT_IMPLEMENTED_YET_get_tab_hborder(): None =>
+    """
+    Returns the horizontal width of a tab border.
+
+    {:argctype, "guint16"}
 {:argname, "rv"}
 {:argtype, "guint16"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 /* Needs conversion code 
 Returns the tab label widget for the page @child.
@@ -226,14 +233,18 @@ Retrieves the text of the tab label for the page containing
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_tab_pos unavailable due to return typing issues
-Gets the edge at which the tabs for switching pages in the
+  fun pony_NOT_IMPLEMENTED_YET_get_tab_pos(): None =>
+    """
+    Gets the edge at which the tabs for switching pages in the
 notebook are drawn.
-{:argctype, "GtkPositionType"}
+
+    {:argctype, "GtkPositionType"}
 {:argname, "rv"}
 {:argtype, "PositionType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_tab_reorderable(child_pony: GtkWidget val): Bool =>
 """
@@ -241,13 +252,17 @@ Gets whether the tab can be reordered via drag and drop or not.
 """
   @gtk_notebook_get_tab_reorderable[Bool](widget, child_pony.gtkwidget())
 
-/* get_tab_vborder unavailable due to return typing issues
-Returns the vertical width of a tab border.
-{:argctype, "guint16"}
+  fun pony_NOT_IMPLEMENTED_YET_get_tab_vborder(): None =>
+    """
+    Returns the vertical width of a tab border.
+
+    {:argctype, "guint16"}
 {:argname, "rv"}
 {:argtype, "guint16"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun insert_page(child_pony: GtkWidget val, tab_label_pony: GtkWidget val, position_pony: I32): I32 =>
 """
@@ -326,15 +341,18 @@ of the list.
 """
   @gtk_notebook_reorder_child[None](widget, child_pony.gtkwidget(), position_pony)
 
-/* set_action_widget unavailable due to typing issues
-Sets @widget as one of the action widgets. Depending on the pack type
+  fun pony_NOT_IMPLEMENTED_YET_set_action_widget(): None =>
+    """
+    Sets @widget as one of the action widgets. Depending on the pack type
 the widget will be placed before or after the tabs. You can use
 a #GtkBox if you need to pack more than one widget on the same side.
 
 Note that action widgets are “internal” children of the notebook and thus
 not included in the list returned from gtk_container_foreach().
-{:doh, %{argctype: "GtkPackType", argname: "pack_type", argtype: "PackType", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkPackType", argname: "pack_type", argtype: "PackType", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_current_page(page_num_pony: I32): None =>
 """
@@ -347,14 +365,17 @@ adding them to a notebook.
 """
   @gtk_notebook_set_current_page[None](widget, page_num_pony)
 
-/* set_group_name unavailable due to typing issues
-Sets a group name for @notebook.
+  fun pony_NOT_IMPLEMENTED_YET_set_group_name(): None =>
+    """
+    Sets a group name for @notebook.
 
 Notebooks with the same name will be able to exchange tabs
 via drag and drop. A notebook with a %NULL group name will
 not be able to exchange tabs with any other notebook.
-{:doh, %{argctype: "const gchar*", argname: "group_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "group_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_menu_label(child_pony: GtkWidget val, menu_label_pony: GtkWidget val): None =>
 """
@@ -362,10 +383,13 @@ Changes the menu label for the page containing @child.
 """
   @gtk_notebook_set_menu_label[None](widget, child_pony.gtkwidget(), menu_label_pony.gtkwidget())
 
-/* set_menu_label_text unavailable due to typing issues
-Creates a new label and sets it as the menu label of @child.
-{:doh, %{argctype: "const gchar*", argname: "menu_text", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_menu_label_text(): None =>
+    """
+    Creates a new label and sets it as the menu label of @child.
+
+    {:doh, %{argctype: "const gchar*", argname: "menu_text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_scrollable(scrollable_pony: Bool): None =>
 """
@@ -446,17 +470,23 @@ have the label “page N”.
 """
   @gtk_notebook_set_tab_label[None](widget, child_pony.gtkwidget(), tab_label_pony.gtkwidget())
 
-/* set_tab_label_text unavailable due to typing issues
-Creates a new label and sets it as the tab label for the page
+  fun pony_NOT_IMPLEMENTED_YET_set_tab_label_text(): None =>
+    """
+    Creates a new label and sets it as the tab label for the page
 containing @child.
-{:doh, %{argctype: "const gchar*", argname: "tab_text", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* set_tab_pos unavailable due to typing issues
-Sets the edge at which the tabs for switching pages in the
-notebook are drawn.
-{:doh, %{argctype: "GtkPositionType", argname: "pos", argtype: "PositionType", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "const gchar*", argname: "tab_text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_tab_pos(): None =>
+    """
+    Sets the edge at which the tabs for switching pages in the
+notebook are drawn.
+
+    {:doh, %{argctype: "GtkPositionType", argname: "pos", argtype: "PositionType", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun set_tab_reorderable(child_pony: GtkWidget val, reorderable_pony: Bool): None =>
 """

@@ -36,47 +36,62 @@ gtk_widget_get_window() as you would for a #GtkDrawingArea.
     widget = @gtk_layout_new[GObjectREF](hadjustment_pony.gtkwidget(), vadjustment_pony.gtkwidget()) //
 
 
-/* get_bin_window unavailable due to return typing issues
-Retrieve the bin window of the layout used for drawing operations.
-{:argctype, "GdkWindow*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_bin_window(): None =>
+    """
+    Retrieve the bin window of the layout used for drawing operations.
+
+    {:argctype, "GdkWindow*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Window"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_hadjustment unavailable due to return typing issues
-This function should only be called after the layout has been
+  fun pony_NOT_IMPLEMENTED_YET_get_hadjustment(): None =>
+    """
+    This function should only be called after the layout has been
 placed in a #GtkScrolledWindow or otherwise configured for
 scrolling. It returns the #GtkAdjustment used for communication
 between the horizontal scrollbar and @layout.
 
 See #GtkScrolledWindow, #GtkScrollbar, #GtkAdjustment for details.
-{:argctype, "GtkAdjustment*"}
+
+    {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_size unavailable due to typing issues
-Gets the size that has been set on the layout, and that determines
+  fun pony_NOT_IMPLEMENTED_YET_get_size(): None =>
+    """
+    Gets the size that has been set on the layout, and that determines
 the total extents of the layout’s scrollbar area. See
 gtk_layout_set_size ().
-{:doh, %{argctype: "guint*", argname: "width", argtype: "guint", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "guint*", argname: "width", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "height", argtype: "guint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_vadjustment unavailable due to return typing issues
-This function should only be called after the layout has been
+  fun pony_NOT_IMPLEMENTED_YET_get_vadjustment(): None =>
+    """
+    This function should only be called after the layout has been
 placed in a #GtkScrolledWindow or otherwise configured for
 scrolling. It returns the #GtkAdjustment used for communication
 between the vertical scrollbar and @layout.
 
 See #GtkScrolledWindow, #GtkScrollbar, #GtkAdjustment for details.
-{:argctype, "GtkAdjustment*"}
+
+    {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun move(child_widget_pony: GtkWidget val, x_pony: I32, y_pony: I32): None =>
 """
@@ -91,12 +106,15 @@ Adds @child_widget to @layout, at position (@x,@y).
 """
   @gtk_layout_put[None](widget, child_widget_pony.gtkwidget(), x_pony, y_pony)
 
-/* set_hadjustment unavailable due to typing issues
-Sets the horizontal scroll adjustment for the layout.
+  fun pony_NOT_IMPLEMENTED_YET_set_hadjustment(): None =>
+    """
+    Sets the horizontal scroll adjustment for the layout.
 
 See #GtkScrolledWindow, #GtkScrollbar, #GtkAdjustment for details.
-{:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_size(width_pony: U32, height_pony: U32): None =>
 """
@@ -104,10 +122,13 @@ Sets the size of the scrollable area of the layout.
 """
   @gtk_layout_set_size[None](widget, width_pony, height_pony)
 
-/* set_vadjustment unavailable due to typing issues
-Sets the vertical scroll adjustment for the layout.
+  fun pony_NOT_IMPLEMENTED_YET_set_vadjustment(): None =>
+    """
+    Sets the vertical scroll adjustment for the layout.
 
 See #GtkScrolledWindow, #GtkScrollbar, #GtkAdjustment for details.
-{:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
+    """
 

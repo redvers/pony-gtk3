@@ -37,25 +37,34 @@ this fact, all #GtkMisc API has been deprecated.
 
 
 
-/* get_alignment unavailable due to typing issues
-Gets the X and Y alignment of the widget within its allocation.
+  fun pony_NOT_IMPLEMENTED_YET_get_alignment(): None =>
+    """
+    Gets the X and Y alignment of the widget within its allocation.
 See gtk_misc_set_alignment().
-{:doh, %{argctype: "gfloat*", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "gfloat*", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gfloat*", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_padding unavailable due to typing issues
-Gets the padding in the X and Y directions of the widget.
+  fun pony_NOT_IMPLEMENTED_YET_get_padding(): None =>
+    """
+    Gets the padding in the X and Y directions of the widget.
 See gtk_misc_set_padding().
-{:doh, %{argctype: "gint*", argname: "xpad", argtype: "gint", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "gint*", argname: "xpad", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "ypad", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* set_alignment unavailable due to typing issues
-Sets the alignment of the widget.
-{:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_alignment(): None =>
+    """
+    Sets the alignment of the widget.
+
+    {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_padding(xpad_pony: I32, ypad_pony: I32): None =>
 """

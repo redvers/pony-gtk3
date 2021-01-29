@@ -48,8 +48,9 @@ table will resize themselves to the size of the largest widget in the table.
     widget = @gtk_table_new[GObjectREF](rows_pony, columns_pony, homogeneous_pony) //
 
 
-/* attach unavailable due to typing issues
-Adds a widget to a table. The number of “cells” that a widget will occupy is
+  fun pony_NOT_IMPLEMENTED_YET_attach(): None =>
+    """
+    Adds a widget to a table. The number of “cells” that a widget will occupy is
 specified by @left_attach, @right_attach, @top_attach and @bottom_attach.
 These each represent the leftmost, rightmost, uppermost and lowest column
 and row numbers of the table. (Columns and rows are indexed from zero).
@@ -63,9 +64,11 @@ gtk_table_attach (table, button,
                   xpadding, ypadding);
 ]|
 If you want to make the button span the entire bottom row, use @left_attach == 0 and @right_attach = 2 instead.
-{:doh, %{argctype: "GtkAttachOptions", argname: "xoptions", argtype: "AttachOptions", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkAttachOptions", argname: "xoptions", argtype: "AttachOptions", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkAttachOptions", argname: "yoptions", argtype: "AttachOptions", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun attach_defaults(widget_pony: GtkWidget val, left_attach_pony: U32, right_attach_pony: U32, top_attach_pony: U32, bottom_attach_pony: U32): None =>
 """
@@ -113,11 +116,14 @@ row @row + 1. See gtk_table_set_row_spacing().
 """
   @gtk_table_get_row_spacing[U32](widget, row_pony)
 
-/* get_size unavailable due to typing issues
-Gets the number of rows and columns in the table.
-{:doh, %{argctype: "guint*", argname: "rows", argtype: "guint", paramtype: :param, txo: "full"}}
+  fun pony_NOT_IMPLEMENTED_YET_get_size(): None =>
+    """
+    Gets the number of rows and columns in the table.
+
+    {:doh, %{argctype: "guint*", argname: "rows", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "columns", argtype: "guint", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun resize(rows_pony: U32, columns_pony: U32): None =>
 """

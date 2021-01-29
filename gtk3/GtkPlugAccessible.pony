@@ -23,11 +23,15 @@ No documentation provided
 
 
 
-/* get_id unavailable due to return typing issues
-No provided documentation
-{:argctype, "gchar*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_id(): None =>
+    """
+    No provided documentation
+
+    {:argctype, "gchar*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 

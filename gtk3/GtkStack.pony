@@ -40,27 +40,36 @@ GtkStack has a single CSS node named stack.
     widget = @gtk_stack_new[GObjectREF]() //
 
 
-/* add_named unavailable due to typing issues
-Adds a child to @stack.
+  fun pony_NOT_IMPLEMENTED_YET_add_named(): None =>
+    """
+    Adds a child to @stack.
 The child is identified by the @name.
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* add_titled unavailable due to typing issues
-Adds a child to @stack.
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_add_titled(): None =>
+    """
+    Adds a child to @stack.
 The child is identified by the @name. The @title
 will be used by #GtkStackSwitcher to represent
 @child in a tab bar, so it should be short.
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* get_child_by_name unavailable due to typing issues
-Finds the child of the #GtkStack with the name given as
+  fun pony_NOT_IMPLEMENTED_YET_get_child_by_name(): None =>
+    """
+    Finds the child of the #GtkStack with the name given as
 the argument. Returns %NULL if there is no child with this
 name.
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun get_hhomogeneous(): Bool =>
 """
@@ -97,14 +106,18 @@ another.
 """
   @gtk_stack_get_transition_running[Bool](widget)
 
-/* get_transition_type unavailable due to return typing issues
-Gets the type of animation that will be used
+  fun pony_NOT_IMPLEMENTED_YET_get_transition_type(): None =>
+    """
+    Gets the type of animation that will be used
 for transitions between pages in @stack.
-{:argctype, "GtkStackTransitionType"}
+
+    {:argctype, "GtkStackTransitionType"}
 {:argname, "rv"}
 {:argtype, "StackTransitionType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_vhomogeneous(): Bool =>
 """
@@ -168,16 +181,19 @@ will take.
 """
   @gtk_stack_set_transition_duration[None](widget, duration_pony)
 
-/* set_transition_type unavailable due to typing issues
-Sets the type of animation that will be used for
+  fun pony_NOT_IMPLEMENTED_YET_set_transition_type(): None =>
+    """
+    Sets the type of animation that will be used for
 transitions between pages in @stack. Available
 types include various kinds of fades and slides.
 
 The transition type can be changed without problems
 at runtime, so it is possible to change the animation
 based on the page that is about to become current.
-{:doh, %{argctype: "GtkStackTransitionType", argname: "transition", argtype: "StackTransitionType", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkStackTransitionType", argname: "transition", argtype: "StackTransitionType", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_vhomogeneous(vhomogeneous_pony: Bool): None =>
 """
@@ -203,18 +219,22 @@ child of @stack.
 """
   @gtk_stack_set_visible_child[None](widget, child_pony.gtkwidget())
 
-/* set_visible_child_full unavailable due to typing issues
-Makes the child with the given name visible.
+  fun pony_NOT_IMPLEMENTED_YET_set_visible_child_full(): None =>
+    """
+    Makes the child with the given name visible.
 
 Note that the child widget has to be visible itself
 (see gtk_widget_show()) in order to become the visible
 child of @stack.
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkStackTransitionType", argname: "transition", argtype: "StackTransitionType", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_visible_child_name unavailable due to typing issues
-Makes the child with the given name visible.
+  fun pony_NOT_IMPLEMENTED_YET_set_visible_child_name(): None =>
+    """
+    Makes the child with the given name visible.
 
 If @child is different from the currently
 visible child, the transition between the
@@ -224,6 +244,8 @@ transition type of @stack.
 Note that the child widget has to be visible itself
 (see gtk_widget_show()) in order to become the visible
 child of @stack.
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 

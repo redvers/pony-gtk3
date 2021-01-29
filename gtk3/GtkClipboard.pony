@@ -89,44 +89,60 @@ clipboard may be owned by someone else.
 """
   @gtk_clipboard_clear[None](widget)
 
-/* get_display unavailable due to return typing issues
-Gets the #GdkDisplay associated with @clipboard
-{:argctype, "GdkDisplay*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_display(): None =>
+    """
+    Gets the #GdkDisplay associated with @clipboard
+
+    {:argctype, "GdkDisplay*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Display"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_owner unavailable due to return typing issues
-If the clipboard contents callbacks were set with
+  fun pony_NOT_IMPLEMENTED_YET_get_owner(): None =>
+    """
+    If the clipboard contents callbacks were set with
 gtk_clipboard_set_with_owner(), and the gtk_clipboard_set_with_data() or
 gtk_clipboard_clear() has not subsequently called, returns the owner set
 by gtk_clipboard_set_with_owner().
-{:argctype, "GObject*"}
+
+    {:argctype, "GObject*"}
 {:argname, "rv"}
 {:argtype, "GObject.Object"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_selection unavailable due to return typing issues
-Gets the selection that this clipboard is for.
-{:argctype, "GdkAtom"}
+  fun pony_NOT_IMPLEMENTED_YET_get_selection(): None =>
+    """
+    Gets the selection that this clipboard is for.
+
+    {:argctype, "GdkAtom"}
 {:argname, "rv"}
 {:argtype, "Gdk.Atom"}
 {:paramtype, :param}
-{:txo, "notpresent"} */
+{:txo, "notpresent"}
+*/
+    """
 
-/* request_contents unavailable due to typing issues
-Requests the contents of clipboard as the given target.
+  fun pony_NOT_IMPLEMENTED_YET_request_contents(): None =>
+    """
+    Requests the contents of clipboard as the given target.
 When the results of the result are later received the supplied callback
 will be called.
-{:doh, %{argctype: "GdkAtom", argname: "target", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GdkAtom", argname: "target", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkClipboardReceivedFunc", argname: "callback", argtype: "ClipboardReceivedFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* request_image unavailable due to typing issues
-Requests the contents of the clipboard as image. When the image is
+  fun pony_NOT_IMPLEMENTED_YET_request_image(): None =>
+    """
+    Requests the contents of the clipboard as image. When the image is
 later received, it will be converted to a #GdkPixbuf, and
 @callback will be called.
 
@@ -135,12 +151,15 @@ The @pixbuf parameter to @callback will contain the resulting
 could happen for various reasons, in particular if the clipboard
 was empty or if the contents of the clipboard could not be
 converted into an image.
-{:doh, %{argctype: "GtkClipboardImageReceivedFunc", argname: "callback", argtype: "ClipboardImageReceivedFunc", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkClipboardImageReceivedFunc", argname: "callback", argtype: "ClipboardImageReceivedFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* request_rich_text unavailable due to typing issues
-Requests the contents of the clipboard as rich text. When the rich
+  fun pony_NOT_IMPLEMENTED_YET_request_rich_text(): None =>
+    """
+    Requests the contents of the clipboard as rich text. When the rich
 text is later received, @callback will be called.
 
 The @text parameter to @callback will contain the resulting rich
@@ -148,23 +167,29 @@ text if the request succeeded, or %NULL if it failed. The @length
 parameter will contain @text’s length. This function can fail for
 various reasons, in particular if the clipboard was empty or if the
 contents of the clipboard could not be converted into rich text form.
-{:doh, %{argctype: "GtkTextBuffer*", argname: "buffer", argtype: "TextBuffer", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTextBuffer*", argname: "buffer", argtype: "TextBuffer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkClipboardRichTextReceivedFunc", argname: "callback", argtype: "ClipboardRichTextReceivedFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* request_targets unavailable due to typing issues
-Requests the contents of the clipboard as list of supported targets.
+  fun pony_NOT_IMPLEMENTED_YET_request_targets(): None =>
+    """
+    Requests the contents of the clipboard as list of supported targets.
 When the list is later received, @callback will be called.
 
 The @targets parameter to @callback will contain the resulting targets if
 the request succeeded, or %NULL if it failed.
-{:doh, %{argctype: "GtkClipboardTargetsReceivedFunc", argname: "callback", argtype: "ClipboardTargetsReceivedFunc", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkClipboardTargetsReceivedFunc", argname: "callback", argtype: "ClipboardTargetsReceivedFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* request_text unavailable due to typing issues
-Requests the contents of the clipboard as text. When the text is
+  fun pony_NOT_IMPLEMENTED_YET_request_text(): None =>
+    """
+    Requests the contents of the clipboard as text. When the text is
 later received, it will be converted to UTF-8 if necessary, and
 @callback will be called.
 
@@ -172,71 +197,91 @@ The @text parameter to @callback will contain the resulting text if
 the request succeeded, or %NULL if it failed. This could happen for
 various reasons, in particular if the clipboard was empty or if the
 contents of the clipboard could not be converted into text form.
-{:doh, %{argctype: "GtkClipboardTextReceivedFunc", argname: "callback", argtype: "ClipboardTextReceivedFunc", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkClipboardTextReceivedFunc", argname: "callback", argtype: "ClipboardTextReceivedFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* request_uris unavailable due to typing issues
-Requests the contents of the clipboard as URIs. When the URIs are
+  fun pony_NOT_IMPLEMENTED_YET_request_uris(): None =>
+    """
+    Requests the contents of the clipboard as URIs. When the URIs are
 later received @callback will be called.
 
 The @uris parameter to @callback will contain the resulting array of
 URIs if the request succeeded, or %NULL if it failed. This could happen
 for various reasons, in particular if the clipboard was empty or if the
 contents of the clipboard could not be converted into URI form.
-{:doh, %{argctype: "GtkClipboardURIReceivedFunc", argname: "callback", argtype: "ClipboardURIReceivedFunc", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkClipboardURIReceivedFunc", argname: "callback", argtype: "ClipboardURIReceivedFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_can_store unavailable due to typing issues
-Hints that the clipboard data should be stored somewhere when the
+  fun pony_NOT_IMPLEMENTED_YET_set_can_store(): None =>
+    """
+    Hints that the clipboard data should be stored somewhere when the
 application exits or when gtk_clipboard_store () is called.
 
 This value is reset when the clipboard owner changes.
 Where the clipboard data is stored is platform dependent,
 see gdk_display_store_clipboard () for more information.
-{:doh, %{argctype: "", argname: "targets", argtype: "", paramtype: :param, txo: "none"}}
-*/
 
-/* set_image unavailable due to typing issues
-Sets the contents of the clipboard to the given #GdkPixbuf.
+    {:doh, %{argctype: "", argname: "targets", argtype: "", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_image(): None =>
+    """
+    Sets the contents of the clipboard to the given #GdkPixbuf.
 GTK+ will take responsibility for responding for requests
 for the image, and for converting the image into the
 requested format.
-{:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
-*/
 
-/* set_text unavailable due to typing issues
-Sets the contents of the clipboard to the given UTF-8 string. GTK+ will
+    {:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_text(): None =>
+    """
+    Sets the contents of the clipboard to the given UTF-8 string. GTK+ will
 make a copy of the text and take responsibility for responding
 for requests for the text, and for converting the text into
 the requested format.
-{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* set_with_data unavailable due to typing issues
-Virtually sets the contents of the specified clipboard by providing
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_with_data(): None =>
+    """
+    Virtually sets the contents of the specified clipboard by providing
 a list of supported formats for the clipboard data and a function
 to call to get the actual data when it is requested.
-{:doh, %{argctype: "", argname: "targets", argtype: "", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "", argname: "targets", argtype: "", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkClipboardGetFunc", argname: "get_func", argtype: "ClipboardGetFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkClipboardClearFunc", argname: "clear_func", argtype: "ClipboardClearFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_with_owner unavailable due to typing issues
-Virtually sets the contents of the specified clipboard by providing
+  fun pony_NOT_IMPLEMENTED_YET_set_with_owner(): None =>
+    """
+    Virtually sets the contents of the specified clipboard by providing
 a list of supported formats for the clipboard data and a function
 to call to get the actual data when it is requested.
 
 The difference between this function and gtk_clipboard_set_with_data()
 is that instead of an generic @user_data pointer, a #GObject is passed
 in.
-{:doh, %{argctype: "", argname: "targets", argtype: "", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "", argname: "targets", argtype: "", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkClipboardGetFunc", argname: "get_func", argtype: "ClipboardGetFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkClipboardClearFunc", argname: "clear_func", argtype: "ClipboardClearFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GObject*", argname: "owner", argtype: "GObject.Object", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun store(): None =>
 """
@@ -245,67 +290,90 @@ around after the application has quit.
 """
   @gtk_clipboard_store[None](widget)
 
-/* wait_for_contents unavailable due to return typing issues
-Requests the contents of the clipboard using the given target.
+  fun pony_NOT_IMPLEMENTED_YET_wait_for_contents(): None =>
+    """
+    Requests the contents of the clipboard using the given target.
 This function waits for the data to be received using the main
 loop, so events, timeouts, etc, may be dispatched during the wait.
-{:argctype, "GtkSelectionData*"}
+
+    {:argctype, "GtkSelectionData*"}
 {:argname, "rv"}
 {:argtype, "SelectionData"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* wait_for_image unavailable due to return typing issues
-Requests the contents of the clipboard as image and converts
+  fun pony_NOT_IMPLEMENTED_YET_wait_for_image(): None =>
+    """
+    Requests the contents of the clipboard as image and converts
 the result to a #GdkPixbuf. This function waits for
 the data to be received using the main loop, so events,
 timeouts, etc, may be dispatched during the wait.
-{:argctype, "GdkPixbuf*"}
+
+    {:argctype, "GdkPixbuf*"}
 {:argname, "rv"}
 {:argtype, "GdkPixbuf.Pixbuf"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* wait_for_rich_text unavailable due to return typing issues
-Requests the contents of the clipboard as rich text.  This function
+  fun pony_NOT_IMPLEMENTED_YET_wait_for_rich_text(): None =>
+    """
+    Requests the contents of the clipboard as rich text.  This function
 waits for the data to be received using the main loop, so events,
 timeouts, etc, may be dispatched during the wait.
-{:argctype, ""}
+
+    {:argctype, ""}
 {:argname, "rv"}
 {:argtype, ""}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* wait_for_targets unavailable due to typing issues
-Returns a list of targets that are present on the clipboard, or %NULL
+  fun pony_NOT_IMPLEMENTED_YET_wait_for_targets(): None =>
+    """
+    Returns a list of targets that are present on the clipboard, or %NULL
 if there aren’t any targets available. The returned list must be
 freed with g_free().
 This function waits for the data to be received using the main
 loop, so events, timeouts, etc, may be dispatched during the wait.
-{:doh, %{argctype: "", argname: "targets", argtype: "", paramtype: :param, txo: "container"}}
+
+    {:doh, %{argctype: "", argname: "targets", argtype: "", paramtype: :param, txo: "container"}}
 {:doh, %{argctype: "gint*", argname: "n_targets", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* wait_for_text unavailable due to return typing issues
-Requests the contents of the clipboard as text and converts
+  fun pony_NOT_IMPLEMENTED_YET_wait_for_text(): None =>
+    """
+    Requests the contents of the clipboard as text and converts
 the result to UTF-8 if necessary. This function waits for
 the data to be received using the main loop, so events,
 timeouts, etc, may be dispatched during the wait.
-{:argctype, "gchar*"}
+
+    {:argctype, "gchar*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* wait_for_uris unavailable due to return typing issues
-Requests the contents of the clipboard as URIs. This function waits
+  fun pony_NOT_IMPLEMENTED_YET_wait_for_uris(): None =>
+    """
+    Requests the contents of the clipboard as URIs. This function waits
 for the data to be received using the main loop, so events,
 timeouts, etc, may be dispatched during the wait.
-{:argctype, ""}
+
+    {:argctype, ""}
 {:argname, "rv"}
 {:argtype, ""}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
 fun wait_is_image_available(): Bool =>
 """
@@ -321,8 +389,9 @@ the actual image data.
 """
   @gtk_clipboard_wait_is_image_available[Bool](widget)
 
-/* wait_is_rich_text_available unavailable due to typing issues
-Test to see if there is rich text available to be pasted
+  fun pony_NOT_IMPLEMENTED_YET_wait_is_rich_text_available(): None =>
+    """
+    Test to see if there is rich text available to be pasted
 This is done by requesting the TARGETS atom and checking
 if it contains any of the supported rich text targets. This function
 waits for the data to be received using the main loop, so events,
@@ -331,18 +400,23 @@ timeouts, etc, may be dispatched during the wait.
 This function is a little faster than calling
 gtk_clipboard_wait_for_rich_text() since it doesn’t need to retrieve
 the actual text.
-{:doh, %{argctype: "GtkTextBuffer*", argname: "buffer", argtype: "TextBuffer", paramtype: :param, txo: "none"}}
-*/
 
-/* wait_is_target_available unavailable due to typing issues
-Checks if a clipboard supports pasting data of a given type. This
+    {:doh, %{argctype: "GtkTextBuffer*", argname: "buffer", argtype: "TextBuffer", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_wait_is_target_available(): None =>
+    """
+    Checks if a clipboard supports pasting data of a given type. This
 function can be used to determine if a “Paste” menu item should be
 insensitive or not.
 
 If you want to see if there’s text available on the clipboard, use
 gtk_clipboard_wait_is_text_available () instead.
-{:doh, %{argctype: "GdkAtom", argname: "target", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GdkAtom", argname: "target", argtype: "Gdk.Atom", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun wait_is_text_available(): Bool =>
 """

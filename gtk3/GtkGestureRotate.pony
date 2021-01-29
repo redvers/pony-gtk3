@@ -27,13 +27,17 @@ changes, the #GtkGestureRotate::angle-changed signal is emitted.
     widget = @gtk_gesture_rotate_new[GObjectREF](widget_pony.gtkwidget()) //
 
 
-/* get_angle_delta unavailable due to return typing issues
-If @gesture is active, this function returns the angle difference
+  fun pony_NOT_IMPLEMENTED_YET_get_angle_delta(): None =>
+    """
+    If @gesture is active, this function returns the angle difference
 in radians since the gesture was first recognized. If @gesture is
 not active, 0 is returned.
-{:argctype, "gdouble"}
+
+    {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 

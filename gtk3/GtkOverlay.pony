@@ -70,16 +70,19 @@ child property for @widget.
 """
   @gtk_overlay_get_overlay_pass_through[Bool](widget, widget_pony.gtkwidget())
 
-/* reorder_overlay unavailable due to typing issues
-Moves @child to a new @index in the list of @overlay children.
+  fun pony_NOT_IMPLEMENTED_YET_reorder_overlay(): None =>
+    """
+    Moves @child to a new @index in the list of @overlay children.
 The list contains overlays in the order that these were
 added to @overlay by default. See also #GtkOverlay:index.
 
 A widget’s index in the @overlay children list determines which order
 the children are drawn if they overlap. The first child is drawn at
 the bottom. It also affects the default focus chain order.
-{:doh, %{argctype: "int", argname: "index_", argtype: "gint", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "int", argname: "index_", argtype: "gint", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_overlay_pass_through(widget_pony: GtkWidget val, pass_through_pony: Bool): None =>
 """

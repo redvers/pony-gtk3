@@ -38,12 +38,16 @@ will also be finalized.
 """
   @gtk_text_child_anchor_get_deleted[Bool](widget)
 
-/* get_widgets unavailable due to return typing issues
-Gets a list of all widgets anchored at this child anchor.
+  fun pony_NOT_IMPLEMENTED_YET_get_widgets(): None =>
+    """
+    Gets a list of all widgets anchored at this child anchor.
 The returned list should be freed with g_list_free().
-{:argctype, "GList*"}
+
+    {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
 {:paramtype, :param}
-{:txo, "container"} */
+{:txo, "container"}
+*/
+    """
 

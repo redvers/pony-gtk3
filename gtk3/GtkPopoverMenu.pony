@@ -96,8 +96,9 @@ and get the .menu style class.
     widget = @gtk_popover_menu_new[GObjectREF]() //
 
 
-/* open_submenu unavailable due to typing issues
-Opens a submenu of the @popover. The @name
+  fun pony_NOT_IMPLEMENTED_YET_open_submenu(): None =>
+    """
+    Opens a submenu of the @popover. The @name
 must be one of the names given to the submenus
 of @popover with #GtkPopoverMenu:submenu, or
 "main" to switch back to the main menu.
@@ -106,6 +107,8 @@ of @popover with #GtkPopoverMenu:submenu, or
 when the #GtkModelButton:menu-name property is set,
 so this function is only needed when you are using
 other kinds of widgets to initiate menu changes.
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 

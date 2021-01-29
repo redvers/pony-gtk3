@@ -75,8 +75,9 @@ They can only be used on a #GdkX11Display. To use #GtkPlug and
     widget = @gtk_socket_new[GObjectREF]() //
 
 
-/* add_id unavailable due to typing issues
-Adds an XEMBED client, such as a #GtkPlug, to the #GtkSocket.  The
+  fun pony_NOT_IMPLEMENTED_YET_add_id(): None =>
+    """
+    Adds an XEMBED client, such as a #GtkPlug, to the #GtkSocket.  The
 client may be in the same process or in a different process.
 
 To embed a #GtkPlug in a #GtkSocket, you can either create the
@@ -88,28 +89,38 @@ ID.
 
 The #GtkSocket must have already be added into a toplevel window
  before you can make this call.
-{:doh, %{argctype: "Window", argname: "window", argtype: "xlib.Window", paramtype: :param, txo: "none"}}
-*/
 
-/* get_id unavailable due to return typing issues
-Gets the window ID of a #GtkSocket widget, which can then
+    {:doh, %{argctype: "Window", argname: "window", argtype: "xlib.Window", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_id(): None =>
+    """
+    Gets the window ID of a #GtkSocket widget, which can then
 be used to create a client embedded inside the socket, for
 instance with gtk_plug_new().
 
 The #GtkSocket must have already be added into a toplevel window
 before you can make this call.
-{:argctype, "Window"}
+
+    {:argctype, "Window"}
 {:argname, "rv"}
 {:argtype, "xlib.Window"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_plug_window unavailable due to return typing issues
-Retrieves the window of the plug. Use this to check if the plug has
+  fun pony_NOT_IMPLEMENTED_YET_get_plug_window(): None =>
+    """
+    Retrieves the window of the plug. Use this to check if the plug has
 been created inside of the socket.
-{:argctype, "GdkWindow*"}
+
+    {:argctype, "GdkWindow*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Window"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 

@@ -23,11 +23,15 @@ No documentation provided
 
 
 
-/* get_children unavailable due to return typing issues
-No provided documentation
-{:argctype, "GList*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_children(): None =>
+    """
+    No provided documentation
+
+    {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 

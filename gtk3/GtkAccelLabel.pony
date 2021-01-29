@@ -84,12 +84,15 @@ It adds a subnode with name accelerator.
     widget = @gtk_accel_label_new[GObjectREF](string_pony.cstring()) //
 
 
-/* get_accel unavailable due to typing issues
-Gets the keyval and modifier mask set with
+  fun pony_NOT_IMPLEMENTED_YET_get_accel(): None =>
+    """
+    Gets the keyval and modifier mask set with
 gtk_accel_label_set_accel().
-{:doh, %{argctype: "guint*", argname: "accelerator_key", argtype: "guint", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "guint*", argname: "accelerator_key", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "GdkModifierType*", argname: "accelerator_mods", argtype: "Gdk.ModifierType", paramtype: :param, txo: "full"}}
 */
+    """
 
 /* Needs conversion code 
 Fetches the widget monitored by this accelerator label. See
@@ -114,24 +117,30 @@ accelerators are added or removed from the associated widget.
 """
   @gtk_accel_label_refetch[Bool](widget)
 
-/* set_accel unavailable due to typing issues
-Manually sets a keyval and modifier mask as the accelerator rendered
+  fun pony_NOT_IMPLEMENTED_YET_set_accel(): None =>
+    """
+    Manually sets a keyval and modifier mask as the accelerator rendered
 by @accel_label.
 
 If a keyval and modifier are explicitly set then these values are
 used regardless of any associated accel closure or widget.
 
 Providing an @accelerator_key of 0 removes the manual setting.
-{:doh, %{argctype: "GdkModifierType", argname: "accelerator_mods", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
-*/
 
-/* set_accel_closure unavailable due to typing issues
-Sets the closure to be monitored by this accelerator label. The closure
+    {:doh, %{argctype: "GdkModifierType", argname: "accelerator_mods", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_accel_closure(): None =>
+    """
+    Sets the closure to be monitored by this accelerator label. The closure
 must be connected to an accelerator group; see gtk_accel_group_connect().
 Passing %NULL for @accel_closure will dissociate @accel_label from its
 current closure, if any.
-{:doh, %{argctype: "GClosure*", argname: "accel_closure", argtype: "GObject.Closure", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GClosure*", argname: "accel_closure", argtype: "GObject.Closure", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_accel_widget(accel_widget_pony: GtkWidget val): None =>
 """

@@ -47,13 +47,16 @@ GtkSearchBar has a single CSS node with name searchbar.
     widget = @gtk_search_bar_new[GObjectREF]() //
 
 
-/* connect_entry unavailable due to typing issues
-Connects the #GtkEntry widget passed as the one to be used in
+  fun pony_NOT_IMPLEMENTED_YET_connect_entry(): None =>
+    """
+    Connects the #GtkEntry widget passed as the one to be used in
 this search bar. The entry should be a descendant of the search bar.
 This is only required if the entry isn’t the direct child of the
 search bar (as in our main example).
-{:doh, %{argctype: "GtkEntry*", argname: "entry", argtype: "Entry", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkEntry*", argname: "entry", argtype: "Entry", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun get_search_mode(): Bool =>
 """
@@ -67,8 +70,9 @@ Returns whether the close button is shown.
 """
   @gtk_search_bar_get_show_close_button[Bool](widget)
 
-/* handle_event unavailable due to typing issues
-This function should be called when the top-level
+  fun pony_NOT_IMPLEMENTED_YET_handle_event(): None =>
+    """
+    This function should be called when the top-level
 window which contains the search bar received a key event.
 
 If the key event is handled by the search bar, the bar will
@@ -106,8 +110,10 @@ create_toplevel (void)
                     search_bar);
 }
 ]|
-{:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_search_mode(search_mode_pony: Bool): None =>
 """

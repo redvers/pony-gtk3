@@ -46,17 +46,24 @@ stack pages.
     widget = @gtk_stack_switcher_new[GObjectREF]() //
 
 
-/* get_stack unavailable due to return typing issues
-Retrieves the stack.
+  fun pony_NOT_IMPLEMENTED_YET_get_stack(): None =>
+    """
+    Retrieves the stack.
 See gtk_stack_switcher_set_stack().
-{:argctype, "GtkStack*"}
+
+    {:argctype, "GtkStack*"}
 {:argname, "rv"}
 {:argtype, "Stack"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* set_stack unavailable due to typing issues
-Sets the stack to control.
-{:doh, %{argctype: "GtkStack*", argname: "stack", argtype: "Stack", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_stack(): None =>
+    """
+    Sets the stack to control.
+
+    {:doh, %{argctype: "GtkStack*", argname: "stack", argtype: "Stack", paramtype: :param, txo: "none"}}
+*/
+    """
 

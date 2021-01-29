@@ -47,21 +47,27 @@ Gets the spacing added between cell renderers.
 """
   @gtk_cell_area_box_get_spacing[I32](widget)
 
-/* pack_end unavailable due to typing issues
-Adds @renderer to @box, packed with reference to the end of @box.
+  fun pony_NOT_IMPLEMENTED_YET_pack_end(): None =>
+    """
+    Adds @renderer to @box, packed with reference to the end of @box.
 
 The @renderer is packed after (away from end of) any other
 #GtkCellRenderer packed with reference to the end of @box.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
-*/
 
-/* pack_start unavailable due to typing issues
-Adds @renderer to @box, packed with reference to the start of @box.
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_pack_start(): None =>
+    """
+    Adds @renderer to @box, packed with reference to the start of @box.
 
 The @renderer is packed after any other #GtkCellRenderer packed
 with reference to the start of @box.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_spacing(spacing_pony: I32): None =>
 """

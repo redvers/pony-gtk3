@@ -34,8 +34,9 @@ the group to which @action belongs.
 """
   @gtk_radio_action_get_current_value[I32](widget)
 
-/* get_group unavailable due to return typing issues
-Returns the list representing the radio group for this object.
+  fun pony_NOT_IMPLEMENTED_YET_get_group(): None =>
+    """
+    Returns the list representing the radio group for this object.
 Note that the returned list is only valid until the next change
 to the group.
 
@@ -52,14 +53,18 @@ A common way to set up a group of radio group is the following:
        group = gtk_radio_action_get_group (action);
     }
 ]|
-{:argctype, "GSList*"}
+
+    {:argctype, "GSList*"}
 {:argname, "rv"}
 {:argtype, "GLib.SList"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* join_group unavailable due to typing issues
-Joins a radio action object to the group of another radio action object.
+  fun pony_NOT_IMPLEMENTED_YET_join_group(): None =>
+    """
+    Joins a radio action object to the group of another radio action object.
 
 Use this in language bindings instead of the gtk_radio_action_get_group()
 and gtk_radio_action_set_group() methods
@@ -77,8 +82,10 @@ A common way to set up a group of radio actions is the following:
        last_action = action;
     }
 ]|
-{:doh, %{argctype: "GtkRadioAction*", argname: "group_source", argtype: "RadioAction", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkRadioAction*", argname: "group_source", argtype: "RadioAction", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_current_value(current_value_pony: I32): None =>
 """
@@ -87,8 +94,11 @@ property @current_value.
 """
   @gtk_radio_action_set_current_value[None](widget, current_value_pony)
 
-/* set_group unavailable due to typing issues
-Sets the radio group for the radio action object.
-{:doh, %{argctype: "GSList*", argname: "group", argtype: "GLib.SList", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_group(): None =>
+    """
+    Sets the radio group for the radio action object.
+
+    {:doh, %{argctype: "GSList*", argname: "group", argtype: "GLib.SList", paramtype: :param, txo: "none"}}
 */
+    """
 

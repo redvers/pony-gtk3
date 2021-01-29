@@ -335,123 +335,169 @@ gtk_cell_area_cell_get() or gtk_cell_area_cell_get_valist().
 
 
 
-/* activate unavailable due to typing issues
-Activates @area, usually by activating the currently focused
+  fun pony_NOT_IMPLEMENTED_YET_activate(): None =>
+    """
+    Activates @area, usually by activating the currently focused
 cell, however some subclasses which embed widgets in the area
 can also activate a widget if it currently has the focus.
-{:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellRendererState", argname: "flags", argtype: "CellRendererState", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* activate_cell unavailable due to typing issues
-This is used by #GtkCellArea subclasses when handling events
+  fun pony_NOT_IMPLEMENTED_YET_activate_cell(): None =>
+    """
+    This is used by #GtkCellArea subclasses when handling events
 to activate cells, the base #GtkCellArea class activates cells
 for keyboard events for free in its own GtkCellArea->activate()
 implementation.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellRendererState", argname: "flags", argtype: "CellRendererState", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* add unavailable due to typing issues
-Adds @renderer to @area with the default child cell properties.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_add(): None =>
+    """
+    Adds @renderer to @area with the default child cell properties.
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* add_focus_sibling unavailable due to typing issues
-Adds @sibling to @renderer’s focusable area, focus will be drawn
+  fun pony_NOT_IMPLEMENTED_YET_add_focus_sibling(): None =>
+    """
+    Adds @sibling to @renderer’s focusable area, focus will be drawn
 around @renderer and all of its siblings if @renderer can
 focus for a given row.
 
 Events handled by focus siblings can also activate the given
 focusable @renderer.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellRenderer*", argname: "sibling", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* add_with_properties unavailable due to typing issues
-Adds @renderer to @area, setting cell properties at the same time.
+  fun pony_NOT_IMPLEMENTED_YET_add_with_properties(): None =>
+    """
+    Adds @renderer to @area, setting cell properties at the same time.
 See gtk_cell_area_add() and gtk_cell_area_cell_set() for more details.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "first_prop_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "...", argtype: "", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* apply_attributes unavailable due to typing issues
-Applies any connected attributes to the renderers in
+  fun pony_NOT_IMPLEMENTED_YET_apply_attributes(): None =>
+    """
+    Applies any connected attributes to the renderers in
 @area by pulling the values from @tree_model.
-{:doh, %{argctype: "GtkTreeModel*", argname: "tree_model", argtype: "TreeModel", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkTreeModel*", argname: "tree_model", argtype: "TreeModel", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkTreeIter*", argname: "iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* attribute_connect unavailable due to typing issues
-Connects an @attribute to apply values from @column for the
+  fun pony_NOT_IMPLEMENTED_YET_attribute_connect(): None =>
+    """
+    Connects an @attribute to apply values from @column for the
 #GtkTreeModel in use.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "attribute", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* attribute_disconnect unavailable due to typing issues
-Disconnects @attribute for the @renderer in @area so that
+  fun pony_NOT_IMPLEMENTED_YET_attribute_disconnect(): None =>
+    """
+    Disconnects @attribute for the @renderer in @area so that
 attribute will no longer be updated with values from the
 model.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "attribute", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* attribute_get_column unavailable due to typing issues
-Returns the model column that an attribute has been mapped to,
+  fun pony_NOT_IMPLEMENTED_YET_attribute_get_column(): None =>
+    """
+    Returns the model column that an attribute has been mapped to,
 or -1 if the attribute is not mapped.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "attribute", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* cell_get unavailable due to typing issues
-Gets the values of one or more cell properties for @renderer in @area.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_cell_get(): None =>
+    """
+    Gets the values of one or more cell properties for @renderer in @area.
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "first_prop_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "...", argtype: "", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* cell_get_property unavailable due to typing issues
-Gets the value of a cell property for @renderer in @area.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_cell_get_property(): None =>
+    """
+    Gets the value of a cell property for @renderer in @area.
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "property_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GValue*", argname: "value", argtype: "GObject.Value", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* cell_get_valist unavailable due to typing issues
-Gets the values of one or more cell properties for @renderer in @area.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_cell_get_valist(): None =>
+    """
+    Gets the values of one or more cell properties for @renderer in @area.
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "first_property_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "va_list", argname: "var_args", argtype: "va_list", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* cell_set unavailable due to typing issues
-Sets one or more cell properties for @cell in @area.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_cell_set(): None =>
+    """
+    Sets one or more cell properties for @cell in @area.
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "first_prop_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "...", argtype: "", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* cell_set_property unavailable due to typing issues
-Sets a cell property for @renderer in @area.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_cell_set_property(): None =>
+    """
+    Sets a cell property for @renderer in @area.
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "property_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GValue*", argname: "value", argtype: "GObject.Value", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* cell_set_valist unavailable due to typing issues
-Sets one or more cell properties for @renderer in @area.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_cell_set_valist(): None =>
+    """
+    Sets one or more cell properties for @renderer in @area.
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "first_property_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "va_list", argname: "var_args", argtype: "va_list", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* copy_context unavailable due to return typing issues
-This is sometimes needed for cases where rows need to share
+  fun pony_NOT_IMPLEMENTED_YET_copy_context(): None =>
+    """
+    This is sometimes needed for cases where rows need to share
 alignments in one orientation but may be separately grouped
 in the opposing orientation.
 
@@ -462,77 +508,103 @@ a separate collective height. #GtkIconView uses this to
 request the heights of each row based on a context which
 was already used to request all the row widths that are
 to be displayed.
-{:argctype, "GtkCellAreaContext*"}
+
+    {:argctype, "GtkCellAreaContext*"}
 {:argname, "rv"}
 {:argtype, "CellAreaContext"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* create_context unavailable due to return typing issues
-Creates a #GtkCellAreaContext to be used with @area for
+  fun pony_NOT_IMPLEMENTED_YET_create_context(): None =>
+    """
+    Creates a #GtkCellAreaContext to be used with @area for
 all purposes. #GtkCellAreaContext stores geometry information
 for rows for which it was operated on, it is important to use
 the same context for the same row of data at all times (i.e.
 one should render and handle events with the same #GtkCellAreaContext
 which was used to request the size of those rows of data).
-{:argctype, "GtkCellAreaContext*"}
+
+    {:argctype, "GtkCellAreaContext*"}
 {:argname, "rv"}
 {:argtype, "CellAreaContext"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* event unavailable due to typing issues
-Delegates event handling to a #GtkCellArea.
-{:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_event(): None =>
+    """
+    Delegates event handling to a #GtkCellArea.
+
+    {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellRendererState", argname: "flags", argtype: "CellRendererState", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* focus unavailable due to typing issues
-This should be called by the @area’s owning layout widget
+  fun pony_NOT_IMPLEMENTED_YET_focus(): None =>
+    """
+    This should be called by the @area’s owning layout widget
 when focus is to be passed to @area, or moved within @area
 for a given @direction and row data.
 
 Implementing #GtkCellArea classes should implement this
 method to receive and navigate focus in its own way particular
 to how it lays out cells.
-{:doh, %{argctype: "GtkDirectionType", argname: "direction", argtype: "DirectionType", paramtype: :param, txo: "none"}}
-*/
 
-/* foreach unavailable due to typing issues
-Calls @callback for every #GtkCellRenderer in @area.
-{:doh, %{argctype: "GtkCellCallback", argname: "callback", argtype: "CellCallback", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GtkDirectionType", argname: "direction", argtype: "DirectionType", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_foreach(): None =>
+    """
+    Calls @callback for every #GtkCellRenderer in @area.
+
+    {:doh, %{argctype: "GtkCellCallback", argname: "callback", argtype: "CellCallback", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "callback_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* foreach_alloc unavailable due to typing issues
-Calls @callback for every #GtkCellRenderer in @area with the
+  fun pony_NOT_IMPLEMENTED_YET_foreach_alloc(): None =>
+    """
+    Calls @callback for every #GtkCellRenderer in @area with the
 allocated rectangle inside @cell_area.
-{:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "background_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellAllocCallback", argname: "callback", argtype: "CellAllocCallback", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "callback_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* get_cell_allocation unavailable due to typing issues
-Derives the allocation of @renderer inside @area if @area
+  fun pony_NOT_IMPLEMENTED_YET_get_cell_allocation(): None =>
+    """
+    Derives the allocation of @renderer inside @area if @area
 were to be renderered in @cell_area.
-{:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkRectangle*", argname: "allocation", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* get_cell_at_position unavailable due to return typing issues
-Gets the #GtkCellRenderer at @x and @y coordinates inside @area and optionally
+  fun pony_NOT_IMPLEMENTED_YET_get_cell_at_position(): None =>
+    """
+    Gets the #GtkCellRenderer at @x and @y coordinates inside @area and optionally
 returns the full cell allocation for it inside @cell_area.
-{:argctype, "GtkCellRenderer*"}
+
+    {:argctype, "GtkCellRenderer*"}
 {:argname, "rv"}
 {:argtype, "CellRenderer"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_current_path_string(): String =>
 """
@@ -546,69 +618,93 @@ subclasses.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_edit_widget unavailable due to return typing issues
-Gets the #GtkCellEditable widget currently used
+  fun pony_NOT_IMPLEMENTED_YET_get_edit_widget(): None =>
+    """
+    Gets the #GtkCellEditable widget currently used
 to edit the currently edited cell.
-{:argctype, "GtkCellEditable*"}
+
+    {:argctype, "GtkCellEditable*"}
 {:argname, "rv"}
 {:argtype, "CellEditable"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_edited_cell unavailable due to return typing issues
-Gets the #GtkCellRenderer in @area that is currently
+  fun pony_NOT_IMPLEMENTED_YET_get_edited_cell(): None =>
+    """
+    Gets the #GtkCellRenderer in @area that is currently
 being edited.
-{:argctype, "GtkCellRenderer*"}
+
+    {:argctype, "GtkCellRenderer*"}
 {:argname, "rv"}
 {:argtype, "CellRenderer"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_focus_cell unavailable due to return typing issues
-Retrieves the currently focused cell for @area
-{:argctype, "GtkCellRenderer*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_focus_cell(): None =>
+    """
+    Retrieves the currently focused cell for @area
+
+    {:argctype, "GtkCellRenderer*"}
 {:argname, "rv"}
 {:argtype, "CellRenderer"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_focus_from_sibling unavailable due to return typing issues
-Gets the #GtkCellRenderer which is expected to be focusable
+  fun pony_NOT_IMPLEMENTED_YET_get_focus_from_sibling(): None =>
+    """
+    Gets the #GtkCellRenderer which is expected to be focusable
 for which @renderer is, or may be a sibling.
 
 This is handy for #GtkCellArea subclasses when handling events,
 after determining the renderer at the event location it can
 then chose to activate the focus cell for which the event
 cell may have been a sibling.
-{:argctype, "GtkCellRenderer*"}
+
+    {:argctype, "GtkCellRenderer*"}
 {:argname, "rv"}
 {:argtype, "CellRenderer"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_focus_siblings unavailable due to return typing issues
-Gets the focus sibling cell renderers for @renderer.
-{:argctype, "const GList*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_focus_siblings(): None =>
+    """
+    Gets the focus sibling cell renderers for @renderer.
+
+    {:argctype, "const GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_preferred_height unavailable due to typing issues
-Retrieves a cell area’s initial minimum and natural height.
+  fun pony_NOT_IMPLEMENTED_YET_get_preferred_height(): None =>
+    """
+    Retrieves a cell area’s initial minimum and natural height.
 
 @area will store some geometrical information in @context along the way;
 when requesting sizes over an arbitrary number of rows, it’s not important
 to check the @minimum_height and @natural_height of this call but rather to
 consult gtk_cell_area_context_get_preferred_height() after a series of
 requests.
-{:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "minimum_height", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_preferred_height_for_width unavailable due to typing issues
-Retrieves a cell area’s minimum and natural height if it would be given
+  fun pony_NOT_IMPLEMENTED_YET_get_preferred_height_for_width(): None =>
+    """
+    Retrieves a cell area’s minimum and natural height if it would be given
 the specified @width.
 
 @area stores some geometrical information in @context along the way
@@ -622,26 +718,32 @@ If at some point, the width of a single row changes, it should be
 requested with gtk_cell_area_get_preferred_width() again and then
 the full width of the requested rows checked again with
 gtk_cell_area_context_get_preferred_width().
-{:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "minimum_height", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_preferred_width unavailable due to typing issues
-Retrieves a cell area’s initial minimum and natural width.
+  fun pony_NOT_IMPLEMENTED_YET_get_preferred_width(): None =>
+    """
+    Retrieves a cell area’s initial minimum and natural width.
 
 @area will store some geometrical information in @context along the way;
 when requesting sizes over an arbitrary number of rows, it’s not important
 to check the @minimum_width and @natural_width of this call but rather to
 consult gtk_cell_area_context_get_preferred_width() after a series of
 requests.
-{:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "minimum_width", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_width", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_preferred_width_for_height unavailable due to typing issues
-Retrieves a cell area’s minimum and natural width if it would be given
+  fun pony_NOT_IMPLEMENTED_YET_get_preferred_width_for_height(): None =>
+    """
+    Retrieves a cell area’s minimum and natural width if it would be given
 the specified @height.
 
 @area stores some geometrical information in @context along the way
@@ -655,32 +757,44 @@ If at some point, the height of a single row changes, it should be
 requested with gtk_cell_area_get_preferred_height() again and then
 the full height of the requested rows checked again with
 gtk_cell_area_context_get_preferred_height().
-{:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "minimum_width", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_width", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* get_request_mode unavailable due to return typing issues
-Gets whether the area prefers a height-for-width layout
+  fun pony_NOT_IMPLEMENTED_YET_get_request_mode(): None =>
+    """
+    Gets whether the area prefers a height-for-width layout
 or a width-for-height layout.
-{:argctype, "GtkSizeRequestMode"}
+
+    {:argctype, "GtkSizeRequestMode"}
 {:argname, "rv"}
 {:argtype, "SizeRequestMode"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* has_renderer unavailable due to typing issues
-Checks if @area contains @renderer.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
 
-/* inner_cell_area unavailable due to typing issues
-This is a convenience function for #GtkCellArea implementations
+  fun pony_NOT_IMPLEMENTED_YET_has_renderer(): None =>
+    """
+    Checks if @area contains @renderer.
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_inner_cell_area(): None =>
+    """
+    This is a convenience function for #GtkCellArea implementations
 to get the inner area where a given #GtkCellRenderer will be
 rendered. It removes any padding previously added by gtk_cell_area_request_renderer().
-{:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkRectangle*", argname: "inner_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun is_activatable(): Bool =>
 """
@@ -689,56 +803,74 @@ after applying new attributes to @area.
 """
   @gtk_cell_area_is_activatable[Bool](widget)
 
-/* is_focus_sibling unavailable due to typing issues
-Returns whether @sibling is one of @renderer’s focus siblings
+  fun pony_NOT_IMPLEMENTED_YET_is_focus_sibling(): None =>
+    """
+    Returns whether @sibling is one of @renderer’s focus siblings
 (see gtk_cell_area_add_focus_sibling()).
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellRenderer*", argname: "sibling", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* remove unavailable due to typing issues
-Removes @renderer from @area.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_remove(): None =>
+    """
+    Removes @renderer from @area.
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* remove_focus_sibling unavailable due to typing issues
-Removes @sibling from @renderer’s focus sibling list
+  fun pony_NOT_IMPLEMENTED_YET_remove_focus_sibling(): None =>
+    """
+    Removes @sibling from @renderer’s focus sibling list
 (see gtk_cell_area_add_focus_sibling()).
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellRenderer*", argname: "sibling", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* render unavailable due to typing issues
-Renders @area’s cells according to @area’s layout onto @widget at
+  fun pony_NOT_IMPLEMENTED_YET_render(): None =>
+    """
+    Renders @area’s cells according to @area’s layout onto @widget at
 the given coordinates.
-{:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellAreaContext*", argname: "context", argtype: "CellAreaContext", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "background_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GdkRectangle*", argname: "cell_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkCellRendererState", argname: "flags", argtype: "CellRendererState", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* request_renderer unavailable due to typing issues
-This is a convenience function for #GtkCellArea implementations
+  fun pony_NOT_IMPLEMENTED_YET_request_renderer(): None =>
+    """
+    This is a convenience function for #GtkCellArea implementations
 to request size for cell renderers. It’s important to use this
 function to request size and then use gtk_cell_area_inner_cell_area()
 at render and event time since this function will add padding
 around the cell for focus painting.
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkOrientation", argname: "orientation", argtype: "Orientation", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gint*", argname: "minimum_size", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_size", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
-/* set_focus_cell unavailable due to typing issues
-Explicitly sets the currently focused cell to @renderer.
+  fun pony_NOT_IMPLEMENTED_YET_set_focus_cell(): None =>
+    """
+    Explicitly sets the currently focused cell to @renderer.
 
 This is generally called by implementations of
 #GtkCellAreaClass.focus() or #GtkCellAreaClass.event(),
 however it can also be used to implement functions such
 as gtk_tree_view_set_cursor_on_cell().
-{:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkCellRenderer*", argname: "renderer", argtype: "CellRenderer", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun stop_editing(canceled_pony: Bool): None =>
 """

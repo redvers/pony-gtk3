@@ -55,14 +55,18 @@ Activates the menu item within the menu shell.
 """
   @gtk_menu_shell_activate_item[None](widget, menu_item_pony.gtkwidget(), force_deactivate_pony)
 
-/* append unavailable due to typing issues
-Adds a new #GtkMenuItem to the end of the menu shell's
+  fun pony_NOT_IMPLEMENTED_YET_append(): None =>
+    """
+    Adds a new #GtkMenuItem to the end of the menu shell's
 item list.
-{:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "MenuItem", paramtype: :param, txo: "none"}}
-*/
 
-/* bind_model unavailable due to typing issues
-Establishes a binding between a #GtkMenuShell and a #GMenuModel.
+    {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "MenuItem", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_bind_model(): None =>
+    """
+    Establishes a binding between a #GtkMenuShell and a #GMenuModel.
 
 The contents of @shell are removed and then refilled with menu items
 according to @model.  When @model changes, @shell is updated.
@@ -95,9 +99,11 @@ For most cases you are probably better off using
 gtk_menu_new_from_model() or gtk_menu_bar_new_from_model() or just
 directly passing the #GMenuModel to gtk_application_set_app_menu() or
 gtk_application_set_menubar().
-{:doh, %{argctype: "GMenuModel*", argname: "model", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GMenuModel*", argname: "model", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "action_namespace", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun cancel(): None =>
 """

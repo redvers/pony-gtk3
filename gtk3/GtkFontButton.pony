@@ -79,10 +79,13 @@ Returns whether the selected size is used in the label.
 """
   @gtk_font_button_get_use_size[Bool](widget)
 
-/* set_font_name unavailable due to typing issues
-Sets or updates the currently-displayed font in font picker dialog.
-{:doh, %{argctype: "const gchar*", argname: "fontname", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_font_name(): None =>
+    """
+    Sets or updates the currently-displayed font in font picker dialog.
+
+    {:doh, %{argctype: "const gchar*", argname: "fontname", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_show_size(show_size_pony: Bool): None =>
 """
@@ -96,10 +99,13 @@ If @show_style is %TRUE, the font style will be displayed along with name of the
 """
   @gtk_font_button_set_show_style[None](widget, show_style_pony)
 
-/* set_title unavailable due to typing issues
-Sets the title for the font chooser dialog.
-{:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_title(): None =>
+    """
+    Sets the title for the font chooser dialog.
+
+    {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_use_font(use_font_pony: Bool): None =>
 """

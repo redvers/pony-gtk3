@@ -42,13 +42,19 @@ Retrieves the text that is displayed when no accelerator is set.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* set_accelerator unavailable due to typing issues
-Sets the accelerator to be displayed by @self.
-{:doh, %{argctype: "const gchar*", argname: "accelerator", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_accelerator(): None =>
+    """
+    Sets the accelerator to be displayed by @self.
 
-/* set_disabled_text unavailable due to typing issues
-Sets the text to be displayed by @self when no accelerator is set.
-{:doh, %{argctype: "const gchar*", argname: "disabled_text", argtype: "utf8", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "const gchar*", argname: "accelerator", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_disabled_text(): None =>
+    """
+    Sets the text to be displayed by @self when no accelerator is set.
+
+    {:doh, %{argctype: "const gchar*", argname: "disabled_text", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
 

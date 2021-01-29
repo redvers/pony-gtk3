@@ -76,12 +76,15 @@ to gtk_frame_new().)
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_label_align unavailable due to typing issues
-Retrieves the X and Y alignment of the frame’s label. See
+  fun pony_NOT_IMPLEMENTED_YET_get_label_align(): None =>
+    """
+    Retrieves the X and Y alignment of the frame’s label. See
 gtk_frame_set_label_align().
-{:doh, %{argctype: "gfloat*", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "gfloat*", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gfloat*", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
 */
+    """
 
 /* Needs conversion code 
 Retrieves the label widget for the frame. See
@@ -90,27 +93,37 @@ gtk_frame_set_label_widget().
     @gtk_frame_get_label_widget[GObjectREF](widget)
 */
 
-/* get_shadow_type unavailable due to return typing issues
-Retrieves the shadow type of the frame. See
+  fun pony_NOT_IMPLEMENTED_YET_get_shadow_type(): None =>
+    """
+    Retrieves the shadow type of the frame. See
 gtk_frame_set_shadow_type().
-{:argctype, "GtkShadowType"}
+
+    {:argctype, "GtkShadowType"}
 {:argname, "rv"}
 {:argtype, "ShadowType"}
 {:paramtype, :param}
-{:txo, "none"} */
-
-/* set_label unavailable due to typing issues
-Removes the current #GtkFrame:label-widget. If @label is not %NULL, creates a
-new #GtkLabel with that text and adds it as the #GtkFrame:label-widget.
-{:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:txo, "none"}
 */
+    """
 
-/* set_label_align unavailable due to typing issues
-Sets the alignment of the frame widget’s label. The
+  fun pony_NOT_IMPLEMENTED_YET_set_label(): None =>
+    """
+    Removes the current #GtkFrame:label-widget. If @label is not %NULL, creates a
+new #GtkLabel with that text and adds it as the #GtkFrame:label-widget.
+
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_label_align(): None =>
+    """
+    Sets the alignment of the frame widget’s label. The
 default values for a newly created frame are 0.0 and 0.5.
-{:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_label_widget(label_widget_pony: GtkWidget val): None =>
 """
@@ -119,11 +132,14 @@ will appear embedded in the top edge of the frame as a title.
 """
   @gtk_frame_set_label_widget[None](widget, label_widget_pony.gtkwidget())
 
-/* set_shadow_type unavailable due to typing issues
-Sets the #GtkFrame:shadow-type for @frame, i.e. whether it is drawn without
+  fun pony_NOT_IMPLEMENTED_YET_set_shadow_type(): None =>
+    """
+    Sets the #GtkFrame:shadow-type for @frame, i.e. whether it is drawn without
 (%GTK_SHADOW_NONE) or with (other values) a visible border. Values other than
 %GTK_SHADOW_NONE are treated identically by GtkFrame. The chosen type is
 applied by removing or adding the .flat class to the CSS node named border.
-{:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
 */
+    """
 

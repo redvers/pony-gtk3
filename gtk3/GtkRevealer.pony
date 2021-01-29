@@ -64,14 +64,18 @@ transitions will take.
 """
   @gtk_revealer_get_transition_duration[U32](widget)
 
-/* get_transition_type unavailable due to return typing issues
-Gets the type of animation that will be used
+  fun pony_NOT_IMPLEMENTED_YET_get_transition_type(): None =>
+    """
+    Gets the type of animation that will be used
 for transitions in @revealer.
-{:argctype, "GtkRevealerTransitionType"}
+
+    {:argctype, "GtkRevealerTransitionType"}
 {:argname, "rv"}
 {:argtype, "RevealerTransitionType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun set_reveal_child(reveal_child_pony: Bool): None =>
 """
@@ -88,10 +92,13 @@ Sets the duration that transitions will take.
 """
   @gtk_revealer_set_transition_duration[None](widget, duration_pony)
 
-/* set_transition_type unavailable due to typing issues
-Sets the type of animation that will be used for
+  fun pony_NOT_IMPLEMENTED_YET_set_transition_type(): None =>
+    """
+    Sets the type of animation that will be used for
 transitions in @revealer. Available types include
 various kinds of fades and slides.
-{:doh, %{argctype: "GtkRevealerTransitionType", argname: "transition", argtype: "RevealerTransitionType", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkRevealerTransitionType", argname: "transition", argtype: "RevealerTransitionType", paramtype: :param, txo: "none"}}
 */
+    """
 

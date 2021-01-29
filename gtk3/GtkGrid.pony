@@ -50,8 +50,9 @@ number of “cells” that @child will occupy is determined by
 """
   @gtk_grid_attach[None](widget, child_pony.gtkwidget(), left_pony, top_pony, width_pony, height_pony)
 
-/* attach_next_to unavailable due to typing issues
-Adds a widget to the grid.
+  fun pony_NOT_IMPLEMENTED_YET_attach_next_to(): None =>
+    """
+    Adds a widget to the grid.
 
 The widget is placed next to @sibling, on the side determined by
 @side. When @sibling is %NULL, the widget is placed in row (for
@@ -60,8 +61,10 @@ at the end indicated by @side.
 
 Attaching widgets labeled [1], [2], [3] with @sibling == %NULL and
 @side == %GTK_POS_LEFT yields a layout of [3][2][1].
-{:doh, %{argctype: "GtkPositionType", argname: "side", argtype: "PositionType", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkPositionType", argname: "side", argtype: "PositionType", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun get_baseline_row(): I32 =>
 """
@@ -88,15 +91,19 @@ Returns the amount of space between the columns of @grid.
 """
   @gtk_grid_get_column_spacing[U32](widget)
 
-/* get_row_baseline_position unavailable due to return typing issues
-Returns the baseline position of @row as set
+  fun pony_NOT_IMPLEMENTED_YET_get_row_baseline_position(): None =>
+    """
+    Returns the baseline position of @row as set
 by gtk_grid_set_row_baseline_position() or the default value
 %GTK_BASELINE_POSITION_CENTER.
-{:argctype, "GtkBaselinePosition"}
+
+    {:argctype, "GtkBaselinePosition"}
 {:argname, "rv"}
 {:argtype, "BaselinePosition"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_row_homogeneous(): Bool =>
 """
@@ -120,15 +127,18 @@ position are grown to span the new column.
 """
   @gtk_grid_insert_column[None](widget, position_pony)
 
-/* insert_next_to unavailable due to typing issues
-Inserts a row or column at the specified position.
+  fun pony_NOT_IMPLEMENTED_YET_insert_next_to(): None =>
+    """
+    Inserts a row or column at the specified position.
 
 The new row or column is placed next to @sibling, on the side
 determined by @side. If @side is %GTK_POS_TOP or %GTK_POS_BOTTOM,
 a row is inserted. If @side is %GTK_POS_LEFT of %GTK_POS_RIGHT,
 a column is inserted.
-{:doh, %{argctype: "GtkPositionType", argname: "side", argtype: "PositionType", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkPositionType", argname: "side", argtype: "PositionType", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun insert_row(position_pony: I32): None =>
 """
@@ -183,11 +193,14 @@ Sets the amount of space between columns of @grid.
 """
   @gtk_grid_set_column_spacing[None](widget, spacing_pony)
 
-/* set_row_baseline_position unavailable due to typing issues
-Sets how the baseline should be positioned on @row of the
+  fun pony_NOT_IMPLEMENTED_YET_set_row_baseline_position(): None =>
+    """
+    Sets how the baseline should be positioned on @row of the
 grid, in case that row is assigned more space than is requested.
-{:doh, %{argctype: "GtkBaselinePosition", argname: "pos", argtype: "BaselinePosition", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkBaselinePosition", argname: "pos", argtype: "BaselinePosition", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_row_homogeneous(homogeneous_pony: Bool): None =>
 """

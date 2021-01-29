@@ -25,13 +25,17 @@ actions as a consequence of those.
 
 
 
-/* get_propagation_phase unavailable due to return typing issues
-Gets the propagation phase at which @controller handles events.
-{:argctype, "GtkPropagationPhase"}
+  fun pony_NOT_IMPLEMENTED_YET_get_propagation_phase(): None =>
+    """
+    Gets the propagation phase at which @controller handles events.
+
+    {:argctype, "GtkPropagationPhase"}
 {:argname, "rv"}
 {:argtype, "PropagationPhase"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 /* Needs conversion code 
 Returns the #GtkWidget this controller relates to.
@@ -39,11 +43,14 @@ Returns the #GtkWidget this controller relates to.
     @gtk_event_controller_get_widget[GObjectREF](widget)
 */
 
-/* handle_event unavailable due to typing issues
-Feeds an events into @controller, so it can be interpreted
+  fun pony_NOT_IMPLEMENTED_YET_handle_event(): None =>
+    """
+    Feeds an events into @controller, so it can be interpreted
 and the controller actions triggered.
-{:doh, %{argctype: "const GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun reset(): None =>
 """
@@ -53,12 +60,15 @@ will be dropped at this point.
 """
   @gtk_event_controller_reset[None](widget)
 
-/* set_propagation_phase unavailable due to typing issues
-Sets the propagation phase at which a controller handles events.
+  fun pony_NOT_IMPLEMENTED_YET_set_propagation_phase(): None =>
+    """
+    Sets the propagation phase at which a controller handles events.
 
 If @phase is %GTK_PHASE_NONE, no automatic event handling will be
 performed, but other additional gesture maintenance will. In that phase,
 the events can be managed by calling gtk_event_controller_handle_event().
-{:doh, %{argctype: "GtkPropagationPhase", argname: "phase", argtype: "PropagationPhase", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkPropagationPhase", argname: "phase", argtype: "PropagationPhase", paramtype: :param, txo: "none"}}
 */
+    """
 

@@ -57,20 +57,27 @@ GtkStatusbar has a single CSS node with name statusbar.
     widget = @gtk_statusbar_new[GObjectREF]() //
 
 
-/* get_context_id unavailable due to typing issues
-Returns a new context identifier, given a description
+  fun pony_NOT_IMPLEMENTED_YET_get_context_id(): None =>
+    """
+    Returns a new context identifier, given a description
 of the actual context. Note that the description is
 not shown in the UI.
-{:doh, %{argctype: "const gchar*", argname: "context_description", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* get_message_area unavailable due to return typing issues
-Retrieves the box containing the label widget.
-{:argctype, "GtkWidget*"}
+    {:doh, %{argctype: "const gchar*", argname: "context_description", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_message_area(): None =>
+    """
+    Retrieves the box containing the label widget.
+
+    {:argctype, "GtkWidget*"}
 {:argname, "rv"}
 {:argtype, "Box"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun pop(context_id_pony: U32): None =>
 """
@@ -83,10 +90,13 @@ context id.
 """
   @gtk_statusbar_pop[None](widget, context_id_pony)
 
-/* push unavailable due to typing issues
-Pushes a new message onto a statusbar’s stack.
-{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_push(): None =>
+    """
+    Pushes a new message onto a statusbar’s stack.
+
+    {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun remove(context_id_pony: U32, message_id_pony: U32): None =>
 """

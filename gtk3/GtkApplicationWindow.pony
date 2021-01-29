@@ -127,14 +127,18 @@ The following attributes are used when constructing submenus:
     widget = @gtk_application_window_new[GObjectREF](application_pony.gtkwidget()) //
 
 
-/* get_help_overlay unavailable due to return typing issues
-Gets the #GtkShortcutsWindow that has been set up with
+  fun pony_NOT_IMPLEMENTED_YET_get_help_overlay(): None =>
+    """
+    Gets the #GtkShortcutsWindow that has been set up with
 a prior call to gtk_application_window_set_help_overlay().
-{:argctype, "GtkShortcutsWindow*"}
+
+    {:argctype, "GtkShortcutsWindow*"}
 {:argname, "rv"}
 {:argtype, "ShortcutsWindow"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_id(): U32 =>
 """
@@ -150,14 +154,17 @@ and menubar as needed.
 """
   @gtk_application_window_get_show_menubar[Bool](widget)
 
-/* set_help_overlay unavailable due to typing issues
-Associates a shortcuts window with the application window, and
+  fun pony_NOT_IMPLEMENTED_YET_set_help_overlay(): None =>
+    """
+    Associates a shortcuts window with the application window, and
 sets up an action with the name win.show-help-overlay to present
 it.
 
 @window takes resposibility for destroying @help_overlay.
-{:doh, %{argctype: "GtkShortcutsWindow*", argname: "help_overlay", argtype: "ShortcutsWindow", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkShortcutsWindow*", argname: "help_overlay", argtype: "ShortcutsWindow", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_show_menubar(show_menubar_pony: Bool): None =>
 """

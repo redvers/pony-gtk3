@@ -23,8 +23,11 @@ No documentation provided
 
 
 
-/* embed unavailable due to typing issues
-No provided documentation
-{:doh, %{argctype: "gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_embed(): None =>
+    """
+    No provided documentation
+
+    {:doh, %{argctype: "gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 

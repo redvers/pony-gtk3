@@ -98,14 +98,17 @@ on menu items on the overflow menu. See gtk_tool_button_set_use_underline().
 """
   @gtk_tool_button_get_use_underline[Bool](widget)
 
-/* set_icon_name unavailable due to typing issues
-Sets the icon for the tool button from a named themed icon.
+  fun pony_NOT_IMPLEMENTED_YET_set_icon_name(): None =>
+    """
+    Sets the icon for the tool button from a named themed icon.
 See the docs for #GtkIconTheme for more details.
 The #GtkToolButton:icon-name property only has an effect if not
 overridden by non-%NULL #GtkToolButton:label-widget,
 #GtkToolButton:icon-widget and #GtkToolButton:stock-id properties.
-{:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_icon_widget(icon_widget_pony: GtkWidget val): None =>
 """
@@ -115,15 +118,18 @@ Sets @icon as the widget used as icon on @button. If @icon_widget is
 """
   @gtk_tool_button_set_icon_widget[None](widget, icon_widget_pony.gtkwidget())
 
-/* set_label unavailable due to typing issues
-Sets @label as the label used for the tool button. The #GtkToolButton:label
+  fun pony_NOT_IMPLEMENTED_YET_set_label(): None =>
+    """
+    Sets @label as the label used for the tool button. The #GtkToolButton:label
 property only has an effect if not overridden by a non-%NULL
 #GtkToolButton:label-widget property. If both the #GtkToolButton:label-widget
 and #GtkToolButton:label properties are %NULL, the label is determined by the
 #GtkToolButton:stock-id property. If the #GtkToolButton:stock-id property is
 also %NULL, @button will not have a label.
-{:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_label_widget(label_widget_pony: GtkWidget val): None =>
 """
@@ -135,12 +141,15 @@ determined by the #GtkToolButton:stock-id property is used as label. If
 """
   @gtk_tool_button_set_label_widget[None](widget, label_widget_pony.gtkwidget())
 
-/* set_stock_id unavailable due to typing issues
-Sets the name of the stock item. See gtk_tool_button_new_from_stock().
+  fun pony_NOT_IMPLEMENTED_YET_set_stock_id(): None =>
+    """
+    Sets the name of the stock item. See gtk_tool_button_new_from_stock().
 The stock_id property only has an effect if not overridden by non-%NULL
 #GtkToolButton:label-widget and #GtkToolButton:icon-widget properties.
-{:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_use_underline(use_underline_pony: Bool): None =>
 """

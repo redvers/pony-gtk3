@@ -39,15 +39,21 @@ freed.
     widget = @gtk_window_group_new[GObjectREF]() //
 
 
-/* add_window unavailable due to typing issues
-Adds a window to a #GtkWindowGroup.
-{:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_add_window(): None =>
+    """
+    Adds a window to a #GtkWindowGroup.
 
-/* get_current_device_grab unavailable due to typing issues
-Returns the current grab widget for @device, or %NULL if none.
-{:doh, %{argctype: "GdkDevice*", argname: "device", argtype: "Gdk.Device", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_current_device_grab(): None =>
+    """
+    Returns the current grab widget for @device, or %NULL if none.
+
+    {:doh, %{argctype: "GdkDevice*", argname: "device", argtype: "Gdk.Device", paramtype: :param, txo: "none"}}
+*/
+    """
 
 /* Needs conversion code 
 Gets the current grab widget of the given group,
@@ -56,16 +62,23 @@ see gtk_grab_add().
     @gtk_window_group_get_current_grab[GObjectREF](widget)
 */
 
-/* list_windows unavailable due to return typing issues
-Returns a list of the #GtkWindows that belong to @window_group.
-{:argctype, "GList*"}
+  fun pony_NOT_IMPLEMENTED_YET_list_windows(): None =>
+    """
+    Returns a list of the #GtkWindows that belong to @window_group.
+
+    {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
 {:paramtype, :param}
-{:txo, "container"} */
-
-/* remove_window unavailable due to typing issues
-Removes a window from a #GtkWindowGroup.
-{:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
+{:txo, "container"}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_remove_window(): None =>
+    """
+    Removes a window from a #GtkWindowGroup.
+
+    {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
+*/
+    """
 

@@ -84,8 +84,9 @@ Recently used files are supported since GTK+ 2.10.
     widget = @gtk_recent_manager_new[GObjectREF]() //
 
 
-/* add_full unavailable due to typing issues
-Adds a new resource, pointed by @uri, into the recently used
+  fun pony_NOT_IMPLEMENTED_YET_add_full(): None =>
+    """
+    Adds a new resource, pointed by @uri, into the recently used
 resources list, using the metadata specified inside the
 #GtkRecentData-struct passed in @recent_data.
 
@@ -104,12 +105,15 @@ to be used when viewing the item instead of the last component of
 the URI; a short description of the item; whether the item should
 be considered private - that is, should be displayed only by the
 applications that have registered it.
-{:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GtkRecentData*", argname: "recent_data", argtype: "RecentData", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* add_item unavailable due to typing issues
-Adds a new resource, pointed by @uri, into the recently used
+  fun pony_NOT_IMPLEMENTED_YET_add_item(): None =>
+    """
+    Adds a new resource, pointed by @uri, into the recently used
 resources list.
 
 This function automatically retrieves some of the needed
@@ -118,41 +122,57 @@ it then feeds the data to gtk_recent_manager_add_full().
 
 See gtk_recent_manager_add_full() if you want to explicitly
 define the metadata for the resource pointed by @uri.
-{:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* get_items unavailable due to return typing issues
-Gets the list of recently used resources.
-{:argctype, "GList*"}
+    {:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_items(): None =>
+    """
+    Gets the list of recently used resources.
+
+    {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
 {:paramtype, :param}
-{:txo, "full"} */
-
-/* has_item unavailable due to typing issues
-Checks whether there is a recently used resource registered
-with @uri inside the recent manager.
-{:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
+{:txo, "full"}
 */
+    """
 
-/* lookup_item unavailable due to return typing issues
-Searches for a URI inside the recently used resources list, and
+  fun pony_NOT_IMPLEMENTED_YET_has_item(): None =>
+    """
+    Checks whether there is a recently used resource registered
+with @uri inside the recent manager.
+
+    {:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_lookup_item(): None =>
+    """
+    Searches for a URI inside the recently used resources list, and
 returns a #GtkRecentInfo-struct containing informations about the resource
 like its MIME type, or its display name.
-{:argctype, "GtkRecentInfo*"}
+
+    {:argctype, "GtkRecentInfo*"}
 {:argname, "rv"}
 {:argtype, "RecentInfo"}
 {:paramtype, :param}
-{:txo, "full"} */
+{:txo, "full"}
+*/
+    """
 
-/* move_item unavailable due to typing issues
-Changes the location of a recently used resource from @uri to @new_uri.
+  fun pony_NOT_IMPLEMENTED_YET_move_item(): None =>
+    """
+    Changes the location of a recently used resource from @uri to @new_uri.
 
 Please note that this function will not affect the resource pointed
 by the URIs, but only the URI used in the recently used resources list.
-{:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "new_uri", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun purge_items(): I32 =>
 """
@@ -160,9 +180,12 @@ Purges every item from the recently used resources list.
 """
   @gtk_recent_manager_purge_items[I32](widget)
 
-/* remove_item unavailable due to typing issues
-Removes a resource pointed by @uri from the recently used resources
+  fun pony_NOT_IMPLEMENTED_YET_remove_item(): None =>
+    """
+    Removes a resource pointed by @uri from the recently used resources
 list handled by a recent manager.
-{:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 

@@ -108,21 +108,29 @@ Gets whether page has padding.
 """
   @gtk_assistant_get_page_has_padding[Bool](widget, page_pony.gtkwidget())
 
-/* get_page_header_image unavailable due to return typing issues
-Gets the header image for @page.
-{:argctype, "GdkPixbuf*"}
-{:argname, "rv"}
-{:argtype, "GdkPixbuf.Pixbuf"}
-{:paramtype, :param}
-{:txo, "none"} */
+  fun pony_NOT_IMPLEMENTED_YET_get_page_header_image(): None =>
+    """
+    Gets the header image for @page.
 
-/* get_page_side_image unavailable due to return typing issues
-Gets the side image for @page.
-{:argctype, "GdkPixbuf*"}
+    {:argctype, "GdkPixbuf*"}
 {:argname, "rv"}
 {:argtype, "GdkPixbuf.Pixbuf"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_get_page_side_image(): None =>
+    """
+    Gets the side image for @page.
+
+    {:argctype, "GdkPixbuf*"}
+{:argname, "rv"}
+{:argtype, "GdkPixbuf.Pixbuf"}
+{:paramtype, :param}
+{:txo, "none"}
+*/
+    """
 
 fun get_page_title(page_pony: GtkWidget val): String =>
 """
@@ -132,13 +140,17 @@ Gets the title for @page.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_page_type unavailable due to return typing issues
-Gets the page type of @page.
-{:argctype, "GtkAssistantPageType"}
+  fun pony_NOT_IMPLEMENTED_YET_get_page_type(): None =>
+    """
+    Gets the page type of @page.
+
+    {:argctype, "GtkAssistantPageType"}
 {:argname, "rv"}
 {:argtype, "AssistantPageType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun insert_page(page_pony: GtkWidget val, position_pony: I32): I32 =>
 """
@@ -198,18 +210,21 @@ gtk_assistant_set_forward_page_func().
 """
   @gtk_assistant_set_current_page[None](widget, page_num_pony)
 
-/* set_forward_page_func unavailable due to typing issues
-Sets the page forwarding function to be @page_func.
+  fun pony_NOT_IMPLEMENTED_YET_set_forward_page_func(): None =>
+    """
+    Sets the page forwarding function to be @page_func.
 
 This function will be used to determine what will be
 the next page when the user presses the forward button.
 Setting @page_func to %NULL will make the assistant to
 use the default forward function, which just goes to the
 next visible page.
-{:doh, %{argctype: "GtkAssistantPageFunc", argname: "page_func", argtype: "AssistantPageFunc", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkAssistantPageFunc", argname: "page_func", argtype: "AssistantPageFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_page_complete(page_pony: GtkWidget val, complete_pony: Bool): None =>
 """
@@ -227,33 +242,45 @@ the page.
 """
   @gtk_assistant_set_page_has_padding[None](widget, page_pony.gtkwidget(), has_padding_pony)
 
-/* set_page_header_image unavailable due to typing issues
-Sets a header image for @page.
-{:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
-*/
+  fun pony_NOT_IMPLEMENTED_YET_set_page_header_image(): None =>
+    """
+    Sets a header image for @page.
 
-/* set_page_side_image unavailable due to typing issues
-Sets a side image for @page.
+    {:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_page_side_image(): None =>
+    """
+    Sets a side image for @page.
 
 This image used to be displayed in the side area of the assistant
 when @page is the current page.
-{:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
-*/
 
-/* set_page_title unavailable due to typing issues
-Sets a title for @page.
+    {:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_page_title(): None =>
+    """
+    Sets a title for @page.
 
 The title is displayed in the header area of the assistant
 when @page is the current page.
-{:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* set_page_type unavailable due to typing issues
-Sets the page type for @page.
+    {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_page_type(): None =>
+    """
+    Sets the page type for @page.
 
 The page type determines the page behavior in the @assistant.
-{:doh, %{argctype: "GtkAssistantPageType", argname: "gtype", argtype: "AssistantPageType", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkAssistantPageType", argname: "gtype", argtype: "AssistantPageType", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun update_buttons_state(): None =>
 """

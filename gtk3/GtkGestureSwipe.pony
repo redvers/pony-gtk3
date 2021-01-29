@@ -34,11 +34,14 @@ All velocities are reported in pixels/sec units.
     widget = @gtk_gesture_swipe_new[GObjectREF](widget_pony.gtkwidget()) //
 
 
-/* get_velocity unavailable due to typing issues
-If the gesture is recognized, this function returns %TRUE and fill in
+  fun pony_NOT_IMPLEMENTED_YET_get_velocity(): None =>
+    """
+    If the gesture is recognized, this function returns %TRUE and fill in
 @velocity_x and @velocity_y with the recorded velocity, as per the
 last event(s) processed.
-{:doh, %{argctype: "gdouble*", argname: "velocity_x", argtype: "gdouble", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "gdouble*", argname: "velocity_x", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "velocity_y", argtype: "gdouble", paramtype: :param, txo: "full"}}
 */
+    """
 

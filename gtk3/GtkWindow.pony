@@ -94,20 +94,26 @@ Activates the current focused widget within the window.
 """
   @gtk_window_activate_focus[Bool](widget)
 
-/* activate_key unavailable due to typing issues
-Activates mnemonics and accelerators for this #GtkWindow. This is normally
+  fun pony_NOT_IMPLEMENTED_YET_activate_key(): None =>
+    """
+    Activates mnemonics and accelerators for this #GtkWindow. This is normally
 called by the default ::key_press_event handler for toplevel windows,
 however in some cases it may be useful to call this directly when
 overriding the standard key handling for a toplevel window.
-{:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
-*/
 
-/* add_accel_group unavailable due to typing issues
-Associate @accel_group with @window, such that calling
+    {:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_add_accel_group(): None =>
+    """
+    Associate @accel_group with @window, such that calling
 gtk_accel_groups_activate() on @window will activate accelerators
 in @accel_group.
-{:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun add_mnemonic(keyval_pony: U32, target_pony: GtkWidget val): None =>
 """
@@ -115,26 +121,32 @@ Adds a mnemonic to this window.
 """
   @gtk_window_add_mnemonic[None](widget, keyval_pony, target_pony.gtkwidget())
 
-/* begin_move_drag unavailable due to typing issues
-Starts moving a window. This function is used if an application has
+  fun pony_NOT_IMPLEMENTED_YET_begin_move_drag(): None =>
+    """
+    Starts moving a window. This function is used if an application has
 window movement grips. When GDK can support it, the window movement
 will be done using the standard mechanism for the
 [window manager][gtk-X11-arch] or windowing
 system. Otherwise, GDK will try to emulate window movement,
 potentially not all that well, depending on the windowing system.
-{:doh, %{argctype: "guint32", argname: "timestamp", argtype: "guint32", paramtype: :param, txo: "none"}}
-*/
 
-/* begin_resize_drag unavailable due to typing issues
-Starts resizing a window. This function is used if an application
+    {:doh, %{argctype: "guint32", argname: "timestamp", argtype: "guint32", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_begin_resize_drag(): None =>
+    """
+    Starts resizing a window. This function is used if an application
 has window resizing controls. When GDK can support it, the resize
 will be done using the standard mechanism for the
 [window manager][gtk-X11-arch] or windowing
 system. Otherwise, GDK will try to emulate window resizing,
 potentially not all that well, depending on the windowing system.
-{:doh, %{argctype: "GdkWindowEdge", argname: "edge", argtype: "Gdk.WindowEdge", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GdkWindowEdge", argname: "edge", argtype: "Gdk.WindowEdge", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "guint32", argname: "timestamp", argtype: "guint32", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun close(): None =>
 """
@@ -174,14 +186,17 @@ on #GtkWidget.
 """
   @gtk_window_fullscreen[None](widget)
 
-/* fullscreen_on_monitor unavailable due to typing issues
-Asks to place @window in the fullscreen state. Note that you shouldn't assume
+  fun pony_NOT_IMPLEMENTED_YET_fullscreen_on_monitor(): None =>
+    """
+    Asks to place @window in the fullscreen state. Note that you shouldn't assume
 the window is definitely full screen afterward.
 
 You can track the fullscreen state via the "window-state-event" signal
 on #GtkWidget.
-{:doh, %{argctype: "GdkScreen*", argname: "screen", argtype: "Gdk.Screen", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GdkScreen*", argname: "screen", argtype: "Gdk.Screen", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun get_accept_focus(): Bool =>
 """
@@ -189,13 +204,17 @@ Gets the value set by gtk_window_set_accept_focus().
 """
   @gtk_window_get_accept_focus[Bool](widget)
 
-/* get_application unavailable due to return typing issues
-Gets the #GtkApplication associated with the window (if any).
-{:argctype, "GtkApplication*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_application(): None =>
+    """
+    Gets the #GtkApplication associated with the window (if any).
+
+    {:argctype, "GtkApplication*"}
 {:argname, "rv"}
 {:argtype, "Application"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 /* Needs conversion code 
 Fetches the attach widget for this window. See
@@ -211,14 +230,17 @@ such as a title bar via gtk_window_set_decorated().
 """
   @gtk_window_get_decorated[Bool](widget)
 
-/* get_default_size unavailable due to typing issues
-Gets the default size of the window. A value of -1 for the width or
+  fun pony_NOT_IMPLEMENTED_YET_get_default_size(): None =>
+    """
+    Gets the default size of the window. A value of -1 for the width or
 height indicates that a default size has not been explicitly set
 for that dimension, so the “natural” size of the window will be
 used.
-{:doh, %{argctype: "gint*", argname: "width", argtype: "gint", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "gint*", argname: "width", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
 /* Needs conversion code 
 Returns the default widget for @window. See
@@ -263,23 +285,31 @@ Gets the value of the #GtkWindow:focus-visible property.
 """
   @gtk_window_get_focus_visible[Bool](widget)
 
-/* get_gravity unavailable due to return typing issues
-Gets the value set by gtk_window_set_gravity().
-{:argctype, "GdkGravity"}
+  fun pony_NOT_IMPLEMENTED_YET_get_gravity(): None =>
+    """
+    Gets the value set by gtk_window_set_gravity().
+
+    {:argctype, "GdkGravity"}
 {:argname, "rv"}
 {:argtype, "Gdk.Gravity"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_group unavailable due to return typing issues
-Returns the group for @window or the default group, if
+  fun pony_NOT_IMPLEMENTED_YET_get_group(): None =>
+    """
+    Returns the group for @window or the default group, if
 @window is %NULL or if @window does not have an explicit
 window group.
-{:argctype, "GtkWindowGroup*"}
+
+    {:argctype, "GtkWindowGroup*"}
 {:argname, "rv"}
 {:argtype, "WindowGroup"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_has_resize_grip(): Bool =>
 """
@@ -294,25 +324,33 @@ when maximized. See gtk_window_set_hide_titlebar_when_maximized ().
 """
   @gtk_window_get_hide_titlebar_when_maximized[Bool](widget)
 
-/* get_icon unavailable due to return typing issues
-Gets the value set by gtk_window_set_icon() (or if you've
+  fun pony_NOT_IMPLEMENTED_YET_get_icon(): None =>
+    """
+    Gets the value set by gtk_window_set_icon() (or if you've
 called gtk_window_set_icon_list(), gets the first icon in
 the icon list).
-{:argctype, "GdkPixbuf*"}
+
+    {:argctype, "GdkPixbuf*"}
 {:argname, "rv"}
 {:argtype, "GdkPixbuf.Pixbuf"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_icon_list unavailable due to return typing issues
-Retrieves the list of icons set by gtk_window_set_icon_list().
+  fun pony_NOT_IMPLEMENTED_YET_get_icon_list(): None =>
+    """
+    Retrieves the list of icons set by gtk_window_set_icon_list().
 The list is copied, but the reference count on each
 member won’t be incremented.
-{:argctype, "GList*"}
+
+    {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
 {:paramtype, :param}
-{:txo, "container"} */
+{:txo, "container"}
+*/
+    """
 
 fun get_icon_name(): String =>
 """
@@ -323,14 +361,18 @@ see gtk_window_set_icon_name().
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_mnemonic_modifier unavailable due to return typing issues
-Returns the mnemonic modifier for this window. See
+  fun pony_NOT_IMPLEMENTED_YET_get_mnemonic_modifier(): None =>
+    """
+    Returns the mnemonic modifier for this window. See
 gtk_window_set_mnemonic_modifier().
-{:argctype, "GdkModifierType"}
+
+    {:argctype, "GdkModifierType"}
 {:argname, "rv"}
 {:argtype, "Gdk.ModifierType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_mnemonics_visible(): Bool =>
 """
@@ -344,17 +386,22 @@ Returns whether the window is modal. See gtk_window_set_modal().
 """
   @gtk_window_get_modal[Bool](widget)
 
-/* get_opacity unavailable due to return typing issues
-Fetches the requested opacity for this window. See
+  fun pony_NOT_IMPLEMENTED_YET_get_opacity(): None =>
+    """
+    Fetches the requested opacity for this window. See
 gtk_window_set_opacity().
-{:argctype, "gdouble"}
+
+    {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_position unavailable due to typing issues
-This function returns the position you need to pass to
+  fun pony_NOT_IMPLEMENTED_YET_get_position(): None =>
+    """
+    This function returns the position you need to pass to
 gtk_window_move() to keep @window in its current position.
 This means that the meaning of the returned value varies with
 window gravity. See gtk_window_move() for more details.
@@ -390,9 +437,11 @@ applications, as they lack enough knowledge of the windowing
 system and the window manager state to effectively do so. The
 appropriate way to implement saving the window position is to
 use a platform-specific protocol, wherever that is available.
-{:doh, %{argctype: "gint*", argname: "root_x", argtype: "gint", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "gint*", argname: "root_x", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "root_y", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun get_resizable(): Bool =>
 """
@@ -400,11 +449,14 @@ Gets the value set by gtk_window_set_resizable().
 """
   @gtk_window_get_resizable[Bool](widget)
 
-/* get_resize_grip_area unavailable due to typing issues
-If a window has a resize grip, this will retrieve the grip
+  fun pony_NOT_IMPLEMENTED_YET_get_resize_grip_area(): None =>
+    """
+    If a window has a resize grip, this will retrieve the grip
 position, width and height into the specified #GdkRectangle.
-{:doh, %{argctype: "GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun get_role(): String =>
 """
@@ -415,16 +467,21 @@ further explanation.
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* get_screen unavailable due to return typing issues
-Returns the #GdkScreen associated with @window.
-{:argctype, "GdkScreen*"}
+  fun pony_NOT_IMPLEMENTED_YET_get_screen(): None =>
+    """
+    Returns the #GdkScreen associated with @window.
+
+    {:argctype, "GdkScreen*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Screen"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_size unavailable due to typing issues
-Obtains the current size of @window.
+  fun pony_NOT_IMPLEMENTED_YET_get_size(): None =>
+    """
+    Obtains the current size of @window.
 
 If @window is not visible on screen, this function return the size GTK+
 will suggest to the [window manager][gtk-X11-arch] for the initial window
@@ -496,9 +553,11 @@ decorations and border that it may add, and of which GTK+ has no
 knowledge. Additionally, positioning windows in global screen coordinates
 may not be allowed by the windowing system. For more information,
 see: gtk_window_set_position().
-{:doh, %{argctype: "gint*", argname: "width", argtype: "gint", paramtype: :param, txo: "full"}}
+
+    {:doh, %{argctype: "gint*", argname: "width", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
+    """
 
 fun get_skip_pager_hint(): Bool =>
 """
@@ -527,22 +586,30 @@ gtk_window_set_titlebar().
     @gtk_window_get_titlebar[GObjectREF](widget)
 */
 
-/* get_transient_for unavailable due to return typing issues
-Fetches the transient parent for this window. See
+  fun pony_NOT_IMPLEMENTED_YET_get_transient_for(): None =>
+    """
+    Fetches the transient parent for this window. See
 gtk_window_set_transient_for().
-{:argctype, "GtkWindow*"}
+
+    {:argctype, "GtkWindow*"}
 {:argname, "rv"}
 {:argtype, "Window"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
-/* get_type_hint unavailable due to return typing issues
-Gets the type hint for this window. See gtk_window_set_type_hint().
-{:argctype, "GdkWindowTypeHint"}
+  fun pony_NOT_IMPLEMENTED_YET_get_type_hint(): None =>
+    """
+    Gets the type hint for this window. See gtk_window_set_type_hint().
+
+    {:argctype, "GdkWindowTypeHint"}
 {:argname, "rv"}
 {:argtype, "Gdk.WindowTypeHint"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun get_urgency_hint(): Bool =>
 """
@@ -550,13 +617,17 @@ Gets the value set by gtk_window_set_urgency_hint()
 """
   @gtk_window_get_urgency_hint[Bool](widget)
 
-/* get_window_type unavailable due to return typing issues
-Gets the type of the window. See #GtkWindowType.
-{:argctype, "GtkWindowType"}
+  fun pony_NOT_IMPLEMENTED_YET_get_window_type(): None =>
+    """
+    Gets the type of the window. See #GtkWindowType.
+
+    {:argctype, "GtkWindowType"}
 {:argname, "rv"}
 {:argtype, "WindowType"}
 {:paramtype, :param}
-{:txo, "none"} */
+{:txo, "none"}
+*/
+    """
 
 fun has_group(): Bool =>
 """
@@ -635,10 +706,13 @@ on #GtkWidget, or by listening to notifications on the
 """
   @gtk_window_maximize[None](widget)
 
-/* mnemonic_activate unavailable due to typing issues
-Activates the targets associated with the mnemonic.
-{:doh, %{argctype: "GdkModifierType", argname: "modifier", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_mnemonic_activate(): None =>
+    """
+    Activates the targets associated with the mnemonic.
+
+    {:doh, %{argctype: "GdkModifierType", argname: "modifier", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun move(x_pony: I32, y_pony: I32): None =>
 """
@@ -678,8 +752,9 @@ The gtk_window_get_position() documentation may also be relevant.
 """
   @gtk_window_move[None](widget, x_pony, y_pony)
 
-/* parse_geometry unavailable due to typing issues
-Parses a standard X Window System geometry string - see the
+  fun pony_NOT_IMPLEMENTED_YET_parse_geometry(): None =>
+    """
+    Parses a standard X Window System geometry string - see the
 manual page for X (type “man X”) for details on this.
 gtk_window_parse_geometry() does work on all GTK+ ports
 including Win32 but is primarily intended for an X environment.
@@ -750,8 +825,10 @@ main (int argc, char *argv[])
   return 0;
 }
 ]|
-{:doh, %{argctype: "const gchar*", argname: "geometry", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "geometry", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun present(): None =>
 """
@@ -761,8 +838,9 @@ to allow focus stealing prevention to work correctly.
 """
   @gtk_window_present[None](widget)
 
-/* present_with_time unavailable due to typing issues
-Presents a window to the user. This may mean raising the window
+  fun pony_NOT_IMPLEMENTED_YET_present_with_time(): None =>
+    """
+    Presents a window to the user. This may mean raising the window
 in the stacking order, deiconifying it, moving it to the current
 desktop, and/or giving it the keyboard focus, possibly dependent
 on the user’s platform, window manager, and preferences.
@@ -780,23 +858,31 @@ Presents a window to the user in response to a user interaction. The
 timestamp should be gathered when the window was requested to be shown
 (when clicking a link for example), rather than once the window is
 ready to be shown.
-{:doh, %{argctype: "guint32", argname: "timestamp", argtype: "guint32", paramtype: :param, txo: "none"}}
-*/
 
-/* propagate_key_event unavailable due to typing issues
-Propagate a key press or release event to the focus widget and
+    {:doh, %{argctype: "guint32", argname: "timestamp", argtype: "guint32", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_propagate_key_event(): None =>
+    """
+    Propagate a key press or release event to the focus widget and
 up the focus container chain until a widget handles @event.
 This is normally called by the default ::key_press_event and
 ::key_release_event handlers for toplevel windows,
 however in some cases it may be useful to call this directly when
 overriding the standard key handling for a toplevel window.
-{:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
-*/
 
-/* remove_accel_group unavailable due to typing issues
-Reverses the effects of gtk_window_add_accel_group().
-{:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
+    {:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
 */
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_remove_accel_group(): None =>
+    """
+    Reverses the effects of gtk_window_add_accel_group().
+
+    {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
+*/
+    """
 
 fun remove_mnemonic(keyval_pony: U32, target_pony: GtkWidget val): None =>
 """
@@ -866,8 +952,9 @@ the input focus. This function sets this hint.
 """
   @gtk_window_set_accept_focus[None](widget, setting_pony)
 
-/* set_application unavailable due to typing issues
-Sets or unsets the #GtkApplication associated with the window.
+  fun pony_NOT_IMPLEMENTED_YET_set_application(): None =>
+    """
+    Sets or unsets the #GtkApplication associated with the window.
 
 The application will be kept alive for at least as long as it has any windows
 associated with it (see g_application_hold() for a way to keep it alive
@@ -879,8 +966,10 @@ the @application to %NULL.
 
 This is equivalent to calling gtk_application_remove_window() and/or
 gtk_application_add_window() on the old/new applications as relevant.
-{:doh, %{argctype: "GtkApplication*", argname: "application", argtype: "Application", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkApplication*", argname: "application", argtype: "Application", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_attached_to(attach_widget_pony: GtkWidget val): None =>
 """
@@ -1023,24 +1112,30 @@ Sets the #GtkWindow:focus-visible property.
 """
   @gtk_window_set_focus_visible[None](widget, setting_pony)
 
-/* set_geometry_hints unavailable due to typing issues
-This function sets up hints about how a window can be resized by
+  fun pony_NOT_IMPLEMENTED_YET_set_geometry_hints(): None =>
+    """
+    This function sets up hints about how a window can be resized by
 the user.  You can set a minimum and maximum size; allowed resize
 increments (e.g. for xterm, you can only resize by the size of a
 character); aspect ratios; and more. See the #GdkGeometry struct.
-{:doh, %{argctype: "GdkGeometry*", argname: "geometry", argtype: "Gdk.Geometry", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GdkGeometry*", argname: "geometry", argtype: "Gdk.Geometry", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkWindowHints", argname: "geom_mask", argtype: "Gdk.WindowHints", paramtype: :param, txo: "none"}}
 */
+    """
 
-/* set_gravity unavailable due to typing issues
-Window gravity defines the meaning of coordinates passed to
+  fun pony_NOT_IMPLEMENTED_YET_set_gravity(): None =>
+    """
+    Window gravity defines the meaning of coordinates passed to
 gtk_window_move(). See gtk_window_move() and #GdkGravity for
 more details.
 
 The default window gravity is #GDK_GRAVITY_NORTH_WEST which will
 typically “do what you mean.”
-{:doh, %{argctype: "GdkGravity", argname: "gravity", argtype: "Gdk.Gravity", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GdkGravity", argname: "gravity", argtype: "Gdk.Gravity", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_has_resize_grip(value_pony: Bool): None =>
 """
@@ -1080,8 +1175,9 @@ content and visibility anyway.
 """
   @gtk_window_set_hide_titlebar_when_maximized[None](widget, setting_pony)
 
-/* set_icon unavailable due to typing issues
-Sets up the icon representing a #GtkWindow. This icon is used when
+  fun pony_NOT_IMPLEMENTED_YET_set_icon(): None =>
+    """
+    Sets up the icon representing a #GtkWindow. This icon is used when
 the window is minimized (also known as iconified).  Some window
 managers or desktop environments may also place it in the window
 frame, or display it in other contexts. On others, the icon is not
@@ -1100,20 +1196,26 @@ with a 1-element list.
 
 See also gtk_window_set_default_icon_list() to set the icon
 for all windows in your application in one go.
-{:doh, %{argctype: "GdkPixbuf*", argname: "icon", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
-*/
 
-/* set_icon_from_file unavailable due to typing issues
-Sets the icon for @window.
+    {:doh, %{argctype: "GdkPixbuf*", argname: "icon", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_icon_from_file(): None =>
+    """
+    Sets the icon for @window.
 Warns on failure if @err is %NULL.
 
 This function is equivalent to calling gtk_window_set_icon()
 with a pixbuf created by loading the image from @filename.
-{:doh, %{argctype: "const gchar*", argname: "filename", argtype: "filename", paramtype: :param, txo: "none"}}
-*/
 
-/* set_icon_list unavailable due to typing issues
-Sets up the icon representing a #GtkWindow. The icon is used when
+    {:doh, %{argctype: "const gchar*", argname: "filename", argtype: "filename", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_icon_list(): None =>
+    """
+    Sets up the icon representing a #GtkWindow. The icon is used when
 the window is minimized (also known as iconified).  Some window
 managers or desktop environments may also place it in the window
 frame, or display it in other contexts. On others, the icon is not
@@ -1138,18 +1240,23 @@ Note that transient windows (those who have been set transient for another
 window using gtk_window_set_transient_for()) will inherit their
 icon from their transient parent. So there’s no need to explicitly
 set the icon on transient windows.
-{:doh, %{argctype: "GList*", argname: "list", argtype: "GLib.List", paramtype: :param, txo: "none"}}
-*/
 
-/* set_icon_name unavailable due to typing issues
-Sets the icon for the window from a named themed icon.
+    {:doh, %{argctype: "GList*", argname: "list", argtype: "GLib.List", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_icon_name(): None =>
+    """
+    Sets the icon for the window from a named themed icon.
 See the docs for #GtkIconTheme for more details.
 On some platforms, the window icon is not used at all.
 
 Note that this has nothing to do with the WM_ICON_NAME
 property which is mentioned in the ICCCM.
-{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_keep_above(setting_pony: Bool): None =>
 """
@@ -1201,10 +1308,13 @@ dialogs.
 """
   @gtk_window_set_keep_below[None](widget, setting_pony)
 
-/* set_mnemonic_modifier unavailable due to typing issues
-Sets the mnemonic modifier for this window.
-{:doh, %{argctype: "GdkModifierType", argname: "modifier", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
+  fun pony_NOT_IMPLEMENTED_YET_set_mnemonic_modifier(): None =>
+    """
+    Sets the mnemonic modifier for this window.
+
+    {:doh, %{argctype: "GdkModifierType", argname: "modifier", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_mnemonics_visible(setting_pony: Bool): None =>
 """
@@ -1223,8 +1333,9 @@ will then disallow lowering the dialog below the parent.
 """
   @gtk_window_set_modal[None](widget, modal_pony)
 
-/* set_opacity unavailable due to typing issues
-Request the windowing system to make @window partially transparent,
+  fun pony_NOT_IMPLEMENTED_YET_set_opacity(): None =>
+    """
+    Request the windowing system to make @window partially transparent,
 with opacity 0 being fully transparent and 1 fully opaque. (Values
 of the opacity parameter are clamped to the [0,1] range.) On X11
 this has any effect only on X screens with a compositing manager
@@ -1233,15 +1344,20 @@ always.
 
 Note that setting a window’s opacity after the window has been
 shown causes it to flicker once on Windows.
-{:doh, %{argctype: "gdouble", argname: "opacity", argtype: "gdouble", paramtype: :param, txo: "none"}}
-*/
 
-/* set_position unavailable due to typing issues
-Sets a position constraint for this window. If the old or new
+    {:doh, %{argctype: "gdouble", argname: "opacity", argtype: "gdouble", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_position(): None =>
+    """
+    Sets a position constraint for this window. If the old or new
 constraint is %GTK_WIN_POS_CENTER_ALWAYS, this will also cause
 the window to be repositioned to satisfy the new constraint.
-{:doh, %{argctype: "GtkWindowPosition", argname: "position", argtype: "WindowPosition", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GtkWindowPosition", argname: "position", argtype: "WindowPosition", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_resizable(resizable_pony: Bool): None =>
 """
@@ -1250,8 +1366,9 @@ by default.
 """
   @gtk_window_set_resizable[None](widget, resizable_pony)
 
-/* set_role unavailable due to typing issues
-This function is only useful on X11, not with other GTK+ targets.
+  fun pony_NOT_IMPLEMENTED_YET_set_role(): None =>
+    """
+    This function is only useful on X11, not with other GTK+ targets.
 
 In combination with the window title, the window role allows a
 [window manager][gtk-X11-arch] to identify "the
@@ -1263,15 +1380,20 @@ the toolbox back in the same place.
 If a window already has a unique title, you don’t need to set the
 role, since the WM can use the title to identify the window when
 restoring the session.
-{:doh, %{argctype: "const gchar*", argname: "role", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* set_screen unavailable due to typing issues
-Sets the #GdkScreen where the @window is displayed; if
+    {:doh, %{argctype: "const gchar*", argname: "role", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_screen(): None =>
+    """
+    Sets the #GdkScreen where the @window is displayed; if
 the window is already mapped, it will be unmapped, and
 then remapped on the new screen.
-{:doh, %{argctype: "GdkScreen*", argname: "screen", argtype: "Gdk.Screen", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GdkScreen*", argname: "screen", argtype: "Gdk.Screen", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_skip_pager_hint(setting_pony: Bool): None =>
 """
@@ -1290,8 +1412,9 @@ the window in the task bar. This function sets this hint.
 """
   @gtk_window_set_skip_taskbar_hint[None](widget, setting_pony)
 
-/* set_startup_id unavailable due to typing issues
-Startup notification identifiers are used by desktop environment to
+  fun pony_NOT_IMPLEMENTED_YET_set_startup_id(): None =>
+    """
+    Startup notification identifiers are used by desktop environment to
 track application startup, to provide user feedback and other
 features. This function changes the corresponding property on the
 underlying GdkWindow. Normally, startup identifier is managed
@@ -1301,11 +1424,14 @@ function before calling gtk_window_present() or any equivalent
 function generating a window map event.
 
 This function is only useful on X11, not with other GTK+ targets.
-{:doh, %{argctype: "const gchar*", argname: "startup_id", argtype: "utf8", paramtype: :param, txo: "none"}}
-*/
 
-/* set_title unavailable due to typing issues
-Sets the title of the #GtkWindow. The title of a window will be
+    {:doh, %{argctype: "const gchar*", argname: "startup_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_title(): None =>
+    """
+    Sets the title of the #GtkWindow. The title of a window will be
 displayed in its title bar; on the X Window System, the title bar
 is rendered by the [window manager][gtk-X11-arch],
 so exactly how the title appears to users may vary
@@ -1313,8 +1439,10 @@ according to a user’s exact configuration. The title should help a
 user distinguish this window from other windows they may have
 open. A good title might include the application name and current
 document filename, for example.
-{:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_titlebar(titlebar_pony: GtkWidget val): None =>
 """
@@ -1331,8 +1459,9 @@ gtk_widget_show().
 """
   @gtk_window_set_titlebar[None](widget, titlebar_pony.gtkwidget())
 
-/* set_transient_for unavailable due to typing issues
-Dialog windows should be set transient for the main application
+  fun pony_NOT_IMPLEMENTED_YET_set_transient_for(): None =>
+    """
+    Dialog windows should be set transient for the main application
 window they were spawned from. This allows
 [window managers][gtk-X11-arch] to e.g. keep the
 dialog on top of the main window, or center the dialog over the
@@ -1350,11 +1479,14 @@ positioned at will relatively to the #GTK_WINDOW_TOPLEVEL surface.
 
 On Windows, this function puts the child window on top of the parent,
 much as the window manager would have done on X.
-{:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}
-*/
 
-/* set_type_hint unavailable due to typing issues
-By setting the type hint for the window, you allow the window
+    {:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}
+*/
+    """
+
+  fun pony_NOT_IMPLEMENTED_YET_set_type_hint(): None =>
+    """
+    By setting the type hint for the window, you allow the window
 manager to decorate and handle the window in a way which is
 suitable to the function of the window in your application.
 
@@ -1362,8 +1494,10 @@ This function should be called before the window becomes visible.
 
 gtk_dialog_new_with_buttons() and other convenience functions in GTK+
 will sometimes call gtk_window_set_type_hint() on your behalf.
-{:doh, %{argctype: "GdkWindowTypeHint", argname: "hint", argtype: "Gdk.WindowTypeHint", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "GdkWindowTypeHint", argname: "hint", argtype: "Gdk.WindowTypeHint", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun set_urgency_hint(setting_pony: Bool): None =>
 """
@@ -1372,8 +1506,9 @@ the users attention to the window. This function sets this hint.
 """
   @gtk_window_set_urgency_hint[None](widget, setting_pony)
 
-/* set_wmclass unavailable due to typing issues
-Don’t use this function. It sets the X Window System “class” and
+  fun pony_NOT_IMPLEMENTED_YET_set_wmclass(): None =>
+    """
+    Don’t use this function. It sets the X Window System “class” and
 “name” hints for a window.  According to the ICCCM, you should
 always set these to the same value for all windows in an
 application, and GTK+ sets them to that value by default, so calling
@@ -1381,9 +1516,11 @@ this function is sort of pointless. However, you may want to call
 gtk_window_set_role() on each window in your application, for the
 benefit of the session manager. Setting the role allows the window
 manager to restore window positions when loading a saved session.
-{:doh, %{argctype: "const gchar*", argname: "wmclass_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+
+    {:doh, %{argctype: "const gchar*", argname: "wmclass_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "wmclass_class", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
+    """
 
 fun stick(): None =>
 """
