@@ -55,11 +55,17 @@ Gets the #GtkMenu associated with #GtkMenuToolButton.
 */
 
 /* set_arrow_tooltip_markup unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the tooltip markup text to be used as tooltip for the arrow button
+which pops up the menu.  See gtk_tool_item_set_tooltip_text() for setting
+a tooltip on the whole #GtkMenuToolButton.
+{:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_arrow_tooltip_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the tooltip text to be used as tooltip for the arrow button which
+pops up the menu.  See gtk_tool_item_set_tooltip_text() for setting a tooltip
+on the whole #GtkMenuToolButton.
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_menu(menu_pony: GtkWidget val): None =>

@@ -97,6 +97,15 @@ and get the .menu style class.
 
 
 /* open_submenu unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+Opens a submenu of the @popover. The @name
+must be one of the names given to the submenus
+of @popover with #GtkPopoverMenu:submenu, or
+"main" to switch back to the main menu.
+
+#GtkModelButton will open submenus automatically
+when the #GtkModelButton:menu-name property is set,
+so this function is only needed when you are using
+other kinds of widgets to initiate menu changes.
+{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 

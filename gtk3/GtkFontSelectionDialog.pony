@@ -32,6 +32,14 @@ Gets the “Cancel” button.
 */
 
 /* get_font_name unavailable due to return typing issues
+Gets the currently-selected font name.
+
+Note that this can be a different string than what you set with
+gtk_font_selection_dialog_set_font_name(), as the font selection widget
+may normalize font names and thus return a string with a different
+structure. For example, “Helvetica Italic Bold 12” could be normalized
+to “Helvetica Bold Italic 12”.  Use pango_font_description_equal()
+if you want to compare two font descriptions.
 {:argctype, "gchar*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
@@ -59,10 +67,12 @@ Gets the text displayed in the preview area.
   consume string_pony
 
 /* set_font_name unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "fontname", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the currently selected font.
+{:doh, %{argctype: "const gchar*", argname: "fontname", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_preview_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the text displayed in the preview area.
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 

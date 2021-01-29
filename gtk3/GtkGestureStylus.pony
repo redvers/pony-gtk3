@@ -27,16 +27,28 @@ input. The provided signals just provide the basic information
 
 
 /* get_axes unavailable due to typing issues
- {:doh, %{argctype: "", argname: "axes", argtype: "", paramtype: :param, txo: "none"}}
+Returns the current values for the requested @axes. This function
+must be called from either the #GtkGestureStylus:down,
+#GtkGestureStylus:motion, #GtkGestureStylus:up or #GtkGestureStylus:proximity
+signals.
+{:doh, %{argctype: "", argname: "axes", argtype: "", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "values", argtype: "", paramtype: :param, txo: "full"}}
 */
 
 /* get_axis unavailable due to typing issues
- {:doh, %{argctype: "GdkAxisUse", argname: "axis", argtype: "Gdk.AxisUse", paramtype: :param, txo: "none"}}
+Returns the current value for the requested @axis. This function
+must be called from either the #GtkGestureStylus:down,
+#GtkGestureStylus:motion, #GtkGestureStylus:up or #GtkGestureStylus:proximity
+signals.
+{:doh, %{argctype: "GdkAxisUse", argname: "axis", argtype: "Gdk.AxisUse", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble*", argname: "value", argtype: "gdouble", paramtype: :param, txo: "full"}}
 */
 
 /* get_device_tool unavailable due to return typing issues
+Returns the #GdkDeviceTool currently driving input through this gesture.
+This function must be called from either the #GtkGestureStylus::down,
+#GtkGestureStylus::motion, #GtkGestureStylus::up or #GtkGestureStylus::proximity
+signal handlers.
 {:argctype, "GdkDeviceTool*"}
 {:argname, "rv"}
 {:argtype, "Gdk.DeviceTool"}

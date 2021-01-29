@@ -42,14 +42,17 @@ child widget.
 
 
 /* get_padding unavailable due to typing issues
- {:doh, %{argctype: "guint*", argname: "padding_top", argtype: "guint", paramtype: :param, txo: "full"}}
+Gets the padding on the different sides of the widget.
+See gtk_alignment_set_padding ().
+{:doh, %{argctype: "guint*", argname: "padding_top", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "padding_bottom", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "padding_left", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "padding_right", argtype: "guint", paramtype: :param, txo: "full"}}
 */
 
 /* set unavailable due to typing issues
- {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+Sets the #GtkAlignment values.
+{:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gfloat", argname: "xscale", argtype: "gfloat", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gfloat", argname: "yscale", argtype: "gfloat", paramtype: :param, txo: "none"}}

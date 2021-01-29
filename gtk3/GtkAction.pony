@@ -106,7 +106,9 @@ gtk_action_disconnect_accelerator() has been called as many times.
   @gtk_action_connect_accelerator[None](widget)
 
 /* create_icon unavailable due to typing issues
- {:doh, %{argctype: "GtkIconSize", argname: "icon_size", argtype: "gint", paramtype: :param, txo: "none"}}
+This function is intended for use by action implementations to
+create icons displayed in the proxy widgets.
+{:doh, %{argctype: "GtkIconSize", argname: "icon_size", argtype: "gint", paramtype: :param, txo: "none"}}
 */
 
 /* Needs conversion code 
@@ -136,6 +138,7 @@ Undoes the effect of one call to gtk_action_connect_accelerator().
   @gtk_action_disconnect_accelerator[None](widget)
 
 /* get_accel_closure unavailable due to return typing issues
+Returns the accel closure for this action.
 {:argctype, "GClosure*"}
 {:argname, "rv"}
 {:argtype, "GObject.Closure"}
@@ -158,6 +161,7 @@ show their image, if available.
   @gtk_action_get_always_show_image[Bool](widget)
 
 /* get_gicon unavailable due to return typing issues
+Gets the gicon of @action.
 {:argctype, "GIcon*"}
 {:argname, "rv"}
 {:argtype, "Gio.Icon"}
@@ -195,6 +199,8 @@ Returns the name of the action.
   consume string_pony
 
 /* get_proxies unavailable due to return typing issues
+Returns the proxy widgets for an action.
+See also gtk_activatable_get_related_action().
 {:argctype, "GSList*"}
 {:argname, "rv"}
 {:argtype, "GLib.SList"}
@@ -266,11 +272,20 @@ Returns whether the action is effectively visible.
   @gtk_action_is_visible[Bool](widget)
 
 /* set_accel_group unavailable due to typing issues
- {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
+Sets the #GtkAccelGroup in which the accelerator for this action
+will be installed.
+{:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
 */
 
 /* set_accel_path unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "accel_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the accel path for this action.  All proxy widgets associated
+with the action will have this accel path, so that their
+accelerators are consistent.
+
+Note that @accel_path string will be stored in a #GQuark. Therefore, if you
+pass a static string, you can save some memory by interning it first with
+g_intern_static_string().
+{:doh, %{argctype: "const gchar*", argname: "accel_path", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_always_show_image(always_show_pony: Bool): None =>
@@ -284,11 +299,13 @@ without their image.
   @gtk_action_set_always_show_image[None](widget, always_show_pony)
 
 /* set_gicon unavailable due to typing issues
- {:doh, %{argctype: "GIcon*", argname: "icon", argtype: "Gio.Icon", paramtype: :param, txo: "none"}}
+Sets the icon of @action.
+{:doh, %{argctype: "GIcon*", argname: "icon", argtype: "Gio.Icon", paramtype: :param, txo: "none"}}
 */
 
 /* set_icon_name unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the icon name on @action
+{:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_is_important(is_important_pony: Bool): None =>
@@ -300,7 +317,8 @@ or not.
   @gtk_action_set_is_important[None](widget, is_important_pony)
 
 /* set_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the label of @action.
+{:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_sensitive(sensitive_pony: Bool): None =>
@@ -313,15 +331,18 @@ for that.
   @gtk_action_set_sensitive[None](widget, sensitive_pony)
 
 /* set_short_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "short_label", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets a shorter label text on @action.
+{:doh, %{argctype: "const gchar*", argname: "short_label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_stock_id unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the stock id on @action
+{:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_tooltip unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "tooltip", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the tooltip text on @action
+{:doh, %{argctype: "const gchar*", argname: "tooltip", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_visible(visible_pony: Bool): None =>

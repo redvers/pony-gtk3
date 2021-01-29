@@ -54,6 +54,8 @@ Marks are typically created using the gtk_text_buffer_create_mark() function.
 
 
 /* get_buffer unavailable due to return typing issues
+Gets the buffer this mark is located inside,
+or %NULL if the mark is deleted.
 {:argctype, "GtkTextBuffer*"}
 {:argname, "rv"}
 {:argtype, "TextBuffer"}

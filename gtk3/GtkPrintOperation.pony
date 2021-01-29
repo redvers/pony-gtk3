@@ -108,6 +108,8 @@ itself.
   @gtk_print_operation_draw_page_finish[None](widget)
 
 /* get_default_page_setup unavailable due to return typing issues
+Returns the default page setup, see
+gtk_print_operation_set_default_page_setup().
 {:argctype, "GtkPageSetup*"}
 {:argname, "rv"}
 {:argtype, "PageSetup"}
@@ -150,6 +152,11 @@ This is typically used to track the progress of print operation.
   @gtk_print_operation_get_n_pages_to_print[I32](widget)
 
 /* get_print_settings unavailable due to return typing issues
+Returns the current print settings.
+
+Note that the return value is %NULL until either
+gtk_print_operation_set_print_settings() or
+gtk_print_operation_run() have been called.
 {:argctype, "GtkPrintSettings*"}
 {:argname, "rv"}
 {:argtype, "PrintSettings"}
@@ -157,6 +164,8 @@ This is typically used to track the progress of print operation.
 {:txo, "none"} */
 
 /* get_status unavailable due to return typing issues
+Returns the status of the print operation.
+Also see gtk_print_operation_get_status_string().
 {:argctype, "GtkPrintStatus"}
 {:argname, "rv"}
 {:argtype, "PrintStatus"}
@@ -195,6 +204,61 @@ the operation status then tracks the print job status on the printer.
   @gtk_print_operation_is_finished[Bool](widget)
 
 /* run unavailable due to return typing issues
+Runs the print operation, by first letting the user modify
+print settings in the print dialog, and then print the document.
+
+Normally that this function does not return until the rendering of all
+pages is complete. You can connect to the
+#GtkPrintOperation::status-changed signal on @op to obtain some
+information about the progress of the print operation.
+Furthermore, it may use a recursive mainloop to show the print dialog.
+
+If you call gtk_print_operation_set_allow_async() or set the
+#GtkPrintOperation:allow-async property the operation will run
+asynchronously if this is supported on the platform. The
+#GtkPrintOperation::done signal will be emitted with the result of the
+operation when the it is done (i.e. when the dialog is canceled, or when
+the print succeeds or fails).
+|[<!-- language="C" -->
+if (settings != NULL)
+  gtk_print_operation_set_print_settings (print, settings);
+  
+if (page_setup != NULL)
+  gtk_print_operation_set_default_page_setup (print, page_setup);
+  
+g_signal_connect (print, "begin-print",
+                  G_CALLBACK (begin_print), &data);
+g_signal_connect (print, "draw-page",
+                  G_CALLBACK (draw_page), &data);
+ 
+res = gtk_print_operation_run (print,
+                               GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG,
+                               parent,
+                               &error);
+ 
+if (res == GTK_PRINT_OPERATION_RESULT_ERROR)
+ {
+   error_dialog = gtk_message_dialog_new (GTK_WINDOW (parent),
+  			                     GTK_DIALOG_DESTROY_WITH_PARENT,
+					     GTK_MESSAGE_ERROR,
+					     GTK_BUTTONS_CLOSE,
+					     "Error printing file:\n%s",
+					     error->message);
+   g_signal_connect (error_dialog, "response",
+                     G_CALLBACK (gtk_widget_destroy), NULL);
+   gtk_widget_show (error_dialog);
+   g_error_free (error);
+ }
+else if (res == GTK_PRINT_OPERATION_RESULT_APPLY)
+ {
+   if (settings != NULL)
+g_object_unref (settings);
+   settings = g_object_ref (gtk_print_operation_get_print_settings (print));
+ }
+]|
+
+Note that gtk_print_operation_run() can only be called once on a
+given #GtkPrintOperation.
 {:argctype, "GtkPrintOperationResult"}
 {:argname, "rv"}
 {:argtype, "PrintOperationResult"}
@@ -221,11 +285,17 @@ Note that this only makes sense for pre-paginated documents.
   @gtk_print_operation_set_current_page[None](widget, current_page_pony)
 
 /* set_custom_tab_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the label for the tab holding custom widgets.
+{:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_default_page_setup unavailable due to typing issues
- {:doh, %{argctype: "GtkPageSetup*", argname: "default_page_setup", argtype: "PageSetup", paramtype: :param, txo: "none"}}
+Makes @default_page_setup the default page setup for @op.
+
+This page setup will be used by gtk_print_operation_run(),
+but it can be overridden on a per-page basis by connecting
+to the #GtkPrintOperation::request-page-setup signal.
+{:doh, %{argctype: "GtkPageSetup*", argname: "default_page_setup", argtype: "PageSetup", paramtype: :param, txo: "none"}}
 */
 
 fun set_defer_drawing(): None =>
@@ -246,7 +316,15 @@ Selected page setup is stored as default page setup in #GtkPrintOperation.
   @gtk_print_operation_set_embed_page_setup[None](widget, embed_pony)
 
 /* set_export_filename unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "filename", argtype: "filename", paramtype: :param, txo: "none"}}
+Sets up the #GtkPrintOperation to generate a file instead
+of showing the print dialog. The indended use of this function
+is for implementing “Export to PDF” actions. Currently, PDF
+is the only supported format.
+
+“Print to PDF” support is independent of this and is done
+by letting the user pick the “Print to PDF” item from the list
+of printers in the print dialog.
+{:doh, %{argctype: "const gchar*", argname: "filename", argtype: "filename", paramtype: :param, txo: "none"}}
 */
 
 fun set_has_selection(has_selection_pony: Bool): None =>
@@ -260,7 +338,12 @@ will draw by gtk_print_operation_set_n_pages() in a callback of
   @gtk_print_operation_set_has_selection[None](widget, has_selection_pony)
 
 /* set_job_name unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "job_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the name of the print job. The name is used to identify
+the job (e.g. in monitoring applications like eggcups).
+
+If you don’t set a job name, GTK+ picks a default one by
+numbering successive print jobs.
+{:doh, %{argctype: "const gchar*", argname: "job_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_n_pages(n_pages_pony: I32): None =>
@@ -280,7 +363,10 @@ will be for page @n_pages - 1.
   @gtk_print_operation_set_n_pages[None](widget, n_pages_pony)
 
 /* set_print_settings unavailable due to typing issues
- {:doh, %{argctype: "GtkPrintSettings*", argname: "print_settings", argtype: "PrintSettings", paramtype: :param, txo: "none"}}
+Sets the print settings for @op. This is typically used to
+re-establish print settings from a previous print operation,
+see gtk_print_operation_run().
+{:doh, %{argctype: "GtkPrintSettings*", argname: "print_settings", argtype: "PrintSettings", paramtype: :param, txo: "none"}}
 */
 
 fun set_show_progress(show_progress_pony: Bool): None =>
@@ -309,7 +395,10 @@ not be enabled unless needed.
   @gtk_print_operation_set_track_print_status[None](widget, track_status_pony)
 
 /* set_unit unavailable due to typing issues
- {:doh, %{argctype: "GtkUnit", argname: "unit", argtype: "Unit", paramtype: :param, txo: "none"}}
+Sets up the transformation for the cairo context obtained from
+#GtkPrintContext in such a way that distances are measured in
+units of @unit.
+{:doh, %{argctype: "GtkUnit", argname: "unit", argtype: "Unit", paramtype: :param, txo: "none"}}
 */
 
 fun set_use_full_page(full_page_pony: Bool): None =>

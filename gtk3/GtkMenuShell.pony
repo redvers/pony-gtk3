@@ -56,11 +56,46 @@ Activates the menu item within the menu shell.
   @gtk_menu_shell_activate_item[None](widget, menu_item_pony.gtkwidget(), force_deactivate_pony)
 
 /* append unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "MenuItem", paramtype: :param, txo: "none"}}
+Adds a new #GtkMenuItem to the end of the menu shell's
+item list.
+{:doh, %{argctype: "GtkWidget*", argname: "child", argtype: "MenuItem", paramtype: :param, txo: "none"}}
 */
 
 /* bind_model unavailable due to typing issues
- {:doh, %{argctype: "GMenuModel*", argname: "model", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
+Establishes a binding between a #GtkMenuShell and a #GMenuModel.
+
+The contents of @shell are removed and then refilled with menu items
+according to @model.  When @model changes, @shell is updated.
+Calling this function twice on @shell with different @model will
+cause the first binding to be replaced with a binding to the new
+model. If @model is %NULL then any previous binding is undone and
+all children are removed.
+
+@with_separators determines if toplevel items (eg: sections) have
+separators inserted between them.  This is typically desired for
+menus but doesn’t make sense for menubars.
+
+If @action_namespace is non-%NULL then the effect is as if all
+actions mentioned in the @model have their names prefixed with the
+namespace, plus a dot.  For example, if the action “quit” is
+mentioned and @action_namespace is “app” then the effective action
+name is “app.quit”.
+
+This function uses #GtkActionable to define the action name and
+target values on the created menu items.  If you want to use an
+action group other than “app” and “win”, or if you want to use a
+#GtkMenuShell outside of a #GtkApplicationWindow, then you will need
+to attach your own action group to the widget hierarchy using
+gtk_widget_insert_action_group().  As an example, if you created a
+group with a “quit” action and inserted it with the name “mygroup”
+then you would use the action name “mygroup.quit” in your
+#GMenuModel.
+
+For most cases you are probably better off using
+gtk_menu_new_from_model() or gtk_menu_bar_new_from_model() or just
+directly passing the #GMenuModel to gtk_application_set_app_menu() or
+gtk_application_set_menubar().
+{:doh, %{argctype: "GMenuModel*", argname: "model", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "action_namespace", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 

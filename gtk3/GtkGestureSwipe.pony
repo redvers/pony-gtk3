@@ -35,7 +35,10 @@ All velocities are reported in pixels/sec units.
 
 
 /* get_velocity unavailable due to typing issues
- {:doh, %{argctype: "gdouble*", argname: "velocity_x", argtype: "gdouble", paramtype: :param, txo: "full"}}
+If the gesture is recognized, this function returns %TRUE and fill in
+@velocity_x and @velocity_y with the recorded velocity, as per the
+last event(s) processed.
+{:doh, %{argctype: "gdouble*", argname: "velocity_x", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "velocity_y", argtype: "gdouble", paramtype: :param, txo: "full"}}
 */
 

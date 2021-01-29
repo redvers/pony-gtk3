@@ -48,23 +48,41 @@ key theme, as defined by #GtkSettings:gtk-key-theme-name.
 
 
 /* load_from_data unavailable due to typing issues
- {:doh, %{argctype: "", argname: "data", argtype: "", paramtype: :param, txo: "none"}}
+Loads @data into @css_provider, and by doing so clears any previously loaded
+information.
+{:doh, %{argctype: "", argname: "data", argtype: "", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gssize", argname: "length", argtype: "gssize", paramtype: :param, txo: "none"}}
 */
 
 /* load_from_file unavailable due to typing issues
- {:doh, %{argctype: "GFile*", argname: "file", argtype: "Gio.File", paramtype: :param, txo: "none"}}
+Loads the data contained in @file into @css_provider, making it
+clear any previously loaded information.
+{:doh, %{argctype: "GFile*", argname: "file", argtype: "Gio.File", paramtype: :param, txo: "none"}}
 */
 
 /* load_from_path unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+Loads the data contained in @path into @css_provider, making it clear
+any previously loaded information.
+{:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* load_from_resource unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+Loads the data contained in the resource at @resource_path into
+the #GtkCssProvider, clearing any previously loaded information.
+
+To track errors while loading CSS, connect to the
+#GtkCssProvider::parsing-error signal.
+{:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* to_string unavailable due to return typing issues
+Converts the @provider into a string representation in CSS
+format.
+
+Using gtk_css_provider_load_from_data() with the return value
+from this function on a new provider created with
+gtk_css_provider_new() will basically create a duplicate of
+this @provider.
 {:argctype, "char*"}
 {:argname, "rv"}
 {:argtype, "utf8"}

@@ -95,7 +95,17 @@ multiple <source> elements. The following attributes are allowed:
 
 
 /* add unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+Adds the given @icon_set to the icon factory, under the name
+@stock_id.  @stock_id should be namespaced for your application,
+e.g. “myapp-whatever-icon”.  Normally applications create a
+#GtkIconFactory, then add it to the list of default factories with
+gtk_icon_factory_add_default(). Then they pass the @stock_id to
+widgets such as #GtkImage to display the icon. Themes can provide
+an icon with the same name (such as "myapp-whatever-icon") to
+override your application’s default icons. If an icon already
+existed in @factory for @stock_id, it is unreferenced and replaced
+with the new @icon_set.
+{:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkIconSet*", argname: "icon_set", argtype: "IconSet", paramtype: :param, txo: "none"}}
 */
 
@@ -111,6 +121,11 @@ can be overridden by themes.
   @gtk_icon_factory_add_default[None](widget)
 
 /* lookup unavailable due to return typing issues
+Looks up @stock_id in the icon factory, returning an icon set
+if found, otherwise %NULL. For display to the user, you should
+use gtk_style_lookup_icon_set() on the #GtkStyle for the
+widget that will display the icon, instead of using this
+function directly, so that themes are taken into account.
 {:argctype, "GtkIconSet*"}
 {:argname, "rv"}
 {:argtype, "IconSet"}

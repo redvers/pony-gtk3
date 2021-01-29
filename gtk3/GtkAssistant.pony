@@ -109,6 +109,7 @@ Gets whether page has padding.
   @gtk_assistant_get_page_has_padding[Bool](widget, page_pony.gtkwidget())
 
 /* get_page_header_image unavailable due to return typing issues
+Gets the header image for @page.
 {:argctype, "GdkPixbuf*"}
 {:argname, "rv"}
 {:argtype, "GdkPixbuf.Pixbuf"}
@@ -116,6 +117,7 @@ Gets whether page has padding.
 {:txo, "none"} */
 
 /* get_page_side_image unavailable due to return typing issues
+Gets the side image for @page.
 {:argctype, "GdkPixbuf*"}
 {:argname, "rv"}
 {:argtype, "GdkPixbuf.Pixbuf"}
@@ -131,6 +133,7 @@ Gets the title for @page.
   consume string_pony
 
 /* get_page_type unavailable due to return typing issues
+Gets the page type of @page.
 {:argctype, "GtkAssistantPageType"}
 {:argname, "rv"}
 {:argtype, "AssistantPageType"}
@@ -196,7 +199,14 @@ gtk_assistant_set_forward_page_func().
   @gtk_assistant_set_current_page[None](widget, page_num_pony)
 
 /* set_forward_page_func unavailable due to typing issues
- {:doh, %{argctype: "GtkAssistantPageFunc", argname: "page_func", argtype: "AssistantPageFunc", paramtype: :param, txo: "none"}}
+Sets the page forwarding function to be @page_func.
+
+This function will be used to determine what will be
+the next page when the user presses the forward button.
+Setting @page_func to %NULL will make the assistant to
+use the default forward function, which just goes to the
+next visible page.
+{:doh, %{argctype: "GtkAssistantPageFunc", argname: "page_func", argtype: "AssistantPageFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
@@ -218,19 +228,31 @@ the page.
   @gtk_assistant_set_page_has_padding[None](widget, page_pony.gtkwidget(), has_padding_pony)
 
 /* set_page_header_image unavailable due to typing issues
- {:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
+Sets a header image for @page.
+{:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
 */
 
 /* set_page_side_image unavailable due to typing issues
- {:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
+Sets a side image for @page.
+
+This image used to be displayed in the side area of the assistant
+when @page is the current page.
+{:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
 */
 
 /* set_page_title unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets a title for @page.
+
+The title is displayed in the header area of the assistant
+when @page is the current page.
+{:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_page_type unavailable due to typing issues
- {:doh, %{argctype: "GtkAssistantPageType", argname: "gtype", argtype: "AssistantPageType", paramtype: :param, txo: "none"}}
+Sets the page type for @page.
+
+The page type determines the page behavior in the @assistant.
+{:doh, %{argctype: "GtkAssistantPageType", argname: "gtype", argtype: "AssistantPageType", paramtype: :param, txo: "none"}}
 */
 
 fun update_buttons_state(): None =>

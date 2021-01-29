@@ -186,7 +186,10 @@ child widget to be hidden.
   @gtk_expander_set_expanded[None](widget, expanded_pony)
 
 /* set_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the text of the label of the expander to @label.
+
+This will also clear any previously set labels.
+{:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_label_fill(label_fill_pony: Bool): None =>

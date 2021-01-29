@@ -78,26 +78,38 @@ of days elapsed since they were last modified.
   @gtk_recent_filter_add_age[None](widget, days_pony)
 
 /* add_application unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "application", argtype: "utf8", paramtype: :param, txo: "none"}}
+Adds a rule that allows resources based on the name of the application
+that has registered them.
+{:doh, %{argctype: "const gchar*", argname: "application", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* add_custom unavailable due to typing issues
- {:doh, %{argctype: "GtkRecentFilterFlags", argname: "needed", argtype: "RecentFilterFlags", paramtype: :param, txo: "none"}}
+Adds a rule to a filter that allows resources based on a custom callback
+function. The bitfield @needed which is passed in provides information
+about what sorts of information that the filter function needs;
+this allows GTK+ to avoid retrieving expensive information when
+it isn’t needed by the filter.
+{:doh, %{argctype: "GtkRecentFilterFlags", argname: "needed", argtype: "RecentFilterFlags", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkRecentFilterFunc", argname: "func", argtype: "RecentFilterFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "data_destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
 
 /* add_group unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "group", argtype: "utf8", paramtype: :param, txo: "none"}}
+Adds a rule that allows resources based on the name of the group
+to which they belong
+{:doh, %{argctype: "const gchar*", argname: "group", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* add_mime_type unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "mime_type", argtype: "utf8", paramtype: :param, txo: "none"}}
+Adds a rule that allows resources based on their registered MIME type.
+{:doh, %{argctype: "const gchar*", argname: "mime_type", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* add_pattern unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "pattern", argtype: "utf8", paramtype: :param, txo: "none"}}
+Adds a rule that allows resources based on a pattern matching their
+display name.
+{:doh, %{argctype: "const gchar*", argname: "pattern", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun add_pixbuf_formats(): None =>
@@ -108,7 +120,16 @@ by GdkPixbuf.
   @gtk_recent_filter_add_pixbuf_formats[None](widget)
 
 /* filter unavailable due to typing issues
- {:doh, %{argctype: "const GtkRecentFilterInfo*", argname: "filter_info", argtype: "RecentFilterInfo", paramtype: :param, txo: "none"}}
+Tests whether a file should be displayed according to @filter.
+The #GtkRecentFilterInfo @filter_info should include
+the fields returned from gtk_recent_filter_get_needed(), and
+must set the #GtkRecentFilterInfo.contains field of @filter_info
+to indicate which fields have been set.
+
+This function will not typically be used by applications; it
+is intended principally for use in the implementation of
+#GtkRecentChooser.
+{:doh, %{argctype: "const GtkRecentFilterInfo*", argname: "filter_info", argtype: "RecentFilterInfo", paramtype: :param, txo: "none"}}
 */
 
 fun get_name(): String =>
@@ -121,6 +142,12 @@ See gtk_recent_filter_set_name().
   consume string_pony
 
 /* get_needed unavailable due to return typing issues
+Gets the fields that need to be filled in for the #GtkRecentFilterInfo
+passed to gtk_recent_filter_filter()
+
+This function will not typically be used by applications; it
+is intended principally for use in the implementation of
+#GtkRecentChooser.
 {:argctype, "GtkRecentFilterFlags"}
 {:argname, "rv"}
 {:argtype, "RecentFilterFlags"}
@@ -128,6 +155,9 @@ See gtk_recent_filter_set_name().
 {:txo, "none"} */
 
 /* set_name unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the human-readable name of the filter; this is the string
+that will be displayed in the recently used resources selector
+user interface if there is a selectable list of filters.
+{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 

@@ -58,10 +58,14 @@ GtkStatusbar has a single CSS node with name statusbar.
 
 
 /* get_context_id unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "context_description", argtype: "utf8", paramtype: :param, txo: "none"}}
+Returns a new context identifier, given a description
+of the actual context. Note that the description is
+not shown in the UI.
+{:doh, %{argctype: "const gchar*", argname: "context_description", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* get_message_area unavailable due to return typing issues
+Retrieves the box containing the label widget.
 {:argctype, "GtkWidget*"}
 {:argname, "rv"}
 {:argtype, "Box"}
@@ -80,7 +84,8 @@ context id.
   @gtk_statusbar_pop[None](widget, context_id_pony)
 
 /* push unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+Pushes a new message onto a statusbar’s stack.
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun remove(context_id_pony: U32, message_id_pony: U32): None =>

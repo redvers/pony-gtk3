@@ -52,6 +52,8 @@ Returns the number of rows that have been selected in @tree.
   @gtk_tree_selection_count_selected_rows[I32](widget)
 
 /* get_mode unavailable due to return typing issues
+Gets the selection mode for @selection. See
+gtk_tree_selection_set_mode().
 {:argctype, "GtkSelectionMode"}
 {:argname, "rv"}
 {:argtype, "SelectionMode"}
@@ -59,6 +61,7 @@ Returns the number of rows that have been selected in @tree.
 {:txo, "none"} */
 
 /* get_select_function unavailable due to return typing issues
+Returns the current selection function.
 {:argctype, "GtkTreeSelectionFunc"}
 {:argname, "rv"}
 {:argtype, "TreeSelectionFunc"}
@@ -66,11 +69,25 @@ Returns the number of rows that have been selected in @tree.
 {:txo, "notpresent"} */
 
 /* get_selected unavailable due to typing issues
- {:doh, %{argctype: "GtkTreeModel**", argname: "model", argtype: "TreeModel", paramtype: :param, txo: "none"}}
+Sets @iter to the currently selected node if @selection is set to
+#GTK_SELECTION_SINGLE or #GTK_SELECTION_BROWSE.  @iter may be NULL if you
+just want to test if @selection has any selected nodes.  @model is filled
+with the current model as a convenience.  This function will not work if you
+use @selection is #GTK_SELECTION_MULTIPLE.
+{:doh, %{argctype: "GtkTreeModel**", argname: "model", argtype: "TreeModel", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkTreeIter*", argname: "iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
 */
 
 /* get_selected_rows unavailable due to return typing issues
+Creates a list of path of all selected rows. Additionally, if you are
+planning on modifying the model after calling this function, you may
+want to convert the returned list into a list of #GtkTreeRowReferences.
+To do this, you can use gtk_tree_row_reference_new().
+
+To free the return value, use:
+|[<!-- language="C" -->
+g_list_free_full (list, (GDestroyNotify) gtk_tree_path_free);
+]|
 {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
@@ -78,6 +95,7 @@ Returns the number of rows that have been selected in @tree.
 {:txo, "full"} */
 
 /* get_tree_view unavailable due to return typing issues
+Returns the tree view associated with @selection.
 {:argctype, "GtkTreeView*"}
 {:argname, "rv"}
 {:argtype, "TreeView"}
@@ -85,6 +103,7 @@ Returns the number of rows that have been selected in @tree.
 {:txo, "none"} */
 
 /* get_user_data unavailable due to return typing issues
+Returns the user data for the selection function.
 {:argctype, "gpointer"}
 {:argname, "rv"}
 {:argtype, "gpointer"}
@@ -92,11 +111,14 @@ Returns the number of rows that have been selected in @tree.
 {:txo, "none"} */
 
 /* iter_is_selected unavailable due to typing issues
- {:doh, %{argctype: "GtkTreeIter*", argname: "iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
+Returns %TRUE if the row at @iter is currently selected.
+{:doh, %{argctype: "GtkTreeIter*", argname: "iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
 */
 
 /* path_is_selected unavailable due to typing issues
- {:doh, %{argctype: "GtkTreePath*", argname: "path", argtype: "TreePath", paramtype: :param, txo: "none"}}
+Returns %TRUE if the row pointed to by @path is currently selected.  If @path
+does not point to a valid location, %FALSE is returned
+{:doh, %{argctype: "GtkTreePath*", argname: "path", argtype: "TreePath", paramtype: :param, txo: "none"}}
 */
 
 fun select_all(): None =>
@@ -107,29 +129,45 @@ mode.
   @gtk_tree_selection_select_all[None](widget)
 
 /* select_iter unavailable due to typing issues
- {:doh, %{argctype: "GtkTreeIter*", argname: "iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
+Selects the specified iterator.
+{:doh, %{argctype: "GtkTreeIter*", argname: "iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
 */
 
 /* select_path unavailable due to typing issues
- {:doh, %{argctype: "GtkTreePath*", argname: "path", argtype: "TreePath", paramtype: :param, txo: "none"}}
+Select the row at @path.
+{:doh, %{argctype: "GtkTreePath*", argname: "path", argtype: "TreePath", paramtype: :param, txo: "none"}}
 */
 
 /* select_range unavailable due to typing issues
- {:doh, %{argctype: "GtkTreePath*", argname: "start_path", argtype: "TreePath", paramtype: :param, txo: "none"}}
+Selects a range of nodes, determined by @start_path and @end_path inclusive.
+@selection must be set to #GTK_SELECTION_MULTIPLE mode.
+{:doh, %{argctype: "GtkTreePath*", argname: "start_path", argtype: "TreePath", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkTreePath*", argname: "end_path", argtype: "TreePath", paramtype: :param, txo: "none"}}
 */
 
 /* selected_foreach unavailable due to typing issues
- {:doh, %{argctype: "GtkTreeSelectionForeachFunc", argname: "func", argtype: "TreeSelectionForeachFunc", paramtype: :param, txo: "none"}}
+Calls a function for each selected node. Note that you cannot modify
+the tree or selection from within this function. As a result,
+gtk_tree_selection_get_selected_rows() might be more useful.
+{:doh, %{argctype: "GtkTreeSelectionForeachFunc", argname: "func", argtype: "TreeSelectionForeachFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 */
 
 /* set_mode unavailable due to typing issues
- {:doh, %{argctype: "GtkSelectionMode", argname: "gtype", argtype: "SelectionMode", paramtype: :param, txo: "none"}}
+Sets the selection mode of the @selection.  If the previous type was
+#GTK_SELECTION_MULTIPLE, then the anchor is kept selected, if it was
+previously selected.
+{:doh, %{argctype: "GtkSelectionMode", argname: "gtype", argtype: "SelectionMode", paramtype: :param, txo: "none"}}
 */
 
 /* set_select_function unavailable due to typing issues
- {:doh, %{argctype: "GtkTreeSelectionFunc", argname: "func", argtype: "TreeSelectionFunc", paramtype: :param, txo: "none"}}
+Sets the selection function.
+
+If set, this function is called before any node is selected or unselected,
+giving some control over which nodes are selected. The select function
+should return %TRUE if the state of the node may be toggled, and %FALSE
+if the state of the node should be left unchanged.
+{:doh, %{argctype: "GtkTreeSelectionFunc", argname: "func", argtype: "TreeSelectionFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
@@ -141,15 +179,19 @@ Unselects all the nodes.
   @gtk_tree_selection_unselect_all[None](widget)
 
 /* unselect_iter unavailable due to typing issues
- {:doh, %{argctype: "GtkTreeIter*", argname: "iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
+Unselects the specified iterator.
+{:doh, %{argctype: "GtkTreeIter*", argname: "iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
 */
 
 /* unselect_path unavailable due to typing issues
- {:doh, %{argctype: "GtkTreePath*", argname: "path", argtype: "TreePath", paramtype: :param, txo: "none"}}
+Unselects the row at @path.
+{:doh, %{argctype: "GtkTreePath*", argname: "path", argtype: "TreePath", paramtype: :param, txo: "none"}}
 */
 
 /* unselect_range unavailable due to typing issues
- {:doh, %{argctype: "GtkTreePath*", argname: "start_path", argtype: "TreePath", paramtype: :param, txo: "none"}}
+Unselects a range of nodes, determined by @start_path and @end_path
+inclusive.
+{:doh, %{argctype: "GtkTreePath*", argname: "start_path", argtype: "TreePath", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkTreePath*", argname: "end_path", argtype: "TreePath", paramtype: :param, txo: "none"}}
 */
 

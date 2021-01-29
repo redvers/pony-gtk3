@@ -26,6 +26,7 @@ This should not be accessed directly. Use the accessor functions below.
 
 
 /* get_parent unavailable due to return typing issues
+Gets the transient parent used by the #GtkMountOperation
 {:argctype, "GtkWindow*"}
 {:argname, "rv"}
 {:argtype, "Window"}
@@ -33,6 +34,8 @@ This should not be accessed directly. Use the accessor functions below.
 {:txo, "none"} */
 
 /* get_screen unavailable due to return typing issues
+Gets the screen on which windows of the #GtkMountOperation
+will be shown.
 {:argctype, "GdkScreen*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Screen"}
@@ -47,10 +50,13 @@ a window.
   @gtk_mount_operation_is_showing[Bool](widget)
 
 /* set_parent unavailable due to typing issues
- {:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}
+Sets the transient parent for windows shown by the
+#GtkMountOperation.
+{:doh, %{argctype: "GtkWindow*", argname: "parent", argtype: "Window", paramtype: :param, txo: "none"}}
 */
 
 /* set_screen unavailable due to typing issues
- {:doh, %{argctype: "GdkScreen*", argname: "screen", argtype: "Gdk.Screen", paramtype: :param, txo: "none"}}
+Sets the screen to show windows of the #GtkMountOperation on.
+{:doh, %{argctype: "GdkScreen*", argname: "screen", argtype: "Gdk.Screen", paramtype: :param, txo: "none"}}
 */
 

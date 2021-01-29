@@ -55,10 +55,13 @@ Used when subclassing #GtkEntryBuffer
   @gtk_entry_buffer_emit_deleted_text[None](widget, position_pony, n_chars_pony)
 
 /* emit_inserted_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
+Used when subclassing #GtkEntryBuffer
+{:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* get_bytes unavailable due to return typing issues
+Retrieves the length in bytes of the buffer.
+See gtk_entry_buffer_get_length().
 {:argctype, "gsize"}
 {:argname, "rv"}
 {:argtype, "gsize"}
@@ -90,7 +93,16 @@ unless this object emits a signal, or is finalized.
   consume string_pony
 
 /* insert_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
+Inserts @n_chars characters of @chars into the contents of the
+buffer, at position @position.
+
+If @n_chars is negative, then characters from chars will be inserted
+until a null-terminator is found. If @position or @n_chars are out of
+bounds, or the maximum buffer text length is exceeded, then they are
+coerced to sane values.
+
+Note that the position and length are in characters, not in bytes.
+{:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_max_length(max_length_pony: I32): None =>
@@ -102,6 +114,12 @@ will be truncated to fit.
   @gtk_entry_buffer_set_max_length[None](widget, max_length_pony)
 
 /* set_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the text in the buffer.
+
+This is roughly equivalent to calling gtk_entry_buffer_delete_text()
+and gtk_entry_buffer_insert_text().
+
+Note that @n_chars is in characters, not in bytes.
+{:doh, %{argctype: "const gchar*", argname: "chars", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 

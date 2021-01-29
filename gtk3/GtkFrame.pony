@@ -77,7 +77,9 @@ to gtk_frame_new().)
   consume string_pony
 
 /* get_label_align unavailable due to typing issues
- {:doh, %{argctype: "gfloat*", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
+Retrieves the X and Y alignment of the frame’s label. See
+gtk_frame_set_label_align().
+{:doh, %{argctype: "gfloat*", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gfloat*", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "full"}}
 */
 
@@ -89,6 +91,8 @@ gtk_frame_set_label_widget().
 */
 
 /* get_shadow_type unavailable due to return typing issues
+Retrieves the shadow type of the frame. See
+gtk_frame_set_shadow_type().
 {:argctype, "GtkShadowType"}
 {:argname, "rv"}
 {:argtype, "ShadowType"}
@@ -96,11 +100,15 @@ gtk_frame_set_label_widget().
 {:txo, "none"} */
 
 /* set_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+Removes the current #GtkFrame:label-widget. If @label is not %NULL, creates a
+new #GtkLabel with that text and adds it as the #GtkFrame:label-widget.
+{:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_label_align unavailable due to typing issues
- {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+Sets the alignment of the frame widget’s label. The
+default values for a newly created frame are 0.0 and 0.5.
+{:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 */
 
@@ -112,6 +120,10 @@ will appear embedded in the top edge of the frame as a title.
   @gtk_frame_set_label_widget[None](widget, label_widget_pony.gtkwidget())
 
 /* set_shadow_type unavailable due to typing issues
- {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
+Sets the #GtkFrame:shadow-type for @frame, i.e. whether it is drawn without
+(%GTK_SHADOW_NONE) or with (other values) a visible border. Values other than
+%GTK_SHADOW_NONE are treated identically by GtkFrame. The chosen type is
+applied by removing or adding the .flat class to the CSS node named border.
+{:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
 */
 

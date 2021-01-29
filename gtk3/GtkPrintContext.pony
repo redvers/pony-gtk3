@@ -90,6 +90,8 @@ Printing support was added in GTK+ 2.10.
 
 
 /* create_pango_context unavailable due to return typing issues
+Creates a new #PangoContext that can be used with the
+#GtkPrintContext.
 {:argctype, "PangoContext*"}
 {:argname, "rv"}
 {:argtype, "Pango.Context"}
@@ -97,6 +99,8 @@ Printing support was added in GTK+ 2.10.
 {:txo, "full"} */
 
 /* create_pango_layout unavailable due to return typing issues
+Creates a new #PangoLayout that is suitable for use
+with the #GtkPrintContext.
 {:argctype, "PangoLayout*"}
 {:argname, "rv"}
 {:argtype, "Pango.Layout"}
@@ -104,6 +108,8 @@ Printing support was added in GTK+ 2.10.
 {:txo, "full"} */
 
 /* get_cairo_context unavailable due to return typing issues
+Obtains the cairo context that is associated with the
+#GtkPrintContext.
 {:argctype, "cairo_t*"}
 {:argname, "rv"}
 {:argtype, "cairo.Context"}
@@ -111,6 +117,8 @@ Printing support was added in GTK+ 2.10.
 {:txo, "none"} */
 
 /* get_dpi_x unavailable due to return typing issues
+Obtains the horizontal resolution of the #GtkPrintContext,
+in dots per inch.
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -118,6 +126,8 @@ Printing support was added in GTK+ 2.10.
 {:txo, "none"} */
 
 /* get_dpi_y unavailable due to return typing issues
+Obtains the vertical resolution of the #GtkPrintContext,
+in dots per inch.
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -125,13 +135,15 @@ Printing support was added in GTK+ 2.10.
 {:txo, "none"} */
 
 /* get_hard_margins unavailable due to typing issues
- {:doh, %{argctype: "gdouble*", argname: "top", argtype: "gdouble", paramtype: :param, txo: "full"}}
+Obtains the hardware printer margins of the #GtkPrintContext, in units.
+{:doh, %{argctype: "gdouble*", argname: "top", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "bottom", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "left", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "right", argtype: "gdouble", paramtype: :param, txo: "full"}}
 */
 
 /* get_height unavailable due to return typing issues
+Obtains the height of the #GtkPrintContext, in pixels.
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -139,6 +151,8 @@ Printing support was added in GTK+ 2.10.
 {:txo, "none"} */
 
 /* get_page_setup unavailable due to return typing issues
+Obtains the #GtkPageSetup that determines the page
+dimensions of the #GtkPrintContext.
 {:argctype, "GtkPageSetup*"}
 {:argname, "rv"}
 {:argtype, "PageSetup"}
@@ -146,6 +160,8 @@ Printing support was added in GTK+ 2.10.
 {:txo, "none"} */
 
 /* get_pango_fontmap unavailable due to return typing issues
+Returns a #PangoFontMap that is suitable for use
+with the #GtkPrintContext.
 {:argctype, "PangoFontMap*"}
 {:argname, "rv"}
 {:argtype, "Pango.FontMap"}
@@ -153,6 +169,7 @@ Printing support was added in GTK+ 2.10.
 {:txo, "none"} */
 
 /* get_width unavailable due to return typing issues
+Obtains the width of the #GtkPrintContext, in pixels.
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -160,7 +177,13 @@ Printing support was added in GTK+ 2.10.
 {:txo, "none"} */
 
 /* set_cairo_context unavailable due to typing issues
- {:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
+Sets a new cairo context on a print context.
+
+This function is intended to be used when implementing
+an internal print preview, it is not needed for printing,
+since GTK+ itself creates a suitable cairo context in that
+case.
+{:doh, %{argctype: "cairo_t*", argname: "cr", argtype: "cairo.Context", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "double", argname: "dpi_x", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "double", argname: "dpi_y", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */

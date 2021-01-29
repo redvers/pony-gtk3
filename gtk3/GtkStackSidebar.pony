@@ -41,6 +41,8 @@ pages.
 
 
 /* get_stack unavailable due to return typing issues
+Retrieves the stack.
+See gtk_stack_sidebar_set_stack().
 {:argctype, "GtkStack*"}
 {:argname, "rv"}
 {:argtype, "Stack"}
@@ -48,6 +50,10 @@ pages.
 {:txo, "none"} */
 
 /* set_stack unavailable due to typing issues
- {:doh, %{argctype: "GtkStack*", argname: "stack", argtype: "Stack", paramtype: :param, txo: "none"}}
+Set the #GtkStack associated with this #GtkStackSidebar.
+
+The sidebar widget will automatically update according to the order
+(packing) and items within the given #GtkStack.
+{:doh, %{argctype: "GtkStack*", argname: "stack", argtype: "Stack", paramtype: :param, txo: "none"}}
 */
 

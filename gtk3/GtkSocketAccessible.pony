@@ -24,6 +24,7 @@ No documentation provided
 
 
 /* embed unavailable due to typing issues
- {:doh, %{argctype: "gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+No provided documentation
+{:doh, %{argctype: "gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 

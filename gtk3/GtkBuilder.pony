@@ -227,36 +227,109 @@ the global namespace.
   @gtk_builder_add_callback_symbol[None](widget, callback_name.cstring(), callback_symbol)
 
 /* add_callback_symbols unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "first_callback_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+A convenience function to add many callbacks instead of calling
+gtk_builder_add_callback_symbol() for each symbol.
+{:doh, %{argctype: "const gchar*", argname: "first_callback_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GCallback", argname: "first_callback_symbol", argtype: "GObject.Callback", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "...", argtype: "", paramtype: :param, txo: "none"}}
 */
 
 /* add_from_file unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "filename", argtype: "utf8", paramtype: :param, txo: "none"}}
+Parses a file containing a [GtkBuilder UI definition][BUILDER-UI]
+and merges it with the current contents of @builder.
+
+Most users will probably want to use gtk_builder_new_from_file().
+
+If an error occurs, 0 will be returned and @error will be assigned a
+#GError from the #GTK_BUILDER_ERROR, #G_MARKUP_ERROR or #G_FILE_ERROR
+domain.
+
+It’s not really reasonable to attempt to handle failures of this
+call. You should not use this function with untrusted files (ie:
+files that are not part of your application). Broken #GtkBuilder
+files can easily crash your program, and it’s possible that memory
+was leaked leading up to the reported failure. The only reasonable
+thing to do when an error is detected is to call g_error().
+{:doh, %{argctype: "const gchar*", argname: "filename", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* add_from_resource unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+Parses a resource file containing a [GtkBuilder UI definition][BUILDER-UI]
+and merges it with the current contents of @builder.
+
+Most users will probably want to use gtk_builder_new_from_resource().
+
+If an error occurs, 0 will be returned and @error will be assigned a
+#GError from the #GTK_BUILDER_ERROR, #G_MARKUP_ERROR or #G_RESOURCE_ERROR
+domain.
+
+It’s not really reasonable to attempt to handle failures of this
+call.  The only reasonable thing to do when an error is detected is
+to call g_error().
+{:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* add_from_string unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "buffer", argtype: "utf8", paramtype: :param, txo: "none"}}
+Parses a string containing a [GtkBuilder UI definition][BUILDER-UI]
+and merges it with the current contents of @builder.
+
+Most users will probably want to use gtk_builder_new_from_string().
+
+Upon errors 0 will be returned and @error will be assigned a
+#GError from the #GTK_BUILDER_ERROR, #G_MARKUP_ERROR or
+#G_VARIANT_PARSE_ERROR domain.
+
+It’s not really reasonable to attempt to handle failures of this
+call.  The only reasonable thing to do when an error is detected is
+to call g_error().
+{:doh, %{argctype: "const gchar*", argname: "buffer", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gsize", argname: "length", argtype: "gsize", paramtype: :param, txo: "none"}}
 */
 
 /* add_objects_from_file unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "filename", argtype: "utf8", paramtype: :param, txo: "none"}}
+Parses a file containing a [GtkBuilder UI definition][BUILDER-UI]
+building only the requested objects and merges
+them with the current contents of @builder.
+
+Upon errors 0 will be returned and @error will be assigned a
+#GError from the #GTK_BUILDER_ERROR, #G_MARKUP_ERROR or #G_FILE_ERROR
+domain.
+
+If you are adding an object that depends on an object that is not
+its child (for instance a #GtkTreeView that depends on its
+#GtkTreeModel), you have to explicitly list all of them in @object_ids.
+{:doh, %{argctype: "const gchar*", argname: "filename", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "object_ids", argtype: "", paramtype: :param, txo: "none"}}
 */
 
 /* add_objects_from_resource unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+Parses a resource file containing a [GtkBuilder UI definition][BUILDER-UI]
+building only the requested objects and merges
+them with the current contents of @builder.
+
+Upon errors 0 will be returned and @error will be assigned a
+#GError from the #GTK_BUILDER_ERROR, #G_MARKUP_ERROR or #G_RESOURCE_ERROR
+domain.
+
+If you are adding an object that depends on an object that is not
+its child (for instance a #GtkTreeView that depends on its
+#GtkTreeModel), you have to explicitly list all of them in @object_ids.
+{:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "object_ids", argtype: "", paramtype: :param, txo: "none"}}
 */
 
 /* add_objects_from_string unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "buffer", argtype: "utf8", paramtype: :param, txo: "none"}}
+Parses a string containing a [GtkBuilder UI definition][BUILDER-UI]
+building only the requested objects and merges
+them with the current contents of @builder.
+
+Upon errors 0 will be returned and @error will be assigned a
+#GError from the #GTK_BUILDER_ERROR or #G_MARKUP_ERROR domain.
+
+If you are adding an object that depends on an object that is not
+its child (for instance a #GtkTreeView that depends on its
+#GtkTreeModel), you have to explicitly list all of them in @object_ids.
+{:doh, %{argctype: "const gchar*", argname: "buffer", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gsize", argname: "length", argtype: "gsize", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "object_ids", argtype: "", paramtype: :param, txo: "none"}}
 */
@@ -288,22 +361,40 @@ gmodule-export-2.0.
   @gtk_builder_connect_signals[None](widget, None)
 
 /* connect_signals_full unavailable due to typing issues
- {:doh, %{argctype: "GtkBuilderConnectFunc", argname: "func", argtype: "BuilderConnectFunc", paramtype: :param, txo: "none"}}
+This function can be thought of the interpreted language binding
+version of gtk_builder_connect_signals(), except that it does not
+require GModule to function correctly.
+{:doh, %{argctype: "GtkBuilderConnectFunc", argname: "func", argtype: "BuilderConnectFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 */
 
 /* expose_object unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+Add @object to the @builder object pool so it can be referenced just like any
+other object built by builder.
+{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GObject*", argname: "gobject", argtype: "GObject.Object", paramtype: :param, txo: "none"}}
 */
 
 /* extend_with_template unavailable due to typing issues
- {:doh, %{argctype: "GType", argname: "template_type", argtype: "GType", paramtype: :param, txo: "none"}}
+Main private entry point for building composite container
+components from template XML.
+
+This is exported purely to let gtk-builder-tool validate
+templates, applications have no need to call this function.
+{:doh, %{argctype: "GType", argname: "template_type", argtype: "GType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "buffer", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gsize", argname: "length", argtype: "gsize", paramtype: :param, txo: "none"}}
 */
 
 /* get_application unavailable due to return typing issues
+Gets the #GtkApplication associated with the builder.
+
+The #GtkApplication is used for creating action proxies as requested
+from XML that the builder is loading.
+
+By default, the builder uses the default application: the one from
+g_application_get_default(). If you want to use another application
+for constructing proxies, use gtk_builder_set_application().
 {:argctype, "GtkApplication*"}
 {:argname, "rv"}
 {:argtype, "Application"}
@@ -311,6 +402,8 @@ gmodule-export-2.0.
 {:txo, "none"} */
 
 /* get_object unavailable due to return typing issues
+Gets the object named @name. Note that this function does not
+increment the reference count of the returned object.
 {:argctype, "GObject*"}
 {:argname, "rv"}
 {:argtype, "GObject.Object"}
@@ -318,6 +411,9 @@ gmodule-export-2.0.
 {:txo, "none"} */
 
 /* get_objects unavailable due to return typing issues
+Gets all objects that have been constructed by @builder. Note that
+this function does not increment the reference counts of the returned
+objects.
 {:argctype, "GSList*"}
 {:argname, "rv"}
 {:argtype, "GLib.SList"}
@@ -333,6 +429,9 @@ Gets the translation domain of @builder.
   consume string_pony
 
 /* get_type_from_name unavailable due to return typing issues
+Looks up a type by name, using the virtual function that
+#GtkBuilder has for that purpose. This is mainly used when
+implementing the #GtkBuildable interface on a type.
 {:argctype, "GType"}
 {:argname, "rv"}
 {:argtype, "GType"}
@@ -340,6 +439,12 @@ Gets the translation domain of @builder.
 {:txo, "none"} */
 
 /* lookup_callback_symbol unavailable due to return typing issues
+Fetches a symbol previously added to @builder
+with gtk_builder_add_callback_symbols()
+
+This function is intended for possible use in language bindings
+or for any case that one might be cusomizing signal connections
+using gtk_builder_connect_signals_full()
 {:argctype, "GCallback"}
 {:argname, "rv"}
 {:argtype, "GObject.Callback"}
@@ -347,21 +452,45 @@ Gets the translation domain of @builder.
 {:txo, "notpresent"} */
 
 /* set_application unavailable due to typing issues
- {:doh, %{argctype: "GtkApplication*", argname: "application", argtype: "Application", paramtype: :param, txo: "none"}}
+Sets the application associated with @builder.
+
+You only need this function if there is more than one #GApplication
+in your process. @application cannot be %NULL.
+{:doh, %{argctype: "GtkApplication*", argname: "application", argtype: "Application", paramtype: :param, txo: "none"}}
 */
 
 /* set_translation_domain unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "domain", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the translation domain of @builder.
+See #GtkBuilder:translation-domain.
+{:doh, %{argctype: "const gchar*", argname: "domain", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* value_from_string unavailable due to typing issues
- {:doh, %{argctype: "GParamSpec*", argname: "pspec", argtype: "GObject.ParamSpec", paramtype: :param, txo: "none"}}
+This function demarshals a value from a string. This function
+calls g_value_init() on the @value argument, so it need not be
+initialised beforehand.
+
+This function can handle char, uchar, boolean, int, uint, long,
+ulong, enum, flags, float, double, string, #GdkColor, #GdkRGBA and
+#GtkAdjustment type values. Support for #GtkWidget type values is
+still to come.
+
+Upon errors %FALSE will be returned and @error will be assigned a
+#GError from the #GTK_BUILDER_ERROR domain.
+{:doh, %{argctype: "GParamSpec*", argname: "pspec", argtype: "GObject.ParamSpec", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "string", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GValue*", argname: "value", argtype: "GObject.Value", paramtype: :param, txo: "none"}}
 */
 
 /* value_from_string_type unavailable due to typing issues
- {:doh, %{argctype: "GType", argname: "gtype", argtype: "GType", paramtype: :param, txo: "none"}}
+Like gtk_builder_value_from_string(), this function demarshals
+a value from a string, but takes a #GType instead of #GParamSpec.
+This function calls g_value_init() on the @value argument, so it
+need not be initialised beforehand.
+
+Upon errors %FALSE will be returned and @error will be assigned a
+#GError from the #GTK_BUILDER_ERROR domain.
+{:doh, %{argctype: "GType", argname: "gtype", argtype: "GType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "string", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GValue*", argname: "value", argtype: "GObject.Value", paramtype: :param, txo: "none"}}
 */

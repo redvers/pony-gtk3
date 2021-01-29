@@ -26,10 +26,12 @@ No documentation provided
 
 
 /* add_child unavailable due to typing issues
- {:doh, %{argctype: "GtkCellAccessible*", argname: "child", argtype: "CellAccessible", paramtype: :param, txo: "none"}}
+No provided documentation
+{:doh, %{argctype: "GtkCellAccessible*", argname: "child", argtype: "CellAccessible", paramtype: :param, txo: "none"}}
 */
 
 /* get_children unavailable due to return typing issues
+Get a list of children.
 {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
@@ -37,6 +39,7 @@ No documentation provided
 {:txo, "none"} */
 
 /* remove_child unavailable due to typing issues
- {:doh, %{argctype: "GtkCellAccessible*", argname: "child", argtype: "CellAccessible", paramtype: :param, txo: "none"}}
+No provided documentation
+{:doh, %{argctype: "GtkCellAccessible*", argname: "child", argtype: "CellAccessible", paramtype: :param, txo: "none"}}
 */
 

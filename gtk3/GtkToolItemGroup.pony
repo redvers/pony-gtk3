@@ -38,6 +38,7 @@ Gets whether @group is collapsed or expanded.
   @gtk_tool_item_group_get_collapsed[Bool](widget)
 
 /* get_drop_item unavailable due to return typing issues
+Gets the tool item at position (x, y).
 {:argctype, "GtkToolItem*"}
 {:argname, "rv"}
 {:argtype, "ToolItem"}
@@ -45,6 +46,7 @@ Gets whether @group is collapsed or expanded.
 {:txo, "none"} */
 
 /* get_ellipsize unavailable due to return typing issues
+Gets the ellipsization mode of @group.
 {:argctype, "PangoEllipsizeMode"}
 {:argname, "rv"}
 {:argtype, "Pango.EllipsizeMode"}
@@ -52,6 +54,7 @@ Gets whether @group is collapsed or expanded.
 {:txo, "none"} */
 
 /* get_header_relief unavailable due to return typing issues
+Gets the relief mode of the header button of @group.
 {:argctype, "GtkReliefStyle"}
 {:argname, "rv"}
 {:argtype, "ReliefStyle"}
@@ -59,7 +62,8 @@ Gets whether @group is collapsed or expanded.
 {:txo, "none"} */
 
 /* get_item_position unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+Gets the position of @item in @group as index.
+{:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
 */
 
 fun get_label(): String =>
@@ -84,6 +88,7 @@ Gets the number of tool items in @group.
   @gtk_tool_item_group_get_n_items[U32](widget)
 
 /* get_nth_item unavailable due to return typing issues
+Gets the tool item at @index in group.
 {:argctype, "GtkToolItem*"}
 {:argname, "rv"}
 {:argtype, "ToolItem"}
@@ -91,7 +96,8 @@ Gets the number of tool items in @group.
 {:txo, "none"} */
 
 /* insert unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+Inserts @item at @position in the list of children of @group.
+{:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
 */
 
 fun set_collapsed(collapsed_pony: Bool): None =>
@@ -101,19 +107,25 @@ Sets whether the @group should be collapsed or expanded.
   @gtk_tool_item_group_set_collapsed[None](widget, collapsed_pony)
 
 /* set_ellipsize unavailable due to typing issues
- {:doh, %{argctype: "PangoEllipsizeMode", argname: "ellipsize", argtype: "Pango.EllipsizeMode", paramtype: :param, txo: "none"}}
+Sets the ellipsization mode which should be used by labels in @group.
+{:doh, %{argctype: "PangoEllipsizeMode", argname: "ellipsize", argtype: "Pango.EllipsizeMode", paramtype: :param, txo: "none"}}
 */
 
 /* set_header_relief unavailable due to typing issues
- {:doh, %{argctype: "GtkReliefStyle", argname: "style", argtype: "ReliefStyle", paramtype: :param, txo: "none"}}
+Set the button relief of the group header.
+See gtk_button_set_relief() for details.
+{:doh, %{argctype: "GtkReliefStyle", argname: "style", argtype: "ReliefStyle", paramtype: :param, txo: "none"}}
 */
 
 /* set_item_position unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+Sets the position of @item in the list of children of @group.
+{:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
 */
 
 /* set_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the label of the tool item group. The label is displayed in the header
+of the group.
+{:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_label_widget(label_widget_pony: GtkWidget val): None =>

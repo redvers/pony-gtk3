@@ -40,12 +40,25 @@ changed any of the #GtkAdjustment properties other than the value.
   @gtk_adjustment_changed[None](widget)
 
 /* clamp_page unavailable due to typing issues
- {:doh, %{argctype: "gdouble", argname: "lower", argtype: "gdouble", paramtype: :param, txo: "none"}}
+Updates the #GtkAdjustment:value property to ensure that the range
+between @lower and @upper is in the current page (i.e. between
+#GtkAdjustment:value and #GtkAdjustment:value + #GtkAdjustment:page-size).
+If the range is larger than the page size, then only the start of it will
+be in the current page.
+
+A #GtkAdjustment::value-changed signal will be emitted if the value is changed.
+{:doh, %{argctype: "gdouble", argname: "lower", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "upper", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
 
 /* configure unavailable due to typing issues
- {:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
+Sets all properties of the adjustment at once.
+
+Use this function to avoid multiple emissions of the
+#GtkAdjustment::changed signal. See gtk_adjustment_set_lower()
+for an alternative way of compressing multiple emissions of
+#GtkAdjustment::changed into one.
+{:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "lower", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "upper", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "step_increment", argtype: "gdouble", paramtype: :param, txo: "none"}}
@@ -54,6 +67,7 @@ changed any of the #GtkAdjustment properties other than the value.
 */
 
 /* get_lower unavailable due to return typing issues
+Retrieves the minimum value of the adjustment.
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -61,6 +75,7 @@ changed any of the #GtkAdjustment properties other than the value.
 {:txo, "none"} */
 
 /* get_minimum_increment unavailable due to return typing issues
+Gets the smaller of step increment and page increment.
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -68,6 +83,7 @@ changed any of the #GtkAdjustment properties other than the value.
 {:txo, "none"} */
 
 /* get_page_increment unavailable due to return typing issues
+Retrieves the page increment of the adjustment.
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -75,6 +91,7 @@ changed any of the #GtkAdjustment properties other than the value.
 {:txo, "none"} */
 
 /* get_page_size unavailable due to return typing issues
+Retrieves the page size of the adjustment.
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -82,6 +99,7 @@ changed any of the #GtkAdjustment properties other than the value.
 {:txo, "none"} */
 
 /* get_step_increment unavailable due to return typing issues
+Retrieves the step increment of the adjustment.
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -89,6 +107,7 @@ changed any of the #GtkAdjustment properties other than the value.
 {:txo, "none"} */
 
 /* get_upper unavailable due to return typing issues
+Retrieves the maximum value of the adjustment.
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -96,6 +115,8 @@ changed any of the #GtkAdjustment properties other than the value.
 {:txo, "none"} */
 
 /* get_value unavailable due to return typing issues
+Gets the current value of the adjustment.
+See gtk_adjustment_set_value().
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -103,27 +124,69 @@ changed any of the #GtkAdjustment properties other than the value.
 {:txo, "none"} */
 
 /* set_lower unavailable due to typing issues
- {:doh, %{argctype: "gdouble", argname: "lower", argtype: "gdouble", paramtype: :param, txo: "none"}}
+Sets the minimum value of the adjustment.
+
+When setting multiple adjustment properties via their individual
+setters, multiple #GtkAdjustment::changed signals will be emitted.
+However, since the emission of the #GtkAdjustment::changed signal
+is tied to the emission of the #GObject::notify signals of the changed
+properties, it’s possible to compress the #GtkAdjustment::changed
+signals into one by calling g_object_freeze_notify() and
+g_object_thaw_notify() around the calls to the individual setters.
+
+Alternatively, using a single g_object_set() for all the properties
+to change, or using gtk_adjustment_configure() has the same effect
+of compressing #GtkAdjustment::changed emissions.
+{:doh, %{argctype: "gdouble", argname: "lower", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
 
 /* set_page_increment unavailable due to typing issues
- {:doh, %{argctype: "gdouble", argname: "page_increment", argtype: "gdouble", paramtype: :param, txo: "none"}}
+Sets the page increment of the adjustment.
+
+See gtk_adjustment_set_lower() about how to compress multiple
+emissions of the #GtkAdjustment::changed signal when setting
+multiple adjustment properties.
+{:doh, %{argctype: "gdouble", argname: "page_increment", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
 
 /* set_page_size unavailable due to typing issues
- {:doh, %{argctype: "gdouble", argname: "page_size", argtype: "gdouble", paramtype: :param, txo: "none"}}
+Sets the page size of the adjustment.
+
+See gtk_adjustment_set_lower() about how to compress multiple
+emissions of the GtkAdjustment::changed signal when setting
+multiple adjustment properties.
+{:doh, %{argctype: "gdouble", argname: "page_size", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
 
 /* set_step_increment unavailable due to typing issues
- {:doh, %{argctype: "gdouble", argname: "step_increment", argtype: "gdouble", paramtype: :param, txo: "none"}}
+Sets the step increment of the adjustment.
+
+See gtk_adjustment_set_lower() about how to compress multiple
+emissions of the #GtkAdjustment::changed signal when setting
+multiple adjustment properties.
+{:doh, %{argctype: "gdouble", argname: "step_increment", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
 
 /* set_upper unavailable due to typing issues
- {:doh, %{argctype: "gdouble", argname: "upper", argtype: "gdouble", paramtype: :param, txo: "none"}}
+Sets the maximum value of the adjustment.
+
+Note that values will be restricted by `upper - page-size`
+if the page-size property is nonzero.
+
+See gtk_adjustment_set_lower() about how to compress multiple
+emissions of the #GtkAdjustment::changed signal when setting
+multiple adjustment properties.
+{:doh, %{argctype: "gdouble", argname: "upper", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
 
 /* set_value unavailable due to typing issues
- {:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
+Sets the #GtkAdjustment value. The value is clamped to lie between
+#GtkAdjustment:lower and #GtkAdjustment:upper.
+
+Note that for adjustments which are used in a #GtkScrollbar, the
+effective range of allowed values goes from #GtkAdjustment:lower to
+#GtkAdjustment:upper - #GtkAdjustment:page-size.
+{:doh, %{argctype: "gdouble", argname: "value", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
 
 fun value_changed(): None =>

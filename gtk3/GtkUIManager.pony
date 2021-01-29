@@ -250,22 +250,38 @@ other parts of the constructed user interface with the help of the
 
 
 /* add_ui unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+Adds a UI element to the current contents of @manager.
+
+If @type is %GTK_UI_MANAGER_AUTO, GTK+ inserts a menuitem, toolitem or
+separator if such an element can be inserted at the place determined by
+@path. Otherwise @type must indicate an element that can be inserted at
+the place determined by @path.
+
+If @path points to a menuitem or toolitem, the new element will be inserted
+before or after this item, depending on @top.
+{:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "action", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkUIManagerItemType", argname: "gtype", argtype: "UIManagerItemType", paramtype: :param, txo: "none"}}
 */
 
 /* add_ui_from_file unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "filename", argtype: "filename", paramtype: :param, txo: "none"}}
+Parses a file containing a [UI definition][XML-UI] and
+merges it with the current contents of @manager.
+{:doh, %{argctype: "const gchar*", argname: "filename", argtype: "filename", paramtype: :param, txo: "none"}}
 */
 
 /* add_ui_from_resource unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+Parses a resource file containing a [UI definition][XML-UI] and
+merges it with the current contents of @manager.
+{:doh, %{argctype: "const gchar*", argname: "resource_path", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* add_ui_from_string unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "buffer", argtype: "utf8", paramtype: :param, txo: "none"}}
+Parses a string containing a [UI definition][XML-UI] and merges it with
+the current contents of @manager. An enclosing <ui> element is added if
+it is missing.
+{:doh, %{argctype: "const gchar*", argname: "buffer", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gssize", argname: "length", argtype: "gssize", paramtype: :param, txo: "none"}}
 */
 
@@ -290,6 +306,7 @@ gtk_widget_show (window);
   @gtk_ui_manager_ensure_update[None](widget)
 
 /* get_accel_group unavailable due to return typing issues
+Returns the #GtkAccelGroup associated with @manager.
 {:argctype, "GtkAccelGroup*"}
 {:argname, "rv"}
 {:argtype, "AccelGroup"}
@@ -297,6 +314,8 @@ gtk_widget_show (window);
 {:txo, "none"} */
 
 /* get_action unavailable due to return typing issues
+Looks up an action by following a path. See gtk_ui_manager_get_widget()
+for more information about paths.
 {:argctype, "GtkAction*"}
 {:argname, "rv"}
 {:argtype, "Action"}
@@ -304,6 +323,7 @@ gtk_widget_show (window);
 {:txo, "none"} */
 
 /* get_action_groups unavailable due to return typing issues
+Returns the list of action groups associated with @manager.
 {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
@@ -318,6 +338,7 @@ will have tearoff menu items.
   @gtk_ui_manager_get_add_tearoffs[Bool](widget)
 
 /* get_toplevels unavailable due to return typing issues
+Obtains a list of all toplevel widgets of the requested types.
 {:argctype, "GSList*"}
 {:argname, "rv"}
 {:argtype, "GLib.SList"}
@@ -325,6 +346,7 @@ will have tearoff menu items.
 {:txo, "container"} */
 
 /* get_ui unavailable due to return typing issues
+Creates a [UI definition][XML-UI] of the merged UI.
 {:argctype, "gchar*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
@@ -332,11 +354,32 @@ will have tearoff menu items.
 {:txo, "full"} */
 
 /* get_widget unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
+Looks up a widget by following a path.
+The path consists of the names specified in the XML description of the UI.
+separated by “/”. Elements which don’t have a name or action attribute in
+the XML (e.g. <popup>) can be addressed by their XML element name
+(e.g. "popup"). The root element ("/ui") can be omitted in the path.
+
+Note that the widget found by following a path that ends in a <menu>;
+element is the menuitem to which the menu is attached, not the menu it
+manages.
+
+Also note that the widgets constructed by a ui manager are not tied to
+the lifecycle of the ui manager. If you add the widgets returned by this
+function to some container or explicitly ref them, they will survive the
+destruction of the ui manager.
+{:doh, %{argctype: "const gchar*", argname: "path", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* insert_action_group unavailable due to typing issues
- {:doh, %{argctype: "GtkActionGroup*", argname: "action_group", argtype: "ActionGroup", paramtype: :param, txo: "none"}}
+Inserts an action group into the list of action groups associated
+with @manager. Actions in earlier groups hide actions with the same
+name in later groups.
+
+If @pos is larger than the number of action groups in @manager, or
+negative, @action_group will be inserted at the end of the internal
+list.
+{:doh, %{argctype: "GtkActionGroup*", argname: "action_group", argtype: "ActionGroup", paramtype: :param, txo: "none"}}
 */
 
 fun new_merge_id(): U32 =>
@@ -347,7 +390,9 @@ gtk_ui_manager_add_ui().
   @gtk_ui_manager_new_merge_id[U32](widget)
 
 /* remove_action_group unavailable due to typing issues
- {:doh, %{argctype: "GtkActionGroup*", argname: "action_group", argtype: "ActionGroup", paramtype: :param, txo: "none"}}
+Removes an action group from the list of action groups associated
+with @manager.
+{:doh, %{argctype: "GtkActionGroup*", argname: "action_group", argtype: "ActionGroup", paramtype: :param, txo: "none"}}
 */
 
 fun remove_ui(merge_id_pony: U32): None =>

@@ -49,7 +49,21 @@ table will resize themselves to the size of the largest widget in the table.
 
 
 /* attach unavailable due to typing issues
- {:doh, %{argctype: "GtkAttachOptions", argname: "xoptions", argtype: "AttachOptions", paramtype: :param, txo: "none"}}
+Adds a widget to a table. The number of “cells” that a widget will occupy is
+specified by @left_attach, @right_attach, @top_attach and @bottom_attach.
+These each represent the leftmost, rightmost, uppermost and lowest column
+and row numbers of the table. (Columns and rows are indexed from zero).
+
+To make a button occupy the lower right cell of a 2x2 table, use
+|[
+gtk_table_attach (table, button,
+                  1, 2, // left, right attach
+                  1, 2, // top, bottom attach
+                  xoptions, yoptions,
+                  xpadding, ypadding);
+]|
+If you want to make the button span the entire bottom row, use @left_attach == 0 and @right_attach = 2 instead.
+{:doh, %{argctype: "GtkAttachOptions", argname: "xoptions", argtype: "AttachOptions", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkAttachOptions", argname: "yoptions", argtype: "AttachOptions", paramtype: :param, txo: "none"}}
 */
 
@@ -100,7 +114,8 @@ row @row + 1. See gtk_table_set_row_spacing().
   @gtk_table_get_row_spacing[U32](widget, row_pony)
 
 /* get_size unavailable due to typing issues
- {:doh, %{argctype: "guint*", argname: "rows", argtype: "guint", paramtype: :param, txo: "full"}}
+Gets the number of rows and columns in the table.
+{:doh, %{argctype: "guint*", argname: "rows", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "columns", argtype: "guint", paramtype: :param, txo: "full"}}
 */
 

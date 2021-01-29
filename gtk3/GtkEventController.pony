@@ -26,6 +26,7 @@ actions as a consequence of those.
 
 
 /* get_propagation_phase unavailable due to return typing issues
+Gets the propagation phase at which @controller handles events.
 {:argctype, "GtkPropagationPhase"}
 {:argname, "rv"}
 {:argtype, "PropagationPhase"}
@@ -39,7 +40,9 @@ Returns the #GtkWidget this controller relates to.
 */
 
 /* handle_event unavailable due to typing issues
- {:doh, %{argctype: "const GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
+Feeds an events into @controller, so it can be interpreted
+and the controller actions triggered.
+{:doh, %{argctype: "const GdkEvent*", argname: "event", argtype: "Gdk.Event", paramtype: :param, txo: "none"}}
 */
 
 fun reset(): None =>
@@ -51,6 +54,11 @@ will be dropped at this point.
   @gtk_event_controller_reset[None](widget)
 
 /* set_propagation_phase unavailable due to typing issues
- {:doh, %{argctype: "GtkPropagationPhase", argname: "phase", argtype: "PropagationPhase", paramtype: :param, txo: "none"}}
+Sets the propagation phase at which a controller handles events.
+
+If @phase is %GTK_PHASE_NONE, no automatic event handling will be
+performed, but other additional gesture maintenance will. In that phase,
+the events can be managed by calling gtk_event_controller_handle_event().
+{:doh, %{argctype: "GtkPropagationPhase", argname: "phase", argtype: "PropagationPhase", paramtype: :param, txo: "none"}}
 */
 

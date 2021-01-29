@@ -29,6 +29,9 @@ emitted to report the scale factor.
 
 
 /* get_scale_delta unavailable due to return typing issues
+If @gesture is active, this function returns the zooming difference
+since the gesture was recognized (hence the starting point is
+considered 1:1). If @gesture is not active, 1 is returned.
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}

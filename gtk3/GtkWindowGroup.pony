@@ -40,11 +40,13 @@ freed.
 
 
 /* add_window unavailable due to typing issues
- {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
+Adds a window to a #GtkWindowGroup.
+{:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
 */
 
 /* get_current_device_grab unavailable due to typing issues
- {:doh, %{argctype: "GdkDevice*", argname: "device", argtype: "Gdk.Device", paramtype: :param, txo: "none"}}
+Returns the current grab widget for @device, or %NULL if none.
+{:doh, %{argctype: "GdkDevice*", argname: "device", argtype: "Gdk.Device", paramtype: :param, txo: "none"}}
 */
 
 /* Needs conversion code 
@@ -55,6 +57,7 @@ see gtk_grab_add().
 */
 
 /* list_windows unavailable due to return typing issues
+Returns a list of the #GtkWindows that belong to @window_group.
 {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
@@ -62,6 +65,7 @@ see gtk_grab_add().
 {:txo, "container"} */
 
 /* remove_window unavailable due to typing issues
- {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
+Removes a window from a #GtkWindowGroup.
+{:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
 */
 

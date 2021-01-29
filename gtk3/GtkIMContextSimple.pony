@@ -39,10 +39,20 @@ G WITH CEDILLA, i.e. ģ.
 
 
 /* add_compose_file unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "compose_file", argtype: "utf8", paramtype: :param, txo: "none"}}
+No provided documentation
+{:doh, %{argctype: "const gchar*", argname: "compose_file", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* add_table unavailable due to typing issues
- {:doh, %{argctype: "", argname: "data", argtype: "", paramtype: :param, txo: "none"}}
+Adds an additional table to search to the input context.
+Each row of the table consists of @max_seq_len key symbols
+followed by two #guint16 interpreted as the high and low
+words of a #gunicode value. Tables are searched starting
+from the last added.
+
+The table must be sorted in dictionary order on the
+numeric value of the key symbol fields. (Values beyond
+the length of the sequence should be zero.)
+{:doh, %{argctype: "", argname: "data", argtype: "", paramtype: :param, txo: "none"}}
 */
 

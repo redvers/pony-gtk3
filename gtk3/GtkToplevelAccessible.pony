@@ -24,6 +24,7 @@ No documentation provided
 
 
 /* get_children unavailable due to return typing issues
+No provided documentation
 {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}

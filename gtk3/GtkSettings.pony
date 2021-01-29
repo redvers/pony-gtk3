@@ -59,28 +59,36 @@ GtkSettings instance for the default screen.
 
 
 /* reset_property unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+Undoes the effect of calling g_object_set() to install an
+application-specific value for a setting. After this call,
+the setting will again follow the session-wide value for
+this setting.
+{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_double_property unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+No provided documentation
+{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble", argname: "v_double", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "origin", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_long_property unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+No provided documentation
+{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "glong", argname: "v_long", argtype: "glong", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "origin", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_property_value unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+No provided documentation
+{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const GtkSettingsValue*", argname: "svalue", argtype: "SettingsValue", paramtype: :param, txo: "none"}}
 */
 
 /* set_string_property unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+No provided documentation
+{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "v_string", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "origin", argtype: "utf8", paramtype: :param, txo: "none"}}
 */

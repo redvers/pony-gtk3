@@ -37,6 +37,7 @@ gtk_widget_get_window() as you would for a #GtkDrawingArea.
 
 
 /* get_bin_window unavailable due to return typing issues
+Retrieve the bin window of the layout used for drawing operations.
 {:argctype, "GdkWindow*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Window"}
@@ -44,6 +45,12 @@ gtk_widget_get_window() as you would for a #GtkDrawingArea.
 {:txo, "none"} */
 
 /* get_hadjustment unavailable due to return typing issues
+This function should only be called after the layout has been
+placed in a #GtkScrolledWindow or otherwise configured for
+scrolling. It returns the #GtkAdjustment used for communication
+between the horizontal scrollbar and @layout.
+
+See #GtkScrolledWindow, #GtkScrollbar, #GtkAdjustment for details.
 {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
@@ -51,11 +58,20 @@ gtk_widget_get_window() as you would for a #GtkDrawingArea.
 {:txo, "none"} */
 
 /* get_size unavailable due to typing issues
- {:doh, %{argctype: "guint*", argname: "width", argtype: "guint", paramtype: :param, txo: "full"}}
+Gets the size that has been set on the layout, and that determines
+the total extents of the layout’s scrollbar area. See
+gtk_layout_set_size ().
+{:doh, %{argctype: "guint*", argname: "width", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "height", argtype: "guint", paramtype: :param, txo: "full"}}
 */
 
 /* get_vadjustment unavailable due to return typing issues
+This function should only be called after the layout has been
+placed in a #GtkScrolledWindow or otherwise configured for
+scrolling. It returns the #GtkAdjustment used for communication
+between the vertical scrollbar and @layout.
+
+See #GtkScrolledWindow, #GtkScrollbar, #GtkAdjustment for details.
 {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
@@ -76,7 +92,10 @@ Adds @child_widget to @layout, at position (@x,@y).
   @gtk_layout_put[None](widget, child_widget_pony.gtkwidget(), x_pony, y_pony)
 
 /* set_hadjustment unavailable due to typing issues
- {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+Sets the horizontal scroll adjustment for the layout.
+
+See #GtkScrolledWindow, #GtkScrollbar, #GtkAdjustment for details.
+{:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
 
 fun set_size(width_pony: U32, height_pony: U32): None =>
@@ -86,6 +105,9 @@ Sets the size of the scrollable area of the layout.
   @gtk_layout_set_size[None](widget, width_pony, height_pony)
 
 /* set_vadjustment unavailable due to typing issues
- {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+Sets the vertical scroll adjustment for the layout.
+
+See #GtkScrolledWindow, #GtkScrollbar, #GtkAdjustment for details.
+{:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
 

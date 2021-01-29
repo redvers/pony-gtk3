@@ -40,31 +40,62 @@ and mnemonics, of course.
 
 
 /* activate unavailable due to typing issues
- {:doh, %{argctype: "GQuark", argname: "accel_quark", argtype: "GLib.Quark", paramtype: :param, txo: "none"}}
+Finds the first accelerator in @accel_group that matches
+@accel_key and @accel_mods, and activates it.
+{:doh, %{argctype: "GQuark", argname: "accel_quark", argtype: "GLib.Quark", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GObject*", argname: "acceleratable", argtype: "GObject.Object", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkModifierType", argname: "accel_mods", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
 */
 
 /* connect unavailable due to typing issues
- {:doh, %{argctype: "GdkModifierType", argname: "accel_mods", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
+Installs an accelerator in this group. When @accel_group is being
+activated in response to a call to gtk_accel_groups_activate(),
+@closure will be invoked if the @accel_key and @accel_mods from
+gtk_accel_groups_activate() match those of this connection.
+
+The signature used for the @closure is that of #GtkAccelGroupActivate.
+
+Note that, due to implementation details, a single closure can
+only be connected to one accelerator group.
+{:doh, %{argctype: "GdkModifierType", argname: "accel_mods", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkAccelFlags", argname: "accel_flags", argtype: "AccelFlags", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GClosure*", argname: "closure", argtype: "GObject.Closure", paramtype: :param, txo: "none"}}
 */
 
 /* connect_by_path unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "accel_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+Installs an accelerator in this group, using an accelerator path
+to look up the appropriate key and modifiers (see
+gtk_accel_map_add_entry()). When @accel_group is being activated
+in response to a call to gtk_accel_groups_activate(), @closure will
+be invoked if the @accel_key and @accel_mods from
+gtk_accel_groups_activate() match the key and modifiers for the path.
+
+The signature used for the @closure is that of #GtkAccelGroupActivate.
+
+Note that @accel_path string will be stored in a #GQuark. Therefore,
+if you pass a static string, you can save some memory by interning it
+first with g_intern_static_string().
+{:doh, %{argctype: "const gchar*", argname: "accel_path", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GClosure*", argname: "closure", argtype: "GObject.Closure", paramtype: :param, txo: "none"}}
 */
 
 /* disconnect unavailable due to typing issues
- {:doh, %{argctype: "GClosure*", argname: "closure", argtype: "GObject.Closure", paramtype: :param, txo: "none"}}
+Removes an accelerator previously installed through
+gtk_accel_group_connect().
+
+Since 2.20 @closure can be %NULL.
+{:doh, %{argctype: "GClosure*", argname: "closure", argtype: "GObject.Closure", paramtype: :param, txo: "none"}}
 */
 
 /* disconnect_key unavailable due to typing issues
- {:doh, %{argctype: "GdkModifierType", argname: "accel_mods", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
+Removes an accelerator previously installed through
+gtk_accel_group_connect().
+{:doh, %{argctype: "GdkModifierType", argname: "accel_mods", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
 */
 
 /* find unavailable due to return typing issues
+Finds the first entry in an accelerator group for which
+@find_func returns %TRUE and returns its #GtkAccelKey.
 {:argctype, "GtkAccelKey*"}
 {:argname, "rv"}
 {:argtype, "AccelKey"}
@@ -79,6 +110,8 @@ gtk_accel_group_unlock().
   @gtk_accel_group_get_is_locked[Bool](widget)
 
 /* get_modifier_mask unavailable due to return typing issues
+Gets a #GdkModifierType representing the mask for this
+@accel_group. For example, #GDK_CONTROL_MASK, #GDK_SHIFT_MASK, etc.
 {:argctype, "GdkModifierType"}
 {:argname, "rv"}
 {:argtype, "Gdk.ModifierType"}
@@ -100,6 +133,8 @@ of times.
   @gtk_accel_group_lock[None](widget)
 
 /* query unavailable due to return typing issues
+Queries an accelerator group for all entries matching @accel_key
+and @accel_mods.
 {:argctype, ""}
 {:argname, "rv"}
 {:argtype, ""}

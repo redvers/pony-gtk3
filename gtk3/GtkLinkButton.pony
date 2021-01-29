@@ -66,7 +66,9 @@ The state may also be changed using gtk_link_button_set_visited().
   @gtk_link_button_get_visited[Bool](widget)
 
 /* set_uri unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets @uri as the URI where the #GtkLinkButton points. As a side-effect
+this unsets the “visited” state of the button.
+{:doh, %{argctype: "const gchar*", argname: "uri", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_visited(visited_pony: Bool): None =>

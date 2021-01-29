@@ -47,6 +47,8 @@ stack pages.
 
 
 /* get_stack unavailable due to return typing issues
+Retrieves the stack.
+See gtk_stack_switcher_set_stack().
 {:argctype, "GtkStack*"}
 {:argname, "rv"}
 {:argtype, "Stack"}
@@ -54,6 +56,7 @@ stack pages.
 {:txo, "none"} */
 
 /* set_stack unavailable due to typing issues
- {:doh, %{argctype: "GtkStack*", argname: "stack", argtype: "Stack", paramtype: :param, txo: "none"}}
+Sets the stack to control.
+{:doh, %{argctype: "GtkStack*", argname: "stack", argtype: "Stack", paramtype: :param, txo: "none"}}
 */
 

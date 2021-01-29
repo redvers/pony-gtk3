@@ -130,6 +130,9 @@ scrolling. See gtk_scrolled_window_set_capture_button_press().
   @gtk_scrolled_window_get_capture_button_press[Bool](widget)
 
 /* get_hadjustment unavailable due to return typing issues
+Returns the horizontal scrollbar’s adjustment, used to connect the
+horizontal scrollbar to the child widget’s horizontal scroll
+functionality.
 {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
@@ -179,6 +182,8 @@ Returns whether overlay scrolling is enabled for this scrolled window.
   @gtk_scrolled_window_get_overlay_scrolling[Bool](widget)
 
 /* get_placement unavailable due to return typing issues
+Gets the placement of the contents with respect to the scrollbars
+for the scrolled window. See gtk_scrolled_window_set_placement().
 {:argctype, "GtkCornerType"}
 {:argname, "rv"}
 {:argtype, "CornerType"}
@@ -186,7 +191,9 @@ Returns whether overlay scrolling is enabled for this scrolled window.
 {:txo, "none"} */
 
 /* get_policy unavailable due to typing issues
- {:doh, %{argctype: "GtkPolicyType*", argname: "hscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "full"}}
+Retrieves the current policy values for the horizontal and vertical
+scrollbars. See gtk_scrolled_window_set_policy().
+{:doh, %{argctype: "GtkPolicyType*", argname: "hscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "GtkPolicyType*", argname: "vscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "full"}}
 */
 
@@ -205,6 +212,8 @@ through the scrolled window’s requested natural width.
   @gtk_scrolled_window_get_propagate_natural_width[Bool](widget)
 
 /* get_shadow_type unavailable due to return typing issues
+Gets the shadow type of the scrolled window. See
+gtk_scrolled_window_set_shadow_type().
 {:argctype, "GtkShadowType"}
 {:argname, "rv"}
 {:argtype, "ShadowType"}
@@ -212,6 +221,8 @@ through the scrolled window’s requested natural width.
 {:txo, "none"} */
 
 /* get_vadjustment unavailable due to return typing issues
+Returns the vertical scrollbar’s adjustment, used to connect the
+vertical scrollbar to the child widget’s vertical scroll functionality.
 {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
@@ -241,7 +252,8 @@ This setting only has an effect if kinetic scrolling is enabled.
   @gtk_scrolled_window_set_capture_button_press[None](widget, capture_button_press_pony)
 
 /* set_hadjustment unavailable due to typing issues
- {:doh, %{argctype: "GtkAdjustment*", argname: "hadjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+Sets the #GtkAdjustment for the horizontal scrollbar.
+{:doh, %{argctype: "GtkAdjustment*", argname: "hadjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
 
 fun set_kinetic_scrolling(kinetic_scrolling_pony: Bool): None =>
@@ -303,11 +315,29 @@ Enables or disables overlay scrolling for this scrolled window.
   @gtk_scrolled_window_set_overlay_scrolling[None](widget, overlay_scrolling_pony)
 
 /* set_placement unavailable due to typing issues
- {:doh, %{argctype: "GtkCornerType", argname: "window_placement", argtype: "CornerType", paramtype: :param, txo: "none"}}
+Sets the placement of the contents with respect to the scrollbars
+for the scrolled window.
+
+The default is %GTK_CORNER_TOP_LEFT, meaning the child is
+in the top left, with the scrollbars underneath and to the right.
+Other values in #GtkCornerType are %GTK_CORNER_TOP_RIGHT,
+%GTK_CORNER_BOTTOM_LEFT, and %GTK_CORNER_BOTTOM_RIGHT.
+
+See also gtk_scrolled_window_get_placement() and
+gtk_scrolled_window_unset_placement().
+{:doh, %{argctype: "GtkCornerType", argname: "window_placement", argtype: "CornerType", paramtype: :param, txo: "none"}}
 */
 
 /* set_policy unavailable due to typing issues
- {:doh, %{argctype: "GtkPolicyType", argname: "hscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "none"}}
+Sets the scrollbar policy for the horizontal and vertical scrollbars.
+
+The policy determines when the scrollbar should appear; it is a value
+from the #GtkPolicyType enumeration. If %GTK_POLICY_ALWAYS, the
+scrollbar is always present; if %GTK_POLICY_NEVER, the scrollbar is
+never present; if %GTK_POLICY_AUTOMATIC, the scrollbar is present only
+if needed (that is, if the slider part of the bar would be smaller
+than the trough — the display is larger than the page size).
+{:doh, %{argctype: "GtkPolicyType", argname: "hscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkPolicyType", argname: "vscrollbar_policy", argtype: "PolicyType", paramtype: :param, txo: "none"}}
 */
 
@@ -326,11 +356,14 @@ through the scrolled window’s requested natural width.
   @gtk_scrolled_window_set_propagate_natural_width[None](widget, propagate_pony)
 
 /* set_shadow_type unavailable due to typing issues
- {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
+Changes the type of shadow drawn around the contents of
+@scrolled_window.
+{:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
 */
 
 /* set_vadjustment unavailable due to typing issues
- {:doh, %{argctype: "GtkAdjustment*", argname: "vadjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+Sets the #GtkAdjustment for the vertical scrollbar.
+{:doh, %{argctype: "GtkAdjustment*", argname: "vadjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
 
 fun unset_placement(): None =>

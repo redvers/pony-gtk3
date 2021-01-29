@@ -44,6 +44,7 @@ GtkViewport has a single CSS node with name viewport.
 
 
 /* get_bin_window unavailable due to return typing issues
+Gets the bin window of the #GtkViewport.
 {:argctype, "GdkWindow*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Window"}
@@ -51,6 +52,7 @@ GtkViewport has a single CSS node with name viewport.
 {:txo, "none"} */
 
 /* get_hadjustment unavailable due to return typing issues
+Returns the horizontal adjustment of the viewport.
 {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
@@ -58,6 +60,8 @@ GtkViewport has a single CSS node with name viewport.
 {:txo, "none"} */
 
 /* get_shadow_type unavailable due to return typing issues
+Gets the shadow type of the #GtkViewport. See
+gtk_viewport_set_shadow_type().
 {:argctype, "GtkShadowType"}
 {:argname, "rv"}
 {:argtype, "ShadowType"}
@@ -65,6 +69,7 @@ GtkViewport has a single CSS node with name viewport.
 {:txo, "none"} */
 
 /* get_vadjustment unavailable due to return typing issues
+Returns the vertical adjustment of the viewport.
 {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
@@ -72,6 +77,7 @@ GtkViewport has a single CSS node with name viewport.
 {:txo, "none"} */
 
 /* get_view_window unavailable due to return typing issues
+Gets the view window of the #GtkViewport.
 {:argctype, "GdkWindow*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Window"}
@@ -79,14 +85,17 @@ GtkViewport has a single CSS node with name viewport.
 {:txo, "none"} */
 
 /* set_hadjustment unavailable due to typing issues
- {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+Sets the horizontal adjustment of the viewport.
+{:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
 
 /* set_shadow_type unavailable due to typing issues
- {:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
+Sets the shadow type of the viewport.
+{:doh, %{argctype: "GtkShadowType", argname: "gtype", argtype: "ShadowType", paramtype: :param, txo: "none"}}
 */
 
 /* set_vadjustment unavailable due to typing issues
- {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+Sets the vertical adjustment of the viewport.
+{:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
 

@@ -112,15 +112,31 @@ to enable this support are:
 
 
 /* get_bounding_box unavailable due to typing issues
- {:doh, %{argctype: "GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+If there are touch sequences being currently handled by @gesture,
+this function returns %TRUE and fills in @rect with the bounding
+box containing all active touches. Otherwise, %FALSE will be
+returned.
+
+Note: This function will yield unexpected results on touchpad
+gestures. Since there is no correlation between physical and
+pixel distances, these will look as if constrained in an
+infinitely small area, @rect width and height will thus be 0
+regardless of the number of touchpoints.
+{:doh, %{argctype: "GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 */
 
 /* get_bounding_box_center unavailable due to typing issues
- {:doh, %{argctype: "gdouble*", argname: "x", argtype: "gdouble", paramtype: :param, txo: "full"}}
+If there are touch sequences being currently handled by @gesture,
+this function returns %TRUE and fills in @x and @y with the center
+of the bounding box containing all active touches. Otherwise, %FALSE
+will be returned.
+{:doh, %{argctype: "gdouble*", argname: "x", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "y", argtype: "gdouble", paramtype: :param, txo: "full"}}
 */
 
 /* get_device unavailable due to return typing issues
+Returns the master #GdkDevice that is currently operating
+on @gesture, or %NULL if the gesture is not being interacted.
 {:argctype, "GdkDevice*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Device"}
@@ -128,6 +144,7 @@ to enable this support are:
 {:txo, "none"} */
 
 /* get_group unavailable due to return typing issues
+Returns all gestures in the group of @gesture
 {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
@@ -135,6 +152,11 @@ to enable this support are:
 {:txo, "container"} */
 
 /* get_last_event unavailable due to return typing issues
+Returns the last event that was processed for @sequence.
+
+Note that the returned pointer is only valid as long as the @sequence
+is still interpreted by the @gesture. If in doubt, you should make
+a copy of the event.
 {:argctype, "const GdkEvent*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Event"}
@@ -142,6 +164,7 @@ to enable this support are:
 {:txo, "none"} */
 
 /* get_last_updated_sequence unavailable due to return typing issues
+Returns the #GdkEventSequence that was last updated on @gesture.
 {:argctype, "GdkEventSequence*"}
 {:argname, "rv"}
 {:argtype, "Gdk.EventSequence"}
@@ -149,12 +172,17 @@ to enable this support are:
 {:txo, "none"} */
 
 /* get_point unavailable due to typing issues
- {:doh, %{argctype: "GdkEventSequence*", argname: "sequence", argtype: "Gdk.EventSequence", paramtype: :param, txo: "none"}}
+If @sequence is currently being interpreted by @gesture, this
+function returns %TRUE and fills in @x and @y with the last coordinates
+stored for that event sequence. The coordinates are always relative to the
+widget allocation.
+{:doh, %{argctype: "GdkEventSequence*", argname: "sequence", argtype: "Gdk.EventSequence", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gdouble*", argname: "x", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "y", argtype: "gdouble", paramtype: :param, txo: "full"}}
 */
 
 /* get_sequence_state unavailable due to return typing issues
+Returns the @sequence state, as seen by @gesture.
 {:argctype, "GtkEventSequenceState"}
 {:argname, "rv"}
 {:argtype, "EventSequenceState"}
@@ -162,6 +190,8 @@ to enable this support are:
 {:txo, "none"} */
 
 /* get_sequences unavailable due to return typing issues
+Returns the list of #GdkEventSequences currently being interpreted
+by @gesture.
 {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
@@ -169,6 +199,9 @@ to enable this support are:
 {:txo, "container"} */
 
 /* get_window unavailable due to return typing issues
+Returns the user-defined window that receives the events
+handled by @gesture. See gtk_gesture_set_window() for more
+information.
 {:argctype, "GdkWindow*"}
 {:argname, "rv"}
 {:argtype, "Gdk.Window"}
@@ -176,11 +209,24 @@ to enable this support are:
 {:txo, "none"} */
 
 /* group unavailable due to typing issues
- {:doh, %{argctype: "GtkGesture*", argname: "gesture", argtype: "Gesture", paramtype: :param, txo: "none"}}
+Adds @gesture to the same group than @group_gesture. Gestures
+are by default isolated in their own groups.
+
+When gestures are grouped, the state of #GdkEventSequences
+is kept in sync for all of those, so calling gtk_gesture_set_sequence_state(),
+on one will transfer the same value to the others.
+
+Groups also perform an "implicit grabbing" of sequences, if a
+#GdkEventSequence state is set to #GTK_EVENT_SEQUENCE_CLAIMED on one group,
+every other gesture group attached to the same #GtkWidget will switch the
+state for that sequence to #GTK_EVENT_SEQUENCE_DENIED.
+{:doh, %{argctype: "GtkGesture*", argname: "gesture", argtype: "Gesture", paramtype: :param, txo: "none"}}
 */
 
 /* handles_sequence unavailable due to typing issues
- {:doh, %{argctype: "GdkEventSequence*", argname: "sequence", argtype: "Gdk.EventSequence", paramtype: :param, txo: "none"}}
+Returns %TRUE if @gesture is currently handling events corresponding to
+@sequence.
+{:doh, %{argctype: "GdkEventSequence*", argname: "sequence", argtype: "Gdk.EventSequence", paramtype: :param, txo: "none"}}
 */
 
 fun is_active(): Bool =>
@@ -192,7 +238,8 @@ interacting with it.
   @gtk_gesture_is_active[Bool](widget)
 
 /* is_grouped_with unavailable due to typing issues
- {:doh, %{argctype: "GtkGesture*", argname: "other", argtype: "Gesture", paramtype: :param, txo: "none"}}
+Returns %TRUE if both gestures pertain to the same group.
+{:doh, %{argctype: "GtkGesture*", argname: "other", argtype: "Gesture", paramtype: :param, txo: "none"}}
 */
 
 fun is_recognized(): Bool =>
@@ -205,16 +252,64 @@ returned %TRUE for the sequences being currently interpreted.
   @gtk_gesture_is_recognized[Bool](widget)
 
 /* set_sequence_state unavailable due to typing issues
- {:doh, %{argctype: "GdkEventSequence*", argname: "sequence", argtype: "Gdk.EventSequence", paramtype: :param, txo: "none"}}
+Sets the state of @sequence in @gesture. Sequences start
+in state #GTK_EVENT_SEQUENCE_NONE, and whenever they change
+state, they can never go back to that state. Likewise,
+sequences in state #GTK_EVENT_SEQUENCE_DENIED cannot turn
+back to a not denied state. With these rules, the lifetime
+of an event sequence is constrained to the next four:
+
+* None
+* None → Denied
+* None → Claimed
+* None → Claimed → Denied
+
+Note: Due to event handling ordering, it may be unsafe to
+set the state on another gesture within a #GtkGesture::begin
+signal handler, as the callback might be executed before
+the other gesture knows about the sequence. A safe way to
+perform this could be:
+
+|[
+static void
+first_gesture_begin_cb (GtkGesture       *first_gesture,
+                        GdkEventSequence *sequence,
+                        gpointer          user_data)
+{
+  gtk_gesture_set_sequence_state (first_gesture, sequence, GTK_EVENT_SEQUENCE_CLAIMED);
+  gtk_gesture_set_sequence_state (second_gesture, sequence, GTK_EVENT_SEQUENCE_DENIED);
+}
+
+static void
+second_gesture_begin_cb (GtkGesture       *second_gesture,
+                         GdkEventSequence *sequence,
+                         gpointer          user_data)
+{
+  if (gtk_gesture_get_sequence_state (first_gesture, sequence) == GTK_EVENT_SEQUENCE_CLAIMED)
+    gtk_gesture_set_sequence_state (second_gesture, sequence, GTK_EVENT_SEQUENCE_DENIED);
+}
+]|
+
+If both gestures are in the same group, just set the state on
+the gesture emitting the event, the sequence will be already
+be initialized to the group's global state when the second
+gesture processes the event.
+{:doh, %{argctype: "GdkEventSequence*", argname: "sequence", argtype: "Gdk.EventSequence", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkEventSequenceState", argname: "state", argtype: "EventSequenceState", paramtype: :param, txo: "none"}}
 */
 
 /* set_state unavailable due to typing issues
- {:doh, %{argctype: "GtkEventSequenceState", argname: "state", argtype: "EventSequenceState", paramtype: :param, txo: "none"}}
+Sets the state of all sequences that @gesture is currently
+interacting with. See gtk_gesture_set_sequence_state()
+for more details on sequence states.
+{:doh, %{argctype: "GtkEventSequenceState", argname: "state", argtype: "EventSequenceState", paramtype: :param, txo: "none"}}
 */
 
 /* set_window unavailable due to typing issues
- {:doh, %{argctype: "GdkWindow*", argname: "window", argtype: "Gdk.Window", paramtype: :param, txo: "none"}}
+Sets a specific window to receive events about, so @gesture
+will effectively handle only events targeting @window, or
+a child of it. @window must pertain to gtk_event_controller_get_widget().
+{:doh, %{argctype: "GdkWindow*", argname: "window", argtype: "Gdk.Window", paramtype: :param, txo: "none"}}
 */
 
 fun ungroup(): None =>

@@ -26,10 +26,14 @@ No documentation provided
 
 
 /* append_menuitems unavailable due to typing issues
- {:doh, %{argctype: "GtkMenuShell*", argname: "menushell", argtype: "MenuShell", paramtype: :param, txo: "none"}}
+Add menuitems for various available input methods to a menu;
+the menuitems, when selected, will switch the input method
+for the context and the global default input method.
+{:doh, %{argctype: "GtkMenuShell*", argname: "menushell", argtype: "MenuShell", paramtype: :param, txo: "none"}}
 */
 
 /* get_context_id unavailable due to return typing issues
+Gets the id of the currently active slave of the @context.
 {:argctype, "const char*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
@@ -37,6 +41,10 @@ No documentation provided
 {:txo, "none"} */
 
 /* set_context_id unavailable due to typing issues
- {:doh, %{argctype: "const char*", argname: "context_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the context id for @context.
+
+This causes the currently active slave of @context to be
+replaced by the slave corresponding to the new context id.
+{:doh, %{argctype: "const char*", argname: "context_id", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 

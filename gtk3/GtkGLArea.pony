@@ -142,6 +142,7 @@ Returns whether the area is in auto render mode or not.
   @gtk_gl_area_get_auto_render[Bool](widget)
 
 /* get_context unavailable due to return typing issues
+Retrieves the #GdkGLContext used by @area.
 {:argctype, "GdkGLContext*"}
 {:argname, "rv"}
 {:argtype, "Gdk.GLContext"}
@@ -149,6 +150,7 @@ Returns whether the area is in auto render mode or not.
 {:txo, "none"} */
 
 /* get_error unavailable due to return typing issues
+Gets the current error set on the @area.
 {:argctype, "GError*"}
 {:argname, "rv"}
 {:argtype, "GLib.Error"}
@@ -174,7 +176,9 @@ Returns whether the area has a stencil buffer.
   @gtk_gl_area_get_has_stencil_buffer[Bool](widget)
 
 /* get_required_version unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "major", argtype: "gint", paramtype: :param, txo: "full"}}
+Retrieves the required version of OpenGL set
+using gtk_gl_area_set_required_version().
+{:doh, %{argctype: "gint*", argname: "major", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "minor", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 
@@ -222,7 +226,10 @@ the scene changes seldomly, but takes a long time to redraw.
   @gtk_gl_area_set_auto_render[None](widget, auto_render_pony)
 
 /* set_error unavailable due to typing issues
- {:doh, %{argctype: "const GError*", argname: "gerror", argtype: "GLib.Error", paramtype: :param, txo: "none"}}
+Sets an error on the area which will be shown instead of the
+GL rendering. This is useful in the #GtkGLArea::create-context
+signal if GL context creation fails.
+{:doh, %{argctype: "const GError*", argname: "gerror", argtype: "GLib.Error", paramtype: :param, txo: "none"}}
 */
 
 fun set_has_alpha(has_alpha_pony: Bool): None =>

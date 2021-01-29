@@ -35,6 +35,9 @@ See the #GtkToolbar class for a description of the toolbar widget, and
 
 
 /* get_ellipsize_mode unavailable due to return typing issues
+Returns the ellipsize mode used for @tool_item. Custom subclasses of
+#GtkToolItem should call this function to find out how text should
+be ellipsized.
 {:argctype, "PangoEllipsizeMode"}
 {:argname, "rv"}
 {:argtype, "Pango.EllipsizeMode"}
@@ -56,6 +59,9 @@ items. See gtk_tool_item_set_homogeneous().
   @gtk_tool_item_get_homogeneous[Bool](widget)
 
 /* get_icon_size unavailable due to return typing issues
+Returns the icon size used for @tool_item. Custom subclasses of
+#GtkToolItem should call this function to find out what size icons
+they should use.
 {:argctype, "GtkIconSize"}
 {:argname, "rv"}
 {:argtype, "gint"}
@@ -70,6 +76,9 @@ gtk_tool_item_set_is_important()
   @gtk_tool_item_get_is_important[Bool](widget)
 
 /* get_orientation unavailable due to return typing issues
+Returns the orientation used for @tool_item. Custom subclasses of
+#GtkToolItem should call this function to find out what size icons
+they should use.
 {:argctype, "GtkOrientation"}
 {:argname, "rv"}
 {:argtype, "Orientation"}
@@ -77,10 +86,21 @@ gtk_tool_item_set_is_important()
 {:txo, "none"} */
 
 /* get_proxy_menu_item unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "menu_item_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+If @menu_item_id matches the string passed to
+gtk_tool_item_set_proxy_menu_item() return the corresponding #GtkMenuItem.
+
+Custom subclasses of #GtkToolItem should use this function to
+update their menu item when the #GtkToolItem changes. That the
+@menu_item_ids must match ensures that a #GtkToolItem
+will not inadvertently change a menu item that they did not create.
+{:doh, %{argctype: "const gchar*", argname: "menu_item_id", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* get_relief_style unavailable due to return typing issues
+Returns the relief style of @tool_item. See gtk_button_set_relief().
+Custom subclasses of #GtkToolItem should call this function in the handler
+of the #GtkToolItem::toolbar_reconfigured signal to find out the
+relief style of buttons.
 {:argctype, "GtkReliefStyle"}
 {:argname, "rv"}
 {:argtype, "ReliefStyle"}
@@ -88,6 +108,9 @@ gtk_tool_item_set_is_important()
 {:txo, "none"} */
 
 /* get_text_alignment unavailable due to return typing issues
+Returns the text alignment used for @tool_item. Custom subclasses of
+#GtkToolItem should call this function to find out how text should
+be aligned.
 {:argctype, "gfloat"}
 {:argname, "rv"}
 {:argtype, "gfloat"}
@@ -95,6 +118,9 @@ gtk_tool_item_set_is_important()
 {:txo, "none"} */
 
 /* get_text_orientation unavailable due to return typing issues
+Returns the text orientation used for @tool_item. Custom subclasses of
+#GtkToolItem should call this function to find out how text should
+be orientated.
 {:argctype, "GtkOrientation"}
 {:argname, "rv"}
 {:argtype, "Orientation"}
@@ -102,6 +128,9 @@ gtk_tool_item_set_is_important()
 {:txo, "none"} */
 
 /* get_text_size_group unavailable due to return typing issues
+Returns the size group used for labels in @tool_item.
+Custom subclasses of #GtkToolItem should call this function
+and use the size group for labels.
 {:argctype, "GtkSizeGroup*"}
 {:argname, "rv"}
 {:argtype, "SizeGroup"}
@@ -109,6 +138,18 @@ gtk_tool_item_set_is_important()
 {:txo, "none"} */
 
 /* get_toolbar_style unavailable due to return typing issues
+Returns the toolbar style used for @tool_item. Custom subclasses of
+#GtkToolItem should call this function in the handler of the
+GtkToolItem::toolbar_reconfigured signal to find out in what style
+the toolbar is displayed and change themselves accordingly
+
+Possibilities are:
+- %GTK_TOOLBAR_BOTH, meaning the tool item should show
+  both an icon and a label, stacked vertically
+- %GTK_TOOLBAR_ICONS, meaning the toolbar shows only icons
+- %GTK_TOOLBAR_TEXT, meaning the tool item should only show text
+- %GTK_TOOLBAR_BOTH_HORIZ, meaning the tool item should show
+  both an icon and a label, arranged horizontally
 {:argctype, "GtkToolbarStyle"}
 {:argname, "rv"}
 {:argtype, "ToolbarStyle"}
@@ -184,15 +225,24 @@ effect known as “priority text”
   @gtk_tool_item_set_is_important[None](widget, is_important_pony)
 
 /* set_proxy_menu_item unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "menu_item_id", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the #GtkMenuItem used in the toolbar overflow menu. The
+@menu_item_id is used to identify the caller of this function and
+should also be used with gtk_tool_item_get_proxy_menu_item().
+
+See also #GtkToolItem::create-menu-proxy.
+{:doh, %{argctype: "const gchar*", argname: "menu_item_id", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_tooltip_markup unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the markup text to be displayed as tooltip on the item.
+See gtk_widget_set_tooltip_markup().
+{:doh, %{argctype: "const gchar*", argname: "markup", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_tooltip_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the text to be displayed as tooltip on the item.
+See gtk_widget_set_tooltip_text().
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_use_drag_window(use_drag_window_pony: Bool): None =>

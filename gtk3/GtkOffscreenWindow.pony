@@ -42,6 +42,10 @@ will emit a #GtkWidget::damage-event signal.
 
 
 /* get_pixbuf unavailable due to return typing issues
+Retrieves a snapshot of the contained widget in the form of
+a #GdkPixbuf.  This is a new pixbuf with a reference count of 1,
+and the application should unreference it once it is no longer
+needed.
 {:argctype, "GdkPixbuf*"}
 {:argname, "rv"}
 {:argtype, "GdkPixbuf.Pixbuf"}
@@ -49,6 +53,9 @@ will emit a #GtkWidget::damage-event signal.
 {:txo, "full"} */
 
 /* get_surface unavailable due to return typing issues
+Retrieves a snapshot of the contained widget in the form of
+a #cairo_surface_t.  If you need to keep this around over window
+resizes then you should add a reference to it.
 {:argctype, "cairo_surface_t*"}
 {:argname, "rv"}
 {:argtype, "cairo.Surface"}

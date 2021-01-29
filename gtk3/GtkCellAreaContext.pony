@@ -50,11 +50,26 @@ Since 3.0
   @gtk_cell_area_context_allocate[None](widget, width_pony, height_pony)
 
 /* get_allocation unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "width", argtype: "gint", paramtype: :param, txo: "full"}}
+Fetches the current allocation size for @context.
+
+If the context was not allocated in width or height, or if the
+context was recently reset with gtk_cell_area_context_reset(),
+the returned value will be -1.
+{:doh, %{argctype: "gint*", argname: "width", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 
 /* get_area unavailable due to return typing issues
+Fetches the #GtkCellArea this @context was created by.
+
+This is generally unneeded by layouting widgets; however,
+it is important for the context implementation itself to
+fetch information about the area it is being used for.
+
+For instance at #GtkCellAreaContextClass.allocate() time
+it’s important to know details about any cell spacing
+that the #GtkCellArea is configured with in order to
+compute a proper allocation.
 {:argctype, "GtkCellArea*"}
 {:argname, "rv"}
 {:argtype, "CellArea"}
@@ -62,22 +77,42 @@ Since 3.0
 {:txo, "none"} */
 
 /* get_preferred_height unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "minimum_height", argtype: "gint", paramtype: :param, txo: "full"}}
+Gets the accumulative preferred height for all rows which have been
+requested with this context.
+
+After gtk_cell_area_context_reset() is called and/or before ever
+requesting the size of a #GtkCellArea, the returned values are 0.
+{:doh, %{argctype: "gint*", argname: "minimum_height", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 
 /* get_preferred_height_for_width unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "minimum_height", argtype: "gint", paramtype: :param, txo: "full"}}
+Gets the accumulative preferred height for @width for all rows
+which have been requested for the same said @width with this context.
+
+After gtk_cell_area_context_reset() is called and/or before ever
+requesting the size of a #GtkCellArea, the returned values are -1.
+{:doh, %{argctype: "gint*", argname: "minimum_height", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_height", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 
 /* get_preferred_width unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "minimum_width", argtype: "gint", paramtype: :param, txo: "full"}}
+Gets the accumulative preferred width for all rows which have been
+requested with this context.
+
+After gtk_cell_area_context_reset() is called and/or before ever
+requesting the size of a #GtkCellArea, the returned values are 0.
+{:doh, %{argctype: "gint*", argname: "minimum_width", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_width", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 
 /* get_preferred_width_for_height unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "minimum_width", argtype: "gint", paramtype: :param, txo: "full"}}
+Gets the accumulative preferred width for @height for all rows which
+have been requested for the same said @height with this context.
+
+After gtk_cell_area_context_reset() is called and/or before ever
+requesting the size of a #GtkCellArea, the returned values are -1.
+{:doh, %{argctype: "gint*", argname: "minimum_width", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "natural_width", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 

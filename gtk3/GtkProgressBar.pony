@@ -64,6 +64,8 @@ in overlays like the one Epiphany has for page loading progress.
 
 
 /* get_ellipsize unavailable due to return typing issues
+Returns the ellipsizing position of the progress bar.
+See gtk_progress_bar_set_ellipsize().
 {:argctype, "PangoEllipsizeMode"}
 {:argname, "rv"}
 {:argtype, "Pango.EllipsizeMode"}
@@ -71,6 +73,7 @@ in overlays like the one Epiphany has for page loading progress.
 {:txo, "none"} */
 
 /* get_fraction unavailable due to return typing issues
+Returns the current fraction of the task that’s been completed.
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -84,6 +87,7 @@ Gets the value set by gtk_progress_bar_set_inverted().
   @gtk_progress_bar_get_inverted[Bool](widget)
 
 /* get_pulse_step unavailable due to return typing issues
+Retrieves the pulse step set with gtk_progress_bar_set_pulse_step().
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -119,11 +123,16 @@ per pulse is determined by gtk_progress_bar_set_pulse_step()).
   @gtk_progress_bar_pulse[None](widget)
 
 /* set_ellipsize unavailable due to typing issues
- {:doh, %{argctype: "PangoEllipsizeMode", argname: "mode", argtype: "Pango.EllipsizeMode", paramtype: :param, txo: "none"}}
+Sets the mode used to ellipsize (add an ellipsis: "...") the
+text if there is not enough space to render the entire string.
+{:doh, %{argctype: "PangoEllipsizeMode", argname: "mode", argtype: "Pango.EllipsizeMode", paramtype: :param, txo: "none"}}
 */
 
 /* set_fraction unavailable due to typing issues
- {:doh, %{argctype: "gdouble", argname: "fraction", argtype: "gdouble", paramtype: :param, txo: "none"}}
+Causes the progress bar to “fill in” the given fraction
+of the bar. The fraction should be between 0.0 and 1.0,
+inclusive.
+{:doh, %{argctype: "gdouble", argname: "fraction", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
 
 fun set_inverted(inverted_pony: Bool): None =>
@@ -134,7 +143,9 @@ Inverted progress bars grow in the opposite direction.
   @gtk_progress_bar_set_inverted[None](widget, inverted_pony)
 
 /* set_pulse_step unavailable due to typing issues
- {:doh, %{argctype: "gdouble", argname: "fraction", argtype: "gdouble", paramtype: :param, txo: "none"}}
+Sets the fraction of total progress bar length to move the
+bouncing block for each call to gtk_progress_bar_pulse().
+{:doh, %{argctype: "gdouble", argname: "fraction", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
 
 fun set_show_text(show_text_pony: Bool): None =>
@@ -151,6 +162,16 @@ text (even if the actual text is blank), set #GtkProgressBar:show-text to
   @gtk_progress_bar_set_show_text[None](widget, show_text_pony)
 
 /* set_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+Causes the given @text to appear next to the progress bar.
+
+If @text is %NULL and #GtkProgressBar:show-text is %TRUE, the current
+value of #GtkProgressBar:fraction will be displayed as a percentage.
+
+If @text is non-%NULL and #GtkProgressBar:show-text is %TRUE, the text
+will be displayed. In this case, it will not display the progress
+percentage. If @text is the empty string, the progress bar will still
+be styled and sized suitably for containing text, as long as
+#GtkProgressBar:show-text is %TRUE.
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 

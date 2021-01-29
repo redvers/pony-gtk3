@@ -106,6 +106,7 @@ Retrieves the value set by gtk_entry_set_activates_default().
   @gtk_entry_get_activates_default[Bool](widget)
 
 /* get_alignment unavailable due to return typing issues
+Gets the value set by gtk_entry_set_alignment().
 {:argctype, "gfloat"}
 {:argname, "rv"}
 {:argtype, "gfloat"}
@@ -113,6 +114,8 @@ Retrieves the value set by gtk_entry_set_activates_default().
 {:txo, "none"} */
 
 /* get_attributes unavailable due to return typing issues
+Gets the attribute list that was set on the entry using
+gtk_entry_set_attributes(), if any.
 {:argctype, "PangoAttrList*"}
 {:argname, "rv"}
 {:argtype, "Pango.AttrList"}
@@ -120,6 +123,8 @@ Retrieves the value set by gtk_entry_set_activates_default().
 {:txo, "none"} */
 
 /* get_buffer unavailable due to return typing issues
+Get the #GtkEntryBuffer object which holds the text for
+this widget.
 {:argctype, "GtkEntryBuffer*"}
 {:argname, "rv"}
 {:argtype, "EntryBuffer"}
@@ -127,6 +132,7 @@ Retrieves the value set by gtk_entry_set_activates_default().
 {:txo, "none"} */
 
 /* get_completion unavailable due to return typing issues
+Returns the auxiliary completion object currently in use by @entry.
 {:argctype, "GtkEntryCompletion*"}
 {:argname, "rv"}
 {:argtype, "EntryCompletion"}
@@ -144,6 +150,8 @@ callback.
   @gtk_entry_get_current_icon_drag_source[I32](widget)
 
 /* get_cursor_hadjustment unavailable due to return typing issues
+Retrieves the horizontal cursor adjustment for the entry.
+See gtk_entry_set_cursor_hadjustment().
 {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
@@ -157,11 +165,21 @@ Gets the value set by gtk_entry_set_has_frame().
   @gtk_entry_get_has_frame[Bool](widget)
 
 /* get_icon_activatable unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Returns whether the icon is activatable.
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 */
 
 /* get_icon_area unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Gets the area where entry’s icon at @icon_pos is drawn.
+This function is useful when drawing something to the
+entry in a draw callback.
+
+If the entry is not realized or has no icon at the given position,
+@icon_area is filled with zeros. Otherwise, @icon_area will be filled
+with the icon’s allocation, relative to @entry’s allocation.
+
+See also gtk_entry_get_text_area()
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkRectangle*", argname: "icon_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 */
 
@@ -176,6 +194,9 @@ signal handler.
   @gtk_entry_get_icon_at_pos[I32](widget, x_pony, y_pony)
 
 /* get_icon_gicon unavailable due to return typing issues
+Retrieves the #GIcon used for the icon, or %NULL if there is
+no icon or if the icon was set by some other method (e.g., by
+stock, pixbuf, or icon name).
 {:argctype, "GIcon*"}
 {:argname, "rv"}
 {:argtype, "Gio.Icon"}
@@ -183,10 +204,18 @@ signal handler.
 {:txo, "none"} */
 
 /* get_icon_name unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Retrieves the icon name used for the icon, or %NULL if there is
+no icon or if the icon was set by some other method (e.g., by
+pixbuf, stock or gicon).
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 */
 
 /* get_icon_pixbuf unavailable due to return typing issues
+Retrieves the image used for the icon.
+
+Unlike the other methods of setting and getting icon data, this
+method will work regardless of whether the icon was set using a
+#GdkPixbuf, a #GIcon, a stock item, or an icon name.
 {:argctype, "GdkPixbuf*"}
 {:argname, "rv"}
 {:argtype, "GdkPixbuf.Pixbuf"}
@@ -194,14 +223,21 @@ signal handler.
 {:txo, "none"} */
 
 /* get_icon_sensitive unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Returns whether the icon appears sensitive or insensitive.
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 */
 
 /* get_icon_stock unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Retrieves the stock id used for the icon, or %NULL if there is
+no icon or if the icon was set by some other method (e.g., by
+pixbuf, icon name or gicon).
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 */
 
 /* get_icon_storage_type unavailable due to return typing issues
+Gets the type of representation being used by the icon
+to store image data. If the icon has no image data,
+the return value will be %GTK_IMAGE_EMPTY.
 {:argctype, "GtkImageType"}
 {:argname, "rv"}
 {:argtype, "ImageType"}
@@ -209,6 +245,8 @@ signal handler.
 {:txo, "none"} */
 
 /* get_icon_tooltip_markup unavailable due to return typing issues
+Gets the contents of the tooltip on the icon at the specified
+position in @entry.
 {:argctype, "gchar*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
@@ -216,6 +254,8 @@ signal handler.
 {:txo, "full"} */
 
 /* get_icon_tooltip_text unavailable due to return typing issues
+Gets the contents of the tooltip on the icon at the specified
+position in @entry.
 {:argctype, "gchar*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
@@ -223,6 +263,8 @@ signal handler.
 {:txo, "full"} */
 
 /* get_inner_border unavailable due to return typing issues
+This function returns the entry’s #GtkEntry:inner-border property. See
+gtk_entry_set_inner_border() for more information.
 {:argctype, "const GtkBorder*"}
 {:argname, "rv"}
 {:argtype, "Border"}
@@ -230,6 +272,7 @@ signal handler.
 {:txo, "none"} */
 
 /* get_input_hints unavailable due to return typing issues
+Gets the value of the #GtkEntry:input-hints property.
 {:argctype, "GtkInputHints"}
 {:argname, "rv"}
 {:argtype, "InputHints"}
@@ -237,6 +280,7 @@ signal handler.
 {:txo, "none"} */
 
 /* get_input_purpose unavailable due to return typing issues
+Gets the value of the #GtkEntry:input-purpose property.
 {:argctype, "GtkInputPurpose"}
 {:argname, "rv"}
 {:argtype, "InputPurpose"}
@@ -244,6 +288,8 @@ signal handler.
 {:txo, "none"} */
 
 /* get_invisible_char unavailable due to return typing issues
+Retrieves the character displayed in place of the real characters
+for entries with visibility set to false. See gtk_entry_set_invisible_char().
 {:argctype, "gunichar"}
 {:argname, "rv"}
 {:argtype, "gunichar"}
@@ -251,6 +297,16 @@ signal handler.
 {:txo, "none"} */
 
 /* get_layout unavailable due to return typing issues
+Gets the #PangoLayout used to display the entry.
+The layout is useful to e.g. convert text positions to
+pixel positions, in combination with gtk_entry_get_layout_offsets().
+The returned layout is owned by the entry and must not be
+modified or freed by the caller.
+
+Keep in mind that the layout text may contain a preedit string, so
+gtk_entry_layout_index_to_text_index() and
+gtk_entry_text_index_to_layout_index() are needed to convert byte
+indices in the layout to byte indices in the entry contents.
 {:argctype, "PangoLayout*"}
 {:argname, "rv"}
 {:argtype, "Pango.Layout"}
@@ -258,7 +314,26 @@ signal handler.
 {:txo, "none"} */
 
 /* get_layout_offsets unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "x", argtype: "gint", paramtype: :param, txo: "full"}}
+Obtains the position of the #PangoLayout used to render text
+in the entry, in widget coordinates. Useful if you want to line
+up the text in an entry with some other text, e.g. when using the
+entry to implement editable cells in a sheet widget.
+
+Also useful to convert mouse events into coordinates inside the
+#PangoLayout, e.g. to take some action if some part of the entry text
+is clicked.
+
+Note that as the user scrolls around in the entry the offsets will
+change; you’ll need to connect to the “notify::scroll-offset”
+signal to track this. Remember when using the #PangoLayout
+functions you need to convert to and from pixels using
+PANGO_PIXELS() or #PANGO_SCALE.
+
+Keep in mind that the layout text may contain a preedit string, so
+gtk_entry_layout_index_to_text_index() and
+gtk_entry_text_index_to_layout_index() are needed to convert byte
+indices in the layout to byte indices in the entry contents.
+{:doh, %{argctype: "gint*", argname: "x", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "y", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 
@@ -294,6 +369,8 @@ Retrieves the text that will be displayed when @entry is empty and unfocused
   consume string_pony
 
 /* get_progress_fraction unavailable due to return typing issues
+Returns the current fraction of the task that’s been completed.
+See gtk_entry_set_progress_fraction().
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -301,6 +378,7 @@ Retrieves the text that will be displayed when @entry is empty and unfocused
 {:txo, "none"} */
 
 /* get_progress_pulse_step unavailable due to return typing issues
+Retrieves the pulse step set with gtk_entry_set_progress_pulse_step().
 {:argctype, "gdouble"}
 {:argname, "rv"}
 {:argtype, "gdouble"}
@@ -308,6 +386,8 @@ Retrieves the text that will be displayed when @entry is empty and unfocused
 {:txo, "none"} */
 
 /* get_tabs unavailable due to return typing issues
+Gets the tabstops that were set on the entry using gtk_entry_set_tabs(), if
+any.
 {:argctype, "PangoTabArray*"}
 {:argname, "rv"}
 {:argtype, "Pango.TabArray"}
@@ -327,10 +407,21 @@ gtk_entry_buffer_get_text() on it.
   consume string_pony
 
 /* get_text_area unavailable due to typing issues
- {:doh, %{argctype: "GdkRectangle*", argname: "text_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+Gets the area where the entry’s text is drawn. This function is
+useful when drawing something to the entry in a draw callback.
+
+If the entry is not realized, @text_area is filled with zeros.
+
+See also gtk_entry_get_icon_area().
+{:doh, %{argctype: "GdkRectangle*", argname: "text_area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 */
 
 /* get_text_length unavailable due to return typing issues
+Retrieves the current length of the text in
+@entry.
+
+This is equivalent to getting @entry's #GtkEntryBuffer and
+calling gtk_entry_buffer_get_length() on it.
 {:argctype, "guint16"}
 {:argname, "rv"}
 {:argtype, "guint16"}
@@ -363,7 +454,17 @@ such as search-as-you-type entries.
   @gtk_entry_grab_focus_without_selecting[None](widget)
 
 /* im_context_filter_keypress unavailable due to typing issues
- {:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
+Allow the #GtkEntry input method to internally handle key press
+and release events. If this function returns %TRUE, then no further
+processing should be done for this key event. See
+gtk_im_context_filter_keypress().
+
+Note that you are expected to call this function from your handler
+when overriding key event handling. This is needed in the case when
+you need to insert your own key handling between the input method
+and the default key event handling of the #GtkEntry.
+See gtk_text_view_reset_im_context() for an example of use.
+{:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
 */
 
 fun layout_index_to_text_index(layout_index_pony: I32): I32 =>
@@ -408,23 +509,41 @@ the default handler for the #GtkEntry::activate signal.)
   @gtk_entry_set_activates_default[None](widget, setting_pony)
 
 /* set_alignment unavailable due to typing issues
- {:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
+Sets the alignment for the contents of the entry. This controls
+the horizontal positioning of the contents when the displayed
+text is shorter than the width of the entry.
+{:doh, %{argctype: "gfloat", argname: "xalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 */
 
 /* set_attributes unavailable due to typing issues
- {:doh, %{argctype: "PangoAttrList*", argname: "attrs", argtype: "Pango.AttrList", paramtype: :param, txo: "none"}}
+Sets a #PangoAttrList; the attributes in the list are applied to the
+entry text.
+{:doh, %{argctype: "PangoAttrList*", argname: "attrs", argtype: "Pango.AttrList", paramtype: :param, txo: "none"}}
 */
 
 /* set_buffer unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryBuffer*", argname: "buffer", argtype: "EntryBuffer", paramtype: :param, txo: "none"}}
+Set the #GtkEntryBuffer object which holds the text for
+this widget.
+{:doh, %{argctype: "GtkEntryBuffer*", argname: "buffer", argtype: "EntryBuffer", paramtype: :param, txo: "none"}}
 */
 
 /* set_completion unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryCompletion*", argname: "completion", argtype: "EntryCompletion", paramtype: :param, txo: "none"}}
+Sets @completion to be the auxiliary completion object to use with @entry.
+All further configuration of the completion mechanism is done on
+@completion using the #GtkEntryCompletion API. Completion is disabled if
+@completion is set to %NULL.
+{:doh, %{argctype: "GtkEntryCompletion*", argname: "completion", argtype: "EntryCompletion", paramtype: :param, txo: "none"}}
 */
 
 /* set_cursor_hadjustment unavailable due to typing issues
- {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+Hooks up an adjustment to the cursor position in an entry, so that when
+the cursor is moved, the adjustment is scrolled to show that position.
+See gtk_scrolled_window_get_hadjustment() for a typical way of obtaining
+the adjustment.
+
+The adjustment has to be in pixel units and in the same coordinate system
+as the entry.
+{:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
 
 fun set_has_frame(setting_pony: Bool): None =>
@@ -434,63 +553,139 @@ Sets whether the entry has a beveled frame around it.
   @gtk_entry_set_has_frame[None](widget, setting_pony)
 
 /* set_icon_activatable unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Sets whether the icon is activatable.
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 */
 
 /* set_icon_drag_source unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Sets up the icon at the given position so that GTK+ will start a drag
+operation when the user clicks and drags the icon.
+
+To handle the drag operation, you need to connect to the usual
+#GtkWidget::drag-data-get (or possibly #GtkWidget::drag-data-delete)
+signal, and use gtk_entry_get_current_icon_drag_source() in
+your signal handler to find out if the drag was started from
+an icon.
+
+By default, GTK+ uses the icon as the drag icon. You can use the
+#GtkWidget::drag-begin signal to set a different icon. Note that you
+have to use g_signal_connect_after() to ensure that your signal handler
+gets executed after the default handler.
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkTargetList*", argname: "target_list", argtype: "TargetList", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkDragAction", argname: "actions", argtype: "Gdk.DragAction", paramtype: :param, txo: "none"}}
 */
 
 /* set_icon_from_gicon unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Sets the icon shown in the entry at the specified position
+from the current icon theme.
+If the icon isn’t known, a “broken image” icon will be displayed
+instead.
+
+If @icon is %NULL, no icon will be shown in the specified position.
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GIcon*", argname: "icon", argtype: "Gio.Icon", paramtype: :param, txo: "none"}}
 */
 
 /* set_icon_from_icon_name unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Sets the icon shown in the entry at the specified position
+from the current icon theme.
+
+If the icon name isn’t known, a “broken image” icon will be displayed
+instead.
+
+If @icon_name is %NULL, no icon will be shown in the specified position.
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_icon_from_pixbuf unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Sets the icon shown in the specified position using a pixbuf.
+
+If @pixbuf is %NULL, no icon will be shown in the specified position.
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkPixbuf*", argname: "pixbuf", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
 */
 
 /* set_icon_from_stock unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Sets the icon shown in the entry at the specified position from
+a stock image.
+
+If @stock_id is %NULL, no icon will be shown in the specified position.
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "stock_id", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_icon_sensitive unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Sets the sensitivity for the specified icon.
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 */
 
 /* set_icon_tooltip_markup unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Sets @tooltip as the contents of the tooltip for the icon at
+the specified position. @tooltip is assumed to be marked up with
+the [Pango text markup language][PangoMarkupFormat].
+
+Use %NULL for @tooltip to remove an existing tooltip.
+
+See also gtk_widget_set_tooltip_markup() and
+gtk_entry_set_icon_tooltip_text().
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "tooltip", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_icon_tooltip_text unavailable due to typing issues
- {:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
+Sets @tooltip as the contents of the tooltip for the icon
+at the specified position.
+
+Use %NULL for @tooltip to remove an existing tooltip.
+
+See also gtk_widget_set_tooltip_text() and
+gtk_entry_set_icon_tooltip_markup().
+
+If you unset the widget tooltip via gtk_widget_set_tooltip_text() or
+gtk_widget_set_tooltip_markup(), this sets GtkWidget:has-tooltip to %FALSE,
+which suppresses icon tooltips too. You can resolve this by then calling
+gtk_widget_set_has_tooltip() to set GtkWidget:has-tooltip back to %TRUE, or
+setting at least one non-empty tooltip on any icon achieves the same result.
+{:doh, %{argctype: "GtkEntryIconPosition", argname: "icon_pos", argtype: "EntryIconPosition", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "tooltip", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_inner_border unavailable due to typing issues
- {:doh, %{argctype: "const GtkBorder*", argname: "border", argtype: "Border", paramtype: :param, txo: "none"}}
+Sets %entry’s inner-border property to @border, or clears it if %NULL
+is passed. The inner-border is the area around the entry’s text, but
+inside its frame.
+
+If set, this property overrides the inner-border style property.
+Overriding the style-provided border is useful when you want to do
+in-place editing of some text in a canvas or list widget, where
+pixel-exact positioning of the entry is important.
+{:doh, %{argctype: "const GtkBorder*", argname: "border", argtype: "Border", paramtype: :param, txo: "none"}}
 */
 
 /* set_input_hints unavailable due to typing issues
- {:doh, %{argctype: "GtkInputHints", argname: "hints", argtype: "InputHints", paramtype: :param, txo: "none"}}
+Sets the #GtkEntry:input-hints property, which
+allows input methods to fine-tune their behaviour.
+{:doh, %{argctype: "GtkInputHints", argname: "hints", argtype: "InputHints", paramtype: :param, txo: "none"}}
 */
 
 /* set_input_purpose unavailable due to typing issues
- {:doh, %{argctype: "GtkInputPurpose", argname: "purpose", argtype: "InputPurpose", paramtype: :param, txo: "none"}}
+Sets the #GtkEntry:input-purpose property which
+can be used by on-screen keyboards and other input
+methods to adjust their behaviour.
+{:doh, %{argctype: "GtkInputPurpose", argname: "purpose", argtype: "InputPurpose", paramtype: :param, txo: "none"}}
 */
 
 /* set_invisible_char unavailable due to typing issues
- {:doh, %{argctype: "gunichar", argname: "ch", argtype: "gunichar", paramtype: :param, txo: "none"}}
+Sets the character to use in place of the actual text when
+gtk_entry_set_visibility() has been called to set text visibility
+to %FALSE. i.e. this is the character used in “password mode” to
+show the user how many characters have been typed. By default, GTK+
+picks the best invisible char available in the current font. If you
+set the invisible char to 0, then the user will get no feedback
+at all; there will be no text on the screen as they type.
+{:doh, %{argctype: "gunichar", argname: "ch", argtype: "gunichar", paramtype: :param, txo: "none"}}
 */
 
 fun set_max_length(max_pony: I32): None =>
@@ -518,23 +713,43 @@ Sets whether the text is overwritten when typing in the #GtkEntry.
   @gtk_entry_set_overwrite_mode[None](widget, overwrite_pony)
 
 /* set_placeholder_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets text to be displayed in @entry when it is empty and unfocused.
+This can be used to give a visual hint of the expected contents of
+the #GtkEntry.
+
+Note that since the placeholder text gets removed when the entry
+received focus, using this feature is a bit problematic if the entry
+is given the initial focus in a window. Sometimes this can be
+worked around by delaying the initial focus setting until the
+first key event arrives.
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_progress_fraction unavailable due to typing issues
- {:doh, %{argctype: "gdouble", argname: "fraction", argtype: "gdouble", paramtype: :param, txo: "none"}}
+Causes the entry’s progress indicator to “fill in” the given
+fraction of the bar. The fraction should be between 0.0 and 1.0,
+inclusive.
+{:doh, %{argctype: "gdouble", argname: "fraction", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
 
 /* set_progress_pulse_step unavailable due to typing issues
- {:doh, %{argctype: "gdouble", argname: "fraction", argtype: "gdouble", paramtype: :param, txo: "none"}}
+Sets the fraction of total entry width to move the progress
+bouncing block for each call to gtk_entry_progress_pulse().
+{:doh, %{argctype: "gdouble", argname: "fraction", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */
 
 /* set_tabs unavailable due to typing issues
- {:doh, %{argctype: "PangoTabArray*", argname: "tabs", argtype: "Pango.TabArray", paramtype: :param, txo: "none"}}
+Sets a #PangoTabArray; the tabstops in the array are applied to the entry
+text.
+{:doh, %{argctype: "PangoTabArray*", argname: "tabs", argtype: "Pango.TabArray", paramtype: :param, txo: "none"}}
 */
 
 /* set_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the text in the widget to the given
+value, replacing the current contents.
+
+See gtk_entry_buffer_set_text().
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_visibility(visible_pony: Bool): None =>

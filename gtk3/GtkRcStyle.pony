@@ -29,6 +29,9 @@ This can later be composited together with other
 
 
 /* copy unavailable due to return typing issues
+Makes a copy of the specified #GtkRcStyle. This function
+will correctly copy an RC style that is a member of a class
+derived from #GtkRcStyle.
 {:argctype, "GtkRcStyle*"}
 {:argname, "rv"}
 {:argtype, "RcStyle"}

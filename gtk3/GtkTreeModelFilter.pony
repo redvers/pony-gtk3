@@ -99,11 +99,19 @@ all unreffed iters will be invalid.
   @gtk_tree_model_filter_clear_cache[None](widget)
 
 /* convert_child_iter_to_iter unavailable due to typing issues
- {:doh, %{argctype: "GtkTreeIter*", argname: "filter_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
+Sets @filter_iter to point to the row in @filter that corresponds to the
+row pointed at by @child_iter.  If @filter_iter was not set, %FALSE is
+returned.
+{:doh, %{argctype: "GtkTreeIter*", argname: "filter_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkTreeIter*", argname: "child_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
 */
 
 /* convert_child_path_to_path unavailable due to return typing issues
+Converts @child_path to a path relative to @filter. That is, @child_path
+points to a path in the child model. The rerturned path will point to the
+same row in the filtered model. If @child_path isn’t a valid path on the
+child model or points to a row which is not visible in @filter, then %NULL
+is returned.
 {:argctype, "GtkTreePath*"}
 {:argname, "rv"}
 {:argtype, "TreePath"}
@@ -111,11 +119,16 @@ all unreffed iters will be invalid.
 {:txo, "full"} */
 
 /* convert_iter_to_child_iter unavailable due to typing issues
- {:doh, %{argctype: "GtkTreeIter*", argname: "child_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
+Sets @child_iter to point to the row pointed to by @filter_iter.
+{:doh, %{argctype: "GtkTreeIter*", argname: "child_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkTreeIter*", argname: "filter_iter", argtype: "TreeIter", paramtype: :param, txo: "none"}}
 */
 
 /* convert_path_to_child_path unavailable due to return typing issues
+Converts @filter_path to a path on the child model of @filter. That is,
+@filter_path points to a location in @filter. The returned path will
+point to the same location in the model not being filtered. If @filter_path
+does not point to a location in the child model, %NULL is returned.
 {:argctype, "GtkTreePath*"}
 {:argname, "rv"}
 {:argtype, "TreePath"}
@@ -123,6 +136,7 @@ all unreffed iters will be invalid.
 {:txo, "full"} */
 
 /* get_model unavailable due to return typing issues
+Returns a pointer to the child model of @filter.
 {:argctype, "GtkTreeModel*"}
 {:argname, "rv"}
 {:argtype, "TreeModel"}
@@ -137,7 +151,17 @@ the filter to re-evaluate whether a row is visible or not.
   @gtk_tree_model_filter_refilter[None](widget)
 
 /* set_modify_func unavailable due to typing issues
- {:doh, %{argctype: "", argname: "types", argtype: "", paramtype: :param, txo: "none"}}
+With the @n_columns and @types parameters, you give an array of column
+types for this model (which will be exposed to the parent model/view).
+The @func, @data and @destroy parameters are for specifying the modify
+function. The modify function will get called for each
+data access, the goal of the modify function is to return the data which
+should be displayed at the location specified using the parameters of the
+modify function.
+
+Note that gtk_tree_model_filter_set_modify_func()
+can only be called once for a given filter model.
+{:doh, %{argctype: "", argname: "types", argtype: "", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkTreeModelFilterModifyFunc", argname: "func", argtype: "TreeModelFilterModifyFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
@@ -157,7 +181,42 @@ once for a given filter model.
   @gtk_tree_model_filter_set_visible_column[None](widget, column_pony)
 
 /* set_visible_func unavailable due to typing issues
- {:doh, %{argctype: "GtkTreeModelFilterVisibleFunc", argname: "func", argtype: "TreeModelFilterVisibleFunc", paramtype: :param, txo: "none"}}
+Sets the visible function used when filtering the @filter to be @func.
+The function should return %TRUE if the given row should be visible and
+%FALSE otherwise.
+
+If the condition calculated by the function changes over time (e.g.
+because it depends on some global parameters), you must call
+gtk_tree_model_filter_refilter() to keep the visibility information
+of the model up-to-date.
+
+Note that @func is called whenever a row is inserted, when it may still
+be empty. The visible function should therefore take special care of empty
+rows, like in the example below.
+
+|[<!-- language="C" -->
+static gboolean
+visible_func (GtkTreeModel *model,
+              GtkTreeIter  *iter,
+              gpointer      data)
+{
+  // Visible if row is non-empty and first column is “HI”
+  gchar *str;
+  gboolean visible = FALSE;
+
+  gtk_tree_model_get (model, iter, 0, &str, -1);
+  if (str && strcmp (str, "HI") == 0)
+    visible = TRUE;
+  g_free (str);
+
+  return visible;
+}
+]|
+
+Note that gtk_tree_model_filter_set_visible_func() or
+gtk_tree_model_filter_set_visible_column() can only be called
+once for a given filter model.
+{:doh, %{argctype: "GtkTreeModelFilterVisibleFunc", argname: "func", argtype: "TreeModelFilterVisibleFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */

@@ -142,11 +142,31 @@ Emits the #GtkMenuItem::select signal on the given item.
   @gtk_menu_item_select[None](widget)
 
 /* set_accel_path unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "accel_path", argtype: "utf8", paramtype: :param, txo: "none"}}
+Set the accelerator path on @menu_item, through which runtime
+changes of the menu item’s accelerator caused by the user can be
+identified and saved to persistent storage (see gtk_accel_map_save()
+on this). To set up a default accelerator for this menu item, call
+gtk_accel_map_add_entry() with the same @accel_path. See also
+gtk_accel_map_add_entry() on the specifics of accelerator paths,
+and gtk_menu_set_accel_path() for a more convenient variant of
+this function.
+
+This function is basically a convenience wrapper that handles
+calling gtk_widget_set_accel_path() with the appropriate accelerator
+group for the menu item.
+
+Note that you do need to set an accelerator on the parent menu with
+gtk_menu_set_accel_group() for this to work.
+
+Note that @accel_path string will be stored in a #GQuark.
+Therefore, if you pass a static string, you can save some memory
+by interning it first with g_intern_static_string().
+{:doh, %{argctype: "const gchar*", argname: "accel_path", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets @text on the @menu_item label
+{:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_reserve_indicator(reserve_pony: Bool): None =>
@@ -171,7 +191,9 @@ or Arabic, right-justified-menu-items appear at the left.)
   @gtk_menu_item_set_right_justified[None](widget, right_justified_pony)
 
 /* set_submenu unavailable due to typing issues
- {:doh, %{argctype: "GtkWidget*", argname: "submenu", argtype: "Menu", paramtype: :param, txo: "none"}}
+Sets or replaces the menu item’s submenu, or removes it when a %NULL
+submenu is passed.
+{:doh, %{argctype: "GtkWidget*", argname: "submenu", argtype: "Menu", paramtype: :param, txo: "none"}}
 */
 
 fun set_use_underline(setting_pony: Bool): None =>
@@ -188,6 +210,7 @@ Emits the #GtkMenuItem::toggle-size-allocate signal on the given item.
   @gtk_menu_item_toggle_size_allocate[None](widget, allocation_pony)
 
 /* toggle_size_request unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "requisition", argtype: "gint", paramtype: :param, txo: "full"}}
+Emits the #GtkMenuItem::toggle-size-request signal on the given item.
+{:doh, %{argctype: "gint*", argname: "requisition", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 

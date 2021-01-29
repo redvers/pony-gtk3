@@ -128,6 +128,8 @@ The following attributes are used when constructing submenus:
 
 
 /* get_help_overlay unavailable due to return typing issues
+Gets the #GtkShortcutsWindow that has been set up with
+a prior call to gtk_application_window_set_help_overlay().
 {:argctype, "GtkShortcutsWindow*"}
 {:argname, "rv"}
 {:argtype, "ShortcutsWindow"}
@@ -149,7 +151,12 @@ and menubar as needed.
   @gtk_application_window_get_show_menubar[Bool](widget)
 
 /* set_help_overlay unavailable due to typing issues
- {:doh, %{argctype: "GtkShortcutsWindow*", argname: "help_overlay", argtype: "ShortcutsWindow", paramtype: :param, txo: "none"}}
+Associates a shortcuts window with the application window, and
+sets up an action with the name win.show-help-overlay to present
+it.
+
+@window takes resposibility for destroying @help_overlay.
+{:doh, %{argctype: "GtkShortcutsWindow*", argname: "help_overlay", argtype: "ShortcutsWindow", paramtype: :param, txo: "none"}}
 */
 
 fun set_show_menubar(show_menubar_pony: Bool): None =>

@@ -115,7 +115,24 @@ label to be visible again.
   @gtk_header_bar_set_custom_title[None](widget, title_widget_pony.gtkwidget())
 
 /* set_decoration_layout unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "layout", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the decoration layout for this header bar, overriding
+the #GtkSettings:gtk-decoration-layout setting.
+
+There can be valid reasons for overriding the setting, such
+as a header bar design that does not allow for buttons to take
+room on the right, or only offers room for a single close button.
+Split header bars are another example for overriding the
+setting.
+
+The format of the string is button names, separated by commas.
+A colon separates the buttons that should appear on the left
+from those on the right. Recognized button names are minimize,
+maximize, close, icon (the window icon) and menu (a menu button
+for the fallback app menu).
+
+For example, “menu:minimize,maximize,close” specifies a menu
+on the left, and minimize, maximize and close buttons on the right.
+{:doh, %{argctype: "const gchar*", argname: "layout", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_has_subtitle(setting_pony: Bool): None =>
@@ -133,10 +150,19 @@ including close, maximize, and minimize.
   @gtk_header_bar_set_show_close_button[None](widget, setting_pony)
 
 /* set_subtitle unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "subtitle", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the subtitle of the #GtkHeaderBar. The title should give a user
+an additional detail to help him identify the current view.
+
+Note that GtkHeaderBar by default reserves room for the subtitle,
+even if none is currently set. If this is not desired, set the
+#GtkHeaderBar:has-subtitle property to %FALSE.
+{:doh, %{argctype: "const gchar*", argname: "subtitle", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_title unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the title of the #GtkHeaderBar. The title should help a user
+identify the current view. A good title should not include the
+application name.
+{:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 

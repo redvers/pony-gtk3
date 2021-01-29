@@ -68,7 +68,23 @@ For rubberband selection, a subnode with name rubberband is used.
 
 
 /* bind_model unavailable due to typing issues
- {:doh, %{argctype: "GListModel*", argname: "model", argtype: "Gio.ListModel", paramtype: :param, txo: "none"}}
+Binds @model to @box.
+
+If @box was already bound to a model, that previous binding is
+destroyed.
+
+The contents of @box are cleared and then filled with widgets that
+represent items from @model. @box is updated whenever @model changes.
+If @model is %NULL, @box is left empty.
+
+It is undefined to add or remove widgets directly (for example, with
+gtk_flow_box_insert() or gtk_container_add()) while @box is bound to a
+model.
+
+Note that using a model is incompatible with the filtering and sorting
+functionality in GtkFlowBox. When using a model, filtering and sorting
+should be implemented by the model.
+{:doh, %{argctype: "GListModel*", argname: "model", argtype: "Gio.ListModel", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkFlowBoxCreateWidgetFunc", argname: "create_widget_func", argtype: "FlowBoxCreateWidgetFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "user_data_free_func", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
@@ -81,6 +97,7 @@ Returns whether children activate on single clicks.
   @gtk_flow_box_get_activate_on_single_click[Bool](widget)
 
 /* get_child_at_index unavailable due to return typing issues
+Gets the nth child in the @box.
 {:argctype, "GtkFlowBoxChild*"}
 {:argname, "rv"}
 {:argtype, "FlowBoxChild"}
@@ -88,6 +105,7 @@ Returns whether children activate on single clicks.
 {:txo, "none"} */
 
 /* get_child_at_pos unavailable due to return typing issues
+Gets the child in the (@x, @y) position.
 {:argctype, "GtkFlowBoxChild*"}
 {:argname, "rv"}
 {:argtype, "FlowBoxChild"}
@@ -126,6 +144,7 @@ Gets the vertical spacing.
   @gtk_flow_box_get_row_spacing[U32](widget)
 
 /* get_selected_children unavailable due to return typing issues
+Creates a list of all selected children.
 {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
@@ -133,6 +152,7 @@ Gets the vertical spacing.
 {:txo, "container"} */
 
 /* get_selection_mode unavailable due to return typing issues
+Gets the selection mode of @box.
 {:argctype, "GtkSelectionMode"}
 {:argname, "rv"}
 {:argtype, "SelectionMode"}
@@ -181,11 +201,17 @@ mode allows it.
   @gtk_flow_box_select_all[None](widget)
 
 /* select_child unavailable due to typing issues
- {:doh, %{argctype: "GtkFlowBoxChild*", argname: "child", argtype: "FlowBoxChild", paramtype: :param, txo: "none"}}
+Selects a single child of @box, if the selection
+mode allows it.
+{:doh, %{argctype: "GtkFlowBoxChild*", argname: "child", argtype: "FlowBoxChild", paramtype: :param, txo: "none"}}
 */
 
 /* selected_foreach unavailable due to typing issues
- {:doh, %{argctype: "GtkFlowBoxForeachFunc", argname: "func", argtype: "FlowBoxForeachFunc", paramtype: :param, txo: "none"}}
+Calls a function for each selected child.
+
+Note that the selection cannot be modified from within
+this function.
+{:doh, %{argctype: "GtkFlowBoxForeachFunc", argname: "func", argtype: "FlowBoxForeachFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 */
 
@@ -204,13 +230,34 @@ See the #GtkFlowBox:column-spacing property.
   @gtk_flow_box_set_column_spacing[None](widget, spacing_pony)
 
 /* set_filter_func unavailable due to typing issues
- {:doh, %{argctype: "GtkFlowBoxFilterFunc", argname: "filter_func", argtype: "FlowBoxFilterFunc", paramtype: :param, txo: "none"}}
+By setting a filter function on the @box one can decide dynamically
+which of the children to show. For instance, to implement a search
+function that only shows the children matching the search terms.
+
+The @filter_func will be called for each child after the call, and
+it will continue to be called each time a child changes (via
+gtk_flow_box_child_changed()) or when gtk_flow_box_invalidate_filter()
+is called.
+
+Note that using a filter function is incompatible with using a model
+(see gtk_flow_box_bind_model()).
+{:doh, %{argctype: "GtkFlowBoxFilterFunc", argname: "filter_func", argtype: "FlowBoxFilterFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
 
 /* set_hadjustment unavailable due to typing issues
- {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+Hooks up an adjustment to focus handling in @box.
+The adjustment is also used for autoscrolling during
+rubberband selection. See gtk_scrolled_window_get_hadjustment()
+for a typical way of obtaining the adjustment, and
+gtk_flow_box_set_vadjustment()for setting the vertical
+adjustment.
+
+The adjustments have to be in pixel units and in the same
+coordinate system as the allocation for immediate children
+of the box.
+{:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
 
 fun set_homogeneous(homogeneous_pony: Bool): None =>
@@ -247,17 +294,40 @@ See the #GtkFlowBox:row-spacing property.
   @gtk_flow_box_set_row_spacing[None](widget, spacing_pony)
 
 /* set_selection_mode unavailable due to typing issues
- {:doh, %{argctype: "GtkSelectionMode", argname: "mode", argtype: "SelectionMode", paramtype: :param, txo: "none"}}
+Sets how selection works in @box.
+See #GtkSelectionMode for details.
+{:doh, %{argctype: "GtkSelectionMode", argname: "mode", argtype: "SelectionMode", paramtype: :param, txo: "none"}}
 */
 
 /* set_sort_func unavailable due to typing issues
- {:doh, %{argctype: "GtkFlowBoxSortFunc", argname: "sort_func", argtype: "FlowBoxSortFunc", paramtype: :param, txo: "none"}}
+By setting a sort function on the @box, one can dynamically
+reorder the children of the box, based on the contents of
+the children.
+
+The @sort_func will be called for each child after the call,
+and will continue to be called each time a child changes (via
+gtk_flow_box_child_changed()) and when gtk_flow_box_invalidate_sort()
+is called.
+
+Note that using a sort function is incompatible with using a model
+(see gtk_flow_box_bind_model()).
+{:doh, %{argctype: "GtkFlowBoxSortFunc", argname: "sort_func", argtype: "FlowBoxSortFunc", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "gpointer", argname: "user_data", argtype: "gpointer", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
 
 /* set_vadjustment unavailable due to typing issues
- {:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
+Hooks up an adjustment to focus handling in @box.
+The adjustment is also used for autoscrolling during
+rubberband selection. See gtk_scrolled_window_get_vadjustment()
+for a typical way of obtaining the adjustment, and
+gtk_flow_box_set_hadjustment()for setting the horizontal
+adjustment.
+
+The adjustments have to be in pixel units and in the same
+coordinate system as the allocation for immediate children
+of the box.
+{:doh, %{argctype: "GtkAdjustment*", argname: "adjustment", argtype: "Adjustment", paramtype: :param, txo: "none"}}
 */
 
 fun unselect_all(): None =>
@@ -268,6 +338,8 @@ mode allows it.
   @gtk_flow_box_unselect_all[None](widget)
 
 /* unselect_child unavailable due to typing issues
- {:doh, %{argctype: "GtkFlowBoxChild*", argname: "child", argtype: "FlowBoxChild", paramtype: :param, txo: "none"}}
+Unselects a single child of @box, if the selection
+mode allows it.
+{:doh, %{argctype: "GtkFlowBoxChild*", argname: "child", argtype: "FlowBoxChild", paramtype: :param, txo: "none"}}
 */
 

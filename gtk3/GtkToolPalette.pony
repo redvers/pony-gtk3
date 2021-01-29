@@ -94,16 +94,22 @@ GtkToolPalette has a single CSS node named toolpalette.
 
 
 /* add_drag_dest unavailable due to typing issues
- {:doh, %{argctype: "GtkDestDefaults", argname: "flags", argtype: "DestDefaults", paramtype: :param, txo: "none"}}
+Sets @palette as drag source (see gtk_tool_palette_set_drag_source())
+and sets @widget as a drag destination for drags from @palette.
+See gtk_drag_dest_set().
+{:doh, %{argctype: "GtkDestDefaults", argname: "flags", argtype: "DestDefaults", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkToolPaletteDragTargets", argname: "targets", argtype: "ToolPaletteDragTargets", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GdkDragAction", argname: "actions", argtype: "Gdk.DragAction", paramtype: :param, txo: "none"}}
 */
 
 /* get_drag_item unavailable due to typing issues
- {:doh, %{argctype: "const GtkSelectionData*", argname: "selection", argtype: "SelectionData", paramtype: :param, txo: "none"}}
+Get the dragged item from the selection.
+This could be a #GtkToolItem or a #GtkToolItemGroup.
+{:doh, %{argctype: "const GtkSelectionData*", argname: "selection", argtype: "SelectionData", paramtype: :param, txo: "none"}}
 */
 
 /* get_drop_group unavailable due to return typing issues
+Gets the group at position (x, y).
 {:argctype, "GtkToolItemGroup*"}
 {:argname, "rv"}
 {:argtype, "ToolItemGroup"}
@@ -111,6 +117,8 @@ GtkToolPalette has a single CSS node named toolpalette.
 {:txo, "none"} */
 
 /* get_drop_item unavailable due to return typing issues
+Gets the item at position (x, y).
+See gtk_tool_palette_get_drop_group().
 {:argctype, "GtkToolItem*"}
 {:argname, "rv"}
 {:argtype, "ToolItem"}
@@ -118,18 +126,25 @@ GtkToolPalette has a single CSS node named toolpalette.
 {:txo, "none"} */
 
 /* get_exclusive unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItemGroup*", argname: "group", argtype: "ToolItemGroup", paramtype: :param, txo: "none"}}
+Gets whether @group is exclusive or not.
+See gtk_tool_palette_set_exclusive().
+{:doh, %{argctype: "GtkToolItemGroup*", argname: "group", argtype: "ToolItemGroup", paramtype: :param, txo: "none"}}
 */
 
 /* get_expand unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItemGroup*", argname: "group", argtype: "ToolItemGroup", paramtype: :param, txo: "none"}}
+Gets whether group should be given extra space.
+See gtk_tool_palette_set_expand().
+{:doh, %{argctype: "GtkToolItemGroup*", argname: "group", argtype: "ToolItemGroup", paramtype: :param, txo: "none"}}
 */
 
 /* get_group_position unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItemGroup*", argname: "group", argtype: "ToolItemGroup", paramtype: :param, txo: "none"}}
+Gets the position of @group in @palette as index.
+See gtk_tool_palette_set_group_position().
+{:doh, %{argctype: "GtkToolItemGroup*", argname: "group", argtype: "ToolItemGroup", paramtype: :param, txo: "none"}}
 */
 
 /* get_hadjustment unavailable due to return typing issues
+Gets the horizontal adjustment of the tool palette.
 {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
@@ -137,6 +152,8 @@ GtkToolPalette has a single CSS node named toolpalette.
 {:txo, "none"} */
 
 /* get_icon_size unavailable due to return typing issues
+Gets the size of icons in the tool palette.
+See gtk_tool_palette_set_icon_size().
 {:argctype, "GtkIconSize"}
 {:argname, "rv"}
 {:argtype, "gint"}
@@ -144,6 +161,7 @@ GtkToolPalette has a single CSS node named toolpalette.
 {:txo, "none"} */
 
 /* get_style unavailable due to return typing issues
+Gets the style (icons, text or both) of items in the tool palette.
 {:argctype, "GtkToolbarStyle"}
 {:argname, "rv"}
 {:argtype, "ToolbarStyle"}
@@ -151,6 +169,7 @@ GtkToolPalette has a single CSS node named toolpalette.
 {:txo, "none"} */
 
 /* get_vadjustment unavailable due to return typing issues
+Gets the vertical adjustment of the tool palette.
 {:argctype, "GtkAdjustment*"}
 {:argname, "rv"}
 {:argtype, "Adjustment"}
@@ -158,27 +177,39 @@ GtkToolPalette has a single CSS node named toolpalette.
 {:txo, "none"} */
 
 /* set_drag_source unavailable due to typing issues
- {:doh, %{argctype: "GtkToolPaletteDragTargets", argname: "targets", argtype: "ToolPaletteDragTargets", paramtype: :param, txo: "none"}}
+Sets the tool palette as a drag source.
+Enables all groups and items in the tool palette as drag sources
+on button 1 and button 3 press with copy and move actions.
+See gtk_drag_source_set().
+{:doh, %{argctype: "GtkToolPaletteDragTargets", argname: "targets", argtype: "ToolPaletteDragTargets", paramtype: :param, txo: "none"}}
 */
 
 /* set_exclusive unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItemGroup*", argname: "group", argtype: "ToolItemGroup", paramtype: :param, txo: "none"}}
+Sets whether the group should be exclusive or not.
+If an exclusive group is expanded all other groups are collapsed.
+{:doh, %{argctype: "GtkToolItemGroup*", argname: "group", argtype: "ToolItemGroup", paramtype: :param, txo: "none"}}
 */
 
 /* set_expand unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItemGroup*", argname: "group", argtype: "ToolItemGroup", paramtype: :param, txo: "none"}}
+Sets whether the group should be given extra space.
+{:doh, %{argctype: "GtkToolItemGroup*", argname: "group", argtype: "ToolItemGroup", paramtype: :param, txo: "none"}}
 */
 
 /* set_group_position unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItemGroup*", argname: "group", argtype: "ToolItemGroup", paramtype: :param, txo: "none"}}
+Sets the position of the group as an index of the tool palette.
+If position is 0 the group will become the first child, if position is
+-1 it will become the last child.
+{:doh, %{argctype: "GtkToolItemGroup*", argname: "group", argtype: "ToolItemGroup", paramtype: :param, txo: "none"}}
 */
 
 /* set_icon_size unavailable due to typing issues
- {:doh, %{argctype: "GtkIconSize", argname: "icon_size", argtype: "gint", paramtype: :param, txo: "none"}}
+Sets the size of icons in the tool palette.
+{:doh, %{argctype: "GtkIconSize", argname: "icon_size", argtype: "gint", paramtype: :param, txo: "none"}}
 */
 
 /* set_style unavailable due to typing issues
- {:doh, %{argctype: "GtkToolbarStyle", argname: "style", argtype: "ToolbarStyle", paramtype: :param, txo: "none"}}
+Sets the style (text, icons or both) of items in the tool palette.
+{:doh, %{argctype: "GtkToolbarStyle", argname: "style", argtype: "ToolbarStyle", paramtype: :param, txo: "none"}}
 */
 
 fun unset_icon_size(): None =>

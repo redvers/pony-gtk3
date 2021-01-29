@@ -110,7 +110,10 @@ not useful for applications.
   @gtk_im_context_delete_surrounding[Bool](widget, offset_pony, n_chars_pony)
 
 /* filter_keypress unavailable due to typing issues
- {:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
+Allow an input method to internally handle key press and release
+events. If this function returns %TRUE, then no further processing
+should be done for this key event.
+{:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
 */
 
 fun focus_in(): None =>
@@ -132,13 +135,29 @@ state to reflect this change.
   @gtk_im_context_focus_out[None](widget)
 
 /* get_preedit_string unavailable due to typing issues
- {:doh, %{argctype: "gchar**", argname: "str", argtype: "utf8", paramtype: :param, txo: "full"}}
+Retrieve the current preedit string for the input context,
+and a list of attributes to apply to the string.
+This string should be displayed inserted at the insertion
+point.
+{:doh, %{argctype: "gchar**", argname: "str", argtype: "utf8", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "PangoAttrList**", argname: "attrs", argtype: "Pango.AttrList", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "cursor_pos", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 
 /* get_surrounding unavailable due to typing issues
- {:doh, %{argctype: "gchar**", argname: "text", argtype: "utf8", paramtype: :param, txo: "full"}}
+Retrieves context around the insertion point. Input methods
+typically want context in order to constrain input text based on
+existing text; this is important for languages such as Thai where
+only some sequences of characters are allowed.
+
+This function is implemented by emitting the
+GtkIMContext::retrieve_surrounding signal on the input method; in
+response to this signal, a widget should provide as much context as
+is available, up to an entire paragraph, by calling
+gtk_im_context_set_surrounding(). Note that there is no obligation
+for a widget to respond to the ::retrieve_surrounding signal, so input
+methods must be prepared to function without context.
+{:doh, %{argctype: "gchar**", argname: "text", argtype: "utf8", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "cursor_index", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 
@@ -151,15 +170,26 @@ method to clear the preedit state.
   @gtk_im_context_reset[None](widget)
 
 /* set_client_window unavailable due to typing issues
- {:doh, %{argctype: "GdkWindow*", argname: "window", argtype: "Gdk.Window", paramtype: :param, txo: "none"}}
+Set the client window for the input context; this is the
+#GdkWindow in which the input appears. This window is
+used in order to correctly position status windows, and may
+also be used for purposes internal to the input method.
+{:doh, %{argctype: "GdkWindow*", argname: "window", argtype: "Gdk.Window", paramtype: :param, txo: "none"}}
 */
 
 /* set_cursor_location unavailable due to typing issues
- {:doh, %{argctype: "const GdkRectangle*", argname: "area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+Notify the input method that a change in cursor
+position has been made. The location is relative to the client
+window.
+{:doh, %{argctype: "const GdkRectangle*", argname: "area", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 */
 
 /* set_surrounding unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets surrounding context around the insertion point and preedit
+string. This function is expected to be called in response to the
+GtkIMContext::retrieve_surrounding signal, and will likely have no
+effect if called at other times.
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_use_preedit(use_preedit_pony: Bool): None =>

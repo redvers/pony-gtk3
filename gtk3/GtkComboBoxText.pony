@@ -79,15 +79,28 @@ children, and the .linked class to the node of its internal box.
 
 
 /* append unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "id", argtype: "utf8", paramtype: :param, txo: "none"}}
+Appends @text to the list of strings stored in @combo_box.
+If @id is non-%NULL then it is used as the ID of the row.
+
+This is the same as calling gtk_combo_box_text_insert() with a
+position of -1.
+{:doh, %{argctype: "const gchar*", argname: "id", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* append_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+Appends @text to the list of strings stored in @combo_box.
+
+This is the same as calling gtk_combo_box_text_insert_text() with a
+position of -1.
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* get_active_text unavailable due to return typing issues
+Returns the currently active string in @combo_box, or %NULL
+if none is selected. If @combo_box contains an entry, this
+function will return its contents (which will not necessarily
+be an item from the list).
 {:argctype, "gchar*"}
 {:argname, "rv"}
 {:argtype, "utf8"}
@@ -95,21 +108,41 @@ children, and the .linked class to the node of its internal box.
 {:txo, "full"} */
 
 /* insert unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "id", argtype: "utf8", paramtype: :param, txo: "none"}}
+Inserts @text at @position in the list of strings stored in @combo_box.
+If @id is non-%NULL then it is used as the ID of the row.  See
+#GtkComboBox:id-column.
+
+If @position is negative then @text is appended.
+{:doh, %{argctype: "const gchar*", argname: "id", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* insert_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+Inserts @text at @position in the list of strings stored in @combo_box.
+
+If @position is negative then @text is appended.
+
+This is the same as calling gtk_combo_box_text_insert() with a %NULL
+ID string.
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* prepend unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "id", argtype: "utf8", paramtype: :param, txo: "none"}}
+Prepends @text to the list of strings stored in @combo_box.
+If @id is non-%NULL then it is used as the ID of the row.
+
+This is the same as calling gtk_combo_box_text_insert() with a
+position of 0.
+{:doh, %{argctype: "const gchar*", argname: "id", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* prepend_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
+Prepends @text to the list of strings stored in @combo_box.
+
+This is the same as calling gtk_combo_box_text_insert_text() with a
+position of 0.
+{:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun remove(position_pony: I32): None =>

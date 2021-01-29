@@ -72,6 +72,7 @@ regardless of text direction.
 
 
 /* get_baseline_position unavailable due to return typing issues
+Gets the value set by gtk_box_set_baseline_position().
 {:argctype, "GtkBaselinePosition"}
 {:argname, "rv"}
 {:argtype, "BaselinePosition"}
@@ -114,7 +115,8 @@ to the start of @box.
   @gtk_box_pack_start[None](widget, child_pony.gtkwidget(), expand_pony, fill_pony, padding_pony)
 
 /* query_child_packing unavailable due to typing issues
- {:doh, %{argctype: "gboolean*", argname: "expand", argtype: "gboolean", paramtype: :param, txo: "full"}}
+Obtains information about how @child is packed into @box.
+{:doh, %{argctype: "gboolean*", argname: "expand", argtype: "gboolean", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gboolean*", argname: "fill", argtype: "gboolean", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "guint*", argname: "padding", argtype: "guint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "GtkPackType*", argname: "pack_type", argtype: "PackType", paramtype: :param, txo: "full"}}
@@ -135,7 +137,13 @@ same packing type that appear earlier in the list.
   @gtk_box_reorder_child[None](widget, child_pony.gtkwidget(), position_pony)
 
 /* set_baseline_position unavailable due to typing issues
- {:doh, %{argctype: "GtkBaselinePosition", argname: "position", argtype: "BaselinePosition", paramtype: :param, txo: "none"}}
+Sets the baseline position of a box. This affects
+only horizontal boxes with at least one baseline aligned
+child. If there is more vertical space available than requested,
+and the baseline is not allocated by the parent then
+@position is used to allocate the baseline wrt the
+extra space available.
+{:doh, %{argctype: "GtkBaselinePosition", argname: "position", argtype: "BaselinePosition", paramtype: :param, txo: "none"}}
 */
 
 fun set_center_widget(widget_pony: GtkWidget val): None =>
@@ -148,7 +156,8 @@ of space.
   @gtk_box_set_center_widget[None](widget, widget_pony.gtkwidget())
 
 /* set_child_packing unavailable due to typing issues
- {:doh, %{argctype: "GtkPackType", argname: "pack_type", argtype: "PackType", paramtype: :param, txo: "none"}}
+Sets the way @child is packed into @box.
+{:doh, %{argctype: "GtkPackType", argname: "pack_type", argtype: "PackType", paramtype: :param, txo: "none"}}
 */
 
 fun set_homogeneous(homogeneous_pony: Bool): None =>

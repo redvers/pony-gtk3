@@ -62,11 +62,14 @@ the “Close” button returns the #GTK_RESPONSE_CANCEL response id.
 
 
 /* add_credit_section unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "section_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+Creates a new section in the Credits page.
+{:doh, %{argctype: "const gchar*", argname: "section_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "people", argtype: "", paramtype: :param, txo: "none"}}
 */
 
 /* get_artists unavailable due to return typing issues
+Returns the string which are displayed in the artists tab
+of the secondary credits dialog.
 {:argctype, ""}
 {:argname, "rv"}
 {:argtype, ""}
@@ -74,6 +77,8 @@ the “Close” button returns the #GTK_RESPONSE_CANCEL response id.
 {:txo, "none"} */
 
 /* get_authors unavailable due to return typing issues
+Returns the string which are displayed in the authors tab
+of the secondary credits dialog.
 {:argctype, ""}
 {:argname, "rv"}
 {:argtype, ""}
@@ -97,6 +102,8 @@ Returns the copyright string.
   consume string_pony
 
 /* get_documenters unavailable due to return typing issues
+Returns the string which are displayed in the documenters
+tab of the secondary credits dialog.
 {:argctype, ""}
 {:argname, "rv"}
 {:argtype, ""}
@@ -112,6 +119,7 @@ Returns the license information.
   consume string_pony
 
 /* get_license_type unavailable due to return typing issues
+Retrieves the license set using gtk_about_dialog_set_license_type()
 {:argctype, "GtkLicense"}
 {:argname, "rv"}
 {:argtype, "License"}
@@ -119,6 +127,7 @@ Returns the license information.
 {:txo, "none"} */
 
 /* get_logo unavailable due to return typing issues
+Returns the pixbuf displayed as logo in the about dialog.
 {:argctype, "GdkPixbuf*"}
 {:argname, "rv"}
 {:argtype, "GdkPixbuf.Pixbuf"}
@@ -182,59 +191,104 @@ automatically wrapped.
   @gtk_about_dialog_get_wrap_license[Bool](widget)
 
 /* set_artists unavailable due to typing issues
- {:doh, %{argctype: "", argname: "artists", argtype: "", paramtype: :param, txo: "none"}}
+Sets the strings which are displayed in the artists tab
+of the secondary credits dialog.
+{:doh, %{argctype: "", argname: "artists", argtype: "", paramtype: :param, txo: "none"}}
 */
 
 /* set_authors unavailable due to typing issues
- {:doh, %{argctype: "", argname: "authors", argtype: "", paramtype: :param, txo: "none"}}
+Sets the strings which are displayed in the authors tab
+of the secondary credits dialog.
+{:doh, %{argctype: "", argname: "authors", argtype: "", paramtype: :param, txo: "none"}}
 */
 
 /* set_comments unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "comments", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the comments string to display in the about dialog.
+This should be a short string of one or two lines.
+{:doh, %{argctype: "const gchar*", argname: "comments", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_copyright unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "copyright", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the copyright string to display in the about dialog.
+This should be a short string of one or two lines.
+{:doh, %{argctype: "const gchar*", argname: "copyright", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_documenters unavailable due to typing issues
- {:doh, %{argctype: "", argname: "documenters", argtype: "", paramtype: :param, txo: "none"}}
+Sets the strings which are displayed in the documenters tab
+of the secondary credits dialog.
+{:doh, %{argctype: "", argname: "documenters", argtype: "", paramtype: :param, txo: "none"}}
 */
 
 /* set_license unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "license", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the license information to be displayed in the secondary
+license dialog. If @license is %NULL, the license button is
+hidden.
+{:doh, %{argctype: "const gchar*", argname: "license", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_license_type unavailable due to typing issues
- {:doh, %{argctype: "GtkLicense", argname: "license_type", argtype: "License", paramtype: :param, txo: "none"}}
+Sets the license of the application showing the @about dialog from a
+list of known licenses.
+
+This function overrides the license set using
+gtk_about_dialog_set_license().
+{:doh, %{argctype: "GtkLicense", argname: "license_type", argtype: "License", paramtype: :param, txo: "none"}}
 */
 
 /* set_logo unavailable due to typing issues
- {:doh, %{argctype: "GdkPixbuf*", argname: "logo", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
+Sets the pixbuf to be displayed as logo in the about dialog.
+If it is %NULL, the default window icon set with
+gtk_window_set_default_icon() will be used.
+{:doh, %{argctype: "GdkPixbuf*", argname: "logo", argtype: "GdkPixbuf.Pixbuf", paramtype: :param, txo: "none"}}
 */
 
 /* set_logo_icon_name unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the pixbuf to be displayed as logo in the about dialog.
+If it is %NULL, the default window icon set with
+gtk_window_set_default_icon() will be used.
+{:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_program_name unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the name to display in the about dialog.
+If this is not set, it defaults to g_get_application_name().
+{:doh, %{argctype: "const gchar*", argname: "name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_translator_credits unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "translator_credits", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the translator credits string which is displayed in
+the translators tab of the secondary credits dialog.
+
+The intended use for this string is to display the translator
+of the language which is currently used in the user interface.
+Using gettext(), a simple way to achieve that is to mark the
+string for translation:
+|[<!-- language="C" -->
+GtkWidget *about = gtk_about_dialog_new ();
+gtk_about_dialog_set_translator_credits (GTK_ABOUT_DIALOG (about),
+                                         _("translator-credits"));
+]|
+It is a good idea to use the customary msgid “translator-credits” for this
+purpose, since translators will already know the purpose of that msgid, and
+since #GtkAboutDialog will detect if “translator-credits” is untranslated
+and hide the tab.
+{:doh, %{argctype: "const gchar*", argname: "translator_credits", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_version unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "version", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the version string to display in the about dialog.
+{:doh, %{argctype: "const gchar*", argname: "version", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_website unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "website", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the URL to use for the website link.
+{:doh, %{argctype: "const gchar*", argname: "website", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_website_label unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "website_label", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the label to be used for the website link.
+{:doh, %{argctype: "const gchar*", argname: "website_label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 fun set_wrap_license(wrap_license_pony: Bool): None =>

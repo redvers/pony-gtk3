@@ -49,6 +49,8 @@ is none.
   @gtk_gesture_single_get_current_button[U32](widget)
 
 /* get_current_sequence unavailable due to return typing issues
+Returns the event sequence currently interacting with @gesture.
+This is only meaningful if gtk_gesture_is_active() returns %TRUE.
 {:argctype, "GdkEventSequence*"}
 {:argname, "rv"}
 {:argtype, "Gdk.EventSequence"}

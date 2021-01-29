@@ -33,13 +33,16 @@ it was used.
 
 
 /* get_color unavailable due to typing issues
- {:doh, %{argctype: "gdouble*", argname: "h", argtype: "gdouble", paramtype: :param, txo: "full"}}
+Queries the current color in an HSV color selector.
+Returned values will be in the [0.0, 1.0] range.
+{:doh, %{argctype: "gdouble*", argname: "h", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "s", argtype: "gdouble", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gdouble*", argname: "v", argtype: "gdouble", paramtype: :param, txo: "full"}}
 */
 
 /* get_metrics unavailable due to typing issues
- {:doh, %{argctype: "gint*", argname: "size", argtype: "gint", paramtype: :param, txo: "full"}}
+Queries the size and ring width of an HSV color selector.
+{:doh, %{argctype: "gint*", argname: "size", argtype: "gint", paramtype: :param, txo: "full"}}
 {:doh, %{argctype: "gint*", argname: "ring_width", argtype: "gint", paramtype: :param, txo: "full"}}
 */
 
@@ -53,7 +56,9 @@ the HSV color selector is being adjusted or not.
   @gtk_hsv_is_adjusting[Bool](widget)
 
 /* set_color unavailable due to typing issues
- {:doh, %{argctype: "double", argname: "h", argtype: "gdouble", paramtype: :param, txo: "none"}}
+Sets the current color in an HSV color selector.
+Color component values must be in the [0.0, 1.0] range.
+{:doh, %{argctype: "double", argname: "h", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "double", argname: "s", argtype: "gdouble", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "double", argname: "v", argtype: "gdouble", paramtype: :param, txo: "none"}}
 */

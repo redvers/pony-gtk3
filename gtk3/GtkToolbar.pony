@@ -59,6 +59,7 @@ inserted.
   @gtk_toolbar_get_drop_index[I32](widget, x_pony, y_pony)
 
 /* get_icon_size unavailable due to return typing issues
+Retrieves the icon size for the toolbar. See gtk_toolbar_set_icon_size().
 {:argctype, "GtkIconSize"}
 {:argname, "rv"}
 {:argtype, "IconSize"}
@@ -66,7 +67,9 @@ inserted.
 {:txo, "none"} */
 
 /* get_item_index unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+Returns the position of @item on the toolbar, starting from 0.
+It is an error if @item is not a child of the toolbar.
+{:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
 */
 
 fun get_n_items(): I32 =>
@@ -76,6 +79,8 @@ Returns the number of items on the toolbar.
   @gtk_toolbar_get_n_items[I32](widget)
 
 /* get_nth_item unavailable due to return typing issues
+Returns the @n'th item on @toolbar, or %NULL if the
+toolbar does not contain an @n'th item.
 {:argctype, "GtkToolItem*"}
 {:argname, "rv"}
 {:argtype, "ToolItem"}
@@ -83,6 +88,8 @@ Returns the number of items on the toolbar.
 {:txo, "none"} */
 
 /* get_relief_style unavailable due to return typing issues
+Returns the relief style of buttons on @toolbar. See
+gtk_button_set_relief().
 {:argctype, "GtkReliefStyle"}
 {:argname, "rv"}
 {:argtype, "ReliefStyle"}
@@ -97,6 +104,8 @@ See gtk_toolbar_set_show_arrow().
   @gtk_toolbar_get_show_arrow[Bool](widget)
 
 /* get_style unavailable due to return typing issues
+Retrieves whether the toolbar has text, icons, or both . See
+gtk_toolbar_set_style().
 {:argctype, "GtkToolbarStyle"}
 {:argname, "rv"}
 {:argtype, "ToolbarStyle"}
@@ -104,15 +113,35 @@ See gtk_toolbar_set_show_arrow().
 {:txo, "none"} */
 
 /* insert unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+Insert a #GtkToolItem into the toolbar at position @pos. If @pos is
+0 the item is prepended to the start of the toolbar. If @pos is
+negative, the item is appended to the end of the toolbar.
+{:doh, %{argctype: "GtkToolItem*", argname: "item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
 */
 
 /* set_drop_highlight_item unavailable due to typing issues
- {:doh, %{argctype: "GtkToolItem*", argname: "tool_item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
+Highlights @toolbar to give an idea of what it would look like
+if @item was added to @toolbar at the position indicated by @index_.
+If @item is %NULL, highlighting is turned off. In that case @index_
+is ignored.
+
+The @tool_item passed to this function must not be part of any widget
+hierarchy. When an item is set as drop highlight item it can not
+added to any widget hierarchy or used as highlight item for another
+toolbar.
+{:doh, %{argctype: "GtkToolItem*", argname: "tool_item", argtype: "ToolItem", paramtype: :param, txo: "none"}}
 */
 
 /* set_icon_size unavailable due to typing issues
- {:doh, %{argctype: "GtkIconSize", argname: "icon_size", argtype: "IconSize", paramtype: :param, txo: "none"}}
+This function sets the size of stock icons in the toolbar. You
+can call it both before you add the icons and after they’ve been
+added. The size you set will override user preferences for the default
+icon size.
+
+This should only be used for special-purpose toolbars, normal
+application toolbars should respect the user preferences for the
+size of icons.
+{:doh, %{argctype: "GtkIconSize", argname: "icon_size", argtype: "IconSize", paramtype: :param, txo: "none"}}
 */
 
 fun set_show_arrow(show_arrow_pony: Bool): None =>
@@ -127,7 +156,8 @@ request enough size to fit all of its child items without any overflow.
   @gtk_toolbar_set_show_arrow[None](widget, show_arrow_pony)
 
 /* set_style unavailable due to typing issues
- {:doh, %{argctype: "GtkToolbarStyle", argname: "style", argtype: "ToolbarStyle", paramtype: :param, txo: "none"}}
+Alters the view of @toolbar to display either icons only, text only, or both.
+{:doh, %{argctype: "GtkToolbarStyle", argname: "style", argtype: "ToolbarStyle", paramtype: :param, txo: "none"}}
 */
 
 fun unset_icon_size(): None =>

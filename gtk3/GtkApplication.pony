@@ -101,16 +101,49 @@ session while inhibitors are present.
 
 
 /* add_accelerator unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "accelerator", argtype: "utf8", paramtype: :param, txo: "none"}}
+Installs an accelerator that will cause the named action
+to be activated when the key combination specificed by @accelerator
+is pressed.
+
+@accelerator must be a string that can be parsed by gtk_accelerator_parse(),
+e.g. "<Primary>q" or “<Control><Alt>p”.
+
+@action_name must be the name of an action as it would be used
+in the app menu, i.e. actions that have been added to the application
+are referred to with an “app.” prefix, and window-specific actions
+with a “win.” prefix.
+
+GtkApplication also extracts accelerators out of “accel” attributes
+in the #GMenuModels passed to gtk_application_set_app_menu() and
+gtk_application_set_menubar(), which is usually more convenient
+than calling this function for each accelerator.
+{:doh, %{argctype: "const gchar*", argname: "accelerator", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "action_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GVariant*", argname: "parameter", argtype: "GLib.Variant", paramtype: :param, txo: "none"}}
 */
 
 /* add_window unavailable due to typing issues
- {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
+Adds a window to @application.
+
+This call can only happen after the @application has started;
+typically, you should add new application windows in response
+to the emission of the #GApplication::activate signal.
+
+This call is equivalent to setting the #GtkWindow:application
+property of @window to @application.
+
+Normally, the connection between the application and the window
+will remain until the window is destroyed, but you can explicitly
+remove it with gtk_application_remove_window().
+
+GTK+ will keep the @application running as long as it has
+any windows.
+{:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
 */
 
 /* get_accels_for_action unavailable due to return typing issues
+Gets the accelerators that are currently associated with
+the given action.
 {:argctype, ""}
 {:argname, "rv"}
 {:argtype, ""}
@@ -118,6 +151,21 @@ session while inhibitors are present.
 {:txo, "full"} */
 
 /* get_actions_for_accel unavailable due to return typing issues
+Returns the list of actions (possibly empty) that @accel maps to.
+Each item in the list is a detailed action name in the usual form.
+
+This might be useful to discover if an accel already exists in
+order to prevent installation of a conflicting accelerator (from
+an accelerator editor or a plugin system, for example). Note that
+having more than one action per accelerator may not be a bad thing
+and might make sense in cases where the actions never appear in the
+same context.
+
+In case there are no actions for a given accelerator, an empty array
+is returned.  %NULL is never returned.
+
+It is a programmer error to pass an invalid accelerator string.
+If you are unsure, check it with gtk_accelerator_parse() first.
 {:argctype, ""}
 {:argname, "rv"}
 {:argtype, ""}
@@ -125,6 +173,12 @@ session while inhibitors are present.
 {:txo, "full"} */
 
 /* get_active_window unavailable due to return typing issues
+Gets the “active” window for the application.
+
+The active window is the one that was most recently focused (within
+the application).  This window may not have the focus at the moment
+if another application has it — this is just the most
+recently-focused window within this application.
 {:argctype, "GtkWindow*"}
 {:argname, "rv"}
 {:argtype, "Window"}
@@ -132,6 +186,8 @@ session while inhibitors are present.
 {:txo, "none"} */
 
 /* get_app_menu unavailable due to return typing issues
+Returns the menu model that has been set with
+gtk_application_set_app_menu().
 {:argctype, "GMenuModel*"}
 {:argname, "rv"}
 {:argtype, "Gio.MenuModel"}
@@ -139,6 +195,9 @@ session while inhibitors are present.
 {:txo, "none"} */
 
 /* get_menu_by_id unavailable due to return typing issues
+Gets a menu from automatically loaded resources.
+See [Automatic resources][automatic-resources]
+for more information.
 {:argctype, "GMenu*"}
 {:argname, "rv"}
 {:argtype, "Gio.Menu"}
@@ -146,6 +205,8 @@ session while inhibitors are present.
 {:txo, "none"} */
 
 /* get_menubar unavailable due to return typing issues
+Returns the menu model that has been set with
+gtk_application_set_menubar().
 {:argctype, "GMenuModel*"}
 {:argname, "rv"}
 {:argtype, "Gio.MenuModel"}
@@ -153,6 +214,10 @@ session while inhibitors are present.
 {:txo, "none"} */
 
 /* get_window_by_id unavailable due to return typing issues
+Returns the #GtkApplicationWindow with the given ID.
+
+The ID of a #GtkApplicationWindow can be retrieved with
+gtk_application_window_get_id().
 {:argctype, "GtkWindow*"}
 {:argname, "rv"}
 {:argtype, "Window"}
@@ -160,6 +225,15 @@ session while inhibitors are present.
 {:txo, "none"} */
 
 /* get_windows unavailable due to return typing issues
+Gets a list of the #GtkWindows associated with @application.
+
+The list is sorted by most recently focused window, such that the first
+element is the currently focused window. (Useful for choosing a parent
+for a transient window.)
+
+The list that is returned should not be modified in any way. It will
+only remain valid until the next focus change or window creation or
+deletion.
 {:argctype, "GList*"}
 {:argname, "rv"}
 {:argtype, "GLib.List"}
@@ -167,16 +241,44 @@ session while inhibitors are present.
 {:txo, "none"} */
 
 /* inhibit unavailable due to typing issues
- {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
+Inform the session manager that certain types of actions should be
+inhibited. This is not guaranteed to work on all platforms and for
+all types of actions.
+
+Applications should invoke this method when they begin an operation
+that should not be interrupted, such as creating a CD or DVD. The
+types of actions that may be blocked are specified by the @flags
+parameter. When the application completes the operation it should
+call gtk_application_uninhibit() to remove the inhibitor. Note that
+an application can have multiple inhibitors, and all of them must
+be individually removed. Inhibitors are also cleared when the
+application exits.
+
+Applications should not expect that they will always be able to block
+the action. In most cases, users will be given the option to force
+the action to take place.
+
+Reasons should be short and to the point.
+
+If @window is given, the session manager may point the user to
+this window to find out more about why the action is inhibited.
+{:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GtkApplicationInhibitFlags", argname: "flags", argtype: "ApplicationInhibitFlags", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "const gchar*", argname: "reason", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* is_inhibited unavailable due to typing issues
- {:doh, %{argctype: "GtkApplicationInhibitFlags", argname: "flags", argtype: "ApplicationInhibitFlags", paramtype: :param, txo: "none"}}
+Determines if any of the actions specified in @flags are
+currently inhibited (possibly by another application).
+
+Note that this information may not be available (for example
+when the application is running in a sandbox).
+{:doh, %{argctype: "GtkApplicationInhibitFlags", argname: "flags", argtype: "ApplicationInhibitFlags", paramtype: :param, txo: "none"}}
 */
 
 /* list_action_descriptions unavailable due to return typing issues
+Lists the detailed action names which have associated accelerators.
+See gtk_application_set_accels_for_action().
 {:argctype, ""}
 {:argname, "rv"}
 {:argtype, ""}
@@ -223,25 +325,79 @@ replaced with your own.
   @gtk_application_prefers_app_menu[Bool](widget)
 
 /* remove_accelerator unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "action_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+Removes an accelerator that has been previously added
+with gtk_application_add_accelerator().
+{:doh, %{argctype: "const gchar*", argname: "action_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "GVariant*", argname: "parameter", argtype: "GLib.Variant", paramtype: :param, txo: "none"}}
 */
 
 /* remove_window unavailable due to typing issues
- {:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
+Remove a window from @application.
+
+If @window belongs to @application then this call is equivalent to
+setting the #GtkWindow:application property of @window to
+%NULL.
+
+The application may stop running as a result of a call to this
+function.
+{:doh, %{argctype: "GtkWindow*", argname: "window", argtype: "Window", paramtype: :param, txo: "none"}}
 */
 
 /* set_accels_for_action unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "detailed_action_name", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets zero or more keyboard accelerators that will trigger the
+given action. The first item in @accels will be the primary
+accelerator, which may be displayed in the UI.
+
+To remove all accelerators for an action, use an empty, zero-terminated
+array for @accels.
+
+For the @detailed_action_name, see g_action_parse_detailed_name() and
+g_action_print_detailed_name().
+{:doh, %{argctype: "const gchar*", argname: "detailed_action_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 {:doh, %{argctype: "", argname: "accels", argtype: "", paramtype: :param, txo: "none"}}
 */
 
 /* set_app_menu unavailable due to typing issues
- {:doh, %{argctype: "GMenuModel*", argname: "app_menu", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
+Sets or unsets the application menu for @application.
+
+This can only be done in the primary instance of the application,
+after it has been registered.  #GApplication::startup is a good place
+to call this.
+
+The application menu is a single menu containing items that typically
+impact the application as a whole, rather than acting on a specific
+window or document.  For example, you would expect to see
+“Preferences” or “Quit” in an application menu, but not “Save” or
+“Print”.
+
+If supported, the application menu will be rendered by the desktop
+environment.
+
+Use the base #GActionMap interface to add actions, to respond to the user
+selecting these menu items.
+{:doh, %{argctype: "GMenuModel*", argname: "app_menu", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
 */
 
 /* set_menubar unavailable due to typing issues
- {:doh, %{argctype: "GMenuModel*", argname: "menubar", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
+Sets or unsets the menubar for windows of @application.
+
+This is a menubar in the traditional sense.
+
+This can only be done in the primary instance of the application,
+after it has been registered.  #GApplication::startup is a good place
+to call this.
+
+Depending on the desktop environment, this may appear at the top of
+each window, or at the top of the screen.  In some environments, if
+both the application menu and the menubar are set, the application
+menu will be presented as if it were the first item of the menubar.
+Other environments treat the two as completely separate — for example,
+the application menu may be rendered by the desktop shell while the
+menubar (if set) remains in each individual window.
+
+Use the base #GActionMap interface to add actions, to respond to the
+user selecting these menu items.
+{:doh, %{argctype: "GMenuModel*", argname: "menubar", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
 */
 
 fun uninhibit(cookie_pony: U32): None =>

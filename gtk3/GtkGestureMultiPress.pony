@@ -35,10 +35,23 @@ its own.
 
 
 /* get_area unavailable due to typing issues
- {:doh, %{argctype: "GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+If an area was set through gtk_gesture_multi_press_set_area(),
+this function will return %TRUE and fill in @rect with the
+press area. See gtk_gesture_multi_press_set_area() for more
+details on what the press area represents.
+{:doh, %{argctype: "GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 */
 
 /* set_area unavailable due to typing issues
- {:doh, %{argctype: "const GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
+If @rect is non-%NULL, the press area will be checked to be
+confined within the rectangle, otherwise the button count
+will be reset so the press is seen as being the first one.
+If @rect is %NULL, the area will be reset to an unrestricted
+state.
+
+Note: The rectangle is only used to determine whether any
+non-first click falls within the expected area. This is not
+akin to an input shape.
+{:doh, %{argctype: "const GdkRectangle*", argname: "rect", argtype: "Gdk.Rectangle", paramtype: :param, txo: "none"}}
 */
 

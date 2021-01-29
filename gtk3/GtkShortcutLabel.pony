@@ -43,10 +43,12 @@ Retrieves the text that is displayed when no accelerator is set.
   consume string_pony
 
 /* set_accelerator unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "accelerator", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the accelerator to be displayed by @self.
+{:doh, %{argctype: "const gchar*", argname: "accelerator", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
 /* set_disabled_text unavailable due to typing issues
- {:doh, %{argctype: "const gchar*", argname: "disabled_text", argtype: "utf8", paramtype: :param, txo: "none"}}
+Sets the text to be displayed by @self when no accelerator is set.
+{:doh, %{argctype: "const gchar*", argname: "disabled_text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
