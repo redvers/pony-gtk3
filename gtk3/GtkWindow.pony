@@ -173,6 +173,8 @@ Gets the value set by gtk_window_set_accept_focus().
 {:txo, "none"} */
 
 /* Needs conversion code 
+Fetches the attach widget for this window. See
+gtk_window_set_attached_to().
   fun get_attached_to(): GtkWidget val =>
     @gtk_window_get_attached_to[GObjectREF](widget)
 */
@@ -190,6 +192,8 @@ such as a title bar via gtk_window_set_decorated().
 */
 
 /* Needs conversion code 
+Returns the default widget for @window. See
+gtk_window_set_default() for more details.
   fun get_default_widget(): GtkWidget val =>
     @gtk_window_get_default_widget[GObjectREF](widget)
 */
@@ -209,6 +213,11 @@ gtk_window_set_destroy_with_parent ().
   @gtk_window_get_destroy_with_parent[Bool](widget)
 
 /* Needs conversion code 
+Retrieves the current focused widget within the window.
+Note that this is the widget that would have the focus
+if the toplevel window focused; if the toplevel window
+is not focused then  `gtk_widget_has_focus (widget)` will
+not be %TRUE for the widget.
   fun get_focus(): GtkWidget val =>
     @gtk_window_get_focus[GObjectREF](widget)
 */
@@ -358,6 +367,8 @@ Retrieves the title of the window. See gtk_window_set_title().
   consume string_pony
 
 /* Needs conversion code 
+Returns the custom titlebar that has been set with
+gtk_window_set_titlebar().
   fun get_titlebar(): GtkWidget val =>
     @gtk_window_get_titlebar[GObjectREF](widget)
 */

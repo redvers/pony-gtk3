@@ -37,6 +37,7 @@ GtkActionBar has a single CSS node with name actionbar.
 
 
 /* Needs conversion code 
+Retrieves the center bar widget of the bar.
   fun get_center_widget(): GtkWidget val =>
     @gtk_action_bar_get_center_widget[GObjectREF](widget)
 */

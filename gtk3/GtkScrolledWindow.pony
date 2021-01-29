@@ -137,6 +137,7 @@ scrolling. See gtk_scrolled_window_set_capture_button_press().
 {:txo, "none"} */
 
 /* Needs conversion code 
+Returns the horizontal scrollbar of @scrolled_window.
   fun get_hscrollbar(): GtkWidget val =>
     @gtk_scrolled_window_get_hscrollbar[GObjectREF](widget)
 */
@@ -218,6 +219,7 @@ through the scrolled window’s requested natural width.
 {:txo, "none"} */
 
 /* Needs conversion code 
+Returns the vertical scrollbar of @scrolled_window.
   fun get_vscrollbar(): GtkWidget val =>
     @gtk_scrolled_window_get_vscrollbar[GObjectREF](widget)
 */

@@ -49,6 +49,7 @@ An example for a UI definition fragment with menus:
 
 
 /* Needs conversion code 
+Gets the #GtkMenu associated with #GtkMenuToolButton.
   fun get_menu(): GtkWidget val =>
     @gtk_menu_tool_button_get_menu[GObjectREF](widget)
 */

@@ -40,6 +40,8 @@ features typical of titlebars while allowing the addition of child widgets.
 
 
 /* Needs conversion code 
+Retrieves the custom title widget of the header. See
+gtk_header_bar_set_custom_title().
   fun get_custom_title(): GtkWidget val =>
     @gtk_header_bar_get_custom_title[GObjectREF](widget)
 */

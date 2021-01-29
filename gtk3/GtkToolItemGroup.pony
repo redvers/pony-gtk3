@@ -71,6 +71,8 @@ Gets the label of @group.
   consume string_pony
 
 /* Needs conversion code 
+Gets the label widget of @group.
+See gtk_tool_item_group_set_label_widget().
   fun get_label_widget(): GtkWidget val =>
     @gtk_tool_item_group_get_label_widget[GObjectREF](widget)
 */

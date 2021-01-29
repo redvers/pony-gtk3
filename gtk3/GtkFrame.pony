@@ -82,6 +82,8 @@ to gtk_frame_new().)
 */
 
 /* Needs conversion code 
+Retrieves the label widget for the frame. See
+gtk_frame_set_label_widget().
   fun get_label_widget(): GtkWidget val =>
     @gtk_frame_get_label_widget[GObjectREF](widget)
 */

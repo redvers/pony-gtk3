@@ -405,6 +405,7 @@ GTK+ headers you have included when compiling your code.
 {:txo, "full"} */
 
 /* Needs conversion code 
+Queries the current grab of the default window group.
   fun grab_get_current(): GtkWidget val =>
     @gtk_grab_get_current[GObjectREF]()
 */

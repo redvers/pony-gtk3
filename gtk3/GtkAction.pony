@@ -110,16 +110,21 @@ gtk_action_disconnect_accelerator() has been called as many times.
 */
 
 /* Needs conversion code 
+If @action provides a #GtkMenu widget as a submenu for the menu
+item or the toolbar item it creates, this function returns an
+instance of that menu.
   fun create_menu(): GtkWidget val =>
     @gtk_action_create_menu[GObjectREF](widget)
 */
 
 /* Needs conversion code 
+Creates a menu item widget that proxies for the given action.
   fun create_menu_item(): GtkWidget val =>
     @gtk_action_create_menu_item[GObjectREF](widget)
 */
 
 /* Needs conversion code 
+Creates a toolbar item widget that proxies for the given action.
   fun create_tool_item(): GtkWidget val =>
     @gtk_action_create_tool_item[GObjectREF](widget)
 */

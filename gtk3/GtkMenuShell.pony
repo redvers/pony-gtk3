@@ -87,11 +87,16 @@ if any.
   @gtk_menu_shell_deselect[None](widget)
 
 /* Needs conversion code 
+Gets the parent menu shell.
+
+The parent menu shell of a submenu is the #GtkMenu or #GtkMenuBar
+from which it was opened up.
   fun get_parent_shell(): GtkWidget val =>
     @gtk_menu_shell_get_parent_shell[GObjectREF](widget)
 */
 
 /* Needs conversion code 
+Gets the currently selected item.
   fun get_selected_item(): GtkWidget val =>
     @gtk_menu_shell_get_selected_item[GObjectREF](widget)
 */

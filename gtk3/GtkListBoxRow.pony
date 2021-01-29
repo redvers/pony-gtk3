@@ -54,6 +54,9 @@ for this row.
   @gtk_list_box_row_get_activatable[Bool](widget)
 
 /* Needs conversion code 
+Returns the current header of the @row. This can be used
+in a #GtkListBoxUpdateHeaderFunc to see if there is a header
+set already, and if so to update the state of it.
   fun get_header(): GtkWidget val =>
     @gtk_list_box_row_get_header[GObjectREF](widget)
 */

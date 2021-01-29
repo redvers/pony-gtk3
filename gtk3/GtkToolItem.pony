@@ -149,6 +149,9 @@ will do in response to the #GtkToolItem::create-menu-proxy signal.
   @gtk_tool_item_rebuild_menu[None](widget)
 
 /* Needs conversion code 
+Returns the #GtkMenuItem that was last set by
+gtk_tool_item_set_proxy_menu_item(), ie. the #GtkMenuItem
+that is going to appear in the overflow menu.
   fun retrieve_proxy_menu_item(): GtkWidget val =>
     @gtk_tool_item_retrieve_proxy_menu_item[GObjectREF](widget)
 */

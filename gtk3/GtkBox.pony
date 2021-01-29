@@ -79,6 +79,7 @@ regardless of text direction.
 {:txo, "none"} */
 
 /* Needs conversion code 
+Retrieves the center widget of the box.
   fun get_center_widget(): GtkWidget val =>
     @gtk_box_get_center_widget[GObjectREF](widget)
 */

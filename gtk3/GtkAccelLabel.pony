@@ -90,6 +90,8 @@ It adds a subnode with name accelerator.
 */
 
 /* Needs conversion code 
+Fetches the widget monitored by this accelerator label. See
+gtk_accel_label_set_accel_widget().
   fun get_accel_widget(): GtkWidget val =>
     @gtk_accel_label_get_accel_widget[GObjectREF](widget)
 */

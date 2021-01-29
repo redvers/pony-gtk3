@@ -102,6 +102,8 @@ setting and always show the image, if available.
   @gtk_image_menu_item_get_always_show_image[Bool](widget)
 
 /* Needs conversion code 
+Gets the widget that is currently set as the image of @image_menu_item.
+See gtk_image_menu_item_set_image().
   fun get_image(): GtkWidget val =>
     @gtk_image_menu_item_get_image[GObjectREF](widget)
 */

@@ -29,6 +29,9 @@ Many GTK+ widgets are subclasses of #GtkBin, including #GtkWindow,
 
 
 /* Needs conversion code 
+Gets the child of the #GtkBin, or %NULL if the bin contains
+no child widget. The returned widget does not have a reference
+added, so you do not need to unref it.
   fun get_child(): GtkWidget val =>
     @gtk_bin_get_child[GObjectREF](widget)
 */

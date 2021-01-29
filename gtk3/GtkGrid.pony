@@ -61,6 +61,8 @@ Returns which row defines the global baseline of @grid.
   @gtk_grid_get_baseline_row[I32](widget)
 
 /* Needs conversion code 
+Gets the child of @grid whose area covers the grid
+cell whose upper left corner is at @left, @top.
   fun get_child_at(left_pony: I32, top_pony: I32): GtkWidget val =>
     @gtk_grid_get_child_at[GObjectREF](widget, left_pony, top_pony)
 */

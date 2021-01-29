@@ -41,6 +41,9 @@ when the widget corresponding to a GtkAccessible is destroyed.
   @gtk_accessible_connect_widget_destroyed[None](widget)
 
 /* Needs conversion code 
+Gets the #GtkWidget corresponding to the #GtkAccessible.
+The returned widget does not have a reference added, so
+you do not need to unref it.
   fun get_widget(): GtkWidget val =>
     @gtk_accessible_get_widget[GObjectREF](widget)
 */

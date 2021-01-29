@@ -33,6 +33,8 @@ No documentation provided
 {:txo, "none"} */
 
 /* Needs conversion code 
+This returns the #GtkTreeView which lists all styles available for
+the selected font. For example, “Regular”, “Bold”, etc.
   fun get_face_list(): GtkWidget val =>
     @gtk_font_selection_get_face_list[GObjectREF](widget)
 */
@@ -45,6 +47,8 @@ No documentation provided
 {:txo, "none"} */
 
 /* Needs conversion code 
+This returns the #GtkTreeView that lists font families, for
+example, “Sans”, “Serif”, etc.
   fun get_family_list(): GtkWidget val =>
     @gtk_font_selection_get_family_list[GObjectREF](widget)
 */
@@ -57,6 +61,7 @@ No documentation provided
 {:txo, "full"} */
 
 /* Needs conversion code 
+This returns the #GtkEntry used to display the font as a preview.
   fun get_preview_entry(): GtkWidget val =>
     @gtk_font_selection_get_preview_entry[GObjectREF](widget)
 */
@@ -76,11 +81,14 @@ The selected font size.
   @gtk_font_selection_get_size[I32](widget)
 
 /* Needs conversion code 
+This returns the #GtkEntry used to allow the user to edit the font
+number manually instead of selecting it from the list of font sizes.
   fun get_size_entry(): GtkWidget val =>
     @gtk_font_selection_get_size_entry[GObjectREF](widget)
 */
 
 /* Needs conversion code 
+This returns the #GtkTreeView used to list font sizes.
   fun get_size_list(): GtkWidget val =>
     @gtk_font_selection_get_size_list[GObjectREF](widget)
 */

@@ -304,6 +304,8 @@ mnemonic set up it returns #GDK_KEY_VoidSymbol.
   @gtk_label_get_mnemonic_keyval[U32](widget)
 
 /* Needs conversion code 
+Retrieves the target of the mnemonic (keyboard shortcut) of this
+label. See gtk_label_set_mnemonic_widget().
   fun get_mnemonic_widget(): GtkWidget val =>
     @gtk_label_get_mnemonic_widget[GObjectREF](widget)
 */

@@ -33,6 +33,7 @@ actions as a consequence of those.
 {:txo, "none"} */
 
 /* Needs conversion code 
+Returns the #GtkWidget this controller relates to.
   fun get_widget(): GtkWidget val =>
     @gtk_event_controller_get_widget[GObjectREF](widget)
 */

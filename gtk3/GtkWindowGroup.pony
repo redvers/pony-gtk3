@@ -48,6 +48,8 @@ freed.
 */
 
 /* Needs conversion code 
+Gets the current grab widget of the given group,
+see gtk_grab_add().
   fun get_current_grab(): GtkWidget val =>
     @gtk_window_group_get_current_grab[GObjectREF](widget)
 */

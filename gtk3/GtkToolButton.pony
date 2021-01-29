@@ -59,6 +59,8 @@ see gtk_tool_button_set_icon_name().
   consume string_pony
 
 /* Needs conversion code 
+Return the widget used as icon widget on @button.
+See gtk_tool_button_set_icon_widget().
   fun get_icon_widget(): GtkWidget val =>
     @gtk_tool_button_get_icon_widget[GObjectREF](widget)
 */
@@ -74,6 +76,8 @@ string is owned by GTK+, and must not be modified or freed.
   consume string_pony
 
 /* Needs conversion code 
+Returns the widget used as label on @button.
+See gtk_tool_button_set_label_widget().
   fun get_label_widget(): GtkWidget val =>
     @gtk_tool_button_get_label_widget[GObjectREF](widget)
 */

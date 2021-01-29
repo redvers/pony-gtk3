@@ -108,6 +108,7 @@ it from a plain #GtkButton, it gets the .popup style class.
 
 
 /* Needs conversion code 
+Returns the parent #GtkWidget to use to line up with menu.
   fun get_align_widget(): GtkWidget val =>
     @gtk_menu_button_get_align_widget[GObjectREF](widget)
 */

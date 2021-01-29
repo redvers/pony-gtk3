@@ -101,6 +101,7 @@ the completion or %NULL if there’s no completion ongoing.
   consume string_pony
 
 /* Needs conversion code 
+Gets the entry @completion has been attached to.
   fun get_entry(): GtkWidget val =>
     @gtk_entry_completion_get_entry[GObjectREF](widget)
 */

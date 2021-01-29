@@ -103,6 +103,8 @@ See gtk_stack_set_vhomogeneous().
   @gtk_stack_get_vhomogeneous[Bool](widget)
 
 /* Needs conversion code 
+Gets the currently visible child of @stack, or %NULL if
+there are no visible children.
   fun get_visible_child(): GtkWidget val =>
     @gtk_stack_get_visible_child[GObjectREF](widget)
 */

@@ -143,6 +143,8 @@ horizontal space allocated to @expander.
   @gtk_expander_get_label_fill[Bool](widget)
 
 /* Needs conversion code 
+Retrieves the label widget for the frame. See
+gtk_expander_set_label_widget().
   fun get_label_widget(): GtkWidget val =>
     @gtk_expander_get_label_widget[GObjectREF](widget)
 */

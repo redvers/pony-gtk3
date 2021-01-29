@@ -147,6 +147,7 @@ Gets the current group name for @notebook.
   consume string_pony
 
 /* Needs conversion code 
+Retrieves the menu label widget of the page containing @child.
   fun get_menu_label(child_pony: GtkWidget val): GtkWidget val =>
     @gtk_notebook_get_menu_label[GObjectREF](widget, child_pony.gtkwidget())
 */
@@ -167,6 +168,7 @@ Gets the number of pages in a notebook.
   @gtk_notebook_get_n_pages[I32](widget)
 
 /* Needs conversion code 
+Returns the child widget contained in page number @page_num.
   fun get_nth_page(page_num_pony: I32): GtkWidget val =>
     @gtk_notebook_get_nth_page[GObjectREF](widget, page_num_pony)
 */
@@ -206,6 +208,9 @@ Returns whether the tab contents can be detached from @notebook.
 {:txo, "none"} */
 
 /* Needs conversion code 
+Returns the tab label widget for the page @child.
+%NULL is returned if @child is not in @notebook or
+if no tab label has specifically been set for @child.
   fun get_tab_label(child_pony: GtkWidget val): GtkWidget val =>
     @gtk_notebook_get_tab_label[GObjectREF](widget, child_pony.gtkwidget())
 */

@@ -91,6 +91,7 @@ Returns the number of pages in the @assistant
   @gtk_assistant_get_n_pages[I32](widget)
 
 /* Needs conversion code 
+Returns the child widget contained in page number @page_num.
   fun get_nth_page(page_num_pony: I32): GtkWidget val =>
     @gtk_assistant_get_nth_page[GObjectREF](widget, page_num_pony)
 */

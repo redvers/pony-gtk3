@@ -122,6 +122,8 @@ side of the menu bar.
   @gtk_menu_item_get_right_justified[Bool](widget)
 
 /* Needs conversion code 
+Gets the submenu underneath this menu item, if any.
+See gtk_menu_item_set_submenu().
   fun get_submenu(): GtkWidget val =>
     @gtk_menu_item_get_submenu[GObjectREF](widget)
 */

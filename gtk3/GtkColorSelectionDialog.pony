@@ -26,6 +26,7 @@ No documentation provided
 
 
 /* Needs conversion code 
+Retrieves the #GtkColorSelection widget embedded in the dialog.
   fun get_color_selection(): GtkWidget val =>
     @gtk_color_selection_dialog_get_color_selection[GObjectREF](widget)
 */

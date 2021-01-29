@@ -26,6 +26,7 @@ No documentation provided
 
 
 /* Needs conversion code 
+Gets the “Cancel” button.
   fun get_cancel_button(): GtkWidget val =>
     @gtk_font_selection_dialog_get_cancel_button[GObjectREF](widget)
 */
@@ -38,11 +39,13 @@ No documentation provided
 {:txo, "full"} */
 
 /* Needs conversion code 
+Retrieves the #GtkFontSelection widget embedded in the dialog.
   fun get_font_selection(): GtkWidget val =>
     @gtk_font_selection_dialog_get_font_selection[GObjectREF](widget)
 */
 
 /* Needs conversion code 
+Gets the “OK” button.
   fun get_ok_button(): GtkWidget val =>
     @gtk_font_selection_dialog_get_ok_button[GObjectREF](widget)
 */
