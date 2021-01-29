@@ -1,2 +1,4 @@
+gobject-docs
+gtk3-docs
 gtk3/_tests/_tests
 *.swp

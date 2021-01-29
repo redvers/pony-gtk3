@@ -1,4 +1,6 @@
-all:
+all: build test
+
+build:
 	ponyc -d .
 
 test:

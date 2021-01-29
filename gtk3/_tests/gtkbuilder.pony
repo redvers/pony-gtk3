@@ -41,5 +41,4 @@ class iso TestGtkBuilder is UnitTest
     mwin.show_all()
 //    mwin.destroy()
 
-    Gtk.main()
 
