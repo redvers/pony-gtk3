@@ -13,8 +13,8 @@ actor Main is TestList
   fun tag tests(test: PonyTest) =>
     test(TestGtk)
     test(TestGtkLabel)
-    test(TestGtkEntryBuffer)
-    test(TestGtkEntry)
-    test(TestGtkBuilder)
-    test(TestSignals)
+//    test(TestGtkEntryBuffer)
+//    test(TestGtkEntry)
+//    test(TestGtkBuilder)
+//    test(TestSignals)
 
