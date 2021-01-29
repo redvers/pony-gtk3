@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "Pointer[U8 val] ref", "String", "Bool", "GObjectREF", "GtkWidget", "I32"]
+   needs: ["None", "Pointer[U8 val] ref", "String", "Bool", "GObjectREF", "GtkWidget val", "I32"]
 provides: ["GtkMenuItem val"]
 */
 use "../gobject"
@@ -122,7 +122,7 @@ side of the menu bar.
   @gtk_menu_item_get_right_justified[Bool](widget)
 
 /* Needs conversion code 
-  fun get_submenu(): GtkWidget =>
+  fun get_submenu(): GtkWidget val =>
     @gtk_menu_item_get_submenu[GObjectREF](widget)
 */
 

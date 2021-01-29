@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "Bool", "GtkWidget", "I32", "GObjectREF"]
+   needs: ["None", "Bool", "GtkWidget val", "I32", "GObjectREF"]
 provides: ["GtkListBox val"]
 */
 use "../gobject"
@@ -128,7 +128,7 @@ Returns whether rows activate on single clicks.
 {:paramtype, :param}
 {:txo, "none"} */
 
-fun insert(child_pony: GtkWidget, position_pony: I32): None =>
+fun insert(child_pony: GtkWidget val, position_pony: I32): None =>
 """
 Insert the @child into the @box at @position. If a sort function is
 set, the widget will actually be inserted at the calculated position and
@@ -165,7 +165,7 @@ to an external factor.
 """
   @gtk_list_box_invalidate_sort[None](widget)
 
-fun prepend(child_pony: GtkWidget): None =>
+fun prepend(child_pony: GtkWidget val): None =>
 """
 Prepend a widget to the list. If a sort function is set, the widget will
 actually be inserted at the calculated position and this function has the
@@ -211,7 +211,7 @@ otherwise you need to double-click.
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
 
-fun set_placeholder(placeholder_pony: GtkWidget): None =>
+fun set_placeholder(placeholder_pony: GtkWidget val): None =>
 """
 Sets the placeholder widget that is shown in the list when
 it doesn't display any visible children.

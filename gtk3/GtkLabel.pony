@@ -1,5 +1,5 @@
 /*
-   needs: ["Pointer[U8 val] ref", "String", "Bool", "I32", "U32", "GObjectREF", "GtkWidget", "None"]
+   needs: ["Pointer[U8 val] ref", "String", "Bool", "I32", "U32", "GObjectREF", "GtkWidget val", "None"]
 provides: ["GtkLabel val"]
 */
 use "../gobject"
@@ -304,7 +304,7 @@ mnemonic set up it returns #GDK_KEY_VoidSymbol.
   @gtk_label_get_mnemonic_keyval[U32](widget)
 
 /* Needs conversion code 
-  fun get_mnemonic_widget(): GtkWidget =>
+  fun get_mnemonic_widget(): GtkWidget val =>
     @gtk_label_get_mnemonic_widget[GObjectREF](widget)
 */
 
@@ -448,7 +448,7 @@ Sets the desired maximum width in characters of @label to @n_chars.
 """
   @gtk_label_set_max_width_chars[None](widget, n_chars_pony)
 
-fun set_mnemonic_widget(widget_pony: GtkWidget): None =>
+fun set_mnemonic_widget(widget_pony: GtkWidget val): None =>
 """
 If the label has been set so that it has an mnemonic key (using
 i.e. gtk_label_set_markup_with_mnemonic(),

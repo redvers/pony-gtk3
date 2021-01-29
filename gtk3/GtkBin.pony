@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF", "GtkWidget"]
+   needs: ["GObjectREF", "GtkWidget val"]
 provides: ["GtkBin val"]
 */
 use "../gobject"
@@ -29,7 +29,7 @@ Many GTK+ widgets are subclasses of #GtkBin, including #GtkWindow,
 
 
 /* Needs conversion code 
-  fun get_child(): GtkWidget =>
+  fun get_child(): GtkWidget val =>
     @gtk_bin_get_child[GObjectREF](widget)
 */
 

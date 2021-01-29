@@ -1,5 +1,5 @@
 /*
-   needs: ["Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "Bool", "None", "GtkWidget val"]
+   needs: ["Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget val", "Bool", "None"]
 provides: ["GtkToolButton val"]
 */
 use "../gobject"
@@ -59,7 +59,7 @@ see gtk_tool_button_set_icon_name().
   consume string_pony
 
 /* Needs conversion code 
-  fun get_icon_widget(): GtkWidget =>
+  fun get_icon_widget(): GtkWidget val =>
     @gtk_tool_button_get_icon_widget[GObjectREF](widget)
 */
 
@@ -74,7 +74,7 @@ string is owned by GTK+, and must not be modified or freed.
   consume string_pony
 
 /* Needs conversion code 
-  fun get_label_widget(): GtkWidget =>
+  fun get_label_widget(): GtkWidget val =>
     @gtk_tool_button_get_label_widget[GObjectREF](widget)
 */
 
@@ -98,7 +98,7 @@ on menu items on the overflow menu. See gtk_tool_button_set_use_underline().
  {:doh, %{argctype: "const gchar*", argname: "icon_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
-fun set_icon_widget(icon_widget_pony: GtkWidget): None =>
+fun set_icon_widget(icon_widget_pony: GtkWidget val): None =>
 """
 Sets @icon as the widget used as icon on @button. If @icon_widget is
 %NULL the icon is determined by the #GtkToolButton:stock-id property. If the
@@ -110,7 +110,7 @@ Sets @icon as the widget used as icon on @button. If @icon_widget is
  {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
-fun set_label_widget(label_widget_pony: GtkWidget): None =>
+fun set_label_widget(label_widget_pony: GtkWidget val): None =>
 """
 Sets @label_widget as the widget that will be used as the label
 for @button. If @label_widget is %NULL the #GtkToolButton:label property is used

@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF", "GtkWidget", "Pointer[U8 val] ref", "String"]
+   needs: ["GObjectREF", "GtkWidget val", "Pointer[U8 val] ref", "String"]
 provides: ["GtkFontSelectionDialog val"]
 */
 use "../gobject"
@@ -26,7 +26,7 @@ No documentation provided
 
 
 /* Needs conversion code 
-  fun get_cancel_button(): GtkWidget =>
+  fun get_cancel_button(): GtkWidget val =>
     @gtk_font_selection_dialog_get_cancel_button[GObjectREF](widget)
 */
 
@@ -38,12 +38,12 @@ No documentation provided
 {:txo, "full"} */
 
 /* Needs conversion code 
-  fun get_font_selection(): GtkWidget =>
+  fun get_font_selection(): GtkWidget val =>
     @gtk_font_selection_dialog_get_font_selection[GObjectREF](widget)
 */
 
 /* Needs conversion code 
-  fun get_ok_button(): GtkWidget =>
+  fun get_ok_button(): GtkWidget val =>
     @gtk_font_selection_dialog_get_ok_button[GObjectREF](widget)
 */
 

@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "GObjectREF", "GtkWidget", "None", "String", "GtkAccelGroup val"]
+   needs: ["Bool", "GObjectREF", "GtkWidget val", "None", "String", "GtkAccelGroup val"]
 provides: ["GtkImageMenuItem val"]
 */
 use "../gobject"
@@ -102,7 +102,7 @@ setting and always show the image, if available.
   @gtk_image_menu_item_get_always_show_image[Bool](widget)
 
 /* Needs conversion code 
-  fun get_image(): GtkWidget =>
+  fun get_image(): GtkWidget val =>
     @gtk_image_menu_item_get_image[GObjectREF](widget)
 */
 
@@ -127,7 +127,7 @@ without the image.
 """
   @gtk_image_menu_item_set_always_show_image[None](widget, always_show_pony)
 
-fun set_image(image_pony: GtkWidget): None =>
+fun set_image(image_pony: GtkWidget val): None =>
 """
 Sets the image of @image_menu_item to the given widget.
 Note that it depends on the show-menu-images setting whether

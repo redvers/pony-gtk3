@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "GtkWidget", "Bool", "GObjectREF", "I32"]
+   needs: ["None", "GtkWidget val", "Bool", "GObjectREF", "I32"]
 provides: ["GtkMenuShell val"]
 */
 use "../gobject"
@@ -49,7 +49,7 @@ grab and receive all key presses.
 
 
 
-fun activate_item(menu_item_pony: GtkWidget, force_deactivate_pony: Bool): None =>
+fun activate_item(menu_item_pony: GtkWidget val, force_deactivate_pony: Bool): None =>
 """
 Activates the menu item within the menu shell.
 """
@@ -87,12 +87,12 @@ if any.
   @gtk_menu_shell_deselect[None](widget)
 
 /* Needs conversion code 
-  fun get_parent_shell(): GtkWidget =>
+  fun get_parent_shell(): GtkWidget val =>
     @gtk_menu_shell_get_parent_shell[GObjectREF](widget)
 */
 
 /* Needs conversion code 
-  fun get_selected_item(): GtkWidget =>
+  fun get_selected_item(): GtkWidget val =>
     @gtk_menu_shell_get_selected_item[GObjectREF](widget)
 */
 
@@ -102,14 +102,14 @@ Returns %TRUE if the menu shell will take the keyboard focus on popup.
 """
   @gtk_menu_shell_get_take_focus[Bool](widget)
 
-fun insert(child_pony: GtkWidget, position_pony: I32): None =>
+fun insert(child_pony: GtkWidget val, position_pony: I32): None =>
 """
 Adds a new #GtkMenuItem to the menu shell’s item list
 at the position indicated by @position.
 """
   @gtk_menu_shell_insert[None](widget, child_pony.gtkwidget(), position_pony)
 
-fun prepend(child_pony: GtkWidget): None =>
+fun prepend(child_pony: GtkWidget val): None =>
 """
 Adds a new #GtkMenuItem to the beginning of the menu shell's
 item list.
@@ -124,7 +124,7 @@ item.
 """
   @gtk_menu_shell_select_first[None](widget, search_sensitive_pony)
 
-fun select_item(menu_item_pony: GtkWidget): None =>
+fun select_item(menu_item_pony: GtkWidget val): None =>
 """
 Selects the menu item from the menu shell.
 """

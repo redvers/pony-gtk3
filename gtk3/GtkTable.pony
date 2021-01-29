@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "GtkWidget", "U32", "Bool", "GObjectREF"]
+   needs: ["None", "GtkWidget val", "U32", "Bool", "GObjectREF"]
 provides: ["GtkTable val"]
 */
 use "../gobject"
@@ -53,7 +53,7 @@ table will resize themselves to the size of the largest widget in the table.
 {:doh, %{argctype: "GtkAttachOptions", argname: "yoptions", argtype: "AttachOptions", paramtype: :param, txo: "none"}}
 */
 
-fun attach_defaults(widget_pony: GtkWidget, left_attach_pony: U32, right_attach_pony: U32, top_attach_pony: U32, bottom_attach_pony: U32): None =>
+fun attach_defaults(widget_pony: GtkWidget val, left_attach_pony: U32, right_attach_pony: U32, top_attach_pony: U32, bottom_attach_pony: U32): None =>
 """
 As there are many options associated with gtk_table_attach(), this convenience
 function provides the programmer with a means to add children to a table with

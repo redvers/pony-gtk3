@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "GtkWidget", "GObjectREF"]
+   needs: ["None", "GtkWidget val", "GObjectREF"]
 provides: ["GtkTooltip val"]
 */
 use "../gobject"
@@ -56,7 +56,7 @@ will be used as tooltip window.  This works as follows:
 
 
 
-fun set_custom(custom_widget_pony: GtkWidget): None =>
+fun set_custom(custom_widget_pony: GtkWidget val): None =>
 """
 Replaces the widget packed into the tooltip with
 @custom_widget. @custom_widget does not get destroyed when the tooltip goes

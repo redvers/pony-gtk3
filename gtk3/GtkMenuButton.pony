@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF", "GtkWidget", "Bool", "None"]
+   needs: ["GObjectREF", "GtkWidget val", "Bool", "None"]
 provides: ["GtkMenuButton val"]
 */
 use "../gobject"
@@ -108,7 +108,7 @@ it from a plain #GtkButton, it gets the .popup style class.
 
 
 /* Needs conversion code 
-  fun get_align_widget(): GtkWidget =>
+  fun get_align_widget(): GtkWidget val =>
     @gtk_menu_button_get_align_widget[GObjectREF](widget)
 */
 
@@ -147,7 +147,7 @@ from the menu model.
 """
   @gtk_menu_button_get_use_popover[Bool](widget)
 
-fun set_align_widget(align_widget_pony: GtkWidget): None =>
+fun set_align_widget(align_widget_pony: GtkWidget val): None =>
 """
 Sets the #GtkWidget to use to line the menu with when popped up.
 Note that the @align_widget must contain the #GtkMenuButton itself.
@@ -168,7 +168,7 @@ and not for popovers.
  {:doh, %{argctype: "GMenuModel*", argname: "menu_model", argtype: "Gio.MenuModel", paramtype: :param, txo: "none"}}
 */
 
-fun set_popover(popover_pony: GtkWidget): None =>
+fun set_popover(popover_pony: GtkWidget val): None =>
 """
 Sets the #GtkPopover that will be popped up when the @menu_button is clicked,
 or %NULL to dissociate any existing popover and disable the button.
@@ -178,7 +178,7 @@ are dissociated from the @menu_button, and those properties are set to %NULL.
 """
   @gtk_menu_button_set_popover[None](widget, popover_pony.gtkwidget())
 
-fun set_popup(menu_pony: GtkWidget): None =>
+fun set_popup(menu_pony: GtkWidget val): None =>
 """
 Sets the #GtkMenu that will be popped up when the @menu_button is clicked, or
 %NULL to dissociate any existing menu and disable the button.

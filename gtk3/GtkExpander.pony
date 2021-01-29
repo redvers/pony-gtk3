@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "I32", "None"]
+   needs: ["Bool", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget val", "I32", "None"]
 provides: ["GtkExpander val"]
 */
 use "../gobject"
@@ -143,7 +143,7 @@ horizontal space allocated to @expander.
   @gtk_expander_get_label_fill[Bool](widget)
 
 /* Needs conversion code 
-  fun get_label_widget(): GtkWidget =>
+  fun get_label_widget(): GtkWidget val =>
     @gtk_expander_get_label_widget[GObjectREF](widget)
 */
 
@@ -196,7 +196,7 @@ Note that this function has no effect since 3.20.
 """
   @gtk_expander_set_label_fill[None](widget, label_fill_pony)
 
-fun set_label_widget(label_widget_pony: GtkWidget): None =>
+fun set_label_widget(label_widget_pony: GtkWidget val): None =>
 """
 Set the label widget for the expander. This is the widget
 that will appear embedded alongside the expander arrow.

@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF", "GtkWidget", "None"]
+   needs: ["GObjectREF", "GtkWidget val", "None"]
 provides: ["GtkEventController val"]
 */
 use "../gobject"
@@ -33,7 +33,7 @@ actions as a consequence of those.
 {:txo, "none"} */
 
 /* Needs conversion code 
-  fun get_widget(): GtkWidget =>
+  fun get_widget(): GtkWidget val =>
     @gtk_event_controller_get_widget[GObjectREF](widget)
 */
 

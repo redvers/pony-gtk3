@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "GObjectREF", "GtkWidget"]
+   needs: ["None", "GObjectREF", "GtkWidget val"]
 provides: ["GtkAccessible val"]
 */
 use "../gobject"
@@ -41,11 +41,11 @@ when the widget corresponding to a GtkAccessible is destroyed.
   @gtk_accessible_connect_widget_destroyed[None](widget)
 
 /* Needs conversion code 
-  fun get_widget(): GtkWidget =>
+  fun get_widget(): GtkWidget val =>
     @gtk_accessible_get_widget[GObjectREF](widget)
 */
 
-fun set_widget(widget_pony: GtkWidget): None =>
+fun set_widget(widget_pony: GtkWidget val): None =>
 """
 Sets the #GtkWidget corresponding to the #GtkAccessible.
 

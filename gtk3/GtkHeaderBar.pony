@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF", "GtkWidget", "Pointer[U8 val] ref", "String", "Bool", "None"]
+   needs: ["GObjectREF", "GtkWidget val", "Pointer[U8 val] ref", "String", "Bool", "None"]
 provides: ["GtkHeaderBar val"]
 */
 use "../gobject"
@@ -40,7 +40,7 @@ features typical of titlebars while allowing the addition of child widgets.
 
 
 /* Needs conversion code 
-  fun get_custom_title(): GtkWidget =>
+  fun get_custom_title(): GtkWidget val =>
     @gtk_header_bar_get_custom_title[GObjectREF](widget)
 */
 
@@ -83,21 +83,21 @@ Retrieves the title of the header. See gtk_header_bar_set_title().
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-fun pack_end(child_pony: GtkWidget): None =>
+fun pack_end(child_pony: GtkWidget val): None =>
 """
 Adds @child to @bar, packed with reference to the
 end of the @bar.
 """
   @gtk_header_bar_pack_end[None](widget, child_pony.gtkwidget())
 
-fun pack_start(child_pony: GtkWidget): None =>
+fun pack_start(child_pony: GtkWidget val): None =>
 """
 Adds @child to @bar, packed with reference to the
 start of the @bar.
 """
   @gtk_header_bar_pack_start[None](widget, child_pony.gtkwidget())
 
-fun set_custom_title(title_widget_pony: GtkWidget): None =>
+fun set_custom_title(title_widget_pony: GtkWidget val): None =>
 """
 Sets a custom title for the #GtkHeaderBar.
 

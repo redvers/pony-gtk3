@@ -1,5 +1,5 @@
 /*
-   needs: ["Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "None"]
+   needs: ["Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget val", "None"]
 provides: ["GtkFrame val"]
 */
 use "../gobject"
@@ -82,7 +82,7 @@ to gtk_frame_new().)
 */
 
 /* Needs conversion code 
-  fun get_label_widget(): GtkWidget =>
+  fun get_label_widget(): GtkWidget val =>
     @gtk_frame_get_label_widget[GObjectREF](widget)
 */
 
@@ -102,7 +102,7 @@ to gtk_frame_new().)
 {:doh, %{argctype: "gfloat", argname: "yalign", argtype: "gfloat", paramtype: :param, txo: "none"}}
 */
 
-fun set_label_widget(label_widget_pony: GtkWidget): None =>
+fun set_label_widget(label_widget_pony: GtkWidget val): None =>
 """
 Sets the #GtkFrame:label-widget for the frame. This is the widget that
 will appear embedded in the top edge of the frame as a title.

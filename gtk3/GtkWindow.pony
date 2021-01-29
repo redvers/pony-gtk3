@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "None", "U32", "GtkWidget", "GObjectREF", "Pointer[U8 val] ref", "String", "I32", "GtkWindowType"]
+   needs: ["Bool", "None", "U32", "GtkWidget val", "GObjectREF", "Pointer[U8 val] ref", "String", "I32", "GtkWindowType"]
 provides: ["GtkWindow val"]
 */
 use "../gobject"
@@ -102,7 +102,7 @@ Activates the current focused widget within the window.
  {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
 */
 
-fun add_mnemonic(keyval_pony: U32, target_pony: GtkWidget): None =>
+fun add_mnemonic(keyval_pony: U32, target_pony: GtkWidget val): None =>
 """
 Adds a mnemonic to this window.
 """
@@ -173,7 +173,7 @@ Gets the value set by gtk_window_set_accept_focus().
 {:txo, "none"} */
 
 /* Needs conversion code 
-  fun get_attached_to(): GtkWidget =>
+  fun get_attached_to(): GtkWidget val =>
     @gtk_window_get_attached_to[GObjectREF](widget)
 */
 
@@ -190,7 +190,7 @@ such as a title bar via gtk_window_set_decorated().
 */
 
 /* Needs conversion code 
-  fun get_default_widget(): GtkWidget =>
+  fun get_default_widget(): GtkWidget val =>
     @gtk_window_get_default_widget[GObjectREF](widget)
 */
 
@@ -209,7 +209,7 @@ gtk_window_set_destroy_with_parent ().
   @gtk_window_get_destroy_with_parent[Bool](widget)
 
 /* Needs conversion code 
-  fun get_focus(): GtkWidget =>
+  fun get_focus(): GtkWidget val =>
     @gtk_window_get_focus[GObjectREF](widget)
 */
 
@@ -358,7 +358,7 @@ Retrieves the title of the window. See gtk_window_set_title().
   consume string_pony
 
 /* Needs conversion code 
-  fun get_titlebar(): GtkWidget =>
+  fun get_titlebar(): GtkWidget val =>
     @gtk_window_get_titlebar[GObjectREF](widget)
 */
 
@@ -532,7 +532,7 @@ to allow focus stealing prevention to work correctly.
  {:doh, %{argctype: "GtkAccelGroup*", argname: "accel_group", argtype: "AccelGroup", paramtype: :param, txo: "none"}}
 */
 
-fun remove_mnemonic(keyval_pony: U32, target_pony: GtkWidget): None =>
+fun remove_mnemonic(keyval_pony: U32, target_pony: GtkWidget val): None =>
 """
 Removes a mnemonic from this window.
 """
@@ -604,7 +604,7 @@ the input focus. This function sets this hint.
  {:doh, %{argctype: "GtkApplication*", argname: "application", argtype: "Application", paramtype: :param, txo: "none"}}
 */
 
-fun set_attached_to(attach_widget_pony: GtkWidget): None =>
+fun set_attached_to(attach_widget_pony: GtkWidget val): None =>
 """
 Marks @window as attached to @attach_widget. This creates a logical binding
 between the window and the widget it belongs to, which is used by GTK+ to
@@ -639,7 +639,7 @@ policy involved.
 """
   @gtk_window_set_decorated[None](widget, setting_pony)
 
-fun set_default(default_widget_pony: GtkWidget): None =>
+fun set_default(default_widget_pony: GtkWidget val): None =>
 """
 The default widget is the widget that’s activated when the user
 presses Enter in a dialog (for example). This function sets or
@@ -721,7 +721,7 @@ associated with, for example.
 """
   @gtk_window_set_destroy_with_parent[None](widget, setting_pony)
 
-fun set_focus(focus_pony: GtkWidget): None =>
+fun set_focus(focus_pony: GtkWidget val): None =>
 """
 If @focus is not the current focus widget, and is focusable, sets
 it as the focus widget for the window. If @focus is %NULL, unsets
@@ -927,7 +927,7 @@ the window in the task bar. This function sets this hint.
  {:doh, %{argctype: "const gchar*", argname: "title", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
-fun set_titlebar(titlebar_pony: GtkWidget): None =>
+fun set_titlebar(titlebar_pony: GtkWidget val): None =>
 """
 Sets a custom titlebar for @window.
 

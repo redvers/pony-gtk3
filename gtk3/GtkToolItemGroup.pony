@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget", "U32", "None"]
+   needs: ["Bool", "Pointer[U8 val] ref", "String", "GObjectREF", "GtkWidget val", "U32", "None"]
 provides: ["GtkToolItemGroup val"]
 */
 use "../gobject"
@@ -71,7 +71,7 @@ Gets the label of @group.
   consume string_pony
 
 /* Needs conversion code 
-  fun get_label_widget(): GtkWidget =>
+  fun get_label_widget(): GtkWidget val =>
     @gtk_tool_item_group_get_label_widget[GObjectREF](widget)
 */
 
@@ -114,7 +114,7 @@ Sets whether the @group should be collapsed or expanded.
  {:doh, %{argctype: "const gchar*", argname: "label", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
-fun set_label_widget(label_widget_pony: GtkWidget): None =>
+fun set_label_widget(label_widget_pony: GtkWidget val): None =>
 """
 Sets the label of the tool item group.
 The label widget is displayed in the header of the group, in place

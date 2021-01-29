@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "GtkWidget", "I32", "GObjectREF", "Bool", "U32"]
+   needs: ["None", "GtkWidget val", "I32", "GObjectREF", "Bool", "U32"]
 provides: ["GtkGrid val"]
 */
 use "../gobject"
@@ -40,7 +40,7 @@ GtkGrid uses a single CSS node with name grid.
     widget = @gtk_grid_new[GObjectREF]() //
 
 
-fun attach(child_pony: GtkWidget, left_pony: I32, top_pony: I32, width_pony: I32, height_pony: I32): None =>
+fun attach(child_pony: GtkWidget val, left_pony: I32, top_pony: I32, width_pony: I32, height_pony: I32): None =>
 """
 Adds a widget to the grid.
 
@@ -61,7 +61,7 @@ Returns which row defines the global baseline of @grid.
   @gtk_grid_get_baseline_row[I32](widget)
 
 /* Needs conversion code 
-  fun get_child_at(left_pony: I32, top_pony: I32): GtkWidget =>
+  fun get_child_at(left_pony: I32, top_pony: I32): GtkWidget val =>
     @gtk_grid_get_child_at[GObjectREF](widget, left_pony, top_pony)
 */
 

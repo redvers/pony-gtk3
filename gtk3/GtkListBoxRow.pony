@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "Bool", "GObjectREF", "GtkWidget", "I32"]
+   needs: ["None", "Bool", "GObjectREF", "GtkWidget val", "I32"]
 provides: ["GtkListBoxRow val"]
 */
 use "../gobject"
@@ -54,7 +54,7 @@ for this row.
   @gtk_list_box_row_get_activatable[Bool](widget)
 
 /* Needs conversion code 
-  fun get_header(): GtkWidget =>
+  fun get_header(): GtkWidget val =>
     @gtk_list_box_row_get_header[GObjectREF](widget)
 */
 
@@ -84,7 +84,7 @@ Set the #GtkListBoxRow:activatable property for this row.
 """
   @gtk_list_box_row_set_activatable[None](widget, activatable_pony)
 
-fun set_header(header_pony: GtkWidget): None =>
+fun set_header(header_pony: GtkWidget val): None =>
 """
 Sets the current header of the @row. This is only allowed to be called
 from a #GtkListBoxUpdateHeaderFunc. It will replace any existing

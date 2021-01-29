@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "GtkWidget", "I32", "GObjectREF", "Bool", "Pointer[U8 val] ref", "String"]
+   needs: ["None", "GtkWidget val", "I32", "GObjectREF", "Bool", "Pointer[U8 val] ref", "String"]
 provides: ["GtkAssistant val"]
 */
 use "../gobject"
@@ -52,13 +52,13 @@ GtkAssistant has a single CSS node with the name assistant.
     widget = @gtk_assistant_new[GObjectREF]() //
 
 
-fun add_action_widget(child_pony: GtkWidget): None =>
+fun add_action_widget(child_pony: GtkWidget val): None =>
 """
 Adds a widget to the action area of a #GtkAssistant.
 """
   @gtk_assistant_add_action_widget[None](widget, child_pony.gtkwidget())
 
-fun append_page(page_pony: GtkWidget): I32 =>
+fun append_page(page_pony: GtkWidget val): I32 =>
 """
 Appends a page to the @assistant.
 """
@@ -91,17 +91,17 @@ Returns the number of pages in the @assistant
   @gtk_assistant_get_n_pages[I32](widget)
 
 /* Needs conversion code 
-  fun get_nth_page(page_num_pony: I32): GtkWidget =>
+  fun get_nth_page(page_num_pony: I32): GtkWidget val =>
     @gtk_assistant_get_nth_page[GObjectREF](widget, page_num_pony)
 */
 
-fun get_page_complete(page_pony: GtkWidget): Bool =>
+fun get_page_complete(page_pony: GtkWidget val): Bool =>
 """
 Gets whether @page is complete.
 """
   @gtk_assistant_get_page_complete[Bool](widget, page_pony.gtkwidget())
 
-fun get_page_has_padding(page_pony: GtkWidget): Bool =>
+fun get_page_has_padding(page_pony: GtkWidget val): Bool =>
 """
 Gets whether page has padding.
 """
@@ -121,7 +121,7 @@ Gets whether page has padding.
 {:paramtype, :param}
 {:txo, "none"} */
 
-fun get_page_title(page_pony: GtkWidget): String =>
+fun get_page_title(page_pony: GtkWidget val): String =>
 """
 Gets the title for @page.
 """
@@ -136,7 +136,7 @@ Gets the title for @page.
 {:paramtype, :param}
 {:txo, "none"} */
 
-fun insert_page(page_pony: GtkWidget, position_pony: I32): I32 =>
+fun insert_page(page_pony: GtkWidget val, position_pony: I32): I32 =>
 """
 Inserts a page in the @assistant at a given position.
 """
@@ -154,7 +154,7 @@ This function is for use when creating pages of the
 """
   @gtk_assistant_next_page[None](widget)
 
-fun prepend_page(page_pony: GtkWidget): I32 =>
+fun prepend_page(page_pony: GtkWidget val): I32 =>
 """
 Prepends a page to the @assistant.
 """
@@ -172,7 +172,7 @@ This function is for use when creating pages of the
 """
   @gtk_assistant_previous_page[None](widget)
 
-fun remove_action_widget(child_pony: GtkWidget): None =>
+fun remove_action_widget(child_pony: GtkWidget val): None =>
 """
 Removes a widget from the action area of a #GtkAssistant.
 """
@@ -200,7 +200,7 @@ gtk_assistant_set_forward_page_func().
 {:doh, %{argctype: "GDestroyNotify", argname: "destroy", argtype: "GLib.DestroyNotify", paramtype: :param, txo: "none"}}
 */
 
-fun set_page_complete(page_pony: GtkWidget, complete_pony: Bool): None =>
+fun set_page_complete(page_pony: GtkWidget val, complete_pony: Bool): None =>
 """
 Sets whether @page contents are complete.
 
@@ -209,7 +209,7 @@ to be able to continue the task.
 """
   @gtk_assistant_set_page_complete[None](widget, page_pony.gtkwidget(), complete_pony)
 
-fun set_page_has_padding(page_pony: GtkWidget, has_padding_pony: Bool): None =>
+fun set_page_has_padding(page_pony: GtkWidget val, has_padding_pony: Bool): None =>
 """
 Sets whether the assistant is adding padding around
 the page.

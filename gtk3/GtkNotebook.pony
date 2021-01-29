@@ -1,5 +1,5 @@
 /*
-   needs: ["I32", "GtkWidget", "None", "Pointer[U8 val] ref", "String", "GObjectREF", "Bool"]
+   needs: ["I32", "GtkWidget val", "None", "Pointer[U8 val] ref", "String", "GObjectREF", "Bool"]
 provides: ["GtkNotebook val"]
 */
 use "../gobject"
@@ -104,20 +104,20 @@ The nodes are always arranged from left-to-right, regarldess of text direction.
     widget = @gtk_notebook_new[GObjectREF]() //
 
 
-fun append_page(child_pony: GtkWidget, tab_label_pony: GtkWidget): I32 =>
+fun append_page(child_pony: GtkWidget val, tab_label_pony: GtkWidget val): I32 =>
 """
 Appends a page to @notebook.
 """
   @gtk_notebook_append_page[I32](widget, child_pony.gtkwidget(), tab_label_pony.gtkwidget())
 
-fun append_page_menu(child_pony: GtkWidget, tab_label_pony: GtkWidget, menu_label_pony: GtkWidget): I32 =>
+fun append_page_menu(child_pony: GtkWidget val, tab_label_pony: GtkWidget val, menu_label_pony: GtkWidget val): I32 =>
 """
 Appends a page to @notebook, specifying the widget to use as the
 label in the popup menu.
 """
   @gtk_notebook_append_page_menu[I32](widget, child_pony.gtkwidget(), tab_label_pony.gtkwidget(), menu_label_pony.gtkwidget())
 
-fun detach_tab(child_pony: GtkWidget): None =>
+fun detach_tab(child_pony: GtkWidget val): None =>
 """
 Removes the child from the notebook.
 
@@ -147,11 +147,11 @@ Gets the current group name for @notebook.
   consume string_pony
 
 /* Needs conversion code 
-  fun get_menu_label(child_pony: GtkWidget): GtkWidget =>
+  fun get_menu_label(child_pony: GtkWidget val): GtkWidget val =>
     @gtk_notebook_get_menu_label[GObjectREF](widget, child_pony.gtkwidget())
 */
 
-fun get_menu_label_text(child_pony: GtkWidget): String =>
+fun get_menu_label_text(child_pony: GtkWidget val): String =>
 """
 Retrieves the text of the menu label for the page containing
 @child.
@@ -167,7 +167,7 @@ Gets the number of pages in a notebook.
   @gtk_notebook_get_n_pages[I32](widget)
 
 /* Needs conversion code 
-  fun get_nth_page(page_num_pony: I32): GtkWidget =>
+  fun get_nth_page(page_num_pony: I32): GtkWidget val =>
     @gtk_notebook_get_nth_page[GObjectREF](widget, page_num_pony)
 */
 
@@ -192,7 +192,7 @@ See gtk_notebook_set_show_tabs().
 """
   @gtk_notebook_get_show_tabs[Bool](widget)
 
-fun get_tab_detachable(child_pony: GtkWidget): Bool =>
+fun get_tab_detachable(child_pony: GtkWidget val): Bool =>
 """
 Returns whether the tab contents can be detached from @notebook.
 """
@@ -206,11 +206,11 @@ Returns whether the tab contents can be detached from @notebook.
 {:txo, "none"} */
 
 /* Needs conversion code 
-  fun get_tab_label(child_pony: GtkWidget): GtkWidget =>
+  fun get_tab_label(child_pony: GtkWidget val): GtkWidget val =>
     @gtk_notebook_get_tab_label[GObjectREF](widget, child_pony.gtkwidget())
 */
 
-fun get_tab_label_text(child_pony: GtkWidget): String =>
+fun get_tab_label_text(child_pony: GtkWidget val): String =>
 """
 Retrieves the text of the tab label for the page containing
 @child.
@@ -226,7 +226,7 @@ Retrieves the text of the tab label for the page containing
 {:paramtype, :param}
 {:txo, "none"} */
 
-fun get_tab_reorderable(child_pony: GtkWidget): Bool =>
+fun get_tab_reorderable(child_pony: GtkWidget val): Bool =>
 """
 Gets whether the tab can be reordered via drag and drop or not.
 """
@@ -239,13 +239,13 @@ Gets whether the tab can be reordered via drag and drop or not.
 {:paramtype, :param}
 {:txo, "none"} */
 
-fun insert_page(child_pony: GtkWidget, tab_label_pony: GtkWidget, position_pony: I32): I32 =>
+fun insert_page(child_pony: GtkWidget val, tab_label_pony: GtkWidget val, position_pony: I32): I32 =>
 """
 Insert a page into @notebook at the given position.
 """
   @gtk_notebook_insert_page[I32](widget, child_pony.gtkwidget(), tab_label_pony.gtkwidget(), position_pony)
 
-fun insert_page_menu(child_pony: GtkWidget, tab_label_pony: GtkWidget, menu_label_pony: GtkWidget, position_pony: I32): I32 =>
+fun insert_page_menu(child_pony: GtkWidget val, tab_label_pony: GtkWidget val, menu_label_pony: GtkWidget val, position_pony: I32): I32 =>
 """
 Insert a page into @notebook at the given position, specifying
 the widget to use as the label in the popup menu.
@@ -259,7 +259,7 @@ the last page.
 """
   @gtk_notebook_next_page[None](widget)
 
-fun page_num(child_pony: GtkWidget): I32 =>
+fun page_num(child_pony: GtkWidget val): I32 =>
 """
 Finds the index of the page which contains the given child
 widget.
@@ -280,13 +280,13 @@ will be popped up.
 """
   @gtk_notebook_popup_enable[None](widget)
 
-fun prepend_page(child_pony: GtkWidget, tab_label_pony: GtkWidget): I32 =>
+fun prepend_page(child_pony: GtkWidget val, tab_label_pony: GtkWidget val): I32 =>
 """
 Prepends a page to @notebook.
 """
   @gtk_notebook_prepend_page[I32](widget, child_pony.gtkwidget(), tab_label_pony.gtkwidget())
 
-fun prepend_page_menu(child_pony: GtkWidget, tab_label_pony: GtkWidget, menu_label_pony: GtkWidget): I32 =>
+fun prepend_page_menu(child_pony: GtkWidget val, tab_label_pony: GtkWidget val, menu_label_pony: GtkWidget val): I32 =>
 """
 Prepends a page to @notebook, specifying the widget to use as the
 label in the popup menu.
@@ -307,7 +307,7 @@ in the notebook.
 """
   @gtk_notebook_remove_page[None](widget, page_num_pony)
 
-fun reorder_child(child_pony: GtkWidget, position_pony: I32): None =>
+fun reorder_child(child_pony: GtkWidget val, position_pony: I32): None =>
 """
 Reorders the page containing @child, so that it appears in position
 @position. If @position is greater than or equal to the number of
@@ -335,7 +335,7 @@ adding them to a notebook.
  {:doh, %{argctype: "const gchar*", argname: "group_name", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
-fun set_menu_label(child_pony: GtkWidget, menu_label_pony: GtkWidget): None =>
+fun set_menu_label(child_pony: GtkWidget val, menu_label_pony: GtkWidget val): None =>
 """
 Changes the menu label for the page containing @child.
 """
@@ -366,7 +366,7 @@ Sets whether to show the tabs for the notebook or not.
 """
   @gtk_notebook_set_show_tabs[None](widget, show_tabs_pony)
 
-fun set_tab_detachable(child_pony: GtkWidget, detachable_pony: Bool): None =>
+fun set_tab_detachable(child_pony: GtkWidget val, detachable_pony: Bool): None =>
 """
 Sets whether the tab can be detached from @notebook to another
 notebook or widget.
@@ -416,7 +416,7 @@ you will have to set your own DnD code to do it.
 """
   @gtk_notebook_set_tab_detachable[None](widget, child_pony.gtkwidget(), detachable_pony)
 
-fun set_tab_label(child_pony: GtkWidget, tab_label_pony: GtkWidget): None =>
+fun set_tab_label(child_pony: GtkWidget val, tab_label_pony: GtkWidget val): None =>
 """
 Changes the tab label for @child.
 If %NULL is specified for @tab_label, then the page will
@@ -432,7 +432,7 @@ have the label “page N”.
  {:doh, %{argctype: "GtkPositionType", argname: "pos", argtype: "PositionType", paramtype: :param, txo: "none"}}
 */
 
-fun set_tab_reorderable(child_pony: GtkWidget, reorderable_pony: Bool): None =>
+fun set_tab_reorderable(child_pony: GtkWidget val, reorderable_pony: Bool): None =>
 """
 Sets whether the notebook tab can be reordered
 via drag and drop or not.

@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "GtkWidget", "U32", "GObjectREF", "GtkWidget val"]
+   needs: ["Bool", "GtkWidget val", "U32", "GObjectREF"]
 provides: ["GtkEventControllerKey val"]
 */
 use "../gobject"
@@ -28,7 +28,7 @@ This object was added in 3.24.
     widget = @gtk_event_controller_key_new[GObjectREF](widget_pony.gtkwidget()) //
 
 
-fun forward(widget_pony: GtkWidget): Bool =>
+fun forward(widget_pony: GtkWidget val): Bool =>
 """
 No provided documentation
 """

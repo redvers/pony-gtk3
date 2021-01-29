@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF", "GtkWidget", "Bool", "I32", "None", "U32", "GtkOrientation"]
+   needs: ["GObjectREF", "GtkWidget val", "Bool", "I32", "None", "U32", "GtkOrientation"]
 provides: ["GtkBox val"]
 */
 use "../gobject"
@@ -79,7 +79,7 @@ regardless of text direction.
 {:txo, "none"} */
 
 /* Needs conversion code 
-  fun get_center_widget(): GtkWidget =>
+  fun get_center_widget(): GtkWidget val =>
     @gtk_box_get_center_widget[GObjectREF](widget)
 */
 
@@ -96,7 +96,7 @@ Gets the value set by gtk_box_set_spacing().
 """
   @gtk_box_get_spacing[I32](widget)
 
-fun pack_end(child_pony: GtkWidget, expand_pony: Bool, fill_pony: Bool, padding_pony: U32): None =>
+fun pack_end(child_pony: GtkWidget val, expand_pony: Bool, fill_pony: Bool, padding_pony: U32): None =>
 """
 Adds @child to @box, packed with reference to the end of @box.
 The @child is packed after (away from end of) any other child
@@ -104,7 +104,7 @@ packed with reference to the end of @box.
 """
   @gtk_box_pack_end[None](widget, child_pony.gtkwidget(), expand_pony, fill_pony, padding_pony)
 
-fun pack_start(child_pony: GtkWidget, expand_pony: Bool, fill_pony: Bool, padding_pony: U32): None =>
+fun pack_start(child_pony: GtkWidget val, expand_pony: Bool, fill_pony: Bool, padding_pony: U32): None =>
 """
 Adds @child to @box, packed with reference to the start of @box.
 The @child is packed after any other child packed with reference
@@ -119,7 +119,7 @@ to the start of @box.
 {:doh, %{argctype: "GtkPackType*", argname: "pack_type", argtype: "PackType", paramtype: :param, txo: "full"}}
 */
 
-fun reorder_child(child_pony: GtkWidget, position_pony: I32): None =>
+fun reorder_child(child_pony: GtkWidget val, position_pony: I32): None =>
 """
 Moves @child to a new @position in the list of @box children.
 The list contains widgets packed #GTK_PACK_START
@@ -137,7 +137,7 @@ same packing type that appear earlier in the list.
  {:doh, %{argctype: "GtkBaselinePosition", argname: "position", argtype: "BaselinePosition", paramtype: :param, txo: "none"}}
 */
 
-fun set_center_widget(widget_pony: GtkWidget): None =>
+fun set_center_widget(widget_pony: GtkWidget val): None =>
 """
 Sets a center widget; that is a child widget that will be
 centered with respect to the full width of the box, even

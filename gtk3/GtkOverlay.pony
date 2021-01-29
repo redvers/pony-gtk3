@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "GtkWidget", "Bool", "GObjectREF"]
+   needs: ["None", "GtkWidget val", "Bool", "GObjectREF"]
 provides: ["GtkOverlay val"]
 */
 use "../gobject"
@@ -51,7 +51,7 @@ whose alignments cause them to be positioned at an edge get the style classes
     widget = @gtk_overlay_new[GObjectREF]() //
 
 
-fun add_overlay(widget_pony: GtkWidget): None =>
+fun add_overlay(widget_pony: GtkWidget val): None =>
 """
 Adds @widget to @overlay.
 
@@ -63,7 +63,7 @@ from its #GtkWidget:halign and #GtkWidget:valign properties.
 """
   @gtk_overlay_add_overlay[None](widget, widget_pony.gtkwidget())
 
-fun get_overlay_pass_through(widget_pony: GtkWidget): Bool =>
+fun get_overlay_pass_through(widget_pony: GtkWidget val): Bool =>
 """
 Convenience function to get the value of the #GtkOverlay:pass-through
 child property for @widget.
@@ -74,7 +74,7 @@ child property for @widget.
  {:doh, %{argctype: "int", argname: "index_", argtype: "gint", paramtype: :param, txo: "none"}}
 */
 
-fun set_overlay_pass_through(widget_pony: GtkWidget, pass_through_pony: Bool): None =>
+fun set_overlay_pass_through(widget_pony: GtkWidget val, pass_through_pony: Bool): None =>
 """
 Convenience function to set the value of the #GtkOverlay:pass-through
 child property for @widget.

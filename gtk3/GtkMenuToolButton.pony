@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF", "GtkWidget", "None", "GtkWidget val", "String"]
+   needs: ["GObjectREF", "GtkWidget val", "None", "String"]
 provides: ["GtkMenuToolButton val"]
 */
 use "../gobject"
@@ -49,7 +49,7 @@ An example for a UI definition fragment with menus:
 
 
 /* Needs conversion code 
-  fun get_menu(): GtkWidget =>
+  fun get_menu(): GtkWidget val =>
     @gtk_menu_tool_button_get_menu[GObjectREF](widget)
 */
 
@@ -61,7 +61,7 @@ An example for a UI definition fragment with menus:
  {:doh, %{argctype: "const gchar*", argname: "text", argtype: "utf8", paramtype: :param, txo: "none"}}
 */
 
-fun set_menu(menu_pony: GtkWidget): None =>
+fun set_menu(menu_pony: GtkWidget val): None =>
 """
 Sets the #GtkMenu that is popped up when the user clicks on the arrow.
 If @menu is NULL, the arrow button becomes insensitive.

@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "U32", "None", "GtkWidget", "I32", "GObjectREF"]
+   needs: ["Bool", "U32", "None", "GtkWidget val", "I32", "GObjectREF"]
 provides: ["GtkFlowBox val"]
 */
 use "../gobject"
@@ -139,7 +139,7 @@ Gets the vertical spacing.
 {:paramtype, :param}
 {:txo, "none"} */
 
-fun insert(widget_pony: GtkWidget, position_pony: I32): None =>
+fun insert(widget_pony: GtkWidget val, position_pony: I32): None =>
 """
 Inserts the @widget into @box at @position.
 

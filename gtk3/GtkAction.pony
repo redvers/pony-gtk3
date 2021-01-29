@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "GObjectREF", "GtkWidget", "Pointer[U8 val] ref", "String", "Bool"]
+   needs: ["None", "GObjectREF", "GtkWidget val", "Pointer[U8 val] ref", "String", "Bool"]
 provides: ["GtkAction val"]
 */
 use "../gobject"
@@ -110,17 +110,17 @@ gtk_action_disconnect_accelerator() has been called as many times.
 */
 
 /* Needs conversion code 
-  fun create_menu(): GtkWidget =>
+  fun create_menu(): GtkWidget val =>
     @gtk_action_create_menu[GObjectREF](widget)
 */
 
 /* Needs conversion code 
-  fun create_menu_item(): GtkWidget =>
+  fun create_menu_item(): GtkWidget val =>
     @gtk_action_create_menu_item[GObjectREF](widget)
 */
 
 /* Needs conversion code 
-  fun create_tool_item(): GtkWidget =>
+  fun create_tool_item(): GtkWidget val =>
     @gtk_action_create_tool_item[GObjectREF](widget)
 */
 

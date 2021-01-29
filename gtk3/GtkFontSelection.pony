@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF", "GtkWidget", "Pointer[U8 val] ref", "String", "I32"]
+   needs: ["GObjectREF", "GtkWidget val", "Pointer[U8 val] ref", "String", "I32"]
 provides: ["GtkFontSelection val"]
 */
 use "../gobject"
@@ -33,7 +33,7 @@ No documentation provided
 {:txo, "none"} */
 
 /* Needs conversion code 
-  fun get_face_list(): GtkWidget =>
+  fun get_face_list(): GtkWidget val =>
     @gtk_font_selection_get_face_list[GObjectREF](widget)
 */
 
@@ -45,7 +45,7 @@ No documentation provided
 {:txo, "none"} */
 
 /* Needs conversion code 
-  fun get_family_list(): GtkWidget =>
+  fun get_family_list(): GtkWidget val =>
     @gtk_font_selection_get_family_list[GObjectREF](widget)
 */
 
@@ -57,7 +57,7 @@ No documentation provided
 {:txo, "full"} */
 
 /* Needs conversion code 
-  fun get_preview_entry(): GtkWidget =>
+  fun get_preview_entry(): GtkWidget val =>
     @gtk_font_selection_get_preview_entry[GObjectREF](widget)
 */
 
@@ -76,12 +76,12 @@ The selected font size.
   @gtk_font_selection_get_size[I32](widget)
 
 /* Needs conversion code 
-  fun get_size_entry(): GtkWidget =>
+  fun get_size_entry(): GtkWidget val =>
     @gtk_font_selection_get_size_entry[GObjectREF](widget)
 */
 
 /* Needs conversion code 
-  fun get_size_list(): GtkWidget =>
+  fun get_size_list(): GtkWidget val =>
     @gtk_font_selection_get_size_list[GObjectREF](widget)
 */
 

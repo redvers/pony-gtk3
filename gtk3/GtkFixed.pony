@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "GtkWidget", "I32", "GObjectREF"]
+   needs: ["None", "GtkWidget val", "I32", "GObjectREF"]
 provides: ["GtkFixed val"]
 */
 use "../gobject"
@@ -64,13 +64,13 @@ of child widgets and additionally adds custom drawing and scrollability.
     widget = @gtk_fixed_new[GObjectREF]() //
 
 
-fun move(widget_pony: GtkWidget, x_pony: I32, y_pony: I32): None =>
+fun move(widget_pony: GtkWidget val, x_pony: I32, y_pony: I32): None =>
 """
 Moves a child of a #GtkFixed container to the given position.
 """
   @gtk_fixed_move[None](widget, widget_pony.gtkwidget(), x_pony, y_pony)
 
-fun put(widget_pony: GtkWidget, x_pony: I32, y_pony: I32): None =>
+fun put(widget_pony: GtkWidget val, x_pony: I32, y_pony: I32): None =>
 """
 Adds a widget to a #GtkFixed container at the given position.
 """

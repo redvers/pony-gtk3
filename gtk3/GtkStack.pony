@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "U32", "GObjectREF", "GtkWidget", "Pointer[U8 val] ref", "String", "None"]
+   needs: ["Bool", "U32", "GObjectREF", "GtkWidget val", "Pointer[U8 val] ref", "String", "None"]
 provides: ["GtkStack val"]
 */
 use "../gobject"
@@ -103,7 +103,7 @@ See gtk_stack_set_vhomogeneous().
   @gtk_stack_get_vhomogeneous[Bool](widget)
 
 /* Needs conversion code 
-  fun get_visible_child(): GtkWidget =>
+  fun get_visible_child(): GtkWidget val =>
     @gtk_stack_get_visible_child[GObjectREF](widget)
 */
 
@@ -168,7 +168,7 @@ may change height when a different child becomes visible.
 """
   @gtk_stack_set_vhomogeneous[None](widget, vhomogeneous_pony)
 
-fun set_visible_child(child_pony: GtkWidget): None =>
+fun set_visible_child(child_pony: GtkWidget val): None =>
 """
 Makes @child the visible child of @stack.
 

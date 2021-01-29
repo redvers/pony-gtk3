@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "I32", "None", "GtkWidget", "GObjectREF", "GtkTextBuffer val"]
+   needs: ["Bool", "I32", "None", "GtkWidget val", "GObjectREF", "GtkTextBuffer val"]
 provides: ["GtkTextView val"]
 */
 use "../gobject"
@@ -293,7 +293,7 @@ Gets the top margin for text in the @text_view.
  {:doh, %{argctype: "GdkEventKey*", argname: "event", argtype: "Gdk.EventKey", paramtype: :param, txo: "none"}}
 */
 
-fun move_child(child_pony: GtkWidget, xpos_pony: I32, ypos_pony: I32): None =>
+fun move_child(child_pony: GtkWidget val, xpos_pony: I32, ypos_pony: I32): None =>
 """
 Updates the position of a child, as for gtk_text_view_add_child_in_window().
 """

@@ -405,7 +405,7 @@ GTK+ headers you have included when compiling your code.
 {:txo, "full"} */
 
 /* Needs conversion code 
-  fun grab_get_current(): GtkWidget =>
+  fun grab_get_current(): GtkWidget val =>
     @gtk_grab_get_current[GObjectREF]()
 */
 
@@ -1146,7 +1146,7 @@ and then reread all previously read RC files.
 {:doh, %{argctype: "guint32", argname: "time_", argtype: "guint32", paramtype: :param, txo: "none"}}
 */
 
-fun selection_remove_all(widget_pony: GtkWidget): None =>
+fun selection_remove_all(widget_pony: GtkWidget val): None =>
 """
 Removes all handlers and unsets ownership of all
 selections for a widget. Called when widget is being
@@ -1319,7 +1319,7 @@ g_type_from_name() after calling this function.
  {:doh, %{argctype: "GdkModifierType", argname: "modifiers", argtype: "Gdk.ModifierType", paramtype: :param, txo: "none"}}
 */
 
-fun test_widget_wait_for_draw(widget_pony: GtkWidget): None =>
+fun test_widget_wait_for_draw(widget_pony: GtkWidget val): None =>
 """
 Enters the main loop and waits for @widget to be “drawn”. In this
 context that means it waits for the frame clock of @widget to have

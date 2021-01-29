@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF", "GtkWidget"]
+   needs: ["GObjectREF", "GtkWidget val"]
 provides: ["GtkWindowGroup val"]
 */
 use "../gobject"
@@ -48,7 +48,7 @@ freed.
 */
 
 /* Needs conversion code 
-  fun get_current_grab(): GtkWidget =>
+  fun get_current_grab(): GtkWidget val =>
     @gtk_window_group_get_current_grab[GObjectREF](widget)
 */
 

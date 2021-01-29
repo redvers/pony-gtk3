@@ -1,5 +1,5 @@
 /*
-   needs: ["GObjectREF", "GtkWidget", "String"]
+   needs: ["GObjectREF", "GtkWidget val", "String"]
 provides: ["GtkColorSelectionDialog val"]
 */
 use "../gobject"
@@ -26,7 +26,7 @@ No documentation provided
 
 
 /* Needs conversion code 
-  fun get_color_selection(): GtkWidget =>
+  fun get_color_selection(): GtkWidget val =>
     @gtk_color_selection_dialog_get_color_selection[GObjectREF](widget)
 */
 

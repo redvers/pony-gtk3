@@ -1,5 +1,5 @@
 /*
-   needs: ["Bool", "None", "GObjectREF", "GtkWidget"]
+   needs: ["Bool", "None", "GObjectREF", "GtkWidget val"]
 provides: ["GtkToolItem val"]
 */
 use "../gobject"
@@ -149,7 +149,7 @@ will do in response to the #GtkToolItem::create-menu-proxy signal.
   @gtk_tool_item_rebuild_menu[None](widget)
 
 /* Needs conversion code 
-  fun retrieve_proxy_menu_item(): GtkWidget =>
+  fun retrieve_proxy_menu_item(): GtkWidget val =>
     @gtk_tool_item_retrieve_proxy_menu_item[GObjectREF](widget)
 */
 

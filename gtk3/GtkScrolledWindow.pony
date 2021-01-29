@@ -1,5 +1,5 @@
 /*
-   needs: ["None", "GtkWidget", "Bool", "GObjectREF", "I32", "GtkAdjustment val"]
+   needs: ["None", "GtkWidget val", "Bool", "GObjectREF", "I32", "GtkAdjustment val"]
 provides: ["GtkScrolledWindow val"]
 */
 use "../gobject"
@@ -101,7 +101,7 @@ with a subnode named junction.
     widget = @gtk_scrolled_window_new[GObjectREF](hadjustment_pony.gtkwidget(), vadjustment_pony.gtkwidget()) //
 
 
-fun add_with_viewport(child_pony: GtkWidget): None =>
+fun add_with_viewport(child_pony: GtkWidget val): None =>
 """
 Used to add children without native scrolling capabilities. This
 is simply a convenience function; it is equivalent to adding the
@@ -137,7 +137,7 @@ scrolling. See gtk_scrolled_window_set_capture_button_press().
 {:txo, "none"} */
 
 /* Needs conversion code 
-  fun get_hscrollbar(): GtkWidget =>
+  fun get_hscrollbar(): GtkWidget val =>
     @gtk_scrolled_window_get_hscrollbar[GObjectREF](widget)
 */
 
@@ -218,7 +218,7 @@ through the scrolled window’s requested natural width.
 {:txo, "none"} */
 
 /* Needs conversion code 
-  fun get_vscrollbar(): GtkWidget =>
+  fun get_vscrollbar(): GtkWidget val =>
     @gtk_scrolled_window_get_vscrollbar[GObjectREF](widget)
 */
 
