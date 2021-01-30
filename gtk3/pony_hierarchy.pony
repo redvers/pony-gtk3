@@ -27,7 +27,7 @@ type GObjectREF is (GIntentionallyUnownedREF)
 type GIntentionallyUnownedREF is (GtkWidgetREF)
 type GtkWidgetREF is (GtkContainerREF | GtkMiscREF)
 type GtkContainerREF is (GtkBinREF)
-type GtkBinREF is (GtkWindowREF)
+type GtkBinREF is (GtkWindowREF | GtkButtonREF)
 type GtkMiscREF is (GtkLabelREF)
 
 
