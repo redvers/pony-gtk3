@@ -13,6 +13,6 @@ trait GtkWidget
   fun signal_connect_clicked[V: Any #share](c_handler: @{(GObjectREF, V)}, data: V): U64 =>
     @g_signal_connect_data[U64](gtkwidget(), "clicked".cstring(), c_handler, data)
 
-  fun signal_connect_delete_event(c_handler: @{(GObjectREF)}): U64 =>
-    @g_signal_connect_data[U64](gtkwidget(), "delete-event".cstring(), c_handler)
+  fun signal_connect_delete_event(): U64 =>
+    @g_signal_connect_data[U64](gtkwidget(), "delete-event".cstring(), @{() => @gtk_main_quit[None]()})
 
