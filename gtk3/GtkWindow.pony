@@ -3,6 +3,7 @@
 provides: ["GtkWindow val"]
 */
 use "../gobject"
+
 class val GtkWindow is GtkContainer
 """
 A GtkWindow is a toplevel window which can contain other widgets.
@@ -73,7 +74,6 @@ widget that is added as a titlebar child.
 
   new val never_call_this_constructor_or_else_tm() =>
     widget = GObjectREF
-
 
   new val create(gtype_pony: GtkWindowType) =>
     widget = @gtk_window_new[GObjectREF](gtype_pony.apply()) //
@@ -216,7 +216,7 @@ Gets the value set by gtk_window_set_accept_focus().
 */
     """
 
-/* Needs conversion code 
+/* Needs conversion code
 Fetches the attach widget for this window. See
 gtk_window_set_attached_to().
   fun get_attached_to(): GtkWidget val =>
@@ -242,7 +242,7 @@ used.
 */
     """
 
-/* Needs conversion code 
+/* Needs conversion code
 Returns the default widget for @window. See
 gtk_window_set_default() for more details.
   fun get_default_widget(): GtkWidget val =>
@@ -263,7 +263,7 @@ gtk_window_set_destroy_with_parent ().
 """
   @gtk_window_get_destroy_with_parent[Bool](widget)
 
-/* Needs conversion code 
+/* Needs conversion code
 Retrieves the current focused widget within the window.
 Note that this is the widget that would have the focus
 if the toplevel window focused; if the toplevel window
@@ -579,7 +579,7 @@ Retrieves the title of the window. See gtk_window_set_title().
   var string_pony: String val = String.from_cstring(cstring_pony).clone()
   consume string_pony
 
-/* Needs conversion code 
+/* Needs conversion code
 Returns the custom titlebar that has been set with
 gtk_window_set_titlebar().
   fun get_titlebar(): GtkWidget val =>
